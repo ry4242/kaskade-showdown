@@ -776,7 +776,7 @@ export class Pokemon {
 			}
 			if (this.battle.activePerHalf > 1 && !move.tracksTarget) {
 				const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
-					!(move.id.startsWith('solarb') && this.battle.field.isWeather(['sunnyday', 'desolateland'])) &&
+					!(move.id.startsWith('solarb') && this.battle.field.isClimateWeather(['sunnyday', 'desolateland'])) &&
 					!(this.hasItem('powerherb') && move.id !== 'skydrop');
 				if (!isCharging) {
 					target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);
@@ -2036,15 +2036,33 @@ export class Pokemon {
 	 * Like Field.effectiveWeather(), but ignores sun and rain if
 	 * the Utility Umbrella is active for the Pokemon.
 	 */
-	effectiveWeather() {
-		const weather = this.battle.field.effectiveWeather();
+	effectiveClimateWeather() {
+		const weather = this.battle.field.effectiveClimateWeather();
 		switch (weather) {
 		case 'sunnyday':
 		case 'raindance':
 		case 'desolateland':
 		case 'primordialsea':
+		case 'hail':
+		case 'bloodmoon':
+		case 'foghorn':
 			if (this.hasItem('utilityumbrella')) return '';
 		}
+		return weather;
+	}
+
+	effectiveIrritantWeather() {
+		const weather = this.battle.field.effectiveIrritantWeather();
+		return weather;
+	}
+
+	effectiveEnergyWeather() {
+		const weather = this.battle.field.effectiveEnergyWeather();
+		return weather;
+	}
+
+	effectiveClearingWeather() {
+		const weather = this.battle.field.effectiveClearingWeather();
 		return weather;
 	}
 
