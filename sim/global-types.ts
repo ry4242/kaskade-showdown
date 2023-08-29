@@ -503,6 +503,7 @@ namespace RandomTeamsTypes {
 		megaStone?: number;
 		zMove?: number;
 		hail?: number;
+		snow?: number;
 		rain?: number;
 		sand?: number;
 		sun?: number;
