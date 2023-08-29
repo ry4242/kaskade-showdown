@@ -460,8 +460,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 	// weather is implemented here since it's so important to the game
 
 	raindance: {
-		name: 'RainDance',
-		effectType: 'Weather',
+		name: 'raindance',
+		effectType: 'ClimateWeather',
 		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('damprock')) {
@@ -469,7 +469,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
 				this.debug('rain water boost');
@@ -483,14 +483,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'RainDance', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-weather', 'raindance', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-weather', 'RainDance');
+				this.add('-weather', 'raindance');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'RainDance', '[upkeep]');
+			this.add('-weather', 'raindance', '[upkeep]');
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
@@ -498,8 +498,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	primordialsea: {
-		name: 'PrimordialSea',
-		effectType: 'Weather',
+		name: 'primordialsea',
+		effectType: 'ClimateWeather',
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
@@ -510,7 +510,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return null;
 			}
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
 				this.debug('Rain water boost');
@@ -518,11 +518,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
-			this.add('-weather', 'PrimordialSea', '[from] ability: ' + effect.name, '[of] ' + source);
+			this.add('-weather', 'primordialsea', '[from] ability: ' + effect.name, '[of] ' + source);
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'PrimordialSea', '[upkeep]');
+			this.add('-weather', 'primordialsea', '[upkeep]');
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
@@ -530,8 +530,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	sunnyday: {
-		name: 'SunnyDay',
-		effectType: 'Weather',
+		name: 'sunnyday',
+		effectType: 'ClimateWeather',
 		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('heatrock')) {
@@ -539,7 +539,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (move.id === 'hydrosteam' && !attacker.hasItem('utilityumbrella')) {
 				this.debug('Sunny Day Hydro Steam boost');
 				return this.chainModify(1.5);
@@ -557,9 +557,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-weather', 'sunnyday', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-weather', 'SunnyDay');
+				this.add('-weather', 'sunnyday');
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -568,7 +568,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'SunnyDay', '[upkeep]');
+			this.add('-weather', 'sunnyday', '[upkeep]');
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
@@ -576,8 +576,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	desolateland: {
-		name: 'DesolateLand',
-		effectType: 'Weather',
+		name: 'desolateland',
+		effectType: 'ClimateWeather',
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
@@ -588,7 +588,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return null;
 			}
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Fire') {
 				this.debug('Sunny Day fire boost');
@@ -596,7 +596,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
-			this.add('-weather', 'DesolateLand', '[from] ability: ' + effect.name, '[of] ' + source);
+			this.add('-weather', 'desolateland', '[from] ability: ' + effect.name, '[of] ' + source);
 		},
 		onImmunity(type, pokemon) {
 			if (pokemon.hasItem('utilityumbrella')) return;
@@ -604,7 +604,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'DesolateLand', '[upkeep]');
+			this.add('-weather', 'desolateland', '[upkeep]');
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
@@ -612,8 +612,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	sandstorm: {
-		name: 'Sandstorm',
-		effectType: 'Weather',
+		name: 'sandstorm',
+		effectType: 'IrritantWeather',
 		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('smoothrock')) {
@@ -625,24 +625,24 @@ export const Conditions: {[k: string]: ConditionData} = {
 		// So we give it increased priority.
 		onModifySpDPriority: 10,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.hasType('Rock') && this.field.isWeather('sandstorm')) {
+			if (pokemon.hasType('Rock') && this.field.isIrritantWeather('sandstorm')) {
 				return this.modify(spd, 1.5);
 			}
 		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'Sandstorm', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-weather', 'sandstorm', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-weather', 'Sandstorm');
+				this.add('-weather', 'sandstorm');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'Sandstorm', '[upkeep]');
-			if (this.field.isWeather('sandstorm')) this.eachEvent('Weather');
+			this.add('-weather', 'sandstorm', '[upkeep]');
+			if (this.field.isIrritantWeather('sandstorm')) this.eachEvent('Weather');
 		},
-		onWeather(target) {
+		onIrritantWeather(target) {
 			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
@@ -650,8 +650,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	hail: {
-		name: 'Hail',
-		effectType: 'Weather',
+		name: 'hail',
+		effectType: 'ClimateWeather',
 		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('icyrock')) {
@@ -662,17 +662,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'Hail', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-weather', 'hail', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-weather', 'Hail');
+				this.add('-weather', 'hail');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'Hail', '[upkeep]');
-			if (this.field.isWeather('hail')) this.eachEvent('Weather');
+			this.add('-weather', 'hail', '[upkeep]');
+			if (this.field.isClimateWeather('hail')) this.eachEvent('Weather');
 		},
-		onWeather(target) {
+		onClimateWeather(target) {
 			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
@@ -680,8 +680,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	snow: {
-		name: 'Snow',
-		effectType: 'Weather',
+		name: 'snow',
+		effectType: 'ClimateWeather',
 		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('icyrock')) {
@@ -691,30 +691,30 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyDefPriority: 10,
 		onModifyDef(def, pokemon) {
-			if (pokemon.hasType('Ice') && this.field.isWeather('snow')) {
+			if (pokemon.hasType('Ice') && this.field.isClimateWeather('snow')) {
 				return this.modify(def, 1.5);
 			}
 		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'Snow', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-weather', 'snow', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-weather', 'Snow');
+				this.add('-weather', 'snow');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'Snow', '[upkeep]');
-			if (this.field.isWeather('snow')) this.eachEvent('Weather');
+			this.add('-weather', 'snow', '[upkeep]');
+			if (this.field.isClimateWeather('snow')) this.eachEvent('Weather');
 		},
 		onFieldEnd() {
 			this.add('-weather', 'none');
 		},
 	},
 	deltastream: {
-		name: 'DeltaStream',
-		effectType: 'Weather',
+		name: 'deltastream',
+		effectType: 'ClimateWeather',
 		duration: 0,
 		onEffectivenessPriority: -1,
 		onEffectiveness(typeMod, target, type, move) {
@@ -724,11 +724,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
-			this.add('-weather', 'DeltaStream', '[from] ability: ' + effect.name, '[of] ' + source);
+			this.add('-weather', 'deltastream', '[from] ability: ' + effect.name, '[of] ' + source);
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'DeltaStream', '[upkeep]');
+			this.add('-weather', 'deltastream', '[upkeep]');
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
