@@ -394,7 +394,6 @@ export const TypeChart: {[k: string]: TypeData} = {
 			psn: 3,
 			tox: 3,
 			sandstorm: 3,
-			hail: 3,
 			Bug: 2,
 			Dark: 0,
 			Dragon: 2,

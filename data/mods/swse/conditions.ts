@@ -479,7 +479,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Fire') {
 				this.debug('Sunny Day fire boost');
-				if (this.effectState.boosted) {
+				if (this.field.climateWeatherState.boosted) {
 					return this.chainModify(1.75);
 				} else {
 					return this.chainModify(1.5);
@@ -487,7 +487,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 			if (move.type === 'Water') {
 				this.debug('Sunny Day water suppress');
-				if (this.effectState.boosted) {
+				if (this.field.climateWeatherState.boosted) {
 					return this.chainModify(0.25);
 				} else {
 					return this.chainModify(0.5);
@@ -502,8 +502,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onFieldStart(battle, source, effect) {
-			if (this.field.effectiveClearingWeather() === "strongwinds") {
-				this.effectState.boosted = true;
+			if (this.field.isClearingWeather('strongwinds')) {
+				this.field.climateWeatherState.boosted = true;
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
@@ -542,7 +542,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
 				this.debug('rain water boost');
-				if (this.effectState.boosted) {
+				if (this.field.climateWeatherState.boosted) {
 					return this.chainModify(1.75);
 				} else {
 					return this.chainModify(1.5);
@@ -550,7 +550,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 			if (move.type === 'Fire') {
 				this.debug('rain fire suppress');
-				if (this.effectState.boosted) {
+				if (this.field.climateWeatherState.boosted) {
 					return this.chainModify(0.25);
 				} else {
 					return this.chainModify(0.5);
@@ -565,8 +565,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
-			if (this.field.effectiveClearingWeather() === "strongwinds") {
-				this.effectState.boosted = true;
+			if (this.field.isClearingWeather('strongwinds')) {
+				this.field.climateWeatherState.boosted = true;
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
@@ -609,8 +609,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
-			if (this.field.effectiveClearingWeather() === "strongwinds") {
-				this.effectState.boosted = true;
+			if (this.field.isClearingWeather('strongwinds')) {
+				this.field.climateWeatherState.boosted = true;
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
@@ -626,10 +626,12 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		onClimateWeather(target) {
 			if (target.hasItem('utilityumbrella')) return;
-			if (this.effectState.boosted) {
+			if (this.field.climateWeatherState.boosted) {
 				this.damage(target.baseMaxhp / 8);
 			} else {
-				this.damage(target.baseMaxhp / 16);
+				if (!target.hasType('Steel')) {
+					this.damage(target.baseMaxhp / 16);
+				}
 			}
 		},
 		onFieldEnd() {
@@ -689,11 +691,15 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		},
 		onModifyPriority(priority, pokemon, target, move) {
 			if (pokemon.hasItem('utilityumbrella')) return;
+			if (this.field.climateWeatherState.boosted && move?.category === 'Status') {
+				move.pranksterBoosted = true;
+				return priority + 1;
+			}
 			if (move?.type === 'Dark' && move.category === 'Status') return priority + 1;
 		},
 		onFieldStart(field, source, effect) {
-			if (this.field.effectiveClearingWeather() === "strongwinds") {
-				this.effectState.boosted = true;
+			if (this.field.isClearingWeather('strongwinds')) {
+				this.field.climateWeatherState.boosted = true;
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
@@ -739,14 +745,21 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
-			if (this.field.effectiveClearingWeather() === "strongwinds") {
-				this.effectState.boosted = true;
+			if (this.field.isClearingWeather('strongwinds')) {
+				this.field.climateWeatherState.boosted = true;
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-weather', 'foghorn', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
 				this.add('-weather', 'foghorn');
+			}
+		},
+		onStart(pokemon, source) {
+			if (this.field.climateWeatherState.boosted && pokemon.hasType('Normal')) {
+				pokemon.setType('???');
+				this.effectState.foghornTypeless = true;
+				this.add('-start', source, 'typechange', '???', '[from] climateWeather: Foghorn');
 			}
 		},
 		onFieldResidualOrder: 1,
@@ -780,8 +793,8 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
-			if (this.field.effectiveClearingWeather() === "strongwinds") {
-				this.effectState.boosted = true;
+			if (this.field.isClearingWeather('strongwinds')) {
+				this.field.climateWeatherState.boosted = true;
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
