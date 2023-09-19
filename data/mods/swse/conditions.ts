@@ -755,13 +755,6 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 				this.add('-climateweather', 'foghorn');
 			}
 		},
-		onStart(pokemon, source) {
-			if (this.field.climateWeatherState.boosted && pokemon.hasType('Normal')) {
-				pokemon.setType('???');
-				this.effectState.foghornTypeless = true;
-				this.add('-start', source, 'typechange', '???', '[from] climateWeather: Foghorn');
-			}
-		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-climateweather', 'foghorn', '[upkeep]');
@@ -791,10 +784,19 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 			if (pokemon.hasType('Rock') && this.field.isIrritantWeather('sandstorm')) {
 				return this.modify(spd, 1.5);
 			}
+			if ((pokemon.hasType('Steel') || pokemon.hasType('Ground')) && this.field.setIrritantWeather('sandstorm') && this.field.irritantWeatherState.boosted) {
+				return this.modify(spd, 1.5);
+			}
+		},
+		onModifyDefPriority: 10,
+		onModifyDef(def, pokemon) {
+			if (pokemon.hasType('Rock') && this.field.isIrritantWeather('sandstorm') && this.field.irritantWeatherState.boosted) {
+				return this.modify(def, 1.5);
+			}
 		},
 		onFieldStart(field, source, effect) {
 			if (this.field.isClearingWeather('strongwinds')) {
-				this.field.climateWeatherState.boosted = true;
+				this.field.irritantWeatherState.boosted = true;
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
@@ -817,6 +819,67 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	},
 
 	// energy
+
+	auraprojection: {
+		name: 'auraprojection',
+		effectType: 'EnergyWeather',
+		duration: 5,
+		durationCallback(source, effect) {
+			if (source?.hasItem('lightball')) { //placeholder item
+				return 8;
+			}
+			return 5;
+		},
+		onModifyCritRatioPriority: 10,
+		onModifyCritRatio(critRatio, pokemon) {
+			return critRatio + 1;
+		},
+		onTryBoost(boost, target, source, effect) {
+			if (target.hasType('Fighting')) {
+				if (source && target === source) return;
+				let showMsg = false;
+				let i: BoostID;
+				for (i in boost) {
+					if (boost[i]! < 0) {
+						delete boost[i];
+						showMsg = true;
+					}
+				}
+				if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+					this.add("-fail", target, "unboost", "[from] weather: Aura Projection", "[of] " + target);
+				}
+			}
+		},
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (this.field.energyWeatherState) {
+				if (!move.ignoreImmunity) move.ignoreImmunity = {};
+				if (move.ignoreImmunity !== true) {
+					move.ignoreImmunity['Fighting'] = true;
+					move.ignoreImmunity['Normal'] = true;
+				}
+			}
+		},
+		onFieldStart(field, source, effect) {
+			if (this.field.isClearingWeather('strongwinds')) {
+				this.field.energyWeatherState.boosted = true;
+			}
+			if (effect?.effectType === 'Ability') {
+				if (this.gen <= 5) this.effectState.duration = 0;
+				this.add('-energyweather', 'auraprojection', '[from] ability: ' + effect.name, '[of] ' + source);
+			} else {
+				this.add('-energyweather', 'auraprojection');
+			}
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-energyweather', 'auraprojection', '[upkeep]');
+			if (this.field.isEnergyWeather('auraprojection')) this.eachEvent('EnergyWeather');
+		},
+		onFieldEnd() {
+			this.add('-energyweather', 'none');
+		},
+	},
 
 	// clearing weathers
 
