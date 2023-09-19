@@ -2054,11 +2054,29 @@ export class Pokemon {
 
 	effectiveIrritantWeather() {
 		const weather = this.battle.field.effectiveIrritantWeather();
+		switch (weather) {
+		case 'sandstorm':
+		case 'duststorm':
+		case 'pollinate':
+		case 'swarmsignal':
+		case 'smogspread':
+		case 'sprinkle':
+			if (this.hasItem('safetygoggles')) return '';
+		}
 		return weather;
 	}
 
 	effectiveEnergyWeather() {
 		const weather = this.battle.field.effectiveEnergyWeather();
+		switch (weather) {
+		case 'auraprojection':
+		case 'haunt':
+		case 'cosmicrays':
+		case 'dragonforce':
+		case 'supercell':
+		case 'magnetize':
+			if (this.hasItem('energynullifier')) return '';
+		}
 		return weather;
 	}
 
