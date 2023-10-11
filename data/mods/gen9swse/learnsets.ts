@@ -79262,11 +79262,6 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			zenheadbutt: ["8M"],
 		},
 	},
-	dubwoolkaskade: {
-		learnset: {
-			tackle: ["7L1"],
-		}
-	},
 	chewtle: {
 		learnset: {
 			assurance: ["8M"],
@@ -94291,4 +94286,5 @@ export const Learnsets: {[k: string]: ModdedLearnsetData} = {
 			{generation: 5, level: 47, moves: ["darkpulse", "flamethrower", "hyperbeam", "icebeam"]},
 		],
 	},
+	// new swse stuff is in base folder!
 };
