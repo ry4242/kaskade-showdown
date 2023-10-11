@@ -11962,7 +11962,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Volcarona",
 		types: ["Bug", "Fire"],
 		baseStats: {hp: 85, atk: 60, def: 65, spa: 135, spd: 105, spe: 100},
-		abilities: {0: "Flame Body", H: "Swarm"},
+		abilities: {0: "Solar Power", 1: "Tinted Lens", H: "Swarm"},
 		heightm: 1.6,
 		weightkg: 46,
 		color: "White",
