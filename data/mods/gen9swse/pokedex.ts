@@ -7703,7 +7703,7 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 		forme: "Kaskade",
 		types: ["Steel", "Psychic"],
 		baseStats: {hp: 79, atk: 50, def: 55, spa: 85, spd: 70, spe: 71},
-		abilities: {0: "Trace", 1: "Simple", H: "Gravity Sling"},
+		abilities: {0: "Trace", 1: "Dauntless Shield", H: "Gravity Sling"},
 		heightm: 1,
 		weightkg: 31.5,
 		color: "Brown",

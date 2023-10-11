@@ -19482,7 +19482,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		name: "Aerogen",
 		types: ["Flying"],
 		baseStats: {hp: 65, atk: 90, def: 70, spa: 110, spd: 75, spe: 115},
-		abilities: {0: "Prankster", 1: "Spped Boost", H: "Galeforce"},
+		abilities: {0: "Prankster", 1: "Speed Boost", H: "Galeforce"},
 		weightkg: 525,
 		color: "Green",
 		prevo: "Skinka",
