@@ -5631,14 +5631,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	nottobe: {
 		onFaint(target, source, effect) {
 			let announced = false;
-			for (const pokemon of [target, source]) {
-				if (pokemon.volatiles['perishsong']) continue;
-				if (!announced) {
-					this.add('-ability', target, 'Not to Be');
-					announced = true;
-				}
-				pokemon.addVolatile('perishsong');
+			if (source.volatiles['perishsong']) return;
+			if (!announced) {
+				this.add('-ability', target, 'Not to Be');
+				announced = true;
 			}
+			source.addVolatile('perish1');
 		},
 		name: "Not to Be",
 		rating: 2,
