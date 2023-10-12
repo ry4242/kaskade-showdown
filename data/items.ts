@@ -5749,7 +5749,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 879,
 		gen: 7,
 	},
-	thickclub: {
+	thickclub: { // updated
 		name: "Thick Club",
 		spritenum: 491,
 		fling: {
@@ -5761,7 +5761,13 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify(2);
 			}
 		},
-		itemUser: ["Marowak", "Marowak-Alola", "Marowak-Alola-Totem", "Cubone"],
+		onModifySpAPriority: 1,
+		onModifySpA(spa, pokemon) {
+			if (pokemon.baseSpecies.baseSpecies === 'Oracub' || pokemon.baseSpecies.baseSpecies === 'Bearvoyance') {
+				return this.chainModify(1.5);
+			}
+		},
+		itemUser: ["Cubone", "Marowak", "Marowak-Alola", "Marowak-Alola-Totem", "Oracub", "Bearvoyance"],
 		num: 258,
 		gen: 2,
 		isNonstandard: "Past",

@@ -1089,7 +1089,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
-				if (source.hasAbility('druidry')) {
+				if (source.hasAbility('druidry')) { // incomplete. idk how to make it check the whole field
 					this.field.setTerrain('grassyterrain', source);
 				} else {
 					this.field.setTerrain('mistyterrain', source);

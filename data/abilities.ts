@@ -5361,7 +5361,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -5,
 	},
-	druidry: { // incomplete. needs testing
+	druidry: {
 		onIrritantWeather(target, source, effect) {
 			if (target.hasItem('safetygoggles')) return;
 			if (effect.id === 'sprinkle') {
@@ -5602,7 +5602,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: -24,
 	},
-	nullify: { // incomplete. needs testing
+	nullify: {
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
 		},
@@ -5627,6 +5627,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.eachEvent('IrritantWeatherChange', this.effect);
 			this.eachEvent('EnergyWeatherChange', this.effect);
 			this.eachEvent('ClearingWeatherChange', this.effect);
+			this.field.clearClimateWeather();
+			this.field.clearIrritantWeather();
+			this.field.clearEnergyWeather();
+			this.field.clearClearingWeather();
 		},
 		onEnd(pokemon) {
 			this.eachEvent('ClimateWeatherChange', this.effect);
@@ -5731,7 +5735,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: -30,
 	},
-	souldrain: { // incomplete. add the effect lol
+	souldrain: { // incomplete. needs testing
 		onAnyResidual(pokemon) {
 			for (const target of this.getAllActive()) {
 				if (!pokemon || this.field.isEnergyWeather('haunt')) {

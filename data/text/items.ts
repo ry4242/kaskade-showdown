@@ -378,7 +378,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	dracoplate: {
 		name: "Draco Plate",
-		desc: "Holder's Dragon-type attacks have 1.2x power. Judgment is Dragon type.",
+		desc: "Holder's Dragon-type attacks have 1.3x power. Judgment is Dragon type.",
 	},
 	dragonfang: {
 		name: "Dragon Fang",
@@ -414,7 +414,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	dreadplate: {
 		name: "Dread Plate",
-		desc: "Holder's Dark-type attacks have 1.2x power. Judgment is Dark type.",
+		desc: "Holder's Dark-type attacks have 1.3x power. Judgment is Dark type.",
 	},
 	dreamball: {
 		name: "Dream Ball",
@@ -442,7 +442,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	earthplate: {
 		name: "Earth Plate",
-		desc: "Holder's Ground-type attacks have 1.2x power. Judgment is Ground type.",
+		desc: "Holder's Ground-type attacks have 1.3x power. Judgment is Ground type.",
 	},
 	eeviumz: {
 		name: "Eevium Z",
@@ -561,7 +561,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	fistplate: {
 		name: "Fist Plate",
-		desc: "Holder's Fighting-type attacks have 1.2x power. Judgment is Fighting type.",
+		desc: "Holder's Fighting-type attacks have 1.3x power. Judgment is Fighting type.",
 	},
 	flameorb: {
 		name: "Flame Orb",
@@ -569,7 +569,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	flameplate: {
 		name: "Flame Plate",
-		desc: "Holder's Fire-type attacks have 1.2x power. Judgment is Fire type.",
+		desc: "Holder's Fire-type attacks have 1.3x power. Judgment is Fire type.",
 	},
 	floatstone: {
 		name: "Float Stone",
@@ -822,7 +822,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	icicleplate: {
 		name: "Icicle Plate",
-		desc: "Holder's Ice-type attacks have 1.2x power. Judgment is Ice type.",
+		desc: "Holder's Ice-type attacks have 1.3x power. Judgment is Ice type.",
 	},
 	iciumz: {
 		name: "Icium Z",
@@ -838,7 +838,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	insectplate: {
 		name: "Insect Plate",
-		desc: "Holder's Bug-type attacks have 1.2x power. Judgment is Bug type.",
+		desc: "Holder's Bug-type attacks have 1.3x power. Judgment is Bug type.",
 	},
 	ironball: {
 		name: "Iron Ball",
@@ -849,7 +849,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	ironplate: {
 		name: "Iron Plate",
-		desc: "Holder's Steel-type attacks have 1.2x power. Judgment is Steel type.",
+		desc: "Holder's Steel-type attacks have 1.3x power. Judgment is Steel type.",
 	},
 	jabocaberry: {
 		name: "Jaboca Berry",
@@ -1084,7 +1084,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	meadowplate: {
 		name: "Meadow Plate",
-		desc: "Holder's Grass-type attacks have 1.2x power. Judgment is Grass type.",
+		desc: "Holder's Grass-type attacks have 1.3x power. Judgment is Grass type.",
 	},
 	medichamite: {
 		name: "Medichamite",
@@ -1146,7 +1146,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	mindplate: {
 		name: "Mind Plate",
-		desc: "Holder's Psychic-type attacks have 1.2x power. Judgment is Psychic type.",
+		desc: "Holder's Psychic-type attacks have 1.3x power. Judgment is Psychic type.",
 	},
 	miracleseed: {
 		name: "Miracle Seed",
@@ -1289,7 +1289,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	pixieplate: {
 		name: "Pixie Plate",
-		desc: "Holder's Fairy-type attacks have 1.2x power. Judgment is Fairy type.",
+		desc: "Holder's Fairy-type attacks have 1.3x power. Judgment is Fairy type.",
 	},
 	plumefossil: {
 		name: "Plume Fossil",
@@ -1641,7 +1641,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	skyplate: {
 		name: "Sky Plate",
-		desc: "Holder's Flying-type attacks have 1.2x power. Judgment is Flying type.",
+		desc: "Holder's Flying-type attacks have 1.3x power. Judgment is Flying type.",
 	},
 	slowbronite: {
 		name: "Slowbronite",
@@ -1690,11 +1690,11 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	splashplate: {
 		name: "Splash Plate",
-		desc: "Holder's Water-type attacks have 1.2x power. Judgment is Water type.",
+		desc: "Holder's Water-type attacks have 1.3x power. Judgment is Water type.",
 	},
 	spookyplate: {
 		name: "Spooky Plate",
-		desc: "Holder's Ghost-type attacks have 1.2x power. Judgment is Ghost type.",
+		desc: "Holder's Ghost-type attacks have 1.3x power. Judgment is Ghost type.",
 	},
 	sportball: {
 		name: "Sport Ball",
@@ -1740,7 +1740,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	stoneplate: {
 		name: "Stone Plate",
-		desc: "Holder's Rock-type attacks have 1.2x power. Judgment is Rock type.",
+		desc: "Holder's Rock-type attacks have 1.3x power. Judgment is Rock type.",
 	},
 	strawberrysweet: {
 		name: "Strawberry Sweet",
@@ -1781,7 +1781,8 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	thickclub: {
 		name: "Thick Club",
-		desc: "If held by a Cubone or a Marowak, its Attack is doubled.",
+		desc: "If held by a Cubone or a Marowak, its Attack is doubled. If held by a Oracub or a Bearvoyance, its Special Attack is multiplied by 1.5.",
+		shortDesc: "Cubone/Marowak: 2x Atk. Oracub/Bearvoyance: 1.5x SpA."
 	},
 	throatspray: {
 		name: "Throat Spray",
@@ -1805,7 +1806,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	toxicplate: {
 		name: "Toxic Plate",
-		desc: "Holder's Poison-type attacks have 1.2x power. Judgment is Poison type.",
+		desc: "Holder's Poison-type attacks have 1.3x power. Judgment is Poison type.",
 	},
 	tr00: {
 		name: "TR00",
@@ -2316,7 +2317,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	zapplate: {
 		name: "Zap Plate",
-		desc: "Holder's Electric-type attacks have 1.2x power. Judgment is Electric type.",
+		desc: "Holder's Electric-type attacks have 1.3x power. Judgment is Electric type.",
 	},
 	zoomlens: {
 		name: "Zoom Lens",

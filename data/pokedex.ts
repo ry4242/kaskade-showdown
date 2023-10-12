@@ -3948,7 +3948,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		baseSpecies: "Azumarill",
 		forme: "Kaskade",
 		baseStats: {hp: 100, atk: 20, def: 80, spa: 90, spd: 80, spe: 50},
-		abilities: {0: "Drizzile", 1: "Sticky Hold", H: "Vegetate"},
+		abilities: {0: "Drizzle", 1: "Sticky Hold", H: "Vegetate"},
 		heightm: 0.8,
 		weightkg: 28.5,
 		color: "Green",

@@ -1307,7 +1307,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 3.5,
 		num: 218,
 	},
-	forecast: { // incomplete. needs testing, add weather vane
+	forecast: { // . needs testing, add weather vane
 		onStart(pokemon) {
 			this.singleEvent('ClimateWeatherChange', this.effect, this.effectState, pokemon);
 			this.singleEvent('IrritantWeatherChange', this.effect, this.effectState, pokemon);
@@ -2878,7 +2878,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4.5,
 		num: 288,
 	},
-	overcoat: { // incomplete. needs to be updated
+	overcoat: { // . needs to be updated
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
 		},

@@ -21047,7 +21047,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		target: "normal",
 		type: "Water",
 	},
-	weatherball: { // incomplete. needs testing
+	weatherball: { // . needs testing
 		num: 311,
 		accuracy: 100,
 		basePower: 50,
