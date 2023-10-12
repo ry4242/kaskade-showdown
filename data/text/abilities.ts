@@ -2174,6 +2174,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 
 	// swse
+
 	absolutezero: {
 		name: "Absolute Zero",
 		desc: "If Hail is active, this Pokemon's Ice-type attacks have their power multiplied by 1.3 and have their secondary effect chance doubled. This Pokemon takes no damage from Hail. These effects are prevented if this Pokemon is holding a Utility Umbrella.",

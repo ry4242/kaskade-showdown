@@ -1200,10 +1200,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (this.randomChance(1, 10)) {
 					pokemon.addVolatile('flinch');
 				}
-				/* const flinch = this.random(10);
-				if (flinch === 0) {
-					pokemon.addVolatile('flinch');
-				} */
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -1225,7 +1221,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnergyWeather(target) {
 			if (target.hasItem('energynullifier')) return;
-			target.damage(target.baseMaxhp / 16); // normal, ghost and dark's damage immunity added to typechart.ts
+			target.damage(target.baseMaxhp / 16); // ghost, normal and dark's damage immunity added to typechart.ts
 		},
 		onFieldEnd() {
 			this.add('-energyWeather', 'none');

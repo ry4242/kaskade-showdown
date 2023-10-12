@@ -228,6 +228,7 @@ export const DefaultText: {[k: string]: DefaultText} = {
 	// misc effects
 	confusion: {
 		start: "  [POKEMON] became confused!",
+		startFromWeather: "  [POKEMON] was confused by the infested air!",
 		startFromFatigue: "  [POKEMON] became confused due to fatigue!",
 		end: "  [POKEMON] snapped out of its confusion!",
 		endFromItem: "  [POKEMON]'s [ITEM] snapped it out of its confusion!",
@@ -274,7 +275,9 @@ export const DefaultText: {[k: string]: DefaultText} = {
 	},
 
 	// Weathergy
+
 	// Climate
+
 	sunnyday: {
 		weatherName: "Sun",
 		start: "  The sunlight turned harsh!",
@@ -308,12 +311,13 @@ export const DefaultText: {[k: string]: DefaultText} = {
 	},
 	foghorn: {
 		weatherName: "Fog",
-		start: "  Fog filled the battlefield!",
+		start: "  Fog settled on the battlefield!",
 		end: "  The fog disappeared.",
 		upkeep: "  (The fog is deep...)",
 	},
 
 	// Irritant
+
 	sandstorm: {
 		weatherName: "Sandstorm",
 		start: "  A sandstorm kicked up!",
@@ -355,7 +359,47 @@ export const DefaultText: {[k: string]: DefaultText} = {
 
 	// Energy
 
+	auraprojection: {
+		weatherName: "Battle Aura",
+		start: "  The battlefield was filled with fighting spirit!",
+		end: "  The aura's pressure lifted.",
+		upkeep: "  (The combat pressure is overwhelming.)",
+	},
+	haunt: {
+		weatherName: "Cursed Winds",
+		start: "  A ghastly chill went up your spine...",
+		end: "  The presence left.",
+		upkeep: "  (Spirits are haunting the air.)",
+		damage: "  [POKEMON] was cursed by the wandering spirits!",
+	},
+	cosmicrays: {
+		weatherName: "Psychic Field",
+		start: "  A psychic field materialized!",
+		end: "  The psychic energy faded.",
+		upkeep: "  (The psychic energy is pulsing.)",
+	},
+	dragonforce: {
+		weatherName: "Dragon Force",
+		start: "  Arcane energy burst forth!", // this sucks ass
+		end: "  The arcane forces calmed down.",
+		upkeep: "  (Arcane energy surrounds us.)",
+	},
+	supercell: {
+		weatherName: "Thunderstorm",
+		start: "  A thunderstorm formed!",
+		end: "  The thunder ceased.",
+		upkeep: "  (The thunder is roaring.)",
+		damage: "  [POKEMON] is struck by lightning!",
+	},
+	magnetize: {
+		weatherName: "Magnetosphere",
+		start: "  A magnetic field electrified the battlefield!",
+		end: "  The magnetic field disappeared.",
+		upkeep: "  (The magnetic field is electrifying.)",
+	},
+
 	// Clearing
+
 	strongwinds: {
 		weatherName: "Strong Winds",
 		start: "  A strong wind cleared the battlefield!",

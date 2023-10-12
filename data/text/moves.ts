@@ -7445,6 +7445,7 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 
 	// swse
+
 	auraprojection: {
 		name: "Aura Projection",
 		desc: "For 5 turns, the weather becomes Battle Aura. During the effect, raises the chance for a critical hit by 1 stage and prevents other Pokemon from lowering Fighting-type Pokemon's stat stages. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Battle Aura.",
