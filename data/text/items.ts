@@ -2391,6 +2391,15 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 
 	// swse
+
+	avocaberry: {
+		name: "Avoca Berry",
+		desc: "Holder is cured if it is frostbitten. Single use.",
+	},
+	charmingtalisman: {
+		name: "Charming Talisman",
+		desc: "Holder's Fairy-type attacks have 1.2x power.",
+	},
 	energychannelizer: {
 		name: "Energy Channelizer",
 		desc: "Holder's Energy Weathergies last 8 turns instead of 5.",
