@@ -5327,6 +5327,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: -23,
 	},
+	bubblehelm: { // incomplete. needs testing
+		name: "Bubble Helm",
+		rating: 2.5,
+		num: -42,
+	},
 	carboncapture: {
 		onIrritantWeather(target, source, effect) {
 			if (target.hasItem('safetygoggles')) return;
@@ -5360,6 +5365,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Condensation",
 		rating: 3,
 		num: -5,
+	},
+	droughtproof: { // incomplete. needs testing
+		name: "Droughtproof",
+		rating: 2.5,
+		num: -40,
 	},
 	druidry: {
 		onIrritantWeather(target, source, effect) {
@@ -5540,6 +5550,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Hay Fever",
 		rating: 3,
 		num: -7,
+	},
+	hydrophobic: { // incomplete. needs testing
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (move.type === 'Water') {
+				return this.chainModify(0.5);
+			}
+		},
+		name: "Hydrophobic",
+		rating: 3,
+		num: -41,
 	},
 	incantation: {
 		onStart(source) {

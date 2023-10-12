@@ -496,6 +496,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Fire') {
+				if (defender.hasAbility('droughtproof')) return;
 				this.debug('Sunny Day fire boost');
 				if (this.field.climateWeatherState.boosted) {
 					this.debug('Boosted further by Strong Winds');
@@ -505,6 +506,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				}
 			}
 			if (move.type === 'Water') {
+				if (attacker.hasAbility('droughtproof')) return;
 				this.debug('Sunny Day water suppress');
 				if (this.field.climateWeatherState.boosted) {
 					this.debug('Suppressed further by Strong Winds');
@@ -559,6 +561,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
+				if (defender.hasAbility(['droughtproof', 'hydrophobic'])) return;
 				this.debug('rain water boost');
 				if (this.field.climateWeatherState.boosted) {
 					this.debug('Boosted further by Strong Winds');
@@ -568,6 +571,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				}
 			}
 			if (move.type === 'Fire') {
+				if (attacker.hasAbility(['droughtproof', 'hydrophobic'])) return;
 				this.debug('rain fire suppress');
 				if (this.field.climateWeatherState.boosted) {
 					this.debug('Supressed further by Strong Winds');
@@ -647,7 +651,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isClimateWeather('hail')) this.eachEvent('ClimateWeather');
 		},
 		onClimateWeather(target) {
-			if (target.hasItem('utilityumbrella')) return;
+			if (target.hasItem('utilityumbrella') || target.hasAbility(['droughtproof', 'hydrophobic'])) return;
 			if (this.field.climateWeatherState.boosted) {
 				this.debug('Boosted further by Strong Winds');
 				this.damage(target.baseMaxhp / 8);
@@ -706,7 +710,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('utilityumbrella')) return;
+			if (defender.hasItem('utilityumbrella') || defender.hasAbility('droughtproof')) return;
 			if (move && defender.getMoveHitData(move).typeMod > 0) {
 				this.debug('Blood Moon super-effective boost');
 				return this.chainModify(1.5);
@@ -754,7 +758,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyAccuracyPriority: -2,
 		onModifyAccuracy(accuracy, target, source, move) {
-			if (target.hasItem('utilityumbrella')) return;
+			if (target.hasItem('utilityumbrella') || source.hasAbility('droughtproof')) return;
 			if (typeof accuracy === 'number' && move?.type !== 'Normal') {
 				// This one piece of code took over 5 hours to do because it was reading move as move: Pokemon and not move: ActiveMove
 				this.debug('Fog accuracy decrease');
@@ -850,7 +854,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isIrritantWeather('sandstorm')) this.eachEvent('IrritantWeather');
 		},
 		onIrritantWeather(target) {
-			if (target.hasItem('safetygoggles')) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility('bubblehelm')) return;
 			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
@@ -868,7 +872,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onIrritantWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('safetygoggles')) return;
+			if (defender.hasItem('safetygoggles') || attacker.hasAbility('bubblehelm')) return;
 			if (move.type === 'Electric') {
 				this.debug('duststorm supress electric');
 				return this.chainModify(0.5);
@@ -884,8 +888,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, target, pokemon) {
-			if (target.hasItem('safetygoggles')) return;
-			if (target.hasAbility('eartheater')) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility(['eartheater', 'bubblehelm'])) return;
 			if (this.field.irritantWeatherState.boosted) {
 				if (!move.ignoreImmunity) move.ignoreImmunity = {};
 				if (move.ignoreImmunity !== true) {
@@ -927,7 +930,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyAtkPriority: 10,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.hasItem('safetygoggles')) return;
+			if (pokemon.hasItem('safetygoggles') || pokemon.hasAbility('bubblehelm')) return;
 			if (pokemon.hasType('Grass') || pokemon.hasType('Bug')) {
 				return;
 			} else {
@@ -937,7 +940,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifySpAPriority: 10,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.hasItem('safetygoggles')) return;
+			if (pokemon.hasItem('safetygoggles') || pokemon.hasAbility('bubblehelm')) return;
 			if (pokemon.hasType('Grass') || pokemon.hasType('Bug')) {
 				return;
 			} else {
@@ -1013,7 +1016,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onIrritantWeather(target) {
 			if (this.field.irritantWeatherState.boosted) {
-				if (target.hasItem('safetygoggles')) return;
+				if (target.hasItem('safetygoggles') || target.hasAbility('bubblehelm')) return;
 				if (target.hasType('Bug') || target.hasType('Poison')) return;
 				target.addVolatile('confusion');
 				this.debug('strong winds pheromones confuses');
@@ -1052,7 +1055,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onIrritantWeather(target) {
 			// strong winds effect impemented in sim/pokemon.ts
-			if (target.hasItem('safetygoggles')) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility('bubblehelm')) return;
 			target.setStatus('psn');
 		},
 		onFieldEnd() {
@@ -1079,7 +1082,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy, pokemon, target) {
-			if (pokemon.hasItem('safetygoggles')) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility('bubblehelm')) return;
 			if (typeof accuracy !== 'number') return;
 			if (target.hasType('Fairy')) return;
 			this.debug('Sprinkle - decreasing evasion'); // actually increases accuracy
