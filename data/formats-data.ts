@@ -1,4 +1,4 @@
-export const FormatsData: {[k: string]: SpeciesFormatsData} = { // YOU DONT NEED TO EDIT THIS FOR BANNING STUFF
+export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	bulbasaur: {
 		isNonstandard: "Past",
 		tier: "Illegal",
@@ -6389,8 +6389,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = { // YOU DONT NEED
 		tier: "Illegal",
 		natDexTier: "Illegal",
 	},
-
 	// swse
+
 	llampas: {
 		tier: "LC",
 	},
@@ -7007,7 +7007,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = { // YOU DONT NEED
 		isNonstandard: "CAP",
 		tier: "CAP NFE",
 	},
-	auOUmoth: {
+	aurumoth: {
 		isNonstandard: "CAP",
 		tier: "CAP",
 	},

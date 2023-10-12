@@ -506,7 +506,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: 29,
 	},
-	cloudnine: {
+	cloudnine: { // updated
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
 		},
@@ -523,7 +523,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		suppressClimateWeather: true,
 		name: "Cloud Nine",
-		rating: 1.5,
+		rating: 2,
 		num: 13,
 	},
 	colorchange: {
@@ -642,9 +642,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 126,
 	},
-	corrosion: {
+	corrosion: { // updated
 		// Implemented in sim/pokemon.js:Pokemon#setStatus
 		name: "Corrosion",
+		onModifyMovePriority: -5,
+		onModifyMove(move) {
+			if (!this.field.isIrritantWeather('smog')) return;
+			if (!move.ignoreImmunity) move.ignoreImmunity = {};
+			if (move.ignoreImmunity !== true) {
+				move.ignoreImmunity['Poison'] = true;
+			}
+		},
 		rating: 2.5,
 		num: 212,
 	},
@@ -745,7 +753,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: 130,
 	},
-	cutecharm: {
+	cutecharm: { // updated
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				if (this.randomChance(3, 10)) {
@@ -754,7 +762,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		name: "Cute Charm",
-		rating: 0.5,
+		rating: 1,
 		num: 56,
 	},
 	damp: {
@@ -912,7 +920,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 190,
 	},
-	disguise: {
+	disguise: { // updated
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (
@@ -951,7 +959,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (['mimikyu', 'mimikyutotem'].includes(pokemon.species.id) && this.effectState.busted) {
 				const speciesid = pokemon.species.id === 'mimikyutotem' ? 'Mimikyu-Busted-Totem' : 'Mimikyu-Busted';
 				pokemon.formeChange(speciesid, this.effect, true);
-				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(speciesid));
 			}
 		},
 		isBreakable: true,
@@ -1146,13 +1153,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: 111,
 	},
-	flamebody: {
+	flamebody: { // updated
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
 				if (this.randomChance(3, 10)) {
 					source.trySetStatus('brn', target);
 				}
 			}
+		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
 		},
 		name: "Flame Body",
 		rating: 2,
@@ -1297,9 +1307,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3.5,
 		num: 218,
 	},
-	forecast: {
+	forecast: { // incomplete. needs testing, add weather vane
 		onStart(pokemon) {
 			this.singleEvent('ClimateWeatherChange', this.effect, this.effectState, pokemon);
+			this.singleEvent('IrritantWeatherChange', this.effect, this.effectState, pokemon);
+			this.singleEvent('EnergyWeatherChange', this.effect, this.effectState, pokemon);
+			this.singleEvent('ClearingWeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
@@ -1316,6 +1329,85 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			case 'hail':
 			case 'snow':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+				break;
+			case 'bloodmoon':
+				if (pokemon.species.id !== 'castformshady') forme = 'Castform-Shady';
+				break;
+			default:
+				if (pokemon.species.id !== 'castform') forme = 'Castform';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		onIrritantWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveIrritantWeather()) {
+			case 'sandstorm':
+				if (pokemon.species.id !== 'castformsandy') forme = 'Castform-Sandy';
+				break;
+			case 'duststorm':
+				if (pokemon.species.id !== 'castformdusty') forme = 'Castform-Dusty';
+				break;
+			case 'pollinate':
+				if (pokemon.species.id !== 'castformallergy') forme = 'Castform-Allergy';
+				break;
+			case 'swarmsignal':
+				if (pokemon.species.id !== 'castformswarmy') forme = 'Castform-Swarmy';
+				break;
+			case 'smogspread':
+				if (pokemon.species.id !== 'castformsmoggy') forme = 'Castform-Smoggy';
+				break;
+			case 'sprinkle':
+				if (pokemon.species.id !== 'castformlovely') forme = 'Castform-Lovely';
+				break;
+			default:
+				if (pokemon.species.id !== 'castform') forme = 'Castform';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		onEnergyWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveEnergyWeather()) {
+			case 'auraprojection':
+				if (pokemon.species.id !== 'castformgutsy') forme = 'Castform-Gutsy';
+				break;
+			case 'haunt':
+				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
+				break;
+			case 'cosmicrays':
+				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
+				break;
+			case 'dragonforce':
+				if (pokemon.species.id !== 'castformsorcery') forme = 'Castform-Sorcery';
+				break;
+			case 'supercell':
+				if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
+				break;
+			case 'magnetize':
+				if (!pokemon.hasItem('whirligig')) return;
+				if (pokemon.species.id !== 'castformwhirly') forme = 'Castform-Whirly';
+				break;
+			default:
+				if (pokemon.species.id !== 'castform') forme = 'Castform';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		onClearingWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveClearingWeather()) {
+			case 'strongwinds':
+				if (pokemon.species.id !== 'castformwindy') forme = 'Castform-Windy';
 				break;
 			default:
 				if (pokemon.species.id !== 'castform') forme = 'Castform';
@@ -1410,9 +1502,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: 169,
 	},
-	galewings: {
+	galewings: { // updated
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) return priority + 1;
+			if (move.type !== 'Flying') return;
+			if (pokemon.hp === pokemon.maxhp || this.field.isClearingWeather('strongwinds')) return priority + 1;
 		},
 		name: "Gale Wings",
 		rating: 1.5,
@@ -1515,14 +1608,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 255,
 	},
-	grasspelt: {
+	grasspelt: { // updated
 		onModifyDefPriority: 6,
-		onModifyDef(pokemon) {
-			if (this.field.isTerrain('grassyterrain')) return this.chainModify(1.5);
+		onModifyDef(pokemon, source) {
+			if (this.field.isTerrain('grassyterrain') ||
+			(!source.hasItem('safetygoggles')) && this.field.isIrritantWeather('pollinate')) {
+				return this.chainModify(1.5);
+			}
 		},
 		isBreakable: true,
 		name: "Grass Pelt",
-		rating: 0.5,
+		rating: 1,
 		num: 179,
 	},
 	grassysurge: {
@@ -1746,6 +1842,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	icebody: {
 		onClimateWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'hail' || effect.id === 'snow') {
 				this.heal(target.baseMaxhp / 16);
 			}
@@ -1759,6 +1856,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	iceface: {
 		onStart(pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
 			if (this.field.isClimateWeather(['hail', 'snow']) &&
 				pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
 				this.add('-activate', pokemon, 'ability: Ice Face');
@@ -1828,21 +1926,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 246,
 	},
 	illuminate: {
-		onTryBoost(boost, target, source, effect) {
-			if (source && target === source) return;
-			if (boost.accuracy && boost.accuracy < 0) {
-				delete boost.accuracy;
-				if (!(effect as ActiveMove).secondaries) {
-					this.add("-fail", target, "unboost", "accuracy", "[from] ability: Illuminate", "[of] " + target);
-				}
-			}
-		},
-		onModifyMove(move) {
-			move.ignoreEvasion = true;
-		},
-		isBreakable: true,
 		name: "Illuminate",
-		rating: 0.5,
+		rating: 0,
 		num: 35,
 	},
 	illusion: {
@@ -2011,12 +2096,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: 160,
 	},
-	ironfist: {
+	ironfist: { // updated
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
-				this.debug('Iron Fist boost');
-				return this.chainModify([4915, 4096]);
+				return this.chainModify(1.5);
 			}
 		},
 		name: "Iron Fist",
@@ -2060,7 +2144,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: -1,
 		num: 103,
 	},
-	leafguard: {
+	leafguard: { // updated
+		onClimateWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'sunnyday' || effect.id === 'pollinate') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
 		onSetStatus(status, target, source, effect) {
 			if (['sunnyday', 'desolateland'].includes(target.effectiveClimateWeather())) {
 				if ((effect as Move)?.status) {
@@ -2266,7 +2356,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: 170,
 	},
-	magmaarmor: {
+	magmaarmor: { // updated
 		onUpdate(pokemon) {
 			if (pokemon.status === 'frz') {
 				this.add('-activate', pokemon, 'ability: Magma Armor');
@@ -2275,6 +2365,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onImmunity(type, pokemon) {
 			if (type === 'frz') return false;
+			if (type === 'hail') return false;
 		},
 		isBreakable: true,
 		name: "Magma Armor",
@@ -2787,7 +2878,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4.5,
 		num: 288,
 	},
-	overcoat: {
+	overcoat: { // incomplete. needs to be updated
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm' || type === 'hail' || type === 'powder') return false;
 		},
@@ -3605,10 +3696,11 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 0,
 		num: 50,
 	},
-	sandforce: {
+	sandforce: { // updated
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isIrritantWeather('sandstorm')) {
+			if (attacker.hasItem('safetygoggles')) return;
+			if (this.field.isIrritantWeather(['sandstorm', 'duststorm'])) {
 				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
 					this.debug('Sand Force boost');
 					return this.chainModify([5325, 4096]);
@@ -3622,9 +3714,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: 159,
 	},
-	sandrush: {
+	sandrush: { // updated
 		onModifySpe(spe, pokemon) {
-			if (this.field.isIrritantWeather('sandstorm')) {
+			if (this.field.isIrritantWeather(['sandstorm', 'duststorm'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -3651,14 +3743,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: 45,
 	},
-	sandveil: {
+	sandveil: { // udpated
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
 		onModifyAccuracyPriority: -1,
-		onModifyAccuracy(accuracy) {
+		onModifyAccuracy(accuracy, source) {
+			if (source.hasItem('volatilespray')) return;
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isIrritantWeather('sandstorm')) {
+			if (this.field.isIrritantWeather(['sandstorm', 'duststorm'])) {
 				this.debug('Sand Veil - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}
@@ -4000,7 +4093,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (type === 'hail') return false;
 		},
 		onModifyAccuracyPriority: -1,
-		onModifyAccuracy(accuracy) {
+		onModifyAccuracy(accuracy, source) {
+			if (source.hasItem('utilityumbrella')) return;
 			if (typeof accuracy !== 'number') return;
 			if (this.field.isClimateWeather(['hail', 'snow'])) {
 				this.debug('Snow Cloak - decreasing accuracy');
@@ -4014,17 +4108,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	snowwarning: {
 		onStart(source) {
-			this.field.setClimateWeather('snow');
+			this.field.setClimateWeather('hail');
 		},
 		name: "Snow Warning",
 		rating: 4,
 		num: 117,
 	},
-	solarpower: {
+	solarpower: { // updated
 		onModifySpAPriority: 5,
-		onModifySpA(spa, pokemon) {
+		onModifySpA(spa, source, pokemon) {
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather())) {
-				return this.chainModify(1.5);
+				if (source.storedStats.spa >= source.storedStats.atk) return this.chainModify(1.5);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, source, pokemon) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather())) {
+				if (source.storedStats.atk > source.storedStats.spa) return this.chainModify(1.5);
 			}
 		},
 		onClimateWeather(target, source, effect) {
@@ -4163,14 +4263,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: 80,
 	},
-	steamengine: {
+	steamengine: { // updated
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Water') {
+				if (!this.boost({spe: 6})) {
+					this.add('-immune', target, '[from] ability: Steam Engine');
+				}
+				return null;
+			}
+		},
 		onDamagingHit(damage, target, source, move) {
 			if (['Water', 'Fire'].includes(move.type)) {
 				this.boost({spe: 6});
 			}
 		},
 		name: "Steam Engine",
-		rating: 2,
+		rating: 3.5,
 		num: 243,
 	},
 	steelworker: {
@@ -5166,66 +5275,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 278,
 	},
 
-	// CAP
-	mountaineer: {
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'stealthrock') {
-				return false;
-			}
-		},
-		onTryHit(target, source, move) {
-			if (move.type === 'Rock' && !target.activeTurns) {
-				this.add('-immune', target, '[from] ability: Mountaineer');
-				return null;
-			}
-		},
-		isNonstandard: "CAP",
-		isBreakable: true,
-		name: "Mountaineer",
-		rating: 3,
-		num: -2,
-	},
-	rebound: {
-		isNonstandard: "CAP",
-		name: "Rebound",
-		onTryHitPriority: 1,
-		onTryHit(target, source, move) {
-			if (this.effectState.target.activeTurns) return;
-
-			if (target === source || move.hasBounced || !move.flags['reflectable']) {
-				return;
-			}
-			const newMove = this.dex.getActiveMove(move.id);
-			newMove.hasBounced = true;
-			this.actions.useMove(newMove, target, source);
-			return null;
-		},
-		onAllyTryHitSide(target, source, move) {
-			if (this.effectState.target.activeTurns) return;
-
-			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
-				return;
-			}
-			const newMove = this.dex.getActiveMove(move.id);
-			newMove.hasBounced = true;
-			this.actions.useMove(newMove, this.effectState.target, source);
-			return null;
-		},
-		condition: {
-			duration: 1,
-		},
-		isBreakable: true,
-		rating: 3,
-		num: -3,
-	},
-	persistent: {
-		isNonstandard: "CAP",
-		name: "Persistent",
-		// implemented in the corresponding move
-		rating: 3,
-		num: -4,
-	},
 	// swse
+
 	absolutezero: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
@@ -5771,5 +5822,66 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Warp Mist",
 		rating: 2,
 		num: -22,
+	},
+
+	// CAP
+
+	mountaineer: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
+		isNonstandard: "CAP",
+		isBreakable: true,
+		name: "Mountaineer",
+		rating: 3,
+		num: 1001,
+	},
+	rebound: {
+		isNonstandard: "CAP",
+		name: "Rebound",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (this.effectState.target.activeTurns) return;
+
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			this.actions.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (this.effectState.target.activeTurns) return;
+
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			this.actions.useMove(newMove, this.effectState.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		isBreakable: true,
+		rating: 3,
+		num: 1002,
+	},
+	persistent: {
+		isNonstandard: "CAP",
+		name: "Persistent",
+		// implemented in the corresponding move
+		rating: 3,
+		num: 1003,
 	},
 };

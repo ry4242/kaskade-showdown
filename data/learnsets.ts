@@ -88810,6 +88810,7 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 	},
 
 	// swse
+
 	llampas: {
 		learnset: {
 			tackle: ["9L1"],
@@ -89410,6 +89411,9 @@ export const Learnsets: {[speciesid: string]: LearnsetData} = {
 			tackle: ["9L1"],
 		}
 	},
+
+	// CAP
+
 	syclar: {
 		learnset: {
 			absorb: ["9L1", "8L1", "7L1"],

@@ -79,21 +79,21 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] OU",
 
-		mod: 'swse',
+		mod: 'gen9',
 		ruleset: ['Standard'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Baton Pass'],
 	},
 	{
 		name: "[Gen 9] Ubers",
 
-		mod: 'swse',
+		mod: 'gen9',
 		ruleset: ['Standard'],
 		banlist: ['AG', 'Moody', 'King\'s Rock', 'Baton Pass'],
 	},
 	{
 		name: "[Gen 9] UU",
 
-		mod: 'swse',
+		mod: 'gen9',
 		ruleset: ['[Gen 9] OU'],
 		banlist: ['OU', 'UUBL'],
 	},
@@ -129,7 +129,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] LC",
 
-		mod: 'swse',
+		mod: 'gen9',
 		ruleset: ['Little Cup', 'Standard'],
 		banlist: [
 			'Basculin-White-Striped', 'Diglett-Base', 'Dunsparce', 'Flittle', 'Gastly', 'Girafarig', 'Growlithe-Hisui', 'Meditite', 'Misdreavus',
@@ -140,7 +140,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Monotype",
 
-		mod: 'swse',
+		mod: 'gen9',
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Same Type Clause', 'Terastal Clause'],
 		banlist: [
 			'Annihilape', 'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chi-Yu', 'Dialga', 'Dialga-Origin', 'Eternatus',
@@ -154,7 +154,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] 1v1",
 		desc: `Bring three Pok&eacute;mon to Team Preview and choose one to battle.`,
 
-		mod: 'swse',
+		mod: 'gen9',
 		ruleset: [
 			'Picked Team Size = 1', 'Max Team Size = 3',
 			'Standard', 'Terastal Clause', 'Sleep Moves Clause', 'Accuracy Moves Clause', '!Sleep Clause Mod',
@@ -169,7 +169,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Anything Goes",
 
-		mod: 'swse',
+		mod: 'gen9',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 	/* {
@@ -255,7 +255,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Custom Game",
 
-		mod: 'swse',
+		mod: 'gen9',
 		searchShow: false,
 		debug: true,
 		battle: {trunc: Math.trunc},
@@ -280,7 +280,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Doubles OU",
 
-		mod: 'swse',
+		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
@@ -356,7 +356,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Doubles Custom Game",
 
-		mod: 'swse',
+		mod: 'gen9',
 		gameType: 'doubles',
 		searchShow: false,
 		battle: {trunc: Math.trunc},
@@ -688,7 +688,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Almost Any Ability",
 		desc: `Pok&eacute;mon have access to almost any ability.`,
 
-		mod: 'swse',
+		mod: 'gen9',
 		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause', 'Terastal Clause', 'Min Source Gen = 9'],
 		banlist: [
 			'Annihilape', 'Arceus', 'Baxcalibur', 'Calyrex-Ice', 'Calyrex-Shadow', 'Dialga', 'Dialga-Origin', 'Dragapult', 'Dragonite', 'Enamorus-Base',
