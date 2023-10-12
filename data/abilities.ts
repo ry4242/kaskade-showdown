@@ -5628,6 +5628,22 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: -24,
 	},
+	nottobe: {
+		onFaint(target, source, effect) {
+			let announced = false;
+			for (const pokemon of [target, source]) {
+				if (pokemon.volatiles['perishsong']) continue;
+				if (!announced) {
+					this.add('-ability', target, 'Not to Be');
+					announced = true;
+				}
+				pokemon.addVolatile('perishsong');
+			}
+		},
+		name: "Not to Be",
+		rating: 2,
+		num: -44,
+	},
 	nullify: {
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
