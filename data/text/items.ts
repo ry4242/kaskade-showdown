@@ -2392,6 +2392,11 @@ export const ItemsText: {[k: string]: ItemText} = {
 
 	// swse
 
+	amazedrive: {
+		name: "Fire Stone",
+		desc: "Evolves Golbat into Probat, Porygon2 into Porygon ω, Drifloon into Drifblim-Amaze-All, and Bonsly into Sudowoodo-Amaze-All when used.",
+		shortDesc: "Evolves certain species of Pokemon when used.",
+	},
 	avocaberry: {
 		name: "Avoca Berry",
 		desc: "Holder is cured if it is frostbitten. Single use.",
