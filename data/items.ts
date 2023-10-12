@@ -5770,7 +5770,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Cubone", "Marowak", "Marowak-Alola", "Marowak-Alola-Totem", "Oracub", "Bearvoyance"],
 		num: 258,
 		gen: 2,
-		isNonstandard: "Past",
 	},
 	throatspray: {
 		name: "Throat Spray",
@@ -7707,6 +7706,7 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
+		forcedForme: "Castform-Whirly",
 		itemUser: ["Castform"],
 		num: -16,
 		gen: 9,
