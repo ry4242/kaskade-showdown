@@ -1376,9 +1376,33 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.eachEvent('EnergyWeather');
 		},
 		onEnergyWeather(target) {
-			let typeMod = 1;
-			if (target.hasType('Water')) typeMod *= 2;
-			this.damage(typeMod * target.baseMaxhp / 10);
+			this.debug('lightning might strike');
+			if (this.randomChance(1,10)) {
+				let typeMod = 1;
+				if (target.hasType('Water')) typeMod *= 2;
+				if (target.hasType('Flying')) typeMod *= 2;
+				if (target.hasType('Electric')) typeMod *= 0.5;
+				if (target.hasType('Dragon')) typeMod *= 0.5;
+				if (target.hasType('Grass')) typeMod *= 0.5;
+				if (target.hasType('Ground')) typeMod *= 0.5;
+				if (target.hasType('Electric') && !this.field.isClimateWeather('raindance')) typeMod *= 0;
+				if (target.hasType('Ground') && !this.field.isClimateWeather('raindance')) typeMod *= 0;
+				if (target.hasType('Electric')) {
+					target.addVolatile('charge');
+				} else if (target.hasType('Ground')) {
+					this.boost({spe: -1});
+				}
+				if (target.hasAbility('lightningrod')) {
+					this.boost({spa: 1});
+					typeMod *= 0;
+				}
+				if (target.hasAbility('voltabsorb')) {
+					target.heal(target.baseMaxhp/4);
+					typeMod *= 0;
+				}
+				this.debug('lightning strikes damage is based on the pokemons weakness/resistance to electric');
+				this.damage(typeMod * target.baseMaxhp / 10);
+			}
 		},
 		onFieldEnd() {
 			this.add('-energyWeather', 'none');
@@ -1389,10 +1413,31 @@ export const Conditions: {[k: string]: ConditionData} = {
 		effectType: 'EnergyWeather',
 		duration: 5,
 		durationCallback(source, effect) {
-			if (source?.hasItem('energynullifier')) {
+			if (source?.hasItem('energychannelizer')) {
 				return 8;
 			}
 			return 5;
+		},
+		onModifySpDPriority: 10,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.hasItem('energynullifier')) return;
+			if (pokemon.hasType('Steel')) {
+				this.debug('steel type SpD boost');
+				return this.modify(spd, 1.25);
+			}
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (source !== target && (move.type === 'Steel' || (move.type === 'Electric' && target.hasType('Steel')))) {
+				this.debug('magnetosphere guartees accuracy')
+				return true;
+			}
+			return accuracy;
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Ground' && target.hasType('Steel') && this.field.energyWeatherState.boosted) {
+				this.debug('steel pokemon are levitating')
+				return null;
+			}
 		},
 		onFieldStart(battle, source, effect) {
 			if (this.field.isClearingWeather('strongwinds')) {
