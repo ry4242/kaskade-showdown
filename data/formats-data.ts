@@ -6389,7 +6389,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		natDexTier: "Illegal",
 	},
-	
+
 	// swse
 
 	llampas: {

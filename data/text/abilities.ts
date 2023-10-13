@@ -2189,14 +2189,26 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		desc: "If Pollen is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Pollen is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
+	bubblehelm: {
+		name: "Bubble Helm",
+		shortDesc: "This Pokemon ignores Irritant Weathergy's negative effects.",
+	},
 	carboncapture: {
 		name: "Carbon Capture",
 		desc: "If Smog is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon cannot be poisoned by Smog. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Smog is active, this Pokemon heals 1/16 of its max HP each turn; immunity to it.",
 	},
+	chakra: {
+		name: "Aerilate",
+		shortDesc: "This Pokemon's Fairy-type moves have 1.3x power.",
+	},
 	condensation: {
 		name: "Condensation",
 		shortDesc: "On switch-in, this Pokemon summons Fog.",
+	},
+	droughtproof: {
+		name: "Droughtproof",
+		shortDesc: "This Pokemon ignores Climate Weathergy's negative effects.",
 	},
 	druidry: {
 		name: "Druidry",
@@ -2207,6 +2219,11 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Dust Devil",
 		shortDesc: "On switch-in, this Pokemon summons Dust Storm.",
 	},
+	eclipse: {
+		name: "Glacial Armor",
+		desc: "This Pokemon's Defense is doubled in Sun, and Special Defense is doubled in Blood Moon.",
+		shortDesc: "Sun: 2x Def. Blood Moon: 2x Sp. Def.",
+	},
 	energizer: {
 		name: "Energizer",
 		desc: "If Thunderstorm is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding Safety Goggles.",
@@ -2216,6 +2233,13 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Eventide",
 		shortDesc: "On switch-in, this Pokemon summons Blood Moon.",
 	},
+	evergreen: {
+		name: "Schooling",
+		desc: "If this Pokemon is a Snover or Abomasnow, it will change to Lowland Form if Sun is active or Highland Form if Hail is active.",
+		shortDesc: "If user is Snover/Abomasnow, changes to Lowland/Highland Form in Sun/Hail.",
+
+		transform: "[POKEMON] adapted to the climate!",
+	},
 	ferroflux: {
 		name: "Ferroflux",
 		shortDesc: "On switch-in, this Pokemon summons Magnetosphere.",
@@ -2223,6 +2247,11 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	fieldworker: {
 		name: "Fieldworker",
 		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Grass-type attack.",
+	},
+	foil: {
+		name: "Foil",
+		desc: "If a Pokemon uses a Psychic-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
+		shortDesc: "Psychic-type moves against this Pokemon deal damage with a halved offensive stat.",
 	},
 	forked: {
 		name: "Forked",
@@ -2251,6 +2280,11 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Hay Fever",
 		shortDesc: "On switch-in, this Pokemon summons Pollen Storm.",
 	},
+	hydrophpbic: {
+		name: "Hydrophobic",
+		desc: "This Pokemon ignores Rain and Hail's negative effects. If a Pokemon uses a Fire-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
+		shortDesc: "This Pokemon ignores Rain and Hail's negative effects; Water power against it is halved.",
+	},
 	incantation: {
 		name: "Incantation",
 		shortDesc: "On switch-in, this Pokemon summons Fairy Dust.",
@@ -2269,6 +2303,24 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		desc: "If Pheromones is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. If this Pokemon's ally is a Bug-type, this Pokemon restores 1/8 of its maximum HP. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Pheromones is active, this Pokemon heals 1/16 of its max HP each turn; 1/8 if ally is Bug-type.",
 	},
+	nottobe: {
+		name: "Not to Be",
+		shortDesc: "If an opponent knocks out the user, it faints next turn.",
+
+		start: "  [TARGET] will faint in next turn!",
+	},
+	nullify: {
+		name: "Cloud Nine",
+		desc: "While this Pokemon is active, the effects of Weathergy are disabled and any other Weathergies are prevented from being set up.",
+		shortDesc: "While this Pokemon is active, Weathergy conditions are disabled and can't be set up.",
+
+		start: "  The effects of the Weathergy disappeared.",
+	},
+	pearldrop: {
+		name: "Pearl Drop",
+		desc: "On switch-in, summons Pearl Drop for 5 turns. Pearl Drop: all moves have their accuracy multiplied by 0.9.",
+		shortDesc: "On switch-in, all moves have 0.9x accuracy for 5 turns.",
+	},
 	pollution: {
 		name: "Pollution",
 		shortDesc: "On switch-in, this Pokemon summons Smog.",
@@ -2283,6 +2335,19 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		desc: "If Dragon Force is active, this Pokemon's Dragon-, Fire-, Electric-, and Ice-type attacks have their power multiplied by 1.3. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
 		shortDesc: "This Pokemon's Dragon/Fire/Electric/Ice attacks do 1.3x in Dragon Force.",
 	},
+	rockybody: {
+		name: "Rocky Body",
+		desc: "If this Pokemon is a Stackem, the first hit it takes in battle deals 0 neutral damage and Stealth Rock is set on the opposing side. Its rocks are then knocked over, and it changes to Rockless Form. Confusion damage also knocks the rocks over.",
+		shortDesc: "(Stackem only) First hit deals 0 damage, sets Stealth Rock, knocks rocks.",
+
+		block: "  Its rocks were knocked over!",
+		transform: "[POKEMON]'s rocks were knocked!",
+	},
+	rootcontrol: {
+		name: "Root Control",
+		desc: "On switch-in, sets up Ingrain for the user. The user is still able to switch out.",
+		shortDesc: "Sets up Ingrain for the user.",
+	},
 	seance: {
 		name: "Se\u0301ance",
 		shortDesc: "On switch-in, this Pokemon summons Cursed Winds.",
@@ -2295,6 +2360,11 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Smoke and Mirrors",
 		desc: "If Psychic Field is active, this Pokemon's Special attacks have their power multiplied by 1.2 and have their Confusion chance doubled. These effects are prevented if this Pokemon is holding an Energy Nullifier.",
 		shortDesc: "This Pokemon's Special attacks do 1.2x and have doubled confuse chance in Psychic Field.",
+	},
+	smotherbody: {
+		name: "Smother Body",
+		desc: "This Pokemon's partial-trapping moves without a chance to paralyze the target gain a 30% chance to paralyze the target.",
+		shortDesc: "This Pokemon's partial-trapping moves gain a 30% chance to paralyze.",
 	},
 	souldrain: {
 		name: "Soul Drain",
@@ -2313,9 +2383,29 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Surveillance",
 		shortDesc: "On switch-in, this Pokemon's Accuracy is raised by 1 stage.",
 	},
+	swarming: {
+		name: "Swarming",
+		desc: "On switch-in, if this Pokemon is an Eecroach that is level 20 or above and has more than 1/4 of its maximum HP left, it changes to Swarm Form. If it is in Swarm Form and its HP drops to 1/4 of its maximum HP or less, and Pheromones is not active, it changes to Solo Form at the end of the turn. If it is in Solo Form and its HP is greater than 1/4 its maximum HP at the end of the turn, it changes to Swarm Form.",
+		shortDesc: "If user is Eecroach, changes to Swarm Form if it has > 1/4 max HP, else Solo Form.",
+
+		transform: "[POKEMON] formed a swarm!",
+		transformEnd: "[POKEMON]'s swarm dissipated!",
+	},
+	tobe: {
+		name: "To Be",
+		desc: "If this Pokemon is at full HP, it survives one hit with at least 1 HP and restores 1/4 of its maximum HP, rounded down. OHKO moves fail when used against this Pokemon.",
+		shortDesc: "If this Pokemon is at full HP, it survives one hit with at least 1 HP and restores 1/4 of its max HP.",
+
+		activate: "  [POKEMON] decided to live!",
+	},
 	transcendence: {
 		name: "Transcendence",
 		shortDesc: "On switch-in, this Pokemon summons Psychic Field.",
+	},
+	trumpetweevil: {
+		name: "Trumpet Weevil",
+		desc: "This Pokemon's sound-based moves become Bug-type moves and have their power multiplied by 1.5. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's sound-based moves become Bug type and have 1.5x power.",
 	},
 	vegetate: {
 		name: "Vegetate",

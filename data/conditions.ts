@@ -756,7 +756,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
-		onModifyAccuracyPriority: -2,
+		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy, target, source, move) {
 			if (target.hasItem('utilityumbrella') || source.hasAbility('droughtproof')) return;
 			if (typeof accuracy === 'number' && move?.type !== 'Normal') {
@@ -874,7 +874,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onIrritantWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('safetygoggles') || attacker.hasAbility('bubblehelm')) return;
 			if (move.type === 'Electric') {
-				this.debug('duststorm supress electric');
+				this.debug('Dust Storm Electric supress');
 				return this.chainModify(0.5);
 			}
 		},
@@ -882,7 +882,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifySpe(spe, pokemon) {
 			if (pokemon.hasItem('safetygoggles')) return;
 			if (pokemon.hasType('Ground') && this.field.isIrritantWeather('duststorm')) {
-				this.debug('duststorm speed boost');
 				return this.modify(spe, 1.5);
 			}
 		},
@@ -934,7 +933,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (pokemon.hasType('Grass') || pokemon.hasType('Bug')) {
 				return;
 			} else {
-				this.debug('non-grass or bug pokemon Atk reduction');
 				return this.modify(atk, 0.75);
 			}
 		},
@@ -944,7 +942,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (pokemon.hasType('Grass') || pokemon.hasType('Bug')) {
 				return;
 			} else {
-				this.debug('non-grass or bug pokemon Spa reduction');
 				return this.modify(spa, 0.75);
 			}
 		},
@@ -982,18 +979,17 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onModifyAccuracyPriority: 10,
-		onModifyAccuracy(acc, pokemon) {
-			if (pokemon.hasItem('safetygoggles')) return;
-			if (pokemon.hasType('Poison') || pokemon.hasType('Bug')) {
+		onModifyAccuracy(accuracy, target, source) {
+			if (target.hasItem('safetygoggles')) return;
+			if (typeof accuracy === 'number' && (source.hasType('Bug') || source.hasType('Poison'))) {
 				this.debug('pheromones accuracy boost');
-				return this.modify(acc, 1.33);
+				return this.modify(accuracy, 1.33);
 			}
 		},
 		onModifySpePriority: 10,
 		onModifySpe(spe, pokemon) {
 			if (pokemon.hasItem('safetygoggles')) return;
-			if (pokemon.hasType('Poison') || pokemon.hasType('Bug')) {
-				this.debug('pheromones speed boost');
+			if (pokemon.hasType('Bug') || pokemon.hasType('Poison')) {
 				return this.modify(spe, 1.5);
 			}
 		},
@@ -1019,7 +1015,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (target.hasItem('safetygoggles') || target.hasAbility('bubblehelm')) return;
 				if (target.hasType('Bug') || target.hasType('Poison')) return;
 				target.addVolatile('confusion');
-				this.debug('strong winds pheromones confuses');
+				this.debug('strong winds Pheromones confusion');
 			}
 		},
 		onFieldEnd() {
@@ -1076,7 +1072,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifySpD(spd, pokemon) {
 			if (pokemon.hasItem('safetygoggles')) return;
 			if (pokemon.hasType('Fairy')) {
-				this.debug('fairy type SpD boost');
 				return this.modify(spd, 1.25);
 			}
 		},
@@ -1224,7 +1219,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnergyWeather(target) {
 			if (target.hasItem('energynullifier')) return;
-			this.debug('haunt passive damage');
 			this.damage(target.baseMaxhp / 16); // ghost, normal and dark's damage immunity added to typechart.ts
 		},
 		onFieldEnd() {
@@ -1244,11 +1238,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnergyWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('energynullifier')) return;
 			if (move.type === 'Psychic') {
-				this.debug('Cosmic Rays psychic boost');
+				this.debug('Cosmic Rays Psychic boost');
 				return this.chainModify(1.5);
 			}
 			if (move.type === 'Dark') {
-				this.debug('Cosmic Rays dark suppress');
+				this.debug('Cosmic Rays Dark suppress');
 				return this.chainModify(0.5);
 			}
 		},
@@ -1377,7 +1371,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnergyWeather(target) {
 			this.debug('lightning might strike');
-			if (this.randomChance(1,10)) {
+			if (this.randomChance(1, 10)) {
 				let typeMod = 1;
 				if (target.hasType('Water')) typeMod *= 2;
 				if (target.hasType('Flying')) typeMod *= 2;
@@ -1397,7 +1391,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 					typeMod *= 0;
 				}
 				if (target.hasAbility('voltabsorb')) {
-					target.heal(target.baseMaxhp/4);
+					target.heal(target.baseMaxhp / 4);
 					typeMod *= 0;
 				}
 				this.debug('lightning strikes damage is based on the pokemons weakness/resistance to electric');
@@ -1422,20 +1416,19 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifySpD(spd, pokemon) {
 			if (pokemon.hasItem('energynullifier')) return;
 			if (pokemon.hasType('Steel')) {
-				this.debug('steel type SpD boost');
 				return this.modify(spd, 1.25);
 			}
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
 			if (source !== target && (move.type === 'Steel' || (move.type === 'Electric' && target.hasType('Steel')))) {
-				this.debug('magnetosphere guartees accuracy')
+				this.debug('Magnetosphere guarantees accuracy');
 				return true;
 			}
 			return accuracy;
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ground' && target.hasType('Steel') && this.field.energyWeatherState.boosted) {
-				this.debug('steel pokemon are levitating')
+				this.debug('Steel pokemon are levitating');
 				return null;
 			}
 		},

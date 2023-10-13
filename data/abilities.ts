@@ -5480,6 +5480,24 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -2,
 	},
+	foil: {
+		onSourceModifyAtkPriority: 5,
+		onSourceModifyAtk(atk, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				return this.chainModify(0.5);
+			}
+		},
+		onSourceModifySpAPriority: 5,
+		onSourceModifySpA(spa, attacker, defender, move) {
+			if (move.type === 'Psychic') {
+				return this.chainModify(0.5);
+			}
+		},
+		isBreakable: true,
+		name: "Foil",
+		rating: 2,
+		num: -45,
+	},
 	forked: {
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
@@ -5564,6 +5582,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
+		isBreakable: true,
 		name: "Hydrophobic",
 		rating: 3,
 		num: -41,
@@ -5628,21 +5647,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: -24,
 	},
-	nottobe: {
-		onFaint(target, source, effect) {
-			let announced = false;
-			if (source.volatiles['perishsong']) return;
-			if (!announced) {
-				this.add('-ability', target, 'Not to Be');
-				announced = true;
-			}
-			source.addVolatile('perish1');
-		},
-		name: "Not to Be",
-		rating: 2,
-		num: -44,
-	},
-	nullify: {
+	nullify: { // incomplete. needs testing i think
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
 		},
@@ -5667,10 +5672,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			this.eachEvent('IrritantWeatherChange', this.effect);
 			this.eachEvent('EnergyWeatherChange', this.effect);
 			this.eachEvent('ClearingWeatherChange', this.effect);
-			this.field.clearClimateWeather();
-			this.field.clearIrritantWeather();
-			this.field.clearEnergyWeather();
-			this.field.clearClearingWeather();
 		},
 		onEnd(pokemon) {
 			this.eachEvent('ClimateWeatherChange', this.effect);
@@ -5685,6 +5686,35 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Nullify",
 		rating: 2.5,
 		num: -39,
+	},
+	pearldrop: {
+		onStart(source) {
+			this.field.addPseudoWeather('pearldrop');
+		},
+		condition: {
+			duration: 5,
+			durationCallback(source, effect) {
+				return 5;
+			},
+			onModifyAccuracyPriority: -1,
+			onModifyAccuracy(accuracy, target, source, move) {
+				if (typeof accuracy === 'number') {
+					this.debug('pearl drop accuracy drop');
+					return this.chainModify(0.9);
+				}
+			},
+			onFieldStart(field, source, effect) {
+				this.add('-fieldstart', 'ability: Pearl Drop');
+			},
+			onFieldResidualOrder: 27,
+			onFieldResidualSubOrder: 8,
+			onFieldEnd() {
+				this.add('-fieldend', 'ability: Pearl Drop');
+			},
+		},
+		name: "Pearl Drop",
+		rating: 1,
+		num: -49,
 	},
 	pollution: {
 		onStart(source) {
@@ -5723,6 +5753,51 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Power Within",
 		rating: 2.5,
 		num: -31,
+	},
+	rockybody: {
+		onDamagePriority: 1,
+		onDamage(damage, target, source, effect) {
+			if (
+				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
+				target.species.id === 'stackem' && !target.transformed
+			) {
+				this.add('-activate', target, 'ability: Rocky Body');
+				const side = source.isAlly(target) ? source.side.foe : source.side;
+				const stealthRock = side.sideConditions['stealthrock'];
+				if (!stealthRock) {
+					side.addSideCondition('stealthrock', target);
+				}
+				this.effectState.busted = true;
+				return 0;
+			}
+		},
+		onCriticalHit(target, source, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || target.species.id !== 'stackem' || target.transformed) return;
+			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
+			if (!target.runImmunity(move.type)) return;
+			return false;
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (!target) return;
+			if (move.category !== 'Physical' || target.species.id !== 'stackem' || target.transformed) return;
+
+			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
+			if (hitSub) return;
+
+			if (!target.runImmunity(move.type)) return;
+			return 0;
+		},
+		onUpdate(pokemon) {
+			if (pokemon.species.id === 'stackem' && this.effectState.busted) {
+				pokemon.formeChange('Stackem-Rockless', this.effect, true);
+			}
+		},
+		isBreakable: true,
+		isPermanent: true,
+		name: "Rocky Body",
+		rating: 2,
+		num: -48,
 	},
 	rootcontrol: {
 		onStart(pokemon) {
@@ -5775,10 +5850,29 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2.5,
 		num: -30,
 	},
+	smotherbody: {
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.volatileStatus === 'partiallytrapped') {
+				if (!move.secondaries) move.secondaries = [];
+				for (const secondary of move.secondaries) {
+					if (secondary.status === 'par') return;
+				}
+				this.debug('Smother Body paralyze');
+				move.secondaries.push({
+					chance: 30,
+					status: 'par',
+				});
+			}
+		},
+		name: "Smother Body",
+		rating: 2,
+		num: -50,
+	},
 	souldrain: { // incomplete. needs testing
 		onAnyResidual(pokemon) {
 			for (const target of this.getAllActive()) {
-				if (!pokemon || this.field.isEnergyWeather('haunt')) {
+				if (!pokemon || (['haunt'].includes(pokemon.effectiveEnergyWeather()))) {
 					this.heal(pokemon.baseMaxhp / 16, pokemon, target);
 				}
 			}
@@ -5811,24 +5905,41 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 4,
 		num: -3,
 	},
-	tobe: {
-		onTryHit(pokemon, target, move) {
-			if (move.ohko) {
-				this.add('-immune', pokemon, '[from] ability: To Be');
-				return null;
+	swarming: {
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Eecroach' || pokemon.level < 20 || pokemon.transformed) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'eecroach') {
+					pokemon.formeChange('Eecroach-Swarm');
+				}
+			} else {
+				if (pokemon.species.id === 'eecroachswarm' &&
+				!['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
+					pokemon.formeChange('Eecroach');
+				}
 			}
 		},
-		onDamagePriority: -30,
-		onDamage(damage, target, source, effect) {
-			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add('-ability', target, 'To Be');
-				return target.hp - 1 && this.heal(target.baseMaxhp / 4);
+		onResidualOrder: 29,
+		onResidual(pokemon) {
+			if (
+				pokemon.baseSpecies.baseSpecies !== 'Eecroach' || pokemon.level < 20 ||
+				pokemon.transformed || !pokemon.hp
+			) return;
+			if (pokemon.hp > pokemon.maxhp / 4) {
+				if (pokemon.species.id === 'eecroach') {
+					pokemon.formeChange('Eecroach-Swarm');
+				}
+			} else {
+				if (pokemon.species.id === 'eecroachswarm' &&
+				!['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
+					pokemon.formeChange('Eecroach');
+				}
 			}
 		},
-		isBreakable: true,
-		name: "To Be",
+		isPermanent: true,
+		name: "Swarming",
 		rating: 3,
-		num: -43,
+		num: -47,
 	},
 	transcendence: {
 		onStart(source) {
@@ -5837,6 +5948,23 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Transcendence",
 		rating: 3,
 		num: -13,
+	},
+	trumpetweevil: {
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			if (move.flags['sound'] &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Bug';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.5);
+		},
+		name: "Trumpet Weevil",
+		rating: 4,
+		num: -46,
 	},
 	vegetate: {
 		onModifyTypePriority: -1,
@@ -5859,16 +5987,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -1,
 	},
 	warpmist: { // needs testing
-		onModifySpAPriority: 5,
-		onModifySpA(spa, source, pokemon) {
-			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				if (source.storedStats.spa >= source.storedStats.atk) return this.chainModify(1.2);
-			}
-		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, source, pokemon) {
 			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				if (source.storedStats.atk > source.storedStats.spa) return this.chainModify(1.2);
+				return this.chainModify(1.2);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, source, pokemon) {
+			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
+				return this.chainModify(1.2);
 			}
 		},
 		onTryHit(target, source, move) {

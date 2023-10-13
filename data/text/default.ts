@@ -334,13 +334,13 @@ export const DefaultText: {[k: string]: DefaultText} = {
 	pollinate: {
 		weatherName: "Pollen Storm",
 		start: "  Pollen enveloped the air!",
-		end: "  The pheromones faded.",
+		end: "  The pollen dissipated.",
 		upkeep: "  (The pollen is circulating.)",
 	},
 	swarmsignal: {
 		weatherName: "Pheromones",
 		start: "  Pheromones infested the air!",
-		end: "  The pollen dissipated.",
+		end: "  The pheromones faded.",
 		upkeep: "  (The pheromones are spreading.)",
 	},
 	smogspread: {

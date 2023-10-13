@@ -1782,7 +1782,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	thickclub: {
 		name: "Thick Club",
 		desc: "If held by a Cubone or a Marowak, its Attack is doubled. If held by a Oracub or a Bearvoyance, its Special Attack is multiplied by 1.5.",
-		shortDesc: "Cubone/Marowak: 2x Atk. Oracub/Bearvoyance: 1.5x SpA."
+		shortDesc: "Cubone/Marowak: 2x Atk. Oracub/Bearvoyance: 1.5x SpA.",
 	},
 	throatspray: {
 		name: "Throat Spray",
