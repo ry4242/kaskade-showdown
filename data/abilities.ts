@@ -5730,7 +5730,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (attacker.hasItem('safetygoggles')) return;
 			if (this.field.isIrritantWeather('sprinkle')) {
 				if (move.type === 'Fairy' || move.type === 'Grass' || move.type === 'Fire' || move.type === 'Water') {
-					this.debug('Power Within boost');
+					this.debug('Power Above boost');
 					return this.chainModify([5325, 4096]);
 				}
 			}
@@ -5745,7 +5745,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (attacker.hasItem('energynullifier')) return;
 			if (this.field.isIrritantWeather('dragonforce')) {
 				if (move.type === 'Dragon' || move.type === 'Fire' || move.type === 'Electric' || move.type === 'Ice') {
-					this.debug('Power Above boost');
+					this.debug('Power Within boost');
 					return this.chainModify([5325, 4096]);
 				}
 			}
@@ -5986,7 +5986,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -1,
 	},
-	warpmist: { // needs testing
+	warpmist: {
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, source, pokemon) {
 			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
