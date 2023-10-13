@@ -1224,6 +1224,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onEnergyWeather(target) {
 			if (target.hasItem('energynullifier')) return;
+			this.debug('haunt passive damage');
 			target.damage(target.baseMaxhp / 16); // ghost, normal and dark's damage immunity added to typechart.ts
 		},
 		onFieldEnd() {
