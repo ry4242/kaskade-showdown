@@ -1225,7 +1225,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnergyWeather(target) {
 			if (target.hasItem('energynullifier')) return;
 			this.debug('haunt passive damage');
-			target.damage(target.baseMaxhp / 16); // ghost, normal and dark's damage immunity added to typechart.ts
+			this.damage(target.baseMaxhp / 16); // ghost, normal and dark's damage immunity added to typechart.ts
 		},
 		onFieldEnd() {
 			this.add('-energyWeather', 'none');
@@ -1502,7 +1502,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.field.clearIrritantWeather();
 				this.debug('Cleared Irritant Weathers');
 			}
-			if (['auraprojection', 'haunt', 'comsicrays',
+			if (['auraprojection', 'haunt', 'cosmicrays',
 				'dragonforce', 'supercell', 'magnetize'].includes(this.field.effectiveEnergyWeather())) {
 				this.field.clearEnergyWeather();
 				this.debug('Cleared Energy Weathers');
