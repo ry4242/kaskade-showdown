@@ -2307,7 +2307,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Not to Be",
 		shortDesc: "If an opponent knocks out the user, it faints next turn.",
 
-		start: "  [TARGET] will faint in next turn!",
+		start: "  [TARGET] will faint next turn!",
+		activate: "[TARGET] will faint next turn!",
 	},
 	nullify: {
 		name: "Cloud Nine",

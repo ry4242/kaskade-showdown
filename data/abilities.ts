@@ -5647,6 +5647,27 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: -24,
 	},
+	nottobe: {
+		onFaint(target, source, effect) {
+			this.add('-activate', target, 'ability: Not to Be');
+			source.addVolatile('nottobe');
+		},
+		condition: {
+			duration: 2,
+			onEnd(target) {
+				this.add('-start', target, 'perish0');
+				target.faint();
+			},
+			onResidualOrder: 24,
+			onResidual(pokemon) {
+				const duration = pokemon.volatiles['nottobe'].duration;
+				this.add('-start', pokemon, 'perish' + duration);
+			}
+		},
+		name: "Not to Be",
+		rating: 2,
+		num: -44,
+	},
 	nullify: { // incomplete. needs testing i think
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;

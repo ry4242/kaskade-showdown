@@ -210,19 +210,6 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return false;
 		},
 	},
-	perish1: {
-		name: 'perish1',
-		duration: 2,
-			onEnd(target) {
-				this.add('-start', target, 'perish0');
-				target.faint();
-			},
-			onResidualOrder: 24,
-			onResidual(pokemon) {
-				const duration = pokemon.volatiles['perish1'].duration;
-				this.add('-start', pokemon, 'perish' + duration);
-			},
-	},
 	flinch: {
 		name: 'flinch',
 		duration: 1,
