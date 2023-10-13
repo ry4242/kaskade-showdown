@@ -5700,7 +5700,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (attacker.hasItem('safetygoggles')) return;
 			if (this.field.isIrritantWeather('sprinkle')) {
 				if (move.type === 'Fairy' || move.type === 'Grass' || move.type === 'Fire' || move.type === 'Water') {
-					this.debug('Power Within boost');
+					this.debug('Power Above boost');
 					return this.chainModify([5325, 4096]);
 				}
 			}
@@ -5715,7 +5715,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (attacker.hasItem('energynullifier')) return;
 			if (this.field.isIrritantWeather('dragonforce')) {
 				if (move.type === 'Dragon' || move.type === 'Fire' || move.type === 'Electric' || move.type === 'Ice') {
-					this.debug('Power Above boost');
+					this.debug('Power Within boost');
 					return this.chainModify([5325, 4096]);
 				}
 			}
@@ -5862,13 +5862,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifySpAPriority: 5,
 		onModifySpA(spa, source, pokemon) {
 			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				if (source.storedStats.spa >= source.storedStats.atk) return this.chainModify(1.2);
+				return this.chainModify(1.2);
 			}
 		},
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, source, pokemon) {
 			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				if (source.storedStats.atk > source.storedStats.spa) return this.chainModify(1.2);
+				return this.chainModify(1.2);
 			}
 		},
 		onTryHit(target, source, move) {
