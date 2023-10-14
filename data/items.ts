@@ -7610,6 +7610,58 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: -3,
 		gen: 9,
 	},
+	coffeegeistcappuccino: {
+		name: "Coffeegeist Cappuccino",
+		spritenum: 788,
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4) {
+				pokemon.useItem();
+				pokemon.addVolatile('coffeegeistcappuccino');
+			}
+		},
+		boosts: {
+			spd: 1,
+			spe: 1,
+		},
+		condition: {
+			noCopy: true,
+			duration: 5,
+			onResidualOrder: 28,
+			onResidualSubOrder: 5,
+			onEnd(pokemon) {
+				this.boost({spd: -1, spe: -1}, pokemon, pokemon);
+				pokemon.addVolatile('caffeinecrash');
+			},
+		},
+		num: -4,
+		gen: 9,
+	},
+	flatunovan: {
+		name: "Flat Unovan",
+		spritenum: 788,
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4) {
+				pokemon.useItem();
+				pokemon.addVolatile('flatunovan');
+			}
+		},
+		boosts: {
+			spe: 1,
+			accuracy: 1,
+		},
+		condition: {
+			noCopy: true,
+			duration: 5,
+			onResidualOrder: 28,
+			onResidualSubOrder: 5,
+			onEnd(pokemon) {
+				this.boost({spe: -1, accuracy: -1}, pokemon, pokemon);
+				pokemon.addVolatile('caffeinecrash');
+			},
+		},
+		num: -4,
+		gen: 9,
+	},
 	frostorb: {
 		name: "Frost Orb",
 		spritenum: 145,
@@ -7631,28 +7683,20 @@ export const Items: {[itemid: string]: ItemData} = {
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
+				pokemon.addVolatile('pikaspresso');
 			}
 		},
 		boosts: {
 			spe: 2,
 		},
-		onStart(pokemon) {
-			pokemon.addVolatile('pikaspresso');
-		},
 		condition: {
 			noCopy: true,
-			onStart(pokemon) {
-				this.add('-start', pokemon, 'Caffeine Crash');
-				this.boost({spe: -2}, pokemon, pokemon);
-			},
-			onModifyPriority(priority, pokemon, target, move) {
-				return priority - 2;
-			},
+			duration: 5,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Caffeine Crash');
-				pokemon.removeVolatile('pikaspresso');
+				this.boost({spe: -2}, pokemon, pokemon);
+				pokemon.addVolatile('caffeinecrash');
 			},
 		},
 		num: -4,
@@ -7665,6 +7709,58 @@ export const Items: {[itemid: string]: ItemData} = {
 			basePower: 10,
 		},
 		num: -13,
+		gen: 9,
+	},
+	sandygastmocha: {
+		name: "Sandygast Mocha",
+		spritenum: 788,
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4) {
+				pokemon.useItem();
+				pokemon.addVolatile('sandygastmocha');
+			}
+		},
+		boosts: {
+			def: 1,
+			spe: 1,
+		},
+		condition: {
+			noCopy: true,
+			duration: 5,
+			onResidualOrder: 28,
+			onResidualSubOrder: 5,
+			onEnd(pokemon) {
+				this.boost({def: -1, spe: -1}, pokemon, pokemon);
+				pokemon.addVolatile('caffeinecrash');
+			},
+		},
+		num: -4,
+		gen: 9,
+	},
+	tamroastsmysticdoppio: {
+		name: "Tamroast's Mystic Doppio",
+		spritenum: 788,
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4) {
+				pokemon.useItem();
+				pokemon.addVolatile('tamroastsmysticdoppio');
+			}
+		},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		condition: {
+			noCopy: true,
+			duration: 5,
+			onResidualOrder: 28,
+			onResidualSubOrder: 5,
+			onEnd(pokemon) {
+				this.boost({spa: -1, spe: -1}, pokemon, pokemon);
+				pokemon.addVolatile('caffeinecrash');
+			},
+		},
+		num: -4,
 		gen: 9,
 	},
 	volatilespray: {
@@ -7709,6 +7805,32 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Castform-Whirly",
 		itemUser: ["Castform"],
 		num: -16,
+		gen: 9,
+	},
+	worcanecoldbrew: {
+		name: "Worcane Cold Brew",
+		spritenum: 788,
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4) {
+				pokemon.useItem();
+				pokemon.addVolatile('worcanecoldbrew');
+			}
+		},
+		boosts: {
+			atk: 1,
+			spe: 1,
+		},
+		condition: {
+			noCopy: true,
+			duration: 5,
+			onResidualOrder: 28,
+			onResidualSubOrder: 5,
+			onEnd(pokemon) {
+				this.boost({atk: -1, spe: -1}, pokemon, pokemon);
+				pokemon.addVolatile('caffeinecrash');
+			},
+		},
+		num: -4,
 		gen: 9,
 	},
 

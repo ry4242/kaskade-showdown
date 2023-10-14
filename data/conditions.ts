@@ -210,6 +210,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return false;
 		},
 	},
+	caffeinecrash: {
+		name: 'caffeinecrash',
+		noCopy: true,
+		onStart(target, source, sourceEffect) {
+			this.add('-start', target, 'caffeinecrash', '[from] item: ' + sourceEffect.name,);
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			return priority - 2;
+		},
+	},
 	flinch: {
 		name: 'flinch',
 		duration: 1,
@@ -746,7 +756,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-climateWeather', 'none');
 		},
 	},
-	foghorn: { // i have no clue how to do a temporary type change
+	foghorn: { // incomplete. i have no clue how to do a temporary type change
+		// for when it is figured out: this.hint("Normal types turn Typeless in Strong Winds Fog.");
 		name: 'Foghorn',
 		effectType: 'ClimateWeather',
 		duration: 5,
@@ -767,14 +778,14 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, target, pokemon) {
+			if (target.hasItem('utilityumbrella')) return;
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
 			if (move.type === 'Normal' && !noModifyType.includes(move.id) && this.field.climateWeatherState.boosted) {
 				move.type = '???';
-				move.basePower = move.basePower * 1.5;
+				// move.basePower = move.basePower * 1.5;
 			}
-			if (target.hasItem('utilityumbrella')) return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Normal'] = true;
@@ -1015,7 +1026,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (target.hasItem('safetygoggles') || target.hasAbility('bubblehelm')) return;
 				if (target.hasType('Bug') || target.hasType('Poison')) return;
 				target.addVolatile('confusion');
-				this.debug('strong winds Pheromones confusion');
+				// this.hint("Non-Bug and Poison types become confused in Strong Winds Pheromones.");
 			}
 		},
 		onFieldEnd() {
@@ -1052,7 +1063,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onIrritantWeather(target) {
 			// strong winds effect impemented in sim/pokemon.ts
 			if (target.hasItem('safetygoggles') || target.hasAbility('bubblehelm')) return;
-			target.setStatus('psn');
+			target.trySetStatus('psn');
+			// this.hint("Non-Poison types become poisoned in Strong Winds Smog.");
 		},
 		onFieldEnd() {
 			this.add('-irritantWeather', 'none');
@@ -1075,7 +1087,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return this.modify(spd, 1.25);
 			}
 		},
-		onModifyAccuracyPriority: -1,
+		onModifyAccuracyPriority: 10,
 		onModifyAccuracy(accuracy, pokemon, target) {
 			if (target.hasItem('safetygoggles') || target.hasAbility('bubblehelm')) return;
 			if (typeof accuracy !== 'number') return;
@@ -1200,6 +1212,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (pokemon.hasType(['Ghost', 'Dark'])) return;
 				if (this.randomChance(1, 10)) {
 					pokemon.addVolatile('flinch');
+					this.hint("Non-Ghost and Dark types have a 10% chance to flinch in Strong Winds Cursed Winds :)");
 				}
 			}
 		},
@@ -1446,7 +1459,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onTryHit(target, source, move) {
 			if (target !== source && move.type === 'Ground' && target.hasType('Steel') && this.field.energyWeatherState.boosted) {
-				this.debug('Steel pokemon are levitating');
+				this.hint("Steel types are levitating in Strong Winds Magnetosphere.");
 				return null;
 			}
 		},
@@ -1502,7 +1515,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.add('-clearingWeather', 'StrongWinds', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
 				this.add('-clearingWeather', 'StrongWinds');
-			} // currently the below does not function
+			}
 			if (['sunnyday', 'desolateland', 'primordialsea', 'raindance', 'hail', 'snow',
 				'bloodmoon', 'foghorn', 'deltastream'].includes(field.effectiveClimateWeather())) {
 				this.field.clearClimateWeather();
@@ -1529,31 +1542,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 
-	// Extra Weathers
+	// Extra weathers
 
-	deltastream: {
-		name: 'DeltaStream',
-		effectType: 'ClimateWeather',
-		duration: 0,
-		onEffectivenessPriority: -1,
-		onEffectiveness(typeMod, target, type, move) {
-			if (move && move.effectType === 'Move' && move.category !== 'Status' && type === 'Flying' && typeMod > 0) {
-				this.add('-fieldactivate', 'Delta Stream');
-				return 0;
-			}
-		},
-		onFieldStart(field, source, effect) {
-			this.add('-climateWeather', 'DeltaStream', '[from] ability: ' + effect.name, '[of] ' + source);
-		},
-		onFieldResidualOrder: 1,
-		onFieldResidual() {
-			this.add('-climateWeather', 'DeltaStream', '[upkeep]');
-			this.eachEvent('ClimateWeather');
-		},
-		onFieldEnd() {
-			this.add('-climateWeather', 'none');
-		},
-	},
 	desolateland: {
 		name: 'DesolateLand',
 		effectType: 'ClimateWeather',
@@ -1622,6 +1612,31 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-climateWeather', 'none');
 		},
 	},
+	deltastream: {
+		name: 'DeltaStream',
+		effectType: 'ClimateWeather',
+		duration: 0,
+		onEffectivenessPriority: -1,
+		onEffectiveness(typeMod, target, type, move) {
+			if (move && move.effectType === 'Move' && move.category !== 'Status' && type === 'Flying' && typeMod > 0) {
+				this.add('-fieldactivate', 'Delta Stream');
+				return 0;
+			}
+		},
+		onFieldStart(field, source, effect) {
+			this.add('-climateWeather', 'DeltaStream', '[from] ability: ' + effect.name, '[of] ' + source);
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-climateWeather', 'DeltaStream', '[upkeep]');
+			this.eachEvent('ClimateWeather');
+		},
+		onFieldEnd() {
+			this.add('-climateWeather', 'none');
+		},
+	},
+
+	// other
 
 	dynamax: {
 		name: 'Dynamax',

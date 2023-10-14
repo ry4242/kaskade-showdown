@@ -2406,6 +2406,13 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Charming Talisman",
 		desc: "Holder's Fairy-type attacks have 1.2x power.",
 	},
+	coffeegeistcappuccino: {
+		name: "Coffeegeist Cappuccino",
+		desc: "Raises holder's Sp. Def and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Coffeegeist Cappuccino are reverted and their moves have their priority decreased by 2 until switched out. Single use.",
+		shortDesc: "+1 Sp. Def and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+
+		end: "  [POKEMON] drank its Coffeegeist Cappuccino!",
+	},
 	energychannelizer: {
 		name: "Energy Channelizer",
 		desc: "Holder's Energy Weathergies last 8 turns instead of 5.",
@@ -2415,13 +2422,41 @@ export const ItemsText: {[k: string]: ItemText} = {
 		desc: "The holder ignores Energy Weathergy effects. Damage and accuracy calculations from attacks used by the holder are affected by Energy Weathergy, but not attacks used against the holder.",
 		shortDesc: "The holder ignores Energy Weathergy effects.",
 	},
+	flatunovan: {
+		name: "Flar Unovan",
+		desc: "Raises holder's Accuracy and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its FLat Unovan are reverted and their moves have their priority decreased by 2 until switched out. Single use.",
+		shortDesc: "+1 Accuracy and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+
+		end: "  [POKEMON] drank its Flat Unovan!",
+	},
 	frostorb: {
 		name: "Frost Orb",
 		desc: "At the end of every turn, this item attempts to give the holder frostbite.",
 	},
+	pikasapresso: {
+		name: "Pikaspresso",
+		desc: "Raises holder's Speed by 2 stages when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Pikaspresso are reverted and their moves have their priority decreased by 2 until switched out. Single use.",
+		shortDesc: "+2 Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+
+		end: "  [POKEMON] drank its Pikaspresso!",
+	},
 	portableturbine: {
 		name: "Portable Turbine",
 		desc: "Holder's Clearing Weathergies last 8 turns instead of 5.",
+	},
+	sandygastmocha: {
+		name: "Sandygast Mocha",
+		desc: "Raises holder's Defense and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Sandygast Mocha are reverted and their moves have their priority decreased by 2 until switched out. Single use.",
+		shortDesc: "+1 Def and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+
+		end: "  [POKEMON] drank its Sandygast Mocha!",
+	},
+	tamroastsmysticdoppio: {
+		name: "Tamroast's Mystic Doppio",
+		desc: "Raises holder's Sp. Atk and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Tamroast's Mystic Doppio are reverted and their moves have their priority decreased by 2 until switched out. Single use.",
+		shortDesc: "+1 Sp. Atk and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+
+		end: "  [POKEMON] drank its Tamroast's Mystic Doppio!",
 	},
 	volatilespray: {
 		name: "Volatile Spray",
@@ -2435,5 +2470,12 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Whirligig",
 		desc: "If held by a Castform, this item allows it to transform into Castform-Whirly in battle during Magnetosphere.",
 		shortDesc: "Allows Castform to enter Whirly form.",
+	},
+	worcanecoldbrew: {
+		name: "Worcane Cold Brew",
+		desc: "Raises holder's Attack and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Worcane Cold Brew are reverted and their moves have their priority decreased by 2 until switched out. Single use.",
+		shortDesc: "+1 Atk and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+
+		end: "  [POKEMON] drank its Worcane Cold Brew!",
 	},
 };
