@@ -7737,13 +7737,13 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: -4,
 		gen: 9,
 	},
-	tamroastsmysticdoppio: {
-		name: "Tamroast's Mystic Doppio",
+	mystictamroastdoppio: {
+		name: "Mystic Tamroast Doppio",
 		spritenum: 788,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
-				pokemon.addVolatile('tamroastsmysticdoppio');
+				pokemon.addVolatile('mystictamroastdoppio');
 			}
 		},
 		boosts: {

@@ -2451,12 +2451,12 @@ export const ItemsText: {[k: string]: ItemText} = {
 
 		end: "  [POKEMON] drank its Sandygast Mocha!",
 	},
-	tamroastsmysticdoppio: {
-		name: "Tamroast's Mystic Doppio",
-		desc: "Raises holder's Sp. Atk and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Tamroast's Mystic Doppio are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
+	mystictamroastdoppio: {
+		name: "Mystic Tamroast Doppio",
+		desc: "Raises holder's Sp. Atk and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Mystic Tamroast Doppio are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
 		shortDesc: "+1 Sp. Atk and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
 
-		end: "  [POKEMON] drank its Tamroast's Mystic Doppio!",
+		end: "  [POKEMON] drank its Mystic Tamroast Doppio!",
 	},
 	volatilespray: {
 		name: "Volatile Spray",
