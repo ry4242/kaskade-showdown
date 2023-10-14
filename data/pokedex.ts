@@ -6806,7 +6806,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Gray",
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredItem: "Whirligig",
-		changesFrom: "Castform",
+		battleOnly: "Castform",
 	},
 	kecleon: {
 		num: 352,

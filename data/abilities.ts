@@ -1391,8 +1391,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
 				break;
 			case 'magnetize':
-				if (!pokemon.hasItem('whirligig')) return;
-				if (pokemon.species.id !== 'castformwhirly') forme = 'Castform-Whirly';
+				if (pokemon.hasItem('whirligig')) {
+					if (pokemon.species.id !== 'castformwhirly') forme = 'Castform-Whirly';
+				}
 				break;
 			default:
 				if (pokemon.species.id !== 'castform') forme = 'Castform';
