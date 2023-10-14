@@ -1119,8 +1119,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	overcoat: {
 		name: "Overcoat",
-		desc: "This Pokemon is immune to powder moves, damage from Sandstorm, and the effects of Rage Powder and the Effect Spore Ability.",
-		shortDesc: "This Pokemon is immune to powder moves, Sandstorm damage, and Effect Spore.",
+		desc: "This Pokemon is immune to powder moves, the effects of Rage Powder and the Effect Spore Ability, damage from Sandstorm, and Irritant Weathergy effects. Damage and accuracy calculations from attacks used by the holder are affected by Irritant Weathergy, but not attacks used against the holder.",
+		shortDesc: "This Pokemon is immune to powder moves, Sandstorm damage, and Effect Spore; ignores Irritant Weathergy effects.",
 		gen8: {
 			desc: "This Pokemon is immune to powder moves, damage from Sandstorm or Hail, and the effects of Rage Powder and the Effect Spore Ability.",
 			shortDesc: "This Pokemon is immune to powder moves, Sandstorm or Hail damage, Effect Spore.",
@@ -2214,6 +2214,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Druidry",
 		desc: "If Fairy Dust is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding Safety Goggles. If Strong Winds Fairy Dust is activated while this Pokemon is on the field, Grassy Terrain is set up instead of Misty Terrain.",
 		shortDesc: "If Fairy Dust is active, this Pokemon heals 1/16 of its max HP each turn. Sets up Grassy Terrain in Strong Winds Fairy Dust.",
+
+		activate: "  [POKEMON] transfigured the battlefield!",
 	},
 	dustdevil: {
 		name: "Dust Devil",

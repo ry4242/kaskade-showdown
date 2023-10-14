@@ -362,13 +362,13 @@ export const DefaultText: {[k: string]: DefaultText} = {
 	auraprojection: {
 		weatherName: "Battle Aura",
 		start: "  The battlefield was filled with fighting spirit!",
-		end: "  The aura's pressure lifted.",
+		end: "  The aura's pressure was lifted.",
 		upkeep: "  (The combat pressure is overwhelming.)",
 	},
 	haunt: {
 		weatherName: "Cursed Winds",
 		start: "  A ghastly chill went up your spine...",
-		end: "  The presence left.",
+		end: "  The ominous presence left.",
 		upkeep: "  (Spirits are haunting the air.)",
 		damage: "  [POKEMON] was cursed by the wandering spirits!",
 	},
@@ -389,25 +389,26 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		start: "  A thunderstorm formed!",
 		end: "  The thunder ceased.",
 		upkeep: "  (The thunder is roaring.)",
-		damage: "  [POKEMON] is struck by lightning!",
+		damage: "  [POKEMON] was struck by lightning!",
 	},
 	magnetize: {
 		weatherName: "Magnetosphere",
-		start: "  A magnetic field electrified the battlefield!",
+		start: "  The battlefield's magnetic flux intensified!",
 		end: "  The magnetic field disappeared.",
-		upkeep: "  (The magnetic field is electrifying.)",
+		upkeep: "  (The magnetic poles are being pulled.)",
 	},
 
 	// Clearing
 
 	strongwinds: {
 		weatherName: "Strong Winds",
-		start: "  A strong wind cleared the battlefield!",
+		start: "  A strong gale cleared the battlefield!",
 		end: "  The winds died down.",
-		upkeep: "  (The wind blows strong.)",
+		upkeep: "  (The winds blow strong.)",
 	},
 
 	// extra weather
+
 	desolateland: {
 		weatherName: "Intense Sun",
 		start: "  The sunlight turned extremely harsh!",

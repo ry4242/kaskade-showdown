@@ -2063,7 +2063,7 @@ export class Pokemon {
 		case 'swarmsignal':
 		case 'smogspread':
 		case 'sprinkle':
-			if (this.hasItem('safetygoggles')) return '';
+			if (this.hasItem('safetygoggles') || this.hasAbility('overcoat')) return '';
 		}
 		return weather;
 	}

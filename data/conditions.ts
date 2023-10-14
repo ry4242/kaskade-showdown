@@ -1087,10 +1087,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
-				if (source.hasAbility('druidry')) { // incomplete. idk how to make it check the whole field
-					this.field.setTerrain('grassyterrain', source);
-				} else {
-					this.field.setTerrain('mistyterrain', source);
+				for (const any of this.getAllActive()) {
+					if (any.hasAbility('Druidry')) {
+						this.add('-activate', source, 'ability: Druidry');
+						this.field.setTerrain('grassyterrain', source);
+					} else {
+						this.field.setTerrain('mistyterrain', source);
+					}
 				}
 			}
 			if (effect?.effectType === 'Ability') {
@@ -1370,31 +1373,46 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.eachEvent('EnergyWeather');
 		},
 		onEnergyWeather(target) {
+			if (target.hasItem('energynullifier')) return;
 			this.debug('lightning might strike');
 			if (this.randomChance(1, 10)) {
 				let typeMod = 1;
-				if (target.hasType('Water')) typeMod *= 2;
+				// weak to electric
+				if (target.hasType('Water')) typeMod *= 2;	
 				if (target.hasType('Flying')) typeMod *= 2;
-				if (target.hasType('Electric')) typeMod *= 0.5;
+				// resist electric
 				if (target.hasType('Dragon')) typeMod *= 0.5;
 				if (target.hasType('Grass')) typeMod *= 0.5;
+				// for when rain is up
+				if (target.hasType('Electric')) typeMod *= 0.5;
 				if (target.hasType('Ground')) typeMod *= 0.5;
+				// covering for non-rain thunderstorm
 				if (target.hasType('Electric') && !this.field.isClimateWeather('raindance')) typeMod *= 0;
 				if (target.hasType('Ground') && !this.field.isClimateWeather('raindance')) typeMod *= 0;
+				// electric types gain charge and take no damage
 				if (target.hasType('Electric')) {
 					target.addVolatile('charge');
-				} else if (target.hasType('Ground')) {
+					this.hint("Electric types gain the Charge effect when struck by lightning.");
+				} else if (target.hasType('Ground')) { // ground types lose speed
 					this.boost({spe: -1});
+					this.hint("Ground types receive -1 Speed when struck by lightning.");
 				}
 				if (target.hasAbility('lightningrod')) {
 					this.boost({spa: 1});
+					this.hint("Pokemon with Lightning Rod draw in any lightning strike.");
+					typeMod *= 0;
+				}
+				if (target.hasAbility('motordrive')) {
+					this.boost({spe: 1});
+					this.hint("Pokemon with Motor Drive receive +1 Speed when struck by lightning.");
 					typeMod *= 0;
 				}
 				if (target.hasAbility('voltabsorb')) {
 					target.heal(target.baseMaxhp / 4);
+					this.hint("Pokemon with Volt Absorb heal from lightning strikes.");
 					typeMod *= 0;
 				}
-				this.debug('lightning strikes damage is based on the pokemons weakness/resistance to electric');
+				this.debug('lightning strike damage is based on the pokemons weakness/resistance to electric');
 				this.damage(typeMod * target.baseMaxhp / 10);
 			}
 		},
