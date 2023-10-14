@@ -213,11 +213,15 @@ export const Conditions: {[k: string]: ConditionData} = {
 	caffeinecrash: {
 		name: 'caffeinecrash',
 		noCopy: true,
+		duration: 3,
 		onStart(target, source, sourceEffect) {
-			this.add('-start', target, 'caffeinecrash', '[from] item: ' + sourceEffect.name,);
+			this.add('-start', target, 'caffeinecrash', '[from] item: ' + sourceEffect.name);
 		},
 		onModifyPriority(priority, pokemon, target, move) {
 			return priority - 2;
+		},
+		onEnd(target) {
+			this.add('-end', target, 'caffeinecrash');
 		},
 	},
 	flinch: {
