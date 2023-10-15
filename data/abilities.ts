@@ -5686,7 +5686,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			onResidual(pokemon) {
 				const duration = pokemon.volatiles['nottobe'].duration;
 				this.add('-start', pokemon, 'perish' + duration);
-			}
+			},
 		},
 		name: "Not to Be",
 		rating: 2,
@@ -5914,18 +5914,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: -50,
 	},
-	souldrain: { // incomplete. needs testing
-		onAnyResidual(pokemon) {
-			for (const target of this.getAllActive()) {
-				if (!pokemon || (['haunt'].includes(pokemon.effectiveEnergyWeather()))) {
-					this.heal(pokemon.baseMaxhp / 16, pokemon, target);
-				}
+	/* souldrain: { // incomplete. needs testing
+		onAnyDamage(damage, target, pokemon, effect) {
+			const source = this.effectState.source;
+			if (!pokemon && source === this.field.isEnergyWeather('haunt')) {
+				this.heal(pokemon.baseMaxhp / 16, pokemon, target);
 			}
 		},
 		name: "Soul Drain",
 		rating: 2,
 		num: -29,
-	},
+	}, */
 	standoff: {
 		onStart(source) {
 			this.field.setEnergyWeather('auraprojection');

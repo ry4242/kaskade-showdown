@@ -1395,7 +1395,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (this.randomChance(1, 10)) {
 				let typeMod = 1;
 				// weak to electric
-				if (target.hasType('Water')) typeMod *= 2;	
+				if (target.hasType('Water')) typeMod *= 2;
 				if (target.hasType('Flying')) typeMod *= 2;
 				// resist electric
 				if (target.hasType('Dragon')) typeMod *= 0.5;
