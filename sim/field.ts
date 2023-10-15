@@ -32,13 +32,13 @@ export class Field {
 		this.id = '';
 
 		this.climateWeather = '';
-		this.climateWeatherState = {id: ''};
+		this.climateWeatherState = {id: '', turnsActive: 0};
 		this.irritantWeather = '';
-		this.irritantWeatherState = {id: ''};
+		this.irritantWeatherState = {id: '', turnsActive: 0};
 		this.energyWeather = '';
-		this.energyWeatherState = {id: ''};
+		this.energyWeatherState = {id: '', turnsActive: 0};
 		this.clearingWeather = '';
-		this.clearingWeatherState = {id: ''};
+		this.clearingWeatherState = {id: '', turnsActive: 0};
 		this.terrain = '';
 		this.terrainState = {id: ''};
 		this.pseudoWeather = {};
@@ -81,7 +81,7 @@ export class Field {
 		const prevClimateWeather = this.climateWeather;
 		const prevClimateWeatherState = this.climateWeatherState;
 		this.climateWeather = status.id;
-		this.climateWeatherState = {id: status.id};
+		this.climateWeatherState = {id: status.id, turnsActive: 0};
 		if (source) {
 			this.climateWeatherState.source = source;
 			this.climateWeatherState.sourceSlot = source.getSlot();
@@ -135,7 +135,7 @@ export class Field {
 		const prevIrritantWeather = this.irritantWeather;
 		const prevIrritantWeatherState = this.irritantWeatherState;
 		this.irritantWeather = status.id;
-		this.irritantWeatherState = {id: status.id};
+		this.irritantWeatherState = {id: status.id, turnsActive: 0};
 		if (source) {
 			this.irritantWeatherState.source = source;
 			this.irritantWeatherState.sourceSlot = source.getSlot();
@@ -189,7 +189,7 @@ export class Field {
 		const prevEnergyWeather = this.energyWeather;
 		const prevEnergyWeatherState = this.energyWeatherState;
 		this.energyWeather = status.id;
-		this.energyWeatherState = {id: status.id};
+		this.energyWeatherState = {id: status.id, turnsActive: 0};
 		if (source) {
 			this.energyWeatherState.source = source;
 			this.energyWeatherState.sourceSlot = source.getSlot();
@@ -243,7 +243,7 @@ export class Field {
 		const prevClearingWeather = this.clearingWeather;
 		const prevClearingWeatherState = this.clearingWeatherState;
 		this.clearingWeather = status.id;
-		this.clearingWeatherState = {id: status.id};
+		this.clearingWeatherState = {id: status.id, turnsActive: 0};
 		if (source) {
 			this.clearingWeatherState.source = source;
 			this.clearingWeatherState.sourceSlot = source.getSlot();
@@ -269,7 +269,7 @@ export class Field {
 		const prevClimateWeather = this.getClimateWeather();
 		this.battle.singleEvent('FieldEnd', prevClimateWeather, this.climateWeatherState, this);
 		this.climateWeather = '';
-		this.climateWeatherState = {id: '', boosted: false};
+		this.climateWeatherState = {id: '', turnsActive: 0, boosted: false};
 		this.battle.eachEvent('ClimateWeatherChange');
 		return true;
 	}
@@ -279,7 +279,7 @@ export class Field {
 		const prevIrritantWeather = this.getIrritantWeather();
 		this.battle.singleEvent('FieldEnd', prevIrritantWeather, this.irritantWeatherState, this);
 		this.irritantWeather = '';
-		this.irritantWeatherState = {id: '', boosted: false};
+		this.irritantWeatherState = {id: '', turnsActive: 0, boosted: false};
 		this.battle.eachEvent('IrritantWeatherChange');
 		return true;
 	}
@@ -289,7 +289,7 @@ export class Field {
 		const prevEnergyWeather = this.getEnergyWeather();
 		this.battle.singleEvent('FieldEnd', prevEnergyWeather, this.energyWeatherState, this);
 		this.energyWeather = '';
-		this.energyWeatherState = {id: '', boosted: false};
+		this.energyWeatherState = {id: '', turnsActive: 0, boosted: false};
 		this.battle.eachEvent('EnergyWeatherChange');
 		return true;
 	}
@@ -299,7 +299,7 @@ export class Field {
 		const prevClearingWeather = this.getClearingWeather();
 		this.battle.singleEvent('FieldEnd', prevClearingWeather, this.clearingWeatherState, this);
 		this.clearingWeather = '';
-		this.clearingWeatherState = {id: ''};
+		this.clearingWeatherState = {id: '', turnsActive: 0};
 		this.battle.eachEvent('ClearingWeatherChange');
 		return true;
 	}
@@ -414,6 +414,20 @@ export class Field {
 
 	getClearingWeather() {
 		return this.battle.dex.conditions.getByID(this.clearingWeather);
+	}
+
+	getRecentWeather(exclude: string | null = null) {
+		if (this.climateWeatherState.turnsActive <= this.irritantWeatherState.turnsActive && this.climateWeatherState.turnsActive <= this.energyWeatherState.turnsActive && this.climateWeatherState.turnsActive <= this.clearingWeatherState.turnsActive && this.climateWeather !== exclude && this.climateWeatherState.turnsActive > 0) {
+			return this.climateWeather;
+		} else if (this.irritantWeatherState.turnsActive <= this.climateWeatherState.turnsActive && this.irritantWeatherState.turnsActive <= this.energyWeatherState.turnsActive && this.irritantWeatherState.turnsActive <= this.clearingWeatherState.turnsActive && this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive > 0) {
+			return this.irritantWeather;
+		} else if (this.energyWeatherState.turnsActive <= this.irritantWeatherState.turnsActive && this.energyWeatherState.turnsActive <= this.climateWeatherState.turnsActive && this.energyWeatherState.turnsActive <= this.clearingWeatherState.turnsActive && this.energyWeather !== exclude && this.energyWeatherState.turnsActive > 0) {
+			return this.energyWeather;
+		} else if (this.clearingWeatherState.turnsActive <= this.irritantWeatherState.turnsActive && this.clearingWeatherState.turnsActive <= this.energyWeatherState.turnsActive && this.clearingWeatherState.turnsActive <= this.climateWeatherState.turnsActive && this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive > 0) {
+			return this.clearingWeather;
+		} else {
+			return 'bozo';
+		}
 	}
 
 	setTerrain(status: string | Effect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {

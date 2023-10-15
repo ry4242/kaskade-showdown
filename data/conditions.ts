@@ -538,6 +538,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(battle, source, effect) {
+			this.field.climateWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.climateWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -556,6 +557,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-climateWeather', 'SunnyDay', '[upkeep]');
+			this.field.climateWeatherState.turnsActive? this.field.climateWeatherState.turnsActive += 1 : this.field.climateWeatherState.turnsActive = 1;
 			this.eachEvent('ClimateWeather');
 		},
 		onFieldEnd() {
@@ -603,6 +605,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
+			this.field.climateWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.climateWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -617,6 +620,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-climateWeather', 'RainDance', '[upkeep]');
+			this.field.climateWeatherState.turnsActive? this.field.climateWeatherState.turnsActive += 1 : this.field.climateWeatherState.turnsActive = 1;
 			this.eachEvent('ClimateWeather');
 		},
 		onFieldEnd() {
@@ -648,6 +652,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
+			this.field.climateWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.climateWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -662,6 +667,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-climateWeather', 'Hail', '[upkeep]');
+			this.field.climateWeatherState.turnsActive? this.field.climateWeatherState.turnsActive += 1 : this.field.climateWeatherState.turnsActive = 1;
 			if (this.field.isClimateWeather('hail')) this.eachEvent('ClimateWeather');
 		},
 		onClimateWeather(target) {
@@ -740,6 +746,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (move?.type === 'Dark' && move.category === 'Status') return priority + 1;
 		},
 		onFieldStart(field, source, effect) {
+			this.field.climateWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.climateWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -754,6 +761,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-climateWeather', 'BloodMoon', '[upkeep]');
+			this.field.climateWeatherState.turnsActive? this.field.climateWeatherState.turnsActive += 1 : this.field.climateWeatherState.turnsActive = 1;
 			this.eachEvent('ClimateWeather');
 		},
 		onFieldEnd() {
@@ -796,6 +804,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
+			this.field.climateWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.climateWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -810,6 +819,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-climateWeather', 'Foghorn', '[upkeep]');
+			this.field.climateWeatherState.turnsActive? this.field.climateWeatherState.turnsActive += 1 : this.field.climateWeatherState.turnsActive = 1;
 			this.eachEvent('ClimateWeather');
 		},
 		onFieldEnd() {
@@ -852,6 +862,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
+			this.field.irritantWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -866,6 +877,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-irritantWeather', 'Sandstorm', '[upkeep]');
+			this.field.irritantWeatherState.turnsActive? this.field.irritantWeatherState.turnsActive += 1 : this.field.irritantWeatherState.turnsActive = 1;
 			if (this.field.isIrritantWeather('sandstorm')) this.eachEvent('IrritantWeather');
 		},
 		onIrritantWeather(target) {
@@ -912,6 +924,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
+			this.field.irritantWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -926,6 +939,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-irritantWeather', 'DustStorm', '[upkeep]');
+			this.field.irritantWeatherState.turnsActive? this.field.irritantWeatherState.turnsActive += 1 : this.field.irritantWeatherState.turnsActive = 1;
 			this.eachEvent('IrritantWeather');
 		},
 		onFieldEnd() {
@@ -961,6 +975,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
+			this.field.irritantWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -977,6 +992,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-irritantWeather', 'Pollinate', '[upkeep]');
+			this.field.irritantWeatherState.turnsActive? this.field.irritantWeatherState.turnsActive += 1 : this.field.irritantWeatherState.turnsActive = 1;
 			this.eachEvent('IrritantWeather');
 		},
 		onFieldEnd() {
@@ -1009,6 +1025,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
+			this.field.irritantWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -1023,6 +1040,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-irritantWeather', 'SwarmSignal', '[upkeep]');
+			this.field.irritantWeatherState.turnsActive? this.field.irritantWeatherState.turnsActive += 1 : this.field.irritantWeatherState.turnsActive = 1;
 			this.eachEvent('IrritantWeather');
 		},
 		onIrritantWeather(target) {
@@ -1048,6 +1066,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return 5;
 		},
 		onFieldStart(field, source, effect) {
+			this.field.irritantWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -1062,6 +1081,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-irritantWeather', 'SmogSpread', '[upkeep]');
+			this.field.irritantWeatherState.turnsActive? this.field.irritantWeatherState.turnsActive += 1 : this.field.irritantWeatherState.turnsActive = 1;
 			this.eachEvent('IrritantWeather');
 		},
 		onIrritantWeather(target) {
@@ -1100,17 +1120,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return this.modify(accuracy, [5461, 4096]);
 		},
 		onFieldStart(field, source, effect) {
+			this.field.irritantWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
-				for (const any of this.getAllActive()) {
-					if (any.hasAbility('Druidry')) {
-						this.add('-activate', source, 'ability: Druidry');
-						this.field.setTerrain('grassyterrain', source);
-					} else {
-						this.field.setTerrain('mistyterrain', source);
-					}
-				}
+				this.field.setTerrain('mistyterrain', source);
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
@@ -1122,6 +1136,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-irritantWeather', 'Sprinkle', '[upkeep]');
+			this.field.irritantWeatherState.turnsActive? this.field.irritantWeatherState.turnsActive += 1 : this.field.irritantWeatherState.turnsActive = 1;
 			this.eachEvent('IrritantWeather');
 		},
 		onIrritantWeather(target) {
@@ -1180,6 +1195,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
+			this.field.energyWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.energyWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -1194,6 +1210,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-energyWeather', 'AuraProjection', '[upkeep]');
+			this.field.energyWeatherState.turnsActive? this.field.energyWeatherState.turnsActive += 1 : this.field.energyWeatherState.turnsActive = 1;
 			this.eachEvent('EnergyWeather');
 		},
 		onFieldEnd() {
@@ -1221,6 +1238,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(field, source, effect) {
+			this.field.energyWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.energyWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -1235,6 +1253,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-energyWeather', 'Haunt', '[upkeep]');
+			this.field.energyWeatherState.turnsActive? this.field.energyWeatherState.turnsActive += 1 : this.field.energyWeatherState.turnsActive = 1;
 			if (this.field.isEnergyWeather('haunt')) this.eachEvent('EnergyWeather');
 		},
 		onEnergyWeather(target) {
@@ -1267,6 +1286,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(battle, source, effect) {
+			this.field.energyWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.energyWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -1283,6 +1303,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-energyWeather', 'CosmicRays', '[upkeep]');
+			this.field.energyWeatherState.turnsActive? this.field.energyWeatherState.turnsActive += 1 : this.field.energyWeatherState.turnsActive = 1;
 			this.eachEvent('EnergyWeather');
 		},
 		onFieldEnd() {
@@ -1333,6 +1354,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(battle, source, effect) {
+			this.field.energyWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.energyWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -1347,6 +1369,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-energyWeather', 'DragonForce', '[upkeep]');
+			this.field.energyWeatherState.turnsActive? this.field.energyWeatherState.turnsActive += 1 : this.field.energyWeatherState.turnsActive = 1;
 			this.eachEvent('EnergyWeather');
 		},
 		onFieldEnd() {
@@ -1371,6 +1394,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(battle, source, effect) {
+			this.field.energyWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.energyWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -1387,6 +1411,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-energyWeather', 'Supercell', '[upkeep]');
+			this.field.energyWeatherState.turnsActive? this.field.energyWeatherState.turnsActive += 1 : this.field.energyWeatherState.turnsActive = 1;
 			this.eachEvent('EnergyWeather');
 		},
 		onEnergyWeather(target) {
@@ -1415,17 +1440,23 @@ export const Conditions: {[k: string]: ConditionData} = {
 					this.hint("Ground types receive -1 Speed when struck by lightning.");
 				}
 				if (target.hasAbility('lightningrod')) {
-					this.boost({spa: 1});
+					if (!this.boost({spa: 1})) {
+						this.add('-immune', target, '[from] ability: Lightning Rod');
+					}
 					this.hint("Pokemon with Lightning Rod draw in any lightning strike.");
 					typeMod *= 0;
 				}
 				if (target.hasAbility('motordrive')) {
-					this.boost({spe: 1});
+					if (!this.boost({spe: 1})) {
+						this.add('-immune', target, '[from] ability: Motor Drive');
+					}
 					this.hint("Pokemon with Motor Drive receive +1 Speed when struck by lightning.");
 					typeMod *= 0;
 				}
 				if (target.hasAbility('voltabsorb')) {
-					target.heal(target.baseMaxhp / 4);
+					if (!target.heal(target.baseMaxhp / 4)) {
+						this.add('-immune', target, '[from] ability: Volt Absorb');
+					}
 					this.hint("Pokemon with Volt Absorb heal from lightning strikes.");
 					typeMod *= 0;
 				}
@@ -1468,6 +1499,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onFieldStart(battle, source, effect) {
+			this.field.energyWeatherState.turnsActive = 1
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.energyWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
@@ -1482,6 +1514,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-energyWeather', 'Magnetize', '[upkeep]');
+			this.field.energyWeatherState.turnsActive? this.field.energyWeatherState.turnsActive += 1 : this.field.energyWeatherState.turnsActive = 1;
 			this.eachEvent('EnergyWeather');
 		},
 		onFieldEnd() {
@@ -1514,6 +1547,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return accuracy;
 		},
 		onFieldStart(field, source, effect) {
+			this.field.clearingWeatherState.turnsActive = 1
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
 				this.add('-clearingWeather', 'StrongWinds', '[from] ability: ' + effect.name, '[of] ' + source);
@@ -1539,6 +1573,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-clearingWeather', 'StrongWinds', '[upkeep]');
+			this.field.clearingWeatherState.turnsActive? this.field.clearingWeatherState.turnsActive += 1 : this.field.clearingWeatherState.turnsActive = 1;
 			this.eachEvent('ClearingWeather');
 		},
 		onFieldEnd() {
