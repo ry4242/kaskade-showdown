@@ -1309,7 +1309,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	forecast: { // incomplete. needs testing, add weather vane
 		onStart(pokemon) {
-			if (this.field.getRecentWeather() === pokemon.effectiveClimateWeather() || this.field.getRecentWeather() === pokemon.effectiveIrritantWeather() || this.field.getRecentWeather() === pokemon.effectiveEnergyWeather() || this.field.getRecentWeather() === pokemon.effectiveClearingWeather()) {
+			if (this.field.getRecentWeather() === pokemon.effectiveClimateWeather() ||
+			this.field.getRecentWeather() === pokemon.effectiveIrritantWeather() ||
+			this.field.getRecentWeather() === pokemon.effectiveEnergyWeather() ||
+			this.field.getRecentWeather() === pokemon.effectiveClearingWeather()) {
 				if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 				let forme = null;
 				switch (this.field.getRecentWeather('magnetize')) {

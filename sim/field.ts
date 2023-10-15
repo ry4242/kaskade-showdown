@@ -417,16 +417,35 @@ export class Field {
 	}
 
 	getRecentWeather(exclude: string | null = null) {
-		if (this.climateWeatherState.turnsActive <= this.irritantWeatherState.turnsActive && this.climateWeatherState.turnsActive <= this.energyWeatherState.turnsActive && this.climateWeatherState.turnsActive <= this.clearingWeatherState.turnsActive && this.climateWeather !== exclude && this.climateWeatherState.turnsActive > 0) {
+		if (
+			this.climateWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
+			this.climateWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
+			this.climateWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
+			this.climateWeather !== exclude && this.climateWeatherState.turnsActive > 0
+		) {
 			return this.climateWeather;
-		} else if (this.irritantWeatherState.turnsActive <= this.climateWeatherState.turnsActive && this.irritantWeatherState.turnsActive <= this.energyWeatherState.turnsActive && this.irritantWeatherState.turnsActive <= this.clearingWeatherState.turnsActive && this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive > 0) {
+		} else if (
+			this.irritantWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
+			this.irritantWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
+			this.irritantWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
+			this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive > 0
+		) {
 			return this.irritantWeather;
-		} else if (this.energyWeatherState.turnsActive <= this.irritantWeatherState.turnsActive && this.energyWeatherState.turnsActive <= this.climateWeatherState.turnsActive && this.energyWeatherState.turnsActive <= this.clearingWeatherState.turnsActive && this.energyWeather !== exclude && this.energyWeatherState.turnsActive > 0) {
+		} else if (
+			this.energyWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
+			this.energyWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
+			this.energyWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
+			this.energyWeather !== exclude && this.energyWeatherState.turnsActive > 0
+		) {
 			return this.energyWeather;
-		} else if (this.clearingWeatherState.turnsActive <= this.irritantWeatherState.turnsActive && this.clearingWeatherState.turnsActive <= this.energyWeatherState.turnsActive && this.clearingWeatherState.turnsActive <= this.climateWeatherState.turnsActive && this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive > 0) {
+		} else if (this.clearingWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
+			this.clearingWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
+			this.clearingWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
+			this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive > 0
+		) {
 			return this.clearingWeather;
 		} else {
-			return 'bozo';
+			return 'bozo'; // lmfao??
 		}
 	}
 
