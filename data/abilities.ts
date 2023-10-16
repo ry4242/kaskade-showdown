@@ -1383,26 +1383,66 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (pokemon.effectiveClimateWeather()) {
-			case 'sunnyday':
-			case 'desolateland':
-				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
-				break;
-			case 'hail':
-			case 'snow':
-				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
-				break;
-			case 'bloodmoon':
-				if (pokemon.species.id !== 'castformshady') forme = 'Castform-Shady';
-				break;
-			default:
-				if (pokemon.species.id !== 'castform') forme = 'Castform';
-				break;
-			}
+			switch (this.field.getRecentWeather('magnetize')) {
+				case 'sunnyday':
+				case 'desolateland':
+					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
+					break;
+				case 'hail':
+				case 'snow':
+					if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+					break;
+				case 'bloodmoon':
+					if (pokemon.species.id !== 'castformshady') forme = 'Castform-Shady';
+					break;
+				case 'sandstorm':
+					if (pokemon.species.id !== 'castformsandy') forme = 'Castform-Sandy';
+					break;
+				case 'duststorm':
+					if (pokemon.species.id !== 'castformdusty') forme = 'Castform-Dusty';
+					break;
+				case 'pollinate':
+					if (pokemon.species.id !== 'castformallergy') forme = 'Castform-Allergy';
+					break;
+				case 'swarmsignal':
+					if (pokemon.species.id !== 'castformswarmy') forme = 'Castform-Swarmy';
+					break;
+				case 'smogspread':
+					if (pokemon.species.id !== 'castformsmoggy') forme = 'Castform-Smoggy';
+					break;
+				case 'sprinkle':
+					if (pokemon.species.id !== 'castformlovely') forme = 'Castform-Lovely';
+					break;
+				case 'auraprojection':
+					if (pokemon.species.id !== 'castformgutsy') forme = 'Castform-Gutsy';
+					break;
+				case 'haunt':
+					if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
+					break;
+				case 'cosmicrays':
+					if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
+					break;
+				case 'dragonforce':
+					if (pokemon.species.id !== 'castformsorcery') forme = 'Castform-Sorcery';
+					break;
+				case 'supercell':
+					if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
+					break;
+				case 'strongwinds':
+					if (pokemon.species.id !== 'castformwindy') forme = 'Castform-Windy';
+					break;
+				default:
+					if (pokemon.species.id !== 'castform') forme = 'Castform';
+					break;
+				}
+				if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
+					if (pokemon.species.id !== 'castformwhirly') forme = 'Castform-Whirly';
+				}
+				this.debug(this.field.getRecentWeather());
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1410,29 +1450,66 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onIrritantWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (pokemon.effectiveIrritantWeather()) {
-			case 'sandstorm':
-				if (pokemon.species.id !== 'castformsandy') forme = 'Castform-Sandy';
-				break;
-			case 'duststorm':
-				if (pokemon.species.id !== 'castformdusty') forme = 'Castform-Dusty';
-				break;
-			case 'pollinate':
-				if (pokemon.species.id !== 'castformallergy') forme = 'Castform-Allergy';
-				break;
-			case 'swarmsignal':
-				if (pokemon.species.id !== 'castformswarmy') forme = 'Castform-Swarmy';
-				break;
-			case 'smogspread':
-				if (pokemon.species.id !== 'castformsmoggy') forme = 'Castform-Smoggy';
-				break;
-			case 'sprinkle':
-				if (pokemon.species.id !== 'castformlovely') forme = 'Castform-Lovely';
-				break;
-			default:
-				if (pokemon.species.id !== 'castform') forme = 'Castform';
-				break;
-			}
+			switch (this.field.getRecentWeather('magnetize')) {
+				case 'sunnyday':
+				case 'desolateland':
+					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
+					break;
+				case 'hail':
+				case 'snow':
+					if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+					break;
+				case 'bloodmoon':
+					if (pokemon.species.id !== 'castformshady') forme = 'Castform-Shady';
+					break;
+				case 'sandstorm':
+					if (pokemon.species.id !== 'castformsandy') forme = 'Castform-Sandy';
+					break;
+				case 'duststorm':
+					if (pokemon.species.id !== 'castformdusty') forme = 'Castform-Dusty';
+					break;
+				case 'pollinate':
+					if (pokemon.species.id !== 'castformallergy') forme = 'Castform-Allergy';
+					break;
+				case 'swarmsignal':
+					if (pokemon.species.id !== 'castformswarmy') forme = 'Castform-Swarmy';
+					break;
+				case 'smogspread':
+					if (pokemon.species.id !== 'castformsmoggy') forme = 'Castform-Smoggy';
+					break;
+				case 'sprinkle':
+					if (pokemon.species.id !== 'castformlovely') forme = 'Castform-Lovely';
+					break;
+				case 'auraprojection':
+					if (pokemon.species.id !== 'castformgutsy') forme = 'Castform-Gutsy';
+					break;
+				case 'haunt':
+					if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
+					break;
+				case 'cosmicrays':
+					if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
+					break;
+				case 'dragonforce':
+					if (pokemon.species.id !== 'castformsorcery') forme = 'Castform-Sorcery';
+					break;
+				case 'supercell':
+					if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
+					break;
+				case 'strongwinds':
+					if (pokemon.species.id !== 'castformwindy') forme = 'Castform-Windy';
+					break;
+				default:
+					if (pokemon.species.id !== 'castform') forme = 'Castform';
+					break;
+				}
+				if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
+					if (pokemon.species.id !== 'castformwhirly') forme = 'Castform-Whirly';
+				}
+				this.debug(this.field.getRecentWeather());
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1440,31 +1517,66 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onEnergyWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (pokemon.effectiveEnergyWeather()) {
-			case 'auraprojection':
-				if (pokemon.species.id !== 'castformgutsy') forme = 'Castform-Gutsy';
-				break;
-			case 'haunt':
-				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
-				break;
-			case 'cosmicrays':
-				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
-				break;
-			case 'dragonforce':
-				if (pokemon.species.id !== 'castformsorcery') forme = 'Castform-Sorcery';
-				break;
-			case 'supercell':
-				if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
-				break;
-			case 'magnetize':
-				if (pokemon.hasItem('whirligig')) {
+			switch (this.field.getRecentWeather('magnetize')) {
+				case 'sunnyday':
+				case 'desolateland':
+					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
+					break;
+				case 'hail':
+				case 'snow':
+					if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+					break;
+				case 'bloodmoon':
+					if (pokemon.species.id !== 'castformshady') forme = 'Castform-Shady';
+					break;
+				case 'sandstorm':
+					if (pokemon.species.id !== 'castformsandy') forme = 'Castform-Sandy';
+					break;
+				case 'duststorm':
+					if (pokemon.species.id !== 'castformdusty') forme = 'Castform-Dusty';
+					break;
+				case 'pollinate':
+					if (pokemon.species.id !== 'castformallergy') forme = 'Castform-Allergy';
+					break;
+				case 'swarmsignal':
+					if (pokemon.species.id !== 'castformswarmy') forme = 'Castform-Swarmy';
+					break;
+				case 'smogspread':
+					if (pokemon.species.id !== 'castformsmoggy') forme = 'Castform-Smoggy';
+					break;
+				case 'sprinkle':
+					if (pokemon.species.id !== 'castformlovely') forme = 'Castform-Lovely';
+					break;
+				case 'auraprojection':
+					if (pokemon.species.id !== 'castformgutsy') forme = 'Castform-Gutsy';
+					break;
+				case 'haunt':
+					if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
+					break;
+				case 'cosmicrays':
+					if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
+					break;
+				case 'dragonforce':
+					if (pokemon.species.id !== 'castformsorcery') forme = 'Castform-Sorcery';
+					break;
+				case 'supercell':
+					if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
+					break;
+				case 'strongwinds':
+					if (pokemon.species.id !== 'castformwindy') forme = 'Castform-Windy';
+					break;
+				default:
+					if (pokemon.species.id !== 'castform') forme = 'Castform';
+					break;
+				}
+				if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
 					if (pokemon.species.id !== 'castformwhirly') forme = 'Castform-Whirly';
 				}
-				break;
-			default:
-				if (pokemon.species.id !== 'castform') forme = 'Castform';
-				break;
-			}
+				this.debug(this.field.getRecentWeather());
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1472,14 +1584,66 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onClearingWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (pokemon.effectiveClearingWeather()) {
-			case 'strongwinds':
-				if (pokemon.species.id !== 'castformwindy') forme = 'Castform-Windy';
-				break;
-			default:
-				if (pokemon.species.id !== 'castform') forme = 'Castform';
-				break;
-			}
+			switch (this.field.getRecentWeather('magnetize')) {
+				case 'sunnyday':
+				case 'desolateland':
+					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
+					break;
+				case 'raindance':
+				case 'primordialsea':
+					if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
+					break;
+				case 'hail':
+				case 'snow':
+					if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
+					break;
+				case 'bloodmoon':
+					if (pokemon.species.id !== 'castformshady') forme = 'Castform-Shady';
+					break;
+				case 'sandstorm':
+					if (pokemon.species.id !== 'castformsandy') forme = 'Castform-Sandy';
+					break;
+				case 'duststorm':
+					if (pokemon.species.id !== 'castformdusty') forme = 'Castform-Dusty';
+					break;
+				case 'pollinate':
+					if (pokemon.species.id !== 'castformallergy') forme = 'Castform-Allergy';
+					break;
+				case 'swarmsignal':
+					if (pokemon.species.id !== 'castformswarmy') forme = 'Castform-Swarmy';
+					break;
+				case 'smogspread':
+					if (pokemon.species.id !== 'castformsmoggy') forme = 'Castform-Smoggy';
+					break;
+				case 'sprinkle':
+					if (pokemon.species.id !== 'castformlovely') forme = 'Castform-Lovely';
+					break;
+				case 'auraprojection':
+					if (pokemon.species.id !== 'castformgutsy') forme = 'Castform-Gutsy';
+					break;
+				case 'haunt':
+					if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
+					break;
+				case 'cosmicrays':
+					if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
+					break;
+				case 'dragonforce':
+					if (pokemon.species.id !== 'castformsorcery') forme = 'Castform-Sorcery';
+					break;
+				case 'supercell':
+					if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
+					break;
+				case 'strongwinds':
+					if (pokemon.species.id !== 'castformwindy') forme = 'Castform-Windy';
+					break;
+				default:
+					if (pokemon.species.id !== 'castform') forme = 'Castform';
+					break;
+				}
+				if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
+					if (pokemon.species.id !== 'castformwhirly') forme = 'Castform-Whirly';
+				}
+				this.debug(this.field.getRecentWeather());
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}

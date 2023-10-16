@@ -21057,7 +21057,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {bullet: 1, protect: 1, mirror: 1},
 		onModifyType(move, pokemon) {
-			switch (pokemon.effectiveClimateWeather()) {
+			switch (this.field.getRecentWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				move.type = 'Fire';
@@ -21076,8 +21076,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			case 'foghorn':
 				move.type = 'Normal';
 				break;
-			}
-			switch (pokemon.effectiveIrritantWeather()) {
 			case 'sandstorm':
 				move.type = 'Rock';
 				break;
@@ -21096,8 +21094,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			case 'sprinkle':
 				move.type = 'Fairy';
 				break;
-			}
-			switch (pokemon.effectiveEnergyWeather()) {
 			case 'auraprojection':
 				move.type = 'Fighting';
 				break;
@@ -21116,8 +21112,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 			case 'magnetize':
 				move.type = 'Steel';
 				break;
-			}
-			switch (pokemon.effectiveClearingWeather()) {
 			case 'strongwinds':
 				move.type = 'Flying';
 				break;
