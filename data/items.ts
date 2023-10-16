@@ -7612,7 +7612,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	coffeegeistcappuccino: {
 		name: "Coffeegeist Cappuccino",
-		spritenum: 788,
+		spritenum: 791,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
@@ -7638,7 +7638,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	flatunovan: {
 		name: "Flat Unovan",
-		spritenum: 788,
+		spritenum: 792,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
@@ -7677,9 +7677,35 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: -2,
 		gen: 9,
 	},
+	mystictamroastdoppio: {
+		name: "Mystic Tamroast Doppio",
+		spritenum: 790,
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4) {
+				pokemon.useItem();
+				pokemon.addVolatile('mystictamroastdoppio');
+			}
+		},
+		boosts: {
+			spa: 1,
+			spe: 1,
+		},
+		condition: {
+			noCopy: true,
+			duration: 5,
+			onResidualOrder: 28,
+			onResidualSubOrder: 5,
+			onEnd(pokemon) {
+				this.boost({spa: -1, spe: -1}, pokemon, pokemon);
+				pokemon.addVolatile('caffeinecrash');
+			},
+		},
+		num: -4,
+		gen: 9,
+	},
 	pikaspresso: {
 		name: "Pikaspresso",
-		spritenum: 788,
+		spritenum: 787,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
@@ -7713,7 +7739,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	sandygastmocha: {
 		name: "Sandygast Mocha",
-		spritenum: 788,
+		spritenum: 789,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
@@ -7731,32 +7757,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
 				this.boost({def: -1, spe: -1}, pokemon, pokemon);
-				pokemon.addVolatile('caffeinecrash');
-			},
-		},
-		num: -4,
-		gen: 9,
-	},
-	mystictamroastdoppio: {
-		name: "Mystic Tamroast Doppio",
-		spritenum: 788,
-		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4) {
-				pokemon.useItem();
-				pokemon.addVolatile('mystictamroastdoppio');
-			}
-		},
-		boosts: {
-			spa: 1,
-			spe: 1,
-		},
-		condition: {
-			noCopy: true,
-			duration: 5,
-			onResidualOrder: 28,
-			onResidualSubOrder: 5,
-			onEnd(pokemon) {
-				this.boost({spa: -1, spe: -1}, pokemon, pokemon);
 				pokemon.addVolatile('caffeinecrash');
 			},
 		},
