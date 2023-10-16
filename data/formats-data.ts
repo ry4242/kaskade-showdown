@@ -218,39 +218,32 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	pikachuoriginal: {
-		tier: "OU",
-		doublesTier: "DOU",
-		natDexTier: "OU",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	pikachuhoenn: {
-		tier: "OU",
-		doublesTier: "DOU",
-		natDexTier: "OU",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	pikachusinnoh: {
-		tier: "OU",
-		doublesTier: "DOU",
-		natDexTier: "OU",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	pikachuunova: {
-		tier: "OU",
-		doublesTier: "DOU",
-		natDexTier: "OU",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	pikachukalos: {
-		tier: "OU",
-		doublesTier: "DOU",
-		natDexTier: "OU",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	pikachualola: {
-		tier: "OU",
-		doublesTier: "DOU",
-		natDexTier: "OU",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	pikachupartner: {
-		tier: "OU",
-		doublesTier: "DOU",
-		natDexTier: "OU",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	pikachustarter: {
 		isNonstandard: "LGPE",
@@ -261,9 +254,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	pikachuworld: {
-		tier: "OU",
-		doublesTier: "DOU",
-		natDexTier: "OU",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	raichu: {
 		tier: "OU",
@@ -2493,52 +2485,52 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
-	castformgutsy: {
-		isNonstandard: "Future",
-	},
-	castformwindy: {
-		isNonstandard: "Future",
-	},
-	castformsmoggy: {
-		isNonstandard: "Future",
-	},
-	castformdusty: {
-		isNonstandard: "Future",
-	},
-	castformsandy: {
-		isNonstandard: "Future",
-	},
-	castformswarmy: {
-		isNonstandard: "Future",
-	},
-	castformspooky: {
-		isNonstandard: "Future",
-	},
 	castformsunny: {
 		isNonstandard: "Future",
 	},
 	castformrainy: {
 		isNonstandard: "Future",
 	},
-	castformallergy: {
-		isNonstandard: "Future",
-	},
-	castformzappy: {
-		isNonstandard: "Future",
-	},
-	castformzenny: {
-		isNonstandard: "Future",
-	},
 	castformsnowy: {
-		isNonstandard: "Future",
-	},
-	castformsorcery: {
 		isNonstandard: "Future",
 	},
 	castformshady: {
 		isNonstandard: "Future",
 	},
+	castformsandy: {
+		isNonstandard: "Future",
+	},
+	castformdusty: {
+		isNonstandard: "Future",
+	},
+	castformallergy: {
+		isNonstandard: "Future",
+	},
+	castformswarmy: {
+		isNonstandard: "Future",
+	},
+	castformsmoggy: {
+		isNonstandard: "Future",
+	},
 	castformlovely: {
+		isNonstandard: "Future",
+	},
+	castformgutsy: {
+		isNonstandard: "Future",
+	},
+	castformspooky: {
+		isNonstandard: "Future",
+	},
+	castformzenny: {
+		isNonstandard: "Future",
+	},
+	castformsorcery: {
+		isNonstandard: "Future",
+	},
+	castformzappy: {
+		isNonstandard: "Future",
+	},
+	castformwindy: {
 		isNonstandard: "Future",
 	},
 	castformwhirly: {

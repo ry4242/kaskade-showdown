@@ -7212,10 +7212,10 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
 		shortDesc: "Has 33% recoil.",
 	},
-	weatherball: {
+	weatherball: { // updated
 		name: "Weather Ball",
-		desc: "Power doubles if a Weathergy is active, and this move's type changes to match. If the user is holding Utility Umbrella and uses Weather Ball during a climate Weathergy, this move remains Normal type and does not double in power.",
-		shortDesc: "Power doubles and type varies in each weather.",
+		desc: "Power doubles if a Weathergy is active, and this move's type changes to match. If the user is holding a Utility Umbrella during a Climate Weathergy, Safety Goggles during an Irritant Weathergy, or an Energy Nullifier during an Energy Weathergy, Weather Ball remains Normal type and does not double in power.",
+		shortDesc: "Power doubles and type varies in each Weathergy.",
 		gen8: {
 			desc: "Power doubles if a weather condition other than Delta Stream is active, and this move's type changes to match. Ice type during Hail, Water type during Primordial Sea or Rain, Rock type during Sandstorm, and Fire type during Desolate Land or Sun. If the user is holding Utility Umbrella and uses Weather Ball during Primordial Sea, Rain, Desolate Land, or Sun, this move remains Normal type and does not double in power.",
 		},
