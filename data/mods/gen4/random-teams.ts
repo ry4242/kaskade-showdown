@@ -4,6 +4,11 @@ import {toID} from '../../../sim/dex';
 import {PRNG} from '../../../sim';
 import type {MoveCounter, OldRandomBattleSpecies} from '../gen8/random-teams';
 
+// Moves that shouldn't be the only STAB moves:
+const NO_STAB = [
+	'aquajet', 'bounce', 'chatter', 'eruption', 'explosion', 'fakeout', 'iceshard', 'icywind', 'machpunch', 'pluck',
+	'pursuit', 'quickattack', 'reversal', 'selfdestruct', 'suckerpunch', 'uturn', 'vacuumwave', 'waterspout',
+];
 
 // These moves can be used even if we aren't setting up to use them:
 const SetupException = ['dracometeor', 'overheat'];
@@ -19,6 +24,8 @@ export class RandomGen4Teams extends RandomGen5Teams {
 
 	constructor(format: string | Format, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
+		this.noStab = NO_STAB;
+
 		this.moveEnforcementCheckers = {
 			Bug: (movePool, moves, abilities, types, counter) => (
 				(movePool.includes('bugbuzz') || movePool.includes('megahorn'))
@@ -43,7 +50,7 @@ export class RandomGen4Teams extends RandomGen5Teams {
 			),
 			Ground: (movePool, moves, abilities, types, counter) => !counter.get('Ground'),
 			Ice: (movePool, moves, abilities, types, counter) => (
-				!counter.get('Ice') && (!types.has('Water') || !counter.get('Water'))
+				(!counter.get('Ice') && (!types.has('Water') || !counter.get('Water'))) || movePool.includes('blizzard')
 			),
 			Rock: (movePool, moves, abilities, types, counter) => (
 				!counter.get('Rock') && (movePool.includes('headsmash') || movePool.includes('stoneedge'))
@@ -83,7 +90,10 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		case 'eruption': case 'waterspout':
 			return {cull: counter.get('Physical') + counter.get('Special') < 4};
 		case 'focuspunch':
-			return {cull: !moves.has('substitute') || counter.damagingMoves.size < 2 || moves.has('hammerarm')};
+			return {cull: (
+				!moves.has('substitute') || counter.damagingMoves.size < 2 ||
+				moves.has('hammerarm') || moves.has('focusblast')
+			)};
 		case 'lightscreen':
 			if (movePool.length > 1) {
 				const screen = movePool.indexOf('reflect');
@@ -510,7 +520,6 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		moves: Set<string>,
 		counter: MoveCounter,
 		species: Species,
-		isDoubles: boolean,
 		isLead: boolean
 	): string | undefined {
 		if (
@@ -829,7 +838,7 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		ability = this.getAbility(types, moves, abilities, counter, movePool, teamDetails, species);
 
 		item = this.getHighPriorityItem(ability, types, moves, counter, teamDetails, species, isLead);
-		if (item === undefined) item = this.getMediumPriorityItem(ability, moves, counter, species, false, isLead);
+		if (item === undefined) item = this.getMediumPriorityItem(ability, moves, counter, species, isLead);
 		if (item === undefined) {
 			item = this.getLowPriorityItem(ability, types, moves, abilities, counter, teamDetails, species);
 		}

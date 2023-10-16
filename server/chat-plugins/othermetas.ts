@@ -41,7 +41,7 @@ function getMegaStone(stone: string, mod = 'gen9'): Item | null {
 		}
 	}
 	if (!item.megaStone && !item.onPrimal && !item.forcedForme?.endsWith('Epilogue') &&
-		!item.forcedForme?.endsWith('Origin') && !item.name.startsWith('Rusted')) return null;
+		!item.forcedForme?.endsWith('Origin') && !item.name.startsWith('Rusted') && !item.name.endsWith('Mask')) return null;
 	return item;
 }
 
@@ -98,7 +98,7 @@ export const commands: Chat.ChatCommands = {
 		const stone = getMegaStone(stoneName[0], mod);
 		const species = dex.species.get(sep[0]);
 		if (!stone) {
-			throw new Chat.ErrorMessage(`Error: Mega Stone/Primal Orb/Rusted Item/Origin Item not found.`);
+			throw new Chat.ErrorMessage(`Error: Mega Stone/Primal Orb/Rusted Item/Origin Item/Mask not found.`);
 		}
 		if (!species.exists) throw new Chat.ErrorMessage(`Error: Pok\u00e9mon not found.`);
 		let baseSpecies: Species;
@@ -122,7 +122,8 @@ export const commands: Chat.ChatCommands = {
 			break;
 		default:
 			const forcedForme = stone.forcedForme;
-			if (forcedForme && (forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
+			if (forcedForme &&
+				(forcedForme.startsWith('Ogerpon') || forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
 				megaSpecies = dex.species.get(forcedForme);
 				baseSpecies = dex.species.get(forcedForme.split('-')[0]);
 			} else {
@@ -217,11 +218,15 @@ export const commands: Chat.ChatCommands = {
 		const stone = getMegaStone(targetid, sep[1]);
 		const stones = [];
 		if (!stone) {
-			const species = dex.species.get(targetid.replace(/(?:mega[xy]?|primal|origin|crowned|epilogue)$/, ''));
+			const species = dex.species.get(
+				targetid.replace(/(?:mega[xy]?|primal|origin|crowned|epilogue|cornerstone|wellspring|hearthflame)$/, '')
+			);
 			if (!species.exists) throw new Chat.ErrorMessage(`Error: Mega Stone not found.`);
 			if (!species.otherFormes) throw new Chat.ErrorMessage(`Error: Mega Evolution not found.`);
 			for (const poke of species.otherFormes) {
-				if (!/(?:-Crowned|-Epilogue|-Origin|-Primal|-Mega(?:-[XY])?)$/.test(poke)) continue;
+				if (!/(?:-Cornerstone|-Wellspring|-Hearthflame|-Crowned|-Epilogue|-Origin|-Primal|-Mega(?:-[XY])?)$/.test(poke)) {
+					continue;
+				}
 				const megaPoke = dex.species.get(poke);
 				const flag = megaPoke.requiredMove === 'Dragon Ascent' ? megaPoke.requiredMove : megaPoke.requiredItem;
 				if (/mega[xy]$/.test(targetid) && toID(megaPoke.name) !== toID(dex.species.get(targetid))) continue;
@@ -254,7 +259,8 @@ export const commands: Chat.ChatCommands = {
 				break;
 			default:
 				const forcedForme = aStone.forcedForme;
-				if (forcedForme && (forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
+				if (forcedForme &&
+					(forcedForme.startsWith('Ogerpon') || forcedForme.endsWith('Origin') || forcedForme.endsWith('Epilogue'))) {
 					megaSpecies = dex.species.get(forcedForme);
 					baseSpecies = dex.species.get(forcedForme.split('-')[0]);
 				} else {
@@ -284,10 +290,12 @@ export const commands: Chat.ChatCommands = {
 				Weight: (deltas.weighthg < 0 ? "" : "+") + deltas.weighthg / 10 + " kg",
 			};
 			let tier;
-			if (['redorb', 'blueorb'].includes(aStone.id) || aStone.forcedForme?.endsWith('Origin')) {
+			if (['redorb', 'blueorb'].includes(aStone.id)) {
 				tier = "Orb";
 			} else if (aStone.name === "Dragon Ascent") {
 				tier = "Move";
+			} else if (aStone.name.endsWith('Mask')) {
+				tier = "Mask";
 			} else if (aStone.megaStone) {
 				tier = "Stone";
 			} else {
@@ -299,7 +307,7 @@ export const commands: Chat.ChatCommands = {
 				buf += `<span class="col itemiconcol"></span>`;
 			} else {
 				// temp image support until real images are uploaded
-				const itemName = aStone.forcedForme?.endsWith('Origin') ? aStone.name.split(' ')[0] + ' Orb' : aStone.name;
+				const itemName = aStone.name;
 				buf += `<span class="col itemiconcol"><psicon item="${toID(itemName)}"/></span> `;
 			}
 			if (aStone.name === "Dragon Ascent") {
@@ -438,18 +446,13 @@ export const commands: Chat.ChatCommands = {
 	franticfusions(target, room, user, connection, cmd) {
 		const args = target.split(',');
 		if (!toID(args[0]) && !toID(args[1])) return this.parse('/help franticfusions');
-		this.runBroadcast();
 		const targetGen = parseInt(cmd[cmd.length - 1]);
-		if (targetGen && !args[2]) args[2] = `gen${targetGen}`;
-		let dex = Dex;
-		if (args[2] && toID(args[2]) in Dex.dexes) {
-			dex = Dex.dexes[toID(args[2])];
-		} else if (room?.battle) {
-			const format = Dex.formats.get(room.battle.format);
-			dex = Dex.mod(format.mod);
-		}
-		const species = Utils.deepClone(dex.species.get(args[0]));
-		const fusion = dex.species.get(args[1]);
+		if (targetGen && !args[2]) target = `${target},gen${targetGen}`;
+		const {dex, targets} = this.splitFormat(target, true);
+		this.runBroadcast();
+		if (targets.length > 2) return this.parse('/help franticfusions');
+		const species = Utils.deepClone(dex.species.get(targets[0]));
+		const fusion = dex.species.get(targets[1]);
 		if (!species.exists || species.gen > dex.gen) {
 			const monName = species.gen > dex.gen ? species.name : args[0].trim();
 			const additionalReason = species.gen > dex.gen ? ` in Generation ${dex.gen}` : ``;
