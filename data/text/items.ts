@@ -2433,7 +2433,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Frost Orb",
 		desc: "At the end of every turn, this item attempts to give the holder frostbite.",
 	},
-	pikasapresso: {
+	pikaspresso: {
 		name: "Pikaspresso",
 		desc: "Raises holder's Speed by 2 stages when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Pikaspresso are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
 		shortDesc: "+2 Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
