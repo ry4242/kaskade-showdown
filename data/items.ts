@@ -7802,7 +7802,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 			return true;
 		},
-		forcedForme: "Castform-Whirly",
 		itemUser: ["Castform"],
 		num: -16,
 		gen: 9,
