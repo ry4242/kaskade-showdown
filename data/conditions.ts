@@ -1459,28 +1459,28 @@ export const Conditions: {[k: string]: ConditionData} = {
 					this.hint("Ground types receive -1 Speed when struck by lightning.");
 				}
 				if (target.hasAbility('lightningrod')) {
-					if (!this.boost({spa: 1})) {
+					if (!this.boost({spa: 1}, target)) {
 						this.add('-immune', target, '[from] ability: Lightning Rod');
 					}
 					this.hint("Pokemon with Lightning Rod draw in any lightning strike.");
 					typeMod *= 0;
 				}
 				if (target.hasAbility('motordrive')) {
-					if (!this.boost({spe: 1})) {
+					if (!this.boost({spe: 1}, target)) {
 						this.add('-immune', target, '[from] ability: Motor Drive');
 					}
 					this.hint("Pokemon with Motor Drive receive +1 Speed when struck by lightning.");
 					typeMod *= 0;
 				}
 				if (target.hasAbility('voltabsorb')) {
-					if (!target.heal(target.baseMaxhp / 4)) {
+					if (!target.heal(target.baseMaxhp / 4, target)) {
 						this.add('-immune', target, '[from] ability: Volt Absorb');
 					}
 					this.hint("Pokemon with Volt Absorb heal from lightning strikes.");
 					typeMod *= 0;
 				}
 				this.debug('lightning strike damage is based on the pokemons weakness/resistance to electric');
-				this.damage(typeMod * target.baseMaxhp / 10);
+				this.damage(typeMod * target.baseMaxhp / 10, target);
 			}
 		},
 		onFieldEnd() {
