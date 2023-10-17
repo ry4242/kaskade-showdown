@@ -1256,7 +1256,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
-	porygonwubble: {
+	porygonw: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
@@ -6900,7 +6900,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
-	wubblerogon: {
+	orogon: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},

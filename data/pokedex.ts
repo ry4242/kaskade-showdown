@@ -4773,7 +4773,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Porygon",
 		evoType: "useItem",
 		evoItem: "Up-Grade",
-		evos: ["Porygon-Z", "Porygon Wubble"],
+		evos: ["Porygon-Z", "Porygon W"],
 		eggGroups: ["Mineral"],
 	},
 	stantler: {
@@ -21794,17 +21794,21 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 535,
 		color: "Green",
 		prevo: "Golbat",
+		evoType: "useItem",
+		evoItem: "Amaze-Drive",
 		eggGroups: ["Flying"],
 	},
-	porygonwubble: {
+	porygonw: {
 		num: 10109,
-		name: "Porygon Wubble",
+		name: "Porygon W",
 		types: ["Normal"],
 		baseStats: {hp: 100, atk: 50, def: 90, spa: 120, spd: 90, spe: 80},
 		abilities: {0: "Surveillance", 1: "Energizer", H: "Analytic"},
 		weightkg: 515,
 		color: "Green",
 		prevo: "Porygon2",
+		evoType: "useItem",
+		evoItem: "Amaze-Drive",
 		eggGroups: ["Mineral"],
 	},
 	botnyak: {
@@ -21901,9 +21905,9 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 	},
-	wubblerogon: {
+	orogon: {
 		num: 10119,
-		name: "Wubblerogon",
+		name: "Orogon",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 110, atk: 80, def: 110, spa: 155, spd: 110, spe: 115},
 		abilities: {0: "Levitate"},
