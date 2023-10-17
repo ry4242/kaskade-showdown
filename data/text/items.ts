@@ -345,7 +345,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Darkinium Z",
 		desc: "If holder has a Dark move, this item allows it to use a Dark Z-Move.",
 	},
-	dawnstone: {
+	dawnstone: { // updated
 		name: "Dawn Stone",
 		desc: "Evolves male Kirlia into Gallade ,female Snorunt into Froslass, and Floette into Florges when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
@@ -354,12 +354,12 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Decidium Z",
 		desc: "If held by a Decidueye with Spirit Shackle, it can use Sinister Arrow Raid.",
 	},
-	deepseascale: {
+	deepseascale: { // updated
 		name: "Deep Sea Scale",
 		desc: "If held by a Clamperl, its Sp. Def is doubled. Evolves Clamperl into Gorebyss when used.",
 		shortDesc: "If held by a Clamperl, its Sp. Def is doubled.",
 	},
-	deepseatooth: {
+	deepseatooth: { // updated
 		name: "Deep Sea Tooth",
 		desc: "If held by a Clamperl, its Sp. Atk is doubled. Evolves Clamperl into Huntail when used.",
 		shortDesc: "If held by a Clamperl, its Sp. Atk is doubled.",
@@ -384,7 +384,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Douse Drive",
 		desc: "Holder's Techno Blast is Water type.",
 	},
-	dracoplate: {
+	dracoplate: { // updated
 		name: "Draco Plate",
 		desc: "Holder's Dragon-type attacks have 1.3x power. Judgment is Dragon type.",
 	},
@@ -409,7 +409,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Dragon Memory",
 		desc: "Holder's Multi-Attack is Dragon type.",
 	},
-	dragonscale: {
+	dragonscale: { // updated
 		name: "Dragon Scale",
 		desc: "Evolves Seadra into Kingdra when used.",
 		gen2: {
@@ -420,7 +420,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Dragonium Z",
 		desc: "If holder has a Dragon move, this item allows it to use a Dragon Z-Move.",
 	},
-	dreadplate: {
+	dreadplate: { // updated
 		name: "Dread Plate",
 		desc: "Holder's Dark-type attacks have 1.3x power. Judgment is Dark type.",
 	},
@@ -431,7 +431,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 			desc: "A special Poke Ball that appears out of nowhere in a bag at the Entree Forest.",
 		},
 	},
-	dubiousdisc: {
+	dubiousdisc: { // updated
 		name: "Dubious Disc",
 		desc: "Evolves Porygon2 into Porygon-Z when used.",
 	},
@@ -448,7 +448,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		desc: "Evolves Murkrow into Honchkrow, Misdreavus into Mismagius, Lampent into Chandelure, and Doublade into Aegislash when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 	},
-	earthplate: {
+	earthplate: { // updated
 		name: "Earth Plate",
 		desc: "Holder's Ground-type attacks have 1.3x power. Judgment is Ground type.",
 	},
@@ -468,7 +468,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 
 		end: "  [POKEMON] is switched out by the Eject Pack!",
 	},
-	electirizer: {
+	electirizer: { // updated
 		name: "Electirizer",
 		desc: "Evolves Electabuzz into Electivire when held and leveled up during Thunderstorm.",
 	},
@@ -562,7 +562,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Fire Memory",
 		desc: "Holder's Multi-Attack is Fire type.",
 	},
-	firestone: {
+	firestone: { // updated
 		name: "Fire Stone",
 		desc: "Evolves Vulpix into Ninetales, Growlithe into Arcanine, Hisuian Growlithe into Hisuian Arcanine, Eevee into Flareon, Pansear into Simisear, and Pramblo into Glashulimp when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
@@ -571,7 +571,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Firium Z",
 		desc: "If holder has a Fire move, this item allows it to use a Fire Z-Move.",
 	},
-	fistplate: {
+	fistplate: { // updated
 		name: "Fist Plate",
 		desc: "Holder's Fighting-type attacks have 1.3x power. Judgment is Fighting type.",
 	},
@@ -579,7 +579,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Flame Orb",
 		desc: "At the end of every turn, this item attempts to burn the holder.",
 	},
-	flameplate: {
+	flameplate: { // updated
 		name: "Flame Plate",
 		desc: "Holder's Fire-type attacks have 1.3x power. Judgment is Fire type.",
 	},
@@ -828,7 +828,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Ice Memory",
 		desc: "Holder's Multi-Attack is Ice type.",
 	},
-	icestone: {
+	icestone: { // updated
 		name: "Ice Stone",
 		desc: "Evolves Alolan Sandshrew into Alolan Sandslash, Alolan Vulpix into Alolan Ninetales, Eevee into Glaceon, Galarian Darumaka into Galarian Darmanitan, and Rattata into Kaskadian Raticate when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
@@ -836,7 +836,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 			desc: "Evolves Alolan Sandshrew into Alolan Sandslash and Alolan Vulpix into Alolan Ninetales when used.",
 		},
 	},
-	icicleplate: {
+	icicleplate: { // updated
 		name: "Icicle Plate",
 		desc: "Holder's Ice-type attacks have 1.3x power. Judgment is Ice type.",
 	},
@@ -852,7 +852,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Incinium Z",
 		desc: "If held by an Incineroar with Darkest Lariat, it can use Malicious Moonsault.",
 	},
-	insectplate: {
+	insectplate: { // updated
 		name: "Insect Plate",
 		desc: "Holder's Bug-type attacks have 1.3x power. Judgment is Bug type.",
 	},
@@ -863,7 +863,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 			desc: "Holder's Speed is halved and it becomes grounded.",
 		},
 	},
-	ironplate: {
+	ironplate: { // updated
 		name: "Iron Plate",
 		desc: "Holder's Steel-type attacks have 1.3x power. Judgment is Steel type.",
 	},
@@ -927,7 +927,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 			desc: "The accuracy of attacks against the holder is 0.95x.",
 		},
 	},
-	leafstone: {
+	leafstone: { // updated
 		name: "Leaf Stone",
 		desc: "Evolves Gloom into Vileplume, Weepinbell into Victreebel, Exeggcute into Exeggutor or Alolan Exeggutor, Eevee into Leafeon, Nuzleaf into Shiftry, Pansage into Simisage, Hisuian Voltorb into Hisuian Electrode, and Kaskadian Gurdurr into Kaskadian Conkeldurr when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
@@ -1046,7 +1046,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Macho Brace",
 		desc: "Holder's Speed is halved. The Klutz Ability does not ignore this effect.",
 	},
-	magmarizer: {
+	magmarizer: { // updated
 		name: "Magmarizer",
 		desc: "Evolves Magmar into Magmortar when held and leveled up during Sun.",
 	},
@@ -1103,7 +1103,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Mawilite",
 		desc: "If held by a Mawile, this item allows it to Mega Evolve in battle.",
 	},
-	meadowplate: {
+	meadowplate: { // updated
 		name: "Meadow Plate",
 		desc: "Holder's Grass-type attacks have 1.3x power. Judgment is Grass type.",
 	},
@@ -1122,7 +1122,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Metagrossite",
 		desc: "If held by a Metagross, this item allows it to Mega Evolve in battle.",
 	},
-	metalcoat: {
+	metalcoat: { // updated
 		name: "Metal Coat",
 		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Onix into Steelix and Scyther into Scizor when used.",
 		shortDesc: "Holder's Steel-type attacks have 1.2x power.",
@@ -1165,7 +1165,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Mimikium Z",
 		desc: "If held by a Mimikyu with Play Rough, it can use Let's Snuggle Forever.",
 	},
-	mindplate: {
+	mindplate: { // updated
 		name: "Mind Plate",
 		desc: "Holder's Psychic-type attacks have 1.3x power. Judgment is Psychic type.",
 	},
@@ -1190,7 +1190,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Moon Ball",
 		desc: "A Poke Ball for catching Pokemon that evolve using the Moon Stone.",
 	},
-	moonstone: {
+	moonstone: { // updated
 		name: "Moon Stone",
 		desc: "Evolves Nidorina into Nidoqueen, Nidorino into Nidoking, Clefairy into Clefable, Jigglypuff into Wigglytuff, Skitty into Delcatty, Munna into Musharna, and Eevee into Umbreon when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
@@ -1308,7 +1308,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Pinsirite",
 		desc: "If held by a Pinsir, this item allows it to Mega Evolve in battle.",
 	},
-	pixieplate: {
+	pixieplate: { // updated
 		name: "Pixie Plate",
 		desc: "Holder's Fairy-type attacks have 1.3x power. Judgment is Fairy type.",
 	},
@@ -1384,7 +1384,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Primarium Z",
 		desc: "If held by a Primarina with Sparkling Aria, it can use Oceanic Operetta.",
 	},
-	prismscale: {
+	prismscale: { // updated
 		name: "Prism Scale",
 		desc: "Evolves Feebas into Milotic when held and leveled up with high Friendship.",
 	},
@@ -1394,7 +1394,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 
 		block: "  [POKEMON] protected itself with its Protective Pads!",
 	},
-	protector: {
+	protector: { // updated
 		name: "Protector",
 		desc: "Evolves Rhydon into Rhyperior when used while knowing Horn Drill.",
 	},
@@ -1454,12 +1454,12 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Rawst Berry",
 		desc: "Holder is cured if it is burned. Single use.",
 	},
-	razorclaw: {
+	razorclaw: { // updated
 		name: "Razor Claw",
 		desc: "Holder's critical hit ratio is raised by 1 stage.",
 		shortDesc: "Holder's critical hit ratio is raised by 1 stage.",
 	},
-	razorfang: {
+	razorfang: { // updated
 		name: "Razor Fang",
 		desc: "Holder's attacks without a chance to make the target flinch gain a 10% chance to make the target flinch.",
 		shortDesc: "Holder's attacks without a chance to flinch gain a 10% chance to flinch.",
@@ -1555,7 +1555,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Sablenite",
 		desc: "If held by a Sableye, this item allows it to Mega Evolve in battle.",
 	},
-	sachet: {
+	sachet: { // updated
 		name: "Sachet",
 		desc: "Evolves Spritzee into Aromatisse when used.",
 	},
@@ -1622,7 +1622,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 
 		heal: "  [POKEMON] restored a little HP using its Shell Bell!",
 	},
-	shinystone: {
+	shinystone: { // updated
 		name: "Shiny Stone",
 		desc: "Evolves Togetic into Togekiss, Roselia into Roserade, Minccino into Cinccino, Eevee into Sylveon, and Skideer into Yuleigh when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
@@ -1660,7 +1660,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Skull Fossil",
 		desc: "Can be revived into Cranidos.",
 	},
-	skyplate: {
+	skyplate: { // updated
 		name: "Sky Plate",
 		desc: "Holder's Flying-type attacks have 1.3x power. Judgment is Flying type.",
 	},
@@ -1709,11 +1709,11 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Spelon Berry",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
-	splashplate: {
+	splashplate: { // updated
 		name: "Splash Plate",
 		desc: "Holder's Water-type attacks have 1.3x power. Judgment is Water type.",
 	},
-	spookyplate: {
+	spookyplate: { // updated
 		name: "Spooky Plate",
 		desc: "Holder's Ghost-type attacks have 1.3x power. Judgment is Ghost type.",
 	},
@@ -1759,7 +1759,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Sticky Barb",
 		desc: "Each turn, holder loses 1/8 max HP. An attacker making contact can receive it.",
 	},
-	stoneplate: {
+	stoneplate: { // updated
 		name: "Stone Plate",
 		desc: "Holder's Rock-type attacks have 1.3x power. Judgment is Rock type.",
 	},
@@ -1767,7 +1767,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Strawberry Sweet",
 		desc: "Evolves Milcery into Alcremie when held and spun around.",
 	},
-	sunstone: {
+	sunstone: { // updated
 		name: "Sun Stone",
 		desc: "Evolves Gloom into Bellossom, Sunkern into Sunflora, Cottonee into Whimsicott, Petilil into Lilligant, Helioptile into Heliolisk, and Eevee into Espeon when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
@@ -1813,7 +1813,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Throat Spray",
 		desc: "Raises holder's Special Attack by 1 stage after it uses a sound move. Single use.",
 	},
-	thunderstone: {
+	thunderstone: { // updated
 		name: "Thunder Stone",
 		desc: "Evolves Pikachu into Raichu or Alolan Raichu, Eevee into Jolteon, Eelektrik into Eelektross, Charjabug into Vikavolt, and Mienfoo into Mienflux when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
@@ -1829,7 +1829,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Toxic Orb",
 		desc: "At the end of every turn, this item attempts to badly poison the holder.",
 	},
-	toxicplate: {
+	toxicplate: { // updated
 		name: "Toxic Plate",
 		desc: "Holder's Poison-type attacks have 1.3x power. Judgment is Poison type.",
 	},
@@ -2233,7 +2233,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "TR99",
 		desc: "Teaches certain Pokemon the move Body Press. One use.",
 	},
-	twistedspoon: {
+	twistedspoon: { // updated
 		name: "Twisted Spoon",
 		desc: "Holder's Psychic-type attacks have 1.2x power. Evolves Kadabra into Alakazam when held and leveled up.",
 		gen3: {
@@ -2259,7 +2259,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Unremarkable Teacup",
 		desc: "Evolves Poltchageist into Sinistcha when used.",
 	},
-	upgrade: {
+	upgrade: { // updated
 		name: "Up-Grade",
 		desc: "Evolves Porygon into Porygon2 when used.",
 	},
@@ -2287,7 +2287,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Water Memory",
 		desc: "Holder's Multi-Attack is Water type.",
 	},
-	waterstone: {
+	waterstone: { // updated
 		name: "Water Stone",
 		desc: "Evolves Poliwhirl into Poliwrath, Shellder into Cloyster, Staryu into Starmie, Eevee into Vaporeon, Lombre into Ludicolo, Panpour into Simipour, and Mosster into Mosskrat or Tide Bloom Mosskrat when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
@@ -2316,7 +2316,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Wepear Berry",
 		desc: "Cannot be eaten by the holder. No effect when eaten with Bug Bite or Pluck.",
 	},
-	whippeddream: {
+	whippeddream: { // updated
 		name: "Whipped Dream",
 		desc: "Evolves Swirlix into Slurpuff when used.",
 	},
@@ -2348,7 +2348,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Yache Berry",
 		desc: "Halves damage taken from a supereffective Ice-type attack. Single use.",
 	},
-	zapplate: {
+	zapplate: { // updated
 		name: "Zap Plate",
 		desc: "Holder's Electric-type attacks have 1.3x power. Judgment is Electric type.",
 	},
@@ -2483,7 +2483,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		end: "  [POKEMON] drank its Mystic Tamroast Doppio!",
 	},
 	peatblock: {
-		name: "Razor Hook",
+		name: "Peat Block",
 		desc: "Evolves Ursaring into Ursaluna when used at night.",
 	},
 	pikaspresso: {
