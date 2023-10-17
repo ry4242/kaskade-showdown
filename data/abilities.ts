@@ -2547,14 +2547,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
-			if (move.type !== 'Electric' || move.flags['pledgecombo']) return;
-			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
-			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
-				if (move.smartTarget) move.smartTarget = false;
-				if (this.effectState.target !== target) {
-					this.add('-activate', this.effectState.target, 'ability: Lightning Rod');
+			if (move.flags['pledgecombo']) return;
+			if (move.type === 'Electric' || source2.energyWeather === 'supercell') {
+				const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+				if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+					if (move.smartTarget) move.smartTarget = false;
+					if (this.effectState.target !== target) {
+						this.add('-activate', this.effectState.target, 'ability: Lightning Rod');
+					}
+					return this.effectState.target;
 				}
-				return this.effectState.target;
 			}
 		},
 		isBreakable: true,
