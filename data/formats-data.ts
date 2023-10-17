@@ -6460,7 +6460,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
-	missingno :{
+	missingno: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 		natDexTier: "Illegal",
