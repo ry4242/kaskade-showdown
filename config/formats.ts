@@ -19,7 +19,7 @@ The column value will be ignored for repeat sections.
 
 export const Formats: FormatList = [
 
-	// S/V Singles
+	// SwSe Singles
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -77,24 +77,24 @@ export const Formats: FormatList = [
 		],
 	}, */
 	{
-		name: "[Gen 9] OU",
+		name: "[Gen Ω] OU",
 
 		mod: 'gen9',
 		ruleset: ['Standard'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
-		name: "[Gen 9] Ubers",
+		name: "[Gen Ω] Ubers",
 
 		mod: 'gen9',
 		ruleset: ['Standard'],
 		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass'],
 	},
 	{
-		name: "[Gen 9] UU",
+		name: "[Gen Ω] UU",
 
 		mod: 'gen9',
-		ruleset: ['[Gen 9] OU'],
+		ruleset: ['[Gen Ω] OU'],
 		banlist: ['OU', 'UUBL'],
 	},
 	/* {
@@ -127,7 +127,7 @@ export const Formats: FormatList = [
 		banlist: ['NU', 'PUBL'],
 	}, */
 	{
-		name: "[Gen 9] LC",
+		name: "[Gen Ω] LC",
 
 		mod: 'gen9',
 		ruleset: ['Little Cup', 'Standard'],
@@ -136,7 +136,7 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Monotype",
+		name: "[Gen Ω] Monotype",
 
 		mod: 'gen9',
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Same Type Clause', 'Terastal Clause'],
@@ -171,7 +171,7 @@ export const Formats: FormatList = [
 		],
 	}, */
 	{
-		name: "[Gen 9] Anything Goes",
+		name: "[Gen Ω] Anything Goes",
 
 		mod: 'gen9',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
@@ -263,7 +263,7 @@ export const Formats: FormatList = [
 		banlist: ['Walking Wake', 'Iron Leaves'],
 	}, */
 	{
-		name: "[Gen 9] Custom Game",
+		name: "SwSe Custom Game",
 
 		mod: 'gen9',
 		searchShow: false,
@@ -273,11 +273,11 @@ export const Formats: FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
 	},
 
-	// S/V Doubles
+	// SwSe Doubles
 	///////////////////////////////////////////////////////////////////
 
 	{
-		section: "SwSe Doubles",
+		section: "[Gen Ω] Doubles",
 	},
 	/* {
 		name: "[Gen 9] Random Doubles Battle",
@@ -288,7 +288,7 @@ export const Formats: FormatList = [
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	}, */
 	{
-		name: "[Gen 9] Doubles OU",
+		name: "[Gen Ω] Doubles OU",
 
 		mod: 'gen9',
 		gameType: 'doubles',
@@ -380,9 +380,9 @@ export const Formats: FormatList = [
 		mod: 'gen9',
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Kitakami Pokedex', 'Min Source Gen = 9', 'VGC Timer'],
-	},
+	}, */
 	{
-		name: "[Gen 9] Doubles Custom Game",
+		name: "[Gen Ω] Doubles Custom Game",
 
 		mod: 'gen9',
 		gameType: 'doubles',
