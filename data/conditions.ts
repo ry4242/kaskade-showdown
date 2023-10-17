@@ -1434,6 +1434,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (target.hasItem('energynullifier')) return;
 			this.debug('lightning might strike');
 			if (this.randomChance(1, 10)) {
+				for (const newTarget of this.getAllActive()) {
+					if (newTarget.hasAbility('lightningrod')) target = newTarget;
+				}
 				let typeMod = 1;
 				// weak to electric
 				if (target.hasType('Water')) typeMod *= 2;
