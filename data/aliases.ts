@@ -491,6 +491,7 @@ export const Aliases: {[alias: string]: string} = {
 	tatsugiridroopy: "Tatsugiri",
 	tatsugiristretchy: "Tatsugiri",
 
+	// pokestar
 	pokestargiant2: "Pokestar Giant",
 	pokestarmonica2: "Pokestar Giant",
 	pokestarufopropu1: "Pokestar UFO",
@@ -1855,4 +1856,6 @@ export const Aliases: {[alias: string]: string} = {
 	zugadoon: "Blacephalon",
 	merutan: "Meltan",
 	merumetaru: "Melmetal",
+
+	// swse
 };
