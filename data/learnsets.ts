@@ -20865,7 +20865,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zenheadbutt: ["8M", "7T", "6T", "5T", "4T"],
 		},
 	},
-		porygonw: {
+	porygonw: {
 		learnset: {
 			tackle: ["9L1"],
 		}

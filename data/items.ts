@@ -3136,7 +3136,8 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Pichu') {
 				return this.chainModify(2);
 			}
-			if (pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Emolga' || pokemon.baseSpecies.baseSpecies === 'Guruchi') {
+			if (pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Emolga' ||
+			pokemon.baseSpecies.baseSpecies === 'Guruchi') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -3145,7 +3146,8 @@ export const Items: {[itemid: string]: ItemData} = {
 			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Pichu') {
 				return this.chainModify(2);
 			}
-			if (pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Emolga' || pokemon.baseSpecies.baseSpecies === 'Guruchi') {
+			if (pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Emolga' ||
+			pokemon.baseSpecies.baseSpecies === 'Guruchi') {
 				return this.chainModify(1.5);
 			}
 		},
