@@ -3124,7 +3124,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 270,
 		gen: 4,
 	},
-	lightball: {
+	lightball: { // updated
 		name: "Light Ball",
 		spritenum: 251,
 		fling: {
@@ -3133,14 +3133,20 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		onModifyAtkPriority: 1,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Pichu') {
 				return this.chainModify(2);
+			}
+			if (pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Emolga' || pokemon.baseSpecies.baseSpecies === 'Guruchi') {
+				return this.chainModify(1.5);
 			}
 		},
 		onModifySpAPriority: 1,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.baseSpecies.baseSpecies === 'Pikachu') {
+			if (pokemon.baseSpecies.baseSpecies === 'Pikachu' || pokemon.baseSpecies.baseSpecies === 'Pichu') {
 				return this.chainModify(2);
+			}
+			if (pokemon.baseSpecies.baseSpecies === 'Raichu' || pokemon.baseSpecies.baseSpecies === 'Emolga' || pokemon.baseSpecies.baseSpecies === 'Guruchi') {
+				return this.chainModify(1.5);
 			}
 		},
 		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World"],
@@ -7674,9 +7680,9 @@ export const Items: {[itemid: string]: ItemData} = {
 		name: "Amaze-Drive",
 		spritenum: 113,
 		fling: {
-			basePower: 50,
+			basePower: 30,
 		},
-		num: -324,
+		num: -20,
 		gen: 9,
 	},
 	avocaberry: {
@@ -7698,6 +7704,56 @@ export const Items: {[itemid: string]: ItemData} = {
 			}
 		},
 		num: -1,
+		gen: 9,
+	},
+	blackaugurite: {
+		name: "Black Augurite",
+		spritenum: 142,
+		fling: {
+			basePower: 30,
+		},
+		num: -23,
+		gen: 9,
+	},
+	charmingtalisman: {
+		name: "Charming Talisman",
+		spritenum: 436,
+		fling: {
+			basePower: 50,
+		},
+		onBasePowerPriority: 15,
+		onBasePower(basePower, user, target, move) {
+			if (move && move.type === 'Fairy') {
+				return this.chainModify([4915, 4096]);
+			}
+		},
+		num: -3,
+		gen: 9,
+	},
+	coffeegeistcappuccino: {
+		name: "Coffeegeist Cappuccino",
+		spritenum: 791,
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 4) {
+				pokemon.useItem();
+				pokemon.addVolatile('coffeegeistcappuccino');
+			}
+		},
+		boosts: {
+			spd: 1,
+			spe: 1,
+		},
+		condition: {
+			noCopy: true,
+			duration: 5,
+			onResidualOrder: 28,
+			onResidualSubOrder: 5,
+			onEnd(pokemon) {
+				this.boost({spd: -1, spe: -1}, pokemon, pokemon);
+				pokemon.addVolatile('caffeinecrash');
+			},
+		},
+		num: -8,
 		gen: 9,
 	},
 	energychannelizer: {
@@ -7741,47 +7797,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: -14,
 		gen: 9,
 	},
-	charmingtalisman: {
-		name: "Charming Talisman",
-		spritenum: 436,
-		fling: {
-			basePower: 50,
-		},
-		onBasePowerPriority: 15,
-		onBasePower(basePower, user, target, move) {
-			if (move && move.type === 'Fairy') {
-				return this.chainModify([4915, 4096]);
-			}
-		},
-		num: -3,
-		gen: 9,
-	},
-	coffeegeistcappuccino: {
-		name: "Coffeegeist Cappuccino",
-		spritenum: 791,
-		onUpdate(pokemon) {
-			if (pokemon.hp <= pokemon.maxhp / 4) {
-				pokemon.useItem();
-				pokemon.addVolatile('coffeegeistcappuccino');
-			}
-		},
-		boosts: {
-			spd: 1,
-			spe: 1,
-		},
-		condition: {
-			noCopy: true,
-			duration: 5,
-			onResidualOrder: 28,
-			onResidualSubOrder: 5,
-			onEnd(pokemon) {
-				this.boost({spd: -1, spe: -1}, pokemon, pokemon);
-				pokemon.addVolatile('caffeinecrash');
-			},
-		},
-		num: -4,
-		gen: 9,
-	},
 	flatunovan: {
 		name: "Flat Unovan",
 		spritenum: 792,
@@ -7805,7 +7820,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.addVolatile('caffeinecrash');
 			},
 		},
-		num: -4,
+		num: -9,
 		gen: 9,
 	},
 	frostorb: {
@@ -7821,6 +7836,15 @@ export const Items: {[itemid: string]: ItemData} = {
 			pokemon.trySetStatus('frb', pokemon);
 		},
 		num: -2,
+		gen: 9,
+	},
+	miststone: {
+		name: "Mist Stone",
+		spritenum: 142,
+		fling: {
+			basePower: 30,
+		},
+		num: -21,
 		gen: 9,
 	},
 	mystictamroastdoppio: {
@@ -7846,7 +7870,16 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.addVolatile('caffeinecrash');
 			},
 		},
-		num: -4,
+		num: -7,
+		gen: 9,
+	},
+	peatblock: {
+		name: "Peat Block",
+		spritenum: 142,
+		fling: {
+			basePower: 30,
+		},
+		num: -24,
 		gen: 9,
 	},
 	pikaspresso: {
@@ -7883,6 +7916,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: -13,
 		gen: 9,
 	},
+	razorhook: {
+		name: "Razor Hook",
+		spritenum: 382,
+		fling: {
+			basePower: 30,
+		},
+		num: -17,
+		gen: 9,
+	},
 	sandygastmocha: {
 		name: "Sandygast Mocha",
 		spritenum: 789,
@@ -7906,7 +7948,25 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.addVolatile('caffeinecrash');
 			},
 		},
-		num: -4,
+		num: -6,
+		gen: 9,
+	},
+	scrollofdarkness: {
+		name: "Scroll of Darkness",
+		spritenum: 385,
+		fling: {
+			basePower: 30,
+		},
+		num: -18,
+		gen: 9,
+	},
+	scrollofwaters: {
+		name: "Scroll of Waters",
+		spritenum: 385,
+		fling: {
+			basePower: 30,
+		},
+		num: -19,
 		gen: 9,
 	},
 	volatilespray: {
@@ -7971,7 +8031,7 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.addVolatile('caffeinecrash');
 			},
 		},
-		num: -4,
+		num: -5,
 		gen: 9,
 	},
 };

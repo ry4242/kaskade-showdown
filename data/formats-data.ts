@@ -5902,7 +5902,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
-	enamoOUstherian: {
+	enamorustherian: {
 		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "OU",

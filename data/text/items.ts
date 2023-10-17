@@ -347,7 +347,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	dawnstone: {
 		name: "Dawn Stone",
-		desc: "Evolves male Kirlia into Gallade and female Snorunt into Froslass when used.",
+		desc: "Evolves male Kirlia into Gallade ,female Snorunt into Froslass, and Floette into Florges when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 	},
 	decidiumz: {
@@ -356,12 +356,12 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	deepseascale: {
 		name: "Deep Sea Scale",
-		desc: "If held by a Clamperl, its Sp. Def is doubled. Evolves Clamperl into Gorebyss when traded.",
+		desc: "If held by a Clamperl, its Sp. Def is doubled. Evolves Clamperl into Gorebyss when used.",
 		shortDesc: "If held by a Clamperl, its Sp. Def is doubled.",
 	},
 	deepseatooth: {
 		name: "Deep Sea Tooth",
-		desc: "If held by a Clamperl, its Sp. Atk is doubled. Evolves Clamperl into Huntail when traded.",
+		desc: "If held by a Clamperl, its Sp. Atk is doubled. Evolves Clamperl into Huntail when used.",
 		shortDesc: "If held by a Clamperl, its Sp. Atk is doubled.",
 	},
 	destinyknot: {
@@ -411,7 +411,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	dragonscale: {
 		name: "Dragon Scale",
-		desc: "Evolves Seadra into Kingdra when traded.",
+		desc: "Evolves Seadra into Kingdra when used.",
 		gen2: {
 			desc: "Holder's Dragon-type attacks have 1.1x power. Evolves Seadra (trade).",
 		},
@@ -433,7 +433,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	dubiousdisc: {
 		name: "Dubious Disc",
-		desc: "Evolves Porygon2 into Porygon-Z when traded.",
+		desc: "Evolves Porygon2 into Porygon-Z when used.",
 	},
 	durinberry: {
 		name: "Durin Berry",
@@ -470,7 +470,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	electirizer: {
 		name: "Electirizer",
-		desc: "Evolves Electabuzz into Electivire when traded.",
+		desc: "Evolves Electabuzz into Electivire when held and leveled up during Thunderstorm.",
 	},
 	electricgem: {
 		name: "Electric Gem",
@@ -564,7 +564,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	firestone: {
 		name: "Fire Stone",
-		desc: "Evolves Vulpix into Ninetales, Growlithe into Arcanine, Eevee into Flareon, and Pansear into Simisear when used.",
+		desc: "Evolves Vulpix into Ninetales, Growlithe into Arcanine, Hisuian Growlithe into Hisuian Arcanine, Eevee into Flareon, Pansear into Simisear, and Pramblo into Glashulimp when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 	},
 	firiumz: {
@@ -830,7 +830,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	icestone: {
 		name: "Ice Stone",
-		desc: "Evolves Alolan Sandshrew into Alolan Sandslash, Alolan Vulpix into Alolan Ninetales, Eevee into Glaceon, and Galarian Darumaka into Galarian Darmanitan when used.",
+		desc: "Evolves Alolan Sandshrew into Alolan Sandslash, Alolan Vulpix into Alolan Ninetales, Eevee into Glaceon, Galarian Darumaka into Galarian Darmanitan, and Rattata into Kaskadian Raticate when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 		gen7: {
 			desc: "Evolves Alolan Sandshrew into Alolan Sandslash and Alolan Vulpix into Alolan Ninetales when used.",
@@ -897,7 +897,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	kingsrock: {
 		name: "King's Rock",
-		desc: "Holder's attacks without a chance to make the target flinch gain a 10% chance to make the target flinch. Evolves Poliwhirl into Politoed and Slowpoke into Slowking when traded.",
+		desc: "Holder's attacks without a chance to make the target flinch gain a 10% chance to make the target flinch. Evolves Poliwhirl into Politoed and Slowpoke into Slowking when used.",
 		shortDesc: "Holder's attacks without a chance to flinch gain a 10% chance to flinch.",
 	},
 	kommoniumz: {
@@ -929,7 +929,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	leafstone: {
 		name: "Leaf Stone",
-		desc: "Evolves Gloom into Vileplume, Weepinbell into Victreebel, Exeggcute into Exeggutor or Alolan Exeggutor, Eevee into Leafeon, Nuzleaf into Shiftry, and Pansage into Simisage when used.",
+		desc: "Evolves Gloom into Vileplume, Weepinbell into Victreebel, Exeggcute into Exeggutor or Alolan Exeggutor, Eevee into Leafeon, Nuzleaf into Shiftry, Pansage into Simisage, Hisuian Voltorb into Hisuian Electrode, and Kaskadian Gurdurr into Kaskadian Conkeldurr when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 		gen7: {
 			desc: "Evolves Gloom into Vileplume, Weepinbell into Victreebel, Exeggcute into Exeggutor or Alolan Exeggutor, Nuzleaf into Shiftry, and Pansage into Simisage when used.",
@@ -965,9 +965,10 @@ export const ItemsText: {[k: string]: ItemText} = {
 
 		damage: "  [POKEMON] lost some of its HP!",
 	},
-	lightball: {
+	lightball: { // updated
 		name: "Light Ball",
-		desc: "If held by a Pikachu, its Attack and Sp. Atk are doubled.",
+		desc: "If held by a Pikachu or Pichu, its Attack and Special Attack are doubled. If held by a Raichu, Alolan Raichu, Emolga, or Guruchi, its Attack and Special Attack are multiplied by 1.5.",
+		shortDesc: "Pikachu/Pichu: 2x Atk/Sp. Atk. Pikaclone: 1.5x Atk/Sp. Atk.",
 		gen4: {
 			desc: "If held by a Pikachu, its attacks have their power doubled.",
 		},
@@ -1047,7 +1048,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	magmarizer: {
 		name: "Magmarizer",
-		desc: "Evolves Magmar into Magmortar when traded.",
+		desc: "Evolves Magmar into Magmortar when held and leveled up during Sun.",
 	},
 	magnet: {
 		name: "Magnet",
@@ -1123,7 +1124,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	metalcoat: {
 		name: "Metal Coat",
-		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Onix into Steelix and Scyther into Scizor when traded.",
+		desc: "Holder's Steel-type attacks have 1.2x power. Evolves Onix into Steelix and Scyther into Scizor when used.",
 		shortDesc: "Holder's Steel-type attacks have 1.2x power.",
 		gen3: {
 			desc: "Holder's Steel-type attacks have 1.1x power. Evolves Onix into Steelix and Scyther into Scizor when traded.",
@@ -1191,7 +1192,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	moonstone: {
 		name: "Moon Stone",
-		desc: "Evolves Nidorina into Nidoqueen, Nidorino into Nidoking, Clefairy into Clefable, Jigglypuff into Wigglytuff, Skitty into Delcatty, and Munna into Musharna when used.",
+		desc: "Evolves Nidorina into Nidoqueen, Nidorino into Nidoking, Clefairy into Clefable, Jigglypuff into Wigglytuff, Skitty into Delcatty, Munna into Musharna, and Eevee into Umbreon when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 	},
 	muscleband: {
@@ -1385,7 +1386,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	prismscale: {
 		name: "Prism Scale",
-		desc: "Evolves Feebas into Milotic when traded.",
+		desc: "Evolves Feebas into Milotic when held and leveled up with high Friendship.",
 	},
 	protectivepads: {
 		name: "Protective Pads",
@@ -1395,7 +1396,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	protector: {
 		name: "Protector",
-		desc: "Evolves Rhydon into Rhyperior when traded.",
+		desc: "Evolves Rhydon into Rhyperior when used while knowing Horn Drill.",
 	},
 	psychicgem: {
 		name: "Psychic Gem",
@@ -1455,12 +1456,12 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	razorclaw: {
 		name: "Razor Claw",
-		desc: "Holder's critical hit ratio is raised by 1 stage. Evolves Sneasel into Weavile when held and leveled up during the night.",
+		desc: "Holder's critical hit ratio is raised by 1 stage.",
 		shortDesc: "Holder's critical hit ratio is raised by 1 stage.",
 	},
 	razorfang: {
 		name: "Razor Fang",
-		desc: "Holder's attacks without a chance to make the target flinch gain a 10% chance to make the target flinch. Evolves Gligar into Gliscor when held and leveled up during the night.",
+		desc: "Holder's attacks without a chance to make the target flinch gain a 10% chance to make the target flinch.",
 		shortDesc: "Holder's attacks without a chance to flinch gain a 10% chance to flinch.",
 	},
 	razzberry: {
@@ -1556,7 +1557,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	sachet: {
 		name: "Sachet",
-		desc: "Evolves Spritzee into Aromatisse when traded.",
+		desc: "Evolves Spritzee into Aromatisse when used.",
 	},
 	safariball: {
 		name: "Safari Ball",
@@ -1623,7 +1624,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	shinystone: {
 		name: "Shiny Stone",
-		desc: "Evolves Togetic into Togekiss, Roselia into Roserade, Minccino into Cinccino, and Floette into Florges when used.",
+		desc: "Evolves Togetic into Togekiss, Roselia into Roserade, Minccino into Cinccino, Eevee into Sylveon, and Skideer into Yuleigh when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 	},
 	shockdrive: {
@@ -1768,7 +1769,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	sunstone: {
 		name: "Sun Stone",
-		desc: "Evolves Gloom into Bellossom, Sunkern into Sunflora, Cottonee into Whimsicott, Petilil into Lilligant, and Helioptile into Heliolisk when used.",
+		desc: "Evolves Gloom into Bellossom, Sunkern into Sunflora, Cottonee into Whimsicott, Petilil into Lilligant, Helioptile into Heliolisk, and Eevee into Espeon when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 	},
 	swampertite: {
@@ -1803,7 +1804,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Terrain Extender",
 		desc: "Holder's use of Electric/Grassy/Misty/Psychic Terrain lasts 8 turns instead of 5.",
 	},
-	thickclub: {
+	thickclub: { // updated
 		name: "Thick Club",
 		desc: "If held by a Cubone or a Marowak, its Attack is doubled. If held by a Oracub or a Bearvoyance, its Special Attack is multiplied by 1.5.",
 		shortDesc: "Cubone/Marowak: 2x Atk. Oracub/Bearvoyance: 1.5x SpA.",
@@ -1814,7 +1815,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	thunderstone: {
 		name: "Thunder Stone",
-		desc: "Evolves Pikachu into Raichu or Alolan Raichu, Eevee into Jolteon, Eelektrik into Eelektross, and Charjabug into Vikavolt when used.",
+		desc: "Evolves Pikachu into Raichu or Alolan Raichu, Eevee into Jolteon, Eelektrik into Eelektross, Charjabug into Vikavolt, and Mienfoo into Mienflux when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 		gen7: {
 			desc: "Evolves Pikachu into Raichu or Alolan Raichu, Eevee into Jolteon, and Eelektrik into Eelektross when used.",
@@ -2234,7 +2235,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	twistedspoon: {
 		name: "Twisted Spoon",
-		desc: "Holder's Psychic-type attacks have 1.2x power.",
+		desc: "Holder's Psychic-type attacks have 1.2x power. Evolves Kadabra into Alakazam when held and leveled up.",
 		gen3: {
 			desc: "Holder's Psychic-type attacks have 1.1x power.",
 		},
@@ -2260,7 +2261,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	upgrade: {
 		name: "Up-Grade",
-		desc: "Evolves Porygon into Porygon2 when traded.",
+		desc: "Evolves Porygon into Porygon2 when used.",
 	},
 	utilityumbrella: {
 		name: "Utility Umbrella",
@@ -2288,7 +2289,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	waterstone: {
 		name: "Water Stone",
-		desc: "Evolves Poliwhirl into Poliwrath, Shellder into Cloyster, Staryu into Starmie, Eevee into Vaporeon, Lombre into Ludicolo, and Panpour into Simipour when used.",
+		desc: "Evolves Poliwhirl into Poliwrath, Shellder into Cloyster, Staryu into Starmie, Eevee into Vaporeon, Lombre into Ludicolo, Panpour into Simipour, and Mosster into Mosskrat or Tide Bloom Mosskrat when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 	},
 	wateriumz: {
@@ -2317,7 +2318,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	whippeddream: {
 		name: "Whipped Dream",
-		desc: "Evolves Swirlix into Slurpuff when traded.",
+		desc: "Evolves Swirlix into Slurpuff when used.",
 	},
 	whiteherb: {
 		name: "White Herb",
@@ -2426,13 +2427,17 @@ export const ItemsText: {[k: string]: ItemText} = {
 	// swse
 
 	amazedrive: {
-		name: "Fire Stone",
-		desc: "Evolves Golbat into Probat, Porygon2 into Porygon ω, Drifloon into Drifblim-Amaze-All, and Bonsly into Sudowoodo-Amaze-All when used.",
+		name: "Amaze-Drive",
+		desc: "Evolves Golbat into Probat, Porygon2 into Porygon ω, Drifloon into Amaze-All Drifblim, and Bonsly into Amaze-All Sudowoodo when used.",
 		shortDesc: "Evolves certain species of Pokemon when used.",
 	},
 	avocaberry: {
 		name: "Avoca Berry",
 		desc: "Holder is cured if it is frostbitten. Single use.",
+	},
+	blackaugurite: {
+		name: "Black Augurite",
+		desc: "Evolves Scyther into Kleavor when used.",
 	},
 	charmingtalisman: {
 		name: "Charming Talisman",
@@ -2465,6 +2470,22 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Frost Orb",
 		desc: "At the end of every turn, this item attempts to give the holder frostbite.",
 	},
+	miststone: {
+		name: "Mist Stone",
+		desc: "Evolves Eevee into Enigmeon, Quilava into Hisuian Typhlosion, Stantler into Wyrdeer, Dewott into Hisuian Samurott, Petilil into Hisuian Lilligant, White-Striped Basculin into Basculegion, Rufflet into Hisuian Braviary, Goomy into Hisuian Sliggoo, Bergmite into Hisuian Avalugg, and Dartrix into Hisuian Decidueye when used.",
+		shortDesc: "Evolves certain species of Pokemon when used.",
+	},
+	mystictamroastdoppio: {
+		name: "Mystic Tamroast Doppio",
+		desc: "Raises holder's Sp. Atk and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Mystic Tamroast Doppio are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
+		shortDesc: "+1 Sp. Atk and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+
+		end: "  [POKEMON] drank its Mystic Tamroast Doppio!",
+	},
+	peatblock: {
+		name: "Razor Hook",
+		desc: "Evolves Ursaring into Ursaluna when used at night.",
+	},
 	pikaspresso: {
 		name: "Pikaspresso",
 		desc: "Raises holder's Speed by 2 stages when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Pikaspresso are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
@@ -2476,6 +2497,11 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Portable Turbine",
 		desc: "Holder's Clearing Weathergies last 8 turns instead of 5.",
 	},
+	razorhook: {
+		name: "Razor Hook",
+		desc: "Holder's critical hit ratio is raised by 1 stage. Evolves Gligar into Gliscor and Sneasel into Weavile when held and leveled up during the night, and evolves Hisuian Sneasel into Sneasler when held and leveled up during the day.",
+		shortDesc: "Holder's critical hit ratio is raised by 1 stage.",
+	},
 	sandygastmocha: {
 		name: "Sandygast Mocha",
 		desc: "Raises holder's Defense and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Sandygast Mocha are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
@@ -2483,12 +2509,17 @@ export const ItemsText: {[k: string]: ItemText} = {
 
 		end: "  [POKEMON] drank its Sandygast Mocha!",
 	},
-	mystictamroastdoppio: {
-		name: "Mystic Tamroast Doppio",
-		desc: "Raises holder's Sp. Atk and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Mystic Tamroast Doppio are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
-		shortDesc: "+1 Sp. Atk and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
-
-		end: "  [POKEMON] drank its Mystic Tamroast Doppio!",
+	scrollofdarkness: {
+		name: "Scroll of Darkness",
+		desc: "Evolves Kubfu into Single Strike Urshifu when used.",
+	},
+	scrollofwaters: {
+		name: "Scroll of Waters",
+		desc: "Evolves Kubfu into Rapid Strike Urshifu when used.",
+	},
+	shelmethelmet: {
+		name: "Shelmet Helmet",
+		desc: "Evolves Karrablast into Escavalier when used.",
 	},
 	volatilespray: {
 		name: "Volatile Spray",
