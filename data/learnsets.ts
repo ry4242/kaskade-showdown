@@ -6174,6 +6174,11 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			{generation: 7, level: 64, gender: "M", moves: ["airslash", "toxic", "darkpulse", "sludgebomb"], pokeball: "cherishball"},
 		],
 	},
+	probat: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
 	oddish: {
 		learnset: {
 			absorb: ["8L1", "8V", "7L1", "7V", "6L1", "5L1", "4L1", "3L1", "3S1"],
@@ -10024,6 +10029,11 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			worryseed: ["7T", "6T", "5T", "4T"],
 			wrap: ["8V", "7V"],
 		},
+	},
+	drosabell: {
+		learnset: {
+			tackle: ["9L1"],
+		}
 	},
 	tentacool: {
 		learnset: {
@@ -20593,6 +20603,11 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			{generation: 7, level: 50, gender: "F", isHidden: true, moves: ["hyperbeam", "drainingkiss", "psyshock", "calmmind"], pokeball: "cherishball"},
 		],
 	},
+		enigmeon: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
 	porygon: {
 		learnset: {
 			aerialace: ["7M", "6M", "5M", "4M", "3M"],
@@ -20849,6 +20864,11 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			zapcannon: ["8L60", "7L1", "6L1", "5L62", "4L62"],
 			zenheadbutt: ["8M", "7T", "6T", "5T", "4T"],
 		},
+	},
+		porygonwubble: {
+		learnset: {
+			tackle: ["9L1"],
+		}
 	},
 	omanyte: {
 		learnset: {
@@ -26887,6 +26907,11 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			uproar: ["9M", "9L27", "7T", "7L27", "6T", "6L27", "5T", "5L27", "4T", "4L27"],
 			uturn: ["9M", "9L49", "7M", "7L49", "6M", "6L49", "5M", "5L49", "4M", "4L46"],
 		},
+	},
+	yanmage: {
+		learnset: {
+			tackle: ["9L1"],
+		}
 	},
 	wooper: {
 		learnset: {
@@ -63254,6 +63279,11 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			{generation: 7, level: 65, gender: "M", abilities: ["innerfocus"], moves: ["fakeout", "dualchop", "highjumpkick", "uturn"], pokeball: "cherishball"},
 		],
 	},
+	mienflux: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
 	druddigon: {
 		learnset: {
 			aerialace: ["7M", "6M", "5M"],
@@ -63540,6 +63570,11 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		encounters: [
 			{generation: 6, level: 30},
 		],
+	},
+	golgre: {
+		learnset: {
+			tackle: ["9L1"],
+		}
 	},
 	pawniard: {
 		learnset: {
@@ -91071,17 +91106,12 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 		}
 	},
-	eecroachswarm: {
+	stackem: {
 		learnset: {
 			tackle: ["9L1"],
 		}
 	},
 	clamtrip: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	stackem: {
 		learnset: {
 			tackle: ["9L1"],
 		}
@@ -91201,11 +91231,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 		}
 	},
-	enigmeon: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
 	desoray: {
 		learnset: {
 			tackle: ["9L1"],
@@ -91246,11 +91271,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 		}
 	},
-	porygonwubble: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
 	estoe: {
 		learnset: {
 			tackle: ["9L1"],
@@ -91282,11 +91302,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		}
 	},
 	oxillery: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	mienflux: {
 		learnset: {
 			tackle: ["9L1"],
 		}
@@ -91361,32 +91376,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 		}
 	},
-	botnyak: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
 	vendrom: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	buwuve: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	wasgrowl: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	worcane: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	probat: {
 		learnset: {
 			tackle: ["9L1"],
 		}
@@ -91411,37 +91401,12 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 		}
 	},
-	drosabell: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	yanmage: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
 	bloomage: {
 		learnset: {
 			tackle: ["9L1"],
 		}
 	},
 	obsidious: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	mercryni: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	meraculisk: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	golgre: {
 		learnset: {
 			tackle: ["9L1"],
 		}
@@ -91491,7 +91456,37 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			tackle: ["9L1"],
 		}
 	},
+	mercryni: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	meraculisk: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
 	rotomb: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	botnyak: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	buwuve: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	wasgrowl: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	worcane: {
 		learnset: {
 			tackle: ["9L1"],
 		}
