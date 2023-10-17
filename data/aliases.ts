@@ -83,8 +83,8 @@ export const Aliases: {[alias: string]: string} = {
 	gen6ag: "[Gen 6] Anything Goes",
 	crossevo: "[Gen 9] Cross Evolution",
 	mayhem: "[Gen 9] Random Battle Mayhem",
-	omotm: "[Gen 9] 350 Cup",
-	lcotm: "[Gen 9] Bonus Type",
+	omotm: "[Gen 9] Convergence",
+	lcotm: "[Gen 9] Godly Gift",
 
 	// mega evos
 	fabio: "Ampharos-Mega",
@@ -491,6 +491,7 @@ export const Aliases: {[alias: string]: string} = {
 	tatsugiridroopy: "Tatsugiri",
 	tatsugiristretchy: "Tatsugiri",
 
+	// pokestar
 	pokestargiant2: "Pokestar Giant",
 	pokestarmonica2: "Pokestar Giant",
 	pokestarufopropu1: "Pokestar UFO",
@@ -1855,4 +1856,6 @@ export const Aliases: {[alias: string]: string} = {
 	zugadoon: "Blacephalon",
 	merutan: "Meltan",
 	merumetaru: "Melmetal",
+
+	// swse
 };

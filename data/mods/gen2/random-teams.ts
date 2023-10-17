@@ -14,7 +14,9 @@ export class RandomGen2Teams extends RandomGen3Teams {
 			Ground: (movePool, moves, abilities, types, counter) => !counter.get('Ground'),
 			Ice: (movePool, moves, abilities, types, counter) => !counter.get('Ice'),
 			Normal: (movePool, moves, abilities, types, counter) => !counter.get('Normal') && counter.setupType === 'Physical',
-			Psychic: (movePool, moves, abilities, types, counter) => !counter.get('Psychic') && types.has('Grass'),
+			Psychic: (movePool, moves, abilities, types, counter) => (
+				!counter.get('Psychic') && (types.has('Grass') || types.has('Ice'))
+			),
 			Rock: (movePool, moves, abilities, types, counter, species) => !counter.get('Rock') && species.baseStats.atk > 60,
 			Water: (movePool, moves, abilities, types, counter) => !counter.get('Water'),
 		};
@@ -58,8 +60,6 @@ export class RandomGen2Teams extends RandomGen3Teams {
 			return {cull: !!counter.setupType};
 		case 'haze':
 			return {cull: !!counter.setupType || restTalk};
-		case 'reflect': case 'lightscreen':
-			return {cull: !!counter.setupType || moves.has('rest')};
 
 		// Ineffective to have both
 		case 'doubleedge':
@@ -115,9 +115,10 @@ export class RandomGen2Teams extends RandomGen3Teams {
 
 	getItem(
 		ability: string,
-		types: Set<string>,
+		types: string[],
 		moves: Set<string>,
 		counter: MoveCounter,
+		teamDetails: RandomTeamsTypes.TeamDetails,
 		species: Species,
 	) {
 		// First, the high-priority items
@@ -132,7 +133,7 @@ export class RandomGen2Teams extends RandomGen3Teams {
 		if (moves.has('rest') && !moves.has('sleeptalk')) return 'Mint Berry';
 		if (
 			(moves.has('bellydrum') || moves.has('swordsdance')) &&
-			species.baseStats.spe >= 60 && !types.has('Ground') &&
+			species.baseStats.spe >= 60 && !types.includes('Ground') &&
 			!moves.has('sleeptalk') && !moves.has('substitute') &&
 			this.randomChance(1, 2)
 		) {
@@ -300,7 +301,7 @@ export class RandomGen2Teams extends RandomGen3Teams {
 			ability: 'No Ability',
 			evs: {hp: 255, atk: 255, def: 255, spa: 255, spd: 255, spe: 255},
 			ivs,
-			item: this.getItem('None', types, moves, counter, species),
+			item: this.getItem('None', species.types, moves, counter, teamDetails, species),
 			level,
 			// No shiny chance because Gen 2 shinies have bad IVs
 			shiny: false,
