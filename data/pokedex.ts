@@ -4773,7 +4773,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Porygon",
 		evoType: "useItem",
 		evoItem: "Up-Grade",
-		evos: ["Porygon-Z", "Porygon W"],
+		evos: ["Porygon-Z", "Porygon \u03c9"],
 		eggGroups: ["Mineral"],
 	},
 	stantler: {
@@ -21800,7 +21800,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	porygonw: {
 		num: 10109,
-		name: "Porygon W",
+		name: "Porygon \u03c9",
 		types: ["Normal"],
 		baseStats: {hp: 100, atk: 50, def: 90, spa: 120, spd: 90, spe: 80},
 		abilities: {0: "Surveillance", 1: "Energizer", H: "Analytic"},
@@ -21907,7 +21907,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 	},
 	orogon: {
 		num: 10119,
-		name: "Orogon",
+		name: "\u03a9rogon",
 		types: ["Electric", "Steel"],
 		baseStats: {hp: 110, atk: 80, def: 110, spa: 155, spd: 110, spe: 115},
 		abilities: {0: "Levitate"},
