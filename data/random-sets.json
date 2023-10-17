@@ -4122,7 +4122,7 @@
         "sets": [
             {
                 "role": "Bulky Attacker",
-                "movepool": ["Blood Moon", "Calm Mind", "Earth Power", "Moonlight"],
+                "movepool": ["Blood Moon Blast", "Calm Mind", "Earth Power", "Moonlight"],
                 "teraTypes": ["Ghost", "Normal", "Poison"]
             }
         ]

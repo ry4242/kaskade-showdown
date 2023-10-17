@@ -3807,7 +3807,7 @@
         "sets": [
             {
                 "role": "Bulky Protect",
-                "movepool": ["Blood Moon", "Earth Power", "Hyper Voice", "Protect"],
+                "movepool": ["Blood Moon Blast", "Earth Power", "Hyper Voice", "Protect"],
                 "teraTypes": ["Ghost", "Normal", "Water"]
             }
         ]

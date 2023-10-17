@@ -1514,19 +1514,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
 	},
-	/* bloodmoon: { // ursaluna's blood moon
+	bloodmoonblast: { // ursaluna's blood moon
 		num: 901,
 		accuracy: 100,
 		basePower: 140,
 		category: "Special",
-		name: "Blood Moon",
+		name: "Blood Moon Blast",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, cantusetwice: 1},
 		secondary: null,
 		target: "normal",
 		type: "Normal",
-	}, */
+	},
 	bloomdoom: {
 		num: 644,
 		accuracy: true,

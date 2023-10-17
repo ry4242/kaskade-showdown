@@ -29799,7 +29799,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	ursalunabloodmoon: {
 		learnset: {
 			avalanche: ["9M"],
-			bloodmoon: ["9L70", "9S0"],
+			bloodmoonblast: ["9L70", "9S0"],
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
 			brickbreak: ["9M"],
@@ -29867,7 +29867,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			vacuumwave: ["9M"],
 		},
 		eventData: [
-			{generation: 9, level: 70, nature: "Hardy", perfectIVs: 3, moves: ["bloodmoon", "earthpower", "slash", "calmmind"]},
+			{generation: 9, level: 70, nature: "Hardy", perfectIVs: 3, moves: ["bloodmoonblast", "earthpower", "slash", "calmmind"]},
 		],
 		eventOnly: true,
 	},

@@ -3,7 +3,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	bloodmoon: {
+	bloodmoonblast: {
 		inherit: true,
 		isNonstandard: "Future",
 	},
