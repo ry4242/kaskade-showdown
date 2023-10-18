@@ -1189,7 +1189,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 					}
 				}
 				if (showMsg && !(effect as ActiveMove).secondaries && !['octolock', 'syrupbomb'].includes(effect.id)) { // incomplete
-					this.add("-fail", target, "unboost", "[from] weather: Aura Projection", "[of] " + target); // does this need to be changed to [from] energyWeather
+					this.add("-fail", target, "unboost", "[from] energyWeather: Aura Projection", "[of] " + target); // does this need to be changed to [from] energyWeather
 				}
 			}
 		},

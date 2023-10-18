@@ -2672,4 +2672,24 @@ export const Rulesets: {[k: string]: FormatData} = {
 			return value;
 		},
 	},
+	/* weatherset: {
+        effectType: 'Rule',
+        name: 'Weather Set',
+        desc: `Starts the battle with the specified Weathergy. Usage: Weather Set = [Weather], e.g. "Weather Set = RainDance"`,
+        hasValue: true,
+        onValidateRule(value) {
+            if (!this.dex.conditions.get(value).exists) throw new Error(`Misspelled weather "${value}"`);
+            const validWeathers = ['SunnyDay', 'DesolateLand', 'RainDance', 'PrimordialSea', 'BloodMoon', 'Foghorn', 'Sandstorm', 'DustStorm', 'PollenStorm', 'Pheromones', 'Smog', 'FairyDust', 'AuraProjection', 'Haunt', 'CosmicRays', 'DragonForce', 'SUpercell', 'Magnetize', 'StrongWinds', 'DeltaStream'];
+            if (!validWeathers.includes(value)) throw new Error(`"${value}" is not a weather`);
+        },
+        onBegin() {
+            this.initialClimateWeather = this.ruleTable.valueRules.get('weatherset')
+            if (this.field.getClimateWeather()) return;
+            this.field.setInitialClimateWeather(this.initialClimateWeather);
+        },
+        onUpdate() {
+            if (this.field.getClimateWeather()) return;
+            this.field.setInitialClimateWeather(this.initialClimateWeather);
+        },
+    }, */
 };

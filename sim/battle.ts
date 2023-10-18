@@ -3144,6 +3144,15 @@ export class Battle {
 		return this.sides[parseInt(sideid[1]) - 1];
 	}
 
+	/* initialClimateWeather(status: string) {
+    }
+	initialIrritantWeather(status: string) {
+    }
+	initialEnergyWeather(status: string) {
+    }
+	initialClearingWeather(status: string) {
+    } */
+
 	destroy() {
 		// deallocate ourself
 
