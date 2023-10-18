@@ -263,7 +263,7 @@ export const Formats: FormatList = [
 		banlist: ['Walking Wake', 'Iron Leaves'],
 	}, */
 	{
-		name: "SwSe Custom Game",
+		name: "[Gen Ω] Custom Game",
 
 		mod: 'gen9',
 		searchShow: false,

@@ -1022,7 +1022,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			if (target.hasItem('safetygoggles')) return;
 			if (typeof accuracy === 'number' && (source.hasType('Bug') || source.hasType('Poison'))) {
 				this.debug('pheromones accuracy boost');
-				return this.modify(accuracy, 1.33);
+				return this.modify(accuracy, 4 / 3);
 			}
 		},
 		onModifySpePriority: 10,

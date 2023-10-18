@@ -21130,7 +21130,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 	},
-	weatherball: { // incomplete. needs testing
+	weatherball: { // incomplete
 		num: 311,
 		accuracy: 100,
 		basePower: 50,
