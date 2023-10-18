@@ -1350,13 +1350,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	forecast: { // incomplete. needs testing, add weather vane
 		onStart(pokemon) {
-			if (this.field.getRecentWeather() === pokemon.effectiveClimateWeather() ||
-			this.field.getRecentWeather() === pokemon.effectiveIrritantWeather() ||
-			this.field.getRecentWeather() === pokemon.effectiveEnergyWeather() ||
-			this.field.getRecentWeather() === pokemon.effectiveClearingWeather()) {
 				if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 				let forme = null;
-				switch (this.field.getRecentWeather('magnetize')) {
+				switch (this.field.getRecentWeather('magnetize', pokemon)) {
 				case 'sunnyday':
 				case 'desolateland':
 					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -1422,13 +1418,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				if (pokemon.isActive && forme) {
 					pokemon.formeChange(forme, this.effect, false, '[msg]');
 				}
-				this.debug(this.field.getRecentWeather());
-			}
+				this.debug(this.field.getRecentWeather(null, pokemon));
 		},
 		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (this.field.getRecentWeather('magnetize')) {
+			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 				case 'sunnyday':
 				case 'desolateland':
 					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -1491,7 +1486,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						forme = null;
 					}
 				}
-				this.debug(this.field.getRecentWeather());
+				this.debug(this.field.getRecentWeather(null, pokemon));
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1499,7 +1494,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onIrritantWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (this.field.getRecentWeather('magnetize')) {
+			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 				case 'sunnyday':
 				case 'desolateland':
 					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -1562,7 +1557,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						forme = null;
 					}
 				}
-				this.debug(this.field.getRecentWeather());
+				this.debug(this.field.getRecentWeather(null, pokemon));
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1570,7 +1565,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onEnergyWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (this.field.getRecentWeather('magnetize')) {
+			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 				case 'sunnyday':
 				case 'desolateland':
 					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -1633,7 +1628,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						forme = null;
 					}
 				}
-				this.debug(this.field.getRecentWeather());
+				this.debug(this.field.getRecentWeather(null, pokemon));
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1641,7 +1636,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onClearingWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (this.field.getRecentWeather('magnetize')) {
+			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 				case 'sunnyday':
 				case 'desolateland':
 					if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -1704,7 +1699,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 						forme = null;
 					}
 				}
-				this.debug(this.field.getRecentWeather());
+				this.debug(this.field.getRecentWeather(null, pokemon));
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -2547,14 +2542,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
-			if (move.type !== 'Electric' || move.flags['pledgecombo']) return;
-			const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
-			if (this.validTarget(this.effectState.target, source, redirectTarget)) {
-				if (move.smartTarget) move.smartTarget = false;
-				if (this.effectState.target !== target) {
-					this.add('-activate', this.effectState.target, 'ability: Lightning Rod');
+			if (move.flags['pledgecombo']) return;
+			if (move.type === 'Electric' || source2.energyWeather === 'supercell') {
+				const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+				if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+					if (move.smartTarget) move.smartTarget = false;
+					if (this.effectState.target !== target) {
+						this.add('-activate', this.effectState.target, 'ability: Lightning Rod');
+					}
+					return this.effectState.target;
 				}
-				return this.effectState.target;
 			}
 		},
 		isBreakable: true,

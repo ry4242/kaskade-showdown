@@ -416,35 +416,134 @@ export class Field {
 		return this.battle.dex.conditions.getByID(this.clearingWeather);
 	}
 
-	getRecentWeather(exclude: string | null = null) {
+	getRecentWeather(exclude: string | null = null, pokemon: Pokemon | null = null) {
 		if (
 			this.climateWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
 			this.climateWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
 			this.climateWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-			this.climateWeather !== exclude && this.climateWeatherState.turnsActive > 0
+			this.climateWeather !== exclude && this.climateWeatherState.turnsActive < 100 &&
+			pokemon?.effectiveClimateWeather() === this.climateWeather
 		) {
 			return this.climateWeather;
 		} else if (
 			this.irritantWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
 			this.irritantWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
 			this.irritantWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-			this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive > 0
+			this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive < 100 &&
+			pokemon?.effectiveIrritantWeather() === this.irritantWeather
 		) {
 			return this.irritantWeather;
 		} else if (
 			this.energyWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
 			this.energyWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
 			this.energyWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-			this.energyWeather !== exclude && this.energyWeatherState.turnsActive > 0
+			this.energyWeather !== exclude && this.energyWeatherState.turnsActive < 100 &&
+			pokemon?.effectiveEnergyWeather() === this.energyWeather
 		) {
 			return this.energyWeather;
 		} else if (this.clearingWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
 			this.clearingWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
 			this.clearingWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-			this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive > 0
+			this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive < 100 &&
+			pokemon?.effectiveClearingWeather() === this.clearingWeather
 		) {
 			return this.clearingWeather;
 		} else {
+			if (pokemon?.effectiveClimateWeather() !== this.climateWeather || this.climateWeather === exclude) {
+				if (
+					this.irritantWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
+					this.irritantWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
+					this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveIrritantWeather() === this.irritantWeather
+				) {
+					return this.irritantWeather;
+				} else if (
+					this.energyWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
+					this.energyWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
+					this.energyWeather !== exclude && this.energyWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveEnergyWeather() === this.energyWeather
+				) {
+					return this.energyWeather;
+				} else if (this.clearingWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
+					this.clearingWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
+					this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveClearingWeather() === this.clearingWeather
+				) {
+					return this.clearingWeather;
+				}
+			}
+			if (pokemon?.effectiveIrritantWeather() !== this.irritantWeather || this.irritantWeather === exclude) {
+				if (
+					this.climateWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
+					this.climateWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
+					this.climateWeather !== exclude && this.climateWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveClimateWeather() === this.climateWeather
+				) {
+					return this.climateWeather;
+				} else if (
+					this.energyWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
+					this.energyWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
+					this.energyWeather !== exclude && this.energyWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveEnergyWeather() === this.energyWeather
+				) {
+					return this.energyWeather;
+				} else if (
+					this.clearingWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
+					this.clearingWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
+					this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveClearingWeather() === this.clearingWeather
+				) {
+					return this.clearingWeather;
+				}
+			}
+			if (pokemon?.effectiveEnergyWeather() !== this.energyWeather || this.energyWeather === exclude) {
+				if (
+					this.climateWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
+					this.climateWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
+					this.climateWeather !== exclude && this.climateWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveClimateWeather() === this.climateWeather
+				) {
+					return this.climateWeather;
+				} else if (
+					this.irritantWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
+					this.irritantWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
+					this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveIrritantWeather() === this.irritantWeather
+				) {
+					return this.irritantWeather;
+				} else if (
+					this.clearingWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
+					this.clearingWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
+					this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveClearingWeather() === this.clearingWeather
+				) {
+					return this.clearingWeather;
+				}
+			}
+			if (pokemon?.effectiveClearingWeather() !== this.clearingWeather || this.clearingWeather === exclude) {
+				if (
+					this.climateWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
+					this.climateWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
+					this.climateWeather !== exclude && this.climateWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveClimateWeather() === this.climateWeather
+				) {
+					return this.climateWeather;
+				} else if (
+					this.irritantWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
+					this.irritantWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
+					this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveIrritantWeather() === this.irritantWeather
+				) {
+					return this.irritantWeather;
+				} else if (
+					this.energyWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
+					this.energyWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
+					this.energyWeather !== exclude && this.energyWeatherState.turnsActive < 100 &&
+					pokemon?.effectiveEnergyWeather() === this.energyWeather
+				) {
+					return this.energyWeather;
+				}
+			}
 			return 'bozo'; // lmfao??
 		}
 	}
