@@ -520,7 +520,7 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "Has a 30% chance to burn the target.",
 		shortDesc: "30% chance to burn the target.",
 	},
-	bleakwindstorm: {
+	bleakwindstorm: { // updated
 		name: "Bleakwind Storm",
 		desc: "Has a 30% chance to lower the target's Speed by 1 stage. If the weather is Rain or Primordial Sea, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "30% to lower foe(s) Speed by 1. Rain: can't miss.",
@@ -2689,7 +2689,7 @@ export const MovesText: {[k: string]: MoveText} = {
 			shortDesc: "Lowers the target's Attack by 1.",
 		},
 	},
-	growth: {
+	growth: { // updated
 		name: "Growth",
 		desc: "Raises the user's Attack and Special Attack by 1 stage. If the weather is Sun or Desolate Land, this move raises the user's Attack and Special Attack by 2 stages. If the user is holding Utility Umbrella, this move will only raise the user's Attack and Special Attack by 1 stage, even if the weather is Sun or Desolate Land.",
 		shortDesc: "Raises user's Attack and Sp. Atk by 1; 2 in Sun.",
@@ -3077,7 +3077,7 @@ export const MovesText: {[k: string]: MoveText} = {
 			shortDesc: "Raises the user's Attack by 1.",
 		},
 	},
-	hurricane: {
+	hurricane: { // updated
 		name: "Hurricane",
 		desc: "Has a 30% chance to confuse the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Rain or Primordial Sea, this move does not check accuracy. If the weather is Sun or Desolate Land, this move's accuracy is 50%. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 70%.",
 		shortDesc: "30% chance to confuse target. Can't miss in rain.",
@@ -4206,7 +4206,7 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "This move and its effects ignore the Abilities of other Pokemon.",
 		shortDesc: "Ignores the Abilities of other Pokemon.",
 	},
-	moonlight: {
+	moonlight: { // updated
 		name: "Moonlight",
 		desc: "The user restores 1/2 of its maximum HP if a non-Climate Weathergy is in effect or if the user is holding Utility Umbrella, 2/3 of its maximum HP if the weather is Blood Moon, 1/8 of its maximum HP if the weather is Sun, and 1/4 of its maximum HP if the weather is Rain, Primordial Sea, Hail, Snow, or Foghorn, all rounded half down.",
 		shortDesc: "Heals the user by a weather-dependent amount.",
@@ -4226,7 +4226,7 @@ export const MovesText: {[k: string]: MoveText} = {
 			desc: "The user restores 1/2 of its maximum HP if no weather conditions are in effect, all of its HP if the weather is Sun, and 1/4 of its maximum HP if the weather is Rain or Sandstorm, all rounded down.",
 		},
 	},
-	morningsun: {
+	morningsun: { // updated
 		name: "Morning Sun",
 		desc: "The user restores 1/2 of its maximum HP if a non-Climate Weathergy is in effect or if the user is holding Utility Umbrella, 2/3 of its maximum HP if the weather is Sun, 1/8 of its maximum HP if the weather is Blood Moon, and 1/4 of its maximum HP if the weather is Rain, Primordial Sea, Hail, Snow, or Foghorn, all rounded half down.",
 		shortDesc: "Heals the user by a weather-dependent amount.",
@@ -5392,7 +5392,7 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "Lowers the target's accuracy by 1 stage.",
 		shortDesc: "Lowers the target's accuracy by 1.",
 	},
-	sandsearstorm: {
+	sandsearstorm: { // updated
 		name: "Sandsear Storm",
 		desc: "Has a 20% chance to burn the target. If the weather is Rain or Primordial Sea, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "20% chance to burn foe(s). Can't miss in rain.",
@@ -5647,7 +5647,7 @@ export const MovesText: {[k: string]: MoveText} = {
 		name: "Shock Wave",
 		shortDesc: "This move does not check accuracy.",
 	},
-	shoreup: {
+	shoreup: { // updated
 		name: "Shore Up",
 		desc: "The user restores 1/2 of its maximum HP, rounded half down. If Sandstorm or Dust Storm is active, the user instead restores 2/3 of its maximum HP, rounded half down.",
 		shortDesc: "User restores 1/2 its max HP; 2/3 in Sandstorm/Dust Storm.",
@@ -5956,7 +5956,7 @@ export const MovesText: {[k: string]: MoveText} = {
 			desc: "The user restores 1/2 of its maximum HP, rounded down. Fails if (user's maximum HP - user's current HP + 1) is divisible by 256.",
 		},
 	},
-	solarbeam: {
+	solarbeam: { // updated
 		name: "Solar Beam",
 		desc: "This attack charges on the first turn and executes on the second. Power is halved if the weather is Rain, Primordial Sea, Hail, Snow, Blood Moon, Fog, or Delta Stream and the user is not holding Utility Umbrella. If the user is holding a Power Herb or the weather is Sun or Desolate Land, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Sun or Desolate Land, the move still requires a turn to charge.",
 		shortDesc: "Charges turn 1. Hits turn 2. No charge in sunlight.",
@@ -5985,7 +5985,7 @@ export const MovesText: {[k: string]: MoveText} = {
 
 		prepare: "  [POKEMON] absorbed light!",
 	},
-	solarblade: {
+	solarblade: { // updated
 		name: "Solar Blade",
 		desc: "This attack charges on the first turn and executes on the second. Power is halved if the weather is Rain, Primordial Sea, Hail, Snow, Blood Moon, Fog, or Delta Stream and the user is not holding Utility Umbrella. If the user is holding a Power Herb or the weather is Sun or Desolate Land, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Sun or Desolate Land, the move still requires a turn to charge.",
 		shortDesc: "Charges turn 1. Hits turn 2. No charge in sunlight.",
@@ -6558,7 +6558,7 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "The target is immune if it does not share a type with the user.",
 		shortDesc: "Hits adjacent Pokemon sharing the user's type.",
 	},
-	synthesis: {
+	synthesis: { // updated
 		name: "Synthesis",
 		desc: "The user restores 1/2 of its maximum HP if Delta Stream or no weather conditions are in effect or if the user is holding Utility Umbrella, 2/3 of its maximum HP if the weather is Sun or Desolate Land, and 1/4 of its maximum HP if the weather is Rain, Primordial Sea, Hail, Snow, Blood Moon, Fog, or Delta Stream, all rounded half down.",
 		shortDesc: "Heals the user by a weather-dependent amount.",
@@ -6799,7 +6799,7 @@ export const MovesText: {[k: string]: MoveText} = {
 
 		cant: "The effects of Throat Chop prevent [POKEMON] from using certain moves!",
 	},
-	thunder: {
+	thunder: { // updated
 		name: "Thunder",
 		desc: "Has a 30% chance to paralyze the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Rain or Primordial Sea, this move does not check accuracy. If the weather is Sun or Desolate Land, this move's accuracy is 50%. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 70%.",
 		shortDesc: "30% chance to paralyze. Can't miss in rain.",
@@ -7319,7 +7319,7 @@ export const MovesText: {[k: string]: MoveText} = {
 		start: "  Wide Guard protected [TEAM]!",
 		block: "  Wide Guard protected [POKEMON]!",
 	},
-	wildboltstorm: {
+	wildboltstorm: { // updated
 		name: "Wildbolt Storm",
 		desc: "Has a 20% chance to paralyze the target. If the weather is Rain or Primordial Sea, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "20% chance to paralyze foe(s). Rain: can't miss.",
