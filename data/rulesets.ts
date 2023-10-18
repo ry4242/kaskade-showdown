@@ -2679,7 +2679,12 @@ export const Rulesets: {[k: string]: FormatData} = {
         hasValue: true,
         onValidateRule(value) {
             if (!this.dex.conditions.get(value).exists) throw new Error(`Misspelled weather "${value}"`);
-            const validWeathers = ['SunnyDay', 'DesolateLand', 'RainDance', 'PrimordialSea', 'BloodMoon', 'Foghorn', 'Sandstorm', 'DustStorm', 'PollenStorm', 'Pheromones', 'Smog', 'FairyDust', 'AuraProjection', 'Haunt', 'CosmicRays', 'DragonForce', 'SUpercell', 'Magnetize', 'StrongWinds', 'DeltaStream'];
+            const validWeathers = [
+				'SunnyDay', 'DesolateLand', 'RainDance', 'PrimordialSea', 'BloodMoon', 'Foghorn',
+				'Sandstorm', 'DustStorm', 'PollenStorm', 'Pheromones', 'Smog', 'FairyDust',
+				'AuraProjection', 'Haunt', 'CosmicRays', 'DragonForce', 'SUpercell', 'Magnetize',
+				'StrongWinds', 'DeltaStream'
+			];
             if (!validWeathers.includes(value)) throw new Error(`"${value}" is not a weather`);
         },
         onBegin() {
