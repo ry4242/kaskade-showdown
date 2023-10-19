@@ -77,7 +77,7 @@ export const Formats: FormatList = [
 		],
 	}, */
 	{
-		name: "[Gen Ω] OU",
+		name: "[Gen 9] OU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zEFfyzvffa">OU Discord channel</a>`,
 		],
@@ -87,7 +87,7 @@ export const Formats: FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
-		name: "[Gen Ω] Ubers",
+		name: "[Gen 9] Ubers",
 		threads: [
 			`&bullet; <a href="https://discord.gg/BXfzNWuU54">Ubers Discord channel</a>`,
 		],
@@ -97,13 +97,13 @@ export const Formats: FormatList = [
 		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass'],
 	},
 	{
-		name: "[Gen Ω] UU",
+		name: "[Gen 9] UU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zuQ6MaMEwK">UU Discord channel</a>`,
 		],
 
 		mod: 'gen9',
-		ruleset: ['[Gen Ω] OU'],
+		ruleset: ['[Gen 9] OU'],
 		banlist: ['OU', 'UUBL'],
 	},
 	/* {
@@ -136,7 +136,7 @@ export const Formats: FormatList = [
 		banlist: ['NU', 'PUBL'],
 	}, */
 	{
-		name: "[Gen Ω] LC",
+		name: "[Gen 9] LC",
 		threads: [
 			`&bullet; <a href="https://discord.gg/6dKHQAR3DW">LC Discord channel</a>`,
 		],
@@ -148,7 +148,11 @@ export const Formats: FormatList = [
 		],
 	},
 	{
-		name: "[Gen Ω] Monotype",
+		name: "[Gen 9] Monotype",
+		desc: `All Pok&eacute;mon on your team must share a common type.`,
+		threads: [
+			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
+		],
 
 		mod: 'gen9',
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Same Type Clause', 'Terastal Clause'],
@@ -183,7 +187,7 @@ export const Formats: FormatList = [
 		],
 	}, */
 	{
-		name: "[Gen Ω] Anything Goes",
+		name: "[Gen 9] Anything Goes",
 
 		mod: 'gen9',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
@@ -275,7 +279,7 @@ export const Formats: FormatList = [
 		banlist: ['Walking Wake', 'Iron Leaves'],
 	}, */
 	{
-		name: "[Gen Ω] Custom Game",
+		name: "[Gen 9] Custom Game",
 
 		mod: 'gen9',
 		searchShow: false,
@@ -289,7 +293,7 @@ export const Formats: FormatList = [
 	///////////////////////////////////////////////////////////////////
 
 	{
-		section: "[Gen Ω] Doubles",
+		section: "[Gen 9] Doubles",
 	},
 	/* {
 		name: "[Gen 9] Random Doubles Battle",
@@ -300,7 +304,7 @@ export const Formats: FormatList = [
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	}, */
 	{
-		name: "[Gen Ω] Doubles OU",
+		name: "[Gen 9] Doubles OU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
 		],
@@ -397,7 +401,7 @@ export const Formats: FormatList = [
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Kitakami Pokedex', 'Min Source Gen = 9', 'VGC Timer'],
 	}, */
 	{
-		name: "[Gen Ω] Doubles Custom Game",
+		name: "[Gen 9] Doubles Custom Game",
 
 		mod: 'gen9',
 		gameType: 'doubles',
