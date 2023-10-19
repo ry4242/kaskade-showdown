@@ -78,6 +78,9 @@ export const Formats: FormatList = [
 	}, */
 	{
 		name: "[Gen Ω] OU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zEFfyzvffa">OU Discord channel</a>`,
+		],
 
 		mod: 'gen9',
 		ruleset: ['Standard'],
@@ -85,6 +88,9 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen Ω] Ubers",
+		threads: [
+			`&bullet; <a href="https://discord.gg/BXfzNWuU54">Ubers Discord channel</a>`,
+		],
 
 		mod: 'gen9',
 		ruleset: ['Standard'],
@@ -92,6 +98,9 @@ export const Formats: FormatList = [
 	},
 	{
 		name: "[Gen Ω] UU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zuQ6MaMEwK">UU Discord channel</a>`,
+		],
 
 		mod: 'gen9',
 		ruleset: ['[Gen Ω] OU'],
@@ -128,6 +137,9 @@ export const Formats: FormatList = [
 	}, */
 	{
 		name: "[Gen Ω] LC",
+		threads: [
+			`&bullet; <a href="https://discord.gg/6dKHQAR3DW">LC Discord channel</a>`,
+		],
 
 		mod: 'gen9',
 		ruleset: ['Little Cup', 'Standard'],
@@ -289,6 +301,9 @@ export const Formats: FormatList = [
 	}, */
 	{
 		name: "[Gen Ω] Doubles OU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
+		],
 
 		mod: 'gen9',
 		gameType: 'doubles',
