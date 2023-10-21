@@ -1505,6 +1505,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
+			if (target.hasItem('energynullifier')) return;
 			if (source !== target && (move.type === 'Steel' || (move.type === 'Electric' && target.hasType('Steel')))) {
 				this.debug('Magnetosphere guarantees accuracy');
 				return true;
@@ -1512,6 +1513,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			return accuracy;
 		},
 		onTryHit(target, source, move) {
+			if (target.hasItem('energynullifier')) return;
 			if (target !== source && move.type === 'Ground' && target.hasType('Steel') && this.field.energyWeatherState.boosted) {
 				this.hint("Steel types are levitating in Strong Winds Magnetosphere.");
 				return null;

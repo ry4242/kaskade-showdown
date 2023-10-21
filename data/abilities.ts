@@ -5555,7 +5555,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: 193,
 	},
-	windpower: {
+	windpower: { // updated	
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['wind']) {
@@ -5568,13 +5568,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.addVolatile('charge');
 			}
 		},
+		onAnySetClearingWeather(target, source, clearingWeather) {
+			const pokemon = this.effectState.target;
+			if (clearingWeather.id === 'strongwinds') {
+				pokemon.addVolatile('charge');
+			}
+		},
 		name: "Wind Power",
 		rating: 1,
 		num: 277,
 	},
-	windrider: {
+	windrider: { // updated
 		onStart(pokemon) {
-			if (pokemon.side.sideConditions['tailwind']) {
+			if (pokemon.side.sideConditions['tailwind'] || ['strongwinds'].includes(pokemon.effectiveClearingWeather())) {
 				this.boost({atk: 1}, pokemon, pokemon);
 			}
 		},
@@ -5589,6 +5595,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onAllySideConditionStart(target, source, sideCondition) {
 			const pokemon = this.effectState.target;
 			if (sideCondition.id === 'tailwind') {
+				this.boost({atk: 1}, pokemon, pokemon);
+			}
+		},
+		onAnySetClearingWeather(target, source, clearingWeather) {
+			const pokemon = this.effectState.target;
+			if (clearingWeather.id === 'strongwinds') {
 				this.boost({atk: 1}, pokemon, pokemon);
 			}
 		},
@@ -5695,6 +5707,67 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: 278,
 	},
 
+	// CAP
+
+	mountaineer: {
+		onDamage(damage, target, source, effect) {
+			if (effect && effect.id === 'stealthrock') {
+				return false;
+			}
+		},
+		onTryHit(target, source, move) {
+			if (move.type === 'Rock' && !target.activeTurns) {
+				this.add('-immune', target, '[from] ability: Mountaineer');
+				return null;
+			}
+		},
+		isNonstandard: "CAP",
+		isBreakable: true,
+		name: "Mountaineer",
+		rating: 3,
+		num: 1001,
+	},
+	rebound: {
+		isNonstandard: "CAP",
+		name: "Rebound",
+		onTryHitPriority: 1,
+		onTryHit(target, source, move) {
+			if (this.effectState.target.activeTurns) return;
+
+			if (target === source || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			this.actions.useMove(newMove, target, source);
+			return null;
+		},
+		onAllyTryHitSide(target, source, move) {
+			if (this.effectState.target.activeTurns) return;
+
+			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
+				return;
+			}
+			const newMove = this.dex.getActiveMove(move.id);
+			newMove.hasBounced = true;
+			this.actions.useMove(newMove, this.effectState.target, source);
+			return null;
+		},
+		condition: {
+			duration: 1,
+		},
+		isBreakable: true,
+		rating: 3,
+		num: 1002,
+	},
+	persistent: {
+		isNonstandard: "CAP",
+		name: "Persistent",
+		// implemented in the corresponding move
+		rating: 3,
+		num: 1003,
+	},
+
 	// swse
 
 	absolutezero: {
@@ -5726,7 +5799,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Absolute Zero",
 		rating: 3,
-		num: -18,
+		num: -15,
 	},
 	arcanum: {
 		onStart(source) {
@@ -5734,7 +5807,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Arcanum",
 		rating: 3,
-		num: -14,
+		num: -11,
 	},
 	bloomspring: {
 		onIrritantWeather(target, source, effect) {
@@ -5745,12 +5818,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Bloomspring",
 		rating: 1.5,
-		num: -23,
+		num: -20,
 	},
 	bubblehelm: { // incomplete. needs testing
 		name: "Bubble Helm",
 		rating: 2.5,
-		num: -42,
+		num: -38,
 	},
 	carboncapture: {
 		onIrritantWeather(target, source, effect) {
@@ -5764,7 +5837,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Carbon Capture",
 		rating: 2,
-		num: -25,
+		num: -22,
 	},
 	chakra: {
 		onBasePowerPriority: 21,
@@ -5784,12 +5857,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Condensation",
 		rating: 3,
-		num: -5,
+		num: -2,
 	},
 	droughtproof: { // incomplete. needs testing
 		name: "Droughtproof",
 		rating: 2.5,
-		num: -40,
+		num: -36,
 	},
 	druidry: {
 		onIrritantWeather(target, source, effect) {
@@ -5806,7 +5879,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Druidry",
 		rating: 2,
-		num: -26,
+		num: -23,
 	},
 	dustdevil: {
 		onStart(source) {
@@ -5814,7 +5887,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Dust Devil",
 		rating: 3,
-		num: -6,
+		num: -3,
 	},
 	eclipse: {
 		onModifyDef(def, pokemon) {
@@ -5840,7 +5913,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Energizer",
 		rating: 2.5,
-		num: -32,
+		num: -29,
 	},
 	eventide: {
 		onStart(source) {
@@ -5848,7 +5921,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Eventide",
 		rating: 3,
-		num: -4,
+		num: -1,
 	},
 	evergreen: { // incomplete. needs testing
 		onStart(pokemon) {
@@ -5877,7 +5950,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Evergreen",
 		rating: 3,
-		num: -36,
+		num: -47,
 	},
 	ferroflux: {
 		onStart(source) {
@@ -5885,7 +5958,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Ferroflux",
 		rating: 3,
-		num: -16,
+		num: -13,
 	},
 	fieldworker: {
 		onModifyAtkPriority: 5,
@@ -5904,7 +5977,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Fieldworker",
 		rating: 3,
-		num: -2,
+		num: -34,
 	},
 	foil: {
 		onSourceModifyAtkPriority: 5,
@@ -5922,7 +5995,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		isBreakable: true,
 		name: "Foil",
 		rating: 2,
-		num: -45,
+		num: -41,
 	},
 	forked: {
 		onResidualOrder: 5,
@@ -5936,7 +6009,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Forked",
 		rating: 1.5,
-		num: -33,
+		num: -30,
 	},
 	galeforce: {
 		onStart(source) {
@@ -5944,7 +6017,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Galeforce",
 		rating: 3,
-		num: -17,
+		num: -14,
 	},
 	glacialarmor: {
 		onModifyDef(def, pokemon) {
@@ -5965,7 +6038,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		isBreakable: true,
 		name: "Glacial Armor",
 		rating: 2,
-		num: -19,
+		num: -16,
 	},
 	gravitysling: {
 		onModifySpe(spe, pokemon) {
@@ -5975,7 +6048,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Gravity Sling",
 		rating: 2,
-		num: -34,
+		num: -31,
 	},
 	haunting: {
 		onModifySpe(spe, pokemon) {
@@ -5985,7 +6058,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Haunting",
 		rating: 3,
-		num: -20,
+		num: -17,
 	},
 	hayfever: {
 		onStart(source) {
@@ -5993,7 +6066,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Hay Fever",
 		rating: 3,
-		num: -7,
+		num: -4,
 	},
 	hydrophobic: { // incomplete. needs testing
 		onSourceModifyAtkPriority: 5,
@@ -6011,7 +6084,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		isBreakable: true,
 		name: "Hydrophobic",
 		rating: 3,
-		num: -41,
+		num: -37,
 	},
 	incantation: {
 		onStart(source) {
@@ -6019,7 +6092,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Incantation",
 		rating: 3,
-		num: -10,
+		num: -7,
 	},
 	malice: {
 		onModifySpAPriority: 5,
@@ -6042,7 +6115,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Malice",
 		rating: 3,
-		num: -21,
+		num: -18,
 	},
 	masterinstinct: {
 		onSourceModifyAccuracyPriority: -1,
@@ -6056,7 +6129,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Master Instinct",
 		rating: 2,
-		num: -28,
+		num: -25,
 	},
 	nesting: {
 		onIrritantWeather(target, source, effect) {
@@ -6071,7 +6144,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Nesting",
 		rating: 1.5,
-		num: -24,
+		num: -21,
 	},
 	nottobe: {
 		onFaint(target, source, effect) {
@@ -6092,7 +6165,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Not to Be",
 		rating: 2,
-		num: -44,
+		num: -40,
 	},
 	nullify: { // incomplete. needs testing i think
 		onSwitchIn(pokemon) {
@@ -6161,7 +6234,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Pearl Drop",
 		rating: 1,
-		num: -49,
+		num: -45,
 	},
 	pollution: {
 		onStart(source) {
@@ -6169,7 +6242,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Pollution",
 		rating: 3,
-		num: -9,
+		num: -6,
 	},
 	powerabove: {
 		onBasePowerPriority: 21,
@@ -6184,7 +6257,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Power Above",
 		rating: 2.5,
-		num: -27,
+		num: -24,
 	},
 	powerwithin: {
 		onBasePowerPriority: 21,
@@ -6199,7 +6272,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Power Within",
 		rating: 2.5,
-		num: -31,
+		num: -28,
 	},
 	rockybody: {
 		onDamagePriority: 1,
@@ -6244,7 +6317,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		isPermanent: true,
 		name: "Rocky Body",
 		rating: 2,
-		num: -48,
+		num: -44,
 	},
 	rootcontrol: {
 		onStart(pokemon) {
@@ -6252,7 +6325,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Root Control",
 		rating: 3.5,
-		num: -37,
+		num: -33,
 	},
 	seance: {
 		onStart(source) {
@@ -6260,7 +6333,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Se\u0301ance",
 		rating: 3,
-		num: -12,
+		num: -9,
 	},
 	secretion: {
 		onStart(source) {
@@ -6268,7 +6341,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Secretion",
 		rating: 3,
-		num: -8,
+		num: -5,
 	},
 	smokeandmirrors: {
 		onBasePowerPriority: 21,
@@ -6295,7 +6368,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Smoke and Mirrors",
 		rating: 2.5,
-		num: -30,
+		num: -27,
 	},
 	smotherbody: {
 		onModifyMovePriority: -1,
@@ -6314,26 +6387,26 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Smother Body",
 		rating: 2,
-		num: -50,
+		num: -46,
 	},
-	/* souldrain: { // incomplete. needs testing
+	souldrain: { // incomplete. needs testing
 		onAnyDamage(damage, target, pokemon, effect) {
 			const source = this.effectState.source;
-			if (!pokemon && source === this.field.isEnergyWeather('haunt')) {
+			if (pokemon !== target && source === this.field.isEnergyWeather('haunt')) {
 				this.heal(pokemon.baseMaxhp / 16, pokemon, target);
 			}
 		},
 		name: "Soul Drain",
 		rating: 2,
-		num: -29,
-	}, */
+		num: -26,
+	},
 	standoff: {
 		onStart(source) {
 			this.field.setEnergyWeather('auraprojection');
 		},
 		name: "Stand Off",
 		rating: 3,
-		num: -11,
+		num: -8,
 	},
 	stormfront: {
 		onStart(source) {
@@ -6341,7 +6414,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Stormfront",
 		rating: 3,
-		num: -15,
+		num: -12,
 	},
 	surveillance: {
 		onStart(pokemon) {
@@ -6349,7 +6422,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Surveillance",
 		rating: 4,
-		num: -3,
+		num: -35,
 	},
 	swarming: {
 		onStart(pokemon) {
@@ -6385,7 +6458,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		isPermanent: true,
 		name: "Swarming",
 		rating: 3,
-		num: -47,
+		num: -43,
 	},
 	tobe: { // incomplete. needs to heal
 		onTryHit(pokemon, target, move) {
@@ -6404,7 +6477,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		isBreakable: true,
 		name: "Sturdy",
 		rating: 3,
-		num: 5,
+		num: -39,
 	},
 	transcendence: {
 		onStart(source) {
@@ -6412,7 +6485,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Transcendence",
 		rating: 3,
-		num: -13,
+		num: -10,
 	},
 	trumpetweevil: {
 		onModifyTypePriority: -1,
@@ -6429,7 +6502,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Trumpet Weevil",
 		rating: 4,
-		num: -46,
+		num: -42,
 	},
 	vegetate: {
 		onModifyTypePriority: -1,
@@ -6449,7 +6522,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Vegetate",
 		rating: 3,
-		num: -1,
+		num: -32,
 	},
 	warpmist: {
 		onModifyAtkPriority: 5,
@@ -6477,67 +6550,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		name: "Warp Mist",
 		rating: 2,
-		num: -22,
-	},
-
-	// CAP
-
-	mountaineer: {
-		onDamage(damage, target, source, effect) {
-			if (effect && effect.id === 'stealthrock') {
-				return false;
-			}
-		},
-		onTryHit(target, source, move) {
-			if (move.type === 'Rock' && !target.activeTurns) {
-				this.add('-immune', target, '[from] ability: Mountaineer');
-				return null;
-			}
-		},
-		isNonstandard: "CAP",
-		isBreakable: true,
-		name: "Mountaineer",
-		rating: 3,
-		num: 1001,
-	},
-	rebound: {
-		isNonstandard: "CAP",
-		name: "Rebound",
-		onTryHitPriority: 1,
-		onTryHit(target, source, move) {
-			if (this.effectState.target.activeTurns) return;
-
-			if (target === source || move.hasBounced || !move.flags['reflectable']) {
-				return;
-			}
-			const newMove = this.dex.getActiveMove(move.id);
-			newMove.hasBounced = true;
-			this.actions.useMove(newMove, target, source);
-			return null;
-		},
-		onAllyTryHitSide(target, source, move) {
-			if (this.effectState.target.activeTurns) return;
-
-			if (target.isAlly(source) || move.hasBounced || !move.flags['reflectable']) {
-				return;
-			}
-			const newMove = this.dex.getActiveMove(move.id);
-			newMove.hasBounced = true;
-			this.actions.useMove(newMove, this.effectState.target, source);
-			return null;
-		},
-		condition: {
-			duration: 1,
-		},
-		isBreakable: true,
-		rating: 3,
-		num: 1002,
-	},
-	persistent: {
-		isNonstandard: "CAP",
-		name: "Persistent",
-		// implemented in the corresponding move
-		rating: 3,
-		num: 1003,
+		num: -19,
 	},
 };

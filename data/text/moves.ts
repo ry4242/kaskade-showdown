@@ -7504,7 +7504,7 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	initiative: {
 		name: "Initiative",
-		desc: "If this move is successful, it has an equal chance to apply any of the following effects: put the target to sleep, put the user to sleep, paralyze the target, paralyze the user, confuse the target, confuse the user, disable the target's last move used, disable the user's last move used, hurt the target by 1/4 of its maximum HP, hurt the user by 1/4 of its maximum HP, heal the target by 1/4 of its maximum HP, or heal the user by 1/4 of its maximum HP by 1/4 of its maximum HP.",
+		desc: "If this move is successful, it has an equal chance to apply any of the following effects: put the target to sleep, put the user to sleep, paralyze the target, paralyze the user, confuse the target, confuse the user, disable the target's last move used, disable the user's last move used, hurt the target by 1/4 of its maximum HP, hurt the user by 1/4 of its maximum HP, heal the target by 1/4 of its maximum HP, or heal the user by 1/4 of its maximum HP",
 		shortDesc: "Has a random positive or negative effect.",
 	},
 	magnetize: {
@@ -7532,9 +7532,9 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "For 5 turns, the weather becomes Strong Winds. Clears all active Weathergies on activation. If other Weathergies are activated after Strong Winds, they gain boosted effects for as long as Strong Winds remains active. During the effect, wind moves ignore accuracy checks and the Speed of Flying-type Pokemon is multiplied by 1.25. Lasts for 8 turns if the user is holding a Portable Turbine. Fails if the current weather is Strong Winds.",
 		shortDesc: "Clears weather. For 5 turns, boosts all weather.",
 	},
-	supercell: { // incomplete
+	supercell: {
 		name: "Supercell",
-		desc: "For 5 turns, the weather becomes Thunderstorm. At the end of each turn except the last, all active Pokemon have a 10% to be struck by lightning. During the effect the Speed of Electric-type Pokemon is multiplied by 1.25. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Thunderstorm.",
+		desc: "For 5 turns, the weather becomes Thunderstorm. At the end of each turn except the last, all active Pokemon have a 10% chance to be struck by lightning. When struck by lightning: Water- and Flying-type Pokemon lose 1/5 of their maximum HP, rounded down, Grass- and Dragon-type Pokemon lose 1/20 of their maximum HP, rounded down, Ground-type Pokemon have their Speed lowered by 1 stage, Electric-type Pokemon gain the Charge effect, Pokemon with the Ability Motor Drive have their Speed raised by 1 stage, Pokemon with the Ability Volt Absorb have their HP restored by 1/4 of their maximum HP, rounded down, and all other types lose 1/10 of their maximum HP, rounded down. If any Pokemon on the field is to be struck by lightning and a Pokemon with the Ability Lightning Rod is present on the field, the lightning will instead strike that Pokemon and they will have their Sp. Atk raised by 1 stage. If Rain is active, Electric- and Ground-type Pokemon will lose 1/20 of their maximum HP, rounded down, when struck by lightning. If a Pokemon struck by lightning is a dual Electric and Ground type, they will gain the Charge effect if struck by lightning. During the effect, the Speed of Electric-type Pokemon is multiplied by 1.25. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Thunderstorm.",
 		shortDesc: "For 5 turns, lightning strikes the field.",
 	},
 	swarmsignal: {

@@ -2529,9 +2529,14 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Weather Balloon",
 		desc: "Holder's Climate Weathergies last 8 turns instead of 5.",
 	},
+	weathervane: {
+		name: "Weather Balloon",
+		desc: "If held by a Castform, it will not be able to change out of the first form it changes into during battle. It remains in this form throughout the entire battle.",
+		shortDesc: "Locks Castform to the first form it changes into during battle.",
+	},
 	whirligig: {
 		name: "Whirligig",
-		desc: "If held by a Castform, this item allows it to transform into Castform-Whirly in battle during Magnetosphere.",
+		desc: "If held by a Castform, this item allows it to transform into Castform-Whirly in battle during Magnetosphere. It remains in this form throughout the entire battle.",
 		shortDesc: "Allows Castform to enter Whirly form during Magnetosphere.",
 	},
 	worcanecoldbrew: {
