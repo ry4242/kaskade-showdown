@@ -7719,7 +7719,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	charmingtalisman: {
 		name: "Charming Talisman",
-		spritenum: 436,
+		spritenum: 754,
 		fling: {
 			basePower: 50,
 		},
