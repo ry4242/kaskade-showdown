@@ -442,9 +442,8 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 43,
 		gen: 2,
-		isNonstandard: "Past",
 	},
-	berrysweet: {
+	berrysweet: { // updated
 		name: "Berry Sweet",
 		spritenum: 706,
 		fling: {
@@ -452,7 +451,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1111,
 		gen: 8,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	bignugget: {
 		name: "Big Nugget",
@@ -670,7 +669,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	bugmemory: {
+	bugmemory: { // updated
 		name: "Bug Memory",
 		spritenum: 673,
 		onMemory: 'Bug',
@@ -684,7 +683,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Bug"],
 		num: 909,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	buginiumz: {
 		name: "Buginium Z",
@@ -1039,7 +1038,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 1882,
 		gen: 9,
 	},
-	cloversweet: {
+	cloversweet: { // updated
 		name: "Clover Sweet",
 		spritenum: 707,
 		fling: {
@@ -1047,7 +1046,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1112,
 		gen: 8,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	cobaberry: {
 		name: "Coba Berry",
@@ -1212,7 +1211,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	darkmemory: {
+	darkmemory: { // updated
 		name: "Dark Memory",
 		spritenum: 683,
 		onMemory: 'Dark',
@@ -1226,7 +1225,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Dark"],
 		num: 919,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	darkiniumz: {
 		name: "Darkinium Z",
@@ -1406,7 +1405,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	dragonmemory: {
+	dragonmemory: { // updated
 		name: "Dragon Memory",
 		spritenum: 682,
 		onMemory: 'Dragon',
@@ -1420,7 +1419,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Dragon"],
 		num: 918,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	dragonscale: {
 		name: "Dragon Scale",
@@ -1480,7 +1479,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 324,
 		gen: 4,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	durinberry: {
 		name: "Durin Berry",
@@ -1605,7 +1604,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 322,
 		gen: 4,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	electricgem: {
 		name: "Electric Gem",
@@ -1621,7 +1620,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	electricmemory: {
+	electricmemory: { // updated
 		name: "Electric Memory",
 		spritenum: 679,
 		onMemory: 'Electric',
@@ -1635,7 +1634,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Electric"],
 		num: 915,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	electricseed: {
 		name: "Electric Seed",
@@ -1770,7 +1769,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 6,
 		isNonstandard: "Past",
 	},
-	fairymemory: {
+	fairymemory: { // updated
 		name: "Fairy Memory",
 		spritenum: 684,
 		onMemory: 'Fairy',
@@ -1784,7 +1783,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Fairy"],
 		num: 920,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	fastball: {
 		name: "Fast Ball",
@@ -1807,7 +1806,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	fightingmemory: {
+	fightingmemory: { // updated
 		name: "Fighting Memory",
 		spritenum: 668,
 		onMemory: 'Fighting',
@@ -1821,7 +1820,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Fighting"],
 		num: 904,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	fightiniumz: {
 		name: "Fightinium Z",
@@ -1875,7 +1874,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	firememory: {
+	firememory: { // updated
 		name: "Fire Memory",
 		spritenum: 676,
 		onMemory: 'Fire',
@@ -1889,7 +1888,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Fire"],
 		num: 912,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	firestone: {
 		name: "Fire Stone",
@@ -1981,7 +1980,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 539,
 		gen: 5,
 	},
-	flowersweet: {
+	flowersweet: { // updated
 		name: "Flower Sweet",
 		spritenum: 708,
 		fling: {
@@ -1989,7 +1988,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1113,
 		gen: 8,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	flyinggem: {
 		name: "Flying Gem",
@@ -2005,7 +2004,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	flyingmemory: {
+	flyingmemory: { // updated
 		name: "Flying Memory",
 		spritenum: 669,
 		onMemory: 'Flying',
@@ -2019,7 +2018,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Flying"],
 		num: 905,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	flyiniumz: {
 		name: "Flyinium Z",
@@ -2234,7 +2233,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	ghostmemory: {
+	ghostmemory: { // updated
 		name: "Ghost Memory",
 		spritenum: 674,
 		onMemory: 'Ghost',
@@ -2248,7 +2247,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Ghost"],
 		num: 910,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	ghostiumz: {
 		name: "Ghostium Z",
@@ -2299,7 +2298,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	grassmemory: {
+	grassmemory: { // updated
 		name: "Grass Memory",
 		spritenum: 678,
 		onMemory: 'Grass',
@@ -2313,7 +2312,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Grass"],
 		num: 914,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	grassiumz: {
 		name: "Grassium Z",
@@ -2428,7 +2427,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	groundmemory: {
+	groundmemory: { // updated
 		name: "Ground Memory",
 		spritenum: 671,
 		onMemory: 'Ground',
@@ -2442,7 +2441,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Ground"],
 		num: 907,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	groundiumz: {
 		name: "Groundium Z",
@@ -2654,7 +2653,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	icememory: {
+	icememory: { // updated
 		name: "Ice Memory",
 		spritenum: 681,
 		onMemory: 'Ice',
@@ -2668,7 +2667,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Ice"],
 		num: 917,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	icestone: {
 		name: "Ice Stone",
@@ -3209,7 +3208,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 2,
 		isPokeball: true,
 	},
-	lovesweet: {
+	lovesweet: { // updated
 		name: "Love Sweet",
 		spritenum: 705,
 		fling: {
@@ -3217,7 +3216,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1110,
 		gen: 8,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	lucarionite: {
 		name: "Lucarionite",
@@ -4319,7 +4318,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	poisonmemory: {
+	poisonmemory: { // updated
 		name: "Poison Memory",
 		spritenum: 670,
 		onMemory: 'Poison',
@@ -4522,7 +4521,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	psychicmemory: {
+	psychicmemory: { // updated
 		name: "Psychic Memory",
 		spritenum: 680,
 		onMemory: 'Psychic',
@@ -4536,7 +4535,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Psychic"],
 		num: 916,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	psychicseed: {
 		name: "Psychic Seed",
@@ -4795,7 +4794,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 3,
 		isPokeball: true,
 	},
-	ribbonsweet: {
+	ribbonsweet: { // updated
 		name: "Ribbon Sweet",
 		spritenum: 710,
 		fling: {
@@ -4803,7 +4802,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1115,
 		gen: 8,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	rindoberry: {
 		name: "Rindo Berry",
@@ -4869,7 +4868,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 4,
 		isNonstandard: "Past",
 	},
-	rockmemory: {
+	rockmemory: { // updated
 		name: "Rock Memory",
 		spritenum: 672,
 		onMemory: 'Rock',
@@ -4883,7 +4882,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Rock"],
 		num: 908,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	rockiumz: {
 		name: "Rockium Z",
@@ -5600,7 +5599,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: 207,
 		gen: 3,
 	},
-	starsweet: {
+	starsweet: { // updated
 		name: "Star Sweet",
 		spritenum: 709,
 		fling: {
@@ -5608,7 +5607,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1114,
 		gen: 8,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	steelixite: {
 		name: "Steelixite",
@@ -5638,7 +5637,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	steelmemory: {
+	steelmemory: { // updated
 		name: "Steel Memory",
 		spritenum: 675,
 		onMemory: 'Steel',
@@ -5652,7 +5651,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Steel"],
 		num: 911,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	steeliumz: {
 		name: "Steelium Z",
@@ -5733,7 +5732,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		isPokeball: true,
 		isNonstandard: "Unobtainable",
 	},
-	strawberrysweet: {
+	strawberrysweet: { // updated
 		name: "Strawberry Sweet",
 		spritenum: 704,
 		fling: {
@@ -5741,7 +5740,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 1109,
 		gen: 8,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	sunstone: {
 		name: "Sun Stone",
@@ -7004,7 +7003,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 252,
 		gen: 2,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	utilityumbrella: { // updated
 		name: "Utility Umbrella",
@@ -7089,7 +7088,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		gen: 5,
 		isNonstandard: "Past",
 	},
-	watermemory: {
+	watermemory: { // updated
 		name: "Water Memory",
 		spritenum: 677,
 		onMemory: 'Water',
@@ -7103,7 +7102,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Silvally-Water"],
 		num: 913,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	waterstone: {
 		name: "Water Stone",
@@ -7215,7 +7214,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 646,
 		gen: 6,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	whiteherb: {
 		name: "White Herb",
