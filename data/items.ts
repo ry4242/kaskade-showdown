@@ -1363,7 +1363,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Dragon') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -1375,6 +1375,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Dragon",
 		num: 311,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	dragonfang: {
 		name: "Dragon Fang",
@@ -1450,7 +1451,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Dark') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -1462,6 +1463,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Dark",
 		num: 312,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	dreamball: {
 		name: "Dream Ball",
@@ -1516,7 +1518,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Ground') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -1528,6 +1530,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Ground",
 		num: 305,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	eeviumz: {
 		name: "Eevium Z",
@@ -1916,7 +1919,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Fighting') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -1928,6 +1931,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Fighting",
 		num: 303,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	flameorb: {
 		name: "Flame Orb",
@@ -1951,7 +1955,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Fire') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -1963,6 +1967,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Fire",
 		num: 298,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	floatstone: {
 		name: "Float Stone",
@@ -2681,7 +2686,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ice') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -2693,6 +2698,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Ice",
 		num: 302,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	iciumz: {
 		name: "Icium Z",
@@ -2734,7 +2740,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Bug') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -2746,6 +2752,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Bug",
 		num: 308,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	ironball: {
 		name: "Iron Ball",
@@ -2772,7 +2779,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Steel') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -2784,6 +2791,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Steel",
 		num: 313,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	jabocaberry: {
 		name: "Jaboca Berry",
@@ -3533,7 +3541,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Grass') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -3545,6 +3553,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Grass",
 		num: 301,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	medichamite: {
 		name: "Medichamite",
@@ -3776,7 +3785,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Psychic') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -3788,6 +3797,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Psychic",
 		num: 307,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	miracleseed: {
 		name: "Miracle Seed",
@@ -4255,7 +4265,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Fairy') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -4267,6 +4277,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Fairy",
 		num: 644,
 		gen: 6,
+		isNonstandard: "Future",
 	},
 	plumefossil: {
 		name: "Plume Fossil",
@@ -5365,7 +5376,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Flying') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -5377,6 +5388,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Flying",
 		num: 306,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	slowbronite: {
 		name: "Slowbronite",
@@ -5511,7 +5523,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Water') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -5523,6 +5535,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Water",
 		num: 299,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	spookyplate: { // updated
 		name: "Spooky Plate",
@@ -5531,7 +5544,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Ghost') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -5543,6 +5556,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Ghost",
 		num: 310,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	sportball: {
 		name: "Sport Ball",
@@ -5695,7 +5709,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Rock') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -5707,6 +5721,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Rock",
 		num: 309,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	strangeball: {
 		name: "Strange Ball",
@@ -5909,7 +5924,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Poison') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -5921,6 +5936,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Poison",
 		num: 304,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	tr00: {
 		name: "TR00",
@@ -7325,7 +7341,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		onBasePowerPriority: 15,
 		onBasePower(basePower, user, target, move) {
 			if (move.type === 'Electric') {
-				return this.chainModify([5324, 4096]);
+				return this.chainModify(1.3);
 			}
 		},
 		onTakeItem(item, pokemon, source) {
@@ -7337,6 +7353,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		forcedForme: "Arceus-Electric",
 		num: 300,
 		gen: 4,
+		isNonstandard: "Future",
 	},
 	zoomlens: {
 		name: "Zoom Lens",
@@ -7980,6 +7997,15 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: -11,
 		gen: 9,
 	},
+	weatherballoon: {
+		name: "Weather Balloon",
+		spritenum: 6,
+		fling: {
+			basePower: 10,
+		},
+		num: -10,
+		gen: 9,
+	},
 	weathervane: { // incomplete
 		name: 'Weather Vane',
 		spritenum: 6,
@@ -7989,15 +8015,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -15,
 		gen: 9,
-	},
-	weatherballoon: {
-		name: "Weather Balloon",
-		spritenum: 6,
-		fling: {
-			basePower: 10,
-		},
-		num: -10,
-		gen: 9,
+		isNonstandard: "Future",
 	},
 	whirligig: {
 		name: "Whirligig",
@@ -8009,6 +8027,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Castform"],
 		num: -16,
 		gen: 9,
+		isNonstandard: "Future",
 	},
 	worcanecoldbrew: {
 		name: "Worcane Cold Brew",

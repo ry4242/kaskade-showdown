@@ -510,7 +510,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Fairium Z",
 		desc: "If holder has a Fairy move, this item allows it to use a Fairy Z-Move.",
 	},
-	fairyfeather: {
+	fairyfeather: { // Charming Talisman
 		name: "Fairy Feather",
 		desc: "Holder's Fairy-type attacks have 1.2x power.",
 	},
@@ -2236,6 +2236,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	twistedspoon: { // updated
 		name: "Twisted Spoon",
 		desc: "Holder's Psychic-type attacks have 1.2x power. Evolves Kadabra into Alakazam when held and leveled up.",
+		shortDesc: "Holder's Psychic-type attacks have 1.2x power.",
 		gen3: {
 			desc: "Holder's Psychic-type attacks have 1.1x power.",
 		},
