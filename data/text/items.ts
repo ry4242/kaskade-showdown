@@ -2426,7 +2426,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 
 	// swse
-
+	// incomplete. add black augurite, peat block, keybone, razor hook, zeta cell, bacchus laurel, amaze-drive, mist stone, blossom/sunshine/harvest/blizzard ball, dawn ball, amaze ball, whirli-ball, odd ball, prism ball. Future: add shelmet helmet, scroll of darkness/water.
 	amazedrive: {
 		name: "Amaze-Drive",
 		desc: "Evolves Golbat into Probat, Porygon2 into Porygon ω, Drifloon into Amaze-All Drifblim, and Bonsly into Amaze-All Sudowoodo when used.",
@@ -2471,6 +2471,10 @@ export const ItemsText: {[k: string]: ItemText} = {
 		name: "Frost Orb",
 		desc: "At the end of every turn, this item attempts to give the holder frostbite.",
 	},
+	keybone: {
+		name: "Keybone",
+		desc: "Evolves Catteraxe into Catatomb when held and fainting 9 times.",
+	},
 	miststone: {
 		name: "Mist Stone",
 		desc: "Evolves Eevee into Enigmeon, Quilava into Hisuian Typhlosion, Stantler into Wyrdeer, Dewott into Hisuian Samurott, Petilil into Hisuian Lilligant, White-Striped Basculin into Basculegion, Rufflet into Hisuian Braviary, Goomy into Hisuian Sliggoo, Bergmite into Hisuian Avalugg, and Dartrix into Hisuian Decidueye when used.",
@@ -2500,8 +2504,8 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	razorhook: {
 		name: "Razor Hook",
-		desc: "Holder's critical hit ratio is raised by 1 stage. Evolves Gligar into Gliscor and Sneasel into Weavile when held and leveled up during the night, and evolves Hisuian Sneasel into Sneasler when held and leveled up during the day.",
-		shortDesc: "Holder's critical hit ratio is raised by 1 stage.",
+		desc: "Holder's attacks without a chance to make the target flinch gain a 10% chance to make the target flinch. Evolves Gligar into Gliscor and Sneasel into Weavile when held and leveled up during the night, and evolves Hisuian Sneasel into Sneasler when held and leveled up during the day.",
+		shortDesc: "Holder's attacks without a chance to flinch gain a 10% chance to flinch.",
 	},
 	sandygastmocha: {
 		name: "Sandygast Mocha",
@@ -2509,18 +2513,6 @@ export const ItemsText: {[k: string]: ItemText} = {
 		shortDesc: "+1 Def and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
 
 		end: "  [POKEMON] drank its Sandygast Mocha!",
-	},
-	scrollofdarkness: {
-		name: "Scroll of Darkness",
-		desc: "Evolves Kubfu into Single Strike Urshifu when used.",
-	},
-	scrollofwaters: {
-		name: "Scroll of Waters",
-		desc: "Evolves Kubfu into Rapid Strike Urshifu when used.",
-	},
-	shelmethelmet: {
-		name: "Shelmet Helmet",
-		desc: "Evolves Karrablast into Escavalier when used.",
 	},
 	volatilespray: {
 		name: "Volatile Spray",

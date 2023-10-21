@@ -4698,6 +4698,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 326,
 		gen: 4,
+		isNonstandard: "Past",
 	},
 	razorfang: {
 		name: "Razor Fang",
@@ -4721,6 +4722,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 327,
 		gen: 4,
+		isNonstandard: "Past",
 	},
 	razzberry: {
 		name: "Razz Berry",
@@ -7697,11 +7699,11 @@ export const Items: {[itemid: string]: ItemData} = {
 
 	amazedrive: {
 		name: "Amaze-Drive",
-		spritenum: 113,
+		spritenum: 803,
 		fling: {
 			basePower: 30,
 		},
-		num: -20,
+		num: -23,
 		gen: 9,
 	},
 	avocaberry: {
@@ -7731,8 +7733,9 @@ export const Items: {[itemid: string]: ItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		num: -23,
+		num: -17,
 		gen: 9,
+		isNonstandard: "Future",
 	},
 	charmingtalisman: {
 		name: "Charming Talisman",
@@ -7857,13 +7860,22 @@ export const Items: {[itemid: string]: ItemData} = {
 		num: -2,
 		gen: 9,
 	},
+	keybone: {
+		name: "Keybone",
+		spritenum: 802,
+		fling: {
+			basePower: 100,
+		},
+		num: -19,
+		gen: 9,
+	},
 	miststone: {
 		name: "Mist Stone",
-		spritenum: 142,
+		spritenum: 804,
 		fling: {
 			basePower: 30,
 		},
-		num: -21,
+		num: -24,
 		gen: 9,
 	},
 	mystictamroastdoppio: {
@@ -7898,7 +7910,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		fling: {
 			basePower: 30,
 		},
-		num: -24,
+		num: -18,
 		gen: 9,
 	},
 	pikaspresso: {
@@ -7937,11 +7949,25 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	razorhook: {
 		name: "Razor Hook",
-		spritenum: 382,
+		spritenum: 803,
 		fling: {
 			basePower: 30,
+			volatileStatus: 'flinch',
 		},
-		num: -17,
+		onModifyMovePriority: -1,
+		onModifyMove(move) {
+			if (move.category !== "Status") {
+				if (!move.secondaries) move.secondaries = [];
+				for (const secondary of move.secondaries) {
+					if (secondary.volatileStatus === 'flinch') return;
+				}
+				move.secondaries.push({
+					chance: 10,
+					volatileStatus: 'flinch',
+				});
+			}
+		},
+		num: -20,
 		gen: 9,
 	},
 	sandygastmocha: {
@@ -7968,24 +7994,6 @@ export const Items: {[itemid: string]: ItemData} = {
 			},
 		},
 		num: -6,
-		gen: 9,
-	},
-	scrollofdarkness: {
-		name: "Scroll of Darkness",
-		spritenum: 385,
-		fling: {
-			basePower: 30,
-		},
-		num: -18,
-		gen: 9,
-	},
-	scrollofwaters: {
-		name: "Scroll of Waters",
-		spritenum: 385,
-		fling: {
-			basePower: 30,
-		},
-		num: -19,
 		gen: 9,
 	},
 	volatilespray: {
@@ -8015,7 +8023,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: -15,
 		gen: 9,
-		isNonstandard: "Future",
 	},
 	whirligig: {
 		name: "Whirligig",
@@ -8027,7 +8034,6 @@ export const Items: {[itemid: string]: ItemData} = {
 		itemUser: ["Castform"],
 		num: -16,
 		gen: 9,
-		isNonstandard: "Future",
 	},
 	worcanecoldbrew: {
 		name: "Worcane Cold Brew",
