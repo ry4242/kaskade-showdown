@@ -3383,7 +3383,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		num: 323,
 		gen: 4,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	magnet: {
 		name: "Magnet",
