@@ -1566,7 +1566,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	safetygoggles: {
 		name: "Safety Goggles",
 		desc: "Holder is immune to powder moves and damage from Sandstorm. The holder ignores Irritant Weathergy effects. Damage and accuracy calculations from attacks used by the holder are affected by Irritant Weathergy, but not attacks used against the holder.",
-		shortDesc: "The holder is immune to powder moves, Sandstorm; ignores Irritant Weathergy effects.",
+		shortDesc: "Holder is immune to powder moves, Sandstorm; ignores Irritant Weathergy effects.",
 
 		block: "  [POKEMON] is not affected by [MOVE] thanks to its Safety Goggles!",
 	},
