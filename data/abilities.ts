@@ -6471,11 +6471,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onDamage(damage, target, source, effect) {
 			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', target, 'To Be');
-				return target.hp - 1;
+				target.sethp(1);
+				this.heal(target.baseMaxhp / 4, target, target);
 			}
 		},
 		isBreakable: true,
-		name: "Sturdy",
+		name: "To Be",
 		rating: 3,
 		num: -39,
 	},
