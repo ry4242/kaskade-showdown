@@ -5555,7 +5555,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: 193,
 	},
-	windpower: { // updated	
+	windpower: { // updated
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
 			if (move.flags['wind']) {
@@ -6460,7 +6460,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -43,
 	},
-	tobe: { // incomplete. needs to heal
+	tobe: { // incomplete. functions differently than it might in game
 		onTryHit(pokemon, target, move) {
 			if (move.ohko) {
 				this.add('-immune', pokemon, '[from] ability: To Be');
@@ -6471,8 +6471,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onDamage(damage, target, source, effect) {
 			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', target, 'To Be');
-				target.sethp(1);
-				this.heal(target.baseMaxhp / 4, target, target);
+				return target.maxhp * 3 / 4 - 1;
 			}
 		},
 		isBreakable: true,

@@ -32,14 +32,14 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712619/">Random Battle Suggestions</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'random',
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
 	},
 	{
 		name: "[Gen 9] Unrated Random Battle",
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'random',
 		challengeShow: false,
 		rated: false,
@@ -48,7 +48,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Free-For-All Random Battle",
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'random',
 		gameType: 'freeforall',
 		tournamentShow: false,
@@ -58,14 +58,14 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Random Battle (Blitz)",
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'random',
 		ruleset: ['[Gen 9] Random Battle', 'Blitz'],
 	},
 	{
 		name: "[Gen 9] Multi Random Battle",
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'random',
 		gameType: 'multi',
 		searchShow: false,
@@ -82,7 +82,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://discord.gg/zEFfyzvffa">OU Discord channel</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard'],
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Sand Veil', 'Shadow Tag', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
@@ -92,7 +92,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://discord.gg/BXfzNWuU54">Ubers Discord channel</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard'],
 		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass'],
 	},
@@ -102,7 +102,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://discord.gg/zuQ6MaMEwK">UU Discord channel</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['[Gen 9] OU'],
 		banlist: ['OU', 'UUBL'],
 	},
@@ -113,7 +113,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3717138/">RU Viability Rankings</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['[Gen 9] UU'],
 		banlist: ['UU', 'RUBL', 'Light Clay'],
 	},
@@ -124,14 +124,14 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3715712/">NU Viability Rankings</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['[Gen 9] RU'],
 		banlist: ['RU', 'NUBL'],
 	},
 	{
 		name: "[Gen 9] PU",
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['[Gen 9] NU'],
 		banlist: ['NU', 'PUBL'],
 	}, */
@@ -141,7 +141,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://discord.gg/6dKHQAR3DW">LC Discord channel</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Little Cup', 'Standard'],
 		banlist: [
 			'Moody', 'Sand Veil', 'Snow Cloak', 'King\'s Rock', 'Razor Fang', 'Baton Pass',
@@ -154,7 +154,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard', 'Evasion Abilities Clause', 'Same Type Clause', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Shadow Tag',
@@ -165,7 +165,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Monothreat Fairy",
 		desc: `Monotype where every Pok&eacute;mon is required to be part Fairy.`,
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['[Gen 9] Monotype', 'Force Monotype = Fairy'],
 	},
@@ -173,7 +173,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] 1v1",
 		desc: `Bring three Pok&eacute;mon to Team Preview and choose one to battle.`,
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: [
 			'Picked Team Size = 1', 'Max Team Size = 3',
 			'Standard', 'Terastal Clause', 'Sleep Moves Clause', 'Accuracy Moves Clause', '!Sleep Clause Mod',
@@ -189,7 +189,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Anything Goes",
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 	/* {
@@ -200,7 +200,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712567/">NFE Resources</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Standard OMs', 'Not Fully Evolved', 'Sleep Moves Clause', 'Terastal Clause', 'Min Source Gen = 9'],
 		banlist: [
@@ -213,7 +213,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3719022/">ZU Metagame Discussion</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['[Gen 9] PU'],
 		banlist: ['PU', 'Beartic', 'Gurdurr', 'Indeedee-F', 'Lycanroc-Midnight', 'Raichu-Base', 'Rotom-Fan', 'Sawsbuck', 'Zangoose'],
 	},
@@ -223,7 +223,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3711750/">LC UU Metagame Discussion</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['[Gen 9] LC'],
 		banlist: [
@@ -240,7 +240,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3714023/">SV CAP Viability Rankings</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['[Gen 9] OU', '+CAP'],
 		banlist: ['Crucibellite'],
 	},
@@ -250,7 +250,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3711724/">Free-For-All</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'freeforall',
 		rated: false,
 		tournamentShow: false,
@@ -274,14 +274,14 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Battle Stadium Singles Regulation E",
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer'],
 		banlist: ['Walking Wake', 'Iron Leaves'],
 	}, */
 	{
 		name: "[Gen 9] Custom Game",
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		debug: true,
 		battle: {trunc: Math.trunc},
@@ -298,7 +298,7 @@ export const Formats: FormatList = [
 	/* {
 		name: "[Gen 9] Random Doubles Battle",
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		team: 'random',
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
@@ -309,7 +309,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
@@ -320,7 +320,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712864/">Doubles Ubers</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
 	},
@@ -330,7 +330,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712825/">Doubles UU</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['[Gen 9] Doubles OU'],
 		banlist: ['DOU', 'DBL'],
@@ -341,7 +341,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3710957/">Doubles LC</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		searchShow: false,
 		ruleset: ['Standard Doubles', 'Little Cup', 'Sleep Clause Mod'],
@@ -354,7 +354,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3710849/">2v2 Doubles</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: [
 			'Picked Team Size = 2', 'Max Team Size = 4',
@@ -379,7 +379,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] VGC 2023 Regulation E",
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Open Team Sheets'],
 		banlist: ['Walking Wake', 'Iron Leaves'],
@@ -387,7 +387,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] VGC 2023 Regulation E (Bo3)",
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		challengeShow: false,
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Best of = 3'],
@@ -396,14 +396,14 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Kitakami Prologue",
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Kitakami Pokedex', 'Min Source Gen = 9', 'VGC Timer'],
 	}, */
 	{
 		name: "[Gen 9] Doubles Custom Game",
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		searchShow: false,
 		battle: {trunc: Math.trunc},
@@ -424,7 +424,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3710848/">National Dex Metagame Discussion</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'ND Uber', 'ND AG', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock',
@@ -439,7 +439,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712169/">National Dex Ubers Viability List</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Items Clause', 'Species Clause', 'Sleep Clause Mod', 'Mega Rayquaza Clause'],
 		banlist: ['ND AG', 'Assist', 'Baton Pass'],
 	},
@@ -449,7 +449,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3711752/">National Dex UU Metagame Discussion</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['[Gen 9] National Dex', 'Terastal Clause'],
 		banlist: ['ND OU', 'ND UUBL', 'Battle Bond', 'Drizzle', 'Drought'],
 	},
@@ -459,7 +459,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3713801/">National Dex RU Metagame Discussion</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['[Gen 9] National Dex UU'],
 		banlist: ['ND UU', 'ND RUBL', 'Heat Rock', 'Light Clay'],
@@ -470,7 +470,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3710738/">National Dex Monotype Metagame Discussion</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard NatDex', 'Same Type Clause', 'Terastal Clause', 'Species Clause', 'OHKO Clause', 'Evasion Clause', 'Sleep Clause Mod'],
 		banlist: [
 			'Annihilape', 'Arceus', 'Blastoise-Mega', 'Blaziken', 'Blaziken-Mega', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chi-Yu', 'Chien-Pao', 'Darkrai',
@@ -490,7 +490,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3720802/">National Dex Doubles</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Standard NatDex', 'OHKO Clause', 'Evasion Moves Clause', 'Evasion Abilities Clause', 'Species Clause', 'Gravity Sleep Clause'],
 		banlist: [
@@ -506,7 +506,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3672423/">National Dex AG</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Standard NatDex'],
 	},
@@ -517,7 +517,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3711099/">National Dex BH</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['-Nonexistent', 'Standard NatDex', 'Forme Clause', 'Sleep Moves Clause', 'Ability Clause = 2', 'OHKO Clause', 'Evasion Moves Clause', 'Dynamax Clause', 'CFZ Clause', 'Terastal Clause', '!Obtainable'],
 		banlist: [
@@ -641,21 +641,21 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Paldea Dex Draft",
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Draft', 'Min Source Gen = 9'],
 	},
 	{
 		name: "[Gen 9] Tera Preview Paldea Dex Draft",
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['[Gen 9] Paldea Dex Draft', 'Tera Type Preview'],
 	},
 	{
 		name: "[Gen 9] 6v6 Doubles Draft",
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		searchShow: false,
 		ruleset: ['Draft', '!Sleep Clause Mod', '!Evasion Clause', 'Min Source Gen = 9'],
@@ -663,7 +663,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] 4v4 Doubles Draft",
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		searchShow: false,
 		ruleset: ['Draft', 'Item Clause', 'VGC Timer', '!Sleep Clause Mod', '!OHKO Clause', '!Evasion Clause', 'Adjust Level = 50', 'Picked Team Size = 4', 'Min Source Gen = 9'],
@@ -671,21 +671,21 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] NatDex Draft",
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Draft', '+Unobtainable', '+Past'],
 	},
 	{
 		name: "[Gen 9] Tera Preview NatDex Draft",
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['[Gen 9] NatDex Draft', 'Tera Type Preview'],
 	},
 	{
 		name: "[Gen 9] NatDex 6v6 Doubles Draft",
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		searchShow: false,
 		ruleset: ['[Gen 9] 6v6 Doubles Draft', '+Unobtainable', '+Past', '!! Min Source Gen = 3'],
@@ -693,7 +693,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] NatDex LC Draft",
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['[Gen 9] NatDex Draft', 'Double Item Clause', 'Little Cup'],
 		banlist: ['Dragon Rage', 'Sonic Boom'],
@@ -750,7 +750,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3714048/">Convergence</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		// searchShow: false,
 		ruleset: ['Standard OMs', 'Sleep Clause Mod', 'Convergence Legality', 'Terastal Clause', '!Obtainable Abilities', 'Min Source Gen = 9'],
 		banlist: [
@@ -771,7 +771,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3718065/">Godly Gift Resources</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard OMs', 'Sleep Moves Clause', 'Godly Gift Mod', 'Min Source Gen = 9'],
 		banlist: [
 			'Blissey', 'Calyrex-Shadow', 'Chansey', 'Kingambit', 'Miraidon', 'Ursaluna-Base', 'Arena Trap', 'Huge Power', 'Moody', 'Pure Power', 'Shadow Tag',
@@ -790,7 +790,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Almost Any Ability",
 		desc: `Pok&eacute;mon have access to almost any ability.`,
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause', 'Terastal Clause', 'Min Source Gen = 9'],
 		banlist: [
 			'Annihilape', 'Arceus', 'Baxcalibur', 'Calyrex-Ice', 'Calyrex-Shadow', 'Darkrai', 'Dialga', 'Dialga-Origin', 'Dragapult', 'Enamorus-Base',
@@ -811,7 +811,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712766/">BH Resources</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: [
 			'OHKO Clause', 'Evasion Clause', 'Species Clause', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Moves Clause',
 			'Endless Battle Clause', 'Hackmons Forme Legality', 'Species Reveal Clause', 'Terastal Clause',
@@ -904,7 +904,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3714664/">STABmons Resources</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard OMs', 'STABmons Move Legality', 'Sleep Moves Clause', 'Min Source Gen = 9'],
 		banlist: [
 			'Arceus', 'Azumarill', 'Basculegion', 'Basculegion-F', 'Baxcalibur', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chi-Yu', 'Chien-Pao', 'Cloyster',
@@ -1000,7 +1000,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712296/">Inheritance</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		ruleset: ['Standard OMs', 'Ability Clause = 1', 'Sleep Moves Clause', 'Terastal Clause', 'Min Source Gen = 9'],
 		banlist: [
 			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Cresselia', 'Dialga', 'Dialga-Origin', 'Dondozo', 'Dragapult', 'Enamorus-Base', 'Espathra', 'Eternatus',
@@ -1196,7 +1196,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3711340/">Camomons</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Standard OMs', 'Sleep Clause Mod', 'Evasion Items Clause', 'Evasion Abilities Clause', 'Terastal Clause', 'Camomons Mod', 'Min Source Gen = 9'],
 		banlist: [
@@ -1214,7 +1214,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3710953/">Cross Evolution</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Standard OMs', 'Ability Clause = 2', 'Sleep Moves Clause', 'Terastal Clause', 'Min Source Gen = 9'],
 		banlist: [
@@ -1350,7 +1350,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3713983/">Fortemons</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Standard OMs', 'Sleep Clause Mod', 'Min Source Gen = 9'],
 		banlist: [
@@ -1534,7 +1534,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3725593/">Frantic Fusions</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Standard OMs', '!Nickname Clause', '!Obtainable Abilities', 'Sleep Moves Clause', 'Frantic Fusions Mod', 'Terastal Clause', 'Min Source Gen = 9'],
 		banlist: [
@@ -1656,7 +1656,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712086/">Pure Hackmons</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Hackmons Forme Legality', 'Species Reveal Clause', 'Endless Battle Clause'],
 	},
@@ -1667,7 +1667,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3711644/">Revelationmons</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Standard OMs', 'Sleep Moves Clause', 'Revelationmons Mod', 'Min Source Gen = 9'],
 		banlist: [
@@ -1797,7 +1797,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3715801/">Tera Donation</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Standard OMs', 'Sleep Moves CLause', 'Tera Type Preview', 'Min Source Gen = 9'],
 		banlist: [
@@ -1898,7 +1898,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3714223/">The Loser's Game</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		ruleset: ['Standard OMs', 'Sleep Clause Mod', '!OHKO Clause', 'Picked Team Size = 6', 'Adjust Level = 100', 'Min Source Gen = 9'],
 		banlist: ['Infiltrator', 'Choice Scarf', 'Explosion', 'Final Gambit', 'Healing Wish', 'Lunar Dance', 'Magic Room', 'Memento', 'Misty Explosion', 'Self-Destruct'],
@@ -2421,7 +2421,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Monotype Random Battle",
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'random',
 		ruleset: ['Obtainable', 'Same Type Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
 	},
@@ -2468,7 +2468,7 @@ export const Formats: FormatList = [
 			`Not affiliated with Random Battles formats. Some sets will by nature be worse than others, but you can report egregiously bad sets ` +
 			`with <a href="https://forms.gle/DYwQN5qGVegz3YU38">this form</a>.`,
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'computerGenerated',
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod'],
 	},
@@ -2476,7 +2476,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Hackmons Cup",
 		desc: `Randomized teams of level-balanced Pok&eacute;mon with absolutely any ability, moves, and item.`,
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'randomHC',
 		ruleset: ['HP Percentage Mod', 'Cancel Mod'],
 		banlist: ['CAP', 'LGPE', 'MissingNo.', 'Pikachu-Cosplay', 'Pichu-Spiky-eared', 'Pokestar Smeargle', 'Pokestar UFO', 'Pokestar UFO-2', 'Pokestar Brycen-Man', 'Pokestar MT', 'Pokestar MT2', 'Pokestar Transport', 'Pokestar Giant', 'Pokestar Humanoid', 'Pokestar Monster', 'Pokestar F-00', 'Pokestar F-002', 'Pokestar Spirit', 'Pokestar Black Door', 'Pokestar White Door', 'Pokestar Black Belt', 'Pokestar UFO-PropU2', 'Xerneas-Base'],
@@ -2486,7 +2486,7 @@ export const Formats: FormatList = [
 		name: "[Gen 9] Doubles Hackmons Cup",
 		desc: `Randomized teams of level-balanced Pok&eacute;mon with absolutely any ability, moves, and item. Now with TWICE the Pok&eacute;mon per side!`,
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'randomHC',
 		searchShow: false,
 		gameType: 'doubles',
@@ -2612,14 +2612,14 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Challenge Cup 1v1",
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'randomCC',
 		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Terastal Clause', 'Picked Team Size = 1'],
 	},
 	{
 		name: "[Gen 9] Challenge Cup 2v2",
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'randomCC',
 		gameType: 'doubles',
 		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Picked Team Size = 2'],
@@ -2627,7 +2627,7 @@ export const Formats: FormatList = [
 	{
 		name: "[Gen 9] Challenge Cup 6v6",
 
-		mod: 'gen9',
+		mod: 'swse',
 		team: 'randomCC',
 		searchShow: false,
 		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod'],
@@ -2962,7 +2962,7 @@ export const Formats: FormatList = [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3632075/">Metronome Battle</a>`,
 		],
 
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Max Team Size = 2', 'HP Percentage Mod', 'Cancel Mod'],
 		banlist: [

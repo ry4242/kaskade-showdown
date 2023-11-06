@@ -2426,7 +2426,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 
 	// swse
-	// incomplete. add black augurite, peat block, keybone, razor hook, zeta cell, bacchus laurel, amaze-drive, mist stone, blossom/sunshine/harvest/blizzard ball, dawn ball, amaze ball, whirli-ball, odd ball, prism ball. Future: add shelmet helmet, scroll of darkness/water.
+	// incomplete. add zeta cell, bacchus laurel, blossom/sunshine/harvest/blizzard ball, dawn ball, amaze ball, whirli-ball, odd ball, prism ball. Future: add shelmet helmet, scroll of darkness/water.
 	amazedrive: {
 		name: "Amaze-Drive",
 		desc: "Evolves Golbat into Probat, Porygon2 into Porygon ω, Drifloon into Amaze-All Drifblim, and Bonsly into Amaze-All Sudowoodo when used.",

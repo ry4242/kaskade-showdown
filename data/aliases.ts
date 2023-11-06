@@ -26,7 +26,7 @@ export const Aliases: {[alias: string]: string} = {
 	vgc: "[Gen 9] VGC 2023 Series 2",
 	bsd: "[Gen 9] VGC 2023 Series 2",
 
-	//natdex
+	// natdex
 	nd: "[Gen 9] National Dex",
 	ndou: "[Gen 9] National Dex",
 	natdex: "[Gen 9] National Dex",
