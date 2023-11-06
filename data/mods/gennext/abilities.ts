@@ -2,7 +2,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	swiftswim: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['raindance', 'primordialsea'])) {
+			if (this.field.isClimateWeather(['raindance', 'primordialsea'])) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -11,7 +11,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	chlorophyll: {
 		inherit: true,
 		onModifySpe(spe) {
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+			if (this.field.isClimateWeather(['sunnyday', 'desolateland'])) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -20,7 +20,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sandrush: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -29,7 +29,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	slushrush: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isClimateWeather('hail')) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -38,18 +38,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	forecast: {
 		inherit: true,
 		onModifyMove(move) {
-			if (move.weather) {
-				const weather = move.weather;
-				move.weather = '';
+			if (move.climateWeather) {
+				const climateWeather = move.climateWeather;
+				move.climateWeather = '';
 				move.onHit = function (target, source) {
-					this.field.setWeather(weather, source, this.dex.abilities.get('forecast'));
-					this.field.weatherState.duration = 0;
+					this.field.setClimateWeather(climateWeather, source, this.dex.abilities.get('forecast'));
+					this.field.climateWeatherState.duration = 0;
 				};
 				move.target = 'self';
 			}
 		},
-		desc: "If this Pokemon is a Castform, its type changes to the current weather condition's type, except Sandstorm. Weather moves last forever.",
-		shortDesc: "Castform's type changes to the current weather condition's type, except Sandstorm; weather moves last forever.",
+		desc: "If this Pokemon is a Castform, its type changes to the current climateWeather condition's type, except Sandstorm. Weather moves last forever.",
+		shortDesc: "Castform's type changes to the current climateWeather condition's type, except Sandstorm; climateWeather moves last forever.",
 	},
 	thickfat: {
 		inherit: true,
@@ -82,7 +82,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	snowcloak: {
 		inherit: true,
 		onSourceBasePower(basePower) {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isClimateWeather('hail')) {
 				return basePower * 3 / 4;
 			}
 			return basePower * 7 / 8;
@@ -96,7 +96,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		desc: "If Sandstorm is active, attacks against this Pokemon do 25% less than normal. If Sandstorm is not active, attacks against this Pokemon do 12.5% less than normal. This Pokemon takes no damage from Sandstorm.",
 		shortDesc: "If Sandstorm is active, attacks against this Pokemon do 25% less; immunity to Sandstorm.",
 		onSourceBasePower(basePower) {
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				return basePower * 4 / 5;
 			}
 		},
@@ -105,7 +105,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	waterveil: {
 		inherit: true,
 		onSourceBasePower(basePower) {
-			if (this.field.isWeather(['raindance', 'primordialsea'])) {
+			if (this.field.isClimateWeather(['raindance', 'primordialsea'])) {
 				return basePower * 3 / 4;
 			}
 			return basePower * 7 / 8;
@@ -121,13 +121,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.heal(target.baseMaxhp / 16);
 		},
 		onDamagingHit(damage, target, source, move) {
-			if (move.flags['contact'] && this.field.isWeather('hail')) {
+			if (move.flags['contact'] && this.field.isClimateWeather('hail')) {
 				if (this.randomChance(3, 10)) {
 					source.trySetStatus('frz', target);
 				}
 			}
 		},
-		onWeather() {},
+		onClimateWeather() {},
 	},
 	flamebody: {
 		inherit: true,
@@ -168,18 +168,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		onModifyMove(move) {
 			if (move.id === 'sunnyday') {
-				const weather = move.weather as string;
-				move.weather = '';
+				const climateWeather = move.climateWeather as string;
+				move.climateWeather = '';
 				move.onHit = function (target, source) {
-					this.field.setWeather(weather, source, this.dex.abilities.get('flowergift'));
-					this.field.weatherState.duration = 0;
+					this.field.setClimateWeather(climateWeather, source, this.dex.abilities.get('flowergift'));
+					this.field.climateWeatherState.duration = 0;
 				};
 				move.target = 'self';
 				move.sideCondition = 'flowergift';
 			}
 		},
 		onUpdate(pokemon) {
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+			if (this.field.isClimateWeather(['sunnyday', 'desolateland'])) {
 				if (pokemon.isActive && pokemon.species.id === 'cherrim' && this.effectState.forme !== 'Sunshine') {
 					this.effectState.forme = 'Sunshine';
 					this.add('-formechange', pokemon, 'Cherrim-Sunshine', '[msg]');

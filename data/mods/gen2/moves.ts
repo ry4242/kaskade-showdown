@@ -491,9 +491,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	moonlight: {
 		inherit: true,
 		onHit(pokemon) {
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+			if (this.field.isClimateWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.maxhp);
-			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
+			} else if (this.field.isClimateWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
 				this.heal(pokemon.baseMaxhp / 4);
 			} else {
 				this.heal(pokemon.baseMaxhp / 2);
@@ -503,9 +503,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	morningsun: {
 		inherit: true,
 		onHit(pokemon) {
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+			if (this.field.isClimateWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.maxhp);
-			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
+			} else if (this.field.isClimateWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
 				this.heal(pokemon.baseMaxhp / 4);
 			} else {
 				this.heal(pokemon.baseMaxhp / 2);
@@ -890,9 +890,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	synthesis: {
 		inherit: true,
 		onHit(pokemon) {
-			if (this.field.isWeather(['sunnyday', 'desolateland'])) {
+			if (this.field.isClimateWeather(['sunnyday', 'desolateland'])) {
 				this.heal(pokemon.maxhp);
-			} else if (this.field.isWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
+			} else if (this.field.isClimateWeather(['raindance', 'primordialsea', 'sandstorm', 'hail'])) {
 				this.heal(pokemon.baseMaxhp / 4);
 			} else {
 				this.heal(pokemon.baseMaxhp / 2);

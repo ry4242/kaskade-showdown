@@ -29,7 +29,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	auroraveil: {
 		inherit: true,
 		onTry() {
-			return this.field.isWeather('hail');
+			return this.field.isClimateWeather('hail');
 		},
 	},
 	autotomize: {
@@ -43,7 +43,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	blizzard: {
 		inherit: true,
 		onModifyMove(move) {
-			if (this.field.isWeather('hail')) move.accuracy = true;
+			if (this.field.isClimateWeather('hail')) move.accuracy = true;
 		},
 	},
 	blueflare: {

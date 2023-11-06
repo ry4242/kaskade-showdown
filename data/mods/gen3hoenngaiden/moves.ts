@@ -30,7 +30,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		shortDesc: "Damage doubles and type varies during weather.",
 		onModifyMove(move) {
-			switch (this.field.effectiveWeather()) {
+			switch (this.field.effectiveClimateWeather()) {
 			case 'sunnyday':
 				move.type = 'Fire';
 				move.category = 'Special';
@@ -51,7 +51,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				move.category = 'Special';
 				break;
 			}
-			if (this.field.effectiveWeather()) move.basePower *= 2;
+			if (this.field.effectiveClimateWeather()) move.basePower *= 2;
 		},
 	},
 	acrobatics: {

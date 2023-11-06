@@ -1789,7 +1789,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 	// Heavy Hailstorm status support for Alpha
 	heavyhailstorm: {
 		name: 'HeavyHailstorm',
-		effectType: 'Weather',
+		effectType: 'ClimateWeather',
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
@@ -1801,18 +1801,18 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 				return null;
 			}
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (move.type === 'Ice') {
 				this.debug('Heavy Hailstorm ice boost');
 				return this.chainModify(1.5);
 			}
 		},
 		onFieldStart(field, source, effect) {
-			this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
+			this.add('-climateWeather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
 			this.add('-message', 'The hail became extremely chilling!');
 		},
 		onModifyMove(move, pokemon, target) {
-			if (!this.field.isWeather('heavyhailstorm')) return;
+			if (!this.field.isClimateWeather('heavyhailstorm')) return;
 			if (move.category !== "Status") {
 				this.debug('Adding Heavy Hailstorm freeze');
 				if (!move.secondaries) move.secondaries = [];
@@ -1827,25 +1827,25 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'Hail', '[upkeep]');
-			if (this.field.isWeather('heavyhailstorm')) this.eachEvent('Weather');
+			this.add('-climateWeather', 'Hail', '[upkeep]');
+			if (this.field.isClimateWeather('heavyhailstorm')) this.eachEvent('ClimateWeather');
 		},
-		onWeather(target, source, effect) {
+		onClimateWeather(target, source, effect) {
 			if (target.isAlly(this.effectState.source)) return;
 			// Hail is stronger from Heavy Hailstorm
 			if (!target.hasType('Ice')) this.damage(target.baseMaxhp / 8);
 		},
 		onFieldEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 	// Forever Winter Hail support for piloswine gripado
 	winterhail: {
 		name: 'Winter Hail',
-		effectType: 'Weather',
+		effectType: 'ClimateWeather',
 		duration: 0,
 		onFieldStart(field, source, effect) {
-			this.add('-weather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
+			this.add('-climateWeather', 'Hail', '[from] ability: ' + effect, '[of] ' + source);
 			this.add('-message', 'It became winter!');
 		},
 		onModifySpe(spe, pokemon) {
@@ -1853,15 +1853,15 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'Hail', '[upkeep]');
-			if (this.field.isWeather('winterhail')) this.eachEvent('Weather');
+			this.add('-climateWeather', 'Hail', '[upkeep]');
+			if (this.field.isClimateWeather('winterhail')) this.eachEvent('ClimateWeather');
 		},
-		onWeather(target) {
+		onClimateWeather(target) {
 			if (target.hasType('Ice')) return;
 			this.damage(target.baseMaxhp / 8);
 		},
 		onFieldEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 	raindrop: {
@@ -2119,17 +2119,17 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 	// condition used for brouha's ability
 	turbulence: {
 		name: 'Turbulence',
-		effectType: 'Weather',
+		effectType: 'ClimateWeather',
 		duration: 0,
 		onFieldStart(field, source, effect) {
-			this.add('-weather', 'DeltaStream', '[from] ability: ' + effect, '[of] ' + source);
+			this.add('-climateWeather', 'DeltaStream', '[from] ability: ' + effect, '[of] ' + source);
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'DeltaStream', '[upkeep]');
-			this.eachEvent('Weather');
+			this.add('-climateWeather', 'DeltaStream', '[upkeep]');
+			this.eachEvent('ClimateWeather');
 		},
-		onWeather(target) {
+		onClimateWeather(target) {
 			if (!target.hasType('Flying')) this.damage(target.baseMaxhp * 0.06);
 			if (this.sides.some(side => Object.keys(side.sideConditions).length)) {
 				this.add(`-message`, 'The Turbulence blew away the hazards on both sides!');
@@ -2151,13 +2151,13 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			this.field.clearTerrain();
 		},
 		onFieldEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 	// Modded rain dance for Kev's ability
 	raindance: {
 		name: 'RainDance',
-		effectType: 'Weather',
+		effectType: 'ClimateWeather',
 		duration: 5,
 		durationCallback(source) {
 			let newDuration = 5;
@@ -2174,7 +2174,7 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 			}
 			return newDuration + boostNum;
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
 				this.debug('rain water boost');
@@ -2188,18 +2188,18 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'RainDance', '[from] ability: ' + effect, '[of] ' + source);
+				this.add('-climateWeather', 'RainDance', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
-				this.add('-weather', 'RainDance');
+				this.add('-climateWeather', 'RainDance');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'RainDance', '[upkeep]');
-			this.eachEvent('Weather');
+			this.add('-climateWeather', 'RainDance', '[upkeep]');
+			this.eachEvent('ClimateWeather');
 		},
 		onFieldEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 	// Modded hazard moves to fail when Wave terrain is active

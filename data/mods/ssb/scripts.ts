@@ -760,8 +760,8 @@ export const Scripts: ModdedBattleScriptsData = {
 						hitResult = target.side.addSlotCondition(target, moveData.slotCondition, pokemon, move);
 						didSomething = this.combineResults(didSomething, hitResult);
 					}
-					if (moveData.weather) {
-						hitResult = this.battle.field.setWeather(moveData.weather, pokemon, move);
+					if (moveData.climateWeather) {
+						hitResult = this.battle.field.setClimateWeather(moveData.climateWeather, pokemon, move);
 						didSomething = this.combineResults(didSomething, hitResult);
 					}
 					if (moveData.terrain) {

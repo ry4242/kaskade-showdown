@@ -89,7 +89,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	weatherball: {
 		inherit: true,
 		onModifyType(move, pokemon) {
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				move.type = 'Fire';

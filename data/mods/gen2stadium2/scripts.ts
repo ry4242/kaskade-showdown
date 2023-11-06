@@ -412,13 +412,13 @@ export const Scripts: ModdedBattleScriptsData = {
 
 			// Weather modifiers
 			if (
-				(type === 'Water' && this.battle.field.isWeather('raindance')) ||
-				(type === 'Fire' && this.battle.field.isWeather('sunnyday'))
+				(type === 'Water' && this.battle.field.isClimateWeather('raindance')) ||
+				(type === 'Fire' && this.battle.field.isClimateWeather('sunnyday'))
 			) {
 				damage = Math.floor(damage * 1.5);
 			} else if (
-				((type === 'Fire' || move.id === 'solarbeam') && this.battle.field.isWeather('raindance')) ||
-				(type === 'Water' && this.battle.field.isWeather('sunnyday'))
+				((type === 'Fire' || move.id === 'solarbeam') && this.battle.field.isClimateWeather('raindance')) ||
+				(type === 'Water' && this.battle.field.isClimateWeather('sunnyday'))
 			) {
 				damage = Math.floor(damage / 2);
 			}

@@ -337,11 +337,11 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		// Cryogonal: infinite hail, Ice Body
 		onModifyMove(move) {
 			if (move.id === 'hail') {
-				const weather = move.weather as string;
-				move.weather = '';
+				const climateWeather = move.climateWeather as string;
+				move.climateWeather = '';
 				move.onHit = function (target, source) {
-					this.field.setWeather(weather, source, this.dex.abilities.get('snowwarning'));
-					this.field.weatherState.duration = 0;
+					this.field.setClimateWeather(climateWeather, source, this.dex.abilities.get('snowwarning'));
+					this.field.climateWeatherState.duration = 0;
 				};
 				move.target = 'self';
 			}
@@ -360,11 +360,11 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		// Probopass: infinite sand
 		onModifyMove(move) {
 			if (move.id === 'sandstorm') {
-				const weather = move.weather as string;
-				move.weather = '';
+				const climateWeather = move.climateWeather as string;
+				move.climateWeather = '';
 				move.onHit = function (target, source) {
-					this.field.setWeather(weather, source, this.dex.abilities.get('sandstream'));
-					this.field.weatherState.duration = 0;
+					this.field.setClimateWeather(climateWeather, source, this.dex.abilities.get('sandstream'));
+					this.field.climateWeatherState.duration = 0;
 				};
 				move.target = 'self';
 			}
@@ -374,11 +374,11 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 		// Phione: infinite rain
 		onModifyMove(move) {
 			if (move.id === 'raindance') {
-				const weather = move.weather as string;
-				move.weather = '';
+				const climateWeather = move.climateWeather as string;
+				move.climateWeather = '';
 				move.onHit = function (target, source) {
-					this.field.setWeather(weather, source, this.dex.abilities.get('drizzle'));
-					this.field.weatherState.duration = 0;
+					this.field.setClimateWeather(climateWeather, source, this.dex.abilities.get('drizzle'));
+					this.field.climateWeatherState.duration = 0;
 				};
 				move.target = 'self';
 			}

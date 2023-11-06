@@ -447,7 +447,7 @@ export class RandomGen3Teams extends RandomGen4Teams {
 					cull = true;
 				}
 				const moveIsRejectable = (
-					!move.weather &&
+					!move.climateWeather &&
 					(move.category !== 'Status' || !move.flags.heal) &&
 					(counter.setupType || !move.stallingMove) &&
 					// These moves cannot be rejected in favor of a forced move

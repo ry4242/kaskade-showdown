@@ -133,7 +133,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sandforce: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				if (move.type === 'Fighting' || move.type === 'Steel') {
 					this.debug('Sand Force boost');
 					return this.chainModify([5325, 4096]);

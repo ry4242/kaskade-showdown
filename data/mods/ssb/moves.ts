@@ -674,7 +674,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		onPrepareHit(target, source) {
 			this.add('-anim', source, 'Let\'s Snuggle Forever', target);
 		},
-		weather: 'sandstorm',
+		climateWeather: 'sandstorm',
 		secondary: null,
 		target: "normal",
 		type: "Rock",
@@ -2690,7 +2690,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				}
 			}
 			this.field.clearTerrain();
-			this.field.clearWeather();
+			this.field.clearClimateWeather();
 			return success;
 		},
 		recoil: [33, 100],
@@ -2831,7 +2831,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		self: {
 			onHit(source) {
-				this.field.setWeather('raindance');
+				this.field.setClimateWeather('raindance');
 			},
 		},
 		target: "normal",
@@ -3809,7 +3809,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, 'Crunch', target);
 			this.add('-anim', source, 'Sandstorm', target);
 		},
-		weather: 'Sandstorm',
+		climateWeather: 'Sandstorm',
 		target: "normal",
 		type: "Normal",
 	},
@@ -4264,7 +4264,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			this.add('-anim', source, 'Twister', target);
 		},
 		onModifyMove(move, pokemon, target) {
-			if (target && ['raindance', 'primordialsea'].includes(target.effectiveWeather())) {
+			if (target && ['raindance', 'primordialsea'].includes(target.effectiveClimateWeather())) {
 				move.accuracy = true;
 			}
 		},
@@ -4431,7 +4431,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		weather: 'sunnyday',
+		climateWeather: 'sunnyday',
 		basePowerCallback(pokemon, target, move) {
 			return 70 + 80 * Math.floor(pokemon.hp / pokemon.maxhp);
 		},
@@ -4993,7 +4993,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "For 5 turns, the user and its party members take 0.5x damage from physical and special attacks, or 0.66x damage if in a Double Battle; does not reduce damage further with Reflect or Light Screen. Critical hits ignore this protection. It is removed from the user's side if the user or an ally is successfully hit by Brick Break, Psychic Fangs, or Defog. Brick Break and Psychic Fangs remove the effect before damage is calculated. Lasts for 8 turns if the user is holding Light Clay. Fails unless the weather is Heavy Hailstorm or Hail.",
 		shortDesc: "For 5 turns, damage to allies is halved. Hail-like weather only.",
 		onTryHitSide() {
-			if (!this.field.isWeather(['winterhail', 'heavyhailstorm', 'hail'])) return false;
+			if (!this.field.isClimateWeather(['winterhail', 'heavyhailstorm', 'hail'])) return false;
 		},
 	},
 	blizzard: {
@@ -5001,7 +5001,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "Has a 10% chance to freeze the target. If the weather is Heavy Hailstorm or Hail, this move does not check accuracy.",
 		shortDesc: "10% freeze foe(s). Can't miss in Hail-like weather.",
 		onModifyMove(move) {
-			if (this.field.isWeather(['winterhail', 'heavyhailstorm', 'hail'])) move.accuracy = true;
+			if (this.field.isClimateWeather(['winterhail', 'heavyhailstorm', 'hail'])) move.accuracy = true;
 		},
 	},
 	dig: {
@@ -5049,7 +5049,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "The user restores 1/2 of its maximum HP if Delta Stream or no weather conditions are in effect or if the user is holding Utility Umbrella, 2/3 of its maximum HP if the weather is Desolate Land or Sunny Day, and 1/4 of its maximum HP if the weather is Heavy Hailstorm, Hail, Primordial Sea, Rain Dance, or Sandstorm, all rounded half down.",
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				factor = 0.667;
@@ -5071,7 +5071,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "The user restores 1/2 of its maximum HP if Delta Stream or no weather conditions are in effect or if the user is holding Utility Umbrella, 2/3 of its maximum HP if the weather is Desolate Land or Sunny Day, and 1/4 of its maximum HP if the weather is Heavy Hailstorm, Hail, Primordial Sea, Rain Dance, or Sandstorm, all rounded half down.",
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				factor = 0.667;
@@ -5093,7 +5093,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "This attack charges on the first turn and executes on the second. Power is halved if the weather is Heavy Hailstorm, Hail, Primordial Sea, Rain Dance, or Sandstorm and the user is not holding Utility Umbrella. If the user is holding a Power Herb or the weather is Desolate Land or Sunny Day, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Desolate Land or Sunny Day, the move still requires a turn to charge.",
 		onBasePower(basePower, pokemon, target) {
 			const weathers = ['raindance', 'primordialsea', 'sandstorm', 'winterhail', 'heavyhailstorm', 'hail'];
-			if (weathers.includes(pokemon.effectiveWeather())) {
+			if (weathers.includes(pokemon.effectiveClimateWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -5104,7 +5104,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "This attack charges on the first turn and executes on the second. Power is halved if the weather is Heavy Hailstorm, Hail, Primordial Sea, Rain Dance, or Sandstorm and the user is not holding Utility Umbrella. If the user is holding a Power Herb or the weather is Desolate Land or Sunny Day, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Desolate Land or Sunny Day, the move still requires a turn to charge.",
 		onBasePower(basePower, pokemon, target) {
 			const weathers = ['raindance', 'primordialsea', 'sandstorm', 'winterhail', 'heavyhailstorm', 'hail'];
-			if (weathers.includes(pokemon.effectiveWeather())) {
+			if (weathers.includes(pokemon.effectiveClimateWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -5115,7 +5115,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		desc: "The user restores 1/2 of its maximum HP if Delta Stream or no weather conditions are in effect or if the user is holding Utility Umbrella, 2/3 of its maximum HP if the weather is Desolate Land or Sunny Day, and 1/4 of its maximum HP if the weather is Heavy Hailstorm, Hail, Primordial Sea, Rain Dance, or Sandstorm, all rounded half down.",
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				factor = 0.667;
@@ -5136,7 +5136,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		desc: "Power doubles if a weather condition other than Delta Stream is active, and this move's type changes to match. Ice type during Heavy Hailstorm or Hail, Water type during Primordial Sea or Rain Dance, Rock type during Sandstorm, and Fire type during Desolate Land or Sunny Day. If the user is holding Utility Umbrella and uses Weather Ball during Primordial Sea, Rain Dance, Desolate Land, or Sunny Day, the move is still Normal-type and does not have a base power boost.",
 		onModifyType(move, pokemon) {
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				move.type = 'Fire';
@@ -5156,7 +5156,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 		},
 		onModifyMove(move, pokemon) {
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				move.basePower *= 2;

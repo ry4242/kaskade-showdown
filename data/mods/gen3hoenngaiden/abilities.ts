@@ -2,7 +2,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	snowwarning: {
 		inherit: true,
 		onStart(source) {
-			this.field.setWeather('hail');
+			this.field.setClimateWeather('hail');
 		},
 		isNonstandard: null,
 		gen: 3,
@@ -95,10 +95,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
-		onWeatherChange(pokemon) {
+		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -125,7 +125,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	chlorophyll: {
 		onModifySpe(spe, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(2);
 			}
 		},

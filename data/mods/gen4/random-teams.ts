@@ -737,7 +737,7 @@ export class RandomGen4Teams extends RandomGen5Teams {
 				};
 
 				const moveIsRejectable = (
-					!move.weather &&
+					!move.climateWeather &&
 					!move.damage &&
 					(move.category !== 'Status' || !move.flags.heal) &&
 					(move.category === 'Status' || !types.has(move.type) || (move.basePower && move.basePower < 40 && !move.multihit)) &&

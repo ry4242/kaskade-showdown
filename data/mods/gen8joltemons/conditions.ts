@@ -19,7 +19,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 	},
 	raindance: {
 		name: 'RainDance',
-		effectType: 'Weather',
+		effectType: 'ClimateWeather',
 		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('damprock')) {
@@ -27,7 +27,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || attacker.hasItem('utilityumbrella') ||
 				defender.hasAbility('utilityumbrella') || attacker.hasAbility('utilityumbrella')) return;
 			if (move.type === 'Water') {
@@ -42,23 +42,23 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'RainDance', '[from] ability: ' + effect, '[of] ' + source);
+				this.add('-climateWeather', 'RainDance', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
-				this.add('-weather', 'RainDance');
+				this.add('-climateWeather', 'RainDance');
 			}
 		},
 		onResidualOrder: 1,
 		onResidual() {
-			this.add('-weather', 'RainDance', '[upkeep]');
-			this.eachEvent('Weather');
+			this.add('-climateWeather', 'RainDance', '[upkeep]');
+			this.eachEvent('ClimateWeather');
 		},
 		onEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 	primordialsea: {
 		name: 'PrimordialSea',
-		effectType: 'Weather',
+		effectType: 'ClimateWeather',
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
@@ -70,7 +70,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return null;
 			}
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || attacker.hasItem('utilityumbrella') ||
 				defender.hasAbility('utilityumbrella') || attacker.hasAbility('utilityumbrella')) return;
 			if (move.type === 'Water') {
@@ -79,20 +79,20 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onStart(battle, source, effect) {
-			this.add('-weather', 'PrimordialSea', '[from] ability: ' + effect, '[of] ' + source);
+			this.add('-climateWeather', 'PrimordialSea', '[from] ability: ' + effect, '[of] ' + source);
 		},
 		onResidualOrder: 1,
 		onResidual() {
-			this.add('-weather', 'PrimordialSea', '[upkeep]');
-			this.eachEvent('Weather');
+			this.add('-climateWeather', 'PrimordialSea', '[upkeep]');
+			this.eachEvent('ClimateWeather');
 		},
 		onEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 	sunnyday: {
 		name: 'SunnyDay',
-		effectType: 'Weather',
+		effectType: 'ClimateWeather',
 		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('heatrock')) {
@@ -100,7 +100,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 			return 5;
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || attacker.hasItem('utilityumbrella') ||
 				defender.hasAbility('utilityumbrella') || attacker.hasAbility('utilityumbrella')) return;
 			if (move.type === 'Fire') {
@@ -115,9 +115,9 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'SunnyDay', '[from] ability: ' + effect, '[of] ' + source);
+				this.add('-climateWeather', 'SunnyDay', '[from] ability: ' + effect, '[of] ' + source);
 			} else {
-				this.add('-weather', 'SunnyDay');
+				this.add('-climateWeather', 'SunnyDay');
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -126,16 +126,16 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 1,
 		onResidual() {
-			this.add('-weather', 'SunnyDay', '[upkeep]');
-			this.eachEvent('Weather');
+			this.add('-climateWeather', 'SunnyDay', '[upkeep]');
+			this.eachEvent('ClimateWeather');
 		},
 		onEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 	desolateland: {
 		name: 'DesolateLand',
-		effectType: 'Weather',
+		effectType: 'ClimateWeather',
 		duration: 0,
 		onTryMovePriority: 1,
 		onTryMove(attacker, defender, move) {
@@ -147,7 +147,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return null;
 			}
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || attacker.hasItem('utilityumbrella') ||
 				defender.hasAbility('utilityumbrella') || attacker.hasAbility('utilityumbrella')) return;
 			if (move.type === 'Fire') {
@@ -156,7 +156,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			}
 		},
 		onStart(battle, source, effect) {
-			this.add('-weather', 'DesolateLand', '[from] ability: ' + effect, '[of] ' + source);
+			this.add('-climateWeather', 'DesolateLand', '[from] ability: ' + effect, '[of] ' + source);
 		},
 		onImmunity(type, pokemon) {
 			if (pokemon.hasItem('utilityumbrella') || pokemon.hasAbility('utilityumbrella')) return;
@@ -164,11 +164,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onResidualOrder: 1,
 		onResidual() {
-			this.add('-weather', 'DesolateLand', '[upkeep]');
-			this.eachEvent('Weather');
+			this.add('-climateWeather', 'DesolateLand', '[upkeep]');
+			this.eachEvent('ClimateWeather');
 		},
 		onEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 };

@@ -211,7 +211,7 @@ export const Conditions: {[k: string]: ModdedConditionData} = {
 	sandstorm: {
 		inherit: true,
 		onFieldResidualOrder: 2,
-		onWeather(target) {
+		onClimateWeather(target) {
 			this.damage(target.baseMaxhp / 8);
 		},
 	},

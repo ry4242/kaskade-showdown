@@ -125,12 +125,12 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	flowergift: {
 		inherit: true,
 		onAllyModifyAtk(atk) {
-			if (this.field.isWeather('sunnyday')) {
+			if (this.field.isClimateWeather('sunnyday')) {
 				return this.chainModify(1.5);
 			}
 		},
 		onAllyModifySpD(spd) {
-			if (this.field.isWeather('sunnyday')) {
+			if (this.field.isClimateWeather('sunnyday')) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -180,7 +180,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 	},
 	hydration: {
-		onWeather(target, source, effect) {
+		onClimateWeather(target, source, effect) {
 			if (effect.id === 'raindance' && target.status) {
 				this.add('-activate', target, 'ability: Hydration');
 				target.cureStatus();
@@ -223,7 +223,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onSetStatus(status, target, source, effect) {
 			if (effect && effect.id === 'rest') {
 				return;
-			} else if (this.field.isWeather('sunnyday')) {
+			} else if (this.field.isClimateWeather('sunnyday')) {
 				return false;
 			}
 		},
@@ -356,7 +356,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAccuracyPriority: 8,
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				this.debug('Sand Veil - decreasing accuracy');
 				return accuracy * 0.8;
 			}
@@ -395,7 +395,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onModifyAccuracyPriority: 8,
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather('hail')) {
+			if (this.field.isClimateWeather('hail')) {
 				this.debug('Snow Cloak - decreasing accuracy');
 				return accuracy * 0.8;
 			}

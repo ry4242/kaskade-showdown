@@ -127,11 +127,11 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	raindish: {
 		inherit: true,
-		onWeather() {},
+		onClimateWeather() {},
 		onResidualOrder: 10,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveClimateWeather())) {
 				this.heal(pokemon.baseMaxhp / 16);
 			}
 		},

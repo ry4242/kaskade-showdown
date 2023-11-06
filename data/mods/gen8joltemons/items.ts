@@ -291,14 +291,14 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		},
 		onSwitchIn(pokemon) {
 			if (pokemon.isActive && pokemon.baseSpecies.name === 'Cherrim') {
-				this.field.setWeather('desolateland');
+				this.field.setClimateWeather('desolateland');
 			}
 		},
 		onSwitchOut(pokemon) {
-			this.field.clearWeather();
+			this.field.clearClimateWeather();
 		},
 		onFaint(pokemon) {
-			this.field.clearWeather();
+			this.field.clearClimateWeather();
 		},
 		onBasePower(basePower, user, target, move) {
 			if (move && move.type === 'Grass') {
@@ -693,8 +693,8 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm' || type === 'hail') return false;
 		},
-		onWeather(target, source, effect) {
-			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm'])) {
+		onClimateWeather(target, source, effect) {
+			if (this.field.isClimateWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm'])) {
 				this.heal(target.baseMaxhp / 12);
 			}
 		},

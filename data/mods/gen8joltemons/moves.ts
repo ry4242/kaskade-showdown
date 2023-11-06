@@ -413,7 +413,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		flags: {snatch: 1, heal: 1, bypasssub: 1},
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (this.field.isWeather('raindance')) {
+			if (this.field.isClimateWeather('raindance')) {
 				factor = 0.667;
 			}
 			return !!this.heal(this.modify(pokemon.maxhp, factor));

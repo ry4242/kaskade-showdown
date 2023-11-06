@@ -43,10 +43,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (this.field.isWeather(['raindance', 'primordialsea'])) return;
+			if (this.field.isClimateWeather(['raindance', 'primordialsea'])) return;
 			this.heal(pokemon.maxhp / 16);
 		},
-		onWeather(target, source, effect) {
+		onClimateWeather(target, source, effect) {
 			if (effect.id === 'raindance' || effect.id === 'primordialsea') {
 				this.heal(target.baseMaxhp / 8);
 			}
@@ -60,10 +60,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (this.field.isWeather('hail')) return;
+			if (this.field.isClimateWeather('hail')) return;
 			this.heal(pokemon.maxhp / 16);
 		},
-		onWeather(target, source, effect) {
+		onClimateWeather(target, source, effect) {
 			if (effect.id === 'hail') {
 				this.heal(target.baseMaxhp / 8);
 			}
@@ -238,7 +238,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'sandstorm') return false;
 		},
 		onModifySpD(spd, pokemon) {
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -254,7 +254,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isClimateWeather('hail')) {
 				if (move.type === 'Ice' || move.type === 'Water' || move.type === 'Fairy') {
 					this.debug('Snow Cloak boost');
 					return this.chainModify([0x14CD, 0x1000]);
@@ -417,7 +417,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	leafguard: {
 		onSetStatus(status, target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveClimateWeather())) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] ability: Leaf Guard');
 				}
@@ -426,7 +426,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onTryAddVolatile(status, target) {
 			if ((status.id === 'yawn' || status.id === 'flinch') &&
-				['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				['sunnyday', 'desolateland'].includes(target.effectiveClimateWeather())) {
 				this.add('-immune', target, '[from] ability: Leaf Guard');
 				return null;
 			}
@@ -532,7 +532,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveClimateWeather())) {
 				this.debug('hydration');
 				this.add('-activate', pokemon, 'ability: Hydration');
 				this.add('-message', `Hydration activated!`);
@@ -668,13 +668,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	vaporcontrol: {
 		onUpdate(pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather()) && !pokemon.side.getSideCondition('mist')) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather()) &&
+			!pokemon.side.getSideCondition('mist')) {
 				this.actions.useMove("Mist", pokemon);
 			}
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if ((this.field.isWeather('sunnyday') || this.field.isWeather('desolateland')) &&
+			if ((this.field.isClimateWeather('sunnyday') || this.field.isClimateWeather('desolateland')) &&
 				move.type === 'Water') {
 				this.debug('Vapor Control boost');
 				return this.chainModify(1.5);
@@ -1031,22 +1032,22 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			if (type === 'hail') return false;
 		},
 		onModifyDef(def, pokemon) {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isClimateWeather('hail')) {
 				return this.chainModify(1.25);
 			}
 		},
 		onModifySpD(spd, pokemon) {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isClimateWeather('hail')) {
 				return this.chainModify(1.25);
 			}
 		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (this.field.isWeather('hail')) return;
+			if (this.field.isClimateWeather('hail')) return;
 			this.heal(pokemon.maxhp / 16);
 		},
-		onWeather(target, source, effect) {
+		onClimateWeather(target, source, effect) {
 			if (effect.id === 'hail') {
 				this.heal(target.baseMaxhp / 8);
 			}
@@ -1061,15 +1062,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},
 		onStart(source) {
-			this.field.setWeather('hail');
+			this.field.setClimateWeather('hail');
 		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (this.field.isWeather('hail')) return;
+			if (this.field.isClimateWeather('hail')) return;
 			this.heal(pokemon.maxhp / 16);
 		},
-		onWeather(target, source, effect) {
+		onClimateWeather(target, source, effect) {
 			if (effect.id === 'hail') {
 				this.heal(target.baseMaxhp / 8);
 			}
@@ -1126,7 +1127,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 4,
 		onResidual(pokemon) {
-			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+			if (pokemon.status && ['raindance', 'primordialsea'].includes(pokemon.effectiveClimateWeather())) {
 				this.debug('hydration');
 				this.add('-activate', pokemon, 'ability: Hydration');
 				this.add('-message', `Hydration activated!`);
@@ -1263,7 +1264,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},
 		onSetStatus(status, target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(target.effectiveClimateWeather())) {
 				if ((effect as Move)?.status) {
 					this.add('-immune', target, '[from] ability: Leaf Guard');
 				}
@@ -1272,7 +1273,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		},
 		onTryAddVolatile(status, target) {
 			if ((status.id === 'yawn' || status.id === 'flinch') &&
-				['sunnyday', 'desolateland'].includes(target.effectiveWeather())) {
+				['sunnyday', 'desolateland'].includes(target.effectiveClimateWeather())) {
 				this.add('-immune', target, '[from] ability: Leaf Guard');
 				return null;
 			}
@@ -1292,7 +1293,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(2);
 			}
 		},
@@ -1306,14 +1307,14 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			this.add('-ability', pokemon, 'Power of Alchemy');
 		},
 		onStart(source) {
-			this.field.setWeather('hail');
+			this.field.setClimateWeather('hail');
 		},
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isClimateWeather('hail')) {
 				if (move.type === 'Ice' || move.type === 'Water' || move.type === 'Fairy') {
 					this.debug('Snow Cloak boost');
 					return this.chainModify([0x14CD, 0x1000]);
@@ -1968,8 +1969,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm' || type === 'hail') return false;
 		},
-		onWeather(target, source, effect) {
-			if (this.field.isWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm'])) {
+		onClimateWeather(target, source, effect) {
+			if (this.field.isClimateWeather(['sunnyday', 'desolateland', 'hail', 'raindance', 'primordialsea', 'sandstorm'])) {
 				this.heal(target.baseMaxhp / 12);
 			}
 		},

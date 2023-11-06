@@ -1106,7 +1106,7 @@ export class RandomGen7DoublesTeams extends RandomGen8Teams {
 					!cull &&
 					!move.damage &&
 					!isSetup &&
-					!move.weather &&
+					!move.climateWeather &&
 					!move.stallingMove &&
 					(
 						!counter.setupType || counter.setupType === 'Mixed' ||

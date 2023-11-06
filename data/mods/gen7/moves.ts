@@ -664,7 +664,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				factor = 0.667;
@@ -688,7 +688,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				factor = 0.667;
@@ -934,7 +934,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				factor = 0.667;
 			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
@@ -1079,7 +1079,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				factor = 0.667;

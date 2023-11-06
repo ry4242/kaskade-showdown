@@ -853,7 +853,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	silverwind: {
 		inherit: true,
 		basePowerCallback() {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isClimateWeather('hail')) {
 				return 90;
 			}
 			return 60;
@@ -886,7 +886,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	ominouswind: {
 		inherit: true,
 		basePowerCallback() {
-			if (this.field.isWeather('hail')) {
+			if (this.field.isClimateWeather('hail')) {
 				return 90;
 			}
 			return 60;
@@ -957,10 +957,10 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			if (lastAttackedBy) {
 				if (lastAttackedBy.damage > 0 && lastAttackedBy.thisTurn) {
 					this.debug('Boosted for getting hit by ' + lastAttackedBy.move);
-					return this.field.isWeather('hail') ? 180 : 120;
+					return this.field.isClimateWeather('hail') ? 180 : 120;
 				}
 			}
-			return this.field.isWeather('hail') ? 90 : 60;
+			return this.field.isClimateWeather('hail') ? 90 : 60;
 		},
 		desc: "Power doubles if the user was hit by the target this turn. If the weather is set to hail, this move does 1.5x more damage.",
 		shortDesc: "Power doubles if user is damaged by the target.",
@@ -1214,7 +1214,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	scald: {
 		inherit: true,
 		onModifyMove(move) {
-			switch (this.field.effectiveWeather()) {
+			switch (this.field.effectiveClimateWeather()) {
 			case 'sunnyday':
 				move.secondary!.chance = 60;
 				break;
@@ -1226,7 +1226,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		inherit: true,
 		accuracy: 100,
 		onModifyMove(move) {
-			switch (this.field.effectiveWeather()) {
+			switch (this.field.effectiveClimateWeather()) {
 			case 'sunnyday':
 				move.secondary!.chance = 60;
 				break;
@@ -2097,7 +2097,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		self: {
 			onHit(source) {
-				this.field.setWeather('raindance');
+				this.field.setClimateWeather('raindance');
 				source.addVolatile('magiccoat');
 				source.addVolatile('aquaring');
 			},
