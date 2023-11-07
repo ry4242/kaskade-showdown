@@ -45,9 +45,11 @@ export const Aliases: {[alias: string]: string} = {
 	ndbh: "[Gen 9] National Dex BH",
 	natdexbh: "[Gen 9] National Dex BH",
 
+	// of the months
+	omotm: "[Gen 9] Shared Power",
+	lcotm: "[Gen 9] Protean Palace",
+
 	// oms
-	omotm: "[Gen 9] Convergence",
-	lcotm: "[Gen 9] Godly Gift",
 	aaa: "[Gen 9] Almost Any Ability",
 	bh: "[Gen 9] Balanced Hackmons",
 	ph: "[Gen 9] Pure Hackmons",
