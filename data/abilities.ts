@@ -2277,6 +2277,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				this.add('replace', pokemon, details);
 				this.add('-end', pokemon, 'Illusion');
+				if (this.ruleTable.has('illusionlevelmod')) {
+					this.hint("Illusion Level Mod is active, so this Pok\u00e9mon's true level was hidden.", true);
+				}
 			}
 		},
 		onFaint(pokemon) {
@@ -3115,6 +3118,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			for (const pokemon of sortedActive) {
 				if (pokemon !== source) {
 					if (pokemon.getAbility().isPermanent) continue; // does not interact with e.g Ice Face, Zen Mode
+					if (pokemon.hasItem('abilityshield')) continue; // don't restart abilities that weren't suppressed
 
 					// Will be suppressed by Pokemon#ignoringAbility if needed
 					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
@@ -6149,7 +6153,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	nottobe: {
 		onFaint(target, source, effect) {
 			this.add('-activate', target, 'ability: Not to Be');
-			source.addVolatile('nottobe');
+			source.addVolatile('nottobe', this.effectState.target);
 		},
 		condition: {
 			duration: 2,

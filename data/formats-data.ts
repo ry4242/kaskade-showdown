@@ -7208,10 +7208,20 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "CAP",
 		tier: "CAP",
 	},
+	ababo: {
+		isNonstandard: "CAP",
+		tier: "CAP LC",
+	},
+	scattervein: {
+		isNonstandard: "CAP",
+		tier: "CAP NFE",
+	},
 	hemogoblin: {
 		isNonstandard: "CAP",
 		tier: "CAP",
 	},
+
+	// pokestar
 	pokestarsmeargle: {
 		isNonstandard: "Custom",
 		tier: "Illegal",
