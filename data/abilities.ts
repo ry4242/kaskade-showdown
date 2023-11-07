@@ -6473,9 +6473,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
+			this.effectState.toBe = false;
 			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
 				this.add('-ability', target, 'To Be');
-				return target.maxhp * 3 / 4 - 1;
+				this.effectState.toBe = true;
+				return target.hp - 1;
+			}
+		},
+		onDamagingHit(damage, target, source, move) {
+			if (this.effectState.toBe === true) {
+				this.effectState.toBe = false;
+				this.heal(target.baseMaxhp / 4);
 			}
 		},
 		isBreakable: true,
