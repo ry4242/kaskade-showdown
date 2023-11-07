@@ -6149,7 +6149,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	nottobe: {
 		onFaint(target, source, effect) {
 			this.add('-activate', target, 'ability: Not to Be');
-			source.addVolatile('nottobe');
+			source.addVolatile('nottobe', this.effectState.target);
 		},
 		condition: {
 			duration: 2,
