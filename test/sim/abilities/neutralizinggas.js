@@ -91,9 +91,9 @@ describe('Neutralizing Gas', function () {
 		]]);
 
 		battle.makeChoices('auto', 'switch 2');
-		assert.false(battle.field.isWeather('desolateland'), `Desolate Land should be negated, turning off the weather`);
+		assert.false(battle.field.isClimateWeather('desolateland'), `Desolate Land should be negated, turning off the weather`);
 		battle.makeChoices('auto', 'switch 2');
-		assert(battle.field.isWeather('desolateland'), `Desolate Land should be active again`);
+		assert(battle.field.isClimateWeather('desolateland'), `Desolate Land should be active again`);
 	});
 
 	it('should not activate Imposter if Neutralizing Gas leaves the field', function () {

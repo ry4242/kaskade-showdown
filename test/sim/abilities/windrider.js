@@ -41,7 +41,7 @@ describe("Wind Rider", () => {
 			WIND_RIDER_MON,
 		]]);
 		battle.makeChoices();
-		assert.equal(battle.field.weather, 'sandstorm');
+		assert.equal(battle.field.climateWeather, 'sandstorm');
 		assert.statStage(battle.p2.active[0], 'atk', 0);
 	});
 

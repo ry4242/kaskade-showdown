@@ -16,7 +16,7 @@ describe('Desolate Land', function () {
 		], [
 			{species: "Abra", ability: 'magicguard', moves: ['teleport']},
 		]]);
-		assert(battle.field.isWeather('desolateland'));
+		assert(battle.field.isClimateWeather('desolateland'));
 	});
 
 	it('should increase the damage (not the basePower) of Fire-type attacks', function () {
@@ -66,9 +66,9 @@ describe('Desolate Land', function () {
 		]]);
 		for (let i = 2; i <= 5; i++) {
 			battle.makeChoices('move helpinghand', 'switch ' + i);
-			assert(battle.field.isWeather('desolateland'));
+			assert(battle.field.isClimateWeather('desolateland'));
 			battle.makeChoices('move helpinghand', 'move 1');
-			assert(battle.field.isWeather('desolateland'));
+			assert(battle.field.isClimateWeather('desolateland'));
 		}
 	});
 
@@ -108,7 +108,7 @@ describe('Desolate Land', function () {
 		], [
 			{species: "Lugia", ability: 'pressure', moves: ['roost']},
 		]]);
-		assert.sets(() => battle.field.isWeather('desolateland'), false, () => battle.makeChoices('switch 2', 'move roost'));
+		assert.sets(() => battle.field.isClimateWeather('desolateland'), false, () => battle.makeChoices('switch 2', 'move roost'));
 	});
 
 	it('should not cause the Desolate Land weather to fade if it switches out and another Desolate Land Pokemon is active', function () {
@@ -118,7 +118,7 @@ describe('Desolate Land', function () {
 		], [
 			{species: "Groudon", ability: 'desolateland', moves: ['bulkup']},
 		]]);
-		assert.constant(() => battle.field.isWeather('desolateland'), () => battle.makeChoices('switch 2', 'move bulkup'));
+		assert.constant(() => battle.field.isClimateWeather('desolateland'), () => battle.makeChoices('switch 2', 'move bulkup'));
 	});
 
 	it('should cause the Desolate Land weather to fade if its ability is suppressed and no other Desolate Land Pokemon are active', function () {
@@ -127,7 +127,7 @@ describe('Desolate Land', function () {
 		], [
 			{species: "Lugia", ability: 'pressure', moves: ['gastroacid']},
 		]]);
-		assert.sets(() => battle.field.isWeather('desolateland'), false, () => battle.makeChoices('move helpinghand', 'move gastroacid'));
+		assert.sets(() => battle.field.isClimateWeather('desolateland'), false, () => battle.makeChoices('move helpinghand', 'move gastroacid'));
 	});
 
 	it('should not cause the Desolate Land weather to fade if its ability is suppressed and another Desolate Land Pokemon is active', function () {
@@ -136,7 +136,7 @@ describe('Desolate Land', function () {
 		], [
 			{species: "Groudon", ability: 'desolateland', moves: ['gastroacid']},
 		]]);
-		assert.constant(() => battle.field.isWeather('desolateland'), () => battle.makeChoices('move helpinghand', 'move gastroacid'));
+		assert.constant(() => battle.field.isClimateWeather('desolateland'), () => battle.makeChoices('move helpinghand', 'move gastroacid'));
 	});
 
 	it('should cause the Desolate Land weather to fade if its ability is changed and no other Desolate Land Pokemon are active', function () {
@@ -145,7 +145,7 @@ describe('Desolate Land', function () {
 		], [
 			{species: "Lugia", ability: 'pressure', moves: ['entrainment']},
 		]]);
-		assert.sets(() => battle.field.isWeather('desolateland'), false, () => battle.makeChoices('move helpinghand', 'move entrainment'));
+		assert.sets(() => battle.field.isClimateWeather('desolateland'), false, () => battle.makeChoices('move helpinghand', 'move entrainment'));
 	});
 
 	it('should fade after being forced out via Roar', function () {
@@ -156,7 +156,7 @@ describe('Desolate Land', function () {
 			{species: 'Wynaut', moves: ['roar']},
 		]]);
 		battle.makeChoices();
-		assert.false(battle.field.isWeather('desolateland'));
+		assert.false(battle.field.isClimateWeather('desolateland'));
 	});
 
 	it(`should cause Water-type Natural Gift to fail`, function () {

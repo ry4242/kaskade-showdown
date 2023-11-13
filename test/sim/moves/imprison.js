@@ -55,7 +55,7 @@ describe('Imprison', function () {
 
 		battle.makeChoices('move imprison', 'move sunnyday zmove');
 		assert.statStage(battle.p2.active[0], 'spe', 1);
-		assert(battle.field.isWeather('sunnyday'));
+		assert(battle.field.isClimateWeather('sunnyday'));
 	});
 
 	it(`should not prevent the user from using moves that a foe knows`, function () {

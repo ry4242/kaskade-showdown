@@ -6152,8 +6152,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	nottobe: {
 		onFaint(target, source, effect) {
-			this.add('-activate', target, 'ability: Not to Be');
-			source.addVolatile('nottobe', this.effectState.target);
+			if (effect.effectType === 'Move') {
+				this.add('-activate', target, 'ability: Not to Be');
+				source.addVolatile('nottobe', this.effectState.target);
+			}
 		},
 		condition: {
 			duration: 2,
@@ -6464,7 +6466,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -43,
 	},
-	tobe: { // incomplete. functions differently than it might in game
+	tobe: {
 		onTryHit(pokemon, target, move) {
 			if (move.ohko) {
 				this.add('-immune', pokemon, '[from] ability: To Be');
@@ -6483,7 +6485,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onDamagingHit(damage, target, source, move) {
 			if (this.effectState.toBe === true) {
 				this.effectState.toBe = false;
-				this.heal(target.baseMaxhp / 4);
+				this.heal(target.baseMaxhp / 4, target, target);
 			}
 		},
 		isBreakable: true,

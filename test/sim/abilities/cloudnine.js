@@ -18,7 +18,7 @@ describe('Cloud Nine', function () {
 		]]);
 		const [weatherSuppressor, weatherUser] = [battle.p1.active[0], battle.p2.active[0]];
 		assert.false.hurts(weatherSuppressor, () => battle.makeChoices('move sunnyday', 'move solarbeam')); // Solar Beam must charge
-		assert(battle.field.isWeather(''));
+		assert(battle.field.isClimateWeather(''));
 		assert.species(weatherUser, 'Cherrim');
 	});
 
@@ -78,7 +78,7 @@ describe('Cloud Nine', function () {
 		], [
 			{species: 'Groudon', ability: 'desolateland', moves: ['sunnyday']},
 		]]);
-		assert.constant(() => battle.weather, () => battle.makeChoices('move raindance', 'move sunnyday'));
+		assert.constant(() => battle.climateWeather, () => battle.makeChoices('move raindance', 'move sunnyday'));
 	});
 
 	it('should not negate Primordial Sea\'s ability to prevent other weathers from activating', function () {
@@ -87,7 +87,7 @@ describe('Cloud Nine', function () {
 		], [
 			{species: 'Kyogre', ability: 'primordialsea', moves: ['sunnyday']},
 		]]);
-		assert.constant(() => battle.weather, () => battle.makeChoices('move raindance', 'move sunnyday'));
+		assert.constant(() => battle.climateWeather, () => battle.makeChoices('move raindance', 'move sunnyday'));
 	});
 
 	it('should not negate Delta Stream\'s ability to prevent other weathers from activating', function () {
@@ -96,7 +96,7 @@ describe('Cloud Nine', function () {
 		], [
 			{species: 'Rayquaza', ability: 'deltastream', moves: ['sunnyday']},
 		]]);
-		assert.constant(() => battle.weather, () => battle.makeChoices('move raindance', 'move sunnyday'));
+		assert.constant(() => battle.climateWeather, () => battle.makeChoices('move raindance', 'move sunnyday'));
 	});
 
 	it('should still display status of the weather', function () {
@@ -106,13 +106,13 @@ describe('Cloud Nine', function () {
 			{species: 'Sunkern', ability: 'solarpower', moves: ['sunnyday']},
 		]]);
 		battle.makeChoices('move calmmind', 'move sunnyday');
-		assert.equal(battle.log[battle.lastMoveLine + 1], '|-weather|SunnyDay');
+		assert.equal(battle.log[battle.lastMoveLine + 1], '|-climateWeather|SunnyDay');
 		for (let i = 0; i < 3; i++) {
 			battle.makeChoices('move calmmind', 'move sunnyday');
-			assert.equal(battle.log[battle.lastMoveLine + 4], '|-weather|SunnyDay|[upkeep]', 'here' + i);
+			assert.equal(battle.log[battle.lastMoveLine + 4], '|-climateWeather|SunnyDay|[upkeep]', 'here' + i);
 		}
 		battle.makeChoices('move calmmind', 'move sunnyday');
-		assert.equal(battle.log[battle.lastMoveLine + 4], '|-weather|none');
+		assert.equal(battle.log[battle.lastMoveLine + 4], '|-climateWeather|none');
 	});
 
 	it(`should allow Hydration to trigger if the user fainted before Hydration could trigger`, function () {
