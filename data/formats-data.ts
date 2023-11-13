@@ -181,6 +181,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	arbok: {
 		// isNonstandard: "Past",
 		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	pichu: {
