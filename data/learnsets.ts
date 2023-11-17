@@ -90994,6 +90994,17 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 	llampas: {
 		learnset: {
 			tackle: ["9L1"],
+			growl: ["9L1"],
+			leafage: ["9L3"],
+			growth: ["9L6"],
+			leechseed: ["9L9"],
+			headbutt: ["9L13"],
+			rockthrow: ["9L18"],
+			pollinate: ["9L22"],
+			seedbomb: ["9L28"],
+			irondefense: ["9L36"],
+			doubleedge: ["9L42"],
+			woodhammer: ["9L48"],
 		}
 	},
 	danfluff: {
