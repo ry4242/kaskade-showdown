@@ -1113,9 +1113,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	embodyaspectcornerstone: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Cornerstone-Tera' && !pokemon.transformed) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Cornerstone-Tera' && !pokemon.transformed && !this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({def: 1}, pokemon);
 			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
 		},
 		name: "Embody Aspect (Cornerstone)",
 		rating: 3.5,
@@ -1123,9 +1127,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	embodyaspecthearthflame: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Hearthflame-Tera' && !pokemon.transformed) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Hearthflame-Tera' && !pokemon.transformed && !this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({atk: 1}, pokemon);
 			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
 		},
 		name: "Embody Aspect (Hearthflame)",
 		rating: 3.5,
@@ -1133,9 +1141,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	embodyaspectteal: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Teal-Tera' && !pokemon.transformed) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Teal-Tera' && !pokemon.transformed && !this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({spe: 1}, pokemon);
 			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
 		},
 		name: "Embody Aspect (Teal)",
 		rating: 3.5,
@@ -1143,9 +1155,13 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	embodyaspectwellspring: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Wellspring-Tera' && !pokemon.transformed) {
+			if (pokemon.baseSpecies.name === 'Ogerpon-Wellspring-Tera' && !pokemon.transformed && !this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({spd: 1}, pokemon);
 			}
+		},
+		onSwitchIn() {
+			delete this.effectState.embodied;
 		},
 		name: "Embody Aspect (Wellspring)",
 		rating: 3.5,
