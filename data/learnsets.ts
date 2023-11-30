@@ -91058,18 +91058,58 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		}
 	},
 	therpal: {
-			learnset: {
-		tackle: ["7L1"],
+		learnset: {
+			bite: ["9L18"],
+			coil: ["9L36"],
+			faketears: ["9L6"],
+			firefang: ["9L28"],
+			flareblitz: ["9L48"],
+			kindle: ["9L3"],
+			lavajet: ["9L13"],
+			pound: ["9L1"],
+			quickattack: ["9L9"],
+			sunnyday: ["9L22"],
+			sunscreen: ["9L42"],
+			tailwhip: ["9L1"],
 		}
 	},
 	aspfault: {
 		learnset: {
-			tackle: ["9L1"],
+			bite: ["9L19"],
+			coil: ["9L39"],
+			earthrush: ["9L0","9L1"],
+			faketears: ["9L1"],
+			firefang: ["9L31"],
+			flareblitz: ["9L54"],
+			kindle: ["9L1"],
+			lavajet: ["9L14"],
+			pound: ["9L1"],
+			quickattack: ["9L1"],
+			sunnyday: ["9L24"],
+			sunscreen: ["9L47"],
+			tailwhip: ["9L1"],
 		}
 	},
 	tarmendoa: {
 		learnset: {
-			tackle: ["9L1"],
+			bite: ["9L20"],
+			coil: ["9L45"],
+			earthquake: ["9L1"],
+			earthrush: ["9L1"],
+			faketears: ["9L1"],
+			firefang: ["9L34"],
+			flareblitz: ["9L61"],
+			gunkshot: ["9L69"],
+			irontail: ["9L1"],
+			kindle: ["9L1"],
+			lavajet: ["9L15"],
+			pound: ["9L1"],
+			quickattack: ["9L1"],
+			slam: ["9L1"],
+			sunnyday: ["9L26"],
+			sunscreen: ["9L53"],
+			tailwhip: ["9L1"],
+			thermalvortex: ["9L0"],
 		}
 	},
 	burbwhirl: {
