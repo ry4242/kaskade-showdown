@@ -17596,9 +17596,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1, bypasssub: 1},
 		volatileStatus: 'yawn',
-		onTry(source) {
+		onTryHit(source, target) {
 			source.heal(source.baseMaxhp/2, source);
 			source.addVolatile('yawn');
+			if (target.status || !target.runStatusImmunity('slp')) {
+				return false;
+			}
+		},
+		onTry(source) {
+			
 		},
 		secondary: null,
 		target: "normal",
