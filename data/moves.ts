@@ -17594,10 +17594,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Snooze",
 		pp: 10,
 		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1, bypasssub: 1, sound: 1},
+		flags: {protect: 1, mirror: 1, heal: 1, bypasssub: 1},
 		volatileStatus: 'yawn',
 		onTry(source) {
-			source.heal(source.baseMaxhp/2);
+			source.heal(source.baseMaxhp/2, source);
 			source.addVolatile('yawn');
 		},
 		secondary: null,
