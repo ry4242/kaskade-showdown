@@ -431,6 +431,7 @@ export class Field {
 	}
 
 	getRecentWeather(exclude: string | null = null, pokemon: Pokemon | null = null) {
+		this.battle.debug(this.activeWeathers.toString());
 		for (let i = -1; i > -5; i--) {
 			let recentWeather = this.activeWeathers[i];
 			if (recentWeather !== exclude && (recentWeather === pokemon?.effectiveClimateWeather() || recentWeather === pokemon?.effectiveIrritantWeather() || recentWeather === pokemon?.effectiveEnergyWeather() || recentWeather === pokemon?.effectiveClearingWeather())) {
