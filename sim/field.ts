@@ -100,7 +100,10 @@ export class Field {
 			this.climateWeatherState = prevClimateWeatherState;
 			return false;
 		}
-		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== prevClimateWeather);
+		let indexToRemove = this.activeWeathers.indexOf(prevClimateWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
 		this.activeWeathers.push(this.climateWeather);
 		this.battle.eachEvent('ClimateWeatherChange', sourceEffect);
 		return true;
@@ -156,7 +159,10 @@ export class Field {
 			this.irritantWeatherState = prevIrritantWeatherState;
 			return false;
 		}
-		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== prevIrritantWeather);
+		let indexToRemove = this.activeWeathers.indexOf(prevIrritantWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
 		this.activeWeathers.push(this.irritantWeather);
 		this.battle.eachEvent('IrritantWeatherChange', sourceEffect);
 		return true;
@@ -212,7 +218,10 @@ export class Field {
 			this.energyWeatherState = prevEnergyWeatherState;
 			return false;
 		}
-		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== prevEnergyWeather);
+		let indexToRemove = this.activeWeathers.indexOf(prevEnergyWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
 		this.activeWeathers.push(this.energyWeather);
 		this.battle.eachEvent('EnergyWeatherChange', sourceEffect);
 		return true;
@@ -268,7 +277,10 @@ export class Field {
 			this.clearingWeatherState = prevClearingWeatherState;
 			return false;
 		}
-		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== prevClearingWeather);
+		let indexToRemove = this.activeWeathers.indexOf(prevClearingWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
 		this.activeWeathers.push(this.clearingWeather);
 		this.battle.eachEvent('ClearingWeatherChange', sourceEffect);
 		return true;
@@ -278,7 +290,10 @@ export class Field {
 		if (!this.climateWeather) return false;
 		const prevClimateWeather = this.getClimateWeather();
 		this.battle.singleEvent('FieldEnd', prevClimateWeather, this.climateWeatherState, this);
-		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== this.climateWeather);
+		let indexToRemove = this.activeWeathers.indexOf(this.climateWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
 		this.climateWeather = '';
 		this.climateWeatherState = {id: '', boosted: false};
 		this.battle.eachEvent('ClimateWeatherChange');
@@ -289,7 +304,10 @@ export class Field {
 		if (!this.irritantWeather) return false;
 		const prevIrritantWeather = this.getIrritantWeather();
 		this.battle.singleEvent('FieldEnd', prevIrritantWeather, this.irritantWeatherState, this);
-		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== this.irritantWeather);
+		let indexToRemove = this.activeWeathers.indexOf(this.irritantWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
 		this.irritantWeather = '';
 		this.irritantWeatherState = {id: '', boosted: false};
 		this.battle.eachEvent('IrritantWeatherChange');
@@ -300,7 +318,10 @@ export class Field {
 		if (!this.energyWeather) return false;
 		const prevEnergyWeather = this.getEnergyWeather();
 		this.battle.singleEvent('FieldEnd', prevEnergyWeather, this.energyWeatherState, this);
-		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== this.energyWeather);
+		let indexToRemove = this.activeWeathers.indexOf(this.energyWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
 		this.energyWeather = '';
 		this.energyWeatherState = {id: '', boosted: false};
 		this.battle.eachEvent('EnergyWeatherChange');
@@ -311,7 +332,10 @@ export class Field {
 		if (!this.clearingWeather) return false;
 		const prevClearingWeather = this.getClearingWeather();
 		this.battle.singleEvent('FieldEnd', prevClearingWeather, this.clearingWeatherState, this);
-		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== this.clearingWeather);
+		let indexToRemove = this.activeWeathers.indexOf(this.clearingWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
 		this.clearingWeather = '';
 		this.clearingWeatherState = {id: ''};
 		this.battle.eachEvent('ClearingWeatherChange');
@@ -434,11 +458,12 @@ export class Field {
 		this.battle.debug(this.activeWeathers.toString());
 		for (let i = -1; i > -5; i--) {
 			let recentWeather = this.activeWeathers[i];
-			if (recentWeather !== exclude && (recentWeather === pokemon?.effectiveClimateWeather() || recentWeather === pokemon?.effectiveIrritantWeather() || recentWeather === pokemon?.effectiveEnergyWeather() || recentWeather === pokemon?.effectiveClearingWeather())) {
+			this.battle.debug(recentWeather);
+			if (recentWeather !== exclude && (recentWeather == pokemon?.effectiveClimateWeather() || recentWeather == pokemon?.effectiveIrritantWeather() || recentWeather == pokemon?.effectiveEnergyWeather() || recentWeather == pokemon?.effectiveClearingWeather())) {
 				return recentWeather;
 			}
 		}
-		return false;
+		return "bozo";
 	}
 
 	setTerrain(status: string | Effect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {
