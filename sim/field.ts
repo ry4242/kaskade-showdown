@@ -438,6 +438,7 @@ export class Field {
 				return recentWeather;
 			}
 		}
+		return false;
 	}
 
 	setTerrain(status: string | Effect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {

@@ -1434,7 +1434,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
+			this.debug(this.field.getRecentWeather(null, pokemon).toString());
 		},
 		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
@@ -1502,7 +1502,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					forme = null;
 				}
 			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
+			this.debug(this.field.getRecentWeather(null, pokemon).toString());
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1573,7 +1573,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					forme = null;
 				}
 			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
+			this.debug(this.field.getRecentWeather(null, pokemon).toString());
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1644,7 +1644,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					forme = null;
 				}
 			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
+			this.debug(this.field.getRecentWeather(null, pokemon).toString());
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1715,7 +1715,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 					forme = null;
 				}
 			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
+			this.debug(this.field.getRecentWeather(null, pokemon).toString());
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
