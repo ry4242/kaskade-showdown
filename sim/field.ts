@@ -21,6 +21,7 @@ export class Field {
 	energyWeatherState: EffectState;
 	clearingWeather: ID;
 	clearingWeatherState: EffectState;
+	activeWeathers: Array<ID>;
 	terrain: ID;
 	terrainState: EffectState;
 	pseudoWeather: {[id: string]: EffectState};
@@ -32,13 +33,14 @@ export class Field {
 		this.id = '';
 
 		this.climateWeather = '';
-		this.climateWeatherState = {id: '', turnsActive: 100};
+		this.climateWeatherState = {id: ''};
 		this.irritantWeather = '';
-		this.irritantWeatherState = {id: '', turnsActive: 100};
+		this.irritantWeatherState = {id: ''};
 		this.energyWeather = '';
-		this.energyWeatherState = {id: '', turnsActive: 100};
+		this.energyWeatherState = {id: ''};
 		this.clearingWeather = '';
-		this.clearingWeatherState = {id: '', turnsActive: 100};
+		this.clearingWeatherState = {id: ''};
+		this.activeWeathers = [];
 		this.terrain = '';
 		this.terrainState = {id: ''};
 		this.pseudoWeather = {};
@@ -81,7 +83,7 @@ export class Field {
 		const prevClimateWeather = this.climateWeather;
 		const prevClimateWeatherState = this.climateWeatherState;
 		this.climateWeather = status.id;
-		this.climateWeatherState = {id: status.id, turnsActive: 1};
+		this.climateWeatherState = {id: status.id};
 		if (source) {
 			this.climateWeatherState.source = source;
 			this.climateWeatherState.sourceSlot = source.getSlot();
@@ -98,6 +100,8 @@ export class Field {
 			this.climateWeatherState = prevClimateWeatherState;
 			return false;
 		}
+		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== prevClimateWeather);
+		this.activeWeathers.push(this.climateWeather);
 		this.battle.eachEvent('ClimateWeatherChange', sourceEffect);
 		return true;
 	}
@@ -135,7 +139,7 @@ export class Field {
 		const prevIrritantWeather = this.irritantWeather;
 		const prevIrritantWeatherState = this.irritantWeatherState;
 		this.irritantWeather = status.id;
-		this.irritantWeatherState = {id: status.id, turnsActive: 1};
+		this.irritantWeatherState = {id: status.id};
 		if (source) {
 			this.irritantWeatherState.source = source;
 			this.irritantWeatherState.sourceSlot = source.getSlot();
@@ -152,6 +156,8 @@ export class Field {
 			this.irritantWeatherState = prevIrritantWeatherState;
 			return false;
 		}
+		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== prevIrritantWeather);
+		this.activeWeathers.push(this.irritantWeather);
 		this.battle.eachEvent('IrritantWeatherChange', sourceEffect);
 		return true;
 	}
@@ -189,7 +195,7 @@ export class Field {
 		const prevEnergyWeather = this.energyWeather;
 		const prevEnergyWeatherState = this.energyWeatherState;
 		this.energyWeather = status.id;
-		this.energyWeatherState = {id: status.id, turnsActive: 1};
+		this.energyWeatherState = {id: status.id};
 		if (source) {
 			this.energyWeatherState.source = source;
 			this.energyWeatherState.sourceSlot = source.getSlot();
@@ -206,6 +212,8 @@ export class Field {
 			this.energyWeatherState = prevEnergyWeatherState;
 			return false;
 		}
+		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== prevEnergyWeather);
+		this.activeWeathers.push(this.energyWeather);
 		this.battle.eachEvent('EnergyWeatherChange', sourceEffect);
 		return true;
 	}
@@ -243,7 +251,7 @@ export class Field {
 		const prevClearingWeather = this.clearingWeather;
 		const prevClearingWeatherState = this.clearingWeatherState;
 		this.clearingWeather = status.id;
-		this.clearingWeatherState = {id: status.id, turnsActive: 1};
+		this.clearingWeatherState = {id: status.id};
 		if (source) {
 			this.clearingWeatherState.source = source;
 			this.clearingWeatherState.sourceSlot = source.getSlot();
@@ -260,6 +268,8 @@ export class Field {
 			this.clearingWeatherState = prevClearingWeatherState;
 			return false;
 		}
+		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== prevClearingWeather);
+		this.activeWeathers.push(this.clearingWeather);
 		this.battle.eachEvent('ClearingWeatherChange', sourceEffect);
 		return true;
 	}
@@ -268,8 +278,9 @@ export class Field {
 		if (!this.climateWeather) return false;
 		const prevClimateWeather = this.getClimateWeather();
 		this.battle.singleEvent('FieldEnd', prevClimateWeather, this.climateWeatherState, this);
+		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== this.climateWeather);
 		this.climateWeather = '';
-		this.climateWeatherState = {id: '', turnsActive: 100, boosted: false};
+		this.climateWeatherState = {id: '', boosted: false};
 		this.battle.eachEvent('ClimateWeatherChange');
 		return true;
 	}
@@ -278,8 +289,9 @@ export class Field {
 		if (!this.irritantWeather) return false;
 		const prevIrritantWeather = this.getIrritantWeather();
 		this.battle.singleEvent('FieldEnd', prevIrritantWeather, this.irritantWeatherState, this);
+		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== this.irritantWeather);
 		this.irritantWeather = '';
-		this.irritantWeatherState = {id: '', turnsActive: 100, boosted: false};
+		this.irritantWeatherState = {id: '', boosted: false};
 		this.battle.eachEvent('IrritantWeatherChange');
 		return true;
 	}
@@ -288,8 +300,9 @@ export class Field {
 		if (!this.energyWeather) return false;
 		const prevEnergyWeather = this.getEnergyWeather();
 		this.battle.singleEvent('FieldEnd', prevEnergyWeather, this.energyWeatherState, this);
+		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== this.energyWeather);
 		this.energyWeather = '';
-		this.energyWeatherState = {id: '', turnsActive: 100, boosted: false};
+		this.energyWeatherState = {id: '', boosted: false};
 		this.battle.eachEvent('EnergyWeatherChange');
 		return true;
 	}
@@ -298,8 +311,9 @@ export class Field {
 		if (!this.clearingWeather) return false;
 		const prevClearingWeather = this.getClearingWeather();
 		this.battle.singleEvent('FieldEnd', prevClearingWeather, this.clearingWeatherState, this);
+		this.activeWeathers = this.activeWeathers.filter((e,i) => e !== this.clearingWeather);
 		this.clearingWeather = '';
-		this.clearingWeatherState = {id: '', turnsActive: 100};
+		this.clearingWeatherState = {id: ''};
 		this.battle.eachEvent('ClearingWeatherChange');
 		return true;
 	}
@@ -417,134 +431,11 @@ export class Field {
 	}
 
 	getRecentWeather(exclude: string | null = null, pokemon: Pokemon | null = null) {
-		if (
-			this.climateWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
-			this.climateWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
-			this.climateWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-			this.climateWeather !== exclude && this.climateWeatherState.turnsActive < 100 &&
-			pokemon?.effectiveClimateWeather() === this.climateWeather
-		) {
-			return this.climateWeather;
-		} else if (
-			this.irritantWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-			this.irritantWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
-			this.irritantWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-			this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive < 100 &&
-			pokemon?.effectiveIrritantWeather() === this.irritantWeather
-		) {
-			return this.irritantWeather;
-		} else if (
-			this.energyWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
-			this.energyWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-			this.energyWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-			this.energyWeather !== exclude && this.energyWeatherState.turnsActive < 100 &&
-			pokemon?.effectiveEnergyWeather() === this.energyWeather
-		) {
-			return this.energyWeather;
-		} else if (this.clearingWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
-			this.clearingWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
-			this.clearingWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-			this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive < 100 &&
-			pokemon?.effectiveClearingWeather() === this.clearingWeather
-		) {
-			return this.clearingWeather;
-		} else {
-			if (pokemon?.effectiveClimateWeather() !== this.climateWeather || this.climateWeather === exclude) {
-				if (
-					this.irritantWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
-					this.irritantWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-					this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveIrritantWeather() === this.irritantWeather
-				) {
-					return this.irritantWeather;
-				} else if (
-					this.energyWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
-					this.energyWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-					this.energyWeather !== exclude && this.energyWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveEnergyWeather() === this.energyWeather
-				) {
-					return this.energyWeather;
-				} else if (this.clearingWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
-					this.clearingWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
-					this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveClearingWeather() === this.clearingWeather
-				) {
-					return this.clearingWeather;
-				}
+		for (let i = -1; i > -5; i--) {
+			let recentWeather = this.activeWeathers[i];
+			if (recentWeather !== exclude && (recentWeather === pokemon?.effectiveClimateWeather() || recentWeather === pokemon?.effectiveIrritantWeather() || recentWeather === pokemon?.effectiveEnergyWeather() || recentWeather === pokemon?.effectiveClearingWeather())) {
+				return recentWeather;
 			}
-			if (pokemon?.effectiveIrritantWeather() !== this.irritantWeather || this.irritantWeather === exclude) {
-				if (
-					this.climateWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
-					this.climateWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-					this.climateWeather !== exclude && this.climateWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveClimateWeather() === this.climateWeather
-				) {
-					return this.climateWeather;
-				} else if (
-					this.energyWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-					this.energyWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-					this.energyWeather !== exclude && this.energyWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveEnergyWeather() === this.energyWeather
-				) {
-					return this.energyWeather;
-				} else if (
-					this.clearingWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
-					this.clearingWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-					this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveClearingWeather() === this.clearingWeather
-				) {
-					return this.clearingWeather;
-				}
-			}
-			if (pokemon?.effectiveEnergyWeather() !== this.energyWeather || this.energyWeather === exclude) {
-				if (
-					this.climateWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
-					this.climateWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-					this.climateWeather !== exclude && this.climateWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveClimateWeather() === this.climateWeather
-				) {
-					return this.climateWeather;
-				} else if (
-					this.irritantWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-					this.irritantWeatherState.turnsActive <= this.clearingWeatherState.turnsActive &&
-					this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveIrritantWeather() === this.irritantWeather
-				) {
-					return this.irritantWeather;
-				} else if (
-					this.clearingWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
-					this.clearingWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-					this.clearingWeather !== exclude && this.clearingWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveClearingWeather() === this.clearingWeather
-				) {
-					return this.clearingWeather;
-				}
-			}
-			if (pokemon?.effectiveClearingWeather() !== this.clearingWeather || this.clearingWeather === exclude) {
-				if (
-					this.climateWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
-					this.climateWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
-					this.climateWeather !== exclude && this.climateWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveClimateWeather() === this.climateWeather
-				) {
-					return this.climateWeather;
-				} else if (
-					this.irritantWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-					this.irritantWeatherState.turnsActive <= this.energyWeatherState.turnsActive &&
-					this.irritantWeather !== exclude && this.irritantWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveIrritantWeather() === this.irritantWeather
-				) {
-					return this.irritantWeather;
-				} else if (
-					this.energyWeatherState.turnsActive <= this.irritantWeatherState.turnsActive &&
-					this.energyWeatherState.turnsActive <= this.climateWeatherState.turnsActive &&
-					this.energyWeather !== exclude && this.energyWeatherState.turnsActive < 100 &&
-					pokemon?.effectiveEnergyWeather() === this.energyWeather
-				) {
-					return this.energyWeather;
-				}
-			}
-			return 'bozo'; // lmfao??
 		}
 	}
 
