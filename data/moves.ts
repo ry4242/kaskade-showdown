@@ -17586,6 +17586,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 	},
+	snooze: {
+		num: -7,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Snooze",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, bypasssub: 1},
+		volatileStatus: 'yawn',
+		onTryHit(source, target) {
+			if (target.status || !target.runStatusImmunity('slp')) {
+				return false;
+			}
+		},
+		onTry(source) {
+			source.heal(source.baseMaxhp/2, source);
+			source.addVolatile('yawn');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	},
 	snore: {
 		num: 173,
 		accuracy: 100,
