@@ -455,8 +455,6 @@ export class Field {
 	}
 
 	getRecentWeather(exclude: string | null = null, pokemon: Pokemon | null = null) {
-		this.battle.debug(this.activeWeathers.toString());
-		this.battle.debug(this.activeWeathers.length.toString());
 		for (let i = this.activeWeathers.length - 1; i >= 0; i--) {
 			const recentWeather = this.activeWeathers[i];
 			this.battle.debug(recentWeather);
