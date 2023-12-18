@@ -6167,8 +6167,9 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -21,
 	},
 	nottobe: {
-		onFaint(target, source, effect) {
-			if (effect.effectType === 'Move') {
+		onDamagingHitOrder: 1,
+		onDamagingHit(damage, target, source, move) {
+			if (!target.hp) {
 				this.add('-activate', target, 'ability: Not to Be');
 				source.addVolatile('nottobe', this.effectState.target);
 			}

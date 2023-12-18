@@ -17602,7 +17602,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		onTry(source) {
-			source.heal(source.baseMaxhp/2, source);
+			source.heal(source.baseMaxhp / 2, source);
 			source.addVolatile('yawn');
 		},
 		secondary: null,
