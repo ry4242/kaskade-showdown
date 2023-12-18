@@ -459,12 +459,12 @@ export class Field {
 			const recentWeather = this.activeWeathers[i];
 			this.battle.debug(recentWeather);
 			if (recentWeather !== exclude &&
-				(recentWeather === (pokemon?.effectiveClimateWeather() ||
-								   pokemon?.effectiveIrritantWeather() ||
-								   pokemon?.effectiveEnergyWeather() ||
-								   pokemon?.effectiveClearingWeather()))) {
+				(pokemon && (recentWeather === pokemon.effectiveClimateWeather() ||
+							 recentWeather === pokemon.effectiveIrritantWeather() ||
+							 recentWeather === pokemon.effectiveEnergyWeather() ||
+							 recentWeather === pokemon.effectiveClearingWeather()))) {
 				return recentWeather;
-			}
+			}	
 		}	
 		return "bozo"; // Default value if no weathers are found
 	}
