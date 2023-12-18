@@ -459,7 +459,7 @@ export class Field {
 		for (let i = this.activeWeathers.length - 1; i >= 0; i--) {
 			const recentWeather = this.activeWeathers[i];
 			this.battle.debug(recentWeather);
-			
+			console.log(this.activeWeathers.toString());
 			if (recentWeather !== exclude &&
 				(recentWeather === (pokemon?.effectiveClimateWeather() ||
 								   pokemon?.effectiveIrritantWeather() ||
