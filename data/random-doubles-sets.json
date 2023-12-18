@@ -1,11 +1,2 @@
 {
-    "llampas": {
-        "level": 100,
-        "sets": [
-            {
-                "role": "Doubles Support",
-                "movepool": ["Tackle", "Growl", "Leafage", "Pollinate"]
-            }
-        ]
-    }
 }

@@ -1,11 +1,2 @@
 {
-    "llampas": {
-        "level": 100,
-        "sets": [
-            {
-                "role": "Fast Attacker",
-                "movepool": ["Tackle", "Growl", "Leafage", "Pollinate"]
-            }
-        ]
-    }
 }
