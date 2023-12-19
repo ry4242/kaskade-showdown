@@ -455,20 +455,18 @@ export class Field {
 	}
 
 	getRecentWeather(exclude: string | null = null, pokemon: Pokemon | null = null) {
-		this.battle.debug(this.activeWeathers.toString());
-		for (let i = -1; i > -5; i--) {
-			const recentWeather = this.activeWeathers[this.activeWeathers.length + i];
+		for (let i = this.activeWeathers.length - 1; i >= 0; i--) {
+			const recentWeather = this.activeWeathers[i];
 			this.battle.debug(recentWeather);
-			if (recentWeather !== exclude && (
-				recentWeather === pokemon?.effectiveClimateWeather() ||
-				recentWeather === pokemon?.effectiveIrritantWeather() ||
-				recentWeather === pokemon?.effectiveEnergyWeather() ||
-				recentWeather === pokemon?.effectiveClearingWeather()
-			)) {
+			if (recentWeather !== exclude &&
+				(pokemon && (recentWeather === pokemon.effectiveClimateWeather() ||
+							 recentWeather === pokemon.effectiveIrritantWeather() ||
+							 recentWeather === pokemon.effectiveEnergyWeather() ||
+							 recentWeather === pokemon.effectiveClearingWeather()))) {
 				return recentWeather;
-			}
-		}
-		return "bozo";
+			}	
+		}	
+		return "bozo"; // Default value if no weathers are found
 	}
 
 	setTerrain(status: string | Effect, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null) {

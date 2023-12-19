@@ -1368,6 +1368,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
+			this.debug(this.field.activeWeathers.toString());
+			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -1439,6 +1441,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
+			this.debug(this.field.activeWeathers.toString());
+			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -1510,6 +1514,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onIrritantWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
+			this.debug(this.field.activeWeathers.toString());
+			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -1581,6 +1587,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onEnergyWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
+			this.debug(this.field.activeWeathers.toString());
+			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -1652,6 +1660,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onClearingWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
+			this.debug(this.field.activeWeathers.toString());
+			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
