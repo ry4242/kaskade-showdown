@@ -2264,8 +2264,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	iceface: {
 		onStart(pokemon) {
 			if (pokemon.hasItem('utilityumbrella')) return;
-			if (this.field.isClimateWeather(['hail', 'snow']) &&
-				pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
+			if (this.field.isClimateWeather(['hail', 'snow']) && pokemon.species.id === 'eiscuenoice') {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
@@ -2305,8 +2304,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
 			if ((sourceEffect as Ability)?.suppressClimateWeather) return;
 			if (!pokemon.hp) return;
-			if (this.field.isClimateWeather(['hail', 'snow']) &&
-				pokemon.species.id === 'eiscuenoice' && !pokemon.transformed) {
+			if (this.field.isClimateWeather(['hail', 'snow']) && pokemon.species.id === 'eiscuenoice') {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
@@ -6086,6 +6084,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
+		flags: {},
 		name: "Absolute Zero",
 		rating: 3,
 		num: -15,
@@ -6094,6 +6093,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setEnergyWeather('dragonforce');
 		},
+		flags: {},
 		name: "Arcanum",
 		rating: 3,
 		num: -11,
@@ -6105,13 +6105,41 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.heal(target.baseMaxhp / 16);
 			}
 		},
+		flags: {},
 		name: "Bloomspring",
 		rating: 1.5,
 		num: -20,
 	},
-	bubblehelm: { // incomplete. needs testing
+	bubblehelm: { // incomplete, needs testing
+		onImmunity(type, pokemon) {
+			if (type === 'sandstorm') return false;
+		},
+		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) return;
+			if (['sandstorm', 'duststorm', 'pollinate',
+				'swarmsignal', 'smogspread', 'sprinkle'].includes(this.field.effectiveIrritantWeather())) {
+				this.runEvent('IrritantWeatherChange', pokemon, pokemon, this.effect);
+			}
+		},
+		onUpdate(pokemon) {
+			if (!this.effectState.inactive) return;
+			this.effectState.inactive = false;
+			if (['sandstorm', 'duststorm', 'pollinate',
+				'swarmsignal', 'smogspread', 'sprinkle'].includes(this.field.effectiveIrritantWeather())) {
+				this.runEvent('IrritantWeatherChange', pokemon, pokemon, this.effect);
+			}
+		},
+		onEnd(pokemon) {
+			if (['sandstorm', 'duststorm', 'pollinate',
+				'swarmsignal', 'smogspread', 'sprinkle'].includes(this.field.effectiveIrritantWeather())) {
+				this.runEvent('IrritantWeatherChange', pokemon, pokemon, this.effect);
+			}
+			this.effectState.inactive = true;
+		},
+		flags: {breakable: 1},
 		name: "Bubble Helm",
-		rating: 2.5,
+		rating: 2,
 		num: -38,
 	},
 	carboncapture: {
@@ -6124,6 +6152,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'smogspread') return false;
 		},
+		flags: {},
 		name: "Carbon Capture",
 		rating: 2,
 		num: -22,
@@ -6136,6 +6165,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(1.3);
 			}
 		},
+		flags: {},
 		name: "Chakra",
 		rating: 3.5,
 		num: -38,
@@ -6144,11 +6174,39 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setClimateWeather('foghorn');
 		},
+		flags: {},
 		name: "Condensation",
 		rating: 3,
 		num: -2,
 	},
 	droughtproof: { // incomplete. needs testing
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) return;
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea',
+				'hail', 'bloodmoon', 'foghorn'].includes(this.field.effectiveClimateWeather())) {
+				this.runEvent('ClimateWeatherChange', pokemon, pokemon, this.effect);
+			}
+		},
+		onUpdate(pokemon) {
+			if (!this.effectState.inactive) return;
+			this.effectState.inactive = false;
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea',
+				'hail', 'bloodmoon', 'foghorn'].includes(this.field.effectiveClimateWeather())) {
+				this.runEvent('ClimateWeatherChange', pokemon, pokemon, this.effect);
+			}
+		},
+		onEnd(pokemon) {
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea',
+				'hail', 'bloodmoon', 'foghorn'].includes(this.field.effectiveClimateWeather())) {
+				this.runEvent('ClimateWeatherChange', pokemon, pokemon, this.effect);
+			}
+			this.effectState.inactive = true;
+		},
+		flags: {breakable: 1},
 		name: "Droughtproof",
 		rating: 2.5,
 		num: -36,
@@ -6166,6 +6224,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return false;
 			}
 		},
+		flags: {},
 		name: "Druidry",
 		rating: 2,
 		num: -23,
@@ -6174,25 +6233,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setIrritantWeather('duststorm');
 		},
+		flags: {},
 		name: "Dust Devil",
 		rating: 3,
 		num: -3,
-	},
-	eclipse: {
-		onModifyDef(def, pokemon) {
-			if (['sunnyday'].includes(pokemon.effectiveClimateWeather())) {
-				return this.chainModify(2);
-			}
-		},
-		onModifySpD(spd, pokemon) {
-			if (['bloodmoon'].includes(pokemon.effectiveClimateWeather())) {
-				return this.chainModify(2);
-			}
-		},
-		flags: {breakable: 1},
-		name: "Eclipse",
-		rating: 3,
-		num: -35,
 	},
 	energizer: {
 		onModifySpe(spe, pokemon) {
@@ -6200,6 +6244,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(2);
 			}
 		},
+		flags: {},
 		name: "Energizer",
 		rating: 2.5,
 		num: -29,
@@ -6208,6 +6253,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setClimateWeather('bloodmoon');
 		},
+		flags: {},
 		name: "Eventide",
 		rating: 3,
 		num: -1,
@@ -6218,8 +6264,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onClimateWeatherChange(pokemon) {
 			if (pokemon.hasItem('utilityumbrella')) return;
-			if (!(pokemon.baseSpecies.baseSpecies === 'Snover' || pokemon.baseSpecies.baseSpecies === 'Abomasnow') ||
-			pokemon.transformed) return;
+			if (!(pokemon.baseSpecies.baseSpecies === 'Snover' || pokemon.baseSpecies.baseSpecies === 'Abomasnow')) return;
 			let forme = null;
 			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
@@ -6237,6 +6282,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
 		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Evergreen",
 		rating: 3,
 		num: -47,
@@ -6245,6 +6291,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setEnergyWeather('magnetize');
 		},
+		flags: {},
 		name: "Ferroflux",
 		rating: 3,
 		num: -13,
@@ -6264,6 +6311,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(1.5);
 			}
 		},
+		flags: {},
 		name: "Fieldworker",
 		rating: 3,
 		num: -34,
@@ -6296,6 +6344,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.cureStatus();
 			}
 		},
+		flags: {},
 		name: "Forked",
 		rating: 1.5,
 		num: -30,
@@ -6304,6 +6353,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setClearingWeather('strongwinds');
 		},
+		flags: {},
 		name: "Galeforce",
 		rating: 3,
 		num: -14,
@@ -6329,13 +6379,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: -16,
 	},
-	gravitysling: {
+	magnapult: {
 		onModifySpe(spe, pokemon) {
 			if (this.field.isEnergyWeather('magnetize')) {
 				return this.chainModify(2);
 			}
 		},
-		name: "Gravity Sling",
+		flags: {},
+		name: "Magnapult",
 		rating: 2,
 		num: -31,
 	},
@@ -6345,6 +6396,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(2);
 			}
 		},
+		flags: {},
 		name: "Haunting",
 		rating: 3,
 		num: -17,
@@ -6353,6 +6405,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setIrritantWeather('pollinate');
 		},
+		flags: {},
 		name: "Hay Fever",
 		rating: 3,
 		num: -4,
@@ -6370,6 +6423,29 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
+		onImmunity(type, pokemon) {
+			if (type === 'hail') return false;
+		},
+		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		onStart(pokemon) {
+			if (!pokemon.ignoringItem()) return;
+			if (['raindance', 'primordialsea', 'hail'].includes(this.field.effectiveClimateWeather())) {
+				this.runEvent('ClimateWeatherChange', pokemon, pokemon, this.effect);
+			}
+		},
+		onUpdate(pokemon) {
+			if (!this.effectState.inactive) return;
+			this.effectState.inactive = false;
+			if (['raindance', 'primordialsea', 'hail'].includes(this.field.effectiveClimateWeather())) {
+				this.runEvent('ClimateWeatherChange', pokemon, pokemon, this.effect);
+			}
+		},
+		onEnd(pokemon) {
+			if (['raindance', 'primordialsea', 'hail'].includes(this.field.effectiveClimateWeather())) {
+				this.runEvent('ClimateWeatherChange', pokemon, pokemon, this.effect);
+			}
+			this.effectState.inactive = true;
+		},
 		flags: {breakable: 1},
 		name: "Hydrophobic",
 		rating: 3,
@@ -6379,6 +6455,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setIrritantWeather('sprinkle');
 		},
+		flags: {},
 		name: "Incantation",
 		rating: 3,
 		num: -7,
@@ -6402,6 +6479,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.damage(target.baseMaxhp / 8, target, target);
 			}
 		},
+		flags: {},
 		name: "Malice",
 		rating: 3,
 		num: -18,
@@ -6416,6 +6494,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(1.2);
 			}
 		},
+		flags: {},
 		name: "Master Instinct",
 		rating: 2,
 		num: -25,
@@ -6431,6 +6510,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Nesting",
 		rating: 1.5,
 		num: -21,
@@ -6455,6 +6535,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-start', pokemon, 'perish' + duration);
 			},
 		},
+		flags: {},
 		name: "Not to Be",
 		rating: 2,
 		num: -40,
@@ -6495,6 +6576,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		suppressIrritantWeather: true,
 		suppressEnergyWeather: true,
 		suppressClearingWeather: true,
+		flags: {},
 		name: "Nullify",
 		rating: 2.5,
 		num: -39,
@@ -6524,6 +6606,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.add('-fieldend', 'ability: Pearl Drop');
 			},
 		},
+		flags: {},
 		name: "Pearl Drop",
 		rating: 1,
 		num: -45,
@@ -6532,6 +6615,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setIrritantWeather('smogspread');
 		},
+		flags: {},
 		name: "Pollution",
 		rating: 3,
 		num: -6,
@@ -6547,6 +6631,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Power Above",
 		rating: 2.5,
 		num: -24,
@@ -6562,6 +6647,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Power Within",
 		rating: 2.5,
 		num: -28,
@@ -6614,6 +6700,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			pokemon.addVolatile('ingrain');
 		},
+		flags: {},
 		name: "Root Control",
 		rating: 3.5,
 		num: -33,
@@ -6622,6 +6709,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setEnergyWeather('haunt');
 		},
+		flags: {},
 		name: "Se\u0301ance",
 		rating: 3,
 		num: -9,
@@ -6630,6 +6718,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setIrritantWeather('swarmsignal');
 		},
+		flags: {},
 		name: "Secretion",
 		rating: 3,
 		num: -5,
@@ -6657,6 +6746,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
+		flags: {},
 		name: "Smoke and Mirrors",
 		rating: 2.5,
 		num: -27,
@@ -6676,6 +6766,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				});
 			}
 		},
+		flags: {},
 		name: "Smother Body",
 		rating: 2,
 		num: -46,
@@ -6687,6 +6778,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.heal(pokemon.baseMaxhp / 16, pokemon, target);
 			}
 		},
+		flags: {},
 		name: "Soul Drain",
 		rating: 2,
 		num: -26,
@@ -6695,6 +6787,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setEnergyWeather('auraprojection');
 		},
+		flags: {},
 		name: "Stand Off",
 		rating: 3,
 		num: -8,
@@ -6703,6 +6796,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setEnergyWeather('supercell');
 		},
+		flags: {},
 		name: "Stormfront",
 		rating: 3,
 		num: -12,
@@ -6711,6 +6805,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(pokemon) {
 			this.boost({accuracy: 1}, pokemon);
 		},
+		flags: {},
 		name: "Surveillance",
 		rating: 4,
 		num: -35,
@@ -6782,6 +6877,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onStart(source) {
 			this.field.setEnergyWeather('cosmicrays');
 		},
+		flags: {},
 		name: "Transcendence",
 		rating: 3,
 		num: -10,
@@ -6799,6 +6895,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.typeChangerBoosted === this.effect) return this.chainModify(1.5);
 		},
+		flags: {},
 		name: "Trumpet Weevil",
 		rating: 4,
 		num: -42,
@@ -6819,6 +6916,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, pokemon, target, move) {
 			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
 		},
+		flags: {},
 		name: "Vegetate",
 		rating: 3,
 		num: -32,
@@ -6847,6 +6945,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				move.ignoreImmunity = true;
 			}
 		},
+		flags: {},
 		name: "Warp Mist",
 		rating: 2,
 		num: -19,

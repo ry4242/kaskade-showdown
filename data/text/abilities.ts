@@ -2361,8 +2361,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Glacial Armor",
 		shortDesc: "This Pokemon's Defense and Special Defense are doubled in Hail; immunity to it.",
 	},
-	gravitysling: {
-		name: "Gravity Sling",
+	magnapult: {
+		name: "Magnapult",
 		desc: "If Magnetosphere is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
 		shortDesc: "If Magnetosphere is active, this Pokemon's Speed is doubled.",
 	},
