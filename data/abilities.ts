@@ -1788,225 +1788,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
 		},
-		onIrritantWeatherChange(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
-			let forme = null;
-			this.debug(this.field.activeWeathers.toString());
-			this.debug(this.field.activeWeathers.length.toString());
-			switch (this.field.getRecentWeather('magnetize', pokemon)) {
-			case 'sunnyday':
-			case 'desolateland':
-				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
-				break;
-			case 'hail':
-			case 'snow':
-				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
-				break;
-			case 'bloodmoon':
-				if (pokemon.species.id !== 'castformshady') forme = 'Castform-Shady';
-				break;
-			case 'sandstorm':
-				if (pokemon.species.id !== 'castformsandy') forme = 'Castform-Sandy';
-				break;
-			case 'duststorm':
-				if (pokemon.species.id !== 'castformdusty') forme = 'Castform-Dusty';
-				break;
-			case 'pollinate':
-				if (pokemon.species.id !== 'castformallergy') forme = 'Castform-Allergy';
-				break;
-			case 'swarmsignal':
-				if (pokemon.species.id !== 'castformswarmy') forme = 'Castform-Swarmy';
-				break;
-			case 'smogspread':
-				if (pokemon.species.id !== 'castformsmoggy') forme = 'Castform-Smoggy';
-				break;
-			case 'sprinkle':
-				if (pokemon.species.id !== 'castformlovely') forme = 'Castform-Lovely';
-				break;
-			case 'auraprojection':
-				if (pokemon.species.id !== 'castformgutsy') forme = 'Castform-Gutsy';
-				break;
-			case 'haunt':
-				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
-				break;
-			case 'cosmicrays':
-				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
-				break;
-			case 'dragonforce':
-				if (pokemon.species.id !== 'castformsorcery') forme = 'Castform-Sorcery';
-				break;
-			case 'supercell':
-				if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
-				break;
-			case 'strongwinds':
-				if (pokemon.species.id !== 'castformwindy') forme = 'Castform-Windy';
-				break;
-			default:
-				if (pokemon.species.id !== 'castform') forme = 'Castform';
-				break;
-			}
-			if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
-				if (pokemon.species.id !== 'castformwhirly') {
-					forme = 'Castform-Whirly';
-				} else {
-					forme = null;
-				}
-			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
-			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
-			}
-		},
-		onEnergyWeatherChange(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
-			let forme = null;
-			this.debug(this.field.activeWeathers.toString());
-			this.debug(this.field.activeWeathers.length.toString());
-			switch (this.field.getRecentWeather('magnetize', pokemon)) {
-			case 'sunnyday':
-			case 'desolateland':
-				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
-				break;
-			case 'hail':
-			case 'snow':
-				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
-				break;
-			case 'bloodmoon':
-				if (pokemon.species.id !== 'castformshady') forme = 'Castform-Shady';
-				break;
-			case 'sandstorm':
-				if (pokemon.species.id !== 'castformsandy') forme = 'Castform-Sandy';
-				break;
-			case 'duststorm':
-				if (pokemon.species.id !== 'castformdusty') forme = 'Castform-Dusty';
-				break;
-			case 'pollinate':
-				if (pokemon.species.id !== 'castformallergy') forme = 'Castform-Allergy';
-				break;
-			case 'swarmsignal':
-				if (pokemon.species.id !== 'castformswarmy') forme = 'Castform-Swarmy';
-				break;
-			case 'smogspread':
-				if (pokemon.species.id !== 'castformsmoggy') forme = 'Castform-Smoggy';
-				break;
-			case 'sprinkle':
-				if (pokemon.species.id !== 'castformlovely') forme = 'Castform-Lovely';
-				break;
-			case 'auraprojection':
-				if (pokemon.species.id !== 'castformgutsy') forme = 'Castform-Gutsy';
-				break;
-			case 'haunt':
-				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
-				break;
-			case 'cosmicrays':
-				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
-				break;
-			case 'dragonforce':
-				if (pokemon.species.id !== 'castformsorcery') forme = 'Castform-Sorcery';
-				break;
-			case 'supercell':
-				if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
-				break;
-			case 'strongwinds':
-				if (pokemon.species.id !== 'castformwindy') forme = 'Castform-Windy';
-				break;
-			default:
-				if (pokemon.species.id !== 'castform') forme = 'Castform';
-				break;
-			}
-			if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
-				if (pokemon.species.id !== 'castformwhirly') {
-					forme = 'Castform-Whirly';
-				} else {
-					forme = null;
-				}
-			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
-			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
-			}
-		},
-		onClearingWeatherChange(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
-			let forme = null;
-			this.debug(this.field.activeWeathers.toString());
-			this.debug(this.field.activeWeathers.length.toString());
-			switch (this.field.getRecentWeather('magnetize', pokemon)) {
-			case 'sunnyday':
-			case 'desolateland':
-				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
-				break;
-			case 'raindance':
-			case 'primordialsea':
-				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
-				break;
-			case 'hail':
-			case 'snow':
-				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
-				break;
-			case 'bloodmoon':
-				if (pokemon.species.id !== 'castformshady') forme = 'Castform-Shady';
-				break;
-			case 'sandstorm':
-				if (pokemon.species.id !== 'castformsandy') forme = 'Castform-Sandy';
-				break;
-			case 'duststorm':
-				if (pokemon.species.id !== 'castformdusty') forme = 'Castform-Dusty';
-				break;
-			case 'pollinate':
-				if (pokemon.species.id !== 'castformallergy') forme = 'Castform-Allergy';
-				break;
-			case 'swarmsignal':
-				if (pokemon.species.id !== 'castformswarmy') forme = 'Castform-Swarmy';
-				break;
-			case 'smogspread':
-				if (pokemon.species.id !== 'castformsmoggy') forme = 'Castform-Smoggy';
-				break;
-			case 'sprinkle':
-				if (pokemon.species.id !== 'castformlovely') forme = 'Castform-Lovely';
-				break;
-			case 'auraprojection':
-				if (pokemon.species.id !== 'castformgutsy') forme = 'Castform-Gutsy';
-				break;
-			case 'haunt':
-				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
-				break;
-			case 'cosmicrays':
-				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
-				break;
-			case 'dragonforce':
-				if (pokemon.species.id !== 'castformsorcery') forme = 'Castform-Sorcery';
-				break;
-			case 'supercell':
-				if (pokemon.species.id !== 'castformzappy') forme = 'Castform-Zappy';
-				break;
-			case 'strongwinds':
-				if (pokemon.species.id !== 'castformwindy') forme = 'Castform-Windy';
-				break;
-			default:
-				if (pokemon.species.id !== 'castform') forme = 'Castform';
-				break;
-			}
-			if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
-				if (pokemon.species.id !== 'castformwhirly') {
-					forme = 'Castform-Whirly';
-				} else {
-					forme = null;
-				}
-			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
-			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
-			}
-		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
 		name: "Forecast",
 		rating: 2,
@@ -5467,9 +5248,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	teraformzero: {
 		onAfterTerastallization(pokemon) {
 			if (pokemon.baseSpecies.name !== 'Terapagos-Stellar') return;
-			if (this.field.weather || this.field.terrain) {
+			if (this.field.climateWeather || this.field.irritantWeather || 
+				this.field.energyWeather || this.field.clearingWeather || 
+				this.field.terrain) {
 				this.add('-ability', pokemon, 'Teraform Zero');
-				this.field.clearWeather();
+				this.field.clearClimateWeather();
+				this.field.clearIrritantWeather();
+				this.field.clearEnergyWeather();
+				this.field.clearClearingWeather();
 				this.field.clearTerrain();
 			}
 		},
@@ -6403,7 +6189,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(2);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Eclipse",
 		rating: 3,
 		num: -35,
@@ -6495,7 +6281,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Foil",
 		rating: 2,
 		num: -41,
@@ -6538,7 +6324,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Glacial Armor",
 		rating: 2,
 		num: -16,
@@ -6584,7 +6370,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				return this.chainModify(0.5);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "Hydrophobic",
 		rating: 3,
 		num: -37,
@@ -6783,10 +6569,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	rockybody: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
-			if (
-				effect && effect.effectType === 'Move' && effect.category === 'Physical' &&
-				target.species.id === 'stackem' && !target.transformed
-			) {
+			if (effect?.effectType === 'Move' && effect.category === 'Physical' && target.species.id === 'stackem') {
 				this.add('-activate', target, 'ability: Rocky Body');
 				const side = source.isAlly(target) ? source.side.foe : source.side;
 				const stealthRock = side.sideConditions['stealthrock'];
@@ -6799,14 +6582,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onCriticalHit(target, source, move) {
 			if (!target) return;
-			if (move.category !== 'Physical' || target.species.id !== 'stackem' || target.transformed) return;
+			if (move.category !== 'Physical' || target.species.id !== 'stackem') return;
 			if (target.volatiles['substitute'] && !(move.flags['bypasssub'] || move.infiltrates)) return;
 			if (!target.runImmunity(move.type)) return;
 			return false;
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (!target) return;
-			if (move.category !== 'Physical' || target.species.id !== 'stackem' || target.transformed) return;
+			if (move.category !== 'Physical' || target.species.id !== 'stackem') return;
 
 			const hitSub = target.volatiles['substitute'] && !move.flags['bypasssub'] && !(move.infiltrates && this.gen >= 6);
 			if (hitSub) return;
@@ -6819,8 +6602,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				pokemon.formeChange('Stackem-Rockless', this.effect, true);
 			}
 		},
-		isBreakable: true,
-		isPermanent: true,
+		flags: {
+			failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1,
+			breakable: 1, notransform: 1,
+		},
 		name: "Rocky Body",
 		rating: 2,
 		num: -44,
@@ -6961,7 +6746,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				}
 			}
 		},
-		isPermanent: true,
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Swarming",
 		rating: 3,
 		num: -43,
@@ -6988,7 +6773,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 				this.heal(target.baseMaxhp / 4, target, target);
 			}
 		},
-		isBreakable: true,
+		flags: {breakable: 1},
 		name: "To Be",
 		rating: 3,
 		num: -39,
