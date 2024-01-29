@@ -2,16 +2,19 @@ export const Aliases: {[alias: string]: string} = {
 	// formats
 	// singles
 	randbats: "[Gen 9] Random Battle",
-	overused: "[Gen 9] OU",
+	anythinggoes: "[Gen 9] Anything Goes",
 	uber: "[Gen 9] Ubers",
+	ubers: "[Gen 9] Ubers",
+	uubers: "[Gen 9] Ubers UU",
+	overused: "[Gen 9] OU",
 	underused: "[Gen 9] UU",
 	rarelyused: "[Gen 9] RU",
 	neverused: "[Gen 9] NU",
-	// pu: "[Gen 9] PU", might be unneeded
+	pu: "[Gen 9] PU",
+	zu: "[Gen 9] ZU",
+	zeroused: "[Gen 9] ZU",
 	mono: "[Gen 9] Monotype",
 	ag: "[Gen 9] Anything Goes",
-	anythinggoes: "[Gen 9] Anything Goes",
-	zeroused: "[Gen 9] ZU",
 	ffa: "[Gen 9] Free-For-All",
 	bss: "[Gen 9] Battle Stadium Singles Series 2",
 
