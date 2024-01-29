@@ -225,18 +225,18 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		rating: 4,
 		num: 245,
 	},
-	sandforce: {
+	earthforce: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isWeather('sandstorm')) {
-				this.debug('Sand Force boost');
+				this.debug('Earth Force boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
 		},
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		name: "Sand Force",
+		name: "Earth Force",
 		rating: 2,
 		shortDesc: "This Pokemon's moves deal 1.3x damage in a sandstorm; Sand immunity.",
 		num: 159,

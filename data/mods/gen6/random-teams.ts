@@ -578,7 +578,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 			return species.id === 'mienshao' || species.id === 'reuniclus';
 		case 'Reckless': case 'Rock Head':
 			return (!counter.get('recoil') || !!species.isMega);
-		case 'Sand Force': case 'Sand Rush':
+		case 'Earth Force': case 'Sand Rush':
 			return !teamDetails.sand;
 		case 'Scrappy':
 			return !types.has('Normal');
@@ -1005,7 +1005,7 @@ export class RandomGen6Teams extends RandomGen7Teams {
 		const weatherAbilitiesRequire: {[k: string]: string} = {
 			hydration: 'raindance', swiftswim: 'raindance',
 			leafguard: 'sunnyday', solarpower: 'sunnyday', chlorophyll: 'sunnyday',
-			sandforce: 'sandstorm', sandrush: 'sandstorm', sandveil: 'sandstorm',
+			earthforce: 'sandstorm', sandrush: 'sandstorm', sandveil: 'sandstorm',
 			snowcloak: 'hail',
 		};
 		const weatherAbilities = ['drizzle', 'drought', 'snowwarning', 'sandstream'];

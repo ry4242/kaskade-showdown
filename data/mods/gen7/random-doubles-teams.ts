@@ -638,7 +638,7 @@ export class RandomGen7DoublesTeams extends RandomGen8Teams {
 			return moves.has('bellydrum');
 		case 'Reckless': case 'Rock Head':
 			return (!counter.get('recoil') || !!species.isMega);
-		case 'Sand Force': case 'Sand Rush': case 'Sand Veil':
+		case 'Earth Force': case 'Sand Rush': case 'Sand Veil':
 			return !teamDetails.sand;
 		case 'Scrappy':
 			return !species.types.includes('Normal');

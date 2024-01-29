@@ -1074,7 +1074,7 @@ export class RandomTeams {
 			return (species.id === 'mienshao' && role === 'Wallbreaker');
 		case 'Rock Head':
 			return !counter.get('recoil');
-		case 'Sand Force': case 'Sand Rush':
+		case 'Earth Force': case 'Sand Rush':
 			return !teamDetails.sand;
 		case 'Sap Sipper':
 			return species.id === 'wyrdeer';

@@ -1512,8 +1512,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Run Away",
 		shortDesc: "No competitive use.",
 	},
-	sandforce: {
-		name: "Sand Force",
+	earthforce: {
+		name: "Earth Force",
 		desc: "If Sandstorm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "This Pokemon's Ground/Rock/Steel attacks do 1.3x in Sandstorm; immunity to it.",
 	},

@@ -607,7 +607,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	// estarossa
 	sandsoftime: {
 		desc: "On switch-in, this Pokemon summons Sandstorm. If Sandstorm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm.",
-		shortDesc: "Sand Stream + Sand Force.",
+		shortDesc: "Sand Stream + Earth Force.",
 		name: "Sands of Time",
 		onStart(source) {
 			this.field.setClimateWeather('sandstorm');

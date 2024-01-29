@@ -255,15 +255,15 @@ export const Pokedex: {[k: string]: ModdedSpeciesData} = {
 	},
 	roggenrola: {
 		inherit: true,
-		abilities: {0: "Sturdy", H: "Sand Force"},
+		abilities: {0: "Sturdy", H: "Earth Force"},
 	},
 	boldore: {
 		inherit: true,
-		abilities: {0: "Sturdy", H: "Sand Force"},
+		abilities: {0: "Sturdy", H: "Earth Force"},
 	},
 	gigalith: {
 		inherit: true,
-		abilities: {0: "Sturdy", H: "Sand Force"},
+		abilities: {0: "Sturdy", H: "Earth Force"},
 	},
 	woobat: {
 		inherit: true,

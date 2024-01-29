@@ -819,7 +819,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		rating: 0,
 	},
-	sandforce: {
+	earthforce: {
 		inherit: true,
 		rating: 2,
 	},

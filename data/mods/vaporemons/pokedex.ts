@@ -380,7 +380,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	landorus: {
 		inherit: true,
-		abilities: {0: "Sand Force", H: "Cloud Nine"},
+		abilities: {0: "Earth Force", H: "Cloud Nine"},
 	},
 	hoppip: {
 		inherit: true,
@@ -424,23 +424,23 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	cacturne: {
 		inherit: true,
-		abilities: {0: "Battle Spines", 1: "Sand Force", H: "Water Absorb"},
+		abilities: {0: "Battle Spines", 1: "Earth Force", H: "Water Absorb"},
 	},
 	gible: {
 		inherit: true,
-		abilities: {0: "Sand Veil", 1: "Sand Force", H: "Rough Skin"},
+		abilities: {0: "Sand Veil", 1: "Earth Force", H: "Rough Skin"},
 	},
 	gabite: {
 		inherit: true,
-		abilities: {0: "Sand Veil", 1: "Sand Force", H: "Rough Skin"},
+		abilities: {0: "Sand Veil", 1: "Earth Force", H: "Rough Skin"},
 	},
 	garchomp: {
 		inherit: true,
-		abilities: {0: "Sand Veil", 1: "Sand Force", H: "Rough Skin"},
+		abilities: {0: "Sand Veil", 1: "Earth Force", H: "Rough Skin"},
 	},
 	lycanrocmidnight: {
 		inherit: true,
-		abilities: {0: "Keen Eye", 1: "Sand Force", H: "No Guard"},
+		abilities: {0: "Keen Eye", 1: "Earth Force", H: "No Guard"},
 	},
 	typhlosionhisui: {
 		inherit: true,
@@ -460,11 +460,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	rellor: {
 		inherit: true,
-		abilities: {0: "Compound Eyes", 1: "Sand Force", H: "Shed Skin"},
+		abilities: {0: "Compound Eyes", 1: "Earth Force", H: "Shed Skin"},
 	},
 	rabsca: {
 		inherit: true,
-		abilities: {0: "Sunblock", 1: "Sand Force", H: "Counteract"},
+		abilities: {0: "Sunblock", 1: "Earth Force", H: "Counteract"},
 	},
 	greavard: {
 		inherit: true,
@@ -525,11 +525,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	diglett: {
 		inherit: true,
-		abilities: {0: "Sand Spit", 1: "Arena Trap", H: "Sand Force"},
+		abilities: {0: "Sand Spit", 1: "Arena Trap", H: "Earth Force"},
 	},
 	dugtrio: {
 		inherit: true,
-		abilities: {0: "Sand Spit", 1: "Arena Trap", H: "Sand Force"},
+		abilities: {0: "Sand Spit", 1: "Arena Trap", H: "Earth Force"},
 	},
 	sandile: {
 		inherit: true,
@@ -727,11 +727,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	diglettalola: {
 		inherit: true,
-		abilities: {0: "Steely Spirit", 1: "Tangling Hair", H: "Sand Force"},
+		abilities: {0: "Steely Spirit", 1: "Tangling Hair", H: "Earth Force"},
 	},
 	dugtrioalola: {
 		inherit: true,
-		abilities: {0: "Steely Spirit", 1: "Tangling Hair", H: "Sand Force"},
+		abilities: {0: "Steely Spirit", 1: "Tangling Hair", H: "Earth Force"},
 	},
 	cufant: {
 		inherit: true,
@@ -807,7 +807,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	gastrodon: {
 		inherit: true,
-		abilities: {0: "Color Change", 1: "Storm Drain", H: "Sand Force"},
+		abilities: {0: "Color Change", 1: "Storm Drain", H: "Earth Force"},
 	},
 	deerling: {
 		inherit: true,
@@ -1064,11 +1064,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	gligar: {
 		inherit: true,
-		abilities: {0: "Sand Force", 1: "Exoskeleton", H: "Immunity"},
+		abilities: {0: "Earth Force", 1: "Exoskeleton", H: "Immunity"},
 	},
 	gliscor: {
 		inherit: true,
-		abilities: {0: "Sand Force", 1: "Exoskeleton", H: "Poison Heal"},
+		abilities: {0: "Earth Force", 1: "Exoskeleton", H: "Poison Heal"},
 	},
 	slugma: {
 		inherit: true,
@@ -1129,15 +1129,15 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	turtwig: {
 		inherit: true,
-		abilities: {0: "Overgrow", H: "Sand Force"},
+		abilities: {0: "Overgrow", H: "Earth Force"},
 	},
 	grotle: {
 		inherit: true,
-		abilities: {0: "Overgrow", H: "Sand Force"},
+		abilities: {0: "Overgrow", H: "Earth Force"},
 	},
 	torterra: {
 		inherit: true,
-		abilities: {0: "Overgrow", H: "Sand Force"},
+		abilities: {0: "Overgrow", H: "Earth Force"},
 	},
 	chimchar: {
 		inherit: true,
@@ -1617,11 +1617,11 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	doduo: {
 		inherit: true,
-		abilities: {0: "Muscle Memory", 1: "Sand Force", H: "Tangled Feet"},
+		abilities: {0: "Muscle Memory", 1: "Earth Force", H: "Tangled Feet"},
 	},
 	dodrio: {
 		inherit: true,
-		abilities: {0: "Muscle Memory", 1: "Sand Force", H: "Tangled Feet"},
+		abilities: {0: "Muscle Memory", 1: "Earth Force", H: "Tangled Feet"},
 	},
 	seel: {
 		inherit: true,
@@ -1801,7 +1801,7 @@ export const Pokedex: {[speciesid: string]: ModdedSpeciesData} = {
 	},
 	regirock: {
 		inherit: true,
-		abilities: {0: "Clear Body", 1: "Sand Force", H: "Sturdy"},
+		abilities: {0: "Clear Body", 1: "Earth Force", H: "Sturdy"},
 	},
 	regice: {
 		inherit: true,

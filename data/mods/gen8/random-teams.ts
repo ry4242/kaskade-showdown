@@ -1567,7 +1567,7 @@ export class RandomGen8Teams {
 			return !counter.get('recoil') || moves.has('curse');
 		case 'Rock Head':
 			return !counter.get('recoil');
-		case 'Sand Force': case 'Sand Veil':
+		case 'Earth Force': case 'Sand Veil':
 			return !teamDetails.sand;
 		case 'Sand Rush':
 			return (!teamDetails.sand && (isNoDynamax || !counter.setupType || !counter.get('Rock') || moves.has('rapidspin')));
