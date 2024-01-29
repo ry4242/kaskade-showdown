@@ -21568,7 +21568,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			case 'haunt':
 				move.type = 'Ghost';
 				break;
-			case 'cosmicrays':
+			case 'daydream':
 				move.type = 'Psychic';
 				break;
 			case 'dragonforce':
@@ -21590,7 +21590,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				'bloodmoon', 'foghorn', 'deltastream'].includes(this.field.effectiveClimateWeather()) ||
 			['sandstorm', 'duststorm', 'pollinate',
 				'swarmsignal', 'smogspread', 'sprinkle'].includes(this.field.effectiveIrritantWeather()) ||
-			['auraprojection', 'haunt', 'cosmicrays',
+			['auraprojection', 'haunt', 'daydream',
 				'dragonforce', 'supercell', 'magnetize'].includes(this.field.effectiveEnergyWeather()) ||
 			['strongwinds'].includes(this.field.effectiveClearingWeather())) {
 				return move.basePower * 2;
@@ -22145,12 +22145,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Dark",
 	},
-	cosmicrays: {
+	daydream: {
 		num: -10,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Cosmic Rays",
+		name: "Daydream",
 		pp: 5,
 		priority: 0,
 		flags: {},

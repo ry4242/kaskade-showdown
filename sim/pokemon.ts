@@ -2108,7 +2108,7 @@ export class Pokemon {
 		switch (weather) {
 		case 'auraprojection':
 		case 'haunt':
-		case 'cosmicrays':
+		case 'daydream':
 		case 'dragonforce':
 		case 'supercell':
 		case 'magnetize':

@@ -7556,10 +7556,10 @@ export const MovesText: {[k: string]: MoveText} = {
 		desc: "For 5 turns, the weather becomes Blood Moon. During the effect, the damage of supereffective attacks is multiplied by 1.5 and Dark-type Status moves have their priority increased by 1. Lasts for 8 turns if the user is holding a Weather Balloon. Fails if the current weather is Blood Moon.",
 		shortDesc: "For 5 turns, the moon powers supereffective moves.",
 	},
-	cosmicrays: {
-		name: "Cosmic Rays",
-		desc: "For 5 turns, the weather becomes Psychic Field. During the effect, the damage of Psychic-type attacks is multiplied by 1.5 and the damage of Dark-type attacks is multiplied by 0.5. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Psychic Field.",
-		shortDesc: "For 5 turns, a psychic field powers Psychic moves.",
+	daydream: {
+		name: "Daydream",
+		desc: "For 5 turns, the weather becomes Dreamscape. During the effect, the damage of Psychic-type attacks is multiplied by 1.5 and the damage of Dark-type attacks is multiplied by 0.5. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Dreamscape.",
+		shortDesc: "For 5 turns, a dreamscape powers Psychic moves.",
 	},
 	dragonforce: {
 		name: "Dragon Force",
@@ -7578,8 +7578,8 @@ export const MovesText: {[k: string]: MoveText} = {
 	},
 	haunt: {
 		name: "Haunt",
-		desc: "For 5 turns, the weather becomes Cursed Winds. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are a Ghost, Normal, or Dark type, or have the Magic Guard ability. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Cursed Winds.",
-		shortDesc: "For 5 turns, cursed winds drain HP.",
+		desc: "For 5 turns, the weather becomes Paranormal Activity. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are a Ghost, Normal, or Dark type, or have the Magic Guard ability. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Paranormal Activity.",
+		shortDesc: "For 5 turns, paranormal activity drains HP.",
 	},
 	initiative: {
 		name: "Initiative",

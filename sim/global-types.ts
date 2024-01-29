@@ -521,8 +521,8 @@ namespace RandomTeamsTypes {
 		smog?: number;
 		fairyDust?: number;
 		battleAura?: number;
-		cursedWinds?: number;
-		psychicField?: number;
+		paranormalActivity?: number;
+		dreamscape?: number;
 		dragonForce?: number;
 		thunderstorm?: number;
 		magnetosphere?: number;

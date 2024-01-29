@@ -366,17 +366,17 @@ export const DefaultText: {[k: string]: DefaultText} = {
 		upkeep: "  (The combat pressure is overwhelming.)",
 	},
 	haunt: {
-		weatherName: "Cursed Winds",
+		weatherName: "Paranormal Activity",
 		start: "  A ghastly chill went up your spine...",
 		end: "  The ominous presence left.",
 		upkeep: "  (Spirits are haunting the air.)",
 		damage: "  [POKEMON] was cursed by the wandering spirits!",
 	},
-	cosmicrays: {
-		weatherName: "Psychic Field",
-		start: "  A psychic field materialized!",
-		end: "  The psychic energy faded.",
-		upkeep: "  (The psychic energy is pulsing.)",
+	daydream: {
+		weatherName: "Dreamscape",
+		start: "  A dreamscape manifested!",
+		end: "  The dreamscape faded.",
+		upkeep: "  (The dream world is materializing.)",
 	},
 	dragonforce: {
 		weatherName: "Dragon Force",

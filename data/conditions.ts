@@ -1208,7 +1208,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				if (pokemon.hasType(['Ghost', 'Dark'])) return;
 				if (this.randomChance(1, 10)) {
 					pokemon.addVolatile('flinch');
-					this.hint("Non-Ghost and Dark types have a 10% chance to flinch in Strong Winds Cursed Winds :)");
+					this.hint("Non-Ghost and Dark types have a 10% chance to flinch in Strong Winds Paranormal Activity :)");
 				}
 			}
 		},
@@ -1237,8 +1237,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-energyWeather', 'none');
 		},
 	},
-	cosmicrays: {
-		name: 'CosmicRays',
+	daydream: {
+		name: 'Daydream',
 		effectType: 'EnergyWeather',
 		duration: 5,
 		durationCallback(source, effect) {
@@ -1250,11 +1250,11 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onEnergyWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('energynullifier')) return;
 			if (move.type === 'Psychic') {
-				this.debug('Cosmic Rays Psychic boost');
+				this.debug('Daydream Psychic boost');
 				return this.chainModify(1.5);
 			}
 			if (move.type === 'Dark') {
-				this.debug('Cosmic Rays Dark suppress');
+				this.debug('Daydream Dark suppress');
 				return this.chainModify(0.5);
 			}
 		},
@@ -1263,7 +1263,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.field.energyWeatherState.boosted = true;
 				this.debug('Weather is Strong Winds boosted');
 				this.field.setTerrain('psychicterrain', source);
-				this.debug('strong winds psychic field sets psychic terrain');
+				this.debug('strong winds dreamscape sets psychic terrain');
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
@@ -1533,7 +1533,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.field.clearIrritantWeather();
 				this.debug('Cleared Irritant Weathers');
 			}
-			if (['auraprojection', 'haunt', 'cosmicrays',
+			if (['auraprojection', 'haunt', 'daydream',
 				'dragonforce', 'supercell', 'magnetize'].includes(this.field.effectiveEnergyWeather())) {
 				this.field.clearEnergyWeather();
 				this.debug('Cleared Energy Weathers');

@@ -19694,7 +19694,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			psybeam: ["9L5"],
 			sandattack: ["9L10"],
 			quickattack: ["9L15"],
-			cosmicrays: ["9L20"],
+			daydream: ["9L20"],
 			psychup: ["9L25"],
 			morningsun: ["9L30"],
 			cosmicpower: ["9L35"],

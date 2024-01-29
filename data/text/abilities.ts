@@ -2446,7 +2446,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	seance: {
 		name: "Se\u0301ance",
-		shortDesc: "On switch-in, this Pokemon summons Cursed Winds.",
+		shortDesc: "On switch-in, this Pokemon summons Paranormal Activity.",
 	},
 	secretion: {
 		name: "Secretion",
@@ -2454,8 +2454,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	smokeandmirrors: {
 		name: "Smoke and Mirrors",
-		desc: "If Psychic Field is active, this Pokemon's Special attacks have their power multiplied by 1.2 and have their Confusion chance doubled. These effects are prevented if this Pokemon is holding an Energy Nullifier.",
-		shortDesc: "This Pokemon's Special attacks do 1.2x and have doubled confuse chance in Psychic Field.",
+		desc: "If Dreamscape is active, this Pokemon's Special attacks have their power multiplied by 1.2 and have their Confusion chance doubled. These effects are prevented if this Pokemon is holding an Energy Nullifier.",
+		shortDesc: "This Pokemon's Special attacks do 1.2x and have doubled confuse chance in Dreamscape.",
 	},
 	smotherbody: {
 		name: "Smother Body",
@@ -2464,8 +2464,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	souldrain: {
 		name: "Soul Drain",
-		desc: "If Cursed Winds is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn for each adjacent Pokemon who takes residual damage form Cursed Winds.",
-		shortDesc: "This Pokemon heals 1/16 of its max HP for each Pokemon hurt by Cursed Winds.",
+		desc: "If Paranormal Activity is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn for each adjacent Pokemon who takes residual damage form Paranormal Activity.",
+		shortDesc: "This Pokemon heals 1/16 of its max HP for each Pokemon hurt by Paranormal Activity.",
 	},
 	standoff: {
 		name: "Stand Off",
@@ -2494,9 +2494,9 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 
 		activate: "  [POKEMON] decided to live!",
 	},
-	transcendence: {
-		name: "Transcendence",
-		shortDesc: "On switch-in, this Pokemon summons Psychic Field.",
+	dreamer: {
+		name: "Dreamer",
+		shortDesc: "On switch-in, this Pokemon summons Dreamscape.",
 	},
 	trumpetweevil: {
 		name: "Trumpet Weevil",

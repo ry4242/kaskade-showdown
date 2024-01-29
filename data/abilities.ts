@@ -1487,7 +1487,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			case 'haunt':
 				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
 				break;
-			case 'cosmicrays':
+			case 'daydream':
 				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
 				break;
 			case 'dragonforce':
@@ -1560,7 +1560,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			case 'haunt':
 				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
 				break;
-			case 'cosmicrays':
+			case 'daydream':
 				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
 				break;
 			case 'dragonforce':
@@ -1633,7 +1633,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			case 'haunt':
 				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
 				break;
-			case 'cosmicrays':
+			case 'daydream':
 				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
 				break;
 			case 'dragonforce':
@@ -1706,7 +1706,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			case 'haunt':
 				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
 				break;
-			case 'cosmicrays':
+			case 'daydream':
 				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
 				break;
 			case 'dragonforce':
@@ -1779,7 +1779,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			case 'haunt':
 				if (pokemon.species.id !== 'castformspooky') forme = 'Castform-Spooky';
 				break;
-			case 'cosmicrays':
+			case 'daydream':
 				if (pokemon.species.id !== 'castformzenny') forme = 'Castform-Zenny';
 				break;
 			case 'dragonforce':
@@ -6727,7 +6727,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (attacker.hasItem('energynullifier')) return;
-			if (this.field.isEnergyWeather('cosmicrays')) {
+			if (this.field.isEnergyWeather('daydream')) {
 				if (move.category === 'Special') {
 					this.debug('Smoke and Mirrors boost');
 					return this.chainModify(1.2);
@@ -6738,7 +6738,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyMove(move, source) {
 			if (move.secondaries) {
 				if (source.hasItem('energynullifier')) return;
-				if (this.field.isEnergyWeather('cosmicrays')) {
+				if (this.field.isEnergyWeather('daydream')) {
 					this.debug('S&M 2x confuse chance');
 					for (const secondary of move.secondaries) {
 						if (secondary.chance && secondary.status === 'confusion') secondary.chance *= 2;
@@ -6873,12 +6873,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -39,
 	},
-	transcendence: {
+	dreamer: {
 		onStart(source) {
-			this.field.setEnergyWeather('cosmicrays');
+			this.field.setEnergyWeather('daydream');
 		},
 		flags: {},
-		name: "Transcendence",
+		name: "Dreamer",
 		rating: 3,
 		num: -10,
 	},
