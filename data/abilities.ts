@@ -5248,8 +5248,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	teraformzero: {
 		onAfterTerastallization(pokemon) {
 			if (pokemon.baseSpecies.name !== 'Terapagos-Stellar') return;
-			if (this.field.climateWeather || this.field.irritantWeather || 
-				this.field.energyWeather || this.field.clearingWeather || 
+			if (this.field.climateWeather || this.field.irritantWeather ||
+				this.field.energyWeather || this.field.clearingWeather ||
 				this.field.terrain) {
 				this.add('-ability', pokemon, 'Teraform Zero');
 				this.field.clearClimateWeather();

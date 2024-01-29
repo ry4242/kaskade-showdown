@@ -464,8 +464,8 @@ export class Field {
 							 recentWeather === pokemon.effectiveEnergyWeather() ||
 							 recentWeather === pokemon.effectiveClearingWeather()))) {
 				return recentWeather;
-			}	
-		}	
+			}
+		}
 		return "bozo"; // Default value if no weathers are found
 	}
 
