@@ -54,7 +54,7 @@ interface MoveFlags {
 	powder?: 1; // Has no effect on Pokemon which are Grass-type, have the Ability Overcoat, or hold Safety Goggles.
 	protect?: 1; // Blocked by Detect, Protect, Spiky Shield, and if not a Status move, King's Shield.
 	pulse?: 1; // Power is multiplied by 1.5 when used by a Pokemon with the Ability Mega Launcher.
-	punch?: 1; // Power is multiplied by 1.2 when used by a Pokemon with the Ability Iron Fist.
+	punch?: 1; // Power is multiplied by 1.5 when used by a Pokemon with the Ability Iron Fist.
 	recharge?: 1; // If this move is successful, the user must recharge on the following turn and cannot make a move.
 	reflectable?: 1; // Bounced back to the original user by Magic Coat or the Ability Magic Bounce.
 	slicing?: 1; // Power is multiplied by 1.5 when used by a Pokemon with the Ability Sharpness.

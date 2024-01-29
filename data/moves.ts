@@ -531,10 +531,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	armthrust: {
+	armthrust: { // updated
 		num: 292,
 		accuracy: 100,
-		basePower: 15,
+		basePower: 25,
 		category: "Physical",
 		name: "Arm Thrust",
 		pp: 20,
@@ -1534,8 +1534,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (this.field.isClimateWeather(['hail', 'snow'])) move.accuracy = true;
 		},
 		secondary: {
-			chance: 10,
-			status: 'frz',
+			chance: 30,
+			onHit(target, source) {
+				const result = this.random(3);
+				if (result > 0) {
+					target.trySetStatus('frb', source);
+				} else {
+					target.trySetStatus('frz', source);
+				}
+			},
 		},
 		target: "allAdjacentFoes",
 		type: "Ice",
@@ -3046,7 +3053,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	cottonspore: {
+	cottonspore: { // updated
 		num: 178,
 		accuracy: 100,
 		basePower: 0,
@@ -3057,6 +3064,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, powder: 1},
 		boosts: {
 			spe: -2,
+		},
+		onModifyMove(move) {
+			if (this.field.isIrritantWeather(['pollinate'])) move.accuracy = true;
 		},
 		secondary: null,
 		target: "allAdjacentFoes",
@@ -3399,10 +3409,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'curse'},
 		contestType: "Tough",
 	},
-	cut: {
+	cut: { // updated
 		num: 15,
 		accuracy: 95,
-		basePower: 50,
+		basePower: 70,
 		category: "Physical",
 		isNonstandard: "Unobtainable",
 		name: "Cut",
@@ -3411,7 +3421,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
 		secondary: null,
 		target: "normal",
-		type: "Normal",
+		type: "Steel",
 		contestType: "Cool",
 	},
 	darkestlariat: {
@@ -3447,9 +3457,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
-	darkvoid: {
+	darkvoid: { // updated
 		num: 464,
-		accuracy: 50,
+		accuracy: 80,
 		basePower: 0,
 		category: "Status",
 		name: "Dark Void",
@@ -3668,11 +3678,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 		contestType: "Cool",
 	},
-	diamondstorm: {
+	diamondstorm: { // updated
 		num: 591,
 		accuracy: 95,
 		basePower: 100,
-		category: "Physical",
+		category: "Special",
 		name: "Diamond Storm",
 		pp: 5,
 		priority: 0,
@@ -4108,11 +4118,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Cute",
 	},
-	doubleteam: {
+	doubleteam: { // updated
 		num: 104,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		isNonstandard: "Past",
 		name: "Double Team",
 		pp: 15,
 		priority: 0,
@@ -4324,7 +4335,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 		contestType: "Cool",
 	},
-	dragonrush: {
+	dragonrush: { // updated
 		num: 407,
 		accuracy: 75,
 		basePower: 100,
@@ -4333,6 +4344,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move) {
+			if (this.field.isEnergyWeather('dragonforce')) move.accuracy = true;
+		},
 		secondary: {
 			chance: 20,
 			volatileStatus: 'flinch',
@@ -4778,7 +4792,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
-	electroshot: {
+	electroshot: { // updated
 		num: 905,
 		accuracy: 100,
 		basePower: 130,
@@ -4786,14 +4800,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Electro Shot",
 		pp: 10,
 		priority: 0,
-		flags: {charge: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {charge: 1, protect: 1, pulse: 1, mirror: 1, metronome: 1},
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
 			this.boost({spa: 1}, attacker, attacker, move);
-			if (['raindance', 'primordialsea'].includes(attacker.effectiveWeather())) {
+			if (['raindance', 'primordialsea', 'supercell'].includes(attacker.effectiveClimateWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -5307,10 +5321,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dark",
 	},
-	falseswipe: {
+	falseswipe: { // updated
 		num: 206,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 60,
 		category: "Physical",
 		name: "False Swipe",
 		pp: 40,
@@ -6192,7 +6206,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cool",
 	},
-	focuspunch: {
+	focuspunch: { // updated
 		num: 264,
 		accuracy: 100,
 		basePower: 150,
@@ -6216,7 +6230,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-singleturn', pokemon, 'move: Focus Punch');
 			},
 			onHit(pokemon, source, move) {
-				if (move.category !== 'Status') {
+				if (move.category !== 'Status' || this.field.isEnergyWeather('auraprojection')) {
 					this.effectState.lostFocus = true;
 				}
 			},
@@ -6303,7 +6317,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-start', pokemon, 'Foresight');
 			},
 			onNegateImmunity(pokemon, type) {
-				if (pokemon.hasAbility('Warp Mist') && this.field.isClimateWeather('Foghorn')) return;
+				if (pokemon.hasAbility('warpmist') && this.field.isClimateWeather('foghorn')) return;
 				if (pokemon.hasType('Ghost') && ['Normal', 'Fighting'].includes(type)) return false;
 			},
 			onModifyBoost(boosts) {
@@ -6632,7 +6646,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 		contestType: "Clever",
 	},
-	gastroacid: {
+	gastroacid: { // updated
 		num: 380,
 		accuracy: 100,
 		basePower: 0,
@@ -6661,6 +6675,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onCopy(pokemon) {
 				if (pokemon.getAbility().flags['cantsuppress']) pokemon.removeVolatile('gastroacid');
 			},
+		},
+		onModifyMove(move) {
+			if (this.field.isIrritantWeather(['smogspread'])) move.target = "allAdjacent";
 		},
 		secondary: null,
 		target: "normal",
@@ -8893,7 +8910,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
-	hiddenpower: {
+	hiddenpower: { // incomplete, needs testing
 		num: 237,
 		accuracy: 100,
 		basePower: 60,
@@ -8906,6 +8923,30 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onModifyType(move, pokemon) {
 			move.type = pokemon.hpType || 'Dark';
 		},
+		onPrepareHit(source, target, move) {
+			let type = '???';
+			const typeArray = [];
+			const fullArray = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying',
+				'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'];
+			for (const typeCheck of fullArray) {
+				if (this.dex.getEffectiveness(typeCheck, target) === 1) {
+					typeArray.push(typeCheck);
+				}
+			}
+			if (typeArray.length > 0) {
+				const diceRoll = this.random(typeArray.length);
+				type = typeArray[diceRoll];
+			}
+		},
+		onTry(source, target, move) {
+			if (source.baseSpecies.name === 'Unown' || move.hasBounced) {
+				return;
+			}
+			this.add('-fail', source, 'move: Hidden Power');
+			this.hint("Only a Pokemon whose form is Unown can use this move.");
+			return null;
+		},
+		noSketch: true,
 		secondary: null,
 		target: "normal",
 		type: "Normal",
@@ -9337,6 +9378,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.accuracy = 50;
 				break;
 			}
+			switch (target?.effectiveEnergyWeather()) {
+			case 'supercell':
+				move.accuracy = true;
+				break;
+			}
+			switch (target?.effectiveClearingWeather()) {
+			case 'strongwinds':
+				move.accuracy = true;
+				break;
+			}
 		},
 		secondary: {
 			chance: 30,
@@ -9653,7 +9704,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	icefang: {
+	icefang: { // updated
 		num: 423,
 		accuracy: 95,
 		basePower: 65,
@@ -9665,7 +9716,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondaries: [
 			{
 				chance: 10,
-				status: 'frz',
+				status: 'frb',
 			}, {
 				chance: 10,
 				volatileStatus: 'flinch',
@@ -9694,7 +9745,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Tough",
 	},
-	icepunch: {
+	icepunch: { // updated
 		num: 8,
 		accuracy: 100,
 		basePower: 75,
@@ -9705,7 +9756,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			status: 'frz',
+			status: 'frb',
 		},
 		target: "normal",
 		type: "Ice",
@@ -9782,7 +9833,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Beautiful",
 	},
-	icywind: {
+	icywind: { // updated
 		num: 196,
 		accuracy: 95,
 		basePower: 55,
@@ -9791,6 +9842,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
+		onModifyMove(move) {
+			if (this.field.isClimateWeather(['hail', 'snow'])) move.accuracy = true;
+		},
 		secondary: {
 			chance: 100,
 			boosts: {
@@ -10650,7 +10704,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allies",
 		type: "Water",
 	},
-	lightofruin: {
+	lightofruin: { // updated
 		num: 617,
 		accuracy: 90,
 		basePower: 140,
@@ -10660,7 +10714,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		recoil: [1, 2],
+		recoil: [33, 100],
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
@@ -11096,7 +11150,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spd: 2}},
 		contestType: "Beautiful",
 	},
-	magicpowder: {
+	magicpowder: { // updated
 		num: 750,
 		accuracy: 100,
 		basePower: 0,
@@ -11109,11 +11163,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 			if (target.getTypes().join() === 'Psychic' || !target.setType('Psychic')) return false;
 			this.add('-start', target, 'typechange', 'Psychic');
 		},
+		onModifyMove(move) {
+			if (this.field.isIrritantWeather(['pollinate'])) move.accuracy = true;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Psychic",
 	},
-	magicroom: {
+	magicroom: { // updated
 		num: 478,
 		accuracy: true,
 		basePower: 0,
@@ -11126,6 +11183,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
+				if (this.field.isEnergyWeather('daydream')) {
+					return 8;
+				}
 				if (source?.hasAbility('persistent')) {
 					this.add('-activate', source, 'ability: Persistent', '[move] Magic Room');
 					return 7;
@@ -11173,16 +11233,22 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-	magnetbomb: {
+	magnetbomb: { // updated
 		num: 443,
 		accuracy: true,
 		basePower: 60,
-		category: "Physical",
+		category: "Special",
 		isNonstandard: "Past",
 		name: "Magnet Bomb",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isEnergyWeather('magnetize')) {
+				this.debug('powered by magnetize');
+				return 90;
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -11216,7 +11282,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Clever",
 	},
-	magnetrise: {
+	magnetrise: { // updated
 		num: 393,
 		accuracy: true,
 		basePower: 0,
@@ -11237,6 +11303,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		},
 		condition: {
 			duration: 5,
+			durationCallback(source, effect) {
+				if (this.field.isEnergyWeather('magnetize')) {
+					return 8;
+				}
+				return 5;
+			},
 			onStart(target) {
 				this.add('-start', target, 'Magnet Rise');
 			},
@@ -12313,11 +12385,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spa: 1}},
 		contestType: "Clever",
 	},
-	minimize: {
+	minimize: { // updated
 		num: 107,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
+		isNonstandard: "Past",
 		name: "Minimize",
 		pp: 10,
 		priority: 0,
@@ -12373,7 +12446,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-start', pokemon, 'Miracle Eye');
 			},
 			onNegateImmunity(pokemon, type) {
-				if (pokemon.hasAbility('Warp Mist') && this.field.isClimateWeather('Foghorn')) return;
+				if (pokemon.hasAbility('warpmist') && this.field.isClimateWeather('foghorn')) return;
 				if (pokemon.hasType('Dark') && type === 'Psychic') return false;
 			},
 			onModifyBoost(boosts) {
@@ -12489,6 +12562,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		sideCondition: 'mist',
 		condition: {
 			duration: 5,
+			durationCallback(target, source, effect) {
+				if (this.field.isClimateWeather('foghorn')) {
+					return 8;
+				}
+				return 5;
+			},
 			onTryBoost(boost, target, source, effect) {
 				if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
 				if (source && target !== source) {
@@ -12617,7 +12696,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Beautiful",
 	},
-	moonblast: {
+	moonblast: { // updated
 		num: 585,
 		accuracy: 100,
 		basePower: 95,
@@ -12626,6 +12705,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move) {
+			if (this.field.isClimateWeather('bloodmoon')) move.accuracy = true;
+		},
 		secondary: {
 			chance: 30,
 			boosts: {
@@ -13447,6 +13529,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isEnergyWeather('haunt')) {
+				this.debug('powered by paranormal activity');
+				return 80;
+			}
+		},
 		secondary: {
 			chance: 10,
 			self: {
@@ -13986,7 +14074,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		contestType: "Tough",
 	},
-	poisonpowder: {
+	poisonpowder: { // updated
 		num: 77,
 		accuracy: 75,
 		basePower: 0,
@@ -13996,6 +14084,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, powder: 1},
 		status: 'psn',
+		onModifyMove(move) {
+			if (this.field.isIrritantWeather(['pollinate'])) move.accuracy = true;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Poison",
@@ -14037,7 +14128,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		contestType: "Clever",
 	},
-	pollenpuff: {
+	pollenpuff: { // updated
 		num: 676,
 		accuracy: 100,
 		basePower: 90,
@@ -14071,6 +14162,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 					}
 					return this.NOT_FAIL;
 				}
+			}
+		},
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isIrritantWeather('pollinate')) {
+				this.debug('powered by pollen');
+				return 120;
 			}
 		},
 		secondary: null,
@@ -14145,7 +14242,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
-	powder: {
+	powder: { // updated
 		num: 600,
 		accuracy: 100,
 		basePower: 0,
@@ -14171,13 +14268,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			},
 		},
+		onModifyMove(move) {
+			if (this.field.isIrritantWeather(['pollinate'])) move.accuracy = true;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Bug",
 		zMove: {boost: {spd: 2}},
 		contestType: "Clever",
 	},
-	powdersnow: {
+	powdersnow: { // updated
 		num: 181,
 		accuracy: 100,
 		basePower: 40,
@@ -14188,7 +14288,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			status: 'frz',
+			status: 'frB',
 		},
 		target: "allAdjacentFoes",
 		type: "Ice",
@@ -15802,7 +15902,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 		contestType: "Tough",
 	},
-	rocksmash: {
+	rocksmash: { // updated
 		num: 249,
 		accuracy: 100,
 		basePower: 40,
@@ -15812,7 +15912,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: {
-			chance: 50,
+			chance: 100,
 			boosts: {
 				def: -1,
 			},
@@ -16582,7 +16682,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 75},
 		contestType: "Tough",
 	},
-	selfdestruct: {
+	selfdestruct: { // updated
 		num: 120,
 		accuracy: 100,
 		basePower: 200,
@@ -16591,6 +16691,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, noparentalbond: 1},
+		irritantWeather: 'DustStorm',
 		selfdestruct: "always",
 		secondary: null,
 		target: "allAdjacent",
@@ -17505,7 +17606,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Cool",
 	},
-	sleeppowder: {
+	sleeppowder: { // updated
 		num: 79,
 		accuracy: 75,
 		basePower: 0,
@@ -17515,6 +17616,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, powder: 1},
 		status: 'slp',
+		onModifyMove(move) {
+			if (this.field.isIrritantWeather(['pollinate'])) move.accuracy = true;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -17695,7 +17799,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Tough",
 	},
-	smog: {
+	smog: { // updated
 		num: 123,
 		accuracy: 70,
 		basePower: 30,
@@ -17704,6 +17808,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move) {
+			if (this.field.isIrritantWeather(['smogspread'])) move.accuracy = true;
+		},
 		secondary: {
 			chance: 40,
 			status: 'psn',
@@ -17858,7 +17965,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 		contestType: "Cute",
 	},
-	snowscape: {
+	snowscape: { // updated
 		num: 883,
 		accuracy: true,
 		basePower: 0,
@@ -18452,7 +18559,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Cool",
 	},
-	spore: {
+	spore: { // updated
 		num: 147,
 		accuracy: 100,
 		basePower: 0,
@@ -18462,6 +18569,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, powder: 1},
 		status: 'slp',
+		onModifyMove(move) {
+			if (this.field.isIrritantWeather(['pollinate'])) move.accuracy = true;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -18880,7 +18990,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 	},
-	strength: {
+	strength: { // updated
 		num: 70,
 		accuracy: 100,
 		basePower: 80,
@@ -18891,7 +19001,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		secondary: null,
 		target: "normal",
-		type: "Normal",
+		type: "Fighting",
 		contestType: "Tough",
 	},
 	strengthsap: {
@@ -18999,7 +19109,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "self",
 		type: "Normal",
 	},
-	stunspore: {
+	stunspore: { // updated
 		num: 78,
 		accuracy: 75,
 		basePower: 0,
@@ -19009,6 +19119,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1, powder: 1},
 		status: 'par',
+		onModifyMove(move) {
+			if (this.field.isIrritantWeather(['pollinate'])) move.accuracy = true;
+		},
 		secondary: null,
 		target: "normal",
 		type: "Grass",
@@ -20068,7 +20181,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {basePower: 160},
 		maxMove: {basePower: 130},
 	},
-	thief: {
+	thief: { // updated
 		num: 168,
 		accuracy: 100,
 		basePower: 60,
@@ -20213,7 +20326,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		contestType: "Clever",
 	},
-	thunder: {
+	thunder: { // updated
 		num: 87,
 		accuracy: 70,
 		basePower: 110,
@@ -20231,6 +20344,16 @@ export const Moves: {[moveid: string]: MoveData} = {
 			case 'sunnyday':
 			case 'desolateland':
 				move.accuracy = 50;
+				break;
+			}
+			switch (target?.effectiveEnergyWeather()) {
+			case 'supercell':
+				move.accuracy = true;
+				break;
+			}
+			switch (target?.effectiveClearingWeather()) {
+			case 'strongwinds':
+				move.accuracy = true;
 				break;
 			}
 		},
@@ -20736,7 +20859,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {atk: 1, def: 1, spa: 1, spd: 1, spe: 1}},
 		contestType: "Cute",
 	},
-	trickroom: {
+	trickroom: { // updated
 		num: 433,
 		accuracy: true,
 		basePower: 0,
@@ -20749,6 +20872,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
+				if (this.field.isEnergyWeather('daydream')) {
+					return 8;
+				}
 				if (source?.hasAbility('persistent')) {
 					this.add('-activate', source, 'ability: Persistent', '[move] Trick Room');
 					return 7;
@@ -20836,10 +20962,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Water",
 	},
-	triplekick: {
+	triplekick: { // updated
 		num: 167,
 		accuracy: 90,
-		basePower: 10,
+		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
 			return 10 * move.hit;
 		},
@@ -21262,16 +21388,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 		contestType: "Cool",
 	},
-	volttackle: {
+	volttackle: { // updated
 		num: 344,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 150,
 		category: "Physical",
 		name: "Volt Tackle",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		recoil: [33, 100],
+		onTry(source, target, move) {
+			if (source.species.name === 'Pikachu' || move.hasBounced) {
+				return;
+			}
+			this.add('-fail', source, 'move: Volt Tackle');
+			this.hint("Only a Pokemon whose form is Pikachu can use this move.");
+			return null;
+		},
+		noSketch: true,
 		secondary: {
 			chance: 10,
 			status: 'par',
@@ -21739,17 +21874,20 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Electric",
 	},
-	wildcharge: {
+	wildcharge: { // updated
 		num: 528,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 120,
 		category: "Physical",
 		name: "Wild Charge",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		recoil: [1, 4],
-		secondary: null,
+		recoil: [33, 100],
+		secondary: {
+			chance: 10,
+			status: 'par',
+		},
 		target: "normal",
 		type: "Electric",
 		contestType: "Tough",
@@ -21833,7 +21971,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Cute",
 	},
-	wonderroom: {
+	wonderroom: { // updated
 		num: 472,
 		accuracy: true,
 		basePower: 0,
@@ -21846,6 +21984,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(source, effect) {
+				if (this.field.isEnergyWeather('daydream')) {
+					return 8;
+				}
 				if (source?.hasAbility('persistent')) {
 					this.add('-activate', source, 'ability: Persistent', '[move] Wonder Room');
 					return 7;
