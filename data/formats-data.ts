@@ -2051,7 +2051,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	},
 	pelipper: {
 		tier: "OU",
-		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},

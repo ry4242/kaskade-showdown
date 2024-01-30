@@ -8923,7 +8923,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onModifyType(move, pokemon) {
 			move.type = pokemon.hpType || 'Dark';
 		},
-		onPrepareHit(source, target, move) {
+		/* onPrepareHit(source, target, move) {
 			let type = '???';
 			const typeArray = [];
 			const fullArray = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying',
@@ -8937,7 +8937,25 @@ export const Moves: {[moveid: string]: MoveData} = {
 				const diceRoll = this.random(typeArray.length);
 				type = typeArray[diceRoll];
 			}
-		},
+		}, */
+		onPrepareHit(target, source, move) {
+            const possibleTypes = [];
+            const targetType = target.getTypes();
+            for (const type of this.dex.types.names()) {
+                const typeCheck = this.dex.getEffectiveness(type, targetType);
+                    if (typeCheck === 1 ) {
+                    possibleTypes.push(type);
+                }
+            }
+            if (!possibleTypes.length) {
+                return false;
+            }
+            const randomType = this.sample(possibleTypes);
+
+            if (!source.setType(randomType)) return false;
+            this.add('-start', source, 'typechange', randomType);
+            move.type = randomType;
+},
 		onTry(source, target, move) {
 			if (source.baseSpecies.name === 'Unown' || move.hasBounced) {
 				return;
