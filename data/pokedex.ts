@@ -21961,7 +21961,6 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Green",
 		eggGroups: ["Amorphous"],
 	},
-
 	botnyak: {
 		num: 10110,
 		name: "Botnyak",

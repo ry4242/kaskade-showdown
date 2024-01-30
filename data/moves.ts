@@ -8939,23 +8939,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		}, */
 		onPrepareHit(target, source, move) {
-            const possibleTypes = [];
-            const targetType = target.getTypes();
-            for (const type of this.dex.types.names()) {
-                const typeCheck = this.dex.getEffectiveness(type, targetType);
-                    if (typeCheck === 1 ) {
-                    possibleTypes.push(type);
-                }
-            }
-            if (!possibleTypes.length) {
-                return false;
-            }
-            const randomType = this.sample(possibleTypes);
+			const possibleTypes = [];
+			const targetType = target.getTypes();
+			for (const type of this.dex.types.names()) {
+				const typeCheck = this.dex.getEffectiveness(type, targetType);
+				if (typeCheck === 1) {
+					possibleTypes.push(type);
+				}
+			}
+			if (!possibleTypes.length) {
+				return false;
+			}
+			const randomType = this.sample(possibleTypes);
 
-            if (!source.setType(randomType)) return false;
-            this.add('-start', source, 'typechange', randomType);
-            move.type = randomType;
-},
+			if (!source.setType(randomType)) return false;
+			this.add('-start', source, 'typechange', randomType);
+			move.type = randomType;
+		},
 		onTry(source, target, move) {
 			if (source.baseSpecies.name === 'Unown' || move.hasBounced) {
 				return;
