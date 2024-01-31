@@ -744,7 +744,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cute",
 	},
 	auraspark: {
-		num: -9,
+		num: 922,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -1044,7 +1044,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Tough",
 	},
 	battlecry: {
-		num: -8,
+		num: 921,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -1516,6 +1516,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		clearingWeather: 'StrongWinds',
+		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Flying",
 	},
@@ -10295,6 +10296,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
+	kihop: {
+		num: 923,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Ki-hop",
+		pp: 25,
+		priority: 0,
+		flags: {sound: 1, protect: 1, mirror: 1, metronome: 1, bypasssub: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
 	kinesis: {
 		num: 134,
 		accuracy: 80,
@@ -16388,6 +16402,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		irritantWeather: 'sandstorm',
+		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Ground",
 	},
@@ -17954,7 +17969,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 	},
 	snooze: {
-		num: -7,
+		num: 920,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -18653,6 +18668,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
 		irritantWeather: 'sprinkle',
+		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Fairy",
 	},
@@ -21900,6 +21916,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		energyWeather: 'supercell',
+		secondary: null,
 		target: "allAdjacentFoes",
 		type: "Electric",
 	},
