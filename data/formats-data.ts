@@ -7193,7 +7193,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "CAP",
 		tier: "CAP",
 	},
-	cresceidon:{
+	cresceidon: {
 		isNonstandard: "CAP",
 		tier: "CAP",
 	},
