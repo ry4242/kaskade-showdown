@@ -739,9 +739,9 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 				if ((source.isAlly(parryHolder) || move.target === 'all') &&
 					(!source.hasAbility('innerfocus') || !source.hasAbility('shielddust') ||
 					!source.hasAbility('steadfast') || !source.hasItem('covertcloak') ||
-					!source.hasAbility('sandveil') && !this.field.isWeather('sandstorm') ||
-					!source.hasAbility('sunblock') && !this.field.isWeather('sunnyday') ||
-					!source.hasAbility('snowcloak') && !this.field.isWeather('snow')) &&
+					!source.hasAbility('sandveil') && !this.field.isClimateWeather('sandstorm') ||
+					!source.hasAbility('sunblock') && !this.field.isClimateWeather('sunnyday') ||
+					!source.hasAbility('snowcloak') && !this.field.isClimateWeather('snow')) &&
 					move.priority > 0.1) {
 					this.attrLastMove('[still]');
 					this.add('cant', parryHolder, 'move: Parry', move, '[of] ' + target);
@@ -892,7 +892,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 			}
 			this.add('-prepare', attacker, move.name);
 			this.boost({spa: 1}, attacker, attacker, move);
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -1071,7 +1071,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		condition: {
 			duration: 1,
 			onStart(source) {
-				this.field.setWeather('sandstorm');
+				this.field.setClimateWeather('sandstorm');
 			},
 		},
 		secondary: null,

@@ -955,13 +955,13 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
-			if (pokemon.baseSpecies.num === 671 && this.field.isWeather('sandstorm')) {
+			if (pokemon.baseSpecies.num === 671 && this.field.isClimateWeather('sandstorm')) {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.num === 671 && this.field.isWeather('sandstorm')) {
+			if (pokemon.baseSpecies.num === 671 && this.field.isClimateWeather('sandstorm')) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -1019,19 +1019,19 @@ export const Items: {[itemid: string]: ModdedItemData} = {
 			if (pokemon.transformed) return;
 			if (this.queue.peek(true)?.choice === 'runSwitch') return;
 			if (pokemon.hasAbility('protosynthesis') && !pokemon.volatiles['protosynthesis'] &&
-				 !this.field.isWeather('sunnyday') && pokemon.useItem()) {
+				 !this.field.isClimateWeather('sunnyday') && pokemon.useItem()) {
 				pokemon.addVolatile('protosynthesis');
 			}
 			if (pokemon.hasAbility('protosmosis') && !pokemon.volatiles['protosmosis'] &&
-				 !this.field.isWeather('raindance') && pokemon.useItem()) {
+				 !this.field.isClimateWeather('raindance') && pokemon.useItem()) {
 				pokemon.addVolatile('protosmosis');
 			}
 			if (pokemon.hasAbility('protocrysalis') && !pokemon.volatiles['protocrysalis'] &&
-				 !this.field.isWeather('sandstorm') && pokemon.useItem()) {
+				 !this.field.isClimateWeather('sandstorm') && pokemon.useItem()) {
 				pokemon.addVolatile('protocrysalis');
 			}
 			if (pokemon.hasAbility('protostasis') && !pokemon.volatiles['protostasis'] &&
-				 !this.field.isWeather('snow') && pokemon.useItem()) {
+				 !this.field.isClimateWeather('snow') && pokemon.useItem()) {
 				pokemon.addVolatile('protostasis');
 			}
 			if (pokemon.hasAbility('quarkdrive') && !pokemon.volatiles['quarkdrive'] &&

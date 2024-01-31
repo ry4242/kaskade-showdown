@@ -228,7 +228,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	earthforce: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				this.debug('Earth Force boost');
 				return this.chainModify([0x14CD, 0x1000]);
 			}
@@ -316,7 +316,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 			}
 		},
 		condition: {},
-		suppressWeather: true,
+		suppressClimateWeather: true,
 		name: "Cloud Nine",
 		shortDesc: "While this Pokemon is active, the effects of weathers and terrains are disabled.",
 		rating: 2,
@@ -521,10 +521,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
-		onWeatherChange(pokemon) {
+		onClimateWeatherChange(pokemon) {
 			if (pokemon.transformed) return;
 			// Protosmosis is not affected by Utility Umbrella
-			if (this.field.isWeather('raindance')) {
+			if (this.field.isClimateWeather('raindance')) {
 				pokemon.addVolatile('protosmosis');
 			} else if (!pokemon.volatiles['protosmosis']?.fromBooster) {
 				pokemon.removeVolatile('protosmosis');
@@ -587,10 +587,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
-		onWeatherChange(pokemon) {
+		onClimateWeatherChange(pokemon) {
 			if (pokemon.transformed) return;
 			// Protocrysalis is not affected by Utility Umbrella
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				pokemon.addVolatile('protocrysalis');
 			} else if (!pokemon.volatiles['protocrysalis']?.fromBooster) {
 				pokemon.removeVolatile('protocrysalis');
@@ -653,10 +653,10 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
-		onWeatherChange(pokemon) {
+		onClimateWeatherChange(pokemon) {
 			if (pokemon.transformed) return;
 			// Protostasis is not affected by Utility Umbrella
-			if (this.field.isWeather('snow')) {
+			if (this.field.isClimateWeather('snow')) {
 				pokemon.addVolatile('protostasis');
 			} else if (!pokemon.volatiles['protostasis']?.fromBooster) {
 				pokemon.removeVolatile('protostasis');
@@ -740,13 +740,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sunblock: {
 		name: "Sunblock",
 		onDamage(damage, target, source, effect) {
-			if (effect.effectType !== 'Move' && this.field.isWeather('sunnyday')) {
+			if (effect.effectType !== 'Move' && this.field.isClimateWeather('sunnyday')) {
 				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
 				return false;
 			}
 		},
 		onModifySecondaries(secondaries) {
-			if (this.field.isWeather('sunnyday')) {
+			if (this.field.isClimateWeather('sunnyday')) {
 				this.debug('Sunblock prevent secondary');
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
@@ -757,13 +757,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	sandveil: {
 		name: "Sand Veil",
 		onDamage(damage, target, source, effect) {
-			if (effect.effectType !== 'Move' && this.field.isWeather('sandstorm')) {
+			if (effect.effectType !== 'Move' && this.field.isClimateWeather('sandstorm')) {
 				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
 				return false;
 			}
 		},
 		onModifySecondaries(secondaries) {
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isClimateWeather('sandstorm')) {
 				this.debug('Snow Cloak prevent secondary');
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
@@ -778,13 +778,13 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	snowcloak: {
 		name: "Snow Cloak",
 		onDamage(damage, target, source, effect) {
-			if (effect.effectType !== 'Move' && this.field.isWeather(['hail', 'snow'])) {
+			if (effect.effectType !== 'Move' && this.field.isClimateWeather(['hail', 'snow'])) {
 				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
 				return false;
 			}
 		},
 		onModifySecondaries(secondaries) {
-			if (this.field.isWeather(['hail', 'snow'])) {
+			if (this.field.isClimateWeather(['hail', 'snow'])) {
 				this.debug('Snow Cloak prevent secondary');
 				return secondaries.filter(effect => !!(effect.self || effect.dustproof));
 			}
@@ -1554,7 +1554,7 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		shortDesc: "This Pokemon's healing moves have their priority increased by 1.",
 	},
 	icebody: {
-		onWeather(target, source, effect) {
+		onClimateWeather(target, source, effect) {
 			if (effect.id === 'hail' || effect.id === 'snow') {
 				this.heal(target.baseMaxhp / 32);
 			}

@@ -1542,8 +1542,8 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			const allowedAbilities: string[] = [];
 			for (const abilityString of curSet.ability) {
 				const ability = this.dex.abilities.get(abilityString);
-				if (weatherAbilitiesRequire[ability.id] && teamData.weather !== weatherAbilitiesRequire[ability.id]) continue;
-				if (teamData.weather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
+				if (weatherAbilitiesRequire[ability.id] && teamData.climateWeather !== weatherAbilitiesRequire[ability.id]) continue;
+				if (teamData.climateWeather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
 				allowedAbilities.push(abilityString);
 			}
 			if (allowedAbilities.length === 0) continue;
