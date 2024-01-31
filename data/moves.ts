@@ -1066,12 +1066,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'psn' || target.status === 'tox') {
+			if (target.status) {
 				return this.chainModify(2);
 			}
 		},
 		secondary: {
-			chance: 50,
+			chance: 20,
 			status: 'psn',
 		},
 		target: "normal",
@@ -1418,11 +1418,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status) {
+				return this.chainModify(2);
+			}
+		},
 		secondary: {
-			chance: 100,
-			boosts: {
-				atk: -1,
-			},
+			chance: 20,
+			status: 'frb',
 		},
 		target: "normal",
 		type: "Ghost",
@@ -1512,12 +1515,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.accuracy = true;
 			}
 		},
-		secondary: {
-			chance: 30,
-			boosts: {
-				spe: -1,
-			},
-		},
+		clearingWeather: 'StrongWinds',
 		target: "allAdjacentFoes",
 		type: "Flying",
 	},
@@ -2289,12 +2287,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 	ceaselessedge: {
 		num: 845,
 		accuracy: 90,
-		basePower: 65,
+		basePower: 70,
 		category: "Physical",
 		name: "Ceaseless Edge",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		critRatio: 1,
 		onAfterHit(target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
 				for (const side of source.side.foeSidesWithConditions()) {
@@ -3419,6 +3418,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 30,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
+		critRatio: 2,
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -3587,6 +3587,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 				}
 			}
 			this.field.clearTerrain();
+			if (this.field.isClimateWeather('foghorn')) {
+				this.field.clearClimateWeather();
+			}
 			return success;
 		},
 		secondary: null,
@@ -4410,7 +4413,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
 		drain: [1, 2],
 		onTryImmunity(target) {
-			return target.status === 'slp' || target.hasAbility('comatose');
+			return target.status === 'slp' || target.hasAbility('comatose') || ['daydream'].includes(target.effectiveEnergyWeather());
 		},
 		secondary: null,
 		target: "normal",
@@ -4807,7 +4810,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.add('-prepare', attacker, move.name);
 			this.boost({spa: 1}, attacker, attacker, move);
-			if (['raindance', 'primordialsea', 'supercell'].includes(attacker.effectiveClimateWeather())) {
+			if (['raindance', 'primordialsea'].includes(attacker.effectiveClimateWeather()) || ['supercell'].includes(attacker.effectiveEnergyWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -6113,6 +6116,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
+			if (['strongwinds'].includes(attacker.effectiveClearingWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
@@ -6230,7 +6238,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				this.add('-singleturn', pokemon, 'move: Focus Punch');
 			},
 			onHit(pokemon, source, move) {
-				if (move.category !== 'Status' || this.field.isEnergyWeather('auraprojection')) {
+				if (move.category !== 'Status' && !this.field.isEnergyWeather('auraprojection')) {
 					this.effectState.lostFocus = true;
 				}
 			},
@@ -6715,7 +6723,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, bypasssub: 1, metronome: 1},
 		onHitSide(side, source, move) {
 			const targets = side.allies().filter(target => (
-				target.hasAbility(['plus', 'minus']) &&
+				(target.hasAbility(['plus', 'minus']) || this.field.isEnergyWeather('magnetize')) &&
 				(!target.volatiles['maxguard'] || this.runEvent('TryHit', target, source, move))
 			));
 			if (!targets.length) return false;
@@ -6887,7 +6895,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		name: "Glaive Rush",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
 		self: {
 			volatileStatus: 'glaiverush',
 		},
@@ -11283,7 +11291,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, distance: 1, bypasssub: 1, metronome: 1},
 		onHitSide(side, source, move) {
 			const targets = side.allies().filter(ally => (
-				ally.hasAbility(['plus', 'minus']) &&
+				(ally.hasAbility(['plus', 'minus']) || this.field.isEnergyWeather('magnetize')) &&
 				(!ally.volatiles['maxguard'] || this.runEvent('TryHit', ally, source, move))
 			));
 			if (!targets.length) return false;
@@ -12581,7 +12589,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			duration: 5,
 			durationCallback(target, source, effect) {
-				if (this.field.isClimateWeather('foghorn')) {
+				if (this.field.isClimateWeather('foghorn') || this.field.isClimateWeather('hail')) {
 					return 8;
 				}
 				return 5;
@@ -13087,7 +13095,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
-	naturalgift: {
+	naturalgift: { //not sure how to update this one
 		num: 363,
 		accuracy: 100,
 		basePower: 0,
@@ -14306,7 +14314,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
 			chance: 10,
-			status: 'frB',
+			status: 'frb',
 		},
 		target: "allAdjacentFoes",
 		type: "Ice",
@@ -15429,7 +15437,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	razorwind: {
 		num: 13,
 		accuracy: 100,
-		basePower: 80,
+		basePower: 90,
 		category: "Special",
 		isNonstandard: "Past",
 		name: "Razor Wind",
@@ -15441,6 +15449,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
+			if (['strongwinds'].includes(attacker.effectiveClearingWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
@@ -15450,7 +15463,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		critRatio: 2,
 		secondary: null,
 		target: "allAdjacentFoes",
-		type: "Normal",
+		type: "Flying",
 		contestType: "Cool",
 	},
 	recover: {
@@ -16374,10 +16387,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.accuracy = true;
 			}
 		},
-		secondary: {
-			chance: 20,
-			status: 'brn',
-		},
+		irritantWeather: 'sandstorm',
 		target: "allAdjacentFoes",
 		type: "Ground",
 	},
@@ -17422,19 +17432,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	skyattack: {
 		num: 143,
-		accuracy: 90,
+		accuracy: 95,
 		basePower: 140,
 		category: "Physical",
 		name: "Sky Attack",
 		pp: 5,
 		priority: 0,
 		flags: {charge: 1, protect: 1, mirror: 1, distance: 1, metronome: 1, nosleeptalk: 1, failinstruct: 1},
-		critRatio: 2,
 		onTryMove(attacker, defender, move) {
 			if (attacker.removeVolatile(move.id)) {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
+			if (['strongwinds'].includes(attacker.effectiveClearingWeather())) {
+				this.attrLastMove('[still]');
+				this.addMove('-anim', attacker, move.name, defender);
+				return;
+			}
 			if (!this.runEvent('ChargeMove', attacker, defender, move)) {
 				return;
 			}
@@ -17442,7 +17456,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			return null;
 		},
 		secondary: {
-			chance: 30,
+			chance: 10,
 			volatileStatus: 'flinch',
 		},
 		target: "any",
@@ -17452,7 +17466,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	skydrop: {
 		num: 507,
 		accuracy: 100,
-		basePower: 60,
+		basePower: 70,
 		category: "Physical",
 		isNonstandard: "Past",
 		name: "Sky Drop",
@@ -18638,12 +18652,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
-		secondary: {
-			chance: 30,
-			boosts: {
-				atk: -1,
-			},
-		},
+		irritantWeather: 'sprinkle',
 		target: "allAdjacentFoes",
 		type: "Fairy",
 	},
@@ -20208,6 +20217,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 25,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, failmefirst: 1, noassist: 1, failcopycat: 1},
+		onModifyPriority(priority, source, target, move) {
+			if (this.field.isClimateWeather('bloodmoon')) {
+				return priority + 1;
+			}
+		},
 		onAfterHit(target, source, move) {
 			if (source.item || source.volatiles['gem']) {
 				return;
@@ -20985,7 +20999,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 90,
 		basePower: 20,
 		basePowerCallback(pokemon, target, move) {
-			return 10 * move.hit;
+			return 20 * move.hit;
 		},
 		category: "Physical",
 		name: "Triple Kick",
@@ -21885,10 +21899,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.accuracy = true;
 			}
 		},
-		secondary: {
-			chance: 20,
-			status: 'par',
-		},
+		energyWeather: 'supercell',
 		target: "allAdjacentFoes",
 		type: "Electric",
 	},
@@ -22209,6 +22220,9 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, pulse: 1, mirror: 1, metronome: 1, bullet: 1},
+		onModifyMove(move) {
+			if (this.field.isEnergyWeather('supercell')) move.accuracy = true;
+		},
 		secondary: {
 			chance: 100,
 			status: 'par',
