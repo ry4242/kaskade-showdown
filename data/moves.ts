@@ -22249,7 +22249,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	// swse
 
 	auraprojection: {
-		num: -8,
+		num: 983,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22289,7 +22289,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 	},
 	bloodmoon: {
-		num: -1,
+		num: 980,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22303,7 +22303,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 	},
 	daydream: {
-		num: -10,
+		num: 991,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22317,7 +22317,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 	},
 	dragonforce: {
-		num: -11,
+		num: 992,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22331,7 +22331,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 	},
 	duststorm: {
-		num: -3,
+		num: 987,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22345,7 +22345,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 	},
 	foghorn: {
-		num: -2,
+		num: 979,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22359,7 +22359,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 	},
 	haunt: {
-		num: -9,
+		num: 986,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22373,7 +22373,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 	},
 	initiative: {
-		num: -100,
+		num: 964,
 		accuracy: true,
 		basePower: 0,
 		category: 'Status',
@@ -22470,7 +22470,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 	},
 	magnetize: {
-		num: -13,
+		num: 989,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22484,7 +22484,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},
 	pollinate: {
-		num: -4,
+		num: 982,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22498,7 +22498,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 	},
 	smogspread: {
-		num: -6,
+		num: 981,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22535,7 +22535,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 	},
 	sprinkle: {
-		num: -7,
+		num: 990,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22549,7 +22549,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 	},
 	strongwinds: {
-		num: -13,
+		num: 985,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22563,7 +22563,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 	},
 	supercell: {
-		num: -12,
+		num: 984,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22577,7 +22577,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 	},
 	swarmsignal: {
-		num: -5,
+		num: 988,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
