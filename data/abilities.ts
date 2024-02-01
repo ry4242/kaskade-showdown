@@ -310,13 +310,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: 188,
 	},
-	baddreams: {
+	baddreams: { // updated
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
-				if (target.status === 'slp' || target.hasAbility('comatose')) {
+				if (target.status === 'slp' || target.hasAbility('comatose') ||
+					this.field.isEnergyWeather('daydream')) {
 					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			}
