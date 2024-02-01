@@ -736,7 +736,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 				this.debug('Boosted further by Strong Winds');
 				return priority + 1;
 			}
-			if (move?.type === 'Dark' && move.category === 'Status' || (move.id === 'thief')) return priority + 1;
+			if (move?.type === 'Dark' && move.category === 'Status') return priority + 1;
 		},
 		onFieldStart(field, source, effect) {
 			if (this.field.isClearingWeather('strongwinds')) {

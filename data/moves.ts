@@ -743,19 +743,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	auraspark: {
-		num: 922,
-		accuracy: 100,
-		basePower: 40,
-		category: "Special",
-		name: "Aura Spark",
-		pp: 35,
-		priority: 0,
-		flags: {protect: 1, mirror: 1},
-		secondary: null,
-		target: "normal",
-		type: "Fighting",
-	},
 	aurasphere: {
 		num: 396,
 		accuracy: true,
@@ -1042,19 +1029,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
-	},
-	battlecry: {
-		num: 921,
-		accuracy: 100,
-		basePower: 40,
-		category: "Special",
-		name: "Battle Cry",
-		pp: 35,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
-		secondary: null,
-		target: "allAdjacentFoes",
-		type: "Normal",
 	},
 	barbbarrage: {
 		num: 839,
@@ -1501,7 +1475,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	bleakwindstorm: {
+	bleakwindstorm: { // updated
 		num: 846,
 		accuracy: 80,
 		basePower: 100,
@@ -3556,7 +3530,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {accuracy: 1}},
 		contestType: "Cute",
 	},
-	defog: {
+	defog: { // updated
 		num: 432,
 		accuracy: true,
 		basePower: 0,
@@ -4403,7 +4377,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
-	dreameater: {
+	dreameater: { // updated
 		num: 138,
 		accuracy: 100,
 		basePower: 100,
@@ -4414,7 +4388,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, heal: 1, metronome: 1},
 		drain: [1, 2],
 		onTryImmunity(target) {
-			return target.status === 'slp' || target.hasAbility('comatose') || ['daydream'].includes(target.effectiveEnergyWeather());
+			return target.status === 'slp' || target.hasAbility('comatose') ||
+			!this.field.isEnergyWeather('daydream');
 		},
 		secondary: null,
 		target: "normal",
@@ -4811,7 +4786,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 			this.add('-prepare', attacker, move.name);
 			this.boost({spa: 1}, attacker, attacker, move);
-			if (['raindance', 'primordialsea'].includes(attacker.effectiveClimateWeather()) || ['supercell'].includes(attacker.effectiveEnergyWeather())) {
+			if (['raindance', 'primordialsea'].includes(attacker.effectiveClimateWeather()) ||
+				['supercell'].includes(attacker.effectiveEnergyWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -6100,7 +6076,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Grass",
 	},
-	fly: {
+	fly: { // updated
 		num: 19,
 		accuracy: 95,
 		basePower: 90,
@@ -6712,7 +6688,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		maxMove: {basePower: 130},
 		contestType: "Clever",
 	},
-	gearup: {
+	gearup: { // updated
 		num: 674,
 		accuracy: true,
 		basePower: 0,
@@ -6888,7 +6864,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 		contestType: "Beautiful",
 	},
-	glaiverush: {
+	glaiverush: { // updated
 		num: 862,
 		accuracy: 100,
 		basePower: 120,
@@ -10296,19 +10272,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
-	kihop: {
-		num: 923,
-		accuracy: 100,
-		basePower: 65,
-		category: "Special",
-		name: "Ki-hop",
-		pp: 25,
-		priority: 0,
-		flags: {sound: 1, protect: 1, mirror: 1, metronome: 1, bypasssub: 1},
-		secondary: null,
-		target: "normal",
-		type: "Fighting",
-	},
 	kinesis: {
 		num: 134,
 		accuracy: 80,
@@ -11294,7 +11257,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		contestType: "Cool",
 	},
-	magneticflux: {
+	magneticflux: { // updated
 		num: 602,
 		accuracy: true,
 		basePower: 0,
@@ -12590,7 +12553,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 		contestType: "Beautiful",
 	},
-	mist: {
+	mist: { // updated
 		num: 54,
 		accuracy: true,
 		basePower: 0,
@@ -13109,7 +13072,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
-	naturalgift: { //not sure how to update this one
+	naturalgift: { //not sure how to update this one, incomplete
 		num: 363,
 		accuracy: 100,
 		basePower: 0,
@@ -13243,7 +13206,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 		contestType: "Cool",
 	},
-	nightmare: {
+	nightmare: { // updated
 		num: 171,
 		accuracy: 100,
 		basePower: 0,
@@ -13257,7 +13220,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			noCopy: true,
 			onStart(pokemon) {
-				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose')) {
+				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') &&
+				!this.field.isEnergyWeather('daydream')) {
 					return false;
 				}
 				this.add('-start', pokemon, 'Nightmare');
@@ -15448,7 +15412,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 		contestType: "Cool",
 	},
-	razorwind: {
+	razorwind: { // updated
 		num: 13,
 		accuracy: 100,
 		basePower: 90,
@@ -16387,7 +16351,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {evasion: 1}},
 		contestType: "Cute",
 	},
-	sandsearstorm: {
+	sandsearstorm: { // updated
 		num: 848,
 		accuracy: 80,
 		basePower: 100,
@@ -17478,7 +17442,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	skydrop: {
+	skydrop: { // incomplete
 		num: 507,
 		accuracy: 100,
 		basePower: 70,
@@ -17967,29 +17931,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Water",
-	},
-	snooze: {
-		num: 920,
-		accuracy: true,
-		basePower: 0,
-		category: "Status",
-		name: "Snooze",
-		pp: 10,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, heal: 1, bypasssub: 1},
-		volatileStatus: 'yawn',
-		onTryHit(source, target) {
-			if (target.status || !target.runStatusImmunity('slp')) {
-				return false;
-			}
-		},
-		onTry(source) {
-			source.heal(source.baseMaxhp / 2, source);
-			source.addVolatile('yawn');
-		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
 	},
 	snore: {
 		num: 173,
@@ -18658,7 +18599,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
 	},
-	springtidestorm: {
+	springtidestorm: { // updated
 		num: 831,
 		accuracy: 80,
 		basePower: 100,
@@ -21901,7 +21842,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {def: 1}},
 		contestType: "Tough",
 	},
-	wildboltstorm: {
+	wildboltstorm: { // updated
 		num: 847,
 		accuracy: 80,
 		basePower: 100,
@@ -22321,6 +22262,32 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Fighting",
 	},
+	auraspark: {
+		num: 922,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Aura Spark",
+		pp: 35,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
+	battlecry: {
+		num: 921,
+		accuracy: 100,
+		basePower: 40,
+		category: "Special",
+		name: "Battle Cry",
+		pp: 35,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, sound: 1, bypasssub: 1},
+		secondary: null,
+		target: "allAdjacentFoes",
+		type: "Normal",
+	},
 	bloodmoon: {
 		num: -1,
 		accuracy: true,
@@ -22489,6 +22456,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Dragon",
 	},
+	kihop: {
+		num: 923,
+		accuracy: 100,
+		basePower: 65,
+		category: "Special",
+		name: "Ki-hop",
+		pp: 25,
+		priority: 0,
+		flags: {sound: 1, protect: 1, mirror: 1, metronome: 1, bypasssub: 1},
+		secondary: null,
+		target: "normal",
+		type: "Fighting",
+	},
 	magnetize: {
 		num: -13,
 		accuracy: true,
@@ -22530,6 +22510,29 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "all",
 		type: "Poison",
+	},
+	snooze: {
+		num: 920,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Snooze",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, heal: 1, bypasssub: 1},
+		volatileStatus: 'yawn',
+		onTryHit(source, target) {
+			if (target.status || !target.runStatusImmunity('slp')) {
+				return false;
+			}
+		},
+		onTry(source) {
+			source.heal(source.baseMaxhp / 2, source);
+			source.addVolatile('yawn');
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
 	},
 	sprinkle: {
 		num: -7,
