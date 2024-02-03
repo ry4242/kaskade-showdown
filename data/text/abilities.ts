@@ -2366,8 +2366,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		desc: "If Magnetosphere is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
 		shortDesc: "If Magnetosphere is active, this Pokemon's Speed is doubled.",
 	},
-	haunting: {
-		name: "Haunting",
+	shadowstep: {
+		name: "Shadow Step",
 		desc: "If Blood Moon is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "If Blood Moon is active, this Pokemon's Speed is doubled.",
 	},

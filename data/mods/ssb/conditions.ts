@@ -1968,20 +1968,20 @@ export const Conditions: {[k: string]: ModdedConditionData & {innateName?: strin
 		},
 	},
 	// For ravioliqueen
-	haunting: {
-		name: 'Haunting',
+	stupid: {
+		name: 'Stupid',
 		onTrapPokemon(pokemon) {
 			pokemon.tryTrap();
 		},
 		onStart(target) {
-			this.add('-start', target, 'Haunting');
+			this.add('-start', target, 'Stupid');
 		},
 		onResidualOrder: 11,
 		onResidual(pokemon) {
 			this.damage(pokemon.baseMaxhp / 8);
 		},
 		onEnd(pokemon) {
-			this.add('-end', pokemon, 'Haunting');
+			this.add('-end', pokemon, 'Stupid');
 		},
 	},
 	// for pants' move

@@ -3857,7 +3857,7 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 		},
 		secondary: {
 			chance: 50,
-			volatileStatus: 'haunting',
+			volatileStatus: 'stupid',
 		},
 		target: "normal",
 		type: "Ghost",

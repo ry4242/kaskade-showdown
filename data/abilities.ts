@@ -6391,14 +6391,14 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: -31,
 	},
-	haunting: {
+	shadowstep: {
 		onModifySpe(spe, pokemon) {
 			if (this.field.isClimateWeather('bloodmoon') || this.field.isEnergyWeather('haunt')) {
 				return this.chainModify(2);
 			}
 		},
 		flags: {},
-		name: "Haunting",
+		name: "Shadow Step",
 		rating: 3,
 		num: -17,
 	},
@@ -6922,7 +6922,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -32,
 	},
-	warpmist: {
+	warpmist: { // incomplete, needs testing
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, source, pokemon) {
 			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
@@ -6936,8 +6936,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		onTryHit(target, source, move) {
-			if (move.category === 'Status') return;
-			if (target.hasItem('ringtarget')) return;
+			if (move.category === 'Status' || target.hasItem('ringtarget')) return;
 			if (target !== source && move.ignoreImmunity) {
 				this.add('-immune', target, '[from] ability: Warp Mist');
 				this.debug('Warp Mist negate immunity');
