@@ -664,6 +664,9 @@ function generateSSBPokemonInfo(species: string, dex: ModdedDex, baseDex: Modded
 				case 'trade':
 					evos.push(`${evo.name} (trade${evo.evoItem ? ` holding ${evo.evoItem}` : condition})`);
 					break;
+				case 'weather':
+					evos.push(`${evo.name} (level-up in ${condition})`);
+					break;
 				default:
 					evos.push(`${evo.name} (${evo.evoLevel}${condition})`);
 				}

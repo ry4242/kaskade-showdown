@@ -5491,7 +5491,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	dipplin: {
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
@@ -6404,7 +6404,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	hydrapple: {
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
