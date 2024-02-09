@@ -1494,7 +1494,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "allAdjacentFoes",
 		type: "Flying",
 	},
-	blizzard: { //updated
+	blizzard: { // updated
 		num: 59,
 		accuracy: 70,
 		basePower: 110,
@@ -9368,7 +9368,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {boost: {atk: 1}},
 		contestType: "Cool",
 	},
-	hurricane: {
+	hurricane: { // updated
 		num: 542,
 		accuracy: 70,
 		basePower: 110,
@@ -13079,7 +13079,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Clever",
 	},
-	naturalgift: { //not sure how to update this one, incomplete
+	naturalgift: { // not sure how to update this one, incomplete
 		num: 363,
 		accuracy: 100,
 		basePower: 0,
@@ -17827,7 +17827,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyMove(move) {
-			if (this.field.isIrritantWeather(['smogspread'])) move.accuracy = true;
+			if (this.field.isIrritantWeather('smogspread')) move.accuracy = true;
 		},
 		secondary: {
 			chance: 40,
@@ -20347,11 +20347,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 				move.accuracy = true;
 				break;
 			}
-			switch (target?.effectiveClearingWeather()) {
-			case 'strongwinds':
-				move.accuracy = true;
-				break;
-			}
 		},
 		secondary: {
 			chance: 30,
@@ -22339,7 +22334,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Dark",
 	},
-	butterflydance: { //untested
+	butterflydance: { // untested
 		num: 934,
 		accuracy: 100,
 		basePower: 65,
@@ -22364,7 +22359,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 	},
-	cidercannnon: { //untested
+	cidercannnon: { // untested
 		num: 952,
 		accuracy: true,
 		basePower: 0,
@@ -22374,7 +22369,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, metronome: 1, heal: 1},
 		onHit(target, source, move) {
-			source.heal(source.baseMaxhp/4, source, move);
+			source.heal(source.baseMaxhp / 4, source, move);
 			source.clearStatus();
 		},
 		boosts: {
@@ -22434,7 +22429,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	conduction: { //untested
+	conduction: { // untested
 		num: 942,
 		accuracy: 100,
 		basePower: 90,
@@ -22444,7 +22439,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		basePowerCallback(pokemon, target, move) {
-			if (target.effectiveEnergyWeather() == 'magnetize') {
+			if (target.effectiveEnergyWeather() === 'magnetize') {
 				return move.basePower + 20;
 			}
 			return move.basePower;
@@ -22452,13 +22447,13 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: {
 			chance: 20,
 			onHit(target, source) {
-				if (source.effectiveClimateWeather() == 'sunnyday') {
+				if (source.effectiveClimateWeather() === 'sunnyday') {
 					target.trySetStatus('brn');
 				}
-				if (source.effectiveClimateWeather() == 'hail') {
+				if (source.effectiveClimateWeather() === 'hail') {
 					target.trySetStatus('frb');
 				}
-				if (source.effectiveEnergyWeather() == 'supercell') {
+				if (source.effectiveEnergyWeather() === 'supercell') {
 					target.trySetStatus('par');
 				}
 			},
@@ -22493,7 +22488,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Psychic",
 	},
-	deception: { //untested
+	deception: { // untested
 		num: 969,
 		accuracy: 90,
 		basePower: 80,
@@ -22505,15 +22500,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Fairy') return 1;
 		},
-		basePowerCallback(pokemon, target, move) {
-			if (target.effectiveClimateWeather() == 'bloodmoon' && target.effectiveIrritantWeather() == 'sprinkle') {
-				return move.basePower;
-			}else if (target.effectiveClimateWeather() == 'bloodmoon') {
-				return move.basePower + 20;
-			} else if (target.effectiveIrritantWeather() == 'sprinkle') {
-				return move.basePower / 2;
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isClimateWeather('bloodmoon') && this.field.isIrritantWeather('sprinkle')) {
+				this.debug('weather canceled out');
+				return 80;
+			} else if (this.field.isClimateWeather('bloodmoon')) {
+				this.debug('powered by blood moon');
+				return 100;
+			} else if (this.field.isIrritantWeather('sprinkle')) {
+				this.debug('powered by fairy dust');
+				return this.chainModify(0.5);
 			}
-			return move.basePower;
 		},
 		secondary: null,
 		target: "normal",
@@ -22623,7 +22620,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyMove(move, source, target) {
-			if (target?.effectiveIrritantWeather() == 'smogspread') move.accuracy = true;
+			if (target?.effectiveIrritantWeather() === 'smogspread') move.accuracy = true;
 		},
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Flying') return 1;
@@ -22635,7 +22632,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	escaperoot: { //untested
+	escaperoot: { // untested
 		num: 951,
 		accuracy: true,
 		basePower: 0,
@@ -22919,7 +22916,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	lovespray: { //untested
+	lovespray: { // untested
 		num: 971,
 		accuracy: 85,
 		basePower: 0,
@@ -22929,7 +22926,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, metronome: 1},
 		onModifyMove(move, pokemon, target) {
-			if (pokemon.effectiveIrritantWeather() == 'swarmsignal') {
+			if (pokemon.effectiveIrritantWeather() === 'swarmsignal') {
 				move.accuracy = true;
 				move.target = "allAdjacentFoes";
 			}
@@ -22937,8 +22934,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		volatileStatus: 'attract',
 		secondary: {
 			boosts: {
-				spa: -1.
-			}
+				spa: -1,
+			},
 		},
 		target: "normal",
 		type: "Fairy",
@@ -22957,7 +22954,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (attacker.effectiveClimateWeather() == 'bloodmoon') {
+			if (attacker.effectiveClimateWeather() === 'bloodmoon') {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -23000,7 +22997,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Steel",
 	},
-	mindmeld: { //untested
+	mindmeld: { // untested
 		num: 957,
 		accuracy: 80,
 		basePower: 120,
@@ -23010,14 +23007,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onModifyMove(move, pokemon, target) {
-			if (target?.effectiveEnergyWeather() == 'daydream') {
+			if (target?.effectiveEnergyWeather() === 'daydream') {
 				move.ignoreDefensive = true;
 				move.ignoreEvasion = true;
 			}
 		},
 		secondary: {
 			chance: 10,
-			volatileStatus: 'confusion'
+			volatileStatus: 'confusion',
 		},
 		target: "normal",
 		type: "Psychic",
@@ -23050,7 +23047,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			boosts: {
 				spd: -1,
 				spe: -1,
-			}
+			},
 		},
 		target: "normal",
 		type: "Dark",
@@ -23105,15 +23102,15 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1},
-		basePowerCallback(pokemon, target, move) {
-			if (target.effectiveIrritantWeather() == 'sprinkle' || target.effectiveEnergyWeather() == 'haunt') {
-				return move.basePower + 20;
+		onBasePower(basePower, pokemon, target) {
+			if (this.field.isIrritantWeather('sprinkle') || this.field.isEnergyWeather('haunt')) {
+				this.debug('base power increase');
+				return 90;
 			}
-			return move.basePower;
 		},
 		secondary: {
 			chance: 20,
-			volatileStatus: 'flinch'
+			volatileStatus: 'flinch',
 		},
 		target: "normal",
 		type: "Fairy",
@@ -23135,7 +23132,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 	},
-	pixiepunch: { //untested
+	pixiepunch: { // untested
 		num: 974,
 		accuracy: 100,
 		basePower: 65,
@@ -23145,7 +23142,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, punch: 1},
 		onModifyMove(move, pokemon, target) {
-			if (target?.effectiveIrritantWeather() == 'sprinkle') {
+			if (target?.effectiveIrritantWeather() === 'sprinkle') {
 				if (move.secondaries) {
 					for (const secondary of move.secondaries) {
 						if (secondary.chance) secondary.chance *= 2;
@@ -23157,7 +23154,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			boosts: {
 				atk: -1,
-			}
+			},
 		},
 		target: "normal",
 		type: "Fairy",
@@ -23234,7 +23231,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Rock",
 	},
-	sandblast: { //untested
+	sandblast: { // untested
 		num: 930,
 		accuracy: 100,
 		basePower: 40,
@@ -23263,7 +23260,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		basePowerCallback(pokemon, target, move) {
-			if (target.effectiveClimateWeather() == 'bloodmoon') {
+			if (target.effectiveClimateWeather() === 'bloodmoon') {
 				return move.basePower * 2;
 			}
 			return move.basePower;
@@ -23351,7 +23348,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Poison",
 	},
-	snooze: { //untested
+	snooze: { // untested
 		num: 920,
 		accuracy: true,
 		basePower: 0,
@@ -23387,7 +23384,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			chance: 30,
 			boosts: {
 				accuracy: -1,
-			}
+			},
 		},
 		target: "normal",
 		type: "Steel",
@@ -23406,7 +23403,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Fairy",
 	},
-	steelbarbs: { //untested
+	steelbarbs: { // untested
 		num: 938,
 		accuracy: true,
 		basePower: 0,
@@ -23431,7 +23428,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "foeSide",
 		type: "Steel",
 	},
-	stonestorm: { //untested
+	stonestorm: { // untested
 		num: 932,
 		accuracy: 100,
 		basePower: 40,
@@ -23463,7 +23460,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Flying",
 	},
-	sunscreen: { //untested
+	sunscreen: { // untested
 		num: 944,
 		accuracy: true,
 		basePower: 0,
@@ -23488,7 +23485,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		condition: {
 			noCopy: true,
 			onDamage(damage, target, source, effect) {
-				if (source.hasAbility('Dry Skin') && effect.effectType == "Ability") {
+				if (source.hasAbility('Dry Skin') && effect.effectType === "Ability") {
 					return false;
 				}
 			},
@@ -23601,7 +23598,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Ice",
 	},
-	wildmagic: { //untested
+	wildmagic: { // untested
 		num: 973,
 		accuracy: 90,
 		basePower: 60,
@@ -23642,7 +23639,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fairy",
 	},
-	windrage: { //untested
+	windrage: { // untested
 		num: 926,
 		accuracy: 100,
 		basePower: 120,
@@ -23700,7 +23697,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, wind: 1},
 		onModifyPriority(priority, source, target, move) {
-			if (target.effectiveClearingWeather() == 'stongwinds') {
+			if (target.effectiveClearingWeather() === 'stongwinds') {
 				return priority + 1;
 			}
 		},
