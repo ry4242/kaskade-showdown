@@ -21943,19 +21943,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		prevo: "Golett-Kaskade",
 		eggGroups: ["Mineral"],
 	},
-	rotomb: {
-		num: 10109,
-		name: "Rotomb",
-		types: ["Electric", "Ghost"],
-		baseStats: {hp: 50, atk: 108, def: 108, spa: 108, spd: 108, spe: 108},
-		abilities: {0: "Levitate", 1: "Adaptability", H: "Infiltrator"},
-		weightkg: 590,
-		color: "Green",
-		tags: ["Mythical"],
-		eggGroups: ["Amorphous"],
-	},
 	botnyak: {
-		num: 10110,
+		num: 10109,
 		name: "Botnyak",
 		types: ["Steel"],
 		baseStats: {hp: 55, atk: 30, def: 70, spa: 110, spd: 105, spe: 116},
@@ -21965,7 +21954,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Undiscovered"],
 	},
 	buwuve: {
-		num: 10111,
+		num: 10110,
 		name: "Buwuve",
 		types: ["Water"],
 		baseStats: {hp: 40, atk: 60, def: 45, spa: 40, spd: 45, spe: 70},
@@ -21976,7 +21965,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field", "Water 2"],
 	},
 	wasgrowl: {
-		num: 10112,
+		num: 10111,
 		name: "Wasgrowl",
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 60, atk: 90, def: 60, spa: 50, spd: 60, spe: 90},
@@ -21988,7 +21977,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		eggGroups: ["Field", "Water 2"],
 	},
 	worcane: {
-		num: 10113,
+		num: 10112,
 		name: "Worcane",
 		types: ["Water", "Dragon"],
 		baseStats: {hp: 80, atk: 140, def: 70, spa: 110, spd: 70, spe: 130},
@@ -21997,6 +21986,17 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		color: "Green",
 		prevo: "Wasgrowl",
 		eggGroups: ["Field", "Water 2"],
+	},
+	rotomb: {
+		num: 10113,
+		name: "Rotomb",
+		types: ["Electric", "Ghost"],
+		baseStats: {hp: 50, atk: 108, def: 108, spa: 108, spd: 108, spe: 108},
+		abilities: {0: "Levitate", 1: "Adaptability", H: "Infiltrator"},
+		weightkg: 590,
+		color: "Green",
+		tags: ["Mythical"],
+		eggGroups: ["Amorphous"],
 	},
 	tamunk: {
 		num: 10114,
@@ -22050,7 +22050,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Neutralize", H: "Prankster"},
 		weightkg: 600,
 		color: "Green",
-		tags: ["Mythical"],
+		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	orogon: {
@@ -22061,7 +22061,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		abilities: {0: "Levitate"},
 		weightkg: 680,
 		color: "Green",
-		tags: ["Sub-Legendary"],
+		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	orbtholod: {

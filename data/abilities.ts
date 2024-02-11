@@ -317,7 +317,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
 				if (target.status === 'slp' || target.hasAbility('comatose') ||
-					this.field.isEnergyWeather('daydream')) {
+					this.field.isEnergyWeather('daydream') && !target.hasItem('energynullifier')) {
 					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			}
@@ -678,8 +678,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		flags: {},
 		name: "Corrosion",
 		onModifyMovePriority: -5,
-		onModifyMove(move) {
-			if (!this.field.isIrritantWeather('smog')) return;
+		onModifyMove(move, pokemon) {
+			if (['smogspread'].includes(pokemon.effectiveIrritantWeather())) return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Poison'] = true;
@@ -1128,8 +1128,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	earthforce: { // updated
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.hasItem('safetygoggles')) return;
-			if (this.field.isIrritantWeather(['sandstorm', 'duststorm'])) {
+			if (['sandstorm', 'duststorm'].includes(attacker.effectiveIrritantWeather())) {
 				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
 					this.debug('Earth Force boost');
 					return this.chainModify([5325, 4096]);
@@ -2011,7 +2010,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyDefPriority: 6,
 		onModifyDef(pokemon, source) {
 			if (this.field.isTerrain('grassyterrain') ||
-			(!source.hasItem('safetygoggles')) && this.field.isIrritantWeather('pollinate')) {
+				['pollinate'].includes(source.effectiveIrritantWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -2116,7 +2115,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			if (this.field.isClimateWeather(['sunnyday', 'desolateland']) || this.randomChance(1, 2)) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather()) || this.randomChance(1, 2)) {
 				if (pokemon.hp && !pokemon.item && this.dex.items.get(pokemon.lastItem).isBerry) {
 					pokemon.setItem(pokemon.lastItem);
 					pokemon.lastItem = '';
@@ -2284,7 +2283,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	iceface: {
 		onStart(pokemon) {
 			if (pokemon.hasItem('utilityumbrella')) return;
-			if (this.field.isClimateWeather(['hail', 'snow']) && pokemon.species.id === 'eiscuenoice') {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather()) && pokemon.species.id === 'eiscuenoice') {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
@@ -2324,7 +2323,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			// snow/hail resuming because Cloud Nine/Air Lock ended does not trigger Ice Face
 			if ((sourceEffect as Ability)?.suppressClimateWeather) return;
 			if (!pokemon.hp) return;
-			if (this.field.isClimateWeather(['hail', 'snow']) && pokemon.species.id === 'eiscuenoice') {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather()) && pokemon.species.id === 'eiscuenoice') {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
 				pokemon.formeChange('Eiscue', this.effect, true);
@@ -4272,7 +4271,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	sandrush: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isIrritantWeather('sandstorm')) {
+			if (['sandstorm'].includes(pokemon.effectiveIrritantWeather())) {
 				return this.chainModify(2);
 			}
 		},
@@ -4308,9 +4307,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy, source) {
-			if (source.hasItem('volatilespray')) return;
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isIrritantWeather('sandstorm')) {
+			if (['sandstorm'].includes(source.effectiveIrritantWeather())) {
 				this.debug('Sand Veil - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}
@@ -4639,7 +4637,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	slushrush: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isClimateWeather(['hail', 'snow'])) {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(2);
 			}
 		},
@@ -4666,9 +4664,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy, source) {
-			if (source.hasItem('utilityumbrella')) return;
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isClimateWeather(['hail', 'snow'])) {
+			if (['hail', 'snow'].includes(source.effectiveIrritantWeather())) {
 				this.debug('Snow Cloak - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}
@@ -6061,8 +6058,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	absolutezero: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.hasItem('utilityumbrella')) return;
-			if (this.field.isClimateWeather(['hail', 'snow'])) {
+			if (['hail', 'snow'].includes(attacker.effectiveClimateWeather())) {
 				if (move.type === 'Ice') {
 					this.debug('Absolute Zero boost');
 					return this.chainModify(1.3);
@@ -6071,8 +6067,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		onModifyMovePriority: -2,
 		onModifyMove(move, pokemon) {
-			if (pokemon.hasItem('utilityumbrella')) return;
-			if (this.field.isClimateWeather(['hail', 'snow']) && move.secondaries) {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather()) && move.secondaries) {
 				if (move.type === 'Ice') {
 					this.debug('Absolute Zero 2x secondary chance');
 					for (const secondary of move.secondaries) {
@@ -6241,7 +6236,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	energizer: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isEnergyWeather('supercell')) {
+			if (['supercell'].includes(pokemon.effectiveEnergyWeather())) {
 				return this.chainModify(2);
 			}
 		},
@@ -6361,14 +6356,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	glacialarmor: {
 		onModifyDef(def, pokemon) {
-			if (pokemon.hasItem('utilityumbrella')) return;
-			if (this.field.isClimateWeather(['hail', 'snow'])) {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.4);
 			}
 		},
 		onModifySpD(spd, pokemon) {
-			if (pokemon.hasItem('utilityumbrella')) return;
-			if (this.field.isClimateWeather(['hail', 'snow'])) {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.4);
 			}
 		},
@@ -6382,7 +6375,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	magnapult: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isEnergyWeather('magnetize')) {
+			if (['magnetize'].includes(pokemon.effectiveEnergyWeather())) {
 				return this.chainModify(2);
 			}
 		},
@@ -6393,7 +6386,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	shadowstep: {
 		onModifySpe(spe, pokemon) {
-			if (this.field.isClimateWeather('bloodmoon') || this.field.isEnergyWeather('haunt')) {
+			if (['bloodmoon'].includes(pokemon.effectiveClimateWeather()) ||
+				['haunt'].includes(pokemon.effectiveEnergyWeather())) {
 				return this.chainModify(2);
 			}
 		},
@@ -6488,9 +6482,8 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	masterinstinct: {
 		onSourceModifyAccuracyPriority: -1,
 		onSourceModifyAccuracy(accuracy, source) {
-			if (source.hasItem('energynullifier')) return;
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isEnergyWeather('auraprojection')) {
+			if (['auraprojection'].includes(source.effectiveEnergyWeather())) {
 				this.debug('Master Instinct accuracy boost');
 				return this.chainModify(1.2);
 			}
@@ -6624,8 +6617,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerabove: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.hasItem('safetygoggles')) return;
-			if (this.field.isIrritantWeather('sprinkle')) {
+			if (['sprinkle'].includes(attacker.effectiveIrritantWeather())) {
 				if (move.type === 'Fairy' || move.type === 'Grass' || move.type === 'Fire' || move.type === 'Water') {
 					this.debug('Power Above boost');
 					return this.chainModify([5325, 4096]);
@@ -6640,8 +6632,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	powerwithin: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.hasItem('energynullifier')) return;
-			if (this.field.isIrritantWeather('dragonforce')) {
+			if (['dragonforce'].includes(attacker.effectiveEnergyWeather())) {
 				if (move.type === 'Dragon' || move.type === 'Fire' || move.type === 'Electric' || move.type === 'Ice') {
 					this.debug('Power Within boost');
 					return this.chainModify([5325, 4096]);
@@ -6727,8 +6718,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	smokeandmirrors: {
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (attacker.hasItem('energynullifier')) return;
-			if (this.field.isEnergyWeather('daydream')) {
+			if (['daydream'].includes(attacker.effectiveEnergyWeather())) {
 				if (move.category === 'Special') {
 					this.debug('Smoke and Mirrors boost');
 					return this.chainModify(1.2);
@@ -6738,8 +6728,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onModifyMovePriority: -2,
 		onModifyMove(move, source) {
 			if (move.secondaries) {
-				if (source.hasItem('energynullifier')) return;
-				if (this.field.isEnergyWeather('daydream')) {
+				if (['daydream'].includes(source.effectiveEnergyWeather())) {
 					this.debug('S&M 2x confuse chance');
 					for (const secondary of move.secondaries) {
 						if (secondary.chance && secondary.status === 'confusion') secondary.chance *= 2;
@@ -6775,7 +6764,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	souldrain: { // incomplete. needs testing
 		onAnyDamage(damage, target, pokemon, effect) {
 			const source = this.effectState.source;
-			if (pokemon !== target && source === this.field.isEnergyWeather('haunt')) {
+			if (pokemon !== target && source === ['haunt'].includes(pokemon.effectiveEnergyWeather())) {
 				this.heal(pokemon.baseMaxhp / 16, pokemon, target);
 			}
 		},
