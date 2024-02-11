@@ -17118,7 +17118,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {snatch: 1, heal: 1, metronome: 1},
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (!pokemon.hasItem('safetygoggles') && ['sandstorm', 'duststorm'].includes(pokemon.effectiveClimateWeather())) {
+			if (['sandstorm', 'duststorm'].includes(pokemon.effectiveClimateWeather())) {
 				factor = 0.667;
 			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));

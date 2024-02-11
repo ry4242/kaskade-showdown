@@ -317,7 +317,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			if (!pokemon.hp) return;
 			for (const target of pokemon.foes()) {
 				if (target.status === 'slp' || target.hasAbility('comatose') ||
-					this.field.isEnergyWeather('daydream') && !target.hasItem('energynullifier')) {
+				(target && ['daydream'].includes(target.effectiveEnergyWeather()))) {
 					this.damage(target.baseMaxhp / 8, target, pokemon);
 				}
 			}
@@ -6096,7 +6096,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	bloomspring: {
 		onIrritantWeather(target, source, effect) {
-			if (target.hasItem('safetygoggles')) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
 			if (effect.id === 'pollinate') {
 				this.heal(target.baseMaxhp / 16);
 			}
@@ -6140,7 +6140,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	carboncapture: {
 		onIrritantWeather(target, source, effect) {
-			if (target.hasItem('safetygoggles')) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
 			if (effect.id === 'smogspread') {
 				this.heal(target.baseMaxhp / 16);
 			}
@@ -6209,7 +6209,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	druidry: {
 		onIrritantWeather(target, source, effect) {
-			if (target.hasItem('safetygoggles')) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
 			if (effect.id === 'sprinkle') {
 				this.heal(target.baseMaxhp / 16);
 			}
@@ -6495,7 +6495,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	nesting: {
 		onIrritantWeather(target, source, effect) {
-			if (target.hasItem('safetygoggles')) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
 			if (effect.id === 'swarmsignal') {
 				if (target.allies().some(ally => ally.hasType('Bug'))) {
 					this.heal(target.baseMaxhp / 8);
