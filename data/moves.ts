@@ -14196,7 +14196,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 			}
 		},
 		onBasePower(basePower, pokemon, target) {
-			if (['pollinate'].includes(pokemon.effectiveIrritantWeather())) {
+			if (['pollinate'].includes(pokemon.effectiveIrritantWeather()) && !pokemon.isAlly(target)) {
 				this.debug('powered by pollen');
 				return 120;
 			}
@@ -22389,7 +22389,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Bug",
 	},
-	cidercannnon: { // untested
+	cidercannnon: { // untested, isn't allowed!?!?
 		num: 952,
 		accuracy: true,
 		basePower: 0,
@@ -22665,7 +22665,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	escaperoot: { // untested
+	escaperoot: { // crashes the game trying to switch
 		num: 951,
 		accuracy: true,
 		basePower: 0,
@@ -23241,7 +23241,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Psychic",
 	},
-	psychocannnon: {
+	psychocannnon: { // isn't allowed for some reason
 		num: 958,
 		accuracy: 100,
 		basePower: 150,
@@ -23329,7 +23329,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 80,
 		basePower: 110,
 		category: "Special",
-		name: "Shedding Riff",
+		name: "Shredding Riff",
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, sound: 1, bypasssub: 1},
@@ -23384,7 +23384,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Poison",
 	},
-	snooze: { // untested
+	snooze: { // doesn't work
 		num: 920,
 		accuracy: true,
 		basePower: 0,
@@ -23393,13 +23393,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, heal: 1, bypasssub: 1, metronome: 1},
-		onTryHit(source, target) {
-			if (target.status || !target.runStatusImmunity('slp')) {
-				return false;
+		onAfterHit(target, source) {
+			if (!target.status && target.runStatusImmunity('sleep')) {
+				target.addVolatile('yawn');
 			}
-		},
-		onHit(target, source) {
-			target.addVolatile('yawn');
 			source.heal(source.baseMaxhp / 2, source);
 			source.addVolatile('yawn');
 		},
@@ -23723,7 +23720,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Flying",
 	},
-	windtunnel: {
+	windtunnel: { // crashes the game
 		num: 924,
 		accuracy: 100,
 		basePower: 90,
@@ -23733,7 +23730,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, contact: 1, wind: 1},
 		onModifyPriority(priority, source, target, move) {
-			if (target.effectiveClearingWeather() === 'stongwinds') {
+			if (['strongwinds'].includes(target.effectiveClearingWeather())) {
 				return priority + 1;
 			}
 		},
