@@ -310,7 +310,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1,
 		num: 188,
 	},
-	baddreams: { // updated
+	baddreams: { // updated, untested
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {

@@ -967,7 +967,7 @@ export const Aliases: {[alias: string]: string} = {
 	rapidflow: "G-Max Rapid Flow",
 	replenish: "G-Max Replenish",
 	resonance: "G-Max Resonance",
-	//sandblast: "G-Max Sandblast",
+	// sandblast: "G-Max Sandblast",
 	smite: "G-Max Smite",
 	// snooze: "G-Max Snooze",
 	steelsurge: "G-Max Steelsurge",
@@ -980,7 +980,7 @@ export const Aliases: {[alias: string]: string} = {
 	volcalith: "G-Max Volcalith",
 	voltcrash: "G-Max Volt Crash",
 	wildfire: "G-Max Wildfire",
-	//windrage: "G-Max Wind Rage",
+	// windrage: "G-Max Wind Rage",
 
 	// Japanese names
 	fushigidane: "Bulbasaur",
@@ -1788,6 +1788,6 @@ export const Aliases: {[alias: string]: string} = {
 	merumetaru: "Melmetal",
 
 	// swse
-	alfa: "Alfalphalops",
+	// mons
 	alpha: "Alfalphalops",
 };

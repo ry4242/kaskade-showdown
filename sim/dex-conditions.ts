@@ -467,7 +467,7 @@ export interface EventMethods {
 	onAnyModifyDamagePhase1?: CommonHandlers['ModifierSourceMove'];
 	onAnyModifyDamagePhase2?: CommonHandlers['ModifierSourceMove'];
 
-	// Priorities (incomplete list)
+	// Priorities (not complete list)
 	onAccuracyPriority?: number;
 	onDamagingHitOrder?: number;
 	onAfterMoveSecondaryPriority?: number;

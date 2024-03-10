@@ -586,7 +586,7 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 			for (const player of this.players) {
 				const nameIndex1 = options.inputLog.indexOf(`"name":"`, scanIndex);
 				const nameIndex2 = options.inputLog.indexOf(`"`, nameIndex1 + 8);
-				if (nameIndex1 < 0 || nameIndex2 < 0) break; // shouldn't happen. incomplete inputlog?
+				if (nameIndex1 < 0 || nameIndex2 < 0) break; // shouldn't happen. not complete inputlog?
 				scanIndex = nameIndex2 + 1;
 				const name = options.inputLog.slice(nameIndex1 + 8, nameIndex2);
 				player.name = name;

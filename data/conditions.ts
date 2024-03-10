@@ -959,6 +959,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return this.modify(spa, 0.75);
 			}
 		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
+			if (move.flags['powder'] && this.field.isIrritantWeather('pollinate')) {
+				return true;
+			}
+			return accuracy;
+		},
 		onFieldStart(field, source, effect) {
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
