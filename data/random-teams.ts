@@ -95,7 +95,7 @@ const NO_STAB = [
 ];
 // Hazard-setting moves
 const HAZARDS = [
-	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes', 'steelbarbs'
+	'spikes', 'stealthrock', 'stickyweb', 'toxicspikes', 'steelbarbs',
 ];
 // Protect and its variants
 const PROTECT_MOVES = [
