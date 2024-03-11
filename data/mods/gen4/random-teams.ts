@@ -562,7 +562,7 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		if (species.id === 'shedinja' || species.id === 'smeargle') return 'Focus Sash';
 		if (species.id === 'unown') return 'Choice Specs';
 		if (species.id === 'wobbuffet') return 'Custap Berry';
-		if (species.id === 'ditto') return 'Choice Scarf';
+		if (species.id === 'ditto' || (species.id === 'rampardos' && role === 'Fast Attacker')) return 'Choice Scarf';
 		if (ability === 'Poison Heal' || moves.has('facade')) return 'Toxic Orb';
 		if (ability === 'Speed Boost' && species.id === 'yanmega') return 'Life Orb';
 		if (['healingwish', 'switcheroo', 'trick'].some(m => moves.has(m))) {
@@ -632,7 +632,8 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		if (['batonpass', 'protect', 'substitute'].some(m => moves.has(m))) return 'Leftovers';
 		if (
 			role === 'Fast Support' && isLead && defensiveStatTotal < 255 && !counter.get('recovery') &&
-			(!counter.get('recoil') || ability === 'Rock Head')
+			(!counter.get('recoil') || ability === 'Rock Head') &&
+			(counter.get('hazards') || !moves.has('uturn'))
 		) return 'Focus Sash';
 
 		// Default Items
@@ -665,15 +666,7 @@ export class RandomGen4Teams extends RandomGen5Teams {
 		isLead = false
 	): RandomTeamsTypes.RandomSet {
 		species = this.dex.species.get(species);
-		let forme = species.name;
-
-		if (typeof species.battleOnly === 'string') {
-			// Only change the forme. The species has custom moves, and may have different typing and requirements.
-			forme = species.battleOnly;
-		}
-		if (species.cosmeticFormes) {
-			forme = this.sample([species.name].concat(species.cosmeticFormes));
-		}
+		const forme = this.getForme(species);
 		const sets = this.randomSets[species.id]["sets"];
 		const possibleSets = [];
 		// Check if the Pokemon has a Spinner set
