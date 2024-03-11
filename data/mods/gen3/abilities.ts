@@ -55,6 +55,15 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 		inherit: true,
 		flags: {},
 	},
+	hustle: {
+		inherit: true,
+		onSourceModifyAccuracy(accuracy, target, source, move) {
+			const physicalTypes = ['Normal', 'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel'];
+			if (physicalTypes.includes(move.type) && typeof accuracy === 'number') {
+				return this.chainModify([3277, 4096]);
+			}
+		},
+	},
 	intimidate: {
 		inherit: true,
 		onStart(pokemon) {
@@ -83,7 +92,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	lightningrod: {
 		onFoeRedirectTarget(target, source, source2, move) {
-			if (move.type !== 'Electric') return;
+			// don't count Hidden Power as Electric-type
+			if (this.dex.moves.get(move.id).type !== 'Electric') return;
 			if (this.validTarget(this.effectState.target, source, move.target)) {
 				return this.effectState.target;
 			}

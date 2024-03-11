@@ -166,6 +166,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			let move = this.dex.moves.get(moveid);
 			// Nature Power calls Earthquake in Gen 5
 			if (this.gen === 5 && moveid === 'naturepower') move = this.dex.moves.get('earthquake');
+			if (this.gen > 5 && moveid === 'naturepower') move = this.dex.moves.get('triattack');
 
 			const moveType = this.getMoveType(move, species, abilities, preferredType);
 			if (move.damage || move.damageCallback) {
@@ -324,7 +325,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			[SETUP, HAZARDS],
 			[SETUP, badWithSetup],
 			[PHYSICAL_SETUP, PHYSICAL_SETUP],
-			[SPEED_SETUP, ['quickattack', 'suckerpunch']],
+			[SPEED_SETUP, 'quickattack'],
 			['defog', HAZARDS],
 			[['fakeout', 'uturn'], ['switcheroo', 'trick']],
 			['substitute', PIVOT_MOVES],
@@ -857,7 +858,6 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		if (species.id === 'arcanine') return 'Intimidate';
 		if (species.id === 'lucariomega') return 'Justified';
 		if (species.id === 'toucannon' && !counter.get('sheerforce') && !counter.get('skilllink')) return 'Keen Eye';
-		if (species.id === 'rampardos' && role === 'Bulky Attacker') return 'Mold Breaker';
 		if (species.baseSpecies === 'Altaria') return 'Natural Cure';
 		// If Ambipom doesn't qualify for Technician, Skill Link is useless on it
 		if (species.id === 'ambipom' && !counter.get('technician')) return 'Pickup';
@@ -1004,6 +1004,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		if (ability === 'Magic Guard' && role !== 'Bulky Support') {
 			return moves.has('counter') ? 'Focus Sash' : 'Life Orb';
 		}
+		if (species.id === 'rampardos' && role === 'Fast Attacker') return 'Choice Scarf';
 		if (ability === 'Sheer Force' && counter.get('sheerforce')) return 'Life Orb';
 		if (ability === 'Unburden') return moves.has('closecombat') ? 'White Herb' : 'Sitrus Berry';
 		if (moves.has('acrobatics')) return '';
@@ -1140,15 +1141,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		isLead = false
 	): RandomTeamsTypes.RandomSet {
 		species = this.dex.species.get(species);
-		let forme = species.name;
-
-		if (typeof species.battleOnly === 'string') {
-			// Only change the forme. The species has custom moves, and may have different typing and requirements.
-			forme = species.battleOnly;
-		}
-		if (species.cosmeticFormes) {
-			forme = this.sample([species.name].concat(species.cosmeticFormes));
-		}
+		const forme = this.getForme(species);
 		const sets = this.randomSets[species.id]["sets"];
 		const possibleSets = [];
 		// Check if the Pokemon has a Z-Move user set
@@ -1240,9 +1233,14 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		if (['highjumpkick', 'jumpkick'].some(m => moves.has(m))) srWeakness = 2;
 		while (evs.hp > 1) {
 			const hp = Math.floor(Math.floor(2 * species.baseStats.hp + ivs.hp + Math.floor(evs.hp / 4) + 100) * level / 100 + 10);
-			if (moves.has('substitute') && (item === 'Sitrus Berry' || (ability === 'Power Construct' && item !== 'Leftovers'))) {
-				// Two Substitutes should activate Sitrus Berry or Power Construct
-				if (hp % 4 === 0) break;
+			if (moves.has('substitute')) {
+				if (item === 'Sitrus Berry' || (ability === 'Power Construct' && item !== 'Leftovers')) {
+					// Two Substitutes should activate Sitrus Berry or Power Construct
+					if (hp % 4 === 0) break;
+				} else if (!['Black Sludge', 'Leftovers'].includes(item)) {
+					// Should be able to use Substitute four times from full HP without fainting
+					if (hp % 4 > 0) break;
+				}
 			} else if (moves.has('bellydrum') && (item === 'Sitrus Berry' || ability === 'Gluttony')) {
 				// Belly Drum should activate Sitrus Berry
 				if (hp % 2 === 0) break;
@@ -1314,6 +1312,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		const typeCount: {[k: string]: number} = {};
 		const typeComboCount: {[k: string]: number} = {};
 		const typeWeaknesses: {[k: string]: number} = {};
+		const typeDoubleWeaknesses: {[k: string]: number} = {};
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 		let numMaxLevelPokemon = 0;
 
@@ -1329,19 +1328,17 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				const currentSpeciesPool: Species[] = [];
 				// Check if the base species has a mega forme available
 				let canMega = false;
-				for (const poke of pokemonPool) {
+				for (const poke of pokemonPool[baseSpecies]) {
 					const species = this.dex.species.get(poke);
-					if (!hasMega && species.baseSpecies === baseSpecies && species.isMega) canMega = true;
+					if (!hasMega && species.isMega) canMega = true;
 				}
-				for (const poke of pokemonPool) {
+				for (const poke of pokemonPool[baseSpecies]) {
 					const species = this.dex.species.get(poke);
-					if (species.baseSpecies === baseSpecies) {
-						// Prevent multiple megas
-						if (hasMega && species.isMega) continue;
-						// Prevent base forme, if a mega is available
-						if (canMega && !species.isMega) continue;
-						currentSpeciesPool.push(species);
-					}
+					// Prevent multiple megas
+					if (hasMega && species.isMega) continue;
+					// Prevent base forme, if a mega is available
+					if (canMega && !species.isMega) continue;
+					currentSpeciesPool.push(species);
 				}
 				const species = this.sample(currentSpeciesPool);
 
@@ -1382,12 +1379,19 @@ export class RandomGen7Teams extends RandomGen8Teams {
 						}
 						if (skip) continue;
 
-						// Limit three weak to any type
+						// Limit three weak to any type, and one double weak to any type
 						for (const typeName of this.dex.types.names()) {
 							// it's weak to the type
 							if (this.dex.getEffectiveness(typeName, species) > 0) {
 								if (!typeWeaknesses[typeName]) typeWeaknesses[typeName] = 0;
 								if (typeWeaknesses[typeName] >= 3 * limitFactor) {
+									skip = true;
+									break;
+								}
+							}
+							if (this.dex.getEffectiveness(typeName, species) > 0) {
+								if (!typeDoubleWeaknesses[typeName]) typeDoubleWeaknesses[typeName] = 0;
+								if (typeDoubleWeaknesses[typeName] >= 1 * limitFactor) {
 									skip = true;
 									break;
 								}
@@ -1453,6 +1457,9 @@ export class RandomGen7Teams extends RandomGen8Teams {
 					// it's weak to the type
 					if (this.dex.getEffectiveness(typeName, species) > 0) {
 						typeWeaknesses[typeName]++;
+					}
+					if (this.dex.getEffectiveness(typeName, species) > 1) {
+						typeDoubleWeaknesses[typeName]++;
 					}
 				}
 				if (weakToFreezeDry) typeWeaknesses['Freeze-Dry']++;

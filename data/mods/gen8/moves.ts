@@ -1,14 +1,8 @@
 export const Moves: {[k: string]: ModdedMoveData} = {
 	allyswitch: {
 		inherit: true,
-		stallingMove: false,
+		// Prevents setting the volatile used to check for Ally Switch failure
 		onPrepareHit() {},
-		onHit(pokemon) {
-			const newPosition = (pokemon.position === 0 ? pokemon.side.active.length - 1 : 0);
-			if (!pokemon.side.active[newPosition]) return false;
-			if (pokemon.side.active[newPosition].fainted) return false;
-			this.swapPosition(pokemon, newPosition, '[from] move: Ally Switch');
-		},
 	},
 	anchorshot: {
 		inherit: true,
@@ -528,6 +522,19 @@ export const Moves: {[k: string]: ModdedMoveData} = {
 	spectralthief: {
 		inherit: true,
 		isNonstandard: null,
+	},
+	stickyweb: {
+		inherit: true,
+		condition: {
+			onSideStart(side) {
+				this.add('-sidestart', side, 'move: Sticky Web');
+			},
+			onEntryHazard(pokemon) {
+				if (!pokemon.isGrounded() || pokemon.hasItem('heavydutyboots')) return;
+				this.add('-activate', pokemon, 'move: Sticky Web');
+				this.boost({spe: -1}, pokemon, this.effectState.source, this.dex.getActiveMove('stickyweb'));
+			},
+		},
 	},
 	stormthrow: {
 		inherit: true,
