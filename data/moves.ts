@@ -23670,7 +23670,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	},
 	windrage: { // untested
 		num: 926,
-		accuracy: 100,
+		accuracy: true,
 		basePower: 120,
 		category: "Physical",
 		name: "Windrage",
