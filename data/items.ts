@@ -627,6 +627,10 @@ export const Items: {[itemid: string]: ItemData} = {
 				pokemon.addVolatile('quarkdrive');
 			}
 		},
+		itemUser: [
+			"Great Tusk", "Scream Tail", "Brute Bonnet", "Flutter Mane", "Slither Wing, Sandy Shocks", "Iron Treads", "Iron Bundle", "Iron Hands", "Iron Jugulis", "Iron Moth", "Iron Thorns",
+			"Roaring Moon", "Iron Valiant", "Walking Wake", "Iron Leaves", "Gouging Fire", "Raging Bolt", "Iron Boulder", "Iron Crown"
+		],
 		onTakeItem(item, source) {
 			if (source.baseSpecies.tags.includes("Paradox")) return false;
 			return true;
@@ -3156,7 +3160,10 @@ export const Items: {[itemid: string]: ItemData} = {
 				return this.chainModify(1.5);
 			}
 		},
-		itemUser: ["Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World"],
+		itemUser: [
+			"Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World",
+			"Pichu", "Raichu", "Guruchi"
+		],
 		num: 236,
 		gen: 2,
 	},
