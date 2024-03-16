@@ -6061,7 +6061,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onBasePower(basePower, attacker, defender, move) {
 			if (['hail', 'snow'].includes(attacker.effectiveClimateWeather())) {
 				if (move.type === 'Ice') {
-					this.debug('Absolute Zero boost');
+					this.debug('Absolute Zero damage boost');
 					return this.chainModify(1.3);
 				}
 			}
@@ -6175,6 +6175,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Condensation",
 		rating: 3,
 		num: -2,
+	},
+	dreamer: {
+		onStart(source) {
+			this.field.setEnergyWeather('daydream');
+		},
+		flags: {},
+		name: "Dreamer",
+		rating: 3,
+		num: -10,
 	},
 	droughtproof: { // incomplete. needs testing
 		onImmunity(type, pokemon) {
@@ -6582,13 +6591,10 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		},
 		condition: {
 			duration: 5,
-			durationCallback(source, effect) {
-				return 5;
-			},
 			onModifyAccuracyPriority: -1,
 			onModifyAccuracy(accuracy, target, source, move) {
 				if (typeof accuracy === 'number') {
-					this.debug('pearl drop accuracy drop');
+					this.debug('Pearl Drop accuracy drop');
 					return this.chainModify(0.9);
 				}
 			},
@@ -6863,15 +6869,6 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "To Be",
 		rating: 3,
 		num: -39,
-	},
-	dreamer: {
-		onStart(source) {
-			this.field.setEnergyWeather('daydream');
-		},
-		flags: {},
-		name: "Dreamer",
-		rating: 3,
-		num: -10,
 	},
 	trumpetweevil: {
 		onModifyTypePriority: -1,
