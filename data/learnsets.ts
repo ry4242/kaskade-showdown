@@ -25051,6 +25051,18 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			slam: ["9L12"],
 			bounce: ["9L15"],
 		},
+	},
+	azurillkaskade: {
+		learnset: {
+			splash: ["9L1"],
+			watergun: ["9L1"],
+			tailwhip: ["9L1"],
+			helpinghand: ["9L3"],
+			bubblebeam: ["9L6"],
+			charm: ["9L9"],
+			slam: ["9L12"],
+			bounce: ["9L15"],
+		},
 	},	
 	marill: {
 		learnset: {
@@ -88989,1020 +89001,6 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		eventOnly: true,
 	},
 
-	// swse
-
-	llampas: {
-		learnset: {
-			doubleedge: ["9L42"],
-			growl: ["9L1"],
-			growth: ["9L6"],
-			headbutt: ["9L13"],
-			irondefense: ["9L36"],
-			leafage: ["9L3"],
-			leechseed: ["9L9"],
-			pollinate: ["9L22"],
-			rockthrow: ["9L18"],
-			seedbomb: ["9L28"],
-			tackle: ["9L1"],
-			woodhammer: ["9L48"],
-		}
-	},
-	danfluff: {
-		learnset: {
-			doubleedge: ["9L45"],
-			growl: ["9L1"],
-			growth: ["9L1"],
-			headbutt: ["9L14"],
-			irondefense: ["9L37"],
-			leafage: ["9L1"],
-			leechseed: ["9L1"],
-			pollinate: ["9L24"],
-			rockthrow: ["9L0", "9L19"],
-			rocktomb: ["9L1"],
-			seedbomb: ["9L30"],
-			tackle: ["9L1"],
-			woodhammer: ["9L54"],
-		}
-	},
-	alfalphalops: {
-		learnset: {
-			doubleedge: ["9L54"],
-			growl: ["9L1"],
-			growth: ["9L1"],
-			fluffbuff: ["9L0", "9L1"],
-			headbutt: ["9L15"],
-			irondefense: ["9L46"],
-			leafage: ["9L1"],
-			leechseed: ["9L1"],
-			pollinate: ["9L25"],
-			rockslide: ["9L39"],
-			rockthrow: ["9L20"],
-			rocktomb: ["9L1"],
-			seedbomb: ["9L32"],
-			stoneedge: ["9L1"],
-			tackle: ["9L1"],
-			woodhammer: ["9L62"],
-		}
-	},
-	therpal: {
-		learnset: {
-			bite: ["9L18"],
-			coil: ["9L36"],
-			faketears: ["9L6"],
-			firefang: ["9L28"],
-			flareblitz: ["9L48"],
-			kindle: ["9L3"],
-			lavajet: ["9L13"],
-			pound: ["9L1"],
-			quickattack: ["9L9"],
-			sunnyday: ["9L22"],
-			sunscreen: ["9L42"],
-			tailwhip: ["9L1"],
-		}
-	},
-	aspfault: {
-		learnset: {
-			bite: ["9L19"],
-			coil: ["9L39"],
-			earthrush: ["9L0","9L1"],
-			faketears: ["9L1"],
-			firefang: ["9L31"],
-			flareblitz: ["9L54"],
-			kindle: ["9L1"],
-			lavajet: ["9L14"],
-			pound: ["9L1"],
-			quickattack: ["9L1"],
-			sunnyday: ["9L24"],
-			sunscreen: ["9L47"],
-			tailwhip: ["9L1"],
-		}
-	},
-	tarmendoa: {
-		learnset: {
-			bite: ["9L20"],
-			coil: ["9L45"],
-			earthquake: ["9L1"],
-			earthrush: ["9L1"],
-			faketears: ["9L1"],
-			firefang: ["9L34"],
-			flareblitz: ["9L61"],
-			gunkshot: ["9L69"],
-			irontail: ["9L1"],
-			kindle: ["9L1"],
-			lavajet: ["9L15"],
-			pound: ["9L1"],
-			quickattack: ["9L1"],
-			slam: ["9L1"],
-			sunnyday: ["9L26"],
-			sunscreen: ["9L53"],
-			tailwhip: ["9L1"],
-			thermalvortex: ["9L0"],
-		}
-	},
-	burbwhirl: {
-		learnset: {
-			aquajet: ["9L13"],
-			bubble: ["9L3"],
-			bubblebeam: ["9L18"],
-			hydropump: ["9L48"],
-			leer: ["9L1"],
-			liquidation: ["9L36"],
-			lunge: ["9L28"],
-			partingshot: ["9L42"],
-			raindance: ["9L22"],
-			scratch: ["9L1"],
-			teafullook: ["9L6"],
-			whirlpool: ["9L9"],
-		}
-	},
-	spoutlaw: {
-		learnset: {
-			aquajet: ["9L14"],
-			bubble: ["9L1"],
-			bubblebeam: ["9L19"],
-			hydropump: ["9L54"],
-			leer: ["9L1"],
-			liquidation: ["9L40"],
-			lunge: ["9L31"],
-			partingshot: ["9L47"],
-			pounce: ["9L0","9L1"],
-			raindance: ["9L24"],
-			scratch: ["9L1"],
-			teafullook: ["9L1"],
-			whirlpool: ["9L1"],
-		}
-	},
-	vaquamael: {
-		learnset: {
-			aquajet: ["9L15"],
-			blizzard: ["9L69"],
-			bubble: ["9L1"],
-			bubblebeam: ["9L20"],
-			bugbuzz: ["9L1"],
-			hydropump: ["9L61"],
-			leer: ["9L1"],
-			liquidation: ["9L45"],
-			lockon: ["9L1"],
-			lunge: ["9L34"],
-			partingshot: ["9L1","9L53"],
-			pounce: ["9L1"],
-			raindance: ["9L26"],
-			scratch: ["9L1"],
-			teafullook: ["9L1"],
-			whirlduel: ["9L0", "9L1"],
-			whirlpool: ["9L1"],
-		}
-	},
-	chewmunk: {
-		learnset: {
-			belch: ["9L45"],
-			bite: ["9L5"],
-			bodyslam: ["9L40"],
-			bulletseed: ["9L35"],
-			defensecurl: ["9L10"],
-			hypnosis: ["9L20"],
-			rollout: ["9L25"],
-			spitup: ["9L30"],
-			stockpile: ["9L30"],
-			stuffcheeks: ["9L15"],
-			swallow: ["9L30"],
-			tackle: ["9L1"],
-			tailwhip: ["9L1"],
-		}
-	},
-	cheekat: {
-		learnset: {
-			bearhug: ["9L1"],
-			belch: ["9L51"],
-			bite: ["9L1"],
-			bodyslam: ["9L45"],
-			bulletseed: ["9L39"],
-			crunch: ["9L1"],
-			defensecurl: ["9L1"],
-			fakeout: ["9L1"],
-			hypnosis: ["9L1","9L21"],
-			rollout: ["9L27"],
-			snooze: ["9L0","9L1"],
-			spitup: ["9L33"],
-			stockpile: ["9L33"],
-			stuffcheeks: ["9L15"],
-			swallow: ["9L33"],
-			tackle: ["9L1"],
-			tailslap: ["9L1"],
-			tailwhip: ["9L1"],
-			yawn: ["9L1"],
-		}
-	},
-	specoey: {
-		learnset: {
-			afteryou: ["9L27"],
-			bite: ["9L15"],
-			copycat: ["9L22"],
-			destinybond: ["9L44"],
-			faketears: ["9L7"],
-			falsesurrender: ["9L36"],
-			foulplay: ["9L50"],
-			growl: ["9L3"],
-			headbutt: ["9L17"],
-			hypervoice: ["9L33"],
-			lick: ["9L1"],
-			mefirst: ["9L27"],
-			mimic: ["9L12"],
-			perishsong: ["9L58"],
-			roleplay: ["9L25"],
-			scratch: ["9L1"],
-			shadowclaw: ["9L39"],
-			shadowspit: ["9L10"],
-			willowisp: ["9L29"],
-		}
-	},
-	opakespiel: {
-		learnset: {
-			afteryou: ["9L29"],
-			bite: ["9L15"],
-			copycat: ["9L22"],
-			destinybond: ["9L51"],
-			encore: ["9L1"],
-			faketears: ["9L1"],
-			falsesurrender: ["9L41"],
-			foulplay: ["9L58"],
-			growl: ["9L1"],
-			headbutt: ["9L17"],
-			hypervoice: ["9L37"],
-			lick: ["9L1"],
-			mefirst: ["9L29"],
-			mimic: ["9L12"],
-			painsplit: ["9L0","9L1"],
-			partingshot: ["9L1"],
-			perishsong: ["9L67"],
-			roleplay: ["9L26"],
-			scratch: ["9L1"],
-			shadowclaw: ["9L45"],
-			shadowspit: ["9L1"],
-			snarl: ["9L1"],
-			willowisp: ["9L32"],
-		}
-	},
-	kwaile: {
-		learnset: {
-			airslash: ["9L30"],
-			bulletseed: ["9L24"],
-			flail: ["9L18"],
-			leer: ["9L1"],
-			peck: ["9L1"],
-			pluck: ["9L15"],
-			roost: ["9L27"],
-			sandattack: ["9L7"],
-			sandblast: ["9L12"],
-			shellsmash: ["9L33"],
-			uturn: ["9L36"],
-			wingattack: ["9L21"],
-			withdraw: ["9L4"],
-		}
-	},
-	quailert: {
-		learnset: {
-			airslash: ["9L40"],
-			bravebird: ["9L55"],
-			bulletseed: ["9L30"],
-			earthquake: ["9L45"],
-			flail: ["9L20"],
-			followme: ["9L1"],
-			leer: ["9L1"],
-			peck: ["9L1"],
-			pluck: ["9L15"],
-			protect: ["9L0","9L1"],
-			roost: ["9L35"],
-			sandattack: ["9L1"],
-			sandblast: ["9L12"],
-			tailwind: ["9L50"],
-			wingattack: ["9L25"],
-			withdraw: ["9L1"],
-		}
-	},
-	quailstion: {
-		learnset: {
-			airslash: ["9L46"],
-			bide: ["9L1"],
-			bravebird: ["9L63"],
-			bulletseed: ["9L34"],
-			dig: ["9L0","9L1"],
-			earthquake: ["9L51"],
-			eggbomb: ["9L1"],
-			flail: ["9L22"],
-			followme: ["9L1"],
-			headlongrush: ["9L68"],
-			leer: ["9L1"],
-			noretreat: ["9L1"],
-			peck: ["9L1"],
-			pluck: ["9L15"],
-			protect: ["9L1"],
-			roost: ["9L39"],
-			sandattack: ["9L1"],
-			sandblast: ["9L12"],
-			tailwind: ["9L58"],
-			wingattack: ["9L27"],
-			withdraw: ["9L1"],
-		}
-	},
-	sighlo: {
-		learnset: {
-			battlecry: ["9L1"],
-			slackoff: ["9L25"],
-			stringshot: ["9L1"],
-			strugglebug: ["9L5"],
-		}
-	},
-	cooreds: {
-		learnset: {
-			battlecry: ["9L1"],
-			slackoff: ["9L25"],
-			stringshot: ["9L1"],
-			strugglebug: ["9L5"],
-		}
-	},
-	probaska: {
-		learnset: {
-			agility: ["9L1"],
-			batonpass: ["9L52"],
-			battlecry: ["9L1"],
-			boomburst: ["9L55"],
-			bugbuzz: ["9L33"],
-			disarmingvoice: ["9L9"],
-			echoedvoice: ["9L13"],
-			hiveshriek: ["9L49"],
-			hypervoice: ["9L40"],
-			infestation: ["9L17"],
-			leechseed: ["9L25"],
-			powder: ["9L46"],
-			powershift: ["9L1"],
-			powertrick: ["9L1"],
-			quiverdance: ["9L37"],
-			round: ["9L0","9L1","9L29"],
-			slackoff: ["9L1"],
-			storedpower: ["9L43"],
-			stringshot: ["9L1"],
-			strugglebug: ["9L5"],
-			swordsdance: ["9L1"],
-			teeterdance: ["9L21"],
-		}
-	},
-	histameanie: {
-		learnset: {
-			absorb: ["9L1"],
-			beatup: ["9L16"],
-			gigadrain: ["9L31"],
-			growth: ["9L5"],
-			leafage: ["9L9"],
-			leafblade: ["9L43"],
-			leafstorm: ["9L51"],
-			meanlook: ["9L23"],
-			megadrain: ["9L19"],
-			morningsun: ["9L33"],
-			playrough: ["9L47"],
-			poisonpowder: ["9L13"],
-			pollenpuff: ["9L39"],
-			pollinate: ["9L27"],
-			sleeppowder: ["9L13"],
-			stunspore: ["9L13"],
-			suckerpunch: ["9L36"],
-			tackle: ["9L1"],
-		}
-	},
-	apheed: {
-		learnset: {
-			bugbite: ["9L5"],
-			leafage: ["9L1"],
-			stringshot: ["9L1"],
-			synthesis: ["9L25"],
-		},
-	},
-	musleafo: {
-		learnset: {
-			bugbite: ["9L5"],
-			leafage: ["9L1"],
-			stringshot: ["9L1"],
-			synthesis: ["9L25"],
-		},
-	},
-	eecroach: {
-		learnset: {
-			acidarmor: ["9L1"],
-			agility: ["9L1"],
-			batonpass: ["9L70"],
-			bugbuzz: ["9L40"],
-			hiveshriek: ["9L65"],
-			infestation: ["9L20"],
-			leafage: ["9L1"],
-			leafblade: ["9L50"],
-			leaftornado: ["9L15"],
-			leechseed: ["9L25"],
-			magicalleaf: ["9L0","9L1"],
-			muckvolley: ["9L55"],
-			poisonpower: ["9L1"],
-			quickattack: ["9L10"],
-			quiverdance: ["9L45"],
-			ragepowder: ["9L60"],
-			seedbomb: ["9L35"],
-			slash: ["9L30"],
-			stringshot: ["9L1"],
-			strugglebug: ["9L5"],
-			stunspore: ["9L1"],
-			synthesis: ["9L1"],
-			woodhammer: ["9L75"],
-		},
-	},
-	clamtrip: {
-		learnset: {
-			clamp: ["9L12"],
-			crabhammer: ["9L44"],
-			defensecurl: ["9L4"],
-			endeavor: ["9L40"],
-			guillotine: ["9L56"],
-			irondefense: ["9L28"],
-			paddle: ["9L1"],
-			powergem: ["9L24"],
-			protect: ["9L1"],
-			razorshell: ["9L36"],
-			rockslide: ["9L32"],
-			rollout: ["9L8"],
-			stoneedge: ["9L52"],
-			stonestorm: ["9L1"],
-			swordsdance: ["9L48"],
-			thief: ["9L20"],
-			vicegrip: ["9L16"],
-		},
-	},
-	stackem: {
-		learnset: {
-			bodypress: ["9L45"],
-			followme: ["9L20"],
-			heavyslam: ["9L50"],
-			irondefense: ["9L40"],
-			pound: ["9L1"],
-			protect: ["9L5"],
-			rockblast: ["9L25"],
-			rocktomb: ["9L15"],
-			sandtomb: ["9L10"],
-			shadowball: ["9L35"],
-			stealthrock: ["9L30"],
-			stoneedge: ["9L55"],
-			stonestorm: ["9L1"],
-		},
-	},
-	rowviar: {
-		learnset: {
-			agility: ["9L24"],
-			aquajet: ["9L18"],
-			bite: ["9L12"],
-			crunch: ["9L36"],
-			dive: ["9L30"],
-			liquidation: ["9L42"],
-			paddle: ["9L1"],
-			quickattack: ["9L6"],
-			softboiled: ["9L48"],
-			tailwhip: ["9L1"],
-		},
-	},
-	sanook: {
-		learnset: {
-			agility: ["9L24"],
-			aquajet: ["9L18"],
-			aquatail: ["9L1","9L48"],
-			bite: ["9L1"],
-			crunch: ["9L40"],
-			dive: ["9L32"],
-			paddle: ["9L1"],
-			quickattack: ["9L1"],
-			softboiled: ["9L56"],
-			tailwhip: ["9L1"],
-			wavecrash: ["9L64"],
-		},
-	},
-	cereboral: {
-		learnset: {
-			confusion: ["9L4"],
-			cosmicpower: ["9L40"],
-			crystalforce: ["9L56"],
-			harden: ["9L12"],
-			lifedew: ["9L16"],
-			mindmeld: ["9L56"],
-			mudshot: ["9L20"],
-			mudslap: ["9L8"],
-			powergem: ["9L36"],
-			psybeam: ["9L24"],
-			psychic: ["9L48"],
-			recover: ["9L52"],
-			rockpolish: ["9L32"],
-			stonestorm: ["9L1"],
-			tackle: ["9L1"],
-			trickroom: ["9L44"],
-			whirlpool: ["9L28"],
-		},
-	},
-	bagoul: {
-		learnset: {
-			bind: ["9L1"],
-			ectoplasma: ["9L52"],
-			fling: ["9L12"],
-			grudge: ["9L4"],
-			hex: ["9L20"],
-			infestation: ["9L28"],
-			meanlook: ["9L8"],
-			muckvolley: ["9L40"],
-			perishsong: ["9L48"],
-			present: ["9L32"],
-			shadowball: ["9L36"],
-			shadowsneak: ["9L16"],
-			shadowspit: ["9L1"],
-			sludge: ["9L24"],
-			toxic: ["9L44"],
-			wrap: ["9L1"],
-		},
-	},
-	tofrug: {
-		learnset: {
-			acid: ["9L1"],
-			acidarmor: ["9L32"],
-			bounce: ["9L40"],
-			disarmingvoice: ["9L8"],
-			leechseed: ["9L24"],
-			magicalleaf: ["9L20"],
-			playrough: ["9L36"],
-			poisontail: ["9L16"],
-			tackle: ["9L4"],
-			tailwhip: ["9L1"],
-			taunt: ["9L44"],
-			torment: ["9L28"],
-			toxic: ["9L48"],
-			worryseed: ["9L12"],
-		},
-	},
-	kaskazog: {
-		learnset: {
-			acid: ["9L1"],
-			acidarmor: ["9L36"],
-			bounce: ["9L46"],
-			disarmingvoice: ["9L1"],
-			fakeout: ["9L1"],
-			leechseed: ["9L26"],
-			magicalleaf: ["9L21"],
-			peekaboo: ["9L0","9L1"],
-			playrough: ["9L41"],
-			poisontail: ["9L16"],
-			tackle: ["9L1"],
-			tailwhip: ["9L1"],
-			taunt: ["9L51"],
-			torment: ["9L31"],
-			toxic: ["9L56"],
-			worryseed: ["9L12"],
-		},
-	},
-	ananot: {
-		learnset: {
-			absorb: ["9L1"],
-			acid: ["9L1"],
-			acidarmor: ["9L30"],
-			acidspray: ["9L24"],
-			energyball: ["9L46"],
-			gigadrain: ["9L33"],
-			growth: ["9L15"],
-			harden: ["9L1"],
-			infestation: ["9L21"],
-			lifedew: ["9L27"],
-			megadrain: ["9L12"],
-			osmosis: ["9L40"],
-			poisongas: ["9L18"],
-			pound: ["9L3"],
-			sludgebomb: ["9L37"],
-			sludgewave: ["9L43"],
-			stringshot: ["9L9"],
-			strugglebug: ["9L6"],
-			toxic: ["9L49"],
-			viralblast: ["9L52"],
-		},
-	},
-	ananoop: {
-		learnset: {
-			absorb: ["9L1"],
-			acid: ["9L1"],
-			acidarmor: ["9L32"],
-			acidspray: ["9L25"],
-			energyball: ["9L50"],
-			gigadrain: ["9L35"],
-			growth: ["9L15"],
-			harden: ["9L1"],
-			infestation: ["9L21"],
-			lifedew: ["9L28"],
-			megadrain: ["9L12"],
-			muckvolley: ["9L1"],
-			osmosis: ["9L43"],
-			poisongas: ["9L18"],
-			pound: ["9L1"],
-			sludgebomb: ["9L40","9L47"],
-			stringshot: ["9L1"],
-			strugglebug: ["9L1"],
-			toxic: ["9L54"],
-			triattack: ["9L0","9L1"],
-			viralblast: ["9L57"],
-		},
-	},	
-	mosster: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	mosskrat: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	mosskrattidebloom: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	catteraxe: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	catatomb: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	skinka: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	dredgen: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	stalagen: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	chromagen: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	aerogen: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	caragen: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	bludgen: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	pathagen: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	ectogen: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	legen: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	desoray: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	pudet: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	woond: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	pramblo: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	glashulimp: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	drout: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	droutdry: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	guruchi: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	estoe: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	perpetua: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	tooburm: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	detrarc: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	qayagus: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	auditaur: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	oxillery: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	gneckle: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	rabyoose: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	tamroast: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	tamroastf: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	vitisquash: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	dionysseur: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	umbralu: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	nomobjeka: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	kleptarak: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	kituff: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	beadamup: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	rascoom: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	faebril: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	aeradio: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	vendrom: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	jemineye: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	oracub: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	bearvoyance: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	folleming: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	bloomage: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	obsidious: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	prospectre: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	skideer: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	yuleigh: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	feafurr: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	vaicear: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	phisnooz: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	telemac: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	macedontus: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	crynorawst: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	mercryni: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	meraculisk: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	rotomb: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	botnyak: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	buwuve: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	wasgrowl: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	worcane: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	tamunk: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	temunk: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	manadza: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	arctikull: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	wicoot: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	orogon: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	orbtholod: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	pestalation: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	revylon: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	leoseace: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	lamentu: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-	endramodai: {
-		learnset: {
-			tackle: ["9L1"],
-		}
-	},
-
 	// CAP
 
 	syclar: {
@@ -95976,5 +94974,1069 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 		eventData: [
 			{generation: 5, level: 47, moves: ["darkpulse", "flamethrower", "hyperbeam", "icebeam"]},
 		],
+	},
+
+	// swse
+
+	llampas: {
+		learnset: {
+			doubleedge: ["9L42"],
+			growl: ["9L1"],
+			growth: ["9L6"],
+			headbutt: ["9L13"],
+			irondefense: ["9L36"],
+			leafage: ["9L3"],
+			leechseed: ["9L9"],
+			pollinate: ["9L22"],
+			rockthrow: ["9L18"],
+			seedbomb: ["9L28"],
+			tackle: ["9L1"],
+			woodhammer: ["9L48"],
+		}
+	},
+	danfluff: {
+		learnset: {
+			doubleedge: ["9L45"],
+			growl: ["9L1"],
+			growth: ["9L1"],
+			headbutt: ["9L14"],
+			irondefense: ["9L37"],
+			leafage: ["9L1"],
+			leechseed: ["9L1"],
+			pollinate: ["9L24"],
+			rockthrow: ["9L0", "9L19"],
+			rocktomb: ["9L1"],
+			seedbomb: ["9L30"],
+			tackle: ["9L1"],
+			woodhammer: ["9L54"],
+		}
+	},
+	alfalphalops: {
+		learnset: {
+			doubleedge: ["9L54"],
+			growl: ["9L1"],
+			growth: ["9L1"],
+			fluffbuff: ["9L0", "9L1"],
+			headbutt: ["9L15"],
+			irondefense: ["9L46"],
+			leafage: ["9L1"],
+			leechseed: ["9L1"],
+			pollinate: ["9L25"],
+			rockslide: ["9L39"],
+			rockthrow: ["9L20"],
+			rocktomb: ["9L1"],
+			seedbomb: ["9L32"],
+			stoneedge: ["9L1"],
+			tackle: ["9L1"],
+			woodhammer: ["9L62"],
+		}
+	},
+	therpal: {
+		learnset: {
+			bite: ["9L18"],
+			coil: ["9L36"],
+			faketears: ["9L6"],
+			firefang: ["9L28"],
+			flareblitz: ["9L48"],
+			kindle: ["9L3"],
+			lavajet: ["9L13"],
+			pound: ["9L1"],
+			quickattack: ["9L9"],
+			sunnyday: ["9L22"],
+			sunscreen: ["9L42"],
+			tailwhip: ["9L1"],
+		}
+	},
+	aspfault: {
+		learnset: {
+			bite: ["9L19"],
+			coil: ["9L39"],
+			earthrush: ["9L0","9L1"],
+			faketears: ["9L1"],
+			firefang: ["9L31"],
+			flareblitz: ["9L54"],
+			kindle: ["9L1"],
+			lavajet: ["9L14"],
+			pound: ["9L1"],
+			quickattack: ["9L1"],
+			sunnyday: ["9L24"],
+			sunscreen: ["9L47"],
+			tailwhip: ["9L1"],
+		}
+	},
+	tarmendoa: {
+		learnset: {
+			bite: ["9L20"],
+			coil: ["9L45"],
+			earthquake: ["9L1"],
+			earthrush: ["9L1"],
+			faketears: ["9L1"],
+			firefang: ["9L34"],
+			flareblitz: ["9L61"],
+			gunkshot: ["9L69"],
+			irontail: ["9L1"],
+			kindle: ["9L1"],
+			lavajet: ["9L15"],
+			pound: ["9L1"],
+			quickattack: ["9L1"],
+			slam: ["9L1"],
+			sunnyday: ["9L26"],
+			sunscreen: ["9L53"],
+			tailwhip: ["9L1"],
+			thermalvortex: ["9L0"],
+		}
+	},
+	burbwhirl: {
+		learnset: {
+			aquajet: ["9L13"],
+			bubble: ["9L3"],
+			bubblebeam: ["9L18"],
+			hydropump: ["9L48"],
+			leer: ["9L1"],
+			liquidation: ["9L36"],
+			lunge: ["9L28"],
+			partingshot: ["9L42"],
+			raindance: ["9L22"],
+			scratch: ["9L1"],
+			teafullook: ["9L6"],
+			whirlpool: ["9L9"],
+		}
+	},
+	spoutlaw: {
+		learnset: {
+			aquajet: ["9L14"],
+			bubble: ["9L1"],
+			bubblebeam: ["9L19"],
+			hydropump: ["9L54"],
+			leer: ["9L1"],
+			liquidation: ["9L40"],
+			lunge: ["9L31"],
+			partingshot: ["9L47"],
+			pounce: ["9L0","9L1"],
+			raindance: ["9L24"],
+			scratch: ["9L1"],
+			teafullook: ["9L1"],
+			whirlpool: ["9L1"],
+		}
+	},
+	vaquamael: {
+		learnset: {
+			aquajet: ["9L15"],
+			blizzard: ["9L69"],
+			bubble: ["9L1"],
+			bubblebeam: ["9L20"],
+			bugbuzz: ["9L1"],
+			hydropump: ["9L61"],
+			leer: ["9L1"],
+			liquidation: ["9L45"],
+			lockon: ["9L1"],
+			lunge: ["9L34"],
+			partingshot: ["9L1","9L53"],
+			pounce: ["9L1"],
+			raindance: ["9L26"],
+			scratch: ["9L1"],
+			teafullook: ["9L1"],
+			whirlduel: ["9L0", "9L1"],
+			whirlpool: ["9L1"],
+		}
+	},
+	chewmunk: {
+		learnset: {
+			belch: ["9L45"],
+			bite: ["9L5"],
+			bodyslam: ["9L40"],
+			bulletseed: ["9L35"],
+			defensecurl: ["9L10"],
+			hypnosis: ["9L20"],
+			rollout: ["9L25"],
+			spitup: ["9L30"],
+			stockpile: ["9L30"],
+			stuffcheeks: ["9L15"],
+			swallow: ["9L30"],
+			tackle: ["9L1"],
+			tailwhip: ["9L1"],
+		}
+	},
+	cheekat: {
+		learnset: {
+			bearhug: ["9L1"],
+			belch: ["9L51"],
+			bite: ["9L1"],
+			bodyslam: ["9L45"],
+			bulletseed: ["9L39"],
+			crunch: ["9L1"],
+			defensecurl: ["9L1"],
+			fakeout: ["9L1"],
+			hypnosis: ["9L1","9L21"],
+			rollout: ["9L27"],
+			snooze: ["9L0","9L1"],
+			spitup: ["9L33"],
+			stockpile: ["9L33"],
+			stuffcheeks: ["9L15"],
+			swallow: ["9L33"],
+			tackle: ["9L1"],
+			tailslap: ["9L1"],
+			tailwhip: ["9L1"],
+			yawn: ["9L1"],
+		}
+	},
+	specoey: {
+		learnset: {
+			afteryou: ["9L27"],
+			bite: ["9L15"],
+			copycat: ["9L22"],
+			destinybond: ["9L44"],
+			faketears: ["9L7"],
+			falsesurrender: ["9L36"],
+			foulplay: ["9L50"],
+			growl: ["9L3"],
+			headbutt: ["9L17"],
+			hypervoice: ["9L33"],
+			lick: ["9L1"],
+			mefirst: ["9L27"],
+			mimic: ["9L12"],
+			perishsong: ["9L58"],
+			roleplay: ["9L25"],
+			scratch: ["9L1"],
+			shadowclaw: ["9L39"],
+			shadowspit: ["9L10"],
+			willowisp: ["9L29"],
+		}
+	},
+	opakespiel: {
+		learnset: {
+			afteryou: ["9L29"],
+			bite: ["9L15"],
+			copycat: ["9L22"],
+			destinybond: ["9L51"],
+			encore: ["9L1"],
+			faketears: ["9L1"],
+			falsesurrender: ["9L41"],
+			foulplay: ["9L58"],
+			growl: ["9L1"],
+			headbutt: ["9L17"],
+			hypervoice: ["9L37"],
+			lick: ["9L1"],
+			mefirst: ["9L29"],
+			mimic: ["9L12"],
+			painsplit: ["9L0","9L1"],
+			partingshot: ["9L1"],
+			perishsong: ["9L67"],
+			roleplay: ["9L26"],
+			scratch: ["9L1"],
+			shadowclaw: ["9L45"],
+			shadowspit: ["9L1"],
+			snarl: ["9L1"],
+			willowisp: ["9L32"],
+		}
+	},
+	kwaile: {
+		learnset: {
+			airslash: ["9L30"],
+			bulletseed: ["9L24"],
+			flail: ["9L18"],
+			leer: ["9L1"],
+			peck: ["9L1"],
+			pluck: ["9L15"],
+			roost: ["9L27"],
+			sandattack: ["9L7"],
+			sandblast: ["9L12"],
+			shellsmash: ["9L33"],
+			uturn: ["9L36"],
+			wingattack: ["9L21"],
+			withdraw: ["9L4"],
+		}
+	},
+	quailert: {
+		learnset: {
+			airslash: ["9L40"],
+			bravebird: ["9L55"],
+			bulletseed: ["9L30"],
+			earthquake: ["9L45"],
+			flail: ["9L20"],
+			followme: ["9L1"],
+			leer: ["9L1"],
+			peck: ["9L1"],
+			pluck: ["9L15"],
+			protect: ["9L0","9L1"],
+			roost: ["9L35"],
+			sandattack: ["9L1"],
+			sandblast: ["9L12"],
+			tailwind: ["9L50"],
+			wingattack: ["9L25"],
+			withdraw: ["9L1"],
+		}
+	},
+	quailstion: {
+		learnset: {
+			airslash: ["9L46"],
+			bide: ["9L1"],
+			bravebird: ["9L63"],
+			bulletseed: ["9L34"],
+			dig: ["9L0","9L1"],
+			earthquake: ["9L51"],
+			eggbomb: ["9L1"],
+			flail: ["9L22"],
+			followme: ["9L1"],
+			headlongrush: ["9L68"],
+			leer: ["9L1"],
+			noretreat: ["9L1"],
+			peck: ["9L1"],
+			pluck: ["9L15"],
+			protect: ["9L1"],
+			roost: ["9L39"],
+			sandattack: ["9L1"],
+			sandblast: ["9L12"],
+			tailwind: ["9L58"],
+			wingattack: ["9L27"],
+			withdraw: ["9L1"],
+		}
+	},
+	sighlo: {
+		learnset: {
+			battlecry: ["9L1"],
+			slackoff: ["9L25"],
+			stringshot: ["9L1"],
+			strugglebug: ["9L5"],
+		}
+	},
+	cooreds: {
+		learnset: {
+			battlecry: ["9L1"],
+			slackoff: ["9L25"],
+			stringshot: ["9L1"],
+			strugglebug: ["9L5"],
+		}
+	},
+	probaska: {
+		learnset: {
+			agility: ["9L1"],
+			batonpass: ["9L52"],
+			battlecry: ["9L1"],
+			boomburst: ["9L55"],
+			bugbuzz: ["9L33"],
+			disarmingvoice: ["9L9"],
+			echoedvoice: ["9L13"],
+			hiveshriek: ["9L49"],
+			hypervoice: ["9L40"],
+			infestation: ["9L17"],
+			leechseed: ["9L25"],
+			powder: ["9L46"],
+			powershift: ["9L1"],
+			powertrick: ["9L1"],
+			quiverdance: ["9L37"],
+			round: ["9L0","9L1","9L29"],
+			slackoff: ["9L1"],
+			storedpower: ["9L43"],
+			stringshot: ["9L1"],
+			strugglebug: ["9L5"],
+			swordsdance: ["9L1"],
+			teeterdance: ["9L21"],
+		}
+	},
+	histameanie: {
+		learnset: {
+			absorb: ["9L1"],
+			beatup: ["9L16"],
+			gigadrain: ["9L31"],
+			growth: ["9L5"],
+			leafage: ["9L9"],
+			leafblade: ["9L43"],
+			leafstorm: ["9L51"],
+			meanlook: ["9L23"],
+			megadrain: ["9L19"],
+			morningsun: ["9L33"],
+			playrough: ["9L47"],
+			poisonpowder: ["9L13"],
+			pollenpuff: ["9L39"],
+			pollinate: ["9L27"],
+			sleeppowder: ["9L13"],
+			stunspore: ["9L13"],
+			suckerpunch: ["9L36"],
+			tackle: ["9L1"],
+		}
+	},
+	apheed: {
+		learnset: {
+			bugbite: ["9L5"],
+			leafage: ["9L1"],
+			stringshot: ["9L1"],
+			synthesis: ["9L25"],
+		},
+	},
+	musleafo: {
+		learnset: {
+			bugbite: ["9L5"],
+			leafage: ["9L1"],
+			stringshot: ["9L1"],
+			synthesis: ["9L25"],
+		},
+	},
+	eecroach: {
+		learnset: {
+			acidarmor: ["9L1"],
+			agility: ["9L1"],
+			batonpass: ["9L70"],
+			bugbuzz: ["9L40"],
+			hiveshriek: ["9L65"],
+			infestation: ["9L20"],
+			leafage: ["9L1"],
+			leafblade: ["9L50"],
+			leaftornado: ["9L15"],
+			leechseed: ["9L25"],
+			magicalleaf: ["9L0","9L1"],
+			muckvolley: ["9L55"],
+			poisonpower: ["9L1"],
+			quickattack: ["9L10"],
+			quiverdance: ["9L45"],
+			ragepowder: ["9L60"],
+			seedbomb: ["9L35"],
+			slash: ["9L30"],
+			stringshot: ["9L1"],
+			strugglebug: ["9L5"],
+			stunspore: ["9L1"],
+			synthesis: ["9L1"],
+			woodhammer: ["9L75"],
+		},
+	},
+	clamtrip: {
+		learnset: {
+			clamp: ["9L12"],
+			crabhammer: ["9L44"],
+			defensecurl: ["9L4"],
+			endeavor: ["9L40"],
+			guillotine: ["9L56"],
+			irondefense: ["9L28"],
+			paddle: ["9L1"],
+			powergem: ["9L24"],
+			protect: ["9L1"],
+			razorshell: ["9L36"],
+			rockslide: ["9L32"],
+			rollout: ["9L8"],
+			stoneedge: ["9L52"],
+			stonestorm: ["9L1"],
+			swordsdance: ["9L48"],
+			thief: ["9L20"],
+			vicegrip: ["9L16"],
+		},
+	},
+	stackem: {
+		learnset: {
+			bodypress: ["9L45"],
+			followme: ["9L20"],
+			heavyslam: ["9L50"],
+			irondefense: ["9L40"],
+			pound: ["9L1"],
+			protect: ["9L5"],
+			rockblast: ["9L25"],
+			rocktomb: ["9L15"],
+			sandtomb: ["9L10"],
+			shadowball: ["9L35"],
+			stealthrock: ["9L30"],
+			stoneedge: ["9L55"],
+			stonestorm: ["9L1"],
+		},
+	},
+	rowviar: {
+		learnset: {
+			agility: ["9L24"],
+			aquajet: ["9L18"],
+			bite: ["9L12"],
+			crunch: ["9L36"],
+			dive: ["9L30"],
+			liquidation: ["9L42"],
+			paddle: ["9L1"],
+			quickattack: ["9L6"],
+			softboiled: ["9L48"],
+			tailwhip: ["9L1"],
+		},
+	},
+	sanook: {
+		learnset: {
+			agility: ["9L24"],
+			aquajet: ["9L18"],
+			aquatail: ["9L1","9L48"],
+			bite: ["9L1"],
+			crunch: ["9L40"],
+			dive: ["9L32"],
+			paddle: ["9L1"],
+			quickattack: ["9L1"],
+			softboiled: ["9L56"],
+			tailwhip: ["9L1"],
+			wavecrash: ["9L64"],
+		},
+	},
+	cereboral: {
+		learnset: {
+			confusion: ["9L4"],
+			cosmicpower: ["9L40"],
+			crystalforce: ["9L56"],
+			harden: ["9L12"],
+			lifedew: ["9L16"],
+			mindmeld: ["9L56"],
+			mudshot: ["9L20"],
+			mudslap: ["9L8"],
+			powergem: ["9L36"],
+			psybeam: ["9L24"],
+			psychic: ["9L48"],
+			recover: ["9L52"],
+			rockpolish: ["9L32"],
+			stonestorm: ["9L1"],
+			tackle: ["9L1"],
+			trickroom: ["9L44"],
+			whirlpool: ["9L28"],
+		},
+	},
+	bagoul: {
+		learnset: {
+			bind: ["9L1"],
+			ectoplasma: ["9L52"],
+			fling: ["9L12"],
+			grudge: ["9L4"],
+			hex: ["9L20"],
+			infestation: ["9L28"],
+			meanlook: ["9L8"],
+			muckvolley: ["9L40"],
+			perishsong: ["9L48"],
+			present: ["9L32"],
+			shadowball: ["9L36"],
+			shadowsneak: ["9L16"],
+			shadowspit: ["9L1"],
+			sludge: ["9L24"],
+			toxic: ["9L44"],
+			wrap: ["9L1"],
+		},
+	},
+	tofrug: {
+		learnset: {
+			acid: ["9L1"],
+			acidarmor: ["9L32"],
+			bounce: ["9L40"],
+			disarmingvoice: ["9L8"],
+			leechseed: ["9L24"],
+			magicalleaf: ["9L20"],
+			playrough: ["9L36"],
+			poisontail: ["9L16"],
+			tackle: ["9L4"],
+			tailwhip: ["9L1"],
+			taunt: ["9L44"],
+			torment: ["9L28"],
+			toxic: ["9L48"],
+			worryseed: ["9L12"],
+		},
+	},
+	kaskazog: {
+		learnset: {
+			acid: ["9L1"],
+			acidarmor: ["9L36"],
+			bounce: ["9L46"],
+			disarmingvoice: ["9L1"],
+			fakeout: ["9L1"],
+			leechseed: ["9L26"],
+			magicalleaf: ["9L21"],
+			peekaboo: ["9L0","9L1"],
+			playrough: ["9L41"],
+			poisontail: ["9L16"],
+			tackle: ["9L1"],
+			tailwhip: ["9L1"],
+			taunt: ["9L51"],
+			torment: ["9L31"],
+			toxic: ["9L56"],
+			worryseed: ["9L12"],
+		},
+	},
+	ananot: {
+		learnset: {
+			absorb: ["9L1"],
+			acid: ["9L1"],
+			acidarmor: ["9L30"],
+			acidspray: ["9L24"],
+			energyball: ["9L46"],
+			gigadrain: ["9L33"],
+			growth: ["9L15"],
+			harden: ["9L1"],
+			infestation: ["9L21"],
+			lifedew: ["9L27"],
+			megadrain: ["9L12"],
+			osmosis: ["9L40"],
+			poisongas: ["9L18"],
+			pound: ["9L3"],
+			sludgebomb: ["9L37"],
+			sludgewave: ["9L43"],
+			stringshot: ["9L9"],
+			strugglebug: ["9L6"],
+			toxic: ["9L49"],
+			viralblast: ["9L52"],
+		},
+	},
+	ananoop: {
+		learnset: {
+			absorb: ["9L1"],
+			acid: ["9L1"],
+			acidarmor: ["9L32"],
+			acidspray: ["9L25"],
+			energyball: ["9L50"],
+			gigadrain: ["9L35"],
+			growth: ["9L15"],
+			harden: ["9L1"],
+			infestation: ["9L21"],
+			lifedew: ["9L28"],
+			megadrain: ["9L12"],
+			muckvolley: ["9L1"],
+			osmosis: ["9L43"],
+			poisongas: ["9L18"],
+			pound: ["9L1"],
+			sludgebomb: ["9L40","9L47"],
+			stringshot: ["9L1"],
+			strugglebug: ["9L1"],
+			toxic: ["9L54"],
+			triattack: ["9L0","9L1"],
+			viralblast: ["9L57"],
+		},
+	},	
+	mosster: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	mosskrat: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	mosskrattidebloom: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	catteraxe: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	catatomb: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	skinka: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	dredgen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	stalagen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	chromagen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	aerogen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	caragen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	bludgen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	pathagen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	ectogen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	legen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	depuray: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	desoray: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	dirrun: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	blurrun: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	pudet: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	woond: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	pramblo: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	glashulimp: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	drout: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	droutdry: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	guruchi: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	estoe: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	perpetua: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	tooburm: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	detrarc: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	qayagus: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	auditaur: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	oxillery: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	gneckle: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	rabyoose: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	avokiddo: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	alliguaca: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	tamroast: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	tamroastf: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	weepollen: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	weepollenf: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	vitisquash: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	dionysseur: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	umbralu: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	nomobjeka: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	kleptarak: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	kituff: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	beadamup: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	rascoom: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	faebril: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	bokshel: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	hermirt: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	aeradio: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	hurchin: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	vendrom: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	jemineye: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	oracub: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	bearvoyance: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	folleming: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	bloomage: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	obsidious: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	prospectre: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	skideer: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	yuleigh: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	feafurr: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	vaicear: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	phisnooz: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	telemac: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	macedontus: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	crynorawst: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	mercryni: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	meraculisk: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	rotomb: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	botnyak: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	buwuve: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	wasgrowl: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	worcane: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	tamunk: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	temunk: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	manadza: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	arctikull: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	wicoot: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	orogon: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	orbtholod: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	pestalation: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	revylon: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	leoseace: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	lamentu: {
+		learnset: {
+			tackle: ["9L1"],
+		}
+	},
+	endramodai: {
+		learnset: {
+			tackle: ["9L1"],
+		}
 	},
 };

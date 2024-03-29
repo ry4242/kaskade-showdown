@@ -1433,7 +1433,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 	},
 	blackholeeclipse: {
-		num: 654,
+		num: -65,
 		accuracy: true,
 		basePower: 1,
 		category: "Physical",
@@ -7794,7 +7794,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cool",
 	},
 	gmaxwindrage: {
-		num: 1000,
+		num: -20,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
@@ -22277,7 +22277,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 	// swse
 
 	auraprojection: {
-		num: 983,
+		num: -8,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22291,7 +22291,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 	},
 	auraspark: {
-		num: 922,
+		num: -17,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -22304,7 +22304,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 	},
 	battlecry: {
-		num: 921,
+		num: -15,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -22317,7 +22317,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 	},
 	bearhug: {
-		num: 972,
+		num: -66,
 		accuracy: 85,
 		basePower: 30,
 		category: "Physical",
@@ -22347,7 +22347,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 	},
 	bloodmoon: {
-		num: 980,
+		num: -2,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22361,7 +22361,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 	},
 	butterflydance: { // untested
-		num: 934,
+		num: -29,
 		accuracy: 100,
 		basePower: 65,
 		category: "Special",
@@ -22386,7 +22386,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 	},
 	cidercannon: { // untested and isn't allowed!?!?
-		num: 952,
+		num: -47,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22456,7 +22456,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		contestType: "Cute",
 	},
 	conduction: { // tested, works as intended
-		num: 942,
+		num: -36,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -22488,7 +22488,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},
 	crystalforce: {
-		num: 933,
+		num: -28,
 		accuracy: 80,
 		basePower: 120,
 		category: "Special",
@@ -22501,7 +22501,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 	},
 	daydream: {
-		num: 991,
+		num: -10,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22515,7 +22515,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 	},
 	deception: { // untested
-		num: 969,
+		num: -64,
 		accuracy: 90,
 		basePower: 80,
 		category: "Special",
@@ -22544,7 +22544,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 	},
 	draconicorb: {
-		num: 965,
+		num: -59,
 		accuracy: 90,
 		basePower: 60,
 		category: "Special",
@@ -22571,7 +22571,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 	},
 	draconicroar: {
-		num: 966,
+		num: -60,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -22584,7 +22584,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 	},
 	dragonforce: {
-		num: 992,
+		num: -11,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22598,7 +22598,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 	},
 	duststorm: {
-		num: 987,
+		num: -3,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22612,7 +22612,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 	},
 	earthrush: {
-		num: 929,
+		num: -24,
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
@@ -22625,7 +22625,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 	},
 	ectoplasma: {
-		num: 937,
+		num: -32,
 		accuracy: 80,
 		basePower: 120,
 		category: "Special",
@@ -22638,7 +22638,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 	},
 	emberplume: {
-		num: 948,
+		num: -42,
 		accuracy: 70,
 		basePower: 100,
 		category: "Special",
@@ -22662,7 +22662,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 	},
 	escaperoot: { // crashes the game trying to switch
-		num: 951,
+		num: -46,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22689,7 +22689,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 	},
 	excalibur: {
-		num: 977,
+		num: -69,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -22708,7 +22708,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 	},
 	foghorn: {
-		num: 979,
+		num: -1,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22722,7 +22722,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 	},
 	frostkick: {
-		num: 962,
+		num: -55,
 		accuracy: 90,
 		basePower: 85,
 		category: "Physical",
@@ -22739,7 +22739,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 	},
 	haunt: {
-		num: 986,
+		num: -9,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -22753,7 +22753,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 	},
 	hiveshriek: {
-		num: 935,
+		num: -30,
 		accuracy: 70,
 		basePower: 120,
 		category: "Special",
@@ -22777,7 +22777,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 	},
 	hydraulicjaw: {
-		num: 941,
+		num: -33,
 		accuracy: 90,
 		basePower: 90,
 		category: "Physical",
@@ -22790,7 +22790,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},
 	icebreak: {
-		num: 960,
+		num: -54,
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
@@ -22804,7 +22804,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 	},
 	ignition: {
-		num: 947,
+		num: -41,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -22819,8 +22819,8 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	initiative: {
-		num: 964,
+	initiative: { // untested
+		num: -61,
 		accuracy: true,
 		basePower: 0,
 		category: 'Status',
@@ -22904,7 +22904,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dragon",
 	},
 	kihop: {
-		num: 923,
+		num: -18,
 		accuracy: 100,
 		basePower: 65,
 		category: "Special",
@@ -22917,7 +22917,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fighting",
 	},
 	kindle: {
-		num: 945,
+		num: -39,
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
@@ -22933,7 +22933,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 	},
 	lavajet: {
-		num: 946,
+		num: -40,
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
@@ -22946,7 +22946,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 	},
 	lovespray: { // untested
-		num: 971,
+		num: -73,
 		accuracy: 85,
 		basePower: 0,
 		category: "Status",
@@ -22972,7 +22972,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 	},
 	lunarsurge: {
-		num: 978,
+		num: -72,
 		accuracy: 100,
 		basePower: 120,
 		category: "Special",
@@ -23001,7 +23001,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 	},
 	magicmissile: {
-		num: 976,
+		num: -70,
 		accuracy: true,
 		basePower: 20,
 		category: "Special",
@@ -23015,7 +23015,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 	},
 	magnetize: {
-		num: 989,
+		num: -13,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -23029,7 +23029,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},
 	mindmeld: { // untested
-		num: 957,
+		num: -52,
 		accuracy: 80,
 		basePower: 120,
 		category: "Special",
@@ -23051,7 +23051,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 	},
 	minilaser: {
-		num: 940,
+		num: -35,
 		accuracy: true,
 		basePower: 60,
 		category: "Special",
@@ -23064,7 +23064,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},
 	mockery: {
-		num: 967,
+		num: -62,
 		accuracy: true,
 		basePower: 20,
 		category: "Special",
@@ -23084,7 +23084,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 	},
 	muckvolley: {
-		num: 927,
+		num: -22,
 		accuracy: 100,
 		basePower: 30,
 		category: "Special",
@@ -23098,7 +23098,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 	},
 	osmosis: {
-		num: 950,
+		num: -45,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
@@ -23112,7 +23112,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 	},
 	paddle: {
-		num: 949,
+		num: -44,
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
@@ -23125,7 +23125,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Water",
 	},
 	peekaboo: {
-		num: 975,
+		num: -68,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
@@ -23148,7 +23148,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 	},
 	permafrost: {
-		num: 963,
+		num: -56,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -23165,7 +23165,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 	},
 	pixiepunch: { // untested
-		num: 974,
+		num: -67,
 		accuracy: 100,
 		basePower: 65,
 		category: "Physical",
@@ -23192,7 +23192,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 	},
 	pollinate: {
-		num: 982,
+		num: -4,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -23206,7 +23206,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Grass",
 	},
 	psionrush: {
-		num: 956,
+		num: -51,
 		accuracy: 100,
 		basePower: 120,
 		category: "Physical",
@@ -23225,7 +23225,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 	},
 	psychicclap: {
-		num: 955,
+		num: -50,
 		accuracy: 100,
 		basePower: 40,
 		category: "Physical",
@@ -23238,7 +23238,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 	},
 	psychocannon: { // isn't allowed for some reason
-		num: 958,
+		num: -53,
 		accuracy: 100,
 		basePower: 150,
 		category: "Special",
@@ -23251,7 +23251,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Psychic",
 	},
 	rockjaw: {
-		num: 931,
+		num: -26,
 		accuracy: 100,
 		basePower: 80,
 		category: "Physical",
@@ -23264,7 +23264,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 	},
 	sandblast: { // untested
-		num: 930,
+		num: -25,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -23283,7 +23283,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ground",
 	},
 	shade: {
-		num: 968,
+		num: -63,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -23305,7 +23305,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Dark",
 	},
 	shadowspit: {
-		num: 936,
+		num: -31,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -23321,7 +23321,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ghost",
 	},
 	shreddingriff: {
-		num: 943,
+		num: -37,
 		accuracy: 80,
 		basePower: 110,
 		category: "Special",
@@ -23345,7 +23345,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},
 	slushball: {
-		num: 961,
+		num: -57,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
@@ -23367,7 +23367,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 	},
 	smogspread: {
-		num: 981,
+		num: -6,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -23381,7 +23381,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 	},
 	snooze: { // doesn't work
-		num: 920,
+		num: -16,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -23401,7 +23401,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Normal",
 	},
 	spectrum: {
-		num: 939,
+		num: -34,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -23419,7 +23419,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},
 	sprinkle: {
-		num: 990,
+		num: -7,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -23433,7 +23433,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fairy",
 	},
 	steelbarbs: { // untested
-		num: 938,
+		num: -38,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -23458,7 +23458,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Steel",
 	},
 	stonestorm: { // untested
-		num: 932,
+		num: -27,
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
@@ -23476,7 +23476,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Rock",
 	},
 	strongwinds: {
-		num: 985,
+		num: -14,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -23490,14 +23490,14 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 	},
 	sunscreen: { // untested (hits behind substitute?)
-		num: 944,
+		num: -43,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
 		name: "Sunscreen",
 		pp: 15,
 		priority: 0,
-		flags: {snatch: 1, metronome: 1},
+		flags: {snatch: 1, bypasssub: 1, metronome: 1},
 		onTry(source) {
 			return ['sunnyday'].includes(source.effectiveClimateWeather());
 		},
@@ -23524,7 +23524,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Fire",
 	},
 	supercell: {
-		num: 984,
+		num: -12,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -23538,7 +23538,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 	},
 	swarmsignal: {
-		num: 988,
+		num: -5,
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
@@ -23552,7 +23552,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Bug",
 	},
 	thunderhammer: {
-		num: 954,
+		num: -49,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",
@@ -23568,7 +23568,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 	},
 	viralblast: {
-		num: 928,
+		num: -23,
 		accuracy: 70,
 		basePower: 120,
 		category: "Special",
@@ -23584,7 +23584,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Poison",
 	},
 	voltkick: {
-		num: 953,
+		num: -48,
 		accuracy: 90,
 		basePower: 85,
 		category: "Physical",
@@ -23601,7 +23601,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Electric",
 	},
 	whipup: {
-		num: 925,
+		num: -21,
 		accuracy: 100,
 		basePower: 90,
 		category: "Special",
@@ -23614,7 +23614,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 	},
 	whitewand: {
-		num: 959,
+		num: -58,
 		accuracy: 85,
 		basePower: 0,
 		category: "Status",
@@ -23628,7 +23628,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Ice",
 	},
 	wildmagic: { // untested
-		num: 973,
+		num: -71,
 		accuracy: 90,
 		basePower: 60,
 		category: "Special",
@@ -23717,7 +23717,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		type: "Flying",
 	},
 	windtunnel: { // tested, works as intended
-		num: 924,
+		num: -19,
 		accuracy: 100,
 		basePower: 90,
 		category: "Physical",

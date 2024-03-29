@@ -2477,7 +2477,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	surveillance: {
 		name: "Surveillance",
-		shortDesc: "On switch-in, this Pokemon's Accuracy is raised by 1 stage.",
+		shortDesc: "On switch-in, this Pokemon's accuracy is raised by 1 stage.",
 	},
 	swarming: {
 		name: "Swarming",

@@ -1503,6 +1503,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	azurill: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+		natDexTier: "LC",
+	},
+	azurillkaskade: {
 		tier: "LC",
 	},
 	marill: {
@@ -6597,6 +6602,8 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
+	stackemrockless: {
+	},
 	clamtrip: {
 		tier: "OU",
 		doublesTier: "DOU",
@@ -6707,7 +6714,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
+	depuray: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	desoray: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	dirrun: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	blurrun: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
@@ -6775,11 +6794,27 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
+	avokiddo: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	alliguaca: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	tamroast: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
 	tamroastf: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	weepollen: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	weepollenf: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
@@ -6819,7 +6854,19 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
+	bokshel: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	hermirt: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	aeradio: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	hurchin: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},

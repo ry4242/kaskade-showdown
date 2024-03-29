@@ -2465,8 +2465,8 @@ export const ItemsText: {[k: string]: ItemText} = {
 	},
 	flatunovan: {
 		name: "Flar Unovan",
-		desc: "Raises holder's Accuracy and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its FLat Unovan are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
-		shortDesc: "+1 Accuracy and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+		desc: "Raises holder's accuracy and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its FLat Unovan are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
+		shortDesc: "+1 accuracy and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
 
 		end: "  [POKEMON] drank its Flat Unovan!",
 	},
