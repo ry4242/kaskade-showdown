@@ -5773,7 +5773,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 0.2,
 		weightkg: 2,
 		color: "Green",
-		evos: ["Azurill-Kaskade"],
+		evos: ["Marill-Kaskade"],
 		eggGroups: ["Water 1", "Fairy"],
 		canHatch: true,
 	},
