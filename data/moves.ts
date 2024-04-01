@@ -1068,12 +1068,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onBasePower(basePower, pokemon, target) {
-			if (target.status) {
+			if (target.status === 'psn' || target.status === 'tox') {
 				return this.chainModify(2);
 			}
 		},
 		secondary: {
-			chance: 20,
+			chance: 50,
 			status: 'psn',
 		},
 		target: "normal",
@@ -1411,22 +1411,17 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	bittermalice: {
+	bittermalice: { // updated
 		num: 841,
 		accuracy: 100,
-		basePower: 75,
+		basePower: 60,
 		category: "Special",
 		name: "Bitter Malice",
-		pp: 10,
+		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
-		onBasePower(basePower, pokemon, target) {
-			if (target.status) {
-				return this.chainModify(2);
-			}
-		},
 		secondary: {
-			chance: 20,
+			chance: 30,
 			status: 'frb',
 		},
 		target: "normal",
@@ -2296,13 +2291,12 @@ export const Moves: {[moveid: string]: MoveData} = {
 	ceaselessedge: {
 		num: 845,
 		accuracy: 90,
-		basePower: 70,
+		basePower: 65,
 		category: "Physical",
 		name: "Ceaseless Edge",
 		pp: 15,
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1},
-		critRatio: 2,
 		onAfterHit(target, source, move) {
 			if (!move.hasSheerForce && source.hp) {
 				for (const side of source.side.foeSidesWithConditions()) {
@@ -17075,6 +17069,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 10,
 		priority: 0,
 		flags: {snatch: 1, metronome: 1},
+		climateWeather: 'RainDance',
 		boosts: {
 			def: 2,
 		},
@@ -20390,6 +20385,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onModifyMove(move, pokemon, target) {
+			if (target && ['supercell'].includes(target.effectiveEnergyWeather())) {
+				move.accuracy = true;
+			}
+		},
 		secondary: {
 			chance: 10,
 			status: 'par',
@@ -22206,7 +22206,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		flags: {protect: 1, mirror: 1, metronome: 1, bullet: 1, pulse: 1},
 		onModifyMove(move, pokemon, target) {
 			if (target && ['supercell'].includes(target.effectiveEnergyWeather())) {
-				move.accuracy = true;
+				move.accuracy = 75;
 			}
 		},
 		secondary: {
