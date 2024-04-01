@@ -887,8 +887,8 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 		onIrritantWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('safetygoggles') || attacker.hasAbility(['overcoat', 'bubblehelm'])) return;
-			if (move.type === 'Electric') {
-				this.debug('Dust Storm Electric supress');
+			if (move.type === 'Water' || move.type === 'Grass') {
+				this.debug('Dust Storm Water/Grass supress');
 				return this.chainModify(0.5);
 			}
 		},
@@ -1208,6 +1208,13 @@ export const Conditions: {[k: string]: ConditionData} = {
 				return 8;
 			}
 			return 5;
+		},
+		onModifySpDPriority: 10,
+		onModifySpD(spd, pokemon) {
+			if (pokemon.hasItem('energynullifier')) return;
+			if (pokemon.hasType('Ghost') && this.field.isEnergyWeather('haunt')) {
+				return this.modify(spd, 1.25);
+			}
 		},
 		onBeforeTurn(pokemon) {
 			if (this.field.energyWeatherState.boosted) {

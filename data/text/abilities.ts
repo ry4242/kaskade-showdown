@@ -2471,6 +2471,15 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Stand Off",
 		shortDesc: "On switch-in, this Pokemon summons Battle Aura.",
 	},
+	stealthadvantage: {
+		name: "Stealth Advantage",
+		desc: "If Fog is active, this Pokemon's highest stat is multiplied by 1.3, or by 1.5 if the highest stat is Speed. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order.",
+		shortDesc: "Fog active: highest stat is 1.3x, or 1.5x if Speed.",
+
+		activate: "  The fog activated [POKEMON]'s Stealth Advantage!",
+		start: "  [POKEMON]'s [STAT] was heightened!",
+		end: "  The effects of [POKEMON]'s Stealth Advantage wore off!",
+	},
 	stormfront: {
 		name: "Stormfront",
 		shortDesc: "On switch-in, this Pokemon summons Thunderstorm.",

@@ -6544,6 +6544,30 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: -40,
 	},
+	noxiousfumes: { // incomplete. missing immunity
+		onModifySpAPriority: 5,
+		onModifySpA(spa, source, pokemon) {
+			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
+				if (source.storedStats.spa >= source.storedStats.atk) return this.chainModify(1.5);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, source, pokemon) {
+			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
+				if (source.storedStats.atk > source.storedStats.spa) return this.chainModify(1.5);
+			}
+		},
+		onClimateWeather(target, source, effect) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (effect.id === 'foghorn') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		flags: {},
+		name: "Noxious Fumes",
+		rating: 3,
+		num: -20,
+	},
 	nullify: { // incomplete. needs testing i think
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
@@ -6780,6 +6804,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: -26,
 	},
+	stalk: { // incomplete. missing immunity
+		onModifySpe(spe, pokemon) {
+			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Stalk",
+		rating: 3,
+		num: -19,
+	},
 	standoff: {
 		onStart(source) {
 			this.field.setEnergyWeather('auraprojection');
@@ -6788,6 +6823,65 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		name: "Stand Off",
 		rating: 3,
 		num: -8,
+	},
+	stealthadvantage: { // incomplete. needs immunity
+		onStart(pokemon) {
+			this.singleEvent('ClimateWeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onClimateWeatherChange(pokemon) {
+			if (pokemon.hasItem('utilityumbrella')) return;
+			if (this.field.isClimateWeather('foghorn')) {
+				pokemon.addVolatile('stealthadvantage');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['stealthadvantage'];
+			this.add('-end', pokemon, 'Stealth Advantage', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-activate', pokemon, 'ability: Stealth Advantage');
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'stealthadvantage' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Stealth Advantage atk boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Stealth Advantage def boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Stealth Advantage spa boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Stealth Advantage spd boost');
+				return this.chainModify([5325, 4096]);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Stealth Advantage spe boost');
+				return this.chainModify(1.5);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Stealth Advantage');
+			},
+		},
+		flags: {},
+		name: "Stealth Advantage",
+		rating: 3,
+		num: -21,
 	},
 	stormfront: {
 		onStart(source) {
@@ -6909,17 +7003,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -32,
 	},
-	warpmist: { // incomplete, needs testing
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, source, pokemon) {
-			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				return this.chainModify(1.2);
-			}
-		},
+	warpmist: { // incomplete. needs immunity
 		onModifySpAPriority: 5,
 		onModifySpA(spa, source, pokemon) {
 			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				return this.chainModify(1.2);
+				if (source.storedStats.spa >= source.storedStats.atk) return this.chainModify(1.2);
+			}
+		},
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, source, pokemon) {
+			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
+				if (source.storedStats.atk > source.storedStats.spa) return this.chainModify(1.2);
 			}
 		},
 		onTryHit(target, source, move) {
