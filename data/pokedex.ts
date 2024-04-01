@@ -22101,6 +22101,8 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		weightkg: 486,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
+		// cosmeticFormes: ["???"],
+		// formeOrder: ["???"],
 	},
 	buwuve: {
 		num: 10110,
