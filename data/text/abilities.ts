@@ -1054,7 +1054,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	motordrive: {
 		name: "Motor Drive",
-		desc: "This Pokemon is immune to Electric-type moves and raises its Speed by 1 stage when hit by an Electric-type move.",
+		desc: "This Pokemon is immune to Electric-type moves and its Speed is raised by 1 stage when hit by an Electric-type move.",
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Electric move; Electric immunity.",
 	},
 	moxie: {
@@ -2400,10 +2400,9 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	nottobe: {
 		name: "Not to Be",
-		shortDesc: "If an opponent knocks out the user, it faints next turn.",
+		shortDesc: "If an opponent knocks out the user, it faints in 2 turns.",
 
-		start: "  [TARGET] will faint next turn!",
-		activate: "[TARGET] will faint next turn!",
+		start: "  [TARGET] will faint in 2 turns!",
 	},
 	nullify: {
 		name: "Cloud Nine",
@@ -2498,8 +2497,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 	},
 	tobe: {
 		name: "To Be",
-		desc: "If this Pokemon is at full HP, it survives one hit with at least 1 HP and restores 1/4 of its maximum HP, rounded down. OHKO moves fail when used against this Pokemon.",
-		shortDesc: "If this Pokemon is at full HP, it survives one hit with at least 1 HP and restores 1/4 of its max HP.",
+		desc: "If this Pokemon is at full HP, it survives one hit with at least 1 HP and its Speed is raised by 1 stage. OHKO moves fail when used against this Pokemon.",
+		shortDesc: "Full HP: user survives one hit with at least 1 HP and its speed is raised by 1 stage.",
 
 		activate: "  [POKEMON] decided to live!",
 	},

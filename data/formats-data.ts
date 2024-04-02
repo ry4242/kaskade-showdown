@@ -5136,9 +5136,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
-	miniormeteor: {
-		isNonstandard: "Future",
-	},
 	komala: {
 		isNonstandard: "Past",
 		tier: "Illegal",
@@ -5743,9 +5740,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "OU",
-	},
-	morpekohangry: {
-		isNonstandard: "Past",
 	},
 	cufant: {
 		isNonstandard: "Past",
@@ -6727,6 +6721,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	blurrun: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	blurruncharged: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},

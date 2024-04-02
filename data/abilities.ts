@@ -6528,7 +6528,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			}
 		},
 		condition: {
-			duration: 2,
+			duration: 3,
 			onEnd(target) {
 				this.add('-start', target, 'perish0');
 				target.faint();
@@ -6937,7 +6937,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -43,
 	},
-	tobe: { // incomplete i think
+	tobe: { // incomplete. needs testing
 		onTryHit(pokemon, target, move) {
 			if (move.ohko) {
 				this.add('-immune', pokemon, '[from] ability: To Be');
@@ -6948,15 +6948,15 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		onDamage(damage, target, source, effect) {
 			this.effectState.toBe = false;
 			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
-				this.add('-ability', target, 'To Be');
+				this.add('-activate', target, 'ability: To Be');
 				this.effectState.toBe = true;
 				return target.hp - 1;
 			}
 		},
-		onDamagingHit(damage, target, source, move) {
+		onDamagingHit(target) {
 			if (this.effectState.toBe === true) {
 				this.effectState.toBe = false;
-				this.heal(target.baseMaxhp / 4, target, target);
+				this.boost({spe: 1});
 			}
 		},
 		flags: {breakable: 1},
