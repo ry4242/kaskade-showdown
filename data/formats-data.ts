@@ -5560,6 +5560,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
+	hydrapple: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+		natDexTier: "OU",
+	},
 	silicobra: {
 		isNonstandard: "Past",
 		tier: "Illegal",
@@ -5648,17 +5653,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	hatenna: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "LC",
 	},
 	hattrem: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "NFE",
 	},
 	hatterene: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
@@ -5667,17 +5672,17 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 	},
 	impidimp: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "LC",
 	},
 	morgrem: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "NFE",
 	},
 	grimmsnarl: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
@@ -5728,6 +5733,9 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "OU",
+	},
+	eisucenoice: {
+		isNonstandard: "Past",
 	},
 	indeedee: {
 		isNonstandard: "Future",
@@ -5789,6 +5797,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 	duraludongmax: {
 		isNonstandard: "Past",
 		tier: "Illegal",
+	},
+	archaludon: {
+		isNonstandard: "Past",
+		tier: "Illegal",
+		natDexTier: "OU",
 	},
 	dreepy: {
 		isNonstandard: "Past",
@@ -6465,16 +6478,6 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		natDexTier: "Illegal",
 	},
-	archaludon: {
-		isNonstandard: "Past",
-		tier: "Illegal",
-		natDexTier: "OU",
-	},
-	hydrapple: {
-		isNonstandard: "Future",
-		tier: "Illegal",
-		natDexTier: "OU",
-	},
 	gougingfire: {
 		isNonstandard: "Past",
 		tier: "Illegal",
@@ -6595,14 +6598,10 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
-	eecroachswarm: {
-	},
 	stackem: {
 		tier: "OU",
 		doublesTier: "DOU",
 		natDexTier: "OU",
-	},
-	stackemrockless: {
 	},
 	clamtrip: {
 		tier: "OU",
@@ -6730,7 +6729,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
-	blurruncharged: {
+	blurruncharged: { // delete when legal
 		isNonstandard: "Future",
 	},
 	pudet: {
@@ -6889,7 +6888,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
-	bearvoyancewhite: {
+	bearvoyancewhite: { // delete when legal
 		isNonstandard: "Future",
 	},
 	folleming: {
