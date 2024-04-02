@@ -5137,7 +5137,7 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		natDexTier: "OU",
 	},
 	miniormeteor: {
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	komala: {
 		isNonstandard: "Past",
@@ -6355,11 +6355,11 @@ export const FormatsData: {[k: string]: SpeciesFormatsData} = {
 		tier: "Illegal",
 		natDexTier: "LC",
 	},
-	/* gimmighoulroaming: {
+	gimmighoulroaming: {
 		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "LC",
-	}, */
+	},
 	gholdengo: {
 		isNonstandard: "Past",
 		tier: "Illegal",
