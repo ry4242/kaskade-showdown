@@ -2450,7 +2450,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	coffeegeistcappuccino: {
 		name: "Coffeegeist Cappuccino",
 		desc: "Raises holder's Sp. Def and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Coffeegeist Cappuccino are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
-		shortDesc: "+1 Sp. Def and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+		shortDesc: "+1 Sp. Def and Speed at 1/4 max HP for 5 turns, -2 priority afterwards.",
 
 		end: "  [POKEMON] drank its Coffeegeist Cappuccino!",
 	},
@@ -2466,7 +2466,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	flatunovan: {
 		name: "Flar Unovan",
 		desc: "Raises holder's accuracy and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its FLat Unovan are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
-		shortDesc: "+1 accuracy and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+		shortDesc: "+1 accuracy and Speed at 1/4 max HP for 5 turns, -2 priority afterwards.",
 
 		end: "  [POKEMON] drank its Flat Unovan!",
 	},
@@ -2486,7 +2486,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	mystictamroastdoppio: {
 		name: "Mystic Tamroast Doppio",
 		desc: "Raises holder's Sp. Atk and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Mystic Tamroast Doppio are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
-		shortDesc: "+1 Sp. Atk and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+		shortDesc: "+1 Sp. Atk and Speed at 1/4 max HP for 5 turns, -2 priority afterwards.",
 
 		end: "  [POKEMON] drank its Mystic Tamroast Doppio!",
 	},
@@ -2497,7 +2497,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	pikaspresso: {
 		name: "Pikaspresso",
 		desc: "Raises holder's Speed by 2 stages when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Pikaspresso are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
-		shortDesc: "+2 Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+		shortDesc: "+2 Speed at 1/4 max HP for 5 turns, -2 priority afterwards.",
 
 		end: "  [POKEMON] drank its Pikaspresso!",
 	},
@@ -2513,7 +2513,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	sandygastmocha: {
 		name: "Sandygast Mocha",
 		desc: "Raises holder's Defense and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Sandygast Mocha are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
-		shortDesc: "+1 Def and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+		shortDesc: "+1 Def and Speed at 1/4 max HP for 5 turns, -2 priority afterwards.",
 
 		end: "  [POKEMON] drank its Sandygast Mocha!",
 	},
@@ -2538,7 +2538,7 @@ export const ItemsText: {[k: string]: ItemText} = {
 	worcanecoldbrew: {
 		name: "Worcane Cold Brew",
 		desc: "Raises holder's Attack and Speed by 1 stage when at 1/4 max HP or less. After 5 turns, the holder's stat stages gained from its Worcane Cold Brew are reverted and their moves have their priority decreased by 2 for 2 turns. Single use.",
-		shortDesc: "+1 Atk and Speed at 1/4 max HP for 5 turns, -2 priority afterwards",
+		shortDesc: "+1 Atk and Speed at 1/4 max HP for 5 turns, -2 priority afterwards.",
 
 		end: "  [POKEMON] drank its Worcane Cold Brew!",
 	},
