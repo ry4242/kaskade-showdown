@@ -2402,7 +2402,7 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		name: "Not to Be",
 		shortDesc: "If an opponent knocks out the user, it faints in 2 turns.",
 
-		start: "  [TARGET] will faint in 2 turns!",
+		start: "  [SOURCE] will faint in two turns!",
 	},
 	nullify: {
 		name: "Cloud Nine",

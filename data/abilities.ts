@@ -6519,13 +6519,16 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: -21,
 	},
-	nottobe: { // incomplete
-		onDamagingHitOrder: 1,
+	nottobe: { // Complete.
 		onDamagingHit(damage, target, source, move) {
 			if (source.volatiles['perishsong']) return;
+			let announced = false;
 			if (!target.hp) {
-				this.add('-activate', target, 'ability: Not to Be');
-				source.addVolatile('nottobe', this.effectState.target);
+				if (!announced) {
+					this.add('-ability', target, 'Not To Be');
+					announced = true;
+				}
+				source.addVolatile('nottobe');
 			}
 		},
 		condition: {
@@ -6541,7 +6544,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 			},
 		},
 		flags: {},
-		name: "Not to Be",
+		name: "Not To Be",
 		rating: 2,
 		num: -40,
 	},
@@ -6938,7 +6941,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -43,
 	},
-	tobe: { // incomplete. needs testing
+	tobe: { // Complete.
 		onTryHit(pokemon, target, move) {
 			if (move.ohko) {
 				this.add('-immune', pokemon, '[from] ability: To Be');
