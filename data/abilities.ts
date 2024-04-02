@@ -6522,6 +6522,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	nottobe: { // incomplete
 		onDamagingHitOrder: 1,
 		onDamagingHit(damage, target, source, move) {
+			if (source.volatiles['perishsong']) return;
 			if (!target.hp) {
 				this.add('-activate', target, 'ability: Not to Be');
 				source.addVolatile('nottobe', this.effectState.target);

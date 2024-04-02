@@ -7756,7 +7756,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	coffeegeistcappuccino: {
 		name: "Coffeegeist Cappuccino",
-		spritenum: 791,
+		spritenum: 796,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
@@ -7823,7 +7823,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	flatunovan: {
 		name: "Flat Unovan",
-		spritenum: 792,
+		spritenum: 797,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
@@ -7882,7 +7882,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	mystictamroastdoppio: {
 		name: "Mystic Tamroast Doppio",
-		spritenum: 790,
+		spritenum: 795,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
@@ -7917,7 +7917,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	pikaspresso: {
 		name: "Pikaspresso",
-		spritenum: 787,
+		spritenum: 792,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
@@ -7974,7 +7974,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	sandygastmocha: {
 		name: "Sandygast Mocha",
-		spritenum: 789,
+		spritenum: 794,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
@@ -8039,7 +8039,7 @@ export const Items: {[itemid: string]: ItemData} = {
 	},
 	worcanecoldbrew: {
 		name: "Worcane Cold Brew",
-		spritenum: 788,
+		spritenum: 793,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4) {
 				pokemon.useItem();
