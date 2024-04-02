@@ -3536,7 +3536,7 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 
 			let announced = false;
 			for (const pokemon of [target, source]) {
-				if (pokemon.volatiles['perishsong']) continue;
+				if (pokemon.volatiles['perishsong'] || pokemon.volatiles['nottobe']) continue;
 				if (!announced) {
 					this.add('-ability', target, 'Perish Body');
 					announced = true;
@@ -6519,16 +6519,17 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 1.5,
 		num: -21,
 	},
-	nottobe: { // Complete.
+	nottobe: { // incomplete. stacks with perish song/perish body
 		onDamagingHit(damage, target, source, move) {
-			if (source.volatiles['perishsong']) return;
+			if (target.hp) return;
 			let announced = false;
-			if (!target.hp) {
+			for (const pokemon of [source]) {
+				if (pokemon.volatiles['perishsong'] || pokemon.volatiles['nottobe']) continue;
 				if (!announced) {
 					this.add('-ability', target, 'Not To Be');
 					announced = true;
 				}
-				source.addVolatile('nottobe');
+				pokemon.addVolatile('nottobe');
 			}
 		},
 		condition: {

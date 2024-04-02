@@ -13838,7 +13838,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 					result = true;
 				} else if (this.runEvent('TryHit', pokemon, source, move) === null) {
 					result = true;
-				} else if (!pokemon.volatiles['perishsong']) {
+				} else if (!pokemon.volatiles['perishsong'] || !pokemon.volatiles['nottobe']) {
 					pokemon.addVolatile('perishsong');
 					this.add('-start', pokemon, 'perish3', '[silent]');
 					result = true;
