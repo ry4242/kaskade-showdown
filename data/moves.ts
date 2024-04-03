@@ -2464,7 +2464,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 				atk: -1,
 			},
 		},
-		target: "normal",
+		target: "allAdjacentFoes",
 		type: "Water",
 		contestType: "Beautiful",
 	},
@@ -22410,26 +22410,27 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		name: "Comrade's Armor",
+		name: "Comrade\u2019s Armor",
 		pp: 10,
 		priority: 4,
 		flags: {noassist: 1, failcopycat: 1},
 		stallingMove: true,
-		volatileStatus: 'protect',
+		volatileStatus: 'comradesarmor',
 		onPrepareHit(pokemon) {
 			return !!this.queue.willAct() && this.runEvent('StallMove', pokemon);
 		},
-		onHit(pokemon) {
-			pokemon.addVolatile('stall');
+		onHit(target, source) {
+			target.addVolatile('stall');
+			source.addVolatile('stall');
 		},
 		condition: {
 			duration: 1,
 			onStart(target) {
-				this.add('-singleturn', target, 'Protect');
+				this.add('-singleturn', target, 'move: Protect');
 			},
 			onTryHitPriority: 3,
 			onTryHit(target, source, move) {
-				if (!move.flags['protect']) {
+				if (!move.flags['protect'] || move.category === 'Status') {
 					if (['gmaxoneblow', 'gmaxrapidflow'].includes(move.id)) return;
 					if (move.isZ || move.isMax) target.getMoveHitData(move).zBrokeProtect = true;
 					return;
@@ -22447,6 +22448,11 @@ export const Moves: {[moveid: string]: MoveData} = {
 					}
 				}
 				return this.NOT_FAIL;
+			},
+			onHit(target, source, move) {
+				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
+					source.trySetStatus('brn', target);
+				}
 			},
 		},
 		secondary: null,

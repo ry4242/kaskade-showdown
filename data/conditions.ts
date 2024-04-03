@@ -220,7 +220,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 			this.add('-start', target, 'caffeinecrash', '[from] item: ' + sourceEffect.name);
 		},
 		onModifyPriority(priority, pokemon, target, move) {
-			return priority - 2;
+			return priority - 0.1;
 		},
 		onEnd(target) {
 			this.add('-end', target, 'caffeinecrash');

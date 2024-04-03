@@ -2390,8 +2390,8 @@ export const AbilitiesText: {[k: string]: AbilityText} = {
 		shortDesc: "If Blood Moon is active, this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
 	},
 	masterinstinct: {
-		name: "Victory Star",
-		shortDesc: "If Battle Aura is active, This Pokemon's moves have their accuracy multiplied by 1.2.",
+		name: "Master Instinct",
+		shortDesc: "If Battle Aura is active, this Pokemon's moves have their accuracy multiplied by 1.2.",
 	},
 	nesting: {
 		name: "Nesting",

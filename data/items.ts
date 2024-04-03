@@ -7769,7 +7769,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		condition: {
 			noCopy: true,
-			duration: 5,
+			duration: 3,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -7836,7 +7836,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		condition: {
 			noCopy: true,
-			duration: 5,
+			duration: 3,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -7895,7 +7895,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		condition: {
 			noCopy: true,
-			duration: 5,
+			duration: 3,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -7929,7 +7929,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		condition: {
 			noCopy: true,
-			duration: 5,
+			duration: 3,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -7987,7 +7987,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		condition: {
 			noCopy: true,
-			duration: 5,
+			duration: 3,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -8052,7 +8052,7 @@ export const Items: {[itemid: string]: ItemData} = {
 		},
 		condition: {
 			noCopy: true,
-			duration: 5,
+			duration: 3,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
