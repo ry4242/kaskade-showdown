@@ -95117,6 +95117,7 @@ export const Learnsets: {[k: string]: LearnsetData} = {
 			scratch: ["9L1"],
 			teafullook: ["9L1"],
 			whirlpool: ["9L1"],
+			uturn: ["9L1"],
 		}
 	},
 	vaquamael: {
