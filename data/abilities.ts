@@ -6803,12 +6803,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -46,
 	},
 	souldrain: { // incomplete. needs testing
-		onAnyDamage(damage, target, pokemon, effect) {
+		/* onAnyDamage(damage, target, pokemon, effect) {
 			const source = this.effectState.source;
 			if (pokemon !== target && source === ['haunt'].includes(pokemon.effectiveEnergyWeather())) {
 				this.heal(pokemon.baseMaxhp / 16, pokemon, target);
 			}
-		},
+		}, */
 		flags: {},
 		name: "Soul Drain",
 		rating: 2,

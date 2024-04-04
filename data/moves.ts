@@ -22667,7 +22667,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	escaperoot: { // crashes the game trying to switch
+	escaperoot: { // crashes the game trying to switch, temporarily patched out
 		num: -46,
 		accuracy: true,
 		basePower: 0,
@@ -22682,10 +22682,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwap(target, source) {
 				if (!target.fainted) {
 					target.clearStatus();
-					if (source.getVolatile('ingrain')) {
+					/* if (source.getVolatile('ingrain')) {
 						target.heal(target.baseMaxhp / 8, source);
 						this.add('-heal', target, target.getHealth, '[from] move: Escape Root');
-					}
+					} */
 					target.side.removeSlotCondition(target, 'escaperoot');
 				}
 			},
