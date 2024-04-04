@@ -135,7 +135,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	/** Evolution move. falsy if doesn't evolve. */
 	readonly evoMove?: string;
 	/** Region required to be in for evolution. falsy if doesn't evolve. */
-	readonly evoRegion?: 'Alola' | 'Galar';
+	readonly evoRegion?: 'Alola' | 'Galar' | 'Kaskade';
 	/** Evolution level. falsy if doesn't evolve. */
 	readonly evoLevel?: number;
 	/** Is NFE? True if this Pokemon can evolve (Mega evolution doesn't count). */
@@ -291,7 +291,9 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 		if (Array.isArray(data.changesFrom)) this.changesFrom = data.changesFrom[0];
 
 		if (!this.gen && this.num >= 1) {
-			if (this.num >= 906 || this.forme.includes('Paldea')) {
+			if (this.num >= 10000 || ['Kaskade', 'Amaze-All'].includes(this.forme)) {
+				this.gen = 9;
+			} else if (this.num >= 906 || this.forme.includes('Paldea')) {
 				this.gen = 9;
 			} else if (this.num >= 810 || ['Gmax', 'Galar', 'Galar-Zen', 'Hisui'].includes(this.forme)) {
 				this.gen = 8;
@@ -411,6 +413,8 @@ export class DexSpecies {
 				galar: ['g', 'galar', 'galarian'],
 				hisui: ['h', 'hisui', 'hisuian'],
 				paldea: ['p', 'paldea', 'paldean'],
+				kaskade: ['k', 'kaskade', 'kaskadian'],
+				amazeall: ['am', 'amaze', 'amazon'],
 				mega: ['m', 'mega'],
 				primal: ['p', 'primal'],
 			};

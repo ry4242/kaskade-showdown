@@ -4,7 +4,7 @@
         "sets": [
             {
                 "role": "Doubles Setup Sweeper",
-                "movepool": ["Baton Pass", "Bug Buzz", "Air Slash", "Giga Drain", "Quiver Dance"]
+                "movepool": ["Air Slash", "Bug Buzz", "Giga Drain", "Quiver Dance"]
             }
         ]
     },
@@ -12,7 +12,7 @@
         "level": 87,
         "sets": [
             {
-                "role": "Setup Sweeper",
+                "role": "Doubles Setup Sweeper",
                 "movepool": ["Growl", "Growth", "Headbutt", "Tackle"]
             }
         ]
@@ -21,7 +21,7 @@
         "level": 87,
         "sets": [
             {
-                "role": "Setup Sweeper",
+                "role": "Doubles Setup Sweeper",
                 "movepool": ["Bite", "Coil", "Earthquake", "Slam"]
             }
         ]
@@ -30,7 +30,7 @@
         "level": 87,
         "sets": [
             {
-                "role": "Setup Sweeper",
+                "role": "Doubles Setup Sweeper",
                 "movepool": ["Blizzard", "Bubble", "Leer", "Lunge"]
             }
         ]
@@ -39,7 +39,7 @@
         "level": 87,
         "sets": [
             {
-                "role": "Setup Sweeper",
+                "role": "Doubles Setup Sweeper",
                 "movepool": ["Belch", "Bite", "Tackle", "Yawn"]
             }
         ]
@@ -48,8 +48,17 @@
         "level": 87,
         "sets": [
             {
-                "role": "Setup Sweeper",
+                "role": "Doubles Setup Sweeper",
                 "movepool": ["Lick", "Mimic", "Scratch", "Snarl"]
+            }
+        ]
+    },
+   "glaceon": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Doubles Setup Sweeper",
+                "movepool": ["Blizzard",  "Chilling Water", "Freeze-Dry", "Icy Wind"]
             }
         ]
     }

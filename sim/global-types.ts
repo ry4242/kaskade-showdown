@@ -602,7 +602,7 @@ namespace RandomTeamsTypes {
 		level?: number;
 		sets: RandomSetData[];
 	}
-	export type Role = '' | 'Fast Attacker' | 'Setup Sweeper' | 'Wallbreaker' | 'Tera Blast user' |
+	export type Role = '' | 'Fast Attacker' | 'Setup Sweeper' | 'Wallbreaker' |
 	'Bulky Attacker' | 'Bulky Setup' | 'Fast Bulky Setup' | 'Bulky Support' | 'Fast Support' | 'AV Pivot' |
 	'Doubles Fast Attacker' | 'Doubles Setup Sweeper' | 'Doubles Wallbreaker' | 'Doubles Bulky Attacker' |
 	'Doubles Bulky Setup' | 'Offensive Protect' | 'Bulky Protect' | 'Doubles Support' | 'Choice Item user' |

@@ -845,9 +845,7 @@ export const commands: Chat.ChatCommands = {
 					buf += `<b>Level</b>: ${level}`;
 					for (const set of sets) {
 						buf += `<details><summary>${set.role}</summary>`;
-						if (dex.gen === 9) {
-							buf += `<b>Tera Type${Chat.plural(set.teraTypes)}</b>: ${set.teraTypes.join(', ')}<br/>`;
-						} else if (([2, 3, 4, 5, 6, 7].includes(dex.gen)) && set.preferredTypes) {
+						if (([2, 3, 4, 5, 6, 7].includes(dex.gen)) && set.preferredTypes) {
 							buf += `<b>Preferred Type${Chat.plural(set.preferredTypes)}</b>: ${set.preferredTypes.join(', ')}<br/>`;
 						}
 						buf += `<b>Moves</b>: ${set.movepool.sort().map(formatMove).join(', ')}</details>`;

@@ -667,7 +667,10 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 		water2: 'Water 2',
 		water3: 'Water 3',
 	});
-	const allFormes = ['alola', 'galar', 'hisui', 'paldea', 'primal', 'therian', 'totem'];
+	const allFormes = [
+		'alola', 'galar', 'hisui', 'paldea', 'primal', 'therian', 'totem',
+		'kaskade', 'amazeall',
+	];
 	const allStats = ['hp', 'atk', 'def', 'spa', 'spd', 'spe', 'bst', 'weight', 'height', 'gen'];
 	const allStatAliases: {[k: string]: string} = {
 		attack: 'atk', defense: 'def', specialattack: 'spa', spc: 'spa', special: 'spa', spatk: 'spa',
@@ -1312,8 +1315,8 @@ function runDexsearch(target: string, cmd: string, canAll: boolean, message: str
 	let results: string[] = [];
 	for (const mon of Object.keys(dex).sort()) {
 		if (singleTypeSearch !== null && (dex[mon].types.length === 1) !== singleTypeSearch) continue;
-		const isRegionalForm = (["Alola", "Galar", "Hisui"].includes(dex[mon].forme) || dex[mon].forme.startsWith("Paldea")) &&
-			dex[mon].baseSpecies !== "Pikachu";
+		const isRegionalForm = (["Alola", "Galar", "Hisui", "Kaskade", "Amaze-All"].includes(dex[mon].forme) ||
+			dex[mon].forme.startsWith("Paldea")) && dex[mon].baseSpecies !== "Pikachu";
 		const maskForm = dex[mon].baseSpecies === "Ogerpon" && !dex[mon].forme.endsWith("Tera");
 		const allowGmax = (gmaxSearch || tierSearch);
 		if (!isRegionalForm && !maskForm && dex[mon].baseSpecies && results.includes(dex[mon].baseSpecies) &&
