@@ -6388,6 +6388,26 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 2,
 		num: -16,
 	},
+	heathaze: {
+		onStart(source) {
+			this.field.setClearingWeather('strongwinds');
+			this.field.setClimateWeather('sunnyday');
+		},
+		flags: {},
+		name: "Heat Haze",
+		rating: 5,
+		num: -200,
+	},
+	icearmor: {
+		onStart(source) {
+			this.field.setClearingWeather('strongwinds');
+			this.field.setClimateWeather('hail');
+		},
+		flags: {},
+		name: "Ice Armor",
+		rating: 5,
+		num: -201,
+	},
 	magnapult: {
 		onModifySpe(spe, pokemon) {
 			if (['magnetize'].includes(pokemon.effectiveEnergyWeather())) {

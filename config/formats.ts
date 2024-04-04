@@ -319,6 +319,7 @@ export const Formats: FormatList = [
 			'Standard', 'Terastal Clause', 'Sleep Moves Clause', 'Accuracy Moves Clause', '!Sleep Clause Mod',
 		],
 		banlist: [
+			'Manadza', 'Arctikull',
 			'Acupressure', 'Perish Song',
 			'Focus Band', 'Focus Sash', 'King\'s Rock', 'Quick Claw',
 		],
@@ -382,6 +383,14 @@ export const Formats: FormatList = [
 			'Acupressure', 'Aromatic Mist', 'Baton Pass', 'Court Change', 'Final Gambit', 'Flatter',
 			'Follow Me', 'Heal Pulse', 'Last Respects', 'Poison Fang', 'Rage Powder', 'Spicy Extract', 'Swagger', 'Toxic', 'Toxic Spikes',
 		],
+	},
+	{
+		name: "[Gen 9] Pure Hackmons",
+		desc: `Anything directly hackable onto a set (EVs, IVs, forme, ability, item, and move) and is usable in local battles is allowed.`,
+
+		mod: 'swse',
+		searchShow: false,
+		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Hackmons Forme Legality', 'Species Reveal Clause', 'Endless Battle Clause'],
 	},
 
 	// OM of the Month
