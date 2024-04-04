@@ -49,7 +49,7 @@ describe('Simulator abstraction layer features', function () {
 			assert.equal(PM.processes[0].getLoad(), 1);
 			stream.write(
 				'>version a2393dfd2a2da5594148bf99eea514e72b136c2c\n' +
-				'>start {"formatid":"gen8randombattle","seed":[9619,36790,28450,62465],"rated":"Rated battle"}\n' +
+				'>start {"formatid":"gen9randombattle","seed":[9619,36790,28450,62465],"rated":"Rated battle"}\n' +
 				'>player p1 {"name":"p1","avatar":"ethan","team":"","rating":1507,"seed":[59512,58581,51338,7861]}\n' +
 				'>player p2 {"name":"p2","avatar":"dawn","team":"","rating":1447,"seed":[33758,53485,62378,29757]}\n'
 			);
@@ -70,7 +70,7 @@ describe('Simulator abstraction layer features', function () {
 			assert.equal(PM.processes[0].getLoad(), 1);
 			stream2.write(
 				'>version a2393dfd2a2da5594148bf99eea514e72b136c2c\n' +
-				'>start {"formatid":"gen8randombattle","seed":[9619,36790,28450,62465],"rated":"Rated battle"}\n' +
+				'>start {"formatid":"gen9randombattle","seed":[9619,36790,28450,62465],"rated":"Rated battle"}\n' +
 				'>player p1 {"name":"p1","avatar":"ethan","team":"","rating":1507,"seed":[59512,58581,51338,7861]}\n' +
 				'>player p2 {"name":"p2","avatar":"dawn","team":"","rating":1447,"seed":[33758,53485,62378,29757]}\n' +
 				'>p1 move 1\n' +

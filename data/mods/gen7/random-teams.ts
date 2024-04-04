@@ -375,7 +375,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		}
 
 		const statusInflictingMoves = ['thunderwave', 'toxic', 'willowisp', 'yawn'];
-		if (!abilities.has('Prankster')) {
+		if (!abilities.has('Prankster') && role !== 'Staller') {
 			this.incompatibleMoves(moves, movePool, statusInflictingMoves, statusInflictingMoves);
 		}
 
@@ -535,7 +535,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		}
 
 		// Enforce STAB priority
-		if (['Bulky Attacker', 'Bulky Setup'].includes(role) || this.priorityPokemon.includes(species.id)) {
+		if (['Bulky Attacker', 'Bulky Setup', 'Wallbreaker'].includes(role) || this.priorityPokemon.includes(species.id)) {
 			const priorityMoves = [];
 			for (const moveid of movePool) {
 				const move = this.dex.moves.get(moveid);
@@ -735,7 +735,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			return (!counter.get('inaccurate') || moves.has('shadowpunch'));
 		case 'Contrary': case 'Skill Link': case 'Strong Jaw':
 			return !counter.get(toID(ability));
-		case 'Defiant': case 'Justified': case 'Moxie':
+		case 'Defiant': case 'Justified':
 			return !counter.get('Physical');
 		case 'Guts':
 			return (!moves.has('facade') && !moves.has('sleeptalk'));
@@ -764,6 +764,8 @@ export class RandomGen7Teams extends RandomGen8Teams {
 				species.baseSpecies === 'Basculin' || species.id === 'pangoro' || species.id === 'pinsirmega' ||
 				abilities.has('Sheer Force')
 			);
+		case 'Moxie':
+			return (!counter.get('Physical') || moves.has('stealthrock') || (!!species.isMega && abilities.has('Intimidate')));
 		case 'Oblivious': case 'Prankster':
 			return (!counter.get('Status') || (species.id === 'tornadus' && moves.has('bulkup')));
 		case 'Overcoat':
@@ -772,6 +774,8 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			return !counter.get('Grass');
 		case 'Power Construct':
 			return species.forme === '10%';
+		case 'Shed Skin':
+			return !moves.has('rest');
 		case 'Synchronize':
 			return (counter.get('Status') < 2 || !!counter.get('recoil') || !!species.isMega);
 		case 'Regenerator':
@@ -849,6 +853,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		)) return 'Guts';
 
 		if (species.id === 'starmie') return role === 'Wallbreaker' ? 'Analytic' : 'Natural Cure';
+		if (species.id === 'beheeyem') return 'Analytic';
 		if (species.id === 'drampa' && moves.has('roost')) return 'Berserk';
 		if (species.id === 'ninetales') return 'Drought';
 		if (species.id === 'talonflame' && role === 'Z-Move user') return 'Gale Wings';
@@ -862,21 +867,20 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		// If Ambipom doesn't qualify for Technician, Skill Link is useless on it
 		if (species.id === 'ambipom' && !counter.get('technician')) return 'Pickup';
 		if (species.id === 'muk') return 'Poison Touch';
-		if (
-			['dusknoir', 'raikou', 'suicune', 'vespiquen'].includes(species.id)
-		) return 'Pressure';
+		if (['dusknoir', 'raikou', 'suicune', 'vespiquen'].includes(species.id)) return 'Pressure';
 		if (species.id === 'tsareena') return 'Queenly Majesty';
 		if (species.id === 'druddigon' && role === 'Bulky Support') return 'Rough Skin';
-		if (species.id === 'pangoro' && !counter.get('ironfist')) return 'Scrappy';
+		if (species.id === 'stoutland' || species.id === 'pangoro' && !counter.get('ironfist')) return 'Scrappy';
+		if (species.id === 'octillery') return 'Sniper';
 		if (species.id === 'kommoo' && role === 'Z-Move user') return 'Soundproof';
 		if (species.id === 'stunfisk') return 'Static';
 		if (species.id === 'breloom') return 'Technician';
 		if (species.id === 'zangoose') return 'Toxic Boost';
-		if (species.id === 'porygon2') return 'Trace';
+		if (species.id === 'porygon2' || species.id === 'gardevoir') return 'Trace';
 
 		if (abilities.has('Gluttony') && (moves.has('recycle') || moves.has('bellydrum'))) return 'Gluttony';
 		if (abilities.has('Harvest') && (role === 'Bulky Support' || role === 'Staller')) return 'Harvest';
-		if (abilities.has('Moxie') && (counter.get('Physical') > 3 || moves.has('bounce'))) return 'Moxie';
+		if (abilities.has('Moxie') && (moves.has('bounce') || moves.has('fly'))) return 'Moxie';
 		if (abilities.has('Regenerator') && role === 'AV Pivot') return 'Regenerator';
 		if (abilities.has('Shed Skin') && moves.has('rest') && !moves.has('sleeptalk')) return 'Shed Skin';
 		if (abilities.has('Sniper') && moves.has('focusenergy')) return 'Sniper';
@@ -1054,6 +1058,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		if (ability === 'Sturdy' && moves.has('explosion') && !counter.get('speedsetup')) return 'Custap Berry';
 		if (types.includes('Normal') && moves.has('fakeout') && !!counter.get('Normal')) return 'Silk Scarf';
+		if (species.id === 'latias' || species.id === 'latios') return 'Soul Dew';
 		if (role === 'Bulky Setup' && !!counter.get('speedsetup') && !moves.has('swordsdance')) {
 			return 'Weakness Policy';
 		}
@@ -1106,7 +1111,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 	getLevel(species: Species): number {
 		// level set by rules
 		if (this.adjustLevel) return this.adjustLevel;
-		if (this.gen >= 3) {
+		if (this.gen >= 2) {
 			// Revamped generations use random-sets.json
 			const sets = this.randomSets[species.id];
 			if (sets.level) return sets.level;
@@ -1233,11 +1238,11 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		if (['highjumpkick', 'jumpkick'].some(m => moves.has(m))) srWeakness = 2;
 		while (evs.hp > 1) {
 			const hp = Math.floor(Math.floor(2 * species.baseStats.hp + ivs.hp + Math.floor(evs.hp / 4) + 100) * level / 100 + 10);
-			if (moves.has('substitute')) {
-				if (item === 'Sitrus Berry' || (ability === 'Power Construct' && item !== 'Leftovers')) {
+			if (moves.has('substitute') && !['Black Sludge', 'Leftovers'].includes(item)) {
+				if (item === 'Sitrus Berry' || ability === 'Power Construct') {
 					// Two Substitutes should activate Sitrus Berry or Power Construct
 					if (hp % 4 === 0) break;
-				} else if (!['Black Sludge', 'Leftovers'].includes(item)) {
+				} else {
 					// Should be able to use Substitute four times from full HP without fainting
 					if (hp % 4 > 0) break;
 				}

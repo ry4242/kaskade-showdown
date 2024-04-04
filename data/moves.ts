@@ -1931,7 +1931,6 @@ export const Moves: {[moveid: string]: MoveData} = {
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Bubble",
 		pp: 30,
 		priority: 0,
@@ -21157,7 +21156,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		pp: 15,
 		priority: 3,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
-		onTryHit(target, pokemon) {
+		onTry(source, target) {
 			const action = this.queue.willMove(target);
 			const move = action?.choice === 'move' ? action.move : null;
 			if (!move || move.priority <= 0.1 || move.category === 'Status') {
@@ -22667,7 +22666,7 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Fire",
 	},
-	escaperoot: { // crashes the game trying to switch
+	escaperoot: { // crashes the game trying to switch, temporarily patched out
 		num: -46,
 		accuracy: true,
 		basePower: 0,
@@ -22682,10 +22681,10 @@ export const Moves: {[moveid: string]: MoveData} = {
 			onSwap(target, source) {
 				if (!target.fainted) {
 					target.clearStatus();
-					if (source.getVolatile('ingrain')) {
+					/* if (source.getVolatile('ingrain')) {
 						target.heal(target.baseMaxhp / 8, source);
 						this.add('-heal', target, target.getHealth, '[from] move: Escape Root');
-					}
+					} */
 					target.side.removeSlotCondition(target, 'escaperoot');
 				}
 			},
@@ -22712,6 +22711,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Fairy",
+	},
+	fluffbuff: {
+		num: -101,
+		accuracy: true,
+		basePower: 0,
+		category: "Status",
+		name: "Fluff Buff",
+		pp: 10,
+		priority: 0,
+		flags: {snatch: 1},
+		irritantWeather: 'Pollinate',
+		boosts: {
+			def: 1,
+		},
+		secondary: null,
+		target: "self",
+		type: "Grass",
 	},
 	foghorn: {
 		num: -1,
@@ -23557,6 +23573,19 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "all",
 		type: "Bug",
 	},
+	thermalvortex: {
+		num: -102,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Thermal Vortex",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		climateWeather: 'SunnyDay',
+		target: "allAdjacentFoes",
+		type: "Fire",
+	},
 	thunderhammer: {
 		num: -49,
 		accuracy: 100,
@@ -23619,6 +23648,38 @@ export const Moves: {[moveid: string]: MoveData} = {
 		target: "normal",
 		type: "Flying",
 	},
+	whirlduel: {
+		num: -103,
+		accuracy: 90,
+		basePower: 80,
+		category: "Special",
+		name: "Whirlduel",
+		pp: 10,
+		priority: 0,
+		flags: {protect: 1, mirror: 1},
+		volatileStatus: 'partiallytrapped',
+		climateWeather: "RainDance",
+		secondary: null,
+		target: "normal",
+		type: "Water",
+	},
+	whiteout: {
+		num: -200,
+		accuracy: 100,
+		basePower: 90,
+		category: "Physical",
+		name: "Whiteout",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		climateWeather: "Hail",
+		secondary: {
+			chance: 100,
+			status: 'frb',
+		},
+		target: "allAdjacent",
+		type: "Ice",
+	},
 	whitewand: {
 		num: -58,
 		accuracy: 85,
@@ -23632,6 +23693,23 @@ export const Moves: {[moveid: string]: MoveData} = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
+	},
+	wildfire: {
+		num: -201,
+		accuracy: 100,
+		basePower: 90,
+		category: "Special",
+		name: "Wildfire",
+		pp: 10,
+		priority: 0,
+		flags: {contact: 1, protect: 1, mirror: 1},
+		climateWeather: "SunnyDay",
+		secondary: {
+			chance: 100,
+			status: 'brn',
+		},
+		target: "allAdjacent",
+		type: "Fire",
 	},
 	wildmagic: { // untested
 		num: -71,

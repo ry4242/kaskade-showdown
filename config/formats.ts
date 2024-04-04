@@ -25,7 +25,7 @@ export const Formats: FormatList = [
 	{
 		section: "SwSe Popular Randomized Metas",
 	},
-	/* {
+	{
 		name: "[Gen 9] Random Doubles Battle",
 		desc: `Double battle with randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
 
@@ -33,6 +33,16 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		team: 'random',
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 9] Unrated Random Doubles Battle",
+
+		mod: 'swse',
+		gameType: 'doubles',
+		team: 'random',
+		challengeShow: false,
+		rated: false,
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	},
 	{
 		name: "[Gen 9] Random Battle",
@@ -81,7 +91,7 @@ export const Formats: FormatList = [
 			'Max Team Size = 3',
 			'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod',
 		],
-	}, */
+	},
 
 	// SwSe Doubles
 	///////////////////////////////////////////////////////////////////
@@ -110,7 +120,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
 	}, */
-	{
+	/* {
 		name: "[Gen 9] Doubles UU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712825/">Doubles UU</a>`,
@@ -120,7 +130,7 @@ export const Formats: FormatList = [
 		gameType: 'doubles',
 		ruleset: ['[Gen 9] Doubles OU'],
 		banlist: ['DOU', 'DBL'],
-	},
+	}, */
 	{
 		name: "[Gen 9] Doubles LC",
 		threads: [
@@ -213,7 +223,7 @@ export const Formats: FormatList = [
 			'King\'s Rock',
 		],
 	}, */
-	{
+	/* {
 		name: "[Gen 9] UU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zuQ6MaMEwK">UU Discord channel</a>`,
@@ -222,7 +232,7 @@ export const Formats: FormatList = [
 		mod: 'swse',
 		ruleset: ['[Gen 9] OU'],
 		banlist: ['OU', 'UUBL'],
-	},
+	}, */
 	/* {
 		name: "[Gen 9] RU",
 		threads: [
@@ -299,7 +309,7 @@ export const Formats: FormatList = [
 	{
 		section: "Unofficial Metagames",
 	},
-	/* {
+	{
 		name: "[Gen 9] 1v1",
 		desc: `Bring three Pok&eacute;mon to Team Preview and choose one to battle.`,
 
@@ -309,6 +319,7 @@ export const Formats: FormatList = [
 			'Standard', 'Terastal Clause', 'Sleep Moves Clause', 'Accuracy Moves Clause', '!Sleep Clause Mod',
 		],
 		banlist: [
+			'Manadza', 'Arctikull',
 			'Acupressure', 'Perish Song',
 			'Focus Band', 'Focus Sash', 'King\'s Rock', 'Quick Claw',
 		],
@@ -319,7 +330,7 @@ export const Formats: FormatList = [
 		mod: 'swse',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
-	{
+	/* {
 		name: "[Gen 9] ZU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3719022/">ZU Metagame Discussion</a>`,
@@ -355,7 +366,7 @@ export const Formats: FormatList = [
 			'Arena Trap', 'Shadow Tag',
 			'Baton Pass',
 		],
-	},
+	}, */
 	{
 		name: "[Gen 9] Free-For-All",
 		threads: [
@@ -368,11 +379,19 @@ export const Formats: FormatList = [
 		tournamentShow: false,
 		ruleset: ['Standard', '!Evasion Items Clause'],
 		banlist: [
-			'Moody', 'Shadow Tag', 'Toxic Chain', 'Toxic Debris',
+			'Arena Trap', 'Shadow Tag',
 			'Acupressure', 'Aromatic Mist', 'Baton Pass', 'Court Change', 'Final Gambit', 'Flatter',
 			'Follow Me', 'Heal Pulse', 'Last Respects', 'Poison Fang', 'Rage Powder', 'Spicy Extract', 'Swagger', 'Toxic', 'Toxic Spikes',
 		],
-	}, */
+	},
+	{
+		name: "[Gen 9] Pure Hackmons",
+		desc: `Anything directly hackable onto a set (EVs, IVs, forme, ability, item, and move) and is usable in local battles is allowed.`,
+
+		mod: 'swse',
+		searchShow: false,
+		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Hackmons Forme Legality', 'Species Reveal Clause', 'Endless Battle Clause'],
+	},
 
 	// OM of the Month
 	///////////////////////////////////////////////////////////////////
@@ -404,11 +423,11 @@ export const Formats: FormatList = [
 	// Misc. Randomized Metas
 	///////////////////////////////////////////////////////////////////
 
-	/* {
+	{
 		section: "Misc. Randomized Metas",
 		column: 3,
 	},
-	{
+	/* {
 		name: "[Gen 9] Monotype Random Battle",
 
 		mod: 'swse',
