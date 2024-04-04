@@ -365,7 +365,8 @@ export class Field {
 	suppressingClimateWeather() {
 		for (const side of this.battle.sides) {
 			for (const pokemon of side.active) {
-				if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() && pokemon.getAbility().suppressClimateWeather) {
+				if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() &&
+					pokemon.getAbility().suppressClimateWeather && !pokemon.abilityState.ending) {
 					return true;
 				}
 			}
@@ -376,7 +377,8 @@ export class Field {
 	suppressingIrritantWeather() {
 		for (const side of this.battle.sides) {
 			for (const pokemon of side.active) {
-				if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() && pokemon.getAbility().suppressIrritantWeather) {
+				if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() &&
+					pokemon.getAbility().suppressIrritantWeather && !pokemon.abilityState.ending) {
 					return true;
 				}
 			}
@@ -387,7 +389,8 @@ export class Field {
 	suppressingEnergyWeather() {
 		for (const side of this.battle.sides) {
 			for (const pokemon of side.active) {
-				if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() && pokemon.getAbility().suppressEnergyWeather) {
+				if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() &&
+					pokemon.getAbility().suppressEnergyWeather && !pokemon.abilityState.ending) {
 					return true;
 				}
 			}
@@ -398,7 +401,8 @@ export class Field {
 	suppressingClearingWeather() {
 		for (const side of this.battle.sides) {
 			for (const pokemon of side.active) {
-				if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() && pokemon.getAbility().suppressClearingWeather) {
+				if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() &&
+					pokemon.getAbility().suppressClearingWeather && !pokemon.abilityState.ending) {
 					return true;
 				}
 			}

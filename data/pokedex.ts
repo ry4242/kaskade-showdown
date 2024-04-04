@@ -19124,6 +19124,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.8,
 		weightkg: 92,
 		color: "Black",
+		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	munkidori: {
@@ -19136,6 +19137,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1,
 		weightkg: 12.2,
 		color: "Black",
+		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	fezandipiti: {
@@ -19148,6 +19150,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.4,
 		weightkg: 30.1,
 		color: "Black",
+		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
 	ogerpon: {
@@ -19161,6 +19164,7 @@ export const Pokedex: {[speciesid: string]: SpeciesData} = {
 		heightm: 1.2,
 		weightkg: 39.8,
 		color: "Green",
+		tags: ["Sub-Legendary"],
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone", "Ogerpon-Teal-Tera", "Ogerpon-Wellspring-Tera", "Ogerpon-Hearthflame-Tera", "Ogerpon-Cornerstone-Tera"],
 		formeOrder: ["Ogerpon", "Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone", "Ogerpon-Teal-Tera", "Ogerpon-Wellspring-Tera", "Ogerpon-Hearthflame-Tera", "Ogerpon-Cornerstone-Tera"],

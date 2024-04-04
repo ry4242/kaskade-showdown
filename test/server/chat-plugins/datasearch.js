@@ -11,17 +11,17 @@ const datasearch = require('../../../dist/server/chat-plugins/datasearch');
 describe("Datasearch Plugin", () => {
 	it('should return pokemon with pivot moves', async () => {
 		const cmd = 'ds';
-		const target = 'pivot|batonpass, mod=swse';
+		const target = 'pivot|batonpass';
 		const dexSearch = datasearch.testables.runDexsearch(target, cmd, true, `/${cmd} ${target}`, true);
-		assert(dexSearch.results.includes('Surskit'));
+		assert(dexSearch.results.includes('Ariados'));
 	});
 
 	it('should return pokemon with pivot moves, but not baton pass', async () => {
 		const cmd = 'ds';
-		const target = 'pivot, mod=swse';
+		const target = 'pivot';
 		const dexSearch = datasearch.testables.runDexsearch(target, cmd, true, `/${cmd} ${target}`, true);
-		assert.false(dexSearch.results.includes('Surskit'));
-		assert(dexSearch.results.includes('Spoutlaw'));
+		assert.false(dexSearch.results.includes('Ariados'));
+		assert(dexSearch.results.includes('Azumarill-Kaskade'));
 	});
 
 	it('should return pivot moves', async () => {
