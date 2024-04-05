@@ -6093,13 +6093,12 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 	},
 	ancientbody: {
 		onBeforeSwitchIn(pokemon) {
-			this.add('-start', pokemon, 'typeadd', 'Rock', '[from] ability: Ancient Body');
 			pokemon.addType('Rock');
 		},
-		/* onStart(pokemon) {
+		onStart(pokemon) {
 			if (!pokemon.addType('Rock')) return;
 			this.add('-start', pokemon, 'typeadd', 'Rock', '[from] ability: Ancient Body');
-		}, */
+		},
 		name: "Ancient Body",
 		rating: 2.5,
 		num: -4,
