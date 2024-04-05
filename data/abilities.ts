@@ -6091,6 +6091,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -15,
 	},
+	ancientbody: {
+		onBeforeSwitchIn(pokemon) {
+			this.add('-start', pokemon, 'typeadd', 'Rock', '[from] ability: Ancient Body');
+			pokemon.addType('Rock');
+		},
+		/* onStart(pokemon) {
+			if (!pokemon.addType('Rock')) return;
+			this.add('-start', pokemon, 'typeadd', 'Rock', '[from] ability: Ancient Body');
+		}, */
+		name: "Ancient Body",
+		rating: 2.5,
+		num: -4,
+	},
 	arcanum: {
 		onStart(source) {
 			this.field.setEnergyWeather('dragonforce');
