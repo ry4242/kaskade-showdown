@@ -7046,27 +7046,21 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		num: -32,
 	},
 	warpmist: { // incomplete. needs immunity
-		onModifySpAPriority: 5,
-		onModifySpA(spa, source, pokemon) {
+		onBasePowerPriority: 21,
+		onBasePower(basePower, pokemon, target, move) {
 			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				if (source.storedStats.spa >= source.storedStats.atk) return this.chainModify(1.2);
-			}
-		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, source, pokemon) {
-			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				if (source.storedStats.atk > source.storedStats.spa) return this.chainModify(1.2);
+				return this.chainModify(1.2);
 			}
 		},
 		onTryHit(target, source, move) {
 			if (move.category === 'Status' || target.hasItem('ringtarget')) return;
 			if (target !== source && move.ignoreImmunity) {
-				this.add('-immune', target, '[from] ability: Warp Mist');
+				// this.add('-immune', target, '[from] ability: Warp Mist');
 				this.debug('Warp Mist negate immunity');
 				move.ignoreImmunity = false;
-			} else {
+			}/* else {
 				move.ignoreImmunity = true;
-			}
+			} */
 		},
 		flags: {},
 		name: "Warp Mist",

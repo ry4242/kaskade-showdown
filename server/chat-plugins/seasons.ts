@@ -343,7 +343,7 @@ export const handlers: Chat.Handlers = {
 			room.setPrivate(false);
 		}
 
-		/*room.add(
+		/* room.add(
 			`|uhtml|medal-msg|<div class="broadcast-blue">Curious what those medals under the avatar are? PS now has Ladder Seasons!` +
 			` For more information, check out the <a href="https://www.smogon.com/forums/threads/3740067/">thread on Smogon.</a></div>`
 		); */

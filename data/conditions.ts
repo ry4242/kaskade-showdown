@@ -223,6 +223,10 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifyPriority(priority, pokemon, target, move) {
 			return priority - 0.1;
 		},
+		onFractionalPriorityPriority: -2,
+		onFractionalPriority(priority, pokemon, target, move) {
+			return -0.1;
+		},
 		onEnd(target) {
 			this.add('-end', target, 'caffeinecrash');
 		},
@@ -733,11 +737,18 @@ export const Conditions: {[k: string]: ConditionData} = {
 		onModifyPriority(priority, pokemon, target, move) {
 			if (pokemon.hasItem('utilityumbrella')) return;
 			if (this.field.climateWeatherState.boosted && move?.category === 'Status') {
-				move.pranksterBoosted = true;
-				this.debug('Boosted further by Strong Winds');
-				return priority + 1;
+				return 1;
 			}
-			if (move?.type === 'Dark' && move.category === 'Status') return priority + 1;
+			if (move?.type === 'Dark' && move.category === 'Status') return 1;
+		},
+		onTryHit(target, source, move) {
+			if (target.hasItem('utilityumbrella')) return;
+			if (this.field.climateWeatherState.boosted &&
+			target.hasType('Dark') && move.category === 'Status' && target !== source) {
+				this.add('-immune', target);
+				this.hint("Dark types are immune to Status moves in Strong Winds-boosted Blood Moon.");
+				return null;
+			}
 		},
 		onFieldStart(field, source, effect) {
 			if (this.field.isClearingWeather('strongwinds')) {
@@ -761,7 +772,7 @@ export const Conditions: {[k: string]: ConditionData} = {
 		},
 	},
 	foghorn: { // incomplete. i have no clue how to do a temporary type change
-		// for when it is figured out: this.hint("Normal types turn Typeless in Strong Winds Fog.");
+		// for when it is figured out: this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.");
 		name: 'Foghorn',
 		effectType: 'ClimateWeather',
 		duration: 5,
