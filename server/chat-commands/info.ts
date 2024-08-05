@@ -581,6 +581,7 @@ export const commands: Chat.ChatCommands = {
 	pokedex: 'data',
 	data(target, room, user, connection, cmd) {
 		if (!this.runBroadcast()) return;
+		target = target.trim();
 		const gen = parseInt(cmd.substr(-1));
 		if (gen) target += `, gen${gen}`;
 
@@ -1318,8 +1319,11 @@ export const commands: Chat.ChatCommands = {
 				} else if (lowercase.startsWith('lv') || lowercase.startsWith('level')) {
 					level = parseInt(arg.replace(/\D/g, ''));
 					lvlSet = true;
+					if (isNaN(level)) {
+						return this.sendReplyBox('Invalid value for level: ' + Utils.escapeHTML(arg));
+					}
 					if (level < 1 || level > 9999) {
-						return this.sendReplyBox('Invalid value for level: ' + level);
+						return this.sendReplyBox('Level should be between 1 and 9999.');
 					}
 					continue;
 				}
@@ -1700,7 +1704,7 @@ export const commands: Chat.ChatCommands = {
 	suggestion: 'suggestions',
 	suggestions(target, room, user) {
 		if (!this.runBroadcast()) return;
-		this.sendReplyBox(`<a href="https://www.smogon.com/forums/forums/517/">Make a suggestion for Pok&eacute;mon Showdown</a>`);
+		this.sendReplyBox(`<a href="https://play.pokemonshowdown.com/suggestions">Make a suggestion for Pok&eacute;mon Showdown</a>`);
 	},
 	suggestionshelp: [`/suggestions - Links to the place to make suggestions for Pokemon Showdown.`],
 
@@ -1709,12 +1713,12 @@ export const commands: Chat.ChatCommands = {
 	bugs(target, room, user) {
 		if (!this.runBroadcast()) return;
 		if (room?.battle) {
-			this.sendReplyBox(`<center><button name="saveReplay"><i class="fa fa-upload"></i> Save Replay</button> &mdash; <a href="https://www.smogon.com/forums/threads/3520646/">Questions</a> &mdash; <a href="https://www.smogon.com/forums/ps-bug-report-form/">Bug Reports</a></center>`);
+			this.sendReplyBox(`<center><button name="saveReplay"><i class="fa fa-upload"></i> Save Replay</button> &mdash; <a href="https://www.smogon.com/forums/threads/3520646/">Questions</a> &mdash; <a href="https://play.pokemonshowdown.com/bugs">Bug Reports</a></center>`);
 		} else {
 			this.sendReplyBox(
 				`Have a replay showcasing a bug on Pok&eacute;mon Showdown?<br />` +
 				`- <a href="https://www.smogon.com/forums/threads/3520646/">Questions</a><br />` +
-				`- <a href="https://www.smogon.com/forums/ps-bug-report-form/">Bug Reports</a> (ask in <a href="/help">Help</a> before posting in the thread if you're unsure)`
+				`- <a href="https://play.pokemonshowdown.com/bugs">Bug Reports</a> (ask in <a href="/help">Help</a> before posting if you're unsure)`
 			);
 		}
 	},
@@ -1792,7 +1796,7 @@ export const commands: Chat.ChatCommands = {
 		if (RANDOMS_CALC_COMMANDS.includes(cmd) ||
 			(isRandomBattle && !DEFAULT_CALC_COMMANDS.includes(cmd) && !BATTLESPOT_CALC_COMMANDS.includes(cmd))) {
 			return this.sendReplyBox(
-				`Random Battles damage calculator. (Courtesy of Austin)<br />` +
+				`Random Battles damage calculator. (Courtesy of dhelmise &amp; jetou)<br />` +
 				`- <a href="https://calc.pokemonshowdown.com/randoms.html?gen=${dex.gen}">Random Battles Damage Calculator</a>`
 			);
 		}
@@ -1803,7 +1807,7 @@ export const commands: Chat.ChatCommands = {
 			);
 		}
 		this.sendReplyBox(
-			`Pok&eacute;mon Showdown! damage calculator. (Courtesy of Honko, Austin, &amp; Kris)<br />` +
+			`Pok&eacute;mon Showdown! damage calculator. (Courtesy of Honko, Austin, dhelmise, &amp; jetou)<br />` +
 			`- <a href="https://calc.pokemonshowdown.com/index.html?gen=${dex.gen}">Damage Calculator</a>`
 		);
 	},
@@ -1902,17 +1906,8 @@ export const commands: Chat.ChatCommands = {
 					rulesetHtml = `No ruleset found for ${format.name}`;
 				}
 			}
-			let formatType: string = (format.gameType || "singles");
-			formatType = formatType.charAt(0).toUpperCase() + formatType.slice(1).toLowerCase();
-			if (!format.desc && !format.threads) {
-				if (format.effectType === 'Format') {
-					return this.sendReplyBox(`No description found for this ${formatType} ${format.section} format.<br />${rulesetHtml}`);
-				} else {
-					return this.sendReplyBox(`No description found for this rule.<br />${rulesetHtml}`);
-				}
-			}
 			const formatDesc = format.desc || '';
-			let descHtml = [];
+			const descHtml: string[] = [];
 			const data = await getFormatResources(format.id);
 			if (data) {
 				for (const {resource_name, url} of data.resources) {
@@ -1922,11 +1917,15 @@ export const commands: Chat.ChatCommands = {
 					rn = rn.split(' ').map((x: string) => x[0].toUpperCase() + x.substr(1)).join(' ');
 					descHtml.push(`&bullet; <a href="${url}">${rn}</a>`);
 				}
+			} else if (format.threads?.length) {
+				descHtml.push(...format.threads);
+			} else {
+				const genID = ['rb', 'gs', 'rs', 'dp', 'bw', 'xy', 'sm', 'ss', 'sv'];
+				descHtml.push(`This format has no resources linked on its <a href="https://www.smogon.com/dex/${genID[format.gen - 1] || 'sv'}/formats/">Smogon Dex page</a>. ` +
+					`Please contact a <a href="https://www.smogon.com/forums/forums/757/">C&amp;C Leader</a> to resolve this. ` +
+					`Alternatively, if this format can't have a page on the Smogon Dex, message <username>dhelmise</username>.<br />`);
 			}
-			if (!descHtml.length && format.threads) {
-				descHtml = format.threads;
-			}
-			return this.sendReplyBox(`<h1>${format.name}</h1><hr />${formatDesc ? formatDesc + '<hr />' : ''}${descHtml.join("<br />")}${rulesetHtml ? `<br />${rulesetHtml}` : ''}`);
+			return this.sendReplyBox(`<h2>${format.name}</h2><hr />${formatDesc ? formatDesc + '<hr />' : ''}${descHtml.join("<br />")}${rulesetHtml ? `<br />${rulesetHtml}` : ''}`);
 		}
 
 		let tableStyle = `border:1px solid gray; border-collapse:collapse`;
@@ -2137,7 +2136,7 @@ export const commands: Chat.ChatCommands = {
 			buffer.push(`<a href="https://pokemonshowdown.com/${this.tr`pages/privacy`}">${this.tr`Pokémon Showdown privacy policy`}</a>`);
 		}
 		if (showAll || ['lostpassword', 'password', 'lostpass'].includes(target)) {
-			buffer.push(`If you need your Pokémon Showdown password reset, you can fill out a <a href="https://www.smogon.com/forums/password-reset-form/">${this.tr`Password Reset Form`}</a>. You will need to make a Smogon account to be able to fill out the form, as password resets are processed through the Smogon forums.`);
+			buffer.push(`If you need your Pokémon Showdown password reset, you can fill out a <a href="https://www.smogon.com/forums/password-reset-form/">${this.tr`Password Reset Form`}</a>. <b>You will need to make a Smogon account to be able to fill out a form</b>; that's what the email address you sign in to Smogon with is for (PS accounts for regular users don't have emails associated with them).`);
 		}
 		if (!buffer.length && target) {
 			this.errorReply(`'${target}' is an invalid FAQ.`);
@@ -2538,8 +2537,7 @@ export const commands: Chat.ChatCommands = {
 	pr: 'pickrandom',
 	pick: 'pickrandom',
 	pickrandom(target, room, user) {
-		if (!target) return false;
-		if (!target.includes(',')) return this.parse('/help pick');
+		if (!target || !target.includes(',')) return this.parse('/help pick');
 		if (!this.runBroadcast(true)) return false;
 		if (this.broadcasting) {
 			[, target] = Utils.splitFirst(this.message, ' ');
@@ -2715,9 +2713,7 @@ export const commands: Chat.ChatCommands = {
 		} else if (Twitch.linkRegex.test(link)) {
 			const channelId = Twitch.linkRegex.exec(link)?.[2]?.trim();
 			if (!channelId) return this.errorReply(`Specify a Twitch channel.`);
-			const info = await Twitch.getChannel(channelId);
-			if (!info) return this.errorReply(`Channel ${channelId} not found.`);
-			buf = `Watching <b><a class="subtle" href="https://twitch.tv/${info.url}">${info.display_name}</a></b>...<br />`;
+			buf = Utils.html`Watching <b><a class="subtle" href="https://twitch.tv/${toID(channelId)}">${channelId}</a></b>...<br />`;
 			buf += `<twitch src="${link}" />`;
 		} else {
 			if (Chat.linkRegex.test(link)) {
@@ -2993,6 +2989,63 @@ export const commands: Chat.ChatCommands = {
 	altsloghelp: [
 		`/altslog [userid] - View the alternate account history for the given [userid]. Requires: % @ &`,
 	],
+
+	randtopic(target, room, user) {
+		room = this.requireRoom();
+		if (!room.settings.topics?.length) {
+			return this.errorReply(`This room has no random topics to select from.`);
+		}
+		this.runBroadcast();
+		this.sendReply(Utils.html`|html|<div class="broadcast-blue">${Utils.randomElement(room.settings.topics)}</div>`);
+	},
+	randtopichelp: [
+		`/randtopic - Randomly selects a topic from the room's discussion topic pool and displays it.`,
+		`/addtopic [target] - Adds the [target] to the pool of random discussion topics. Requires: % @ # &`,
+		`/removetopic [index] - Removes the topic from the room's topic pool. Requires: % @ # &`,
+		`/randomtopics - View the discussion topic pool for the current room.`,
+	],
+
+	addtopic(target, room, user) {
+		room = this.requireRoom();
+		this.checkCan('mute', null, room);
+		target = target.trim();
+		if (!toID(target).length) {
+			return this.parse(`/help randtopic`);
+		}
+		if (!room.settings.topics) room.settings.topics = [];
+		room.settings.topics.push(target);
+		this.privateModAction(`${user.name} added the topic "${target}" to the random topic pool.`);
+		this.modlog('ADDTOPIC', null, target);
+		room.saveSettings();
+	},
+	addtopichelp: [`/addtopic [target] - Adds the [target] to the pool of random discussion topics. Requires: % @ # &`],
+
+	removetopic(target, room, user) {
+		room = this.requireRoom();
+		this.checkCan('mute', null, room);
+		if (!toID(target)) {
+			return this.parse(`/help randtopic`);
+		}
+		const index = Number(toID(target)) - 1;
+		if (isNaN(index)) {
+			return this.errorReply(`Invalid topic index: ${target}. Must be a number.`);
+		}
+		if (!room.settings.topics?.[index]) {
+			return this.errorReply(`Topic ${index + 1} not found.`);
+		}
+		const topic = room.settings.topics.splice(index, 1)[0];
+		room.saveSettings();
+		this.privateModAction(`${user.name} removed topic ${index + 1} from the random topic pool.`);
+		this.modlog('REMOVETOPIC', null, topic);
+	},
+	removetopichelp: [`/removetopic [index] - Removes the topic from the room's topic pool. Requires: % @ # &`],
+
+	listtopics: 'randomtopics',
+	randtopics: 'randomtopics',
+	randomtopics(target, room, user) {
+		room = this.requireRoom();
+		return this.parse(`/join view-topics-${room}`);
+	},
 };
 
 export const handlers: Chat.Handlers = {
@@ -3066,6 +3119,22 @@ export const pages: Chat.PageTable = {
 			}
 			buf += `</table></div>`;
 		}
+		return buf;
+	},
+	topics(query, user) {
+		const room = this.requireRoom();
+		this.title = `[Topics] ${room.title}`;
+		const topics = room.settings.topics || [];
+		let buf;
+		if (!topics.length) {
+			buf = `<div class="pad"><h2>This room has no discussion topics saved.</h2></div>`;
+			return buf;
+		}
+		buf = `<div class="pad"><h2>Random topics for ${room.title} (${topics.length}):</h2><ul>`;
+		for (const [i, topic] of topics.entries()) {
+			buf += Utils.html`<li>${i + 1}: "${topic}"</li>`;
+		}
+		buf += `</ul></div>`;
 		return buf;
 	},
 	battlerules(query, user) {

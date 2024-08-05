@@ -952,13 +952,23 @@ export class Pokemon {
 				moveName += ' ' + basePowerCallback(this);
 			}
 			let target = moveSlot.target;
-			if (moveSlot.id === 'curse') {
+			switch (moveSlot.id) {
+			case 'curse':
 				if (!this.hasType('Ghost')) {
-					target = this.battle.dex.moves.get('curse').nonGhostTarget || moveSlot.target;
+					target = this.battle.dex.moves.get('curse').nonGhostTarget;
 				}
-			// Heal Block only prevents Pollen Puff from targeting an ally when the user has Heal Block
-			} else if (moveSlot.id === 'pollenpuff' && this.volatiles['healblock']) {
-				target = 'adjacentFoe';
+				break;
+			case 'pollenpuff':
+				// Heal Block only prevents Pollen Puff from targeting an ally when the user has Heal Block
+				if (this.volatiles['healblock']) {
+					target = 'adjacentFoe';
+				}
+				break;
+			case 'terastarstorm':
+				if (this.species.name === 'Terapagos-Stellar') {
+					target = 'allAdjacentFoes';
+				}
+				break;
 			}
 			let disabled = moveSlot.disabled;
 			if (this.volatiles['dynamax']) {
@@ -1270,6 +1280,7 @@ export class Pokemon {
 				if (pokemon.volatiles[volatile]) {
 					this.addVolatile(volatile);
 					if (volatile === 'gmaxchistrike') this.volatiles[volatile].layers = pokemon.volatiles[volatile].layers;
+					if (volatile === 'dragoncheer') this.volatiles[volatile].hasDragonType = pokemon.volatiles[volatile].hasDragonType;
 				} else {
 					this.removeVolatile(volatile);
 				}
@@ -1944,9 +1955,9 @@ export class Pokemon {
 		if (!this.hp) return false;
 		status = this.battle.dex.conditions.get(status) as Effect;
 		if (!this.volatiles[status.id]) return false;
-		this.battle.singleEvent('End', status, this.volatiles[status.id], this);
 		const linkedPokemon = this.volatiles[status.id].linkedPokemon;
 		const linkedStatus = this.volatiles[status.id].linkedStatus;
+		this.battle.singleEvent('End', status, this.volatiles[status.id], this);
 		delete this.volatiles[status.id];
 		if (linkedPokemon) {
 			this.removeLinkedVolatiles(linkedStatus, linkedPokemon);
@@ -2034,9 +2045,9 @@ export class Pokemon {
 			return [this.terastallized];
 		}
 		const types = this.battle.runEvent('Type', this, null, null, this.types);
+		if (!types.length) types.push(this.battle.gen >= 5 ? 'Normal' : '???');
 		if (!excludeAdded && this.addedType) return types.concat(this.addedType);
-		if (types.length) return types;
-		return [this.battle.gen >= 5 ? 'Normal' : '???'];
+		return types;
 	}
 
 	isGrounded(negateImmunity = false) {

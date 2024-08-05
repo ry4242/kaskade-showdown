@@ -1,0 +1,110 @@
+{
+	"masquerain": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Air Slash", "Bug Buzz", "Giga Drain", "Quiver Dance"]
+            }
+        ]
+    },
+	"alfalphalops": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Growl", "Growth", "Headbutt", "Tackle"]
+            }
+        ]
+    },
+	"tarmendoa": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Bite", "Coil", "Earthquake", "Slam"]
+            }
+        ]
+    },
+    "burbwhirl": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Leer", "Lunge", "Scratch", "Whirlpool"]
+            }
+        ]
+    },
+    "spoutlaw": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Leer", "Lunge", "Scratch", "Whirlpool"]
+            }
+        ]
+    },
+	"vaquamael": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Blizzard", "Bubble", "Leer", "Lunge"]
+            }
+        ]
+    },
+	"cheekat": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Belch", "Bite", "Tackle", "Yawn"]
+            }
+        ]
+    },
+	"opakespiel": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Lick", "Mimic", "Scratch", "Snarl"]
+            }
+        ]
+    },
+    "sewaddle": {
+        "level": 88,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Pounce", "Rest", "Substitute", "Tackle"]
+            }
+        ]
+    },
+    "swadloon": {
+        "level": 88,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Pounce", "Rest", "Substitute", "Tackle"]
+            }
+        ]
+    },
+    "leavanny": {
+        "level": 88,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Knock Off", "Leaf Blade", "Lunge", "Swords Dance", "Triple Axel"]
+            }
+        ]
+    },
+    "glaceon": {
+        "level": 87,
+        "sets": [
+            {
+                "role": "Setup Sweeper",
+                "movepool": ["Blizzard",  "Chilling Water", "Freeze-Dry", "Icy Wind"]
+            }
+        ]
+    }
+}

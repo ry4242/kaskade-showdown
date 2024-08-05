@@ -17,7 +17,7 @@ New sections will be added to the bottom of the specified column.
 The column value will be ignored for repeat sections.
 */
 
-export const Formats: FormatList = [
+export const Formats: import('../sim/dex-formats').FormatList = [
 
 	// SwSe Popular Randomized Metas
 	///////////////////////////////////////////////////////////////////
@@ -361,7 +361,7 @@ export const Formats: FormatList = [
 
 		mod: 'swse',
 		searchShow: false,
-		ruleset: ['Standard OMs', 'Not Fully Evolved', 'Sleep Moves Clause', 'Min Source Gen = 9'],
+		ruleset: ['Standard OMs', 'Not Fully Evolved', 'Sleep Moves Clause'],
 		banlist: [
 			'Arena Trap', 'Shadow Tag',
 			'Baton Pass',
@@ -413,7 +413,7 @@ export const Formats: FormatList = [
 		desc: `Pok&eacute;mon have access to almost any ability.`,
 
 		mod: 'swse',
-		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause', 'Min Source Gen = 9'],
+		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause'],
 		banlist: [
 			'Baton Pass', 'Last Respects', 'Revival Blessing', 'Shed Tail',
 			'King\'s Rock',

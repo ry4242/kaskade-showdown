@@ -1,4 +1,4 @@
-export const Abilities: {[k: string]: ModdedAbilityData} = {
+export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	cutecharm: {
 		inherit: true,
 		onDamagingHit(damage, target, source, move) {
@@ -176,7 +176,8 @@ export const Abilities: {[k: string]: ModdedAbilityData} = {
 	},
 	trace: {
 		inherit: true,
-		onUpdate(pokemon) {
+		onUpdate() {},
+		onStart(pokemon) {
 			if (!pokemon.isStarted) return;
 			const target = pokemon.side.randomFoe();
 			if (!target || target.fainted) return;
