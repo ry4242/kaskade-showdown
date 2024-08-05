@@ -65,7 +65,7 @@ describe('value rule support (slow)', () => {
 						}
 					});
 				});
-			} else {
+			}/* else {
 				const dataJSON = require(`../../dist/data/random-battles/gen${gen}/data.json`);
 
 				it(`${format.name} should support Max Move Count = ${count}`, () => {

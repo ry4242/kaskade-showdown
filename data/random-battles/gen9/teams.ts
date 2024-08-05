@@ -1388,8 +1388,6 @@ export class RandomTeams {
 		const sets = this[`random${isDoubles ? 'Doubles' : ''}Sets`][species.id]["sets"];
 		const possibleSets: RandomTeamsTypes.RandomSetData[] = [];
 
-		const ruleTable = this.dex.formats.getRuleTable(this.format);
-
 		for (const set of sets) {
 			// Prevent Fast Bulky Setup on lead Paradox Pokemon, since it generates Booster Energy.
 			const abilities = set.abilities!;
