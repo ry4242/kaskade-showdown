@@ -2251,7 +2251,7 @@ export class RandomGen8Teams {
 				);
 
 				if (moveIsRejectable && (
-					!cull && !isSetup && !move.weather && !move.stallingMove && notImportantSetup && !move.damage &&
+					!cull && !isSetup && !move.climateWeather && !move.stallingMove && notImportantSetup && !move.damage &&
 					(isDoubles ? this.unrejectableMovesInDoubles(move) : this.unrejectableMovesInSingles(move))
 				)) {
 					// There may be more important moves that this Pokemon needs
@@ -2720,7 +2720,7 @@ export class RandomGen8Teams {
 			const allowedAbilities: string[] = [];
 			for (const abilityString of curSet.ability) {
 				const ability = this.dex.abilities.get(abilityString);
-				if (teamData.weather && weatherAbilities.includes(ability.id)) continue;
+				if (teamData.climateWeather && weatherAbilities.includes(ability.id)) continue;
 				allowedAbilities.push(abilityString);
 			}
 			if (allowedAbilities.length === 0) continue;

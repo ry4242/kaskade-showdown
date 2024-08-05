@@ -1390,9 +1390,9 @@ export class RandomTeams {
 
 		for (const set of sets) {
 			// Prevent Fast Bulky Setup on lead Paradox Pokemon, since it generates Booster Energy.
-			const abilities = set.abilities!;
+			const abilities = new Set(Object.values(species.abilities));
 			if (
-				isLead && (abilities.includes('Protosynthesis') || abilities.includes('Quark Drive')) &&
+				isLead && (abilities.has('Protosynthesis') || abilities.has('Quark Drive')) &&
 				set.role === 'Fast Bulky Setup'
 			) continue;
 			possibleSets.push(set);

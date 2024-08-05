@@ -1432,8 +1432,8 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			const allowedAbilities: string[] = [];
 			for (const abilityString of curSet.ability) {
 				const ability = this.dex.abilities.get(abilityString);
-				if (weatherAbilitiesRequire[ability.id] && teamData.weather !== weatherAbilitiesRequire[ability.id]) continue;
-				if (teamData.weather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
+				if (weatherAbilitiesRequire[ability.id] && teamData.climateWeather !== weatherAbilitiesRequire[ability.id]) continue;
+				if (teamData.climateWeather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
 				allowedAbilities.push(abilityString);
 			}
 			if (allowedAbilities.length === 0) continue;
@@ -1731,10 +1731,10 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			if (teamData.has[item.id]) continue; // Item clause
 
 			const ability = this.dex.abilities.get(curSet.ability);
-			if (weatherAbilitiesRequire[ability.id] && teamData.weather !== weatherAbilitiesRequire[ability.id]) continue;
-			if (teamData.weather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
+			if (weatherAbilitiesRequire[ability.id] && teamData.climateWeather !== weatherAbilitiesRequire[ability.id]) continue;
+			if (teamData.climateWeather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
 
-			if (curSet.species === 'Aron' && teamData.weather !== 'sandstorm') continue; // reject Aron without a Sand Stream user
+			if (curSet.species === 'Aron' && teamData.climateWeather !== 'sandstorm') continue; // reject Aron w/o Sand Stream user
 
 			let reject = false;
 			let hasRequiredMove = false;

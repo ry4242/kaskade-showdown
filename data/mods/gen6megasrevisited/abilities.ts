@@ -75,9 +75,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onBeforeMovePriority: 0.5,
 		onBeforeMove(target, source, move) {
 			if (move.type === 'Fire') {
-				this.field.setWeather('sunnyday');
+				this.field.setClimateWeather('sunnyday');
 			} else if (move.type === 'Water') {
-				this.field.setWeather('raindance');
+				this.field.setClimateWeather('raindance');
 			}
 		},
 		name: "Weather Report",
@@ -233,22 +233,22 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	dragonsgale: {
 		onStart(source) {
-			this.field.setWeather('deltastream');
+			this.field.setClimateWeather('deltastream');
 		},
-		onAnySetWeather(target, source, weather) {
+		onAnySetClimateWeather(target, source, climateWeather) {
 			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
-			if (this.field.getWeather().id === 'deltastream' && !strongWeathers.includes(weather.id)) return false;
+			if (this.field.getClimateWeather().id === 'deltastream' && !strongWeathers.includes(climateWeather.id)) return false;
 		},
 		onEnd(pokemon) {
-			if (this.field.weatherState.source !== pokemon) return;
+			if (this.field.climateWeatherState.source !== pokemon) return;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
 				if (target.hasAbility('dragonsgale')) {
-					this.field.weatherState.source = target;
+					this.field.climateWeatherState.source = target;
 					return;
 				}
 			}
-			this.field.clearWeather();
+			this.field.clearClimateWeather();
 		},
 		onDamage(damage, target, source, effect) {
 			if (effect && (effect.id === 'stealthrock' || effect.id === 'spikes')) {

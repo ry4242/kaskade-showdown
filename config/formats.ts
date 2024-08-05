@@ -361,7 +361,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		searchShow: false,
-		ruleset: ['Standard OMs', 'Not Fully Evolved', 'Sleep Moves Clause', 'Min Source Gen = 9'],
+		ruleset: ['Standard OMs', 'Not Fully Evolved', 'Sleep Moves Clause'],
 		banlist: [
 			'Arena Trap', 'Shadow Tag',
 			'Baton Pass',
@@ -413,7 +413,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Pok&eacute;mon have access to almost any ability.`,
 
 		mod: 'swse',
-		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause', 'Min Source Gen = 9'],
+		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause'],
 		banlist: [
 			'Baton Pass', 'Last Respects', 'Revival Blessing', 'Shed Tail',
 			'King\'s Rock',

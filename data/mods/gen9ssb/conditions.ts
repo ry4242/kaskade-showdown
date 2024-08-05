@@ -2543,8 +2543,8 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 		},
 		innateName: "Wonderer",
 		shortDesc: "This Pokemon's secondary type changes based on the active weather or terrain, monotype if neither.",
-		onWeatherChange(target, source, sourceEffect) {
-			const currentWeather = this.field.getWeather().id;
+		onClimateWeatherChange(target, source, sourceEffect) {
+			const currentWeather = this.field.getClimateWeather().id;
 			const currentTerrain = this.field.getTerrain().id;
 			let type;
 			if (!currentWeather && !currentTerrain && !target.hasType('Dark')) {
@@ -2568,7 +2568,7 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 			}
 		},
 		onTerrainChange(target, source, sourceEffect) {
-			const currentWeather = this.field.getWeather().id;
+			const currentWeather = this.field.getClimateWeather().id;
 			const currentTerrain = this.field.getTerrain().id;
 			let type;
 			if (!currentWeather && !currentTerrain && !target.hasType('Dark')) {
@@ -2811,7 +2811,7 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 		innateName: "Snow Warning",
 		onStart(source) {
 			if (source.illusion) return;
-			this.field.setWeather('snow', source, this.dex.abilities.get('snowwarning'));
+			this.field.setClimateWeather('snow', source, this.dex.abilities.get('snowwarning'));
 		},
 	},
 	yveltalnl: {
@@ -3060,7 +3060,7 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 	// Elly
 	stormsurge: {
 		name: 'StormSurge',
-		effectType: 'Weather',
+		effectType: 'ClimateWeather',
 		duration: 5,
 		durationCallback(source, effect) {
 			if (source?.hasItem('damprock')) {
@@ -3075,7 +3075,7 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 				return 0;
 			}
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.flags['wind']) {
 				this.debug('Storm Surge wind boost');
@@ -3112,14 +3112,14 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 			this.eachEvent('Weather');
 		},
 		onFieldEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 
 	// kenn
 	deserteddunes: {
 		name: 'DesertedDunes',
-		effectType: 'Weather',
+		effectType: 'IrritantWeather',
 		duration: 0,
 		onEffectivenessPriority: -1,
 		onEffectiveness(typeMod, target, type, move) {
@@ -3130,7 +3130,7 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 		},
 		onModifySpDPriority: 10,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.hasType('Rock') && this.field.isWeather('deserteddunes')) {
+			if (pokemon.hasType('Rock') && this.field.isIrritantWeather('deserteddunes')) {
 				return this.modify(spd, 1.5);
 			}
 		},
@@ -3142,11 +3142,11 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 			this.add('-weather', 'DesertedDunes', '[upkeep]');
 			this.eachEvent('Weather');
 		},
-		onWeather(target) {
+		onIrritantWeather(target) {
 			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
-			this.add('-weather', 'none');
+			this.add('-irritantWeather', 'none');
 		},
 	},
 
@@ -3316,7 +3316,7 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 	},
 	raindance: {
 		inherit: true,
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || move.id === 'geyserblast') return;
 			if (move.type === 'Water') {
 				this.debug('rain water boost');
@@ -3330,7 +3330,7 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 	},
 	sunnyday: {
 		inherit: true,
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || move.id === 'geyserblast') return;
 			if (move.type === 'Fire') {
 				this.debug('Sunny Day fire boost');
@@ -3353,7 +3353,7 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 				return null;
 			}
 		},
-		onWeatherModifyDamage(damage, attacker, defender, move) {
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella')) return;
 			if (move.type === 'Water') {
 				this.debug('Rain water boost');

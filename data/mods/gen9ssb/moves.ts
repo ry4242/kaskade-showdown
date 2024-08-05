@@ -2452,7 +2452,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		onHit(target, source, move) {
 			let success = false;
-			if (this.field.setWeather('raindance', source, move)) {
+			if (this.field.setClimateWeather('raindance', source, move)) {
 				this.add('-message', 'HoeenHero made the environment easier to work with!');
 				success = true;
 			}
@@ -2760,7 +2760,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			this.add('-anim', source, 'Agility', target);
 			this.add('-anim', source, 'Snowscape', target);
 		},
-		weather: 'snow',
+		climateWeather: 'snow',
 		secondary: null,
 		target: "self",
 		type: "Ice",
@@ -3031,7 +3031,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			onFieldRestart(target, source) {
 				this.field.removePseudoWeather('anfieldatmosphere');
 			},
-			onAnySetWeather(target, source, weather) {
+			onAnySetClimateWeather(target, source, weather) {
 				return false;
 			},
 			onSetStatus(status, target, source, effect) {
@@ -4683,7 +4683,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			}
 			this.field.clearTerrain();
-			this.field.clearWeather();
+			this.field.clearClimateWeather();
 			for (const pseudoWeather of PSEUDO_WEATHERS) {
 				this.field.removePseudoWeather(pseudoWeather);
 			}
@@ -6033,7 +6033,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				attacker.eatItem(true);
 				this.heal(attacker.maxhp / 4, attacker);
 			}
-			if (['sunnyday', 'desolateland'].includes(attacker.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(attacker.effectiveClimateWeather())) {
 				this.attrLastMove('[still]');
 				this.add('-anim', attacker, 'Signal Beam', defender);
 				this.add('-anim', attacker, 'Twister', defender);
@@ -6278,7 +6278,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			this.add('-anim', source, "Snowscape", source);
 		},
 		onHit(target, source) {
-			this.field.setWeather('snow');
+			this.field.setClimateWeather('snow');
 			if (target.setAbility('normalize')) {
 				this.add('-ability', target, 'Normalize', '[from] move: Whiteout');
 			}
@@ -6475,7 +6475,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		onHit(pokemon) {
 			let success = false;
-			if (this.field.setWeather('sunnyday')) success = true;
+			if (this.field.setClimateWeather('sunnyday')) success = true;
 			if (!pokemon.volatiles['substitute']) {
 				if (pokemon.hp <= pokemon.maxhp / 4 || pokemon.maxhp === 1) { // Shedinja clause
 					this.add('-fail', pokemon, 'move: Substitute', '[weak]');
@@ -6519,7 +6519,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	bleakwindstorm: {
 		inherit: true,
 		onModifyMove(move, pokemon, target) {
-			if (target && ['raindance', 'primordialsea', 'stormsurge'].includes(target.effectiveWeather())) {
+			if (target && ['raindance', 'primordialsea', 'stormsurge'].includes(target.effectiveClimateWeather())) {
 				move.accuracy = true;
 			}
 		},
@@ -6578,7 +6578,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 			this.add('-prepare', attacker, move.name);
 			this.boost({spa: 1}, attacker, attacker, move);
-			if (['raindance', 'primordialsea', 'stormsurge'].includes(attacker.effectiveWeather())) {
+			if (['raindance', 'primordialsea', 'stormsurge'].includes(attacker.effectiveClimateWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -6603,7 +6603,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	hurricane: {
 		inherit: true,
 		onModifyMove(move, pokemon, target) {
-			switch (target?.effectiveWeather()) {
+			switch (target?.effectiveClimateWeather()) {
 			case 'raindance':
 			case 'primordialsea':
 			case 'stormsurge':
@@ -6700,7 +6700,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				factor = 0.667;
@@ -6727,7 +6727,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				factor = 0.667;
@@ -6831,7 +6831,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	sandsearstorm: {
 		inherit: true,
 		onModifyMove(move, pokemon, target) {
-			if (target && ['raindance', 'primordialsea', 'stormsurge'].includes(target.effectiveWeather())) {
+			if (target && ['raindance', 'primordialsea', 'stormsurge'].includes(target.effectiveClimateWeather())) {
 				move.accuracy = true;
 			}
 		},
@@ -6840,7 +6840,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (this.field.isWeather(['sandstorm', 'deserteddunes'])) {
+			if (this.field.isIrritantWeather(['sandstorm', 'deserteddunes'])) {
 				factor = 0.667;
 			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));
@@ -6867,7 +6867,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
 			const weakWeathers = ['raindance', 'primordialsea', 'stormsurge', 'sandstorm', 'deserteddunes', 'hail', 'snow'];
-			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+			if (weakWeathers.includes(pokemon.effectiveClimateWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -6877,7 +6877,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onBasePower(basePower, pokemon, target) {
 			const weakWeathers = ['raindance', 'primordialsea', 'stormsurge', 'sandstorm', 'deserteddunes', 'hail', 'snow'];
-			if (weakWeathers.includes(pokemon.effectiveWeather())) {
+			if (weakWeathers.includes(pokemon.effectiveClimateWeather())) {
 				this.debug('weakened by weather');
 				return this.chainModify(0.5);
 			}
@@ -6900,7 +6900,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				factor = 0.667;
@@ -6926,7 +6926,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	thunder: {
 		inherit: true,
 		onModifyMove(move, pokemon, target) {
-			switch (target?.effectiveWeather()) {
+			switch (target?.effectiveClimateWeather()) {
 			case 'raindance':
 			case 'primordialsea':
 			case 'stormsurge':
@@ -6952,7 +6952,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	weatherball: {
 		inherit: true,
 		onModifyType(move, pokemon) {
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				move.type = 'Fire';
@@ -6973,7 +6973,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 		},
 		onModifyMove(move, pokemon) {
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 			case 'raindance':
@@ -6992,7 +6992,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	wildboltstorm: {
 		inherit: true,
 		onModifyMove(move, pokemon, target) {
-			if (target && ['raindance', 'primordialsea', 'stormsurge'].includes(target.effectiveWeather())) {
+			if (target && ['raindance', 'primordialsea', 'stormsurge'].includes(target.effectiveClimateWeather())) {
 				move.accuracy = true;
 			}
 		},

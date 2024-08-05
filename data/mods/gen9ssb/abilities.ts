@@ -587,22 +587,22 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "Delta Stream + Stealth Rock immunity.",
 		name: "Jet Stream",
 		onStart(source) {
-			this.field.setWeather('deltastream');
+			this.field.setClimateWeather('deltastream');
 			this.add('message',	`Strong air currents keep Flying-types ahead of the chase!`);
 		},
-		onAnySetWeather(target, source, weather) {
-			if (this.field.isWeather('deltastream') && !STRONG_WEATHERS.includes(weather.id)) return false;
+		onAnySetClimateWeather(target, source, weather) {
+			if (this.field.isClimateWeather('deltastream') && !STRONG_WEATHERS.includes(weather.id)) return false;
 		},
 		onEnd(pokemon) {
-			if (this.field.weatherState.source !== pokemon) return;
+			if (this.field.climateWeatherState.source !== pokemon) return;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
 				if (target.hasAbility(['deltastream', 'jetstream'])) {
-					this.field.weatherState.source = target;
+					this.field.climateWeatherState.source = target;
 					return;
 				}
 			}
-			this.field.clearWeather();
+			this.field.clearClimateWeather();
 		},
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.name === 'Stealth Rock') {
@@ -657,7 +657,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'kyogre') return;
 				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
 			}
-			this.field.setWeather('raindance');
+			this.field.setClimateWeather('raindance');
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
@@ -753,7 +753,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		desc: "Summons the Storm Surge weather on switch-in. While Storm Surge is active, wind moves used by any Pokemon are perfectly accurate and become 20% stronger. Water moves are 50% stronger, Fire moves are 50% weaker.",
 		name: "Storm Surge",
 		onStart(source) {
-			this.field.setWeather('stormsurge');
+			this.field.setClimateWeather('stormsurge');
 		},
 	},
 
@@ -1009,7 +1009,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if (['raindance', 'primordialsea'].includes(pokemon.effectiveWeather())) {
+			if (['raindance', 'primordialsea'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(2);
 			}
 		},
@@ -1164,12 +1164,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Fortifying Frost",
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			if (['hail', 'snow'].includes(pokemon.effectiveWeather())) {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpD(spd, pokemon) {
-			if (['hail', 'snow'].includes(pokemon.effectiveWeather())) {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -1182,21 +1182,22 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		desc: "On switch-in, the weather becomes Deserted Dunes, which removes the weaknesses of the Rock type from Rock-type Pokemon. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Desolate Land, Primordial Sea or Delta Stream Abilities.",
 		name: "Deserted Dunes",
 		onStart(source) {
-			this.field.setWeather('deserteddunes');
+			this.field.setIrritantWeather('deserteddunes');
 		},
-		onAnySetWeather(target, source, weather) {
-			if (this.field.getWeather().id === 'deserteddunes' && !STRONG_WEATHERS.includes(weather.id)) return false;
+		onAnySetIrritantWeather(target, source, irritantWeather) {
+			if (this.field.getIrritantWeather().id === 'deserteddunes' &&
+			!STRONG_WEATHERS.includes(irritantWeather.id)) return false;
 		},
 		onEnd(pokemon) {
-			if (this.field.weatherState.source !== pokemon) return;
+			if (this.field.irritantWeatherState.source !== pokemon) return;
 			for (const target of this.getAllActive()) {
 				if (target === pokemon) continue;
 				if (target.hasAbility('deserteddunes')) {
-					this.field.weatherState.source = target;
+					this.field.irritantWeatherState.source = target;
 					return;
 				}
 			}
-			this.field.clearWeather();
+			this.field.clearIrritantWeather();
 		},
 		flags: {},
 		gen: 9,
@@ -1383,7 +1384,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				}
 			}
 			this.field.clearTerrain();
-			this.field.clearWeather();
+			this.field.clearClimateWeather();
 			for (const pseudoWeather of PSEUDO_WEATHERS) {
 				this.field.removePseudoWeather(pseudoWeather);
 			}
@@ -1490,26 +1491,26 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
-				this.field.setWeather('raindance');
+				this.field.setClimateWeather('raindance');
 				break;
 			case 'raindance':
-				this.field.setWeather('snow');
+				this.field.setClimateWeather('snow');
 				break;
 			default:
-				this.field.setWeather('sunnyday');
+				this.field.setClimateWeather('sunnyday');
 				break;
 			}
 		},
 		onStart(pokemon) {
 			this.singleEvent('WeatherChange', this.effect, this.effectState, pokemon);
 		},
-		onWeatherChange(pokemon) {
+		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
 			let relevantMove = null;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (pokemon.species.id !== 'castformsunny') {
@@ -1562,17 +1563,17 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onModifySpA(spa, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifyDef(def, pokemon) {
-			if (['hail', 'snow'].includes(pokemon.effectiveWeather())) {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpD(spd, pokemon) {
-			if (['hail', 'snow'].includes(pokemon.effectiveWeather())) {
+			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -1615,7 +1616,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'End Round');
 			this.add('-message', 'A new round is starting! Resetting the field...');
-			this.field.clearWeather();
+			this.field.clearClimateWeather();
 			this.field.clearTerrain();
 			for (const pseudoWeather of PSEUDO_WEATHERS) {
 				this.field.removePseudoWeather(pseudoWeather);
@@ -2026,7 +2027,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'kyogre') return;
 				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
 			}
-			this.field.setWeather('raindance');
+			this.field.setClimateWeather('raindance');
 		},
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
@@ -2357,10 +2358,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (action.choice === 'runPrimal' && action.pokemon === source && source.species.id === 'groudon') return;
 				if (action.choice !== 'runSwitch' && action.choice !== 'runPrimal') break;
 			}
-			this.field.setWeather('sunnyday');
+			this.field.setClimateWeather('sunnyday');
 		},
 		onModifySpe(spe, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(2);
 			}
 		},
@@ -2500,7 +2501,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		shortDesc: "Drought + 60% damage reduction + 20% burn after physical move.",
 		name: "Power Abuse",
 		onStart() {
-			this.field.setWeather('sunnyday');
+			this.field.setClimateWeather('sunnyday');
 		},
 		onSourceModifyDamage() {
 			return this.chainModify(0.4);
@@ -2636,7 +2637,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Soul Surfer",
 		shortDesc: "Drizzle + Surge Surfer.",
 		onStart(source) {
-			this.field.setWeather('raindance');
+			this.field.setClimateWeather('raindance');
 		},
 		onModifySpe(spe) {
 			if (this.field.isTerrain('electricterrain')) {
@@ -2752,7 +2753,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onResidualOrder: 28,
 		onResidualSubOrder: 2,
 		onResidual(pokemon) {
-			const isSunny = this.field.isWeather(['sunnyday', 'desolateland']);
+			const isSunny = this.field.isClimateWeather(['sunnyday', 'desolateland']);
 			if (isSunny) {
 				this.heal(pokemon.baseMaxhp / 8, pokemon, pokemon, pokemon.getAbility());
 			}
@@ -3057,19 +3058,19 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	deltastream: {
 		inherit: true,
-		onAnySetWeather(target, source, weather) {
-			if (this.field.getWeather().id === 'deltastream' && !STRONG_WEATHERS.includes(weather.id)) return false;
+		onAnySetClimateWeather(target, source, climateWeather) {
+			if (this.field.getClimateWeather().id === 'deltastream' && !STRONG_WEATHERS.includes(climateWeather.id)) return false;
 		},
 	},
 	desolateland: {
 		inherit: true,
-		onAnySetWeather(target, source, weather) {
-			if (this.field.getWeather().id === 'desolateland' && !STRONG_WEATHERS.includes(weather.id)) return false;
+		onAnySetClimateWeather(target, source, climateWeather) {
+			if (this.field.getClimateWeather().id === 'desolateland' && !STRONG_WEATHERS.includes(climateWeather.id)) return false;
 		},
 	},
 	dryskin: {
 		inherit: true,
-		onWeather(target, source, effect) {
+		onClimateWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea' || effect.id === 'stormsurge') {
 				this.heal(target.baseMaxhp / 8);
@@ -3080,10 +3081,10 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	forecast: {
 		inherit: true,
-		onWeatherChange(pokemon) {
+		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (pokemon.effectiveWeather()) {
+			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -3109,7 +3110,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	hydration: {
 		inherit: true,
 		onResidual(pokemon) {
-			if (pokemon.status && ['raindance', 'primordialsea', 'stormsurge'].includes(pokemon.effectiveWeather())) {
+			if (pokemon.status && ['raindance', 'primordialsea', 'stormsurge'].includes(pokemon.effectiveClimateWeather())) {
 				this.debug('hydration');
 				this.add('-activate', pokemon, 'ability: Hydration');
 				pokemon.cureStatus();
@@ -3151,13 +3152,13 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	},
 	primordialsea: {
 		inherit: true,
-		onAnySetWeather(target, source, weather) {
-			if (this.field.getWeather().id === 'primordialsea' && !STRONG_WEATHERS.includes(weather.id)) return false;
+		onAnySetClimateWeather(target, source, climateWeather) {
+			if (this.field.getClimateWeather().id === 'primordialsea' && !STRONG_WEATHERS.includes(climateWeather.id)) return false;
 		},
 	},
 	raindish: {
 		inherit: true,
-		onWeather(target, source, effect) {
+		onClimateWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
 			if (effect.id === 'raindance' || effect.id === 'primordialsea' || effect.id === 'stormsurge') {
 				this.heal(target.baseMaxhp / 16);
@@ -3167,7 +3168,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	sandforce: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
-			if (this.field.isWeather(['sandstorm', 'deserteddunes'])) {
+			if (this.field.isIrritantWeather(['sandstorm', 'deserteddunes'])) {
 				if (move.type === 'Rock' || move.type === 'Ground' || move.type === 'Steel') {
 					this.debug('Sand Force boost');
 					return this.chainModify([5325, 4096]);
@@ -3181,7 +3182,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	sandrush: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (this.field.isWeather(['sandstorm', 'deserteddunes'])) {
+			if (this.field.isIrritantWeather(['sandstorm', 'deserteddunes'])) {
 				return this.chainModify(2);
 			}
 		},
@@ -3196,7 +3197,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		},
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isWeather(['sandstorm', 'deserteddunes'])) {
+			if (this.field.isIrritantWeather(['sandstorm', 'deserteddunes'])) {
 				this.debug('Sand Veil - decreasing accuracy');
 				return this.chainModify([3277, 4096]);
 			}
@@ -3205,7 +3206,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	swiftswim: {
 		inherit: true,
 		onModifySpe(spe, pokemon) {
-			if (['raindance', 'primordialsea', 'stormsurge'].includes(pokemon.effectiveWeather())) {
+			if (['raindance', 'primordialsea', 'stormsurge'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(2);
 			}
 		},

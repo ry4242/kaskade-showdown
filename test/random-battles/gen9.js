@@ -13,12 +13,12 @@ describe('[Gen 9] Random Battle (slow)', () => {
 	});
 });
 
-/* describe('[Gen 9] Monotype Random Battle (slow)', () => {
-	const options = {format: 'gen9monotyperandombattle'};
+describe('[Gen 9] Random Battle (slow)', () => {
+	const options = {format: 'gen9randombattle'};
 
 	it('all Pokemon should share a common type', function () {
 		testTeam({...options, rounds: 100}, team => {
-			assert.legalTeam(team, 'gen9customgame@@@sametypeclause');
+			assert.legalTeam(team);
 		});
 	});
-}); */
+});
