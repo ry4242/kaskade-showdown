@@ -1,4 +1,5 @@
 import {Utils} from '../lib';
+import type {ConditionData} from './dex-conditions';
 import {BasicEffect, toID} from './dex-data';
 
 /**
@@ -49,6 +50,7 @@ interface MoveFlags {
 	noassist?: 1; // Cannot be selected by Assist.
 	nonsky?: 1; // Prevented from being executed or selected in a Sky Battle.
 	noparentalbond?: 1; // Cannot be made to hit twice via Parental Bond.
+	nosketch?: 1; // Cannot be copied by Sketch.
 	nosleeptalk?: 1; // Cannot be selected by Sleep Talk.
 	pledgecombo?: 1; // Gems will not activate. Cannot be redirected by Storm Drain / Lightning Rod.
 	powder?: 1; // Has no effect on Pokemon which are Grass-type, have the Ability Overcoat, or hold Safety Goggles.
@@ -174,10 +176,10 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	 * ID of the Z-Crystal that calls the move.
 	 * `true` for Z-Powered status moves like Z-Encore.
 	 */
-	isZ?: boolean | string;
+	isZ?: boolean | IDEntry;
 	zMove?: {
 		basePower?: number,
-		effect?: string,
+		effect?: IDEntry,
 		boost?: SparseBoostsTable,
 	};
 
@@ -185,7 +187,7 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	// -------------
 	/**
 	 * `true` for Max moves like Max Airstream. If its a G-Max moves, this is
-	 * the species ID of the Gigantamax Pokemon that can use this G-Max move.
+	 * the species name of the Gigantamax Pokemon that can use this G-Max move.
 	 */
 	isMax?: boolean | string;
 	maxMove?: {
@@ -194,7 +196,7 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 
 	// Hit effects
 	// -----------
-	ohko?: boolean | string;
+	ohko?: boolean | 'Ice';
 	thawsTarget?: boolean;
 	heal?: number[] | null;
 	forceSwitch?: boolean;
@@ -246,17 +248,17 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	ignoreAccuracy?: boolean;
 	ignoreDefensive?: boolean;
 	ignoreEvasion?: boolean;
-	ignoreImmunity?: boolean | {[k: string]: boolean};
+	ignoreImmunity?: boolean | {[typeName: string]: boolean};
 	ignoreNegativeOffensive?: boolean;
 	ignoreOffensive?: boolean;
 	ignorePositiveDefensive?: boolean;
 	ignorePositiveEvasion?: boolean;
 	multiaccuracy?: boolean;
 	multihit?: number | number[];
-	multihitType?: string;
+	multihitType?: 'parentalbond';
 	noDamageVariance?: boolean;
-	nonGhostTarget?: string;
-	pressureTarget?: string;
+	nonGhostTarget?: MoveTarget;
+	pressureTarget?: MoveTarget;
 	spreadModifier?: number;
 	sleepUsable?: boolean;
 	/**
@@ -269,14 +271,14 @@ export interface MoveData extends EffectData, MoveEventMethods, HitEffect {
 	 */
 	tracksTarget?: boolean;
 	willCrit?: boolean;
+	callsMove?: boolean;
 
 	// Mechanics flags
 	// ---------------
 	hasCrashDamage?: boolean;
 	isConfusionSelfHit?: boolean;
-	noSketch?: boolean;
 	stallingMove?: boolean;
-	baseMove?: string;
+	baseMove?: ID;
 }
 
 export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
@@ -287,6 +289,9 @@ export type ModdedMoveData = MoveData | Partial<Omit<MoveData, 'name'>> & {
 	longWhipBoost?: boolean,
 	gen?: number,
 };
+
+export interface MoveDataTable {[moveid: IDEntry]: MoveData}
+export interface ModdedMoveDataTable {[moveid: IDEntry]: ModdedMoveData}
 
 export interface Move extends Readonly<BasicEffect & MoveData> {
 	readonly effectType: 'Move';
@@ -307,8 +312,7 @@ interface MoveHitData {
 }
 
 type MutableMove = BasicEffect & MoveData;
-type RuinableMove = {[k in `ruined${'Atk' | 'Def' | 'SpA' | 'SpD'}`]?: Pokemon;};
-export interface ActiveMove extends MutableMove, RuinableMove {
+export interface ActiveMove extends MutableMove {
 	readonly name: string;
 	readonly effectType: 'Move';
 	readonly id: ID;
@@ -344,6 +348,10 @@ export interface ActiveMove extends MutableMove, RuinableMove {
 	typeChangerBoosted?: Effect;
 	willChangeForme?: boolean;
 	infiltrates?: boolean;
+	ruinedAtk?: Pokemon;
+	ruinedDef?: Pokemon;
+	ruinedSpA?: Pokemon;
+	ruinedSpD?: Pokemon;
 
 	/**
 	 * Has this move been boosted by a Z-crystal or used by a Dynamax Pokemon? Usually the same as
@@ -369,7 +377,7 @@ export class DataMove extends BasicEffect implements Readonly<BasicEffect & Move
 	/** Will this move always or never be a critical hit? */
 	declare readonly willCrit?: boolean;
 	/** Can this move OHKO foes? */
-	declare readonly ohko?: boolean | string;
+	declare readonly ohko?: boolean | 'Ice';
 	/**
 	 * Base move type. This is the move type as specified by the games,
 	 * tracked because it often differs from the real move type.
@@ -425,8 +433,11 @@ export class DataMove extends BasicEffect implements Readonly<BasicEffect & Move
 	/**
 	 * Whether or not this move ignores type immunities. Defaults to
 	 * true for Status moves and false for Physical/Special moves.
+	 *
+	 * If an Object, its keys represent the types whose immunities are
+	 * ignored, and its values should only be true.
 	 */
-	readonly ignoreImmunity: AnyObject | boolean;
+	readonly ignoreImmunity: {[typeName: string]: boolean} | boolean;
 	/** Base move PP. */
 	readonly pp: number;
 	/** Whether or not this move can receive PP boosts. */
@@ -434,14 +445,14 @@ export class DataMove extends BasicEffect implements Readonly<BasicEffect & Move
 	/** How many times does this move hit? */
 	declare readonly multihit?: number | number[];
 	/** Is this move a Z-Move? */
-	readonly isZ: boolean | string;
+	readonly isZ: boolean | IDEntry;
 	/* Z-Move fields */
 	declare readonly zMove?: {
 		basePower?: number,
-		effect?: string,
+		effect?: IDEntry,
 		boost?: SparseBoostsTable,
 	};
-	/** Is this move a Max move? */
+	/** Is this move a Max move? string = Gigantamax species name */
 	readonly isMax: boolean | string;
 	/** Max/G-Max move fields */
 	declare readonly maxMove?: {
@@ -451,9 +462,9 @@ export class DataMove extends BasicEffect implements Readonly<BasicEffect & Move
 	/** Whether or not the user must switch after using this move. */
 	readonly selfSwitch?: 'copyvolatile' | 'shedtail' | boolean;
 	/** Move target only used by Pressure. */
-	readonly pressureTarget: string;
+	readonly pressureTarget: MoveTarget;
 	/** Move target used if the user is not a Ghost type (for Curse). */
-	readonly nonGhostTarget: string;
+	readonly nonGhostTarget: MoveTarget;
 	/** Whether or not the move ignores abilities. */
 	readonly ignoreAbility: boolean;
 	/**
@@ -471,8 +482,6 @@ export class DataMove extends BasicEffect implements Readonly<BasicEffect & Move
 	declare readonly critModifier?: number;
 	/** Forces the move to get STAB even if the type doesn't match. */
 	readonly forceSTAB: boolean;
-	/** True if it can't be copied with Sketch. */
-	readonly noSketch: boolean;
 
 	readonly volatileStatus?: ID;
 
@@ -515,7 +524,6 @@ export class DataMove extends BasicEffect implements Readonly<BasicEffect & Move
 		this.damage = data.damage!;
 		this.spreadHit = data.spreadHit || false;
 		this.forceSTAB = !!data.forceSTAB;
-		this.noSketch = !!data.noSketch;
 		this.volatileStatus = typeof data.volatileStatus === 'string' ? (data.volatileStatus as ID) : undefined;
 
 		if (this.category !== 'Status' && !this.maxMove && this.id !== 'struggle') {

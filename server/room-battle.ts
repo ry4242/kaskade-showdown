@@ -12,12 +12,13 @@
  */
 
 import {execSync} from "child_process";
-import {FS, Repl, ProcessManager, type Streams} from '../lib';
+import {Repl, ProcessManager, type Streams} from '../lib';
 import {BattleStream} from "../sim/battle-stream";
 import {RoomGamePlayer, RoomGame} from "./room-game";
 import type {Tournament} from './tournaments/index';
 import type {RoomSettings} from './rooms';
 import type {BestOfGame} from './room-battle-bestof';
+import type {GameTimerSettings} from '../sim/dex-formats';
 
 type ChannelIndex = 0 | 1 | 2 | 3 | 4;
 export type PlayerIndex = 1 | 2 | 3 | 4;
@@ -909,10 +910,10 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 		const logsubfolder = Chat.toTimestamp(date).split(' ')[0];
 		const logfolder = logsubfolder.split('-', 2).join('-');
 		const tier = Dex.formats.get(this.room.format).id;
-		const logpath = `logs/${logfolder}/${tier}/${logsubfolder}/`;
+		const logpath = `${logfolder}/${tier}/${logsubfolder}/`;
 
-		await FS(logpath).mkdirp();
-		await FS(`${logpath}${this.room.getReplayData().id}.log.json`).write(JSON.stringify(logData));
+		await Monitor.logPath(logpath).mkdirp();
+		await Monitor.logPath(`${logpath}${this.room.getReplayData().id}.log.json`).write(JSON.stringify(logData));
 		// console.log(JSON.stringify(logData));
 	}
 	override onConnect(user: User, connection: Connection | null = null) {
@@ -1171,7 +1172,8 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 			this.room.title = `${this.p1.name} vs. ${this.p2.name}`;
 		}
 		this.room.send(`|title|${this.room.title}`);
-		const suspectTest = Chat.plugins['suspect-tests']?.suspectTests[this.format];
+		const suspectTest = Chat.plugins['suspect-tests']?.suspectTests[this.format] ||
+			Chat.plugins['suspect-tests']?.suspectTests.suspects[this.format];
 		if (suspectTest) {
 			const format = Dex.formats.get(this.format);
 			this.room.add(
