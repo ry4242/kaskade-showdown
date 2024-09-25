@@ -22369,31 +22369,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Dark",
 	},
-	butterflydance: { // untested
-		num: -29,
-		accuracy: 100,
-		basePower: 65,
-		category: "Special",
-		name: "Butterfly Dance",
-		pp: 20,
-		priority: 0,
-		flags: {protect: 1, mirror: 1, dance: 1, metronome: 1},
-		secondary: {
-			chance: 30,
-			onHit(target, source) {
-				const result = this.random(3);
-				if (result === 0) {
-					target.trySetStatus('slp', source);
-				} else if (result === 1) {
-					target.trySetStatus('par', source);
-				} else {
-					target.addVolatile('confusion', source);
-				}
-			},
-		},
-		target: "normal",
-		type: "Bug",
-	},
 	cidercannon: { // untested and isn't allowed!?!?
 		num: -47,
 		accuracy: true,
