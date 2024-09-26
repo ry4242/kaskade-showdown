@@ -23395,16 +23395,17 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		name: "Snooze",
 		pp: 5,
 		priority: 0,
-		flags: {reflectable: 1, snatch: 1, sound: 1, heal: 1, bypasssub: 1, metronome: 1},
-		onAfterHit(target, source) {
-			if (!target.status && target.runStatusImmunity('sleep')) {
-				target.addVolatile('yawn');
+		flags: {snatch: 1, sound: 1, heal: 1, bypasssub: 1, metronome: 1},
+		heal: [1, 2],
+		onHitField(target, source, move) {
+			for (const pokemon of this.getAllActive()) {
+				if (!pokemon.status && pokemon.runStatusImmunity('slp')) {
+					pokemon.addVolatile('yawn');
+				}
 			}
-			source.heal(source.baseMaxhp / 2, source);
-			source.addVolatile('yawn');
 		},
 		secondary: null,
-		target: "normal",
+		target: "all",
 		type: "Normal",
 	},
 	spectrum: {
