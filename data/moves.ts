@@ -22665,7 +22665,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Fire",
 	},
-	escaperoot: { // crashes the game trying to switch, temporarily patched out
+	escaperoot: { // tested, works as intended
 		num: -46,
 		accuracy: true,
 		basePower: 0,
@@ -22674,17 +22674,18 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 10,
 		priority: 0,
 		flags: {metronome: 1},
+		onTry(source, target) {
+			if (source.getVolatile('ingrain')) {
+				target.side.addSlotCondition(target, 'root');
+			}
+		},
 		selfSwitch: true,
-		slotCondition: 'escaperoot',
+		slotCondition: 'escape',
 		condition: {
 			onSwap(target, source) {
 				if (!target.fainted) {
 					target.clearStatus();
-					/* if (source.getVolatile('ingrain')) {
-						target.heal(target.baseMaxhp / 8, source);
-						this.add('-heal', target, target.getHealth, '[from] move: Escape Root');
-					} */
-					target.side.removeSlotCondition(target, 'escaperoot');
+					target.side.removeSlotCondition(target, 'escape');
 				}
 			},
 		},

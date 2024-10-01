@@ -458,6 +458,21 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 		},
 	},
+	root: {
+		// this is a slot condition
+		name: 'root',
+		onStart(target, source, sourceEffect) {
+			this.effectState.sourceEffect = sourceEffect;
+		},
+		onSwitchInPriority: 1,
+		onSwitchIn(target) {
+			if (!target.fainted) {
+				target.heal(target.maxhp/8);
+				this.add('-heal', target, target.getHealth, '[from] move: ' + this.effectState.sourceEffect, '[zeffect]');
+				target.side.removeSlotCondition(target, 'root');
+			}
+		},
+	},
 	stall: {
 		// Protect, Detect, Endure counter
 		name: 'stall',
