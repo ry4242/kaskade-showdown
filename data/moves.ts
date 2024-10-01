@@ -22460,20 +22460,34 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				return this.chainModify([5006, 4096]);
 			}
 		},
-		secondary: {
-			chance: 20,
-			onHit(target, source) {
-				if (['sunnyday'].includes(source.effectiveClimateWeather())) {
+		onHit(target, source, move) {
+			const result = this.random(2); //coin flip for status priority
+			var chance = 0;
+			if (move.hasSheerForce || target.hasAbility('Shield Dust') || target.hasItem('Covert Cloak')) return;
+			if (source.hasAbility('Serene Grace')) chance += 1;
+			if (['supercell'].includes(source.effectiveEnergyWeather()) && ['sunnyday', 'hail', 'snow'].includes(source.effectiveClimateWeather()) && result == 0) {
+				if (['sunnyday'].includes(source.effectiveClimateWeather()) && this.random(5) <= chance) {
 					target.trySetStatus('brn');
 				}
-				if (['hail', 'snow'].includes(source.effectiveClimateWeather())) {
+				if (['hail', 'snow'].includes(source.effectiveClimateWeather()) && this.random(5) <= chance) {
 					target.trySetStatus('frb');
 				}
-				if (['supercell'].includes(source.effectiveEnergyWeather())) {
+				if (['supercell'].includes(source.effectiveEnergyWeather()) && this.random(5) <= chance) {
 					target.trySetStatus('par');
 				}
-			},
+			} else {
+				if (['supercell'].includes(source.effectiveEnergyWeather()) && this.random(5) <= chance) {
+					target.trySetStatus('par');
+				}
+				if (['sunnyday'].includes(source.effectiveClimateWeather()) && this.random(5) <= chance) {
+					target.trySetStatus('brn');
+				}
+				if (['hail', 'snow'].includes(source.effectiveClimateWeather()) && this.random(5) <= chance) {
+					target.trySetStatus('frb');
+				}
+			}
 		},
+		secondary: {}, //Boosted by Sheer Force
 		target: "normal",
 		type: "Steel",
 	},
@@ -23387,7 +23401,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Poison",
 	},
-	snooze: { // doesn't work
+	snooze: { // tested, works as intended
 		num: -16,
 		accuracy: true,
 		basePower: 0,
