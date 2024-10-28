@@ -1,3 +1,5 @@
+import { escape } from 'querystring';
+
 export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 	brn: {
 		name: 'brn',
@@ -473,6 +475,19 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 		},
 	},
+	escape: {
+		name: 'escape',
+		onStart(target, source, sourceEffect) {
+			this.effectState.sourceEffect = sourceEffect;
+		},
+		onSwitchInPriority: 1,
+		onSwitchIn(target) {
+			if (!target.fainted) {
+				target.cureStatus();
+				target.side.removeSlotCondition(target, 'escape');
+			}
+		},
+	},
 	stall: {
 		// Protect, Detect, Endure counter
 		name: 'stall',
@@ -800,7 +815,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy, target, source, move) {
 			if (target.hasItem('utilityumbrella') || source.hasAbility('droughtproof')) return;
-			if (typeof accuracy === 'number' && move?.type !== 'Normal') {
+			if (typeof accuracy === 'number' && move?.type !== 'Normal' && move?.type !== '???') {
 				// This one piece of code took over 5 hours to do because it was reading move as move: Pokemon and not move: ActiveMove
 				this.debug('Fog accuracy decrease');
 				return this.chainModify(0.9);
@@ -1236,13 +1251,13 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 			return 5;
 		},
-		onModifySpDPriority: 10,
+		/* onModifySpDPriority: 10,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.hasItem('energynullifier')) return;
 			if (pokemon.hasType('Ghost') && this.field.isEnergyWeather('haunt')) {
 				return this.modify(spd, 1.25);
 			}
-		},
+		}, */
 		onBeforeTurn(pokemon) {
 			if (this.field.energyWeatherState.boosted) {
 				if (pokemon.hasItem('energynullifier')) return;
@@ -1424,56 +1439,51 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onEnergyWeather(target) {
 			if (target.hasItem('energynullifier')) return;
-			this.debug('lightning might strike');
-			if (this.randomChance(1, 10)) {
-				for (const newTarget of this.getAllActive()) {
-					if (newTarget.hasAbility('lightningrod')) target = newTarget;
-				}
-				let typeMod = 1;
-				// weak to electric
-				if (target.hasType('Water')) typeMod *= 2;
-				if (target.hasType('Flying')) typeMod *= 2;
-				// resist electric
-				if (target.hasType('Dragon')) typeMod *= 0.5;
-				if (target.hasType('Grass')) typeMod *= 0.5;
-				// for when rain is up
-				if (target.hasType('Electric')) typeMod *= 0.5;
-				if (target.hasType('Ground')) typeMod *= 0.5;
-				// covering for non-rain thunderstorm
-				if (target.hasType('Electric') && !this.field.isClimateWeather('raindance')) typeMod *= 0;
-				if (target.hasType('Ground') && !this.field.isClimateWeather('raindance')) typeMod *= 0;
-				// electric types gain charge and take no damage
-				if (target.hasType('Electric')) {
-					target.addVolatile('charge');
-					this.hint("Electric types gain the Charge effect when struck by lightning.");
-				} else if (target.hasType('Ground')) { // ground types lose speed
-					this.boost({spe: -1});
-					this.hint("Ground types receive -1 Speed when struck by lightning.");
-				}
-				if (target.hasAbility('lightningrod')) {
-					if (!this.boost({spa: 1}, target)) {
-						this.add('-immune', target, '[from] ability: Lightning Rod');
-					}
-					this.hint("Pokemon with Lightning Rod draw in any lightning strike.");
-					typeMod *= 0;
-				}
-				if (target.hasAbility('motordrive')) {
-					if (!this.boost({spe: 1}, target)) {
-						this.add('-immune', target, '[from] ability: Motor Drive');
-					}
-					this.hint("Pokemon with Motor Drive receive +1 Speed when struck by lightning.");
-					typeMod *= 0;
-				}
-				if (target.hasAbility('voltabsorb')) {
-					if (!target.heal(target.baseMaxhp / 4, target)) {
-						this.add('-immune', target, '[from] ability: Volt Absorb');
-					}
-					this.hint("Pokemon with Volt Absorb heal from lightning strikes.");
-					typeMod *= 0;
-				}
-				this.debug('lightning strike damage is based on the pokemons weakness/resistance to electric');
-				this.damage(typeMod * target.baseMaxhp / 10, target);
+			this.debug('lightning is striking');
+			for (const newTarget of this.getAllActive()) {
+				if (newTarget.hasAbility('lightningrod')) target = newTarget;
 			}
+			let typeMod = 1;
+			// weak to electric
+			if (target.hasType('Water')) typeMod *= 2;
+			if (target.hasType('Flying')) typeMod *= 2;
+			// resist electric
+			if (target.hasType('Dragon')) typeMod *= 0.5;
+			if (target.hasType('Grass')) typeMod *= 0.5;
+			// immune to lightning
+			if (target.hasType('Electric')) typeMod *= 0;
+			if (target.hasType('Ground')) typeMod *= 0;
+			// electric types gain charge and take no damage
+			if (target.hasType('Electric')) {
+				target.addVolatile('charge');
+				this.hint("Electric types gain the Charge effect when struck by lightning.");
+			} else if (target.hasType('Ground')) { // ground types lose speed
+				this.boost({spe: -1});
+				this.hint("Ground types receive -1 Speed when struck by lightning.");
+			}
+			if (target.hasAbility('lightningrod')) {
+				if (!this.boost({spa: 1}, target)) {
+					this.add('-immune', target, '[from] ability: Lightning Rod');
+				}
+				this.hint("Pokemon with Lightning Rod draw in any lightning strike.");
+				typeMod *= 0;
+			}
+			if (target.hasAbility('motordrive')) {
+				if (!this.boost({spe: 1}, target)) {
+					this.add('-immune', target, '[from] ability: Motor Drive');
+				}
+				this.hint("Pokemon with Motor Drive receive +1 Speed when struck by lightning.");
+				typeMod *= 0;
+			}
+			if (target.hasAbility('voltabsorb')) {
+				if (!target.heal(target.baseMaxhp / 4, target)) {
+					this.add('-immune', target, '[from] ability: Volt Absorb');
+				}
+				this.hint("Pokemon with Volt Absorb heal from lightning strikes.");
+				typeMod *= 0;
+			}
+			this.debug('lightning strike damage is based on the pokemons weakness/resistance to electric');
+			this.damage(typeMod * target.baseMaxhp / 10, target);
 		},
 		onFieldEnd() {
 			this.add('-energyWeather', 'none');

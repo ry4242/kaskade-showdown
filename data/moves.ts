@@ -22678,17 +22678,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			if (source.getVolatile('ingrain')) {
 				target.side.addSlotCondition(target, 'root');
 			}
+			target.side.addSlotCondition(target, 'escape');
 		},
 		selfSwitch: true,
-		slotCondition: 'escape',
-		condition: {
-			onSwap(target, source) {
-				if (!target.fainted) {
-					target.clearStatus();
-					target.side.removeSlotCondition(target, 'escape');
-				}
-			},
-		},
 		secondary: null,
 		target: "self",
 		type: "Grass",
@@ -23455,7 +23447,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Fairy",
 	},
-	steelbarbs: { // untested
+	steelbarbs: {
 		num: -38,
 		accuracy: true,
 		basePower: 0,
