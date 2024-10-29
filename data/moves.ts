@@ -22680,6 +22680,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			}
 			target.side.addSlotCondition(target, 'escape');
 		},
+		onHit(pokemon) {
+			pokemon.cureStatus();
+		},
 		selfSwitch: true,
 		secondary: null,
 		target: "self",
