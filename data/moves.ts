@@ -22650,13 +22650,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onEffectiveness(typeMod, target, type) {
+			if (type === 'Flying') return 1;
+		},
 		onModifyMove(move, pokemon, target) {
 			if (target && ['smogspread'].includes(target.effectiveIrritantWeather())) {
 				move.accuracy = true;
 			}
-		},
-		onEffectiveness(typeMod, target, type) {
-			if (type === 'Flying') return 1;
 		},
 		secondary: {
 			chance: 10,
@@ -22673,12 +22673,26 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		name: "Escape Root",
 		pp: 10,
 		priority: 0,
-		flags: {metronome: 1},
-		onTry(source, target) {
-			if (source.getVolatile('ingrain')) {
-				target.side.addSlotCondition(target, 'root');
+		flags: {snatch: 1, metronome: 1},
+		onTryHit(source) {
+			if (!this.canSwitch(source.side)) {
+				this.attrLastMove('[still]');
+				this.add('-fail', source);
+				return this.NOT_FAIL;
 			}
-			target.side.addSlotCondition(target, 'escape');
+		},
+		onHit(pokemon) {
+			pokemon.cureStatus();
+		},
+		slotCondition: 'escaperoot',
+		condition: {
+			onSwap(target, source) {
+				if (!target.fainted && (target.hp < target.maxhp)) {
+					target.heal(target.maxhp/8);
+					this.add('-heal', target, target.getHealth, '[from] move: Escape Root');
+					target.side.removeSlotCondition(target, 'escaperoot');
+				}
+			},
 		},
 		selfSwitch: true,
 		secondary: null,
@@ -22695,7 +22709,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, slicing: 1, cantusetwice: 1},
 		onTryHit(pokemon) {
-			// will shatter screens through sub, before you hit
 			pokemon.side.removeSideCondition('reflect');
 			pokemon.side.removeSideCondition('lightscreen');
 			pokemon.side.removeSideCondition('auroraveil');

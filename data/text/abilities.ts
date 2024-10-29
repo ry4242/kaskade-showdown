@@ -2437,7 +2437,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		shortDesc: "(Stackem only) First hit deals 0 damage, sets Stealth Rock, knocks rocks.",
 
 		block: "  Its rocks were knocked over!",
-		transform: "[POKEMON]'s rocks were knocked!",
+		transform: "[POKEMON]'s rocks fell off!",
 	},
 	rootcontrol: {
 		name: "Root Control",

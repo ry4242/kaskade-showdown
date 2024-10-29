@@ -7574,6 +7574,13 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "For 5 turns, the weather becomes Dust Storm. During the effect, the Speed of Ground-type Pokemon is multiplied by 1.5 and the the damage of Electric-type attacks is multiplied by 0.5. Lasts for 8 turns if the user is holding Volatile Spray. Fails if the current weather is Dust Storm.",
 		shortDesc: "For 5 turns, dust fills the air. Ground: 1.5x Spe.",
 	},
+	escaperoot: {
+		name: "Escape Root",
+		desc: "The user cures its non-volatile status condition. If this move is successful and the user has not fainted, the user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out or have its status cured if there are no unfainted party members. If the user is under the effect of Ingrain, the selected party member restores 1/8 of its maximum HP, rounded down.",
+		shortDesc: "User cures its status and switches out.",
+
+		heal: "  [POKEMON] absorbed the remaining nutrients!",
+	},
 	foghorn: {
 		name: "Foghorn",
 		desc: "For 5 turns, the weather becomes Fog. During the effect, Ghost types can be hit with Normal-type moves and non-Normal-type moves have their accuracy multiplied by 0.9. Lasts for 8 turns if the user is holding a Weather Balloon. Fails if the current weather is Fog.",
