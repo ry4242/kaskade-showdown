@@ -84,7 +84,7 @@ describe('Team Validator', function () {
 		assert.false.legalTeam(team, 'gen9anythinggoes');
 
 		assert.legalTeam(team, 'gen9purehackmons');
-	}); */
+	});
 
 	it('should reject non-existent natures', function () {
 		const team = [
@@ -242,5 +242,12 @@ describe('Team Validator', function () {
 			{species: 'weezing-galar', ability: 'levitate', moves: ['zapcannon'], evs: {hp: 1}},
 		];
 		assert.legalTeam(team, 'gen8ou');
-	}); */
+	});
+
+	it(`should disallow past gen only moves in Gen 9`, function () {
+		const team = [
+			{species: 'oricorio', ability: 'dancer', moves: ['roleplay'], evs: {hp: 1}},
+		];
+		assert.false.legalTeam(team, 'gen9ou');
+	});
 });

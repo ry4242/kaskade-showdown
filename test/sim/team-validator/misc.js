@@ -198,5 +198,18 @@ describe('Team Validator', function () {
 			{species: 'mew', shiny: true, level: 15, ability: 'synchronize', moves: ['aircutter'], evs: {hp: 1}, ivs: {hp: 21, atk: 31, def: 21, spa: 21, spd: 31, spe: 0}},
 		];
 		assert.false.legalTeam(team, 'gen8ou');
-	}); */
+	});
+
+	it('should check for legal combinations of prevo/evo-exclusive moves', function () {
+		let team = [
+			{species: 'slowking', ability: 'oblivious', moves: ['counter', 'slackoff'], evs: {hp: 1}},
+		];
+		assert.false.legalTeam(team, 'gen7ou');
+
+		team = [
+			{species: 'incineroar', ability: 'blaze', moves: ['knockoff', 'partingshot'], evs: {hp: 1}},
+			{species: 'shelloseast', ability: 'stickyhold', moves: ['infestation', 'stringshot'], evs: {hp: 1}},
+		];
+		assert.legalTeam(team, 'gen8ou');
+	});
 });
