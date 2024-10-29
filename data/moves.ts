@@ -22687,7 +22687,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		slotCondition: 'escaperoot',
 		condition: {
 			onSwap(target, source) {
-				if (!target.fainted && (target.hp < target.maxhp)) {
+				if (source.volatiles['ingrain'] && !target.fainted && (target.hp < target.maxhp)) {
 					target.heal(target.maxhp/8);
 					this.add('-heal', target, target.getHealth, '[from] move: Escape Root');
 					target.side.removeSlotCondition(target, 'escaperoot');
