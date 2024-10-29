@@ -22686,10 +22686,16 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		},
 		slotCondition: 'escaperoot',
 		condition: {
+			onBeforeSwitchOut(pokemon) {
+				if (pokemon.getVolatile('ingrain')) {
+					this.effectState.ingrained = true;
+				}
+			},
 			onSwap(target, source) {
-				if (source.volatiles['ingrain'] && !target.fainted && (target.hp < target.maxhp)) {
+				if (this.effectState.ingrained = true && !target.fainted && (target.hp < target.maxhp)) {
 					target.heal(target.maxhp/8);
 					this.add('-heal', target, target.getHealth, '[from] move: Escape Root');
+					this.effectState.ingrained = false;
 					target.side.removeSlotCondition(target, 'escaperoot');
 				}
 			},
