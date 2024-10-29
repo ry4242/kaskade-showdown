@@ -1,5 +1,3 @@
-import { escape } from 'querystring';
-
 export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 	brn: {
 		name: 'brn',
