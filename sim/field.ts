@@ -459,9 +459,9 @@ export class Field {
 	}
 
 	getRecentWeather(exclude: string | null = null, pokemon: Pokemon | null = null) {
-		if (this.activeWeathers.length <= 0) return "bozo"
+		if (this.activeWeathers.length <= 0) return "bozo";
 		for (let i = this.activeWeathers.length; i > 0; i--) {
-			const recentWeather = this.activeWeathers[i-1];
+			const recentWeather = this.activeWeathers[i - 1];
 			this.battle.debug(recentWeather);
 			if (recentWeather !== exclude &&
 				(pokemon && (recentWeather === pokemon.effectiveClimateWeather() ||

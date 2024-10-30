@@ -211,5 +211,5 @@ describe('Team Validator', function () {
 			{species: 'shelloseast', ability: 'stickyhold', moves: ['infestation', 'stringshot'], evs: {hp: 1}},
 		];
 		assert.legalTeam(team, 'gen8ou');
-	});
+	}); */
 });

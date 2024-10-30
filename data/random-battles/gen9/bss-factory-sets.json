@@ -1,0 +1,117 @@
+{
+	"masquerain": {
+       "flags": {},
+        "sets": [{
+			"species": "Masquerain",
+			"item": ["Leftovers"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+            "moves": ["Air Slash", "Bug Buzz", "Giga Drain", "Quiver Dance"]
+		}, {
+			"species": "masquerain",
+			"item": ["Choice Specs"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+            "moves": ["Air Slash", "Bug Buzz", "Giga Drain", "Quiver Dance"]
+		}]
+    },
+	"alfalphalops": {
+        "sets": [{
+			"species": "Alfalphalops",
+			"item": ["Leftovers"],
+			"ability": "Overgrowth",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+            "moves": ["Growl", "Growth", "Headbutt", "Tackle"]
+        }, {
+			"species": "Alfalphalops",
+			"item": ["Choice Band"],
+			"ability": "Overgrowth",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+			"moves": ["Growl", "Growth", "Headbutt", "Tackle"]
+		}]
+    },
+	"tarmendoa": {
+        "sets": [{
+			"species": "Tarmendoa",
+			"item": ["Leftovers"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+            "moves": ["Bite", "Coil", "Earthquake", "Slam"]
+        }, {
+			"species": "Tarmendoa",
+			"item": ["Choice Band"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+			"moves": ["Bite", "Coil", "Earthquake", "Slam"]
+		}]
+    },
+    "burbwhirl": {
+        "sets": [{
+			"species": "Burbwhirl",
+			"item": ["Leftovers"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+            "moves": ["Leer", "Lunge", "Scratch", "Whirlpool"]
+        }, {
+			"species": "Burbwhirl",
+			"item": ["Choice Band"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+			"moves": ["Leer", "Lunge", "Scratch", "Whirlpool"]
+		}]
+    },
+    "spoutlaw": {
+        "sets": [{
+			"species": "Spoutlaw",
+			"item": ["Leftovers"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+            "moves": ["Leer", "Lunge", "Scratch", "Whirlpool"]
+        }, {
+			"species": "Spoutlaw",
+			"item": ["Choice Specs"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+			"moves": ["Leer", "Lunge", "Scratch", "Whirlpool"]
+		}]
+    },
+	"vaquamael": {
+        "sets": [{
+			"species": "Vaquamael",
+			"item": ["Leftovers"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+            "moves": ["Blizzard", "Bubble", "Leer", "Lunge"]
+        }, {
+			"species": "Vaquamael",
+			"item": ["Choice Specs"],
+			"ability": "Intimidate",
+			"evs": {"hp": 252, "atk": 4, "spa": 252},
+			"ivs": {"spe": 0},
+			"nature": "Quiet",
+			"moves": ["Blizzard", "Bubble", "Leer", "Lunge"]
+		}]
+    }
+}

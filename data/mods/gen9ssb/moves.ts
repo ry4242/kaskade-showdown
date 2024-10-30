@@ -4648,7 +4648,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				}
 			}
 			if (this.field.clearTerrain()) success = true;
-			if (this.field.clearWeather()) success = true;
+			if (this.field.clearClimateWeather()) success = true;
 			for (const pseudoWeather of PSEUDO_WEATHERS) {
 				if (this.field.removePseudoWeather(pseudoWeather)) success = true;
 			}

@@ -22479,11 +22479,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			}
 		},
 		onHit(target, source, move) {
-			const result = this.random(2); //coin flip for status priority
-			var chance = 0;
+			const result = this.random(2); // coin flip for status priority
+			let chance = 0;
 			if (move.hasSheerForce || target.hasAbility('Shield Dust') || target.hasItem('Covert Cloak')) return;
 			if (source.hasAbility('Serene Grace')) chance += 1;
-			if (['supercell'].includes(source.effectiveEnergyWeather()) && ['sunnyday', 'hail', 'snow'].includes(source.effectiveClimateWeather()) && result == 0) {
+			if (['supercell'].includes(source.effectiveEnergyWeather()) &&
+			['sunnyday', 'hail', 'snow'].includes(source.effectiveClimateWeather()) && result === 0) {
 				if (['sunnyday'].includes(source.effectiveClimateWeather()) && this.random(5) <= chance) {
 					target.trySetStatus('brn');
 				}
@@ -22505,7 +22506,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				}
 			}
 		},
-		secondary: {}, //Boosted by Sheer Force
+		secondary: {}, // Boosted by Sheer Force
 		target: "normal",
 		type: "Steel",
 	},
@@ -22710,8 +22711,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				}
 			},
 			onSwap(target, source) {
-				if (this.effectState.ingrained = true && !target.fainted && (target.hp < target.maxhp)) {
-					target.heal(target.maxhp/8);
+				if (this.effectState.ingrained && !target.fainted && (target.hp < target.maxhp)) {
+					target.heal(target.maxhp / 8);
 					this.add('-heal', target, target.getHealth, '[from] move: Escape Root');
 					this.effectState.ingrained = false;
 					target.side.removeSlotCondition(target, 'escaperoot');
@@ -23563,14 +23564,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			return didSomething;
 		},
 		volatileStatus: "sunscreen",
-		condition: {
-			noCopy: true,
-			onDamage(damage, target, source, effect) {
-				if (source.hasAbility('Dry Skin') && effect.effectType === "Ability") {
-					return false;
-				}
-			},
-		},
 		secondary: null,
 		target: "allySide",
 		type: "Fire",

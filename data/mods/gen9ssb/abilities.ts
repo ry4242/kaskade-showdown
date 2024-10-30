@@ -2272,7 +2272,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			this.field.setClimateWeather('sunnyday');
 		},
 		onModifySpe(spe, pokemon) {
-			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveWeather())) {
+			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.5);
 			}
 		},

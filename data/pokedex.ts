@@ -20805,7 +20805,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Tarmendoa",
 		types: ["Fire", "Ground"],
 		baseStats: {hp: 80, atk: 100, def: 65, spa: 90, spd: 65, spe: 130},
-		abilities: {0: "Blaze", H: "Hydrophopic"},
+		abilities: {0: "Blaze", H: "Hydrophobic"},
 		heightm: 3.1,
 		weightkg: 68,
 		color: "Red",

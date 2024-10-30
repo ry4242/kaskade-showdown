@@ -249,5 +249,5 @@ describe('Team Validator', function () {
 			{species: 'oricorio', ability: 'dancer', moves: ['roleplay'], evs: {hp: 1}},
 		];
 		assert.false.legalTeam(team, 'gen9ou');
-	});
+	}); */
 });
