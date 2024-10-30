@@ -11,4 +11,10 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	mandrelec: {
 		tier: "OU",
 	},
+	pineguin: {
+		tier: "OU",
+	},
+	probosicle: {
+		tier: "OU",
+	},
 };

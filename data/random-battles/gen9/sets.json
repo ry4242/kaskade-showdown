@@ -103,7 +103,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Blizzard",  "Chilling Water", "Freeze-Dry", "Icy Wind"]
+                "movepool": [["Freeze-Dry"], "Blizzard",  "Chilling Water", "Bite", "Icy Wind"]
             }
         ]
     }
