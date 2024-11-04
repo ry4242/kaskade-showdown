@@ -137,6 +137,8 @@ export class Pokemon {
 	knownType: boolean;
 	/** Keeps track of what type the client sees for this Pokemon. */
 	apparentType: string;
+	/** Keeps track of whether this pokemon's type was changed by Foghorn */
+	fogType: boolean;
 
 	/**
 	 * If the switch is called by an effect with a special switch
@@ -427,6 +429,7 @@ export class Pokemon {
 		this.apparentType = this.baseSpecies.types.join('/');
 		// Every Pokemon has a Terastal type
 		this.teraType = this.set.teraType || this.types[0];
+		this.fogType = false;
 
 		this.switchFlag = false;
 		this.forceSwitchFlag = false;

@@ -806,6 +806,23 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				move.ignoreImmunity['Normal'] = true;
 			}
 		},
+		onSwitchIn(pokemon) {
+			if (pokemon.hasType('Normal') && this.field.climateWeatherState.boosted) {
+				pokemon.setType('???');
+				pokemon.fogType = true;
+			}
+		},
+		onSwitchOut(pokemon) {
+			if (pokemon.hasType('???') && pokemon.fogType) {
+				pokemon.setType(pokemon.baseTypes);
+			}
+		},
+		onModifyType(move, pokemon, target) {
+			if (pokemon.hasType('Normal') && this.field.climateWeatherState.boosted) {
+				pokemon.setType('???');
+				pokemon.fogType = true;
+			}
+		},
 		onFieldStart(field, source, effect) {
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.climateWeatherState.boosted = true;
@@ -817,6 +834,14 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			} else {
 				this.add('-climateWeather', 'Foghorn');
 			}
+			if (this.field.climateWeatherState.boosted) {
+				for (const pokemon of this.getAllActive()) {
+					if (pokemon.hasType('Normal')) {
+						pokemon.setType('???');
+						pokemon.fogType = true;
+					}
+				}
+			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
@@ -824,6 +849,13 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.eachEvent('ClimateWeather');
 		},
 		onFieldEnd() {
+			for (const pokemon of this.getAllActive()) {
+				// This check is for the 
+				if (pokemon.fogType) {
+					if (pokemon.hasType('???')) pokemon.setType(pokemon.baseTypes)
+					pokemon.fogType = false;
+				}
+			}
 			this.add('-climateWeather', 'none');
 		},
 	},
