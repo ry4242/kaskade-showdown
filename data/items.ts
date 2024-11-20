@@ -470,7 +470,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onTryHealPriority: 1,
 		onTryHeal(damage, target, source, effect) {
-			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap'];
+			const heals = ['drain', 'leechseed', 'ingrain', 'aquaring', 'strengthsap', 'pricklypear'];
 			if (heals.includes(effect.id)) {
 				return this.chainModify([5324, 4096]);
 			}

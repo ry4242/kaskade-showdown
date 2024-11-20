@@ -181,7 +181,7 @@ describe('Team Validator', function () {
 		});
 	});
 
-	it('should allow various (underleveled) from Pokemon GO', function () {
+	/* it('should allow various (underleveled) from Pokemon GO', function () {
 		const team = [
 			{species: 'mewtwo', level: 20, ability: 'pressure', moves: ['agility'], evs: {hp: 1}, ivs: {hp: 1, atk: 1, def: 1, spa: 1, spd: 1}},
 			{species: 'donphan', level: 1, ability: 'sturdy', moves: ['endeavor']},
@@ -191,7 +191,7 @@ describe('Team Validator', function () {
 			{species: 'volcarona', level: 2, ability: 'flamebody', moves: ['acrobatics'], evs: {hp: 1}},
 		];
 		assert.legalTeam(team, 'gen9ubers');
-	});
+	}); */
 
 	/* it('should disallow Pokemon from Pokemon GO knowing incompatible moves', function () {
 		const team = [

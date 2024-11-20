@@ -2617,27 +2617,29 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	leafguard: { // updated
 		onClimateWeather(target, source, effect) {
 			if (target.hasItem('utilityumbrella')) return;
-			if (effect.id === 'sunnyday' || effect.id === 'pollinate') {
+			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
 				this.heal(target.baseMaxhp / 16);
 			}
 		},
-		onSetStatus(status, target, source, effect) {
-			if (['sunnyday', 'desolateland'].includes(target.effectiveClimateWeather())) {
-				if ((effect as Move)?.status) {
-					this.add('-immune', target, '[from] ability: Leaf Guard');
-				}
-				return false;
+		onIrritantWeather(target, source, effect) {
+			if (target.hasItem('safetygoggles')) return;
+			if (effect.id === 'pollinate') {
+				this.heal(target.baseMaxhp / 16);
 			}
 		},
-		onTryAddVolatile(status, target) {
-			if (status.id === 'yawn' && ['sunnyday', 'desolateland'].includes(target.effectiveClimateWeather())) {
-				this.add('-immune', target, '[from] ability: Leaf Guard');
-				return null;
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.status && ['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather()) ||
+			pokemon.status && ['pollinate'].includes(pokemon.effectiveIrritantWeather())) {
+				this.debug('leaf guard');
+				this.add('-activate', pokemon, 'ability: Leaf Guard');
+				pokemon.cureStatus();
 			}
 		},
 		flags: {breakable: 1},
 		name: "Leaf Guard",
-		rating: 0.5,
+		rating: 1.5,
 		num: 102,
 	},
 	levitate: {
@@ -2742,7 +2744,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	liquidooze: {
 		onSourceTryHeal(damage, target, source, effect) {
 			this.debug("Heal is occurring: " + target + " <- " + source + " :: " + effect.id);
-			const canOoze = ['drain', 'leechseed', 'strengthsap'];
+			const canOoze = ['drain', 'leechseed', 'strengthsap', 'pricklypear'];
 			if (canOoze.includes(effect.id)) {
 				this.damage(damage);
 				return 0;
@@ -4692,7 +4694,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1.5,
 		num: 81,
 	},
-	snowwarning: {
+	snowwarning: { // updated
 		onStart(source) {
 			this.field.setClimateWeather('hail');
 		},

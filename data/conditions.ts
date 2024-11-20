@@ -177,6 +177,29 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.damage(this.clampIntRange(pokemon.baseMaxhp / 16, 1) * this.effectState.stage);
 		},
 	},
+	blt: {
+		name: 'blt',
+		effectType: 'Status',
+		onStart(target, source, sourceEffect) {
+			this.add('-status', target, 'blt');
+		},
+		onSwitchIn() {
+			this.effectState.stage = 0;
+		},
+		onResidualOrder: 9,
+		onResidual(pokemon) {
+			if (this.effectState.stage < 7) {
+				this.effectState.stage++;
+			}
+			this.damage(this.clampIntRange(pokemon.baseMaxhp / 8, 1) * this.effectState.stage);
+		},
+		onDamagePriority: -30,
+		onDamage(damage, target, source, effect) {
+			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+				return target.hp - 1;
+			}
+		},
+	},
 	confusion: {
 		name: 'confusion',
 		// this is a volatile status
@@ -850,9 +873,9 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onFieldEnd() {
 			for (const pokemon of this.getAllActive()) {
-				// This check is for the 
+				// This check is for the
 				if (pokemon.fogType) {
-					if (pokemon.hasType('???')) pokemon.setType(pokemon.baseTypes)
+					if (pokemon.hasType('???')) pokemon.setType(pokemon.baseTypes);
 					pokemon.fogType = false;
 				}
 			}
