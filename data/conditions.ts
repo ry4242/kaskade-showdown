@@ -195,7 +195,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
-			if (target.hp === target.maxhp && damage >= target.hp && effect && effect.effectType === 'Move') {
+			if (damage >= target.hp) {
 				return target.hp - 1;
 			}
 		},
