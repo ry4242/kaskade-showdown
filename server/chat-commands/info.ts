@@ -2320,11 +2320,11 @@ export const commands: Chat.ChatCommands = {
 		`!analysis [pokemon], [generation], [format] - Shows everyone this link. Requires: + % @ # ~`,
 	],
 
-	bulbapedia(target, broadcast, user) {
-		if (!target) return this.parse('/help bulbapedia');
+	wiki(target, broadcast, user) {
+		if (!target) return this.parse('/help wiki');
 		if (!this.runBroadcast()) return;
 
-		const baseLink = 'https://bulbapedia.bulbagarden.net/wiki/';
+		const baseLink = 'https://tofrugs-swamp.fandom.com/wiki/Tofrug%27s_Swamp_Wiki';
 
 		const pokemon = Dex.species.get(target);
 		const item = Dex.items.get(target);
@@ -2341,9 +2341,9 @@ export const commands: Chat.ChatCommands = {
 			}
 			let baseSpecies = pokemon.baseSpecies;
 			if (pokemon.id.startsWith('flabebe')) baseSpecies = 'Flabébé';
-			const link = `${baseLink}${encodeURIComponent(baseSpecies)}_(Pokémon)`;
 
-			this.sendReplyBox(Utils.html`<a href="${link}">${pokemon.name} in-game information</a>, provided by Bulbapedia`);
+			const link = `${baseLink}${encodeURIComponent(baseSpecies)}_(Pokémon)`;
+			this.sendReplyBox(Utils.html`<a href="${link}">${pokemon.name} in-game information</a>`);
 		}
 
 		// Item
@@ -2354,7 +2354,7 @@ export const commands: Chat.ChatCommands = {
 			}
 			let link = `${baseLink}${encodeURIComponent(item.name)}`;
 			if (Dex.moves.get(item.name).exists) link += '_(item)';
-			this.sendReplyBox(Utils.html`<a href="${link}">${item.name} item description</a>, provided by Bulbapedia`);
+			this.sendReplyBox(Utils.html`<a href="${link}">${item.name} item description</a>`);
 		}
 
 		// Ability
@@ -2363,8 +2363,9 @@ export const commands: Chat.ChatCommands = {
 			if (ability.isNonstandard && ability.isNonstandard !== 'Past') {
 				return this.errorReply(`${ability.name} is not a real ability.`);
 			}
+			// if (ability.name.startsWith('seance')) ability.name = 'Séance';
 			const link = `${baseLink}${encodeURIComponent(ability.name)}_(Ability)`;
-			this.sendReplyBox(`<a href="${link}">${ability.name} ability description</a>, provided by Bulbapedia`);
+			this.sendReplyBox(`<a href="${link}">${ability.name} ability description</a>`);
 		}
 
 		// Move
@@ -2374,23 +2375,16 @@ export const commands: Chat.ChatCommands = {
 				return this.errorReply(`${move.name} is not a real move.`);
 			}
 			const link = `${baseLink}${encodeURIComponent(move.name)}_(move)`;
-			this.sendReplyBox(`<a href="${link}">${move.name} move description</a>, provided by Bulbapedia`);
-		}
-
-		// Nature
-		if (nature.exists) {
-			atLeastOne = true;
-			const link = `${baseLink}Nature`;
-			this.sendReplyBox(`<a href="${link}">Nature descriptions</a>, provided by Bulbapedia`);
+			this.sendReplyBox(`<a href="${link}">${move.name} move description</a>`);
 		}
 
 		if (!atLeastOne) {
-			return this.sendReplyBox(`Pok&eacute;mon, item, move, ability, or nature not found.`);
+			return this.sendReplyBox(`Pok&eacute;mon, item, move, or ability not found.`);
 		}
 	},
-	bulbapediahelp: [
-		`/bulbapedia [pokemon/item/move/ability/nature] - Links to Bulbapedia wiki page for this pokemon/item/move/ability/nature.`,
-		`!bulbapedia [pokemon/item/move/ability/nature] - Shows everyone this link. Requires: + % @ # ~`,
+	wikihelp: [
+		`/wiki [pokemon/item/move/ability] - Links to the Fandom wiki page for this pokemon/item/move/ability.`,
+		`!wiki [pokemon/item/move/ability] - Shows everyone this link. Requires: + % @ # ~`,
 	],
 
 	register() {
