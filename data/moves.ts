@@ -22369,7 +22369,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Fairy",
 	},
-	blackhole: {
+	blackhole: { // tested, works as intended
 		num: 970,
 		accuracy: 80,
 		basePower: 120,
@@ -22385,7 +22385,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Dark",
 	},
-	blightspore: { // untested, might kill the target
+	blightspore: { // tested, works as intended
 		num: -108,
 		accuracy: 100,
 		basePower: 0,
@@ -22413,7 +22413,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Dark",
 	},
-	brainstorm: { // untested
+	brainstorm: { // tested, works as intended
 		num: -76,
 		accuracy: true,
 		basePower: 0,
@@ -22429,7 +22429,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "self",
 		type: "Psychic",
 	},
-	cidercannon: { // untested and isn't allowed!?!?
+	cidercannon: { // tested, works as intended
 		num: -47,
 		accuracy: true,
 		basePower: 0,
@@ -22439,8 +22439,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, heal: 1, metronome: 1},
 		onHit(target, source, move) {
+			if (source.hp == source.maxhp) return;
 			source.heal(source.baseMaxhp / 4, source, move);
 			source.clearStatus();
+			this.add('-heal', source, source.getHealth, '[from] move: Cider Cannon');
 		},
 		boosts: {
 			evasion: -1,
@@ -22602,7 +22604,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Psychic",
 	},
-	deception: { // untested
+	deception: { // tested, works as intended
 		num: -64,
 		accuracy: 90,
 		basePower: 80,
@@ -22619,7 +22621,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			['sprinkle'].includes(pokemon.effectiveIrritantWeather())) {
 				this.debug('weather canceled out');
 				return this.chainModify(1);
-			} else if (['bloodmoon'].includes(pokemon.effectiveClimateWeather())) {
+			} else if (['bloodmoon'].includes(pokemon.effectiveClimateWeather())) {	
 				this.debug('powered by blood moon');
 				return this.chainModify(1.25);
 			} else if (['sprinkle'].includes(pokemon.effectiveIrritantWeather())) {
@@ -22631,7 +22633,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Dark",
 	},
-	deviledyolk: { // untested, does it have a chance to burn on every hit?
+	deviledyolk: { // tested, works as intended
 		num: -93,
 		accuracy: 100,
 		basePower: 25,
@@ -22649,7 +22651,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Grass",
 	},
-	draconicorb: {
+	draconicorb: { // tested, works as intended
 		num: -59,
 		accuracy: 90,
 		basePower: 60,
@@ -22703,82 +22705,106 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Dragon",
 	},
-	dragonsdice: { // untested
+	dragonsdice: { // incomplete. tested, everything except OHKO works
 		num: -92,
 		accuracy: 100,
-		basePower: 0,
+		basePower: 20,
 		category: "Special",
 		name: "Dragon's Dice",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onBasePower(basePower, pokemon, target) {
-			const result = this.random(20);
-			if (result === 0) {
-				this.debug('self-hit');
-				this.activeTarget = pokemon;
-				const damage = this.actions.getConfusionDamage(pokemon, 40);
-				if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
-				const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
-				this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
-				return 0;
-			} else if (result === 1) {
-				this.debug('0');
-				return 0;
-			} else if (result === 2) {
-				this.debug('20');
-				return 20;
-			} else if (result === 3) {
-				this.debug('40');
-				return 40;
-			} else if (result === 4) {
-				this.debug('50');
-				return 50;
-			} else if (result === 5) {
-				this.debug('60');
-				return 60;
-			} else if (result === 6) {
-				this.debug('70');
-				return 70;
-			} else if (result === 7) {
-				this.debug('75');
-				return 75;
-			} else if (result === 8) {
-				this.debug('80');
-				return 80;
-			} else if (result === 9) {
-				this.debug('85');
-				return 85;
-			} else if (result === 10) {
-				this.debug('90');
-				return 90;
-			} else if (result === 11) {
-				this.debug('95');
-				return 95;
-			} else if (result === 12) {
-				this.debug('100');
-				return 100;
-			} else if (result === 13) {
-				this.debug('110');
-				return 110;
-			} else if (result === 14) {
-				this.debug('120');
-				return 120;
-			} else if (result === 15) {
-				this.debug('130');
-				return 130;
-			} else if (result === 16) {
-				this.debug('140');
-				return 140;
-			} else if (result === 17) {
-				this.debug('150');
-				return 150;
-			} else if (result === 18) {
-				this.debug('160');
-				return 160;
-			} else if (result === 19) {
-				this.debug('OHKO');
-				return 0;
+			for (const moveSlot of target.moveSlots) {
+				const move = this.dex.moves.get(moveSlot.move);
+				let bp = move.basePower;
+				const result = this.random(20);
+				if (result === 0) {
+					this.debug('self-hit');
+					this.activeTarget = pokemon;
+					const damage = this.actions.getConfusionDamage(pokemon, 40);
+					if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
+					const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
+					this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
+					this.hint("Nat 1!");
+					return bp = 0;
+				} else if (result === 1) {
+					this.debug('0');
+					this.hint("Rolled a 2!");
+					return bp = 0;
+				} else if (result === 2) {
+					this.debug('20');
+					this.hint("Rolled a 3!");
+					return bp = 20;
+				} else if (result === 3) {
+					this.debug('40');
+					this.hint("Rolled a 4!");
+					return bp = 40;
+				} else if (result === 4) {
+					this.debug('50');
+					this.hint("Rolled a 5!");
+					return bp = 50;
+				} else if (result === 5) {
+					this.debug('60');
+					this.hint("Rolled a 6!");
+					return bp = 60;
+				} else if (result === 6) {
+					this.debug('70');
+					this.hint("Rolled a 7!");
+					return bp = 70;
+				} else if (result === 7) {
+					this.debug('75');
+					this.hint("Rolled an 8!");
+					return bp = 75;
+				} else if (result === 8) {
+					this.debug('80');
+					this.hint("Rolled a 9!");
+					return bp = 80;
+				} else if (result === 9) {
+					this.debug('85');
+					this.hint("Rolled a 10!");
+					return bp = 85;
+				} else if (result === 10) {
+					this.debug('90');
+					this.hint("Rolled an 11!");
+					return bp = 90;
+				} else if (result === 11) {
+					this.debug('95');
+					this.hint("Rolled a 12!");
+					return bp = 95;
+				} else if (result === 12) {
+					this.debug('100');
+					this.hint("Rolled a 13!");
+					return bp = 100;
+				} else if (result === 13) {
+					this.debug('110');
+					this.hint("Rolled a 14!");
+					return bp = 110;
+				} else if (result === 14) {
+					this.debug('120');
+					this.hint("Rolled a 15!");
+					return bp = 120;
+				} else if (result === 15) {
+					this.debug('130');
+					this.hint("Rolled a 16!");
+					return bp = 130;
+				} else if (result === 16) {
+					this.debug('140');
+					this.hint("Rolled a 17!");
+					return bp = 140;
+				} else if (result === 17) {
+					this.debug('150');
+					this.hint("Rolled an 18!");
+					return bp = 150;
+				} else if (result === 18) {
+					this.debug('160');
+					this.hint("Rolled a 19!");
+					return bp = 160;
+				} else if (result === 19) {
+					this.debug('OHKO');
+					this.hint("Nat 20!");
+					return target.maxhp;
+				}
 			}
 		},
 		secondary: null,
@@ -22915,7 +22941,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "self",
 		type: "Grass",
 	},
-	evoboost: { // untested
+	evoboost: { // tested, works as intended
 		num: -77,
 		accuracy: true,
 		basePower: 0,
@@ -23043,15 +23069,14 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1},
 		thawsTarget: true,
-		/* onResidualOrder: 29,
-		onResidual(pokemon) {
-			if (move.type === 'Ice') {
-				move.type = 'Dark';
+		onModifyType(move, pokemon, target) {
+			if (move.type === 'Ice' && pokemon.moveLastTurnResult === true) {
+				return move.type = 'Fire';
 			}
-			if (move.type === 'Fire') {
-				move.type = 'Dark';
+			if (move.type === 'Fire' && pokemon.moveLastTurnResult === true) {
+				return move.type = 'Ice';
 			}
-		}, */
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ice",

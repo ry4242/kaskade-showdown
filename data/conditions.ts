@@ -181,24 +181,22 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		name: 'blt',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
+			this.effectState.stage = 0;
 			this.add('-status', target, 'blt');
 		},
 		onSwitchIn() {
 			this.effectState.stage = 0;
 		},
 		onResidualOrder: 9,
-		onResidual(pokemon) {
+		onResidual(pokemon, damage, target) {
 			if (this.effectState.stage < 7) {
 				this.effectState.stage++;
 			}
 			this.damage(this.clampIntRange(pokemon.baseMaxhp / 8, 1) * this.effectState.stage);
 		},
-		/* onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
-			if (damage >= target.hp) {
-				return target.hp - 1;
-			}
-		}, */
+			if ((effect && effect.id === 'blt') && (damage >= target.hp)) return target.hp - 1;
+		},
 	},
 	confusion: {
 		name: 'confusion',
@@ -1348,14 +1346,14 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-energyWeather', 'CosmicRays', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-energyWeather', 'Daydream', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-energyWeather', 'CosmicRays');
+				this.add('-energyWeather', 'Daydream');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-energyWeather', 'CosmicRays', '[upkeep]');
+			this.add('-energyWeather', 'Daydream', '[upkeep]');
 			this.eachEvent('EnergyWeather');
 		},
 		onFieldEnd() {
