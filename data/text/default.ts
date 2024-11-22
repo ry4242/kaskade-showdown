@@ -208,6 +208,13 @@ export const DefaultText: {[id: IDEntry]: DefaultText} = {
 		alreadyStarted: "#psn",
 		damage: "#psn",
 	},
+	blt: {
+		start: "  [POKEMON] was horribly poisoned!",
+		end: "#psn",
+		endFromItem: "#psn",
+		alreadyStarted: "#psn",
+		damage: "#psn",
+	},
 	slp: {
 		start: "  [POKEMON] fell asleep!",
 		startFromRest: "  [POKEMON] slept and became healthy!",
@@ -223,13 +230,6 @@ export const DefaultText: {[id: IDEntry]: DefaultText} = {
 		end: "  [POKEMON]'s frostbite was healed!",
 		endFromItem: "  [POKEMON]'s [ITEM] healed its frostbite!",
 		damage: "  [POKEMON] was hurt by its frostbite!",
-	},
-	blt: {
-		start: "  [POKEMON] was horribly poisoned!",
-		end: "#psn",
-		endFromItem: "#psn",
-		alreadyStarted: "#psn",
-		damage: "#psn",
 	},
 
 	// misc effects

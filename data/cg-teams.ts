@@ -651,9 +651,9 @@ export default class TeamGenerator {
 		case 'par': return slownessRating && slownessRating > 0.25 ? 2 + slownessRating : 2;
 		case 'psn': return 1.75;
 		case 'tox': return 4;
+		case 'blt': return 4.5;
 		case 'slp': return 4;
 		case 'frb': return 2;
-		case 'blt': return 4.5;
 		case 'confusion': return 1.5;
 		case 'healblock': return 1.75;
 		case 'flinch': return slownessRating ? slownessRating * 3 : 1;
