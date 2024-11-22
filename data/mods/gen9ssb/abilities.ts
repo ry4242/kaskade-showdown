@@ -3125,7 +3125,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 	},
-	sandforce: {
+	earthforce: {
 		inherit: true,
 		onBasePower(basePower, attacker, defender, move) {
 			if (this.field.isIrritantWeather(['sandstorm', 'deserteddunes'])) {

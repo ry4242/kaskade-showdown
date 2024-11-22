@@ -2009,7 +2009,7 @@ export class Battle {
 			if (targetDamage !== 0) target.hurtThisTurn = target.hp;
 			if (source && effect.effectType === 'Move') source.lastDamage = targetDamage;
 
-			const name = effect.fullname === 'tox' ? 'psn' : effect.fullname;
+			const name = (effect.fullname === 'tox' || effect.fullname === 'blt') ? 'psn' : effect.fullname;
 			switch (effect.id) {
 			case 'partiallytrapped':
 				this.add('-damage', target, target.getHealth, '[from] ' + this.effectState.sourceEffect.fullname, '[partiallytrapped]');

@@ -1852,12 +1852,12 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	phanpy: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "LC",
 	},
 	donphan: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
@@ -4165,12 +4165,12 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	larvesta: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "LC",
 	},
 	volcarona: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "OU",
 	},

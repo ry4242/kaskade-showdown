@@ -2421,13 +2421,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	immunity: {
 		onUpdate(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox' || pokemon.status === 'blt') {
 				this.add('-activate', pokemon, 'ability: Immunity');
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			if (status.id !== 'psn' && status.id !== 'tox') return;
+			if (status.id !== 'psn' && status.id !== 'tox' && status.id !== 'blt') return;
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Immunity');
 			}
@@ -2897,7 +2897,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	merciless: {
 		onModifyCritRatio(critRatio, source, target) {
-			if (target && ['psn', 'tox'].includes(target.status)) return 5;
+			if (target && ['psn', 'tox', 'blt'].includes(target.status)) return 5;
 		},
 		flags: {},
 		name: "Merciless",
@@ -3511,33 +3511,33 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	pastelveil: {
 		onStart(pokemon) {
 			for (const ally of pokemon.alliesAndSelf()) {
-				if (['psn', 'tox'].includes(ally.status)) {
+				if (['psn', 'tox', 'blt'].includes(ally.status)) {
 					this.add('-activate', pokemon, 'ability: Pastel Veil');
 					ally.cureStatus();
 				}
 			}
 		},
 		onUpdate(pokemon) {
-			if (['psn', 'tox'].includes(pokemon.status)) {
+			if (['psn', 'tox', 'blt'].includes(pokemon.status)) {
 				this.add('-activate', pokemon, 'ability: Pastel Veil');
 				pokemon.cureStatus();
 			}
 		},
 		onAllySwitchIn(pokemon) {
-			if (['psn', 'tox'].includes(pokemon.status)) {
+			if (['psn', 'tox', 'blt'].includes(pokemon.status)) {
 				this.add('-activate', this.effectState.target, 'ability: Pastel Veil');
 				pokemon.cureStatus();
 			}
 		},
 		onSetStatus(status, target, source, effect) {
-			if (!['psn', 'tox'].includes(status.id)) return;
+			if (!['psn', 'tox', 'blt'].includes(status.id)) return;
 			if ((effect as Move)?.status) {
 				this.add('-immune', target, '[from] ability: Pastel Veil');
 			}
 			return false;
 		},
 		onAllySetStatus(status, target, source, effect) {
-			if (!['psn', 'tox'].includes(status.id)) return;
+			if (!['psn', 'tox', 'blt'].includes(status.id)) return;
 			if ((effect as Move)?.status) {
 				const effectHolder = this.effectState.target;
 				this.add('-block', target, 'ability: Pastel Veil', '[of] ' + effectHolder);
@@ -3649,7 +3649,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	poisonheal: {
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
-			if (effect.id === 'psn' || effect.id === 'tox') {
+			if (effect.id === 'psn' || effect.id === 'tox' || effect.id === 'blt') {
 				this.heal(target.baseMaxhp / 8);
 				return false;
 			}
@@ -3676,7 +3676,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAnyAfterSetStatus(status, target, source, effect) {
 			if (source.baseSpecies.name !== "Pecharunt") return;
 			if (source !== this.effectState.target || target === source || effect.effectType !== 'Move') return;
-			if (status.id === 'psn' || status.id === 'tox') {
+			if (status.id === 'psn' || status.id === 'tox' || status.id === 'blt') {
 				target.addVolatile('confusion');
 			}
 		},
@@ -5417,7 +5417,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	toxicboost: {
 		onBasePowerPriority: 19,
 		onBasePower(basePower, attacker, defender, move) {
-			if ((attacker.status === 'psn' || attacker.status === 'tox') && move.category === 'Physical') {
+			if ((attacker.status === 'psn' || attacker.status === 'tox' || attacker.status === 'blt') &&
+			move.category === 'Physical') {
 				return this.chainModify(1.5);
 			}
 		},
@@ -6790,7 +6791,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			this.field.setEnergyWeather('haunt');
 		},
 		flags: {},
-		name: "Se\u0301ance",
+		name: "Seance", // should be "Se\u0301ance"
 		rating: 3,
 		num: -9,
 	},

@@ -8731,7 +8731,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	abomasnow: {
 		num: 460,
 		name: "Abomasnow",
-		baseForme: "Lowland",
+		baseForme: "Highland",
 		types: ["Grass", "Ice"],
 		baseStats: {hp: 90, atk: 92, def: 75, spa: 92, spd: 85, spe: 60},
 		abilities: {0: "Evergreen", 1: "Snow Warning", H: "Soundproof"},

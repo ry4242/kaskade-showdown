@@ -1069,7 +1069,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'psn' || target.status === 'tox') {
+			if (target.status === 'psn' || target.status === 'tox' || pokemon.status === 'blt') {
 				return this.chainModify(2);
 			}
 		},
@@ -21295,7 +21295,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
 		onHit(target, source, move) {
-			if (target.status === 'psn' || target.status === 'tox') {
+			if (target.status === 'psn' || target.status === 'tox' || target.status === 'blt') {
 				return !!this.boost({atk: -1, spa: -1, spe: -1}, target, source, move);
 			}
 			return false;
@@ -21316,7 +21316,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'psn' || target.status === 'tox') {
+			if (target.status === 'psn' || target.status === 'tox' || target.status === 'blt') {
 				return this.chainModify(2);
 			}
 		},
@@ -22397,7 +22397,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		status: 'blt',
 		secondary: null,
 		target: "normal",
-		type: "Steel",
+		type: "Poison",
 	},
 	bloodmoon: {
 		num: -2,

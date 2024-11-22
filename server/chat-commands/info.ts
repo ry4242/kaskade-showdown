@@ -975,7 +975,9 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		const statuses: {[k: string]: string} = {
+			blt: "Blight",
 			brn: "Burn",
+			frb: "Frostbite",
 			frz: "Frozen",
 			hail: "Hail damage",
 			par: "Paralysis",
@@ -2324,13 +2326,13 @@ export const commands: Chat.ChatCommands = {
 		if (!target) return this.parse('/help wiki');
 		if (!this.runBroadcast()) return;
 
-		const baseLink = 'https://tofrugs-swamp.fandom.com/wiki/Tofrug%27s_Swamp_Wiki';
+		const baseLink = 'https://tofrugs-swamp.fandom.com/wiki/';
 
 		const pokemon = Dex.species.get(target);
 		const item = Dex.items.get(target);
 		const move = Dex.moves.get(target);
 		const ability = Dex.abilities.get(target);
-		const nature = Dex.natures.get(target);
+		// const nature = Dex.natures.get(target);
 		let atLeastOne = false;
 
 		// Pokemon
@@ -2342,7 +2344,7 @@ export const commands: Chat.ChatCommands = {
 			let baseSpecies = pokemon.baseSpecies;
 			if (pokemon.id.startsWith('flabebe')) baseSpecies = 'Flabébé';
 
-			const link = `${baseLink}${encodeURIComponent(baseSpecies)}_(Pokémon)`;
+			const link = `${baseLink}${encodeURIComponent(baseSpecies)}`;
 			this.sendReplyBox(Utils.html`<a href="${link}">${pokemon.name} in-game information</a>`);
 		}
 
@@ -2364,7 +2366,7 @@ export const commands: Chat.ChatCommands = {
 				return this.errorReply(`${ability.name} is not a real ability.`);
 			}
 			// if (ability.name.startsWith('seance')) ability.name = 'Séance';
-			const link = `${baseLink}${encodeURIComponent(ability.name)}_(Ability)`;
+			const link = `${baseLink}${encodeURIComponent(ability.name)}_(ability)`;
 			this.sendReplyBox(`<a href="${link}">${ability.name} ability description</a>`);
 		}
 
@@ -2374,7 +2376,7 @@ export const commands: Chat.ChatCommands = {
 			if (move.isNonstandard && move.isNonstandard !== 'Past') {
 				return this.errorReply(`${move.name} is not a real move.`);
 			}
-			const link = `${baseLink}${encodeURIComponent(move.name)}_(move)`;
+			const link = `${baseLink}${encodeURIComponent(move.name)}`;
 			this.sendReplyBox(`<a href="${link}">${move.name} move description</a>`);
 		}
 

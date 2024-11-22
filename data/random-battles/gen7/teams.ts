@@ -1410,7 +1410,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		const weatherAbilitiesRequire: {[k: string]: string} = {
 			hydration: 'raindance', swiftswim: 'raindance',
 			leafguard: 'sunnyday', solarpower: 'sunnyday', chlorophyll: 'sunnyday',
-			sandforce: 'sandstorm', sandrush: 'sandstorm', sandveil: 'sandstorm',
+			earthforce: 'sandstorm', sandrush: 'sandstorm', sandveil: 'sandstorm',
 			slushrush: 'hail', snowcloak: 'hail',
 		};
 		const weatherAbilities = ['drizzle', 'drought', 'snowwarning', 'sandstream'];

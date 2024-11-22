@@ -224,6 +224,13 @@ export const DefaultText: {[id: IDEntry]: DefaultText} = {
 		endFromItem: "  [POKEMON]'s [ITEM] healed its frostbite!",
 		damage: "  [POKEMON] was hurt by its frostbite!",
 	},
+	blt: {
+		start: "  [POKEMON] was horribly poisoned!",
+		end: "#psn",
+		endFromItem: "#psn",
+		alreadyStarted: "#psn",
+		damage: "#psn",
+	},
 
 	// misc effects
 	confusion: {

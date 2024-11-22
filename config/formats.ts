@@ -209,7 +209,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'King\'s Rock',
 		],
 	},
-	/* {
+	{
 		name: "[Gen 9] Ubers",
 		threads: [
 			`&bullet; <a href="https://discord.gg/BXfzNWuU54">Ubers Discord channel</a>`,
@@ -222,7 +222,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Baton Pass',
 			'King\'s Rock',
 		],
-	}, */
+	},
 	/* {
 		name: "[Gen 9] UU",
 		threads: [
@@ -2813,7 +2813,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] National Dex",
-		mod: 'gen9',
+		mod: 'swse',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,

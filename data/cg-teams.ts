@@ -560,7 +560,7 @@ export default class TeamGenerator {
 				for (const secondary of secondaries) {
 					if (secondary.status) {
 						weight *= TeamGenerator.statusWeight(secondary.status, secondaryChance, slownessRating);
-						if (ability === 'Poison Puppeteer' && ['psn', 'tox'].includes(secondary.status)) {
+						if (ability === 'Poison Puppeteer' && ['psn', 'tox', 'blt'].includes(secondary.status)) {
 							weight *= TeamGenerator.statusWeight('confusion', secondaryChance);
 						}
 					}
@@ -653,6 +653,7 @@ export default class TeamGenerator {
 		case 'tox': return 4;
 		case 'slp': return 4;
 		case 'frb': return 2;
+		case 'blt': return 4.5;
 		case 'confusion': return 1.5;
 		case 'healblock': return 1.75;
 		case 'flinch': return slownessRating ? slownessRating * 3 : 1;

@@ -193,12 +193,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 			this.damage(this.clampIntRange(pokemon.baseMaxhp / 8, 1) * this.effectState.stage);
 		},
-		onDamagePriority: -30,
+		/* onDamagePriority: -30,
 		onDamage(damage, target, source, effect) {
 			if (damage >= target.hp) {
 				return target.hp - 1;
 			}
-		},
+		}, */
 	},
 	confusion: {
 		name: 'confusion',
