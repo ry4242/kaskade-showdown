@@ -22369,7 +22369,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Fairy",
 	},
-	blackhole: { // tested, works as intended
+	blackhole: { // works as intended
 		num: 970,
 		accuracy: 80,
 		basePower: 120,
@@ -22385,7 +22385,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Dark",
 	},
-	blightspore: { // tested, works as intended
+	blightspore: { // works as intended
 		num: -108,
 		accuracy: 100,
 		basePower: 0,
@@ -22413,7 +22413,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Dark",
 	},
-	brainstorm: { // tested, works as intended
+	brainstorm: { // works as intended
 		num: -76,
 		accuracy: true,
 		basePower: 0,
@@ -22429,7 +22429,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "self",
 		type: "Psychic",
 	},
-	cidercannon: { // tested, works as intended
+	cidercannon: { // works as intended
 		num: -47,
 		accuracy: true,
 		basePower: 0,
@@ -22507,7 +22507,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Cute",
 	},
-	conduction: { // tested, works as intended
+	conduction: { // works as intended
 		num: -36,
 		accuracy: 100,
 		basePower: 90,
@@ -22604,7 +22604,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Psychic",
 	},
-	deception: { // tested, works as intended
+	deception: { // works as intended
 		num: -64,
 		accuracy: 90,
 		basePower: 80,
@@ -22633,7 +22633,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Dark",
 	},
-	deviledyolk: { // tested, works as intended
+	deviledyolk: { // works as intended
 		num: -93,
 		accuracy: 100,
 		basePower: 25,
@@ -22651,7 +22651,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Grass",
 	},
-	draconicorb: { // tested, works as intended
+	draconicorb: { // works as intended
 		num: -59,
 		accuracy: 90,
 		basePower: 60,
@@ -22901,7 +22901,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Fire",
 	},
-	escaperoot: { // tested, works as intended
+	escaperoot: { // works as intended
 		num: -46,
 		accuracy: true,
 		basePower: 0,
@@ -22941,7 +22941,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "self",
 		type: "Grass",
 	},
-	evoboost: { // tested, works as intended
+	evoboost: { // works as intended
 		num: -77,
 		accuracy: true,
 		basePower: 0,
@@ -24221,7 +24221,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Poison",
 	},
-	snooze: { // tested, works as intended
+	snooze: { // works as intended
 		num: -16,
 		accuracy: true,
 		basePower: 0,
@@ -24697,7 +24697,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Flying",
 	},
-	windtunnel: { // tested, works as intended
+	windtunnel: { // works as intended
 		num: -19,
 		accuracy: 100,
 		basePower: 90,

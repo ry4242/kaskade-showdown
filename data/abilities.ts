@@ -6119,7 +6119,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 		num: -4,
 	},
-	arcanum: {
+	arcanum: { // works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('dragonforce');
 		},
@@ -6200,7 +6200,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3.5,
 		num: -38,
 	},
-	condensation: {
+	condensation: { // works as intended
 		onStart(source) {
 			this.field.setClimateWeather('foghorn');
 		},
@@ -6209,7 +6209,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -2,
 	},
-	dreamer: {
+	dreamer: { // works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('daydream');
 		},
@@ -6250,7 +6250,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 		num: -36,
 	},
-	druidry: {
+	druidry: {  // incomplete, does not set grassy terrain
 		onIrritantWeather(target, source, effect) {
 			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
 			if (effect.id === 'sprinkle') {
@@ -6268,7 +6268,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: -23,
 	},
-	dustdevil: {
+	dustdevil: { // works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('duststorm');
 		},
@@ -6288,7 +6288,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 		num: -29,
 	},
-	eventide: {
+	eventide: { // works as intended
 		onStart(source) {
 			this.field.setClimateWeather('bloodmoon');
 		},
@@ -6326,7 +6326,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -47,
 	},
-	ferroflux: {
+	ferroflux: { // works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('magnetize');
 		},
@@ -6388,7 +6388,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1.5,
 		num: -30,
 	},
-	galeforce: {
+	galeforce: { // works as intended
 		onStart(source) {
 			this.field.setClearingWeather('strongwinds');
 		},
@@ -6459,7 +6459,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -17,
 	},
-	hayfever: {
+	hayfever: { // works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('pollinate');
 		},
@@ -6509,7 +6509,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -37,
 	},
-	incantation: {
+	incantation: { // works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('sprinkle');
 		},
@@ -6556,7 +6556,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: -25,
 	},
-	nesting: {
+	nesting: { // works as intended
 		onIrritantWeather(target, source, effect) {
 			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
 			if (effect.id === 'swarmsignal') {
@@ -6694,7 +6694,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1,
 		num: -45,
 	},
-	pollution: {
+	pollution: { // works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('smogspread');
 		},
@@ -6786,7 +6786,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3.5,
 		num: -33,
 	},
-	seance: {
+	seance: { // incomplete,  works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('haunt');
 		},
@@ -6795,7 +6795,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -9,
 	},
-	secretion: {
+	secretion: { // works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('swarmsignal');
 		},
@@ -6873,7 +6873,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -19,
 	},
-	standoff: {
+	standoff: { // works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('auraprojection');
 		},
@@ -6941,7 +6941,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -21,
 	},
-	stormfront: {
+	stormfront: { // works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('supercell');
 		},
@@ -6950,7 +6950,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -12,
 	},
-	surveillance: {
+	surveillance: { // works as intended
 		onStart(pokemon) {
 			this.boost({accuracy: 1}, pokemon);
 		},
@@ -7040,7 +7040,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: -42,
 	},
-	vegetate: {
+	vegetate: { // works as intended
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [

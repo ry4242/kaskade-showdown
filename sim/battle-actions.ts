@@ -1779,11 +1779,11 @@ export class BattleActions {
 		baseDamage = this.battle.randomizer(baseDamage);
 
 		// STAB
-		// The "???" type never gets STAB
-		// Not even if you Roost in Gen 4 and somehow manage to use
-		// Struggle in the same turn.
+		// The "???" type ALWAYS gets STAB :DDDD
+		// Even if you Roost in Gen 4 and somehow manage to use
+		// Struggle in the same turn. :DDDD
 		// (On second thought, it might be easier to get a MissingNo.)
-		if (this.battle.gen < 9 && type !== '???') {
+		// if (type !== '???') {
 			let stab: number | [number, number] = 1;
 
 			const isSTAB = move.forceSTAB || pokemon.hasType(type) || pokemon.getTypes(false, true).includes(type);
@@ -1814,7 +1814,7 @@ export class BattleActions {
 			}
 
 			baseDamage = this.battle.modify(baseDamage, stab);
-		}
+		// }
 
 		// types
 		let typeMod = target.runEffectiveness(move);
@@ -1974,6 +1974,10 @@ export class BattleActions {
 			pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
 			pokemon.maxhp = newMaxHP;
 			this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+		}
+		if (pokemon.species.baseSpecies === 'Morpeko') {
+			pokemon.baseSpecies = pokemon.species;
+			pokemon.details = pokemon.details.replace('Morpeko', pokemon.species.name);
 		}
 		this.battle.runEvent('AfterTerastallization', pokemon);
 	}
