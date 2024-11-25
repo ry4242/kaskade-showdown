@@ -289,9 +289,9 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onStart(source) {
 			this.field.setClimateWeather('deltastream');
 		},
-		onAnySetClimateWeather(target, source, climateWeather) {
+		onAnySetClimateWeather(target, source, weather) {
 			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream'];
-			if (this.field.getClimateWeather().id === 'deltastream' && !strongWeathers.includes(climateWeather.id)) return false;
+			if (this.field.getClimateWeather().id === 'deltastream' && !strongWeathers.includes(weather.id)) return false;
 		},
 		onEnd(pokemon) {
 			if (this.field.climateWeatherState.source !== pokemon) return;

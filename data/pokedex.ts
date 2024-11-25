@@ -431,7 +431,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Raticate-Alola"],
 		eggGroups: ["Field"],
 	},
-	raticate: {
+	raticate: { // updated
 		num: 20,
 		name: "Raticate",
 		types: ["Normal"],
@@ -1121,7 +1121,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Golbat"],
 		eggGroups: ["Flying"],
 	},
-	golbat: {
+	golbat: { // updated
 		num: 42,
 		name: "Golbat",
 		types: ["Poison", "Flying"],
@@ -1225,12 +1225,12 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 31,
 		eggGroups: ["Bug"],
 	},
-	diglett: {
+	diglett: { // updated
 		num: 50,
 		name: "Diglett",
 		types: ["Ground"],
 		baseStats: {hp: 10, atk: 55, def: 25, spa: 35, spd: 45, spe: 95},
-		abilities: {0: "Sand Veil", 1: "Arena Trap", H: "Earth Force"},
+		abilities: {0: "Sand Veil", 1: "Arena Trap", H: "Sand Force"},
 		heightm: 0.2,
 		weightkg: 0.8,
 		color: "Brown",
@@ -1239,26 +1239,26 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Diglett-Alola"],
 		formeOrder: ["Diglett", "Diglett-Alola"],
 	},
-	diglettalola: {
+	diglettalola: { // updated
 		num: 50,
 		name: "Diglett-Alola",
 		baseSpecies: "Diglett",
 		forme: "Alola",
 		types: ["Ground", "Steel"],
 		baseStats: {hp: 10, atk: 55, def: 30, spa: 35, spd: 45, spe: 90},
-		abilities: {0: "Sand Veil", 1: "Tangling Hair", H: "Earth Force"},
+		abilities: {0: "Sand Veil", 1: "Tangling Hair", H: "Sand Force"},
 		heightm: 0.2,
 		weightkg: 1,
 		color: "Brown",
 		evos: ["Dugtrio-Alola"],
 		eggGroups: ["Field"],
 	},
-	dugtrio: {
+	dugtrio: { // updated
 		num: 51,
 		name: "Dugtrio",
 		types: ["Ground"],
 		baseStats: {hp: 35, atk: 100, def: 50, spa: 50, spd: 70, spe: 120},
-		abilities: {0: "Sand Veil", 1: "Arena Trap", H: "Earth Force"},
+		abilities: {0: "Sand Veil", 1: "Arena Trap", H: "Sand Force"},
 		heightm: 0.7,
 		weightkg: 33.3,
 		color: "Brown",
@@ -1268,14 +1268,14 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Dugtrio-Alola"],
 		formeOrder: ["Dugtrio", "Dugtrio-Alola"],
 	},
-	dugtrioalola: {
+	dugtrioalola: { // updated
 		num: 51,
 		name: "Dugtrio-Alola",
 		baseSpecies: "Dugtrio",
 		forme: "Alola",
 		types: ["Ground", "Steel"],
 		baseStats: {hp: 35, atk: 100, def: 60, spa: 50, spd: 70, spe: 110},
-		abilities: {0: "Sand Veil", 1: "Tangling Hair", H: "Earth Force"},
+		abilities: {0: "Sand Veil", 1: "Tangling Hair", H: "Sand Force"},
 		heightm: 0.7,
 		weightkg: 66.6,
 		color: "Brown",
@@ -1642,7 +1642,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Human-Like"],
 		changesFrom: "Machamp",
 	},
-	bellsprout: {
+	bellsprout: { // updated
 		num: 69,
 		name: "Bellsprout",
 		types: ["Grass", "Poison"],
@@ -2133,7 +2133,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Water Stone",
 		eggGroups: ["Water 3"],
 	},
-	gastly: {
+	gastly: { // updated
 		num: 92,
 		name: "Gastly",
 		types: ["Ghost", "Poison"],
@@ -2161,7 +2161,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Haunter-Kaskade"],
 		eggGroups: ["Amorphous"],
 	},
-	haunter: {
+	haunter: { // updated
 		num: 93,
 		name: "Haunter",
 		types: ["Ghost", "Poison"],
@@ -2192,7 +2192,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Gengar-Kaskade"],
 		eggGroups: ["Amorphous"],
 	},
-	gengar: {
+	gengar: { // updated
 		num: 94,
 		name: "Gengar",
 		types: ["Ghost", "Poison"],
@@ -2420,7 +2420,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Exeggutor-Alola"],
 		formeOrder: ["Exeggutor", "Exeggutor-Alola"],
 	},
-	exeggutoralola: {
+	exeggutoralola: { // updated
 		num: 103,
 		name: "Exeggutor-Alola",
 		baseSpecies: "Exeggutor",
@@ -2715,7 +2715,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 33,
 		eggGroups: ["Water 2"],
 	},
-	staryu: {
+	staryu: { // updated
 		num: 120,
 		name: "Staryu",
 		types: ["Water"],
@@ -2728,7 +2728,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Starmie"],
 		eggGroups: ["Water 3"],
 	},
-	starmie: {
+	starmie: { // updated
 		num: 121,
 		name: "Starmie",
 		types: ["Water", "Psychic"],
@@ -2791,7 +2791,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Scizor", "Kleavor"],
 		eggGroups: ["Bug"],
 	},
-	jynx: {
+	jynx: { // updated
 		num: 124,
 		name: "Jynx",
 		types: ["Ice", "Psychic"],
@@ -2977,7 +2977,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 2", "Dragon"],
 		requiredItem: "Gyaradosite",
 	},
-	lapras: {
+	lapras: { // updated
 		num: 131,
 		name: "Lapras",
 		types: ["Water", "Ice"],
@@ -3030,7 +3030,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Purple",
 		eggGroups: ["Ditto"],
 	},
-	eevee: {
+	eevee: { // updated
 		num: 133,
 		name: "Eevee",
 		types: ["Normal"],
@@ -3517,7 +3517,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Typhlosion-Hisui"],
 		formeOrder: ["Typhlosion", "Typhlosion-Hisui"],
 	},
-	typhlosionhisui: {
+	typhlosionhisui: { // updated
 		num: 157,
 		name: "Typhlosion-Hisui",
 		baseSpecies: "Typhlosion",
@@ -3652,7 +3652,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 18,
 		eggGroups: ["Bug"],
 	},
-	spinarak: {
+	spinarak: { // updated
 		num: 167,
 		name: "Spinarak",
 		types: ["Bug", "Poison"],
@@ -3664,7 +3664,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Ariados"],
 		eggGroups: ["Bug"],
 	},
-	ariados: {
+	ariados: { // updated
 		num: 168,
 		name: "Ariados",
 		types: ["Bug", "Poison"],
@@ -3715,7 +3715,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 27,
 		eggGroups: ["Water 2"],
 	},
-	pichu: {
+	pichu: { // updated
 		num: 172,
 		name: "Pichu",
 		types: ["Electric"],
@@ -3772,7 +3772,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
 	},
-	togepi: {
+	togepi: { // updated
 		num: 175,
 		name: "Togepi",
 		types: ["Fairy"],
@@ -3786,7 +3786,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
 	},
-	togetic: {
+	togetic: { // updated
 		num: 176,
 		name: "Togetic",
 		types: ["Fairy", "Flying"],
@@ -3801,7 +3801,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Togekiss"],
 		eggGroups: ["Flying", "Fairy"],
 	},
-	natu: {
+	natu: { // updated
 		num: 177,
 		name: "Natu",
 		types: ["Psychic", "Flying"],
@@ -3813,7 +3813,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Xatu"],
 		eggGroups: ["Flying"],
 	},
-	xatu: {
+	xatu: { // updated
 		num: 178,
 		name: "Xatu",
 		types: ["Psychic", "Flying"],
@@ -3895,7 +3895,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Sun Stone",
 		eggGroups: ["Grass"],
 	},
-	marill: {
+	marill: { // updated
 		num: 183,
 		name: "Marill",
 		types: ["Water", "Fairy"],
@@ -3929,7 +3929,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 1", "Fairy"],
 		canHatch: true,
 	},
-	azumarill: {
+	azumarill: { // updated
 		num: 184,
 		name: "Azumarill",
 		types: ["Water", "Fairy"],
@@ -3959,7 +3959,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 18,
 		eggGroups: ["Water 1", "Fairy"],
 	},
-	sudowoodo: {
+	sudowoodo: { // updated
 		num: 185,
 		name: "Sudowoodo",
 		types: ["Rock"],
@@ -4045,7 +4045,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 27,
 		eggGroups: ["Fairy", "Grass"],
 	},
-	aipom: {
+	aipom: { // updated
 		num: 190,
 		name: "Aipom",
 		types: ["Normal"],
@@ -4083,7 +4083,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Sun Stone",
 		eggGroups: ["Grass"],
 	},
-	yanma: {
+	yanma: { // updated
 		num: 193,
 		name: "Yanma",
 		types: ["Bug", "Flying"],
@@ -4194,7 +4194,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Honchkrow"],
 		eggGroups: ["Flying"],
 	},
-	slowking: {
+	slowking: { // updated
 		num: 199,
 		name: "Slowking",
 		types: ["Water", "Psychic"],
@@ -4226,7 +4226,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Galarica Wreath",
 		eggGroups: ["Monster", "Water 1"],
 	},
-	misdreavus: {
+	misdreavus: { // updated
 		num: 200,
 		name: "Misdreavus",
 		types: ["Ghost"],
@@ -4316,7 +4316,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Dudunsparce", "Dudunsparce-Three-Segment"],
 		eggGroups: ["Field"],
 	},
-	gligar: {
+	gligar: { // updated
 		num: 207,
 		name: "Gligar",
 		types: ["Ground", "Flying"],
@@ -4344,7 +4344,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Steelix-Mega"],
 		formeOrder: ["Steelix", "Steelix-Mega"],
 	},
-	steelixmega: {
+	steelixmega: { // updated
 		num: 208,
 		name: "Steelix-Mega",
 		baseSpecies: "Steelix",
@@ -4412,7 +4412,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Overqwil"],
 		eggGroups: ["Water 2"],
 	},
-	scizor: {
+	scizor: { // updated
 		num: 212,
 		name: "Scizor",
 		types: ["Bug", "Steel"],
@@ -4520,7 +4520,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Ursaring"],
 		eggGroups: ["Field"],
 	},
-	ursaring: {
+	ursaring: { // updated
 		num: 217,
 		name: "Ursaring",
 		types: ["Normal"],
@@ -4534,7 +4534,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Ursaluna"],
 		eggGroups: ["Field"],
 	},
-	slugma: {
+	slugma: { // updated
 		num: 218,
 		name: "Slugma",
 		types: ["Fire"],
@@ -4546,7 +4546,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Magcargo"],
 		eggGroups: ["Amorphous"],
 	},
-	magcargo: {
+	magcargo: { // updated
 		num: 219,
 		name: "Magcargo",
 		types: ["Fire", "Rock"],
@@ -4661,11 +4661,11 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Purple",
 		prevo: "Mantyke",
 		evoType: "levelExtra",
-		evoCondition: "with a Remoraid in the party",
+		evoCondition: "with a Remoraid in party",
 		eggGroups: ["Water 1"],
 		canHatch: true,
 	},
-	skarmory: {
+	skarmory: { // updated
 		num: 227,
 		name: "Skarmory",
 		types: ["Steel", "Flying"],
@@ -4731,7 +4731,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Dragon Scale",
 		eggGroups: ["Water 1", "Dragon"],
 	},
-	phanpy: {
+	phanpy: { // updated
 		num: 231,
 		name: "Phanpy",
 		types: ["Ground"],
@@ -4743,7 +4743,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Donphan"],
 		eggGroups: ["Field"],
 	},
-	donphan: {
+	donphan: { // updated
 		num: 232,
 		name: "Donphan",
 		types: ["Ground"],
@@ -4756,7 +4756,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 25,
 		eggGroups: ["Field"],
 	},
-	porygon2: {
+	porygon2: { // updated
 		num: 233,
 		name: "Porygon2",
 		types: ["Normal"],
@@ -4824,7 +4824,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "with an Atk stat equal to its Def stat",
 		eggGroups: ["Human-Like"],
 	},
-	smoochum: {
+	smoochum: { // updated
 		num: 238,
 		name: "Smoochum",
 		types: ["Ice", "Psychic"],
@@ -5549,7 +5549,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Masquerain"],
 		eggGroups: ["Water 1", "Bug"],
 	},
-	masquerain: {
+	masquerain: { // updated
 		num: 284,
 		name: "Masquerain",
 		types: ["Bug", "Flying"],
@@ -5678,7 +5678,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Loudred"],
 		eggGroups: ["Monster", "Field"],
 	},
-	loudred: {
+	loudred: { // updated
 		num: 294,
 		name: "Loudred",
 		types: ["Normal"],
@@ -5692,7 +5692,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Exploud", "Exploud-Kaskade"],
 		eggGroups: ["Monster", "Field"],
 	},
-	exploud: {
+	exploud: { // updated
 		num: 295,
 		name: "Exploud",
 		types: ["Normal"],
@@ -5749,7 +5749,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 24,
 		eggGroups: ["Human-Like"],
 	},
-	azurill: {
+	azurill: { // updated
 		num: 298,
 		name: "Azurill",
 		types: ["Normal", "Fairy"],
@@ -5780,7 +5780,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 1", "Fairy"],
 		canHatch: true,
 	},
-	nosepass: {
+	nosepass: { // updated
 		num: 299,
 		name: "Nosepass",
 		types: ["Rock"],
@@ -6177,7 +6177,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Camerupt"],
 		eggGroups: ["Field"],
 	},
-	camerupt: {
+	camerupt: { // updated
 		num: 323,
 		name: "Camerupt",
 		types: ["Fire", "Ground"],
@@ -6265,7 +6265,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Vibrava"],
 		eggGroups: ["Bug", "Dragon"],
 	},
-	vibrava: {
+	vibrava: { // updated
 		num: 329,
 		name: "Vibrava",
 		types: ["Ground", "Dragon"],
@@ -6279,7 +6279,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Flygon"],
 		eggGroups: ["Bug", "Dragon"],
 	},
-	flygon: {
+	flygon: { // updated
 		num: 330,
 		name: "Flygon",
 		types: ["Ground", "Dragon"],
@@ -6317,7 +6317,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 32,
 		eggGroups: ["Grass", "Human-Like"],
 	},
-	swablu: {
+	swablu: { // updated
 		num: 333,
 		name: "Swablu",
 		types: ["Flying"],
@@ -6380,7 +6380,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Black",
 		eggGroups: ["Field", "Dragon"],
 	},
-	lunatone: {
+	lunatone: { // updated
 		num: 337,
 		name: "Lunatone",
 		types: ["Rock", "Psychic"],
@@ -6392,7 +6392,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Yellow",
 		eggGroups: ["Mineral"],
 	},
-	solrock: {
+	solrock: { // updated
 		num: 338,
 		name: "Solrock",
 		types: ["Rock", "Psychic"],
@@ -6547,7 +6547,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Milotic"],
 		eggGroups: ["Water 1", "Dragon"],
 	},
-	milotic: {
+	milotic: { // updated
 		num: 350,
 		name: "Milotic",
 		types: ["Water", "Fairy"],
@@ -6562,7 +6562,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "with high Friendship",
 		eggGroups: ["Water 1", "Dragon"],
 	},
-	castform: {
+	castform: { // updated
 		num: 351,
 		name: "Castform",
 		types: ["Normal"],
@@ -6575,7 +6575,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Castform-Sunny", "Castform-Rainy", "Castform-Snowy", "Castform-Shady", "Castform-Sandy", "Castform-Dusty", "Castform-Allergy", "Castform-Swarmy", "Castform-Smoggy", "Castform-Lovely", "Castform-Gutsy", "Castform-Spooky", "Castform-Zenny", "Castform-Sorcery", "Castform-Zappy", "Castform-Windy", "Castform-Whirly"],
 		formeOrder: ["Castform", "Castform-Sunny", "Castform-Rainy", "Castform-Snowy", "Castform-Shady", "Castform-Sandy", "Castform-Dusty", "Castform-Allergy", "Castform-Swarmy", "Castform-Smoggy", "Castform-Lovely", "Castform-Gutsy", "Castform-Spooky", "Castform-Zenny", "Castform-Sorcery", "Castform-Zappy", "Castform-Windy", "Castform-Whirly"],
 	},
-	castformsunny: {
+	castformsunny: { // updated
 		num: 351,
 		name: "Castform-Sunny",
 		baseSpecies: "Castform",
@@ -6590,7 +6590,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
 	},
-	castformrainy: {
+	castformrainy: { // updated
 		num: 351,
 		name: "Castform-Rainy",
 		baseSpecies: "Castform",
@@ -6605,7 +6605,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
 	},
-	castformsnowy: {
+	castformsnowy: { // updated
 		num: 351,
 		name: "Castform-Snowy",
 		baseSpecies: "Castform",
@@ -6841,7 +6841,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Green",
 		eggGroups: ["Field"],
 	},
-	shuppet: {
+	shuppet: { // updated
 		num: 353,
 		name: "Shuppet",
 		types: ["Ghost"],
@@ -6853,7 +6853,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Banette"],
 		eggGroups: ["Amorphous"],
 	},
-	banette: {
+	banette: { // updated
 		num: 354,
 		name: "Banette",
 		types: ["Ghost"],
@@ -6882,7 +6882,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		requiredItem: "Banettite",
 	},
-	duskull: {
+	duskull: { // updated
 		num: 355,
 		name: "Duskull",
 		types: ["Ghost"],
@@ -6894,7 +6894,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Dusclops"],
 		eggGroups: ["Amorphous"],
 	},
-	dusclops: {
+	dusclops: { // updated
 		num: 356,
 		name: "Dusclops",
 		types: ["Ghost"],
@@ -6908,7 +6908,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Dusknoir"],
 		eggGroups: ["Amorphous"],
 	},
-	tropius: {
+	tropius: { // updated
 		num: 357,
 		name: "Tropius",
 		types: ["Grass", "Flying"],
@@ -6949,7 +6949,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		canHatch: true,
 	},
-	absol: {
+	absol: { // updated
 		num: 359,
 		name: "Absol",
 		types: ["Dark", "Fairy"],
@@ -7001,7 +7001,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Glalie", "Froslass"],
 		eggGroups: ["Fairy", "Mineral"],
 	},
-	glalie: {
+	glalie: { // updated
 		num: 362,
 		name: "Glalie",
 		types: ["Ice", "Rock"],
@@ -7081,7 +7081,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Huntail", "Gorebyss"],
 		eggGroups: ["Water 1"],
 	},
-	huntail: {
+	huntail: { // updated
 		num: 367,
 		name: "Huntail",
 		types: ["Water"],
@@ -7095,7 +7095,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Deep Sea Tooth",
 		eggGroups: ["Water 1"],
 	},
-	gorebyss: {
+	gorebyss: { // updated
 		num: 368,
 		name: "Gorebyss",
 		types: ["Water"],
@@ -7188,7 +7188,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Dragon"],
 		requiredItem: "Salamencite",
 	},
-	beldum: {
+	beldum: { // updated
 		num: 374,
 		name: "Beldum",
 		types: ["Steel", "Psychic"],
@@ -7201,7 +7201,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Metang"],
 		eggGroups: ["Mineral"],
 	},
-	metang: {
+	metang: { // updated
 		num: 375,
 		name: "Metang",
 		types: ["Steel", "Psychic"],
@@ -7216,7 +7216,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Metagross"],
 		eggGroups: ["Mineral"],
 	},
-	metagross: {
+	metagross: { // updated
 		num: 376,
 		name: "Metagross",
 		types: ["Steel", "Psychic"],
@@ -7675,7 +7675,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 34,
 		eggGroups: ["Flying"],
 	},
-	bidoof: {
+	bidoof: { // updated
 		num: 399,
 		name: "Bidoof",
 		types: ["Normal"],
@@ -7703,7 +7703,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Bibarel-Kaskade"],
 		eggGroups: ["Water 1", "Field"],
 	},
-	bibarel: {
+	bibarel: { // updated
 		num: 400,
 		name: "Bibarel",
 		types: ["Normal", "Water"],
@@ -7758,7 +7758,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 10,
 		eggGroups: ["Bug"],
 	},
-	shinx: {
+	shinx: { // updated
 		num: 403,
 		name: "Shinx",
 		types: ["Electric"],
@@ -7786,7 +7786,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Luxio-Kaskade"],
 		eggGroups: ["Field"],
 	},
-	luxio: {
+	luxio: { // updated
 		num: 404,
 		name: "Luxio",
 		types: ["Electric"],
@@ -7818,7 +7818,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Luxray-Kaskade"],
 		eggGroups: ["Field"],
 	},
-	luxray: {
+	luxray: { // updated
 		num: 405,
 		name: "Luxray",
 		types: ["Electric"],
@@ -7944,7 +7944,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		cosmeticFormes: ["Burmy-Sandy", "Burmy-Trash"],
 		formeOrder: ["Burmy", "Burmy-Sandy", "Burmy-Trash"],
 	},
-	wormadam: {
+	wormadam: { // updated
 		num: 413,
 		name: "Wormadam",
 		baseForme: "Plant",
@@ -7961,7 +7961,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Wormadam-Sandy", "Wormadam-Trash"],
 		formeOrder: ["Wormadam", "Wormadam-Sandy", "Wormadam-Trash"],
 	},
-	wormadamsandy: {
+	wormadamsandy: { // updated
 		num: 413,
 		name: "Wormadam-Sandy",
 		baseSpecies: "Wormadam",
@@ -7977,7 +7977,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 20,
 		eggGroups: ["Bug"],
 	},
-	wormadamtrash: {
+	wormadamtrash: { // updated
 		num: 413,
 		name: "Wormadam-Trash",
 		baseSpecies: "Wormadam",
@@ -7993,7 +7993,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 20,
 		eggGroups: ["Bug"],
 	},
-	mothim: {
+	mothim: { // updated
 		num: 414,
 		name: "Mothim",
 		types: ["Bug", "Flying"],
@@ -8113,7 +8113,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		requiredAbility: "Flower Gift",
 		battleOnly: "Cherrim",
 	},
-	shellos: {
+	shellos: { // updated
 		num: 422,
 		name: "Shellos",
 		baseForme: "West",
@@ -8128,7 +8128,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		cosmeticFormes: ["Shellos-East"],
 		formeOrder: ["Shellos", "Shellos-East"],
 	},
-	gastrodon: {
+	gastrodon: { // updated
 		num: 423,
 		name: "Gastrodon",
 		baseForme: "West",
@@ -8144,7 +8144,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		cosmeticFormes: ["Gastrodon-East"],
 		formeOrder: ["Gastrodon", "Gastrodon-East"],
 	},
-	ambipom: {
+	ambipom: { // updated
 		num: 424,
 		name: "Ambipom",
 		types: ["Normal"],
@@ -8176,7 +8176,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoMove: "Rock Throw",
 		eggGroups: ["Field"],
 	},
-	drifloon: {
+	drifloon: { // updated
 		num: 425,
 		name: "Drifloon",
 		types: ["Ghost", "Flying"],
@@ -8188,7 +8188,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Drifblim", "Drifblim-Amaze-All"],
 		eggGroups: ["Amorphous"],
 	},
-	drifblim: {
+	drifblim: { // updated
 		num: 426,
 		name: "Drifblim",
 		types: ["Ghost", "Flying"],
@@ -8260,7 +8260,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field", "Human-Like"],
 		requiredItem: "Lopunnite",
 	},
-	mismagius: {
+	mismagius: { // updated
 		num: 429,
 		name: "Mismagius",
 		types: ["Ghost", "Psychic"],
@@ -8274,7 +8274,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Dusk Stone",
 		eggGroups: ["Amorphous"],
 	},
-	honchkrow: {
+	honchkrow: { // updated
 		num: 430,
 		name: "Honchkrow",
 		types: ["Dark", "Flying"],
@@ -8328,7 +8328,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
 	},
-	stunky: {
+	stunky: { // updated
 		num: 434,
 		name: "Stunky",
 		types: ["Poison", "Dark"],
@@ -8340,7 +8340,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Skuntank", "Skuntank-Kaskade"],
 		eggGroups: ["Field"],
 	},
-	skuntank: {
+	skuntank: { // updated
 		num: 435,
 		name: "Skuntank",
 		types: ["Poison", "Dark"],
@@ -8397,7 +8397,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 33,
 		eggGroups: ["Mineral"],
 	},
-	bonsly: {
+	bonsly: { // updated
 		num: 438,
 		name: "Bonsly",
 		types: ["Rock"],
@@ -8459,7 +8459,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Purple",
 		eggGroups: ["Amorphous"],
 	},
-	gible: {
+	gible: { // updated
 		num: 443,
 		name: "Gible",
 		types: ["Dragon", "Ground"],
@@ -8471,7 +8471,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Gabite"],
 		eggGroups: ["Monster", "Dragon"],
 	},
-	gabite: {
+	gabite: { // updated
 		num: 444,
 		name: "Gabite",
 		types: ["Dragon", "Ground"],
@@ -8485,7 +8485,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Garchomp"],
 		eggGroups: ["Monster", "Dragon"],
 	},
-	garchomp: {
+	garchomp: { // updated
 		num: 445,
 		name: "Garchomp",
 		types: ["Dragon", "Ground"],
@@ -8500,7 +8500,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Garchomp-Mega"],
 		formeOrder: ["Garchomp", "Garchomp-Mega"],
 	},
-	garchompmega: {
+	garchompmega: { // updated
 		num: 445,
 		name: "Garchomp-Mega",
 		baseSpecies: "Garchomp",
@@ -8574,7 +8574,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field", "Human-Like"],
 		requiredItem: "Lucarionite",
 	},
-	hippopotas: {
+	hippopotas: { // updated
 		num: 449,
 		name: "Hippopotas",
 		types: ["Ground"],
@@ -8586,7 +8586,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Hippowdon"],
 		eggGroups: ["Field"],
 	},
-	hippowdon: {
+	hippowdon: { // updated
 		num: 450,
 		name: "Hippowdon",
 		types: ["Ground"],
@@ -8698,7 +8698,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
 	},
-	snover: {
+	snover: { // updated
 		num: 459,
 		name: "Snover",
 		baseForme: "Highland",
@@ -8728,7 +8728,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		changesFrom: "Snover",
 		gen: 9,
 	},
-	abomasnow: {
+	abomasnow: { // updated
 		num: 460,
 		name: "Abomasnow",
 		baseForme: "Highland",
@@ -8774,7 +8774,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		changesFrom: "Abomasnow",
 		gen: 9,
 	},
-	weavile: {
+	weavile: { // updated
 		num: 461,
 		name: "Weavile",
 		types: ["Dark", "Ice"],
@@ -8876,7 +8876,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Magmarizer",
 		eggGroups: ["Human-Like"],
 	},
-	togekiss: {
+	togekiss: { // updated
 		num: 468,
 		name: "Togekiss",
 		types: ["Fairy", "Flying"],
@@ -8935,7 +8935,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
 	},
-	gliscor: {
+	gliscor: { // updated
 		num: 472,
 		name: "Gliscor",
 		types: ["Ground", "Flying"],
@@ -8964,7 +8964,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoMove: "Ancient Power",
 		eggGroups: ["Field"],
 	},
-	porygonz: {
+	porygonz: { // updated
 		num: 474,
 		name: "Porygon-Z",
 		types: ["Normal"],
@@ -9011,7 +9011,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		requiredItem: "Galladite",
 	},
-	probopass: {
+	probopass: { // updated
 		num: 476,
 		name: "Probopass",
 		types: ["Rock", "Steel"],
@@ -9025,7 +9025,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "Magnetosphere",
 		eggGroups: ["Mineral"],
 	},
-	dusknoir: {
+	dusknoir: { // updated
 		num: 477,
 		name: "Dusknoir",
 		types: ["Ghost"],
@@ -9054,7 +9054,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Dawn Stone",
 		eggGroups: ["Fairy", "Mineral"],
 	},
-	rotom: {
+	rotom: { // updated
 		num: 479,
 		name: "Rotom",
 		types: ["Electric", "Ghost"],
@@ -9068,7 +9068,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Rotom-Heat", "Rotom-Wash", "Rotom-Frost", "Rotom-Fan", "Rotom-Mow", "Rotom-Sol", "Rotom-Sway", "Rotom-Brawl", "Rotom-Web", "Rotom-Junk"],
 		formeOrder: ["Rotom", "Rotom-Heat", "Rotom-Wash", "Rotom-Frost", "Rotom-Fan", "Rotom-Mow", "Rotom-Sol", "Rotom-Sway", "Rotom-Brawl", "Rotom-Web", "Rotom-Junk"],
 	},
-	rotomheat: {
+	rotomheat: { // updated
 		num: 479,
 		name: "Rotom-Heat",
 		baseSpecies: "Rotom",
@@ -9083,7 +9083,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
 	},
-	rotomwash: {
+	rotomwash: { // updated
 		num: 479,
 		name: "Rotom-Wash",
 		baseSpecies: "Rotom",
@@ -9098,7 +9098,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
 	},
-	rotomfrost: {
+	rotomfrost: { // updated
 		num: 479,
 		name: "Rotom-Frost",
 		baseSpecies: "Rotom",
@@ -9113,7 +9113,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
 	},
-	rotomfan: {
+	rotomfan: { // updated
 		num: 479,
 		name: "Rotom-Fan",
 		baseSpecies: "Rotom",
@@ -9128,7 +9128,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
 	},
-	rotommow: {
+	rotommow: { // updated
 		num: 479,
 		name: "Rotom-Mow",
 		baseSpecies: "Rotom",
@@ -9894,7 +9894,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Samurott-Hisui"],
 		formeOrder: ["Samurott", "Samurott-Hisui"],
 	},
-	samurotthisui: {
+	samurotthisui: { // updated
 		num: 503,
 		name: "Samurott-Hisui",
 		baseSpecies: "Samurott",
@@ -9924,7 +9924,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Watchog"],
 		eggGroups: ["Field"],
 	},
-	watchog: {
+	watchog: { // updated
 		num: 505,
 		name: "Watchog",
 		types: ["Normal"],
@@ -10175,7 +10175,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 27,
 		eggGroups: ["Field"],
 	},
-	roggenrola: {
+	roggenrola: { // updated
 		num: 524,
 		name: "Roggenrola",
 		types: ["Rock"],
@@ -10187,7 +10187,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Boldore"],
 		eggGroups: ["Mineral"],
 	},
-	boldore: {
+	boldore: { // updated
 		num: 525,
 		name: "Boldore",
 		types: ["Rock"],
@@ -10201,7 +10201,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Gigalith"],
 		eggGroups: ["Mineral"],
 	},
-	gigalith: {
+	gigalith: { // updated
 		num: 526,
 		name: "Gigalith",
 		types: ["Rock"],
@@ -10240,7 +10240,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "levelFriendship",
 		eggGroups: ["Flying", "Field"],
 	},
-	drilbur: {
+	drilbur: { // updated
 		num: 529,
 		name: "Drilbur",
 		types: ["Ground"],
@@ -10252,7 +10252,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Excadrill", "Excadrill-Kaskade"],
 		eggGroups: ["Field"],
 	},
-	excadrill: {
+	excadrill: { // updated
 		num: 530,
 		name: "Excadrill",
 		types: ["Ground", "Steel"],
@@ -10309,7 +10309,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy"],
 		requiredItem: "Audinite",
 	},
-	timburr: {
+	timburr: { // updated
 		num: 532,
 		name: "Timburr",
 		types: ["Fighting"],
@@ -10322,7 +10322,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Gurdurr", "Gurdurr-Kaskade"],
 		eggGroups: ["Human-Like"],
 	},
-	gurdurr: {
+	gurdurr: { // updated
 		num: 533,
 		name: "Gurdurr",
 		types: ["Fighting"],
@@ -10356,7 +10356,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Conkeldurr-Kaskade"],
 		eggGroups: ["Human-Like"],
 	},
-	conkeldurr: {
+	conkeldurr: { // updated
 		num: 534,
 		name: "Conkeldurr",
 		types: ["Fighting"],
@@ -10452,7 +10452,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Blue",
 		eggGroups: ["Human-Like"],
 	},
-	sewaddle: {
+	sewaddle: { // updated
 		num: 540,
 		name: "Sewaddle",
 		types: ["Bug", "Grass"],
@@ -10464,7 +10464,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Swadloon"],
 		eggGroups: ["Bug"],
 	},
-	swadloon: {
+	swadloon: { // updated
 		num: 541,
 		name: "Swadloon",
 		types: ["Bug", "Grass"],
@@ -10478,7 +10478,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Leavanny"],
 		eggGroups: ["Bug"],
 	},
-	leavanny: {
+	leavanny: { // updated
 		num: 542,
 		name: "Leavanny",
 		types: ["Bug", "Grass"],
@@ -10569,7 +10569,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Lilligant", "Lilligant-Hisui"],
 		eggGroups: ["Grass"],
 	},
-	lilligant: {
+	lilligant: { // updated
 		num: 549,
 		name: "Lilligant",
 		types: ["Grass"],
@@ -10586,7 +10586,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Lilligant-Hisui"],
 		formeOrder: ["Lilligant", "Lilligant-Hisui"],
 	},
-	lilliganthisui: {
+	lilliganthisui: { // updated
 		num: 549,
 		name: "Lilligant-Hisui",
 		baseSpecies: "Lilligant",
@@ -10645,7 +10645,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Water 2"],
 		gen: 8,
 	},
-	sandile: {
+	sandile: { // updated
 		num: 551,
 		name: "Sandile",
 		types: ["Ground", "Dark"],
@@ -10657,7 +10657,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Krokorok"],
 		eggGroups: ["Field"],
 	},
-	krokorok: {
+	krokorok: { // updated
 		num: 552,
 		name: "Krokorok",
 		types: ["Ground", "Dark"],
@@ -10671,7 +10671,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Krookodile"],
 		eggGroups: ["Field"],
 	},
-	krookodile: {
+	krookodile: { // updated
 		num: 553,
 		name: "Krookodile",
 		types: ["Ground", "Dark"],
@@ -10835,7 +10835,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 39,
 		eggGroups: ["Field", "Dragon"],
 	},
-	sigilyph: {
+	sigilyph: { // updated
 		num: 561,
 		name: "Sigilyph",
 		types: ["Psychic", "Flying"],
@@ -11113,7 +11113,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 41,
 		eggGroups: ["Human-Like"],
 	},
-	solosis: {
+	solosis: { // updated
 		num: 577,
 		name: "Solosis",
 		types: ["Psychic"],
@@ -11141,7 +11141,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Duosion-Kaskade"],
 		eggGroups: ["Amorphous"],
 	},
-	duosion: {
+	duosion: { // updated
 		num: 578,
 		name: "Duosion",
 		types: ["Psychic"],
@@ -11173,7 +11173,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Reuniclus-Kaskade"],
 		eggGroups: ["Amorphous"],
 	},
-	reuniclus: {
+	reuniclus: { // updated
 		num: 579,
 		name: "Reuniclus",
 		types: ["Psychic"],
@@ -11299,7 +11299,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		cosmeticFormes: ["Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter"],
 		formeOrder: ["Sawsbuck", "Sawsbuck-Summer", "Sawsbuck-Autumn", "Sawsbuck-Winter"],
 	},
-	emolga: {
+	emolga: { // updated
 		num: 587,
 		name: "Emolga",
 		types: ["Electric", "Flying"],
@@ -11554,7 +11554,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 42,
 		eggGroups: ["Human-Like"],
 	},
-	litwick: {
+	litwick: { // updated
 		num: 607,
 		name: "Litwick",
 		types: ["Ghost", "Fire"],
@@ -11566,7 +11566,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Lampent"],
 		eggGroups: ["Amorphous"],
 	},
-	lampent: {
+	lampent: { // updated
 		num: 608,
 		name: "Lampent",
 		types: ["Ghost", "Fire"],
@@ -11580,7 +11580,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Chandelure"],
 		eggGroups: ["Amorphous"],
 	},
-	chandelure: {
+	chandelure: { // updated
 		num: 609,
 		name: "Chandelure",
 		types: ["Ghost", "Fire"],
@@ -11722,7 +11722,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Green",
 		eggGroups: ["Water 1", "Amorphous"],
 	},
-	mienfoo: {
+	mienfoo: { // updated
 		num: 619,
 		name: "Mienfoo",
 		types: ["Fighting"],
@@ -11758,7 +11758,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Red",
 		eggGroups: ["Monster", "Dragon"],
 	},
-	golett: {
+	golett: { // updated
 		num: 622,
 		name: "Golett",
 		types: ["Ground", "Ghost"],
@@ -11852,7 +11852,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Braviary", "Braviary-Hisui"],
 		eggGroups: ["Flying"],
 	},
-	braviary: {
+	braviary: { // updated
 		num: 628,
 		name: "Braviary",
 		types: ["Fighting", "Flying"],
@@ -11868,7 +11868,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Braviary-Hisui"],
 		formeOrder: ["Braviary", "Braviary-Hisui"],
 	},
-	braviaryhisui: {
+	braviaryhisui: { // updated
 		num: 628,
 		name: "Braviary-Hisui",
 		baseSpecies: "Braviary",
@@ -11886,7 +11886,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 54,
 		eggGroups: ["Flying"],
 	},
-	vullaby: {
+	vullaby: { // updated
 		num: 629,
 		name: "Vullaby",
 		types: ["Dark", "Flying"],
@@ -11899,7 +11899,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Mandibuzz"],
 		eggGroups: ["Flying"],
 	},
-	mandibuzz: {
+	mandibuzz: { // updated
 		num: 630,
 		name: "Mandibuzz",
 		types: ["Dark", "Flying"],
@@ -11974,7 +11974,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 64,
 		eggGroups: ["Dragon"],
 	},
-	larvesta: {
+	larvesta: { // updated
 		num: 636,
 		name: "Larvesta",
 		types: ["Bug", "Fire"],
@@ -11986,7 +11986,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Volcarona"],
 		eggGroups: ["Bug"],
 	},
-	volcarona: {
+	volcarona: { // updated
 		num: 637,
 		name: "Volcarona",
 		types: ["Bug", "Fire"],
@@ -12126,7 +12126,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		tags: ["Restricted Legendary"],
 		eggGroups: ["Undiscovered"],
 	},
-	landorus: {
+	landorus: { // updated
 		num: 645,
 		name: "Landorus",
 		baseForme: "Incarnate",
@@ -12505,7 +12505,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		battleOnly: "Greninja-Bond",
 		gen: 7,
 	},
-	bunnelby: {
+	bunnelby: { // updated
 		num: 659,
 		name: "Bunnelby",
 		types: ["Normal"],
@@ -12533,7 +12533,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Diggersby-Kaskade"],
 		eggGroups: ["Field"],
 	},
-	diggersby: {
+	diggersby: { // updated
 		num: 660,
 		name: "Diggersby",
 		types: ["Normal", "Ground"],
@@ -12630,7 +12630,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Bug"],
 		// TODO: Spewpa technically has the same number of formes as Vivillon
 	},
-	vivillon: {
+	vivillon: { // updated
 		num: 666,
 		name: "Vivillon",
 		baseForme: "Meadow", // TODO: actual base forme is Icy Snow, not Meadow
@@ -12668,7 +12668,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 			"Vivillon-Pokeball",
 		],
 	},
-	vivillonfancy: {
+	vivillonfancy: { // updated
 		num: 666,
 		name: "Vivillon-Fancy",
 		baseSpecies: "Vivillon",
@@ -12683,7 +12683,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 12,
 		eggGroups: ["Bug"],
 	},
-	vivillonpokeball: {
+	vivillonpokeball: { // updated
 		num: 666,
 		name: "Vivillon-Pokeball",
 		baseSpecies: "Vivillon",
@@ -12772,7 +12772,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "White",
 		eggGroups: ["Undiscovered"],
 	},
-	florges: {
+	florges: { // updated
 		num: 671,
 		name: "Florges",
 		baseForme: "Red",
@@ -13122,7 +13122,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 37,
 		eggGroups: ["Water 1", "Water 3"],
 	},
-	helioptile: {
+	helioptile: { // updated
 		num: 694,
 		name: "Helioptile",
 		types: ["Electric", "Normal"],
@@ -13134,7 +13134,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Heliolisk"],
 		eggGroups: ["Monster", "Dragon"],
 	},
-	heliolisk: {
+	heliolisk: { // updated
 		num: 695,
 		name: "Heliolisk",
 		types: ["Electric", "Normal"],
@@ -13253,7 +13253,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Gray",
 		eggGroups: ["Fairy", "Mineral"],
 	},
-	goomy: {
+	goomy: { // updated
 		num: 704,
 		name: "Goomy",
 		types: ["Dragon", "Water"],
@@ -13265,7 +13265,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Sliggoo", "Sliggoo-Hisui"],
 		eggGroups: ["Dragon"],
 	},
-	sliggoo: {
+	sliggoo: { // updated
 		num: 705,
 		name: "Sliggoo",
 		types: ["Dragon", "Water"],
@@ -13281,7 +13281,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Sliggoo-Hisui"],
 		formeOrder: ["Sliggoo", "Sliggoo-Hisui"],
 	},
-	sliggoohisui: {
+	sliggoohisui: { // updated
 		num: 705,
 		name: "Sliggoo-Hisui",
 		baseSpecies: "Sliggoo",
@@ -13298,7 +13298,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Goodra-Hisui"],
 		eggGroups: ["Dragon"],
 	},
-	goodra: {
+	goodra: { // updated
 		num: 706,
 		name: "Goodra",
 		types: ["Dragon", "Water"],
@@ -13314,7 +13314,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Goodra-Hisui"],
 		formeOrder: ["Goodra", "Goodra-Hisui"],
 	},
-	goodrahisui: {
+	goodrahisui: { // updated
 		num: 706,
 		name: "Goodra-Hisui",
 		baseSpecies: "Goodra",
@@ -13341,7 +13341,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Gray",
 		eggGroups: ["Mineral"],
 	},
-	phantump: {
+	phantump: { // updated
 		num: 708,
 		name: "Phantump",
 		types: ["Ghost", "Grass"],
@@ -13369,7 +13369,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Trevenant-Kaskade"],
 		eggGroups: ["Grass", "Amorphous"],
 	},
-	trevenant: {
+	trevenant: { // updated
 		num: 709,
 		name: "Trevenant",
 		types: ["Ghost", "Grass"],
@@ -13457,7 +13457,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Gourgeist-Super"],
 		eggGroups: ["Amorphous"],
 	},
-	gourgeist: {
+	gourgeist: { // updated
 		num: 711,
 		name: "Gourgeist",
 		baseForme: "Average",
@@ -13474,7 +13474,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Gourgeist-Small", "Gourgeist-Large", "Gourgeist-Super"],
 		formeOrder: ["Gourgeist", "Gourgeist-Small", "Gourgeist-Large", "Gourgeist-Super"],
 	},
-	gourgeistsmall: {
+	gourgeistsmall: { // updated
 		num: 711,
 		name: "Gourgeist-Small",
 		baseSpecies: "Gourgeist",
@@ -13490,7 +13490,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "Paranormal Activity starting at level 30",
 		eggGroups: ["Amorphous"],
 	},
-	gourgeistlarge: {
+	gourgeistlarge: { // updated
 		num: 711,
 		name: "Gourgeist-Large",
 		baseSpecies: "Gourgeist",
@@ -13506,7 +13506,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "Paranormal Activity starting at level 30",
 		eggGroups: ["Amorphous"],
 	},
-	gourgeistsuper: {
+	gourgeistsuper: { // updated
 		num: 711,
 		name: "Gourgeist-Super",
 		baseSpecies: "Gourgeist",
@@ -13549,7 +13549,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Avalugg-Hisui"],
 		formeOrder: ["Avalugg", "Avalugg-Hisui"],
 	},
-	avalugghisui: {
+	avalugghisui: { // updated
 		num: 713,
 		name: "Avalugg-Hisui",
 		baseSpecies: "Avalugg",
@@ -13684,7 +13684,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		battleOnly: ["Zygarde", "Zygarde-10%"],
 		gen: 7,
 	},
-	diancie: {
+	diancie: { // updated
 		num: 719,
 		name: "Diancie",
 		types: ["Rock", "Fairy"],
@@ -13816,7 +13816,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Decidueye-Hisui"],
 		formeOrder: ["Decidueye", "Decidueye-Hisui"],
 	},
-	decidueyehisui: {
+	decidueyehisui: { // updated
 		num: 724,
 		name: "Decidueye-Hisui",
 		baseSpecies: "Decidueye",
@@ -14024,7 +14024,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Vikavolt"],
 		eggGroups: ["Bug"],
 	},
-	vikavolt: {
+	vikavolt: { // updated
 		num: 738,
 		name: "Vikavolt",
 		types: ["Bug", "Electric"],
@@ -14053,7 +14053,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Blue",
 		eggGroups: ["Bug"],
 	},
-	crabrawler: {
+	crabrawler: { // updated
 		num: 739,
 		name: "Crabrawler",
 		types: ["Fighting"],
@@ -14065,7 +14065,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Crabominable", "Crabominable-Kaskade"],
 		eggGroups: ["Water 3"],
 	},
-	crabominable: {
+	crabominable: { // updated
 		num: 740,
 		name: "Crabominable",
 		types: ["Fighting", "Ice"],
@@ -14211,7 +14211,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		formeOrder: ["Rockruff", "Rockruff"], // TODO: Rockruff-Dusk
 	},
-	lycanroc: {
+	lycanroc: { // updated
 		num: 745,
 		name: "Lycanroc",
 		baseForme: "Midday",
@@ -14228,7 +14228,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk"],
 		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
 	},
-	lycanrocmidnight: {
+	lycanrocmidnight: { // updated
 		num: 745,
 		name: "Lycanroc-Midnight",
 		baseSpecies: "Lycanroc",
@@ -14244,7 +14244,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "at night",
 		eggGroups: ["Field"],
 	},
-	lycanrocdusk: {
+	lycanrocdusk: { // updated
 		num: 745,
 		name: "Lycanroc-Dusk",
 		baseSpecies: "Lycanroc",
@@ -14445,7 +14445,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 24,
 		eggGroups: ["Grass"],
 	},
-	salandit: {
+	salandit: { // updated
 		num: 757,
 		name: "Salandit",
 		types: ["Poison", "Fire"],
@@ -14458,7 +14458,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Salazzle"],
 		eggGroups: ["Monster", "Dragon"],
 	},
-	salazzle: {
+	salazzle: { // updated
 		num: 758,
 		name: "Salazzle",
 		types: ["Poison", "Fire"],
@@ -14615,7 +14615,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 30,
 		eggGroups: ["Bug", "Water 3"],
 	},
-	sandygast: {
+	sandygast: { // updated
 		num: 769,
 		name: "Sandygast",
 		types: ["Ghost", "Ground"],
@@ -14627,7 +14627,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Palossand", "Palossand-Kaskade"],
 		eggGroups: ["Amorphous"],
 	},
-	palossand: {
+	palossand: { // updated
 		num: 770,
 		name: "Palossand",
 		types: ["Ghost", "Ground"],
@@ -15021,7 +15021,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Blue",
 		eggGroups: ["Field"],
 	},
-	turtonator: {
+	turtonator: { // updated
 		num: 776,
 		name: "Turtonator",
 		types: ["Fire", "Dragon"],
@@ -15115,7 +15115,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		requiredAbility: "Disguise",
 		battleOnly: "Mimikyu-Totem",
 	},
-	bruxish: {
+	bruxish: { // updated
 		num: 779,
 		name: "Bruxish",
 		types: ["Water", "Psychic"],
@@ -15992,7 +15992,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 20,
 		eggGroups: ["Grass"],
 	},
-	wooloo: {
+	wooloo: { // updated
 		num: 831,
 		name: "Wooloo",
 		types: ["Normal"],
@@ -16004,7 +16004,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Dubwool", "Dubwool-Kaskade"],
 		eggGroups: ["Field"],
 	},
-	dubwool: {
+	dubwool: { // updated
 		num: 832,
 		name: "Dubwool",
 		types: ["Normal"],
@@ -16406,7 +16406,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		battleOnly: "Toxtricity-Low-Key",
 		changesFrom: "Toxtricity-Low-Key",
 	},
-	sizzlipede: {
+	sizzlipede: { // updated
 		num: 850,
 		name: "Sizzlipede",
 		types: ["Fire", "Bug"],
@@ -16418,7 +16418,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Centiskorch"],
 		eggGroups: ["Bug"],
 	},
-	centiskorch: {
+	centiskorch: { // updated
 		num: 851,
 		name: "Centiskorch",
 		types: ["Fire", "Bug"],
@@ -16538,7 +16538,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Chipped Pot",
 		eggGroups: ["Undiscovered"],
 	},
-	hatenna: {
+	hatenna: { // updated
 		num: 856,
 		name: "Hatenna",
 		types: ["Psychic"],
@@ -16551,7 +16551,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Hattrem"],
 		eggGroups: ["Fairy"],
 	},
-	hattrem: {
+	hattrem: { // updated
 		num: 857,
 		name: "Hattrem",
 		types: ["Psychic"],
@@ -16566,7 +16566,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Hatterene"],
 		eggGroups: ["Fairy"],
 	},
-	hatterene: {
+	hatterene: { // updated
 		num: 858,
 		name: "Hatterene",
 		types: ["Psychic", "Fairy"],
@@ -17391,7 +17391,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		changesFrom: "Calyrex",
 	},
-	wyrdeer: {
+	wyrdeer: { // updated
 		num: 899,
 		name: "Wyrdeer",
 		types: ["Normal", "Psychic"],
@@ -17405,7 +17405,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Mist Stone",
 		eggGroups: ["Field"],
 	},
-	kleavor: {
+	kleavor: { // updated
 		num: 900,
 		name: "Kleavor",
 		types: ["Bug", "Rock"],
@@ -17419,7 +17419,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Black Augurite",
 		eggGroups: ["Bug"],
 	},
-	ursaluna: {
+	ursaluna: { // updated
 		num: 901,
 		name: "Ursaluna",
 		types: ["Ground", "Normal"],
@@ -17451,7 +17451,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		gen: 9,
 	},
-	basculegion: {
+	basculegion: { // updated
 		num: 902,
 		name: "Basculegion",
 		baseForme: "M",
@@ -17469,7 +17469,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Basculegion-F"],
 		formeOrder: ["Basculegion", "Basculegion-F"],
 	},
-	basculegionf: {
+	basculegionf: { // updated
 		num: 902,
 		name: "Basculegion-F",
 		baseSpecies: "Basculegion",
@@ -18176,7 +18176,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "Walk 1000 steps in Let's Go",
 		eggGroups: ["Grass"],
 	},
-	toedscool: {
+	toedscool: { // updated
 		num: 948,
 		name: "Toedscool",
 		types: ["Ground", "Grass"],
@@ -18188,7 +18188,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Toedscruel"],
 		eggGroups: ["Field"],
 	},
-	toedscruel: {
+	toedscruel: { // updated
 		num: 949,
 		name: "Toedscruel",
 		types: ["Ground", "Grass"],

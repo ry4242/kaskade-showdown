@@ -942,7 +942,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		onHit(pokemon) {
 			let factor = 0.5;
-			if (this.field.isClimateWeather('sandstorm')) {
+			if (this.field.isIrritantWeather('sandstorm')) {
 				factor = 0.667;
 			}
 			const success = !!this.heal(this.modify(pokemon.maxhp, factor));

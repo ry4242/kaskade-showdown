@@ -444,7 +444,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 43,
 		gen: 2,
 	},
-	berrysweet: { // updated
+	berrysweet: {
 		name: "Berry Sweet",
 		spritenum: 706,
 		fling: {
@@ -627,10 +627,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 				pokemon.addVolatile('quarkdrive');
 			}
 		},
-		itemUser: [
-			"Great Tusk", "Scream Tail", "Brute Bonnet", "Flutter Mane", "Slither Wing, Sandy Shocks", "Iron Treads", "Iron Bundle", "Iron Hands", "Iron Jugulis", "Iron Moth", "Iron Thorns",
-			"Roaring Moon", "Iron Valiant", "Walking Wake", "Iron Leaves", "Gouging Fire", "Raging Bolt", "Iron Boulder", "Iron Crown",
-		],
 		onTakeItem(item, source) {
 			if (source.baseSpecies.tags.includes("Paradox")) return false;
 			return true;
@@ -1038,14 +1034,14 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 					showMsg = true;
 				}
 			}
-			if (showMsg && !(effect as ActiveMove).secondaries && !['octolock', 'syrupbomb'].includes(effect.id)) {
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
 				this.add('-fail', target, 'unboost', '[from] item: Clear Amulet', '[of] ' + target);
 			}
 		},
 		num: 1882,
 		gen: 9,
 	},
-	cloversweet: { // updated
+	cloversweet: {
 		name: "Clover Sweet",
 		spritenum: 707,
 		fling: {
@@ -1983,7 +1979,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 539,
 		gen: 5,
 	},
-	flowersweet: { // updated
+	flowersweet: {
 		name: "Flower Sweet",
 		spritenum: 708,
 		fling: {
@@ -2133,7 +2129,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1582,
 		gen: 8,
-		isNonstandard: "Unobtainable",
+		isNonstandard: "Past",
 	},
 	galaricawreath: {
 		name: "Galarica Wreath",
@@ -2143,7 +2139,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: 1592,
 		gen: 8,
-		isNonstandard: "Unobtainable",
+		isNonstandard: "Past",
 	},
 	galladite: {
 		name: "Galladite",
@@ -3213,7 +3209,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		gen: 2,
 		isPokeball: true,
 	},
-	lovesweet: { // updated
+	lovesweet: {
 		name: "Love Sweet",
 		spritenum: 705,
 		fling: {
@@ -4144,7 +4140,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 193,
 		gen: 4,
 	},
-	pechaberry: {
+	pechaberry: { // updated
 		name: "Pecha Berry",
 		spritenum: 333,
 		isBerry: true,
@@ -4342,7 +4338,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		itemUser: ["Silvally-Poison"],
 		num: 906,
 		gen: 7,
-		isNonstandard: "Past",
+		isNonstandard: "Future",
 	},
 	poisoniumz: {
 		name: "Poisonium Z",
@@ -4803,7 +4799,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		gen: 3,
 		isPokeball: true,
 	},
-	ribbonsweet: { // updated
+	ribbonsweet: {
 		name: "Ribbon Sweet",
 		spritenum: 710,
 		fling: {
@@ -5067,7 +5063,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 5,
 		gen: 1,
 		isPokeball: true,
-		isNonstandard: "Unobtainable",
 	},
 	safetygoggles: { // updated
 		name: "Safety Goggles",
@@ -5084,7 +5079,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 				return null;
 			}
 		},
-		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		// Partially implemented in Pokemon.effectiveIrritantWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['sandstorm', 'duststorm', 'pollinate',
@@ -5572,7 +5567,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 499,
 		gen: 2,
 		isPokeball: true,
-		isNonstandard: "Unobtainable",
 	},
 	starfberry: {
 		name: "Starf Berry",
@@ -5606,7 +5600,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 207,
 		gen: 3,
 	},
-	starsweet: { // updated
+	starsweet: {
 		name: "Star Sweet",
 		spritenum: 709,
 		fling: {
@@ -5738,7 +5732,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		isPokeball: true,
 		isNonstandard: "Unobtainable",
 	},
-	strawberrysweet: { // updated
+	strawberrysweet: {
 		name: "Strawberry Sweet",
 		spritenum: 704,
 		fling: {
@@ -7015,7 +7009,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 60,
 		},
-		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		// Partially implemented in Pokemon.effectiveClimateWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snow',
@@ -7643,12 +7637,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			type: "Electric",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox' || pokemon.status === 'blt') {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				pokemon.eatItem();
 			}
 		},
 		onEat(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox' || pokemon.status === 'blt') {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
 				pokemon.cureStatus();
 			}
 		},
@@ -7796,7 +7790,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		fling: {
 			basePower: 10,
 		},
-		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		// Partially implemented in Pokemon.effectiveEnergyWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['auraprojection', 'haunt', 'comsicrays',

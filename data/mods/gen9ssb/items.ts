@@ -124,25 +124,22 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		inherit: true,
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
-			if (
-				['sunnyday', 'raindance', 'desolateland', 'primordialsea', 'stormsurge'].includes(this.field.effectiveClimateWeather())
-			) {
+			if (['sunnyday', 'raindance', 'desolateland', 'primordialsea',
+				'stormsurge'].includes(this.field.effectiveClimateWeather())) {
 				this.runEvent('WeatherChange', pokemon, pokemon, this.effect);
 			}
 		},
 		onUpdate(pokemon) {
 			if (!this.effectState.inactive) return;
 			this.effectState.inactive = false;
-			if (
-				['sunnyday', 'raindance', 'desolateland', 'primordialsea', 'stormsurge'].includes(this.field.effectiveClimateWeather())
-			) {
+			if (['sunnyday', 'raindance', 'desolateland', 'primordialsea',
+				'stormsurge'].includes(this.field.effectiveClimateWeather())) {
 				this.runEvent('WeatherChange', pokemon, pokemon, this.effect);
 			}
 		},
 		onEnd(pokemon) {
-			if (
-				['sunnyday', 'raindance', 'desolateland', 'primordialsea', 'stormsurge'].includes(this.field.effectiveClimateWeather())
-			) {
+			if (['sunnyday', 'raindance', 'desolateland', 'primordialsea',
+				'stormsurge'].includes(this.field.effectiveClimateWeather())) {
 				this.runEvent('WeatherChange', pokemon, pokemon, this.effect);
 			}
 			this.effectState.inactive = true;

@@ -40,7 +40,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 	},
 	sandstorm: {
 		inherit: true,
-		onClimateWeather(target) {
+		onIrritantWeather(target) {
 			const calc = calculate(this, this.effectState.source, target);
 			this.damage(calc * target.baseMaxhp / 16);
 		},

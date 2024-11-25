@@ -525,9 +525,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "Has a 30% chance to burn the target.",
 		shortDesc: "30% chance to burn the target.",
 	},
-	bleakwindstorm: { // updated
+	bleakwindstorm: {
 		name: "Bleakwind Storm",
-		desc: "Has a 30% chance to lower the target's Speed by 1 stage. If the weather is Rain or Primordial Sea, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
+		desc: "Has a 30% chance to lower the target's Speed by 1 stage. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "30% to lower foe(s) Speed by 1. Rain: can't miss.",
 	},
 	blizzard: {
@@ -4129,8 +4129,11 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	minimize: {
 		name: "Minimize",
-		desc: "Raises the user's evasiveness by 2 stages. Whether or not the user's evasiveness was changed, Body Slam, Dragon Rush, Flying Press, Heat Crash, Heavy Slam, Malicious Moonsault, Steamroller, and Stomp will not check accuracy and have their damage doubled if used against the user while it is active.",
+		desc: "Raises the user's evasiveness by 2 stages. Whether or not the user's evasiveness was changed, Body Slam, Dragon Rush, Flying Press, Heat Crash, Heavy Slam, Malicious Moonsault, Steamroller, Stomp, and Supercell Slam will not check accuracy and have their damage doubled if used against the user while it is active.",
 		shortDesc: "Raises the user's evasiveness by 2.",
+		gen8: {
+			desc: "Raises the user's evasiveness by 2 stages. Whether or not the user's evasiveness was changed, Body Slam, Dragon Rush, Flying Press, Heat Crash, Heavy Slam, Malicious Moonsault, Steamroller, and Stomp will not check accuracy and have their damage doubled if used against the user while it is active.",
+		},
 		gen6: {
 			desc: "Raises the user's evasiveness by 2 stages. Whether or not the user's evasiveness was changed, Body Slam, Dragon Rush, Flying Press, Heat Crash, Phantom Force, Shadow Force, Steamroller, and Stomp will not check accuracy and have their damage doubled if used against the user while it is active.",
 		},
@@ -4494,7 +4497,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	orderup: {
 		name: "Order Up",
-		desc: "If an ally Tatsugiri has activated its Commander Ability, this move raises the user's Attack by 1 stage if the Tatsugiri is Curly Form, Defense by 1 stage if Droopy Form, or Speed by 1 stage if Stretchy Form. The effect happens whether or not this move is successful, and even if the Tatsugiri that activated the effect has since fainted.",
+		desc: "If an ally Tatsugiri has activated its Commander Ability, this move raises the user's Attack by 1 stage if the Tatsugiri is Curly Form, Defense by 1 stage if Droopy Form, or Speed by 1 stage if Stretchy Form. The effect happens even if the Tatsugiri that activated the effect has since fainted.",
 		shortDesc: "Curly|Droopy|Stretchy eaten: +1 Atk|Def|Spe.",
 	},
 	originpulse: {
@@ -5439,9 +5442,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "Lowers the target's accuracy by 1 stage.",
 		shortDesc: "Lowers the target's accuracy by 1.",
 	},
-	sandsearstorm: { // updated
+	sandsearstorm: {
 		name: "Sandsear Storm",
-		desc: "Has a 20% chance to burn the target. If the weather is Rain or Primordial Sea, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
+		desc: "Has a 20% chance to burn the target. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "20% chance to burn foe(s). Can't miss in rain.",
 	},
 	sandstorm: {
@@ -7401,9 +7404,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		start: "  Wide Guard protected [TEAM]!",
 		block: "  Wide Guard protected [POKEMON]!",
 	},
-	wildboltstorm: { // updated
+	wildboltstorm: {
 		name: "Wildbolt Storm",
-		desc: "Has a 20% chance to paralyze the target. If the weather is Rain or Primordial Sea, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
+		desc: "Has a 20% chance to paralyze the target. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "20% chance to paralyze foe(s). Rain: can't miss.",
 	},
 	wildcharge: {

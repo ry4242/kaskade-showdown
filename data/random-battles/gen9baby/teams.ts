@@ -73,6 +73,7 @@ export class RandomBabyTeams extends RandomTeams {
 		species: Species,
 		isLead: boolean,
 		isDoubles: boolean,
+		teraType: string,
 		role: RandomTeamsTypes.Role,
 	): void {
 		if (moves.size + movePool.length <= this.maxMoveCount) return;
@@ -101,9 +102,7 @@ export class RandomBabyTeams extends RandomTeams {
 		}
 
 		// Create list of all status moves to be used later
-		const statusMoves = this.dex.moves.all()
-			.filter(move => move.category === 'Status')
-			.map(move => move.id);
+		const statusMoves = this.cachedStatusMoves;
 
 		// Team-based move culls
 		if (teamDetails.screens && movePool.length >= this.maxMoveCount + 2) {
@@ -163,7 +162,7 @@ export class RandomBabyTeams extends RandomTeams {
 		for (const pair of incompatiblePairs) this.incompatibleMoves(moves, movePool, pair[0], pair[1]);
 	}
 
-	// Generate random moveset for a given species and role.
+	// Generate random moveset for a given species, role, tera type.
 	randomMoveset(
 		types: string[],
 		abilities: string[],
@@ -172,11 +171,12 @@ export class RandomBabyTeams extends RandomTeams {
 		isLead: boolean,
 		isDoubles: boolean,
 		movePool: string[],
+		teraType: string,
 		role: RandomTeamsTypes.Role,
 	): Set<string> {
 		const moves = new Set<string>();
-		let counter = this.queryMoves(moves, species, abilities);
-		this.cullMovePool(types, moves, abilities, counter, movePool, teamDetails, species, isLead, isDoubles, role);
+		let counter = this.queryMoves(moves, species, teraType, abilities);
+		this.cullMovePool(types, moves, abilities, counter, movePool, teamDetails, species, isLead, isDoubles, teraType, role);
 
 		// If there are only four moves, add all moves and return early
 		if (movePool.length <= this.maxMoveCount) {
@@ -190,15 +190,20 @@ export class RandomBabyTeams extends RandomTeams {
 		const runEnforcementChecker = (checkerName: string) => {
 			if (!this.moveEnforcementCheckers[checkerName]) return false;
 			return this.moveEnforcementCheckers[checkerName](
-				movePool, moves, abilities, types, counter, species, teamDetails, isLead, isDoubles, role
+				movePool, moves, abilities, types, counter, species, teamDetails, isLead, isDoubles, teraType, role
 			);
 		};
+
+		if (role === 'Tera Blast user') {
+			counter = this.addMove('terablast', moves, types, abilities, teamDetails, species, isLead, isDoubles,
+				movePool, teraType, role);
+		}
 
 		// Add required move (e.g. Relic Song for Meloetta-P)
 		if (species.requiredMove) {
 			const move = this.dex.moves.get(species.requiredMove).id;
 			counter = this.addMove(move, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-				movePool, role);
+				movePool, teraType, role);
 		}
 
 		// Add other moves you really want to have, e.g. STAB, recovery, setup.
@@ -206,24 +211,24 @@ export class RandomBabyTeams extends RandomTeams {
 		// Enforce Facade if Guts is a possible ability
 		if (movePool.includes('facade') && abilities.includes('Guts')) {
 			counter = this.addMove('facade', moves, types, abilities, teamDetails, species, isLead, isDoubles,
-				movePool, role);
+				movePool, teraType, role);
 		}
 
 		// Enforce Sticky Web
 		if (movePool.includes('stickyweb')) {
 			counter = this.addMove('stickyweb', moves, types, abilities, teamDetails, species, isLead, isDoubles,
-				movePool, role);
+				movePool, teraType, role);
 		}
 
 		// Enforce hazard removal on Bulky Support if the team doesn't already have it
 		if (role === 'Bulky Support' && !teamDetails.defog && !teamDetails.rapidSpin) {
 			if (movePool.includes('rapidspin')) {
 				counter = this.addMove('rapidspin', moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
 			}
 			if (movePool.includes('defog')) {
 				counter = this.addMove('defog', moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
 			}
 		}
 
@@ -231,7 +236,7 @@ export class RandomBabyTeams extends RandomTeams {
 		if (types.length === 1 && (types.includes('Normal') || types.includes('Fighting'))) {
 			if (movePool.includes('knockoff')) {
 				counter = this.addMove('knockoff', moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
 			}
 		}
 
@@ -240,7 +245,7 @@ export class RandomBabyTeams extends RandomTeams {
 			const priorityMoves = [];
 			for (const moveid of movePool) {
 				const move = this.dex.moves.get(moveid);
-				const moveType = this.getMoveType(move, species, abilities);
+				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (
 					types.includes(moveType) && (move.priority > 0 || (moveid === 'grassyglide' && abilities.includes('Grassy Surge'))) &&
 					(move.basePower || move.basePowerCallback)
@@ -251,7 +256,7 @@ export class RandomBabyTeams extends RandomTeams {
 			if (priorityMoves.length) {
 				const moveid = this.sample(priorityMoves);
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
 			}
 		}
 
@@ -261,7 +266,7 @@ export class RandomBabyTeams extends RandomTeams {
 			const stabMoves = [];
 			for (const moveid of movePool) {
 				const move = this.dex.moves.get(moveid);
-				const moveType = this.getMoveType(move, species, abilities);
+				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (!this.noStab.includes(moveid) && (move.basePower || move.basePowerCallback) && type === moveType) {
 					stabMoves.push(moveid);
 				}
@@ -270,7 +275,24 @@ export class RandomBabyTeams extends RandomTeams {
 				if (!stabMoves.length) break;
 				const moveid = this.sampleNoReplace(stabMoves);
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
+			}
+		}
+
+		// Enforce Tera STAB
+		if (!counter.get('stabtera') && role !== 'Bulky Support') {
+			const stabMoves = [];
+			for (const moveid of movePool) {
+				const move = this.dex.moves.get(moveid);
+				const moveType = this.getMoveType(move, species, abilities, teraType);
+				if (!this.noStab.includes(moveid) && (move.basePower || move.basePowerCallback) && teraType === moveType) {
+					stabMoves.push(moveid);
+				}
+			}
+			if (stabMoves.length) {
+				const moveid = this.sample(stabMoves);
+				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
+					movePool, teraType, role);
 			}
 		}
 
@@ -279,7 +301,7 @@ export class RandomBabyTeams extends RandomTeams {
 			const stabMoves = [];
 			for (const moveid of movePool) {
 				const move = this.dex.moves.get(moveid);
-				const moveType = this.getMoveType(move, species, abilities);
+				const moveType = this.getMoveType(move, species, abilities, teraType);
 				if (!this.noStab.includes(moveid) && (move.basePower || move.basePowerCallback) && types.includes(moveType)) {
 					stabMoves.push(moveid);
 				}
@@ -287,7 +309,7 @@ export class RandomBabyTeams extends RandomTeams {
 			if (stabMoves.length) {
 				const moveid = this.sample(stabMoves);
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
 			}
 		}
 
@@ -296,7 +318,7 @@ export class RandomBabyTeams extends RandomTeams {
 			const contraryMoves = movePool.filter(moveid => CONTRARY_MOVES.includes(moveid));
 			for (const moveid of contraryMoves) {
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
 			}
 		}
 
@@ -306,25 +328,25 @@ export class RandomBabyTeams extends RandomTeams {
 			if (recoveryMoves.length) {
 				const moveid = this.sample(recoveryMoves);
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
 			}
 		}
 
 		// Enforce setup
-		if (role.includes('Setup')) {
+		if (role.includes('Setup') || role === 'Tera Blast user') {
 			// First, try to add a non-Speed setup move
 			const nonSpeedSetupMoves = movePool.filter(moveid => SETUP.includes(moveid) && !SPEED_SETUP.includes(moveid));
 			if (nonSpeedSetupMoves.length) {
 				const moveid = this.sample(nonSpeedSetupMoves);
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
 			} else {
 				// No non-Speed setup moves, so add any (Speed) setup move
 				const setupMoves = movePool.filter(moveid => SETUP.includes(moveid));
 				if (setupMoves.length) {
 					const moveid = this.sample(setupMoves);
 					counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-						movePool, role);
+						movePool, teraType, role);
 				}
 			}
 		}
@@ -340,7 +362,7 @@ export class RandomBabyTeams extends RandomTeams {
 			if (attackingMoves.length) {
 				const moveid = this.sample(attackingMoves);
 				counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-					movePool, role);
+					movePool, teraType, role);
 			}
 		}
 
@@ -353,7 +375,7 @@ export class RandomBabyTeams extends RandomTeams {
 				const coverageMoves = [];
 				for (const moveid of movePool) {
 					const move = this.dex.moves.get(moveid);
-					const moveType = this.getMoveType(move, species, abilities);
+					const moveType = this.getMoveType(move, species, abilities, teraType);
 					if (!this.noStab.includes(moveid) && (move.basePower || move.basePowerCallback)) {
 						if (currentAttackType !== moveType) coverageMoves.push(moveid);
 					}
@@ -361,7 +383,7 @@ export class RandomBabyTeams extends RandomTeams {
 				if (coverageMoves.length) {
 					const moveid = this.sample(coverageMoves);
 					counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-						movePool, role);
+						movePool, teraType, role);
 				}
 			}
 		}
@@ -379,15 +401,15 @@ export class RandomBabyTeams extends RandomTeams {
 			}
 			const moveid = this.sample(movePool);
 			counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead, isDoubles,
-				movePool, role);
+				movePool, teraType, role);
 			for (const pair of MOVE_PAIRS) {
 				if (moveid === pair[0] && movePool.includes(pair[1])) {
 					counter = this.addMove(pair[1], moves, types, abilities, teamDetails, species, isLead, isDoubles,
-						movePool, role);
+						movePool, teraType, role);
 				}
 				if (moveid === pair[1] && movePool.includes(pair[0])) {
 					counter = this.addMove(pair[0], moves, types, abilities, teamDetails, species, isLead, isDoubles,
-						movePool, role);
+						movePool, teraType, role);
 				}
 			}
 		}
@@ -403,6 +425,7 @@ export class RandomBabyTeams extends RandomTeams {
 		species: Species,
 		isLead: boolean,
 		isDoubles: boolean,
+		teraType: string,
 		role: RandomTeamsTypes.Role,
 	): string {
 		if (abilities.length <= 1) return abilities[0];
@@ -417,7 +440,7 @@ export class RandomBabyTeams extends RandomTeams {
 		// Obtain a list of abilities that are allowed (not culled)
 		for (const ability of abilities) {
 			if (!this.shouldCullAbility(
-				ability, types, moves, abilities, counter, teamDetails, species, isLead, isDoubles, role
+				ability, types, moves, abilities, counter, teamDetails, species, isLead, isDoubles, teraType, role
 			)) {
 				abilityAllowed.push(ability);
 			}
@@ -447,13 +470,12 @@ export class RandomBabyTeams extends RandomTeams {
 		species: Species,
 		isLead: boolean,
 		isDoubles: boolean,
+		teraType: string,
 		role: RandomTeamsTypes.Role,
 	) {
 		if (species.requiredItems) {
 			return this.sample(species.requiredItems);
 		}
-
-		if (species.id === 'nymble') return 'Silver Powder';
 
 		if (moves.has('focusenergy')) return 'Scope Lens';
 		if (moves.has('thief')) return '';
@@ -476,6 +498,7 @@ export class RandomBabyTeams extends RandomTeams {
 		teamDetails: RandomTeamsTypes.TeamDetails,
 		species: Species,
 		isLead: boolean,
+		teraType: string,
 		role: RandomTeamsTypes.Role,
 	): string {
 		if (role === 'Fast Attacker' && (!counter.get('Status') || (counter.get('Status') === 1 && moves.has('destinybond')))) {
@@ -520,7 +543,13 @@ export class RandomBabyTeams extends RandomTeams {
 		const sets = this.randomSets[species.id]["sets"];
 		const possibleSets = [];
 
+		const ruleTable = this.dex.formats.getRuleTable(this.format);
+
 		for (const set of sets) {
+			// Prevent Tera Blast user if the team already has one, or if Terastallizion is prevented.
+			if ((teamDetails.teraBlast || ruleTable.has('terastalclause')) && set.role === 'Tera Blast user') {
+				continue;
+			}
 			possibleSets.push(set);
 		}
 		const set = this.sampleIfArray(possibleSets);
@@ -529,6 +558,8 @@ export class RandomBabyTeams extends RandomTeams {
 		for (const movename of set.movepool) {
 			movePool.push(this.dex.moves.get(movename).id);
 		}
+		const teraTypes = set.teraTypes;
+		let teraType = this.sampleIfArray(teraTypes);
 
 		let ability = '';
 		let item = undefined;
@@ -540,17 +571,17 @@ export class RandomBabyTeams extends RandomTeams {
 		const abilities = set.abilities!;
 
 		// Get moves
-		const moves = this.randomMoveset(types, abilities, teamDetails, species, isLead, isDoubles, movePool, role);
-		const counter = this.queryMoves(moves, species, abilities);
+		const moves = this.randomMoveset(types, abilities, teamDetails, species, isLead, isDoubles, movePool, teraType!, role);
+		const counter = this.queryMoves(moves, species, teraType!, abilities);
 
 		// Get ability
-		ability = this.getAbility(types, moves, abilities, counter, teamDetails, species, isLead, isDoubles, role);
+		ability = this.getAbility(types, moves, abilities, counter, teamDetails, species, isLead, isDoubles, teraType!, role);
 
 		// Get items
 		// First, the priority items
-		item = this.getPriorityItem(ability, types, moves, counter, teamDetails, species, isLead, isDoubles, role);
+		item = this.getPriorityItem(ability, types, moves, counter, teamDetails, species, isLead, isDoubles, teraType!, role);
 		if (item === undefined) {
-			item = this.getItem(ability, types, moves, counter, teamDetails, species, isLead, role);
+			item = this.getItem(ability, types, moves, counter, teamDetails, species, isLead, teraType!, role);
 		}
 
 		// Get level
@@ -589,6 +620,9 @@ export class RandomBabyTeams extends RandomTeams {
 			const move = this.dex.moves.get(m);
 			if (move.damageCallback || move.damage) return true;
 			if (move.id === 'shellsidearm') return false;
+			if (move.id === 'terablast' && (
+				species.id === 'porygon' || species.baseStats.atk > species.baseStats.spa)
+			) return false;
 			return move.category !== 'Physical' || move.id === 'bodypress' || move.id === 'foulplay';
 		});
 
@@ -601,6 +635,9 @@ export class RandomBabyTeams extends RandomTeams {
 			evs.spe = 0;
 			ivs.spe = 0;
 		}
+
+		// Enforce Tera Type after all set generation is done to prevent infinite generation
+		if (this.forceTeraType) teraType = this.forceTeraType;
 
 		// shuffle moves to add more randomness to camomons
 		const shuffledMoves = Array.from(moves);
@@ -616,6 +653,7 @@ export class RandomBabyTeams extends RandomTeams {
 			evs,
 			ivs,
 			item,
+			teraType,
 			role,
 		};
 	}
@@ -760,6 +798,9 @@ export class RandomBabyTeams extends RandomTeams {
 			if (set.moves.includes('rapidspin') || set.moves.includes('mortalspin')) teamDetails.rapidSpin = 1;
 			if (set.moves.includes('auroraveil') || (set.moves.includes('reflect') && set.moves.includes('lightscreen'))) {
 				teamDetails.screens = 1;
+			}
+			if (set.role === 'Tera Blast user') {
+				teamDetails.teraBlast = 1;
 			}
 		}
 		// large teams sometimes cannot be built, and monotype is also at user's own risk

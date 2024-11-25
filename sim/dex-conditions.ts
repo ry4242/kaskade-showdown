@@ -1,5 +1,5 @@
 import {Utils} from '../lib';
-import {BasicEffect, toID} from './dex-data';
+import {assignMissingFields, BasicEffect, toID} from './dex-data';
 import type {SecondaryEffect, MoveEventMethods} from './dex-moves';
 
 export interface EventMethods {
@@ -468,7 +468,7 @@ export interface EventMethods {
 	onAnyModifyDamagePhase1?: CommonHandlers['ModifierSourceMove'];
 	onAnyModifyDamagePhase2?: CommonHandlers['ModifierSourceMove'];
 
-	// Priorities (not complete list)
+	// Priorities (incomplete list)
 	onAccuracyPriority?: number;
 	onDamagingHitOrder?: number;
 	onAfterMoveSecondaryPriority?: number;
@@ -697,10 +697,9 @@ export class Condition extends BasicEffect implements
 
 	constructor(data: AnyObject) {
 		super(data);
-		// eslint-disable-next-line @typescript-eslint/no-this-alias
-		data = this;
 		this.effectType = (['ClimateWeather', 'IrritantWeather', 'EnergyWeather',
 			'ClearingWeather', 'Status'].includes(data.effectType) ? data.effectType : 'Condition');
+		assignMissingFields(this, data);
 	}
 }
 

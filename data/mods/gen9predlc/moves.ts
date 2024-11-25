@@ -3,7 +3,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	bloodmoonblast: {
+	bloodmoon: {
 		inherit: true,
 		isNonstandard: "Future",
 	},

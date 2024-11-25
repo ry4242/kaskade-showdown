@@ -203,6 +203,7 @@ export const DefaultText: {[id: IDEntry]: DefaultText} = {
 	tox: {
 		start: "  [POKEMON] was badly poisoned!",
 		startFromItem: "  [POKEMON] was badly poisoned by the [ITEM]!",
+		startFromWeather: "  [POKEMON]'s condition worsened!",
 		end: "#psn",
 		endFromItem: "#psn",
 		alreadyStarted: "#psn",

@@ -211,7 +211,7 @@ export const Conditions: import('../../../sim/dex-conditions').ModdedConditionDa
 	sandstorm: {
 		inherit: true,
 		onFieldResidualOrder: 2,
-		onClimateWeather(target) {
+		onIrritantWeather(target) {
 			this.damage(target.baseMaxhp / 8);
 		},
 	},
