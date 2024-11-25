@@ -961,7 +961,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onModifySpe(spe, pokemon) {
 			if (pokemon.hasItem('safetygoggles') || pokemon.hasAbility('overcoat')) return;
 			if (pokemon.hasType('Ground') && this.field.isIrritantWeather('duststorm')) {
-				return this.modify(spe, 1.5);
+				return this.modify(spe, 1.25);
 			}
 		},
 		onModifyMovePriority: -5,
@@ -1162,14 +1162,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				return this.modify(spd, 1.25);
 			}
 		},
-		onModifyAccuracyPriority: 10,
-		onModifyAccuracy(accuracy, pokemon, target) {
-			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm'])) return;
-			if (typeof accuracy !== 'number') return;
-			if (target.hasType('Fairy')) return;
-			this.debug('Sprinkle - decreasing evasion'); // actually increases accuracy
-			return this.modify(accuracy, [5461, 4096]);
-		},
 		onFieldStart(field, source, effect) {
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.irritantWeatherState.boosted = true;
@@ -1215,32 +1207,31 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			return critRatio + 1;
 		},
 		onTryBoost(boost, target, source, effect) {
-			if (target.hasItem('energynullifier')) return;
-			if (target.hasType('Fighting')) {
-				if (source && target === source) return;
-				let showMsg = false;
-				let i: BoostID;
-				for (i in boost) {
-					if (boost[i]! < 0) {
-						delete boost[i];
-						showMsg = true;
+			if (this.field.energyWeatherState.boosted) {
+				if (target.hasItem('energynullifier')) return;
+				if (target.hasType('Fighting')) {
+					if (source && target === source) return;
+					let showMsg = false;
+					let i: BoostID;
+					for (i in boost) {
+						if (boost[i]! < 0) {
+							delete boost[i];
+							showMsg = true;
+						}
 					}
-				}
-				if (showMsg && !(effect as ActiveMove).secondaries && !['octolock', 'syrupbomb'].includes(effect.id)) {
-					this.add("-fail", target, "unboost", "[from] energyWeather: Battle Aura", "[of] " + target); // incomplete
+					if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
+						this.add("-fail", target, "unboost", "[from] energyWeather: Battle Aura", "[of] " + target); // incomplete
+					}
 				}
 			}
 		},
-		onModifyMovePriority: -5,
-		onModifyMove(move, target, pokemon) {
-			if (this.field.energyWeatherState.boosted) {
-				if (target.hasItem('energynullifier')) return;
-				if (!move.ignoreImmunity) move.ignoreImmunity = {};
-				if (move.ignoreImmunity !== true) {
-					this.debug('Boosted further by Strong Winds');
-					move.ignoreImmunity['Fighting'] = true;
-					move.ignoreImmunity['Normal'] = true;
-				}
+		onAnyModifyBoost(boosts, pokemon) {
+			if (!this.activePokemon?.hasType('Fighting') || pokemon.hasItem('energynullifier')) return;
+			const auraUser = this.effectState.target;
+			if (auraUser === pokemon) return;
+			if (auraUser === this.activePokemon && pokemon === this.activeTarget) {
+				boosts['def'] = 0;
+				boosts['spd'] = 0;
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -1274,13 +1265,13 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 			return 5;
 		},
-		/* onModifySpDPriority: 10,
+		onModifySpDPriority: 10,
 		onModifySpD(spd, pokemon) {
 			if (pokemon.hasItem('energynullifier')) return;
 			if (pokemon.hasType('Ghost') && this.field.isEnergyWeather('haunt')) {
 				return this.modify(spd, 1.25);
 			}
-		}, */
+		},
 		onBeforeTurn(pokemon) {
 			if (this.field.energyWeatherState.boosted) {
 				if (pokemon.hasItem('energynullifier')) return;
@@ -1289,6 +1280,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 					pokemon.addVolatile('flinch');
 					this.hint("Non-Ghost and Dark types have a 10% chance to flinch in Strong Winds Paranormal Activity :)");
 				}
+			}
+		},
+		onEffectiveness(typeMod, target, type, move) {
+			if (this.field.energyWeatherState.boosted) {
+				if (target?.item === 'energynullifier' || move.type !== 'Ghost') return;
+				if (type === 'Normal') return 1;
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -1531,7 +1528,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onAnyAccuracy(accuracy, target, source, move) {
 			if (target.hasItem('energynullifier')) return;
-			if (source !== target && (move.type === 'Steel' || (move.type === 'Electric' && target.hasType('Steel')))) {
+			if (source !== target && move.type === 'Steel') {
 				this.debug('Magnetosphere guarantees accuracy');
 				return true;
 			}

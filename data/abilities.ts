@@ -6088,18 +6088,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				}
 			}
 		},
-		onModifyMovePriority: -2,
-		onModifyMove(move, pokemon) {
-			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather()) && move.secondaries) {
-				if (move.type === 'Ice') {
-					this.debug('Absolute Zero 2x secondary chance');
-					for (const secondary of move.secondaries) {
-						if (secondary.chance) secondary.chance *= 2;
-					}
-				}
-			}
-			if (move.self?.chance) move.self.chance *= 2;
-		},
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
@@ -6174,10 +6162,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -38,
 	},
 	carboncapture: {
-		onIrritantWeather(target, source, effect) {
-			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
-			if (effect.id === 'smogspread') {
-				this.heal(target.baseMaxhp / 16);
+		onBasePowerPriority: 21,
+		onBasePower(basePower, attacker, defender, move) {
+			if (['smogspread'].includes(attacker.effectiveIrritantWeather())) {
+				if (move.type === 'Poison') {
+					this.debug('Smog damage boost');
+					return this.chainModify(1.5);
+				}
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -6401,12 +6392,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	glacialarmor: {
 		onModifyDef(def, pokemon) {
 			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
-				return this.chainModify(1.4);
+				return this.chainModify(1.2);
 			}
 		},
 		onModifySpD(spd, pokemon) {
 			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
-				return this.chainModify(1.4);
+				return this.chainModify(1.2);
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -6549,7 +6540,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (typeof accuracy !== 'number') return;
 			if (['auraprojection'].includes(source.effectiveEnergyWeather())) {
 				this.debug('Master Instinct accuracy boost');
-				return this.chainModify(1.2);
+				return this.chainModify(1.3);
 			}
 		},
 		flags: {},
