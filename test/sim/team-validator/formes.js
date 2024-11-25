@@ -5,7 +5,7 @@ const assert = require('../../assert');
 let team;
 
 describe('Team Validator', function () {
-	/* it("should validate Necrozma formes correctly", function () {
+	it("should validate Necrozma formes correctly", function () {
 		team = [
 			{species: 'necrozmadawnwings', ability: 'prismarmor', shiny: true, moves: ['moongeistbeam', 'metalclaw'], evs: {hp: 1}},
 		];
@@ -54,23 +54,23 @@ describe('Team Validator', function () {
 		assert.false.legalTeam(team, 'gen7anythinggoes');
 
 		team = [
-			{species: 'lycanrocdusk', ability: 'toughclaws', moves: ['happyhour'], evs: {hp: 1}},
+			{species: 'lycanrocdusk', ability: 'keeneye', moves: ['happyhour'], evs: {hp: 1}},
 		];
 		assert.legalTeam(team, 'gen7anythinggoes');
 		team = [
 			{species: 'lycanroc', ability: 'steadfast', moves: ['happyhour'], evs: {hp: 1}},
 		];
 		assert.false.legalTeam(team, 'gen7anythinggoes');
-	}); */
+	});
 
 	it('should reject Pokemon that cannot obtain moves in a particular forme', function () {
 		team = [
-			{species: 'mosskrat', ability: 'raindish', moves: ['muckvolley'], evs: {hp: 1}},
-			{species: 'mosskrat-tide-bloom', ability: 'raindish', moves: ['solarbeam'], evs: {hp: 1}},
+			{species: 'toxicrity', ability: 'punkrock', moves: ['venomdrench, magneticflux'], evs: {hp: 1}},
+			{species: 'toxicrity-low-key', ability: 'punkrock', moves: ['venoshock, shiftgear'], evs: {hp: 1}},
 		];
-		assert.false.legalTeam(team, 'gen9anythinggoes');
+		assert.false.legalTeam(team, 'gen8anythinggoes');
 
-		/* team = [
+		team = [
 			{species: 'rotom-wash', ability: 'levitate', moves: ['overheat'], evs: {hp: 1}},
 		];
 		assert.false.legalTeam(team, 'gen8anythinggoes');
@@ -97,10 +97,11 @@ describe('Team Validator', function () {
 			{species: 'hoopa-confined', ability: 'magician', moves: ['hyperspacefury'], evs: {hp: 1}},
 			{species: 'hoopa-unbound', ability: 'magician', moves: ['hyperspacehole'], evs: {hp: 1}},
 		];
-		assert.legalTeam(team, 'gen7anythinggoes'); */
+		assert.legalTeam(team, 'gen7anythinggoes');
 	});
 
-	/* it('should tier Zacian and Zamazenta formes seperately', () => {
+	// Zamazenta is unreleased currently
+	it.skip('should tier Zacian and Zamazenta formes seperately', () => {
 		team = [
 			{species: 'zamazenta-crowned', ability: 'dauntlessshield', item: 'rustedshield', moves: ['howl'], evs: {hp: 1}},
 		];
@@ -110,9 +111,9 @@ describe('Team Validator', function () {
 			{species: 'zamazenta', ability: 'dauntlessshield', item: 'lifeorb', moves: ['howl'], evs: {hp: 1}},
 		];
 		assert.false.legalTeam(team, 'gen9almostanyability');
-	}); */
+	});
 
-	/* it('should validate Unown formes in Gen 2 based on DVs', () => {
+	it('should validate Unown formes in Gen 2 based on DVs', () => {
 		team = [
 			{species: 'unowng', moves: ['hiddenpower'], ivs: {hp: 12, atk: 20, def: 18, spa: 28, spd: 28, spe: 2}},
 		];
@@ -122,5 +123,5 @@ describe('Team Validator', function () {
 			{species: 'unown', moves: ['hiddenpower'], ivs: {hp: 0, atk: 4, def: 4, spa: 4, spd: 4, spe: 4}},
 		];
 		assert.false.legalTeam(team, 'gen2ou');
-	}); */
+	});
 });

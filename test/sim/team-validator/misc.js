@@ -3,7 +3,7 @@
 const assert = require('../../assert');
 
 describe('Team Validator', function () {
-	/* it("should allow Shedinja to take exactly one level-up move from Ninjask in gen 3-4", function () {
+	it("should allow Shedinja to take exactly one level-up move from Ninjask in gen 3-4", function () {
 		let team = [
 			{species: 'shedinja', ability: 'wonderguard', moves: ['silverwind', 'swordsdance'], evs: {hp: 1}},
 		];
@@ -19,17 +19,17 @@ describe('Team Validator', function () {
 			{species: 'charmander', ability: 'blaze', moves: ['flareblitz', 'dragondance'], evs: {hp: 1}},
 		];
 		assert.false.legalTeam(team, 'gen4ou');
-	}); */
+	});
 
-	/* it('should correctly enforce levels on Pokémon with unusual encounters in RBY', () => {
+	it('should correctly enforce levels on Pokémon with unusual encounters in RBY', () => {
 		const team = [
 			{species: 'dragonair', level: 15, moves: ['dragonrage'], evs: {hp: 1}},
 			{species: 'electrode', level: 15, moves: ['thunderbolt'], evs: {hp: 1}},
 		];
 		assert.legalTeam(team, 'gen1ou');
-	}); */
+	});
 
-	/* it('should correctly enforce per-game evolution restrictions', function () {
+	it('should correctly enforce per-game evolution restrictions', function () {
 		let team = [
 			{species: 'raichualola', ability: 'surgesurfer', moves: ['doublekick'], evs: {hp: 1}},
 		];
@@ -47,19 +47,20 @@ describe('Team Validator', function () {
 
 		// This works in Gen 9+ because of Mirror Herb
 		team = [
-			{species: 'raichualola', ability: 'surgesurfer', moves: ['fakeout'], evs: {hp: 1}},
+			{species: 'ninetalesalola', ability: 'absolutezero', moves: ['babydolleyes'], evs: {hp: 1}},
 		];
-		assert.legalTeam(team, 'gen9anythinggoes@@@minsourcegen');
-	}); */
+		assert.legalTeam(team, 'gen9anythinggoes@@@minsourcegen=9');
+	});
 
 	it('should prevent Pokemon that don\'t evolve via level-up and evolve from a Pokemon that does evolve via level-up from being underleveled.', function () {
 		const team = [
-			{species: 'florges', level: 1, ability: 'flowerveil', moves: ['moonblast'], evs: {hp: 1}},
+			{species: 'nidoking', level: 1, ability: 'sheerforce', moves: ['earthpower'], evs: {hp: 1}},
+			{species: 'mamoswine', level: 1, ability: 'oblivious', moves: ['earthquake'], evs: {hp: 1}},
 		];
-		assert.false.legalTeam(team, 'gen9anythinggoes');
+		assert.false.legalTeam(team, 'gen7anythinggoes');
 	});
 
-	/* it('should require Pokémon transferred from Gens 1 and 2 to be above Level 2', () => {
+	it('should require Pokémon transferred from Gens 1 and 2 to be above Level 2', () => {
 		const team = [
 			{species: 'pidgey', level: 1, ability: 'bigpecks', moves: ['curse'], evs: {hp: 1}},
 		];
@@ -70,9 +71,9 @@ describe('Team Validator', function () {
 
 		team[0].level = 3;
 		assert.legalTeam(team, 'gen7ou');
-	}); */
+	});
 
-	/* it('should enforce Gen 1 minimum levels', () => {
+	it('should enforce Gen 1 minimum levels', () => {
 		let team = [
 			{species: 'onix', level: 12, moves: ['headbutt']},
 		];
@@ -88,16 +89,16 @@ describe('Team Validator', function () {
 		];
 
 		assert.legalTeam(team, 'gen1ou');
-	}); */
+	});
 
-	/* it('should correctly enforce Shell Smash as a sketched move for Necturna prior to Gen 9', function () {
+	it('should correctly enforce Shell Smash as a sketched move for Necturna prior to Gen 9', function () {
 		const team = [
 			{species: 'necturna', ability: 'forewarn', moves: ['shellsmash', 'vcreate'], evs: {hp: 1}},
 		];
 		assert.false.legalTeam(team, 'gen8cap');
-	}); */
+	});
 
-	/* it("should prevent Pokemon from having a Gen 3 tutor move and a Gen 4 ability together without evolving", function () {
+	it("should prevent Pokemon from having a Gen 3 tutor move and a Gen 4 ability together without evolving", function () {
 		let team = [
 			{species: 'hitmonchan', ability: 'ironfist', moves: ['dynamicpunch'], evs: {hp: 1}},
 		];
@@ -108,7 +109,7 @@ describe('Team Validator', function () {
 			{species: 'clefable', ability: 'magicguard', moves: ['softboiled'], evs: {hp: 1}},
 		];
 		assert.legalTeam(team, 'gen4ou');
-	}); */
+	});
 
 	// Based on research by Anubis: https://www.smogon.com/forums/posts/9713378
 	describe(`Hackmons formes`, function () {
@@ -181,19 +182,19 @@ describe('Team Validator', function () {
 		});
 	});
 
-	/* it('should allow various (underleveled) from Pokemon GO', function () {
+	it('should allow various (underleveled) from Pokemon GO', function () {
 		const team = [
 			{species: 'mewtwo', level: 20, ability: 'pressure', moves: ['agility'], evs: {hp: 1}, ivs: {hp: 1, atk: 1, def: 1, spa: 1, spd: 1}},
 			{species: 'donphan', level: 1, ability: 'sturdy', moves: ['endeavor']},
 			{species: 'mew', shiny: true, level: 15, ability: 'synchronize', moves: ['pound'], evs: {hp: 1}},
 			{species: 'uxie', level: 1, ability: 'levitate', moves: ['acrobatics']},
 			{species: 'zacian', ability: 'intrepidsword', moves: ['agility'], evs: {hp: 1}},
-			{species: 'volcarona', level: 2, ability: 'flamebody', moves: ['acrobatics'], evs: {hp: 1}},
+			{species: 'volcarona', level: 2, ability: 'solarpower', moves: ['acrobatics'], evs: {hp: 1}},
 		];
-		assert.legalTeam(team, 'gen9ubers');
-	}); */
+		assert.legalTeam(team, 'gen9nationaldex');
+	});
 
-	/* it('should disallow Pokemon from Pokemon GO knowing incompatible moves', function () {
+	it('should disallow Pokemon from Pokemon GO knowing incompatible moves', function () {
 		const team = [
 			{species: 'mew', shiny: true, level: 15, ability: 'synchronize', moves: ['aircutter'], evs: {hp: 1}, ivs: {hp: 21, atk: 31, def: 21, spa: 21, spd: 31, spe: 0}},
 		];
@@ -211,5 +212,5 @@ describe('Team Validator', function () {
 			{species: 'shelloseast', ability: 'stickyhold', moves: ['infestation', 'stringshot'], evs: {hp: 1}},
 		];
 		assert.legalTeam(team, 'gen8ou');
-	}); */
+	});
 });

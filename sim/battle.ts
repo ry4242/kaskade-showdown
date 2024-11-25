@@ -2351,6 +2351,9 @@ export class Battle {
 					return target;
 				}
 				if (target.isAlly(pokemon)) {
+					if (move.target === 'adjacentAllyOrSelf' && this.gen !== 5) {
+						return pokemon;
+					}
 					// Target is a fainted ally: attack shouldn't retarget
 					return target;
 				}

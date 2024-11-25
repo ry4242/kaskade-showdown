@@ -6250,7 +6250,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 		num: -36,
 	},
-	druidry: {  // incomplete, does not set grassy terrain
+	druidry: { // incomplete, does not set grassy terrain
 		onIrritantWeather(target, source, effect) {
 			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
 			if (effect.id === 'sprinkle') {

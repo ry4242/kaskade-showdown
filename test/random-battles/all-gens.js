@@ -13,13 +13,13 @@ const {default: Dex} = require('../../dist/sim/dex');
 describe('value rule support (slow)', () => {
 	it('should generate teams of the proper length for the format (i.e. support Max Team Size)', () => {
 		testTeam({format: 'gen9randombattle', rounds: 100}, team => assert.equal(team.length, 6));
-		// testTeam({format: 'gen9challengecup1v1', rounds: 100}, team => assert.equal(team.length, 6));
-		// testTeam({format: 'gen9hackmonscup', rounds: 100}, team => assert.equal(team.length, 6));
+		testTeam({format: 'gen9challengecup1v1', rounds: 100}, team => assert.equal(team.length, 6));
+		testTeam({format: 'gen9hackmonscup', rounds: 100}, team => assert.equal(team.length, 6));
 
-		// testTeam({format: 'gen8multirandombattle', rounds: 100}, team => assert.equal(team.length, 3));
-		// testTeam({format: 'gen8cap1v1', rounds: 100}, team => assert.equal(team.length, 3));
+		testTeam({format: 'gen8multirandombattle', rounds: 100}, team => assert.equal(team.length, 3));
+		testTeam({format: 'gen8cap1v1', rounds: 100}, team => assert.equal(team.length, 3));
 
-		// testTeam({format: 'gen7randombattle', rounds: 100}, team => assert.equal(team.length, 6));
+		testTeam({format: 'gen7randombattle', rounds: 100}, team => assert.equal(team.length, 6));
 	});
 
 	for (let gen = 1; gen <= 9; gen++) {
@@ -66,7 +66,7 @@ describe('value rule support (slow)', () => {
 						}
 					});
 				});
-			}/* else {
+			} else {
 				const dataJSON = require(`../../dist/data/random-battles/gen${gen}/data.json`);
 
 				it(`${format.name} should support Max Move Count = ${count}`, () => {
@@ -94,7 +94,7 @@ describe('value rule support (slow)', () => {
 						}
 					});
 				});
-			} */
+			}
 		}
 	}
 

@@ -1779,11 +1779,11 @@ export class BattleActions {
 		baseDamage = this.battle.randomizer(baseDamage);
 
 		// STAB
-		// The "???" type ALWAYS gets STAB :DDDD
-		// Even if you Roost in Gen 4 and somehow manage to use
-		// Struggle in the same turn. :DDDD
+		// The "???" type never gets STAB
+		// Not even if you Roost in Gen 4 and somehow manage to use
+		// Struggle in the same turn.
 		// (On second thought, it might be easier to get a MissingNo.)
-		// if (type !== '???') {
+		if (type !== '???') {
 			let stab: number | [number, number] = 1;
 
 			const isSTAB = move.forceSTAB || pokemon.hasType(type) || pokemon.getTypes(false, true).includes(type);
@@ -1814,7 +1814,7 @@ export class BattleActions {
 			}
 
 			baseDamage = this.battle.modify(baseDamage, stab);
-		// }
+		}
 
 		// types
 		let typeMod = target.runEffectiveness(move);

@@ -3,6 +3,14 @@
 const assert = require('./../assert');
 
 describe('Mod loader', function () {
+	it('should always provide accurate gen information', function () {
+		{
+			const Dex = require('./../../dist/sim/dex').Dex;
+			assert.equal(Dex.mod('gen2').gen, 2);
+			assert.equal(Dex.forFormat('gen1randombattle').gen, 1);
+		}
+	});
+
 	it('should work fine in any order', function () {
 		{
 			const Dex = require('./../../dist/sim/dex').Dex;
@@ -42,7 +50,7 @@ describe('Dex#getSpecies', function () {
 	});
 
 	it.skip('should handle Rockruff-Dusk', function () {
-		assert.equal(!Dex.species.get('rockruffdusk').name, 'Rockruff-Dusk');
+		assert.equal(Dex.species.get('rockruffdusk').name, 'Rockruff-Dusk');
 	});
 
 	it('should handle Pikachu forme numbering', function () {

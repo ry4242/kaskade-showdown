@@ -188,7 +188,7 @@ describe('Choice parser', function () {
 				assert(battle.choose('p2', `move Blaze Kick zmove 1, move irondefense`));
 			});
 
-			/* it('should allow Dynamax use in multiple possible formats', function () {
+			it('should allow Dynamax use in multiple possible formats', function () {
 				battle = common.gen(8).createBattle([[
 					{species: "Mew", moves: ['psychic']},
 				], [
@@ -198,7 +198,7 @@ describe('Choice parser', function () {
 				battle.makeChoices(`move max mindstorm`, `move psychic max`);
 				assert(battle.p1.active[0].volatiles['dynamax']);
 				assert(battle.p2.active[0].volatiles['dynamax']);
-			}); */
+			});
 
 			it('should handle Conversion 2', function () {
 				battle = common.createBattle({gameType: 'doubles'});
@@ -274,7 +274,7 @@ describe('Choice parser', function () {
 			});
 		});
 
-		/* describe('Triples', function () {
+		describe('Triples', function () {
 			it('should accept only `move` and `switch` choices for a healthy Pokémon on the center', function () {
 				battle = common.gen(5).createBattle({gameType: 'triples'});
 				battle.setPlayer('p1', {team: [
@@ -399,6 +399,6 @@ describe('Choice parser', function () {
 					battle.p1.clearChoice();
 				}
 			});
-		}); */
+		});
 	});
 });

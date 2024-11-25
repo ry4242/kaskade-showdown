@@ -1597,7 +1597,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			} else {
 				this.add('-clearingWeather', 'StrongWinds');
 			}
-			if (['sunnyday', 'desolateland', 'primordialsea', 'raindance', 'hail', 'snow',
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snow',
 				'bloodmoon', 'foghorn', 'deltastream'].includes(field.effectiveClimateWeather())) {
 				this.field.clearClimateWeather();
 				this.debug('Cleared Climate Weathers');

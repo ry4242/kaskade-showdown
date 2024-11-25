@@ -61,7 +61,7 @@ const DOUBLES_TEAMS = {
 	]],
 };
 
-/* const TRIPLES_TEAMS = {
+const TRIPLES_TEAMS = {
 	forcePass: [[
 		{species: 'Bulbasaur', ability: 'overgrow', moves: ['synthesis']},
 		{species: 'Clefable', ability: 'unaware', moves: ['healingwish']},
@@ -94,7 +94,7 @@ const DOUBLES_TEAMS = {
 		{species: 'Clefable', ability: 'unaware', moves: ['recover']},
 		{species: 'Latias', ability: 'blaze', moves: ['roost']},
 	]],
-}; */
+};
 
 let battle;
 
@@ -228,7 +228,7 @@ describe('Choices', function () {
 			assert.species(battle.p2.active[0], 'Charmeleon');
 		});
 
-		/* it('should allow shifting the Pokémon on the left to the center', function () {
+		it('should allow shifting the Pokémon on the left to the center', function () {
 			battle = common.gen(5).createBattle({gameType: 'triples'});
 			battle.setPlayer('p1', {team: [
 				{species: "Pineco", ability: 'sturdy', moves: ['harden']},
@@ -299,7 +299,7 @@ describe('Choices', function () {
 			// Aggron's Earthquake should process after Skarmory shifted
 			// but before Golem shifted, so it didn't hit Golem.
 			assert.equal(battle.p2.active[1].hp, battle.p2.active[1].maxhp);
-		}); */
+		});
 
 		it('should force Struggle usage on move attempt for no valid moves', function () {
 			battle = common.createBattle();
@@ -426,7 +426,7 @@ describe('Choices', function () {
 			assert.fainted(battle.p2.active[1]);
 		});
 
-		/* it('should allow passing when there are not enough available switch-ins even if an active Pokémon is not fainted', function () {
+		it('should allow passing when there are not enough available switch-ins even if an active Pokémon is not fainted', function () {
 			battle = common.gen(5).createBattle({gameType: 'triples'}, [[
 				{species: 'Bulbasaur', ability: 'overgrow', moves: ['tackle']},
 				{species: 'Clefable', ability: 'unaware', moves: ['healingwish']},
@@ -450,7 +450,7 @@ describe('Choices', function () {
 			for (const [index, species] of ['Charmander', 'Charizard', 'Latias'].entries()) {
 				assert.species(battle.p2.active[index], species);
 			}
-		}); */
+		});
 
 		it('should disallow passing when there are enough available switch-ins', function () {
 			battle = common.createBattle({gameType: 'doubles'}, [[
@@ -563,7 +563,7 @@ describe('Choices', function () {
 			}
 		});
 
-		/* it('should allow specifying the team order in a slot-per-slot basis in Triples', function () {
+		it('should allow specifying the team order in a slot-per-slot basis in Triples', function () {
 			for (let i = 0; i < 5; i++) {
 				battle = common.gen(5).createBattle({preview: true, gameType: 'triples'}, TRIPLES_TEAMS.full);
 				const teamOrder = Utils.shuffle(BASE_TEAM_ORDER.slice());
@@ -576,7 +576,7 @@ describe('Choices', function () {
 
 				if (i < 4) battle.destroy();
 			}
-		}); */
+		});
 
 		it('should autocomplete multi-slot choices', function () {
 			for (let i = 0; i < 5; i++) {
@@ -700,7 +700,7 @@ describe('Choices', function () {
 			assert(logText.includes(subString), `${logText} does not include ${subString}`);
 		});
 
-		/* it('should privately log shifting decisions for the Pokémon on the left', function () {
+		it('should privately log shifting decisions for the Pokémon on the left', function () {
 			battle = common.gen(5).createBattle({gameType: 'triples'});
 			battle.setPlayer('p1', {team: [
 				{species: "Pineco", ability: 'sturdy', moves: ['harden']},
@@ -737,7 +737,7 @@ describe('Choices', function () {
 			const logText = battle.inputLog.join('\n');
 			const subString = '>p1 move harden, move defensecurl, shift\n>p2 move roost, move irondefense, move defensecurl';
 			assert(logText.includes(subString), `${logText} does not include ${subString}`);
-		}); */
+		});
 	});
 });
 
@@ -935,7 +935,7 @@ describe('Choice extensions', function () {
 				}
 			});
 
-			/* it(`should support to ${mode} shift decisions on move requests`, function () {
+			it(`should support to ${mode} shift decisions on move requests`, function () {
 				const TEAMS = [[
 					{species: 'Bulbasaur', ability: 'overgrow', moves: ['synthesis']},
 					{species: 'Ivysaur', ability: 'overgrow', moves: ['synthesis']},
@@ -1007,7 +1007,7 @@ describe('Choice extensions', function () {
 					assert.species(battle.p1.active[index], species);
 				}
 				assert.equal(battle.p1.active[2].lastMove.id, 'growth');
-			}); */
+			});
 
 			it(`should support to ${mode} switch decisions on double switch requests`, function () {
 				battle = common.createBattle({cancel: true});
@@ -1410,7 +1410,7 @@ describe('Choice internals', function () {
 		assert.species(p1.active[1], 'Koffing');
 	});
 
-	/* it('should empty the actions list when undoing a shift', function () {
+	it('should empty the actions list when undoing a shift', function () {
 		battle = common.gen(5).createBattle({gameType: 'triples', cancel: true});
 		battle.supportCancel = true;
 		battle.setPlayer('p1', {team: [
@@ -1435,6 +1435,6 @@ describe('Choice internals', function () {
 		assert.fainted(p1.active[2]);
 		assert.species(p1.active[1], 'Gastly');
 		assert.false.fainted(p1.active[1]);
-	}); */
+	});
 });
 

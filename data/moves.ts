@@ -8957,7 +8957,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				const diceRoll = this.random(typeArray.length);
 				type = typeArray[diceRoll];
 			}
-		}, */
+		},
 		onPrepareHit(target, source, move) {
 			const possibleTypes = [];
 			const targetType = target.getTypes();
@@ -8975,7 +8975,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			if (!source.setType(randomType)) return false;
 			this.add('-start', source, 'typechange', randomType);
 			move.type = randomType;
-		},
+		}, */
 		onTry(source, target, move) {
 			if (source.baseSpecies.name === 'Unown' || move.hasBounced) {
 				return;
@@ -21733,7 +21733,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			}
 		},
 		basePowerCallback(pokemon, target, move) {
-			if (['sunnyday', 'desolateland', 'primordialsea', 'raindance', 'hail', 'snow',
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snow',
 				'bloodmoon', 'foghorn', 'deltastream'].includes(this.field.effectiveClimateWeather()) ||
 			['sandstorm', 'duststorm', 'pollinate',
 				'swarmsignal', 'smogspread', 'sprinkle'].includes(this.field.effectiveIrritantWeather()) ||
@@ -22439,7 +22439,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, reflectable: 1, mirror: 1, heal: 1, metronome: 1},
 		onHit(target, source, move) {
-			if (source.hp == source.maxhp) return;
+			if (source.hp === source.maxhp) return;
 			source.heal(source.baseMaxhp / 4, source, move);
 			source.clearStatus();
 			this.add('-heal', source, source.getHealth, '[from] move: Cider Cannon');
@@ -22621,7 +22621,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			['sprinkle'].includes(pokemon.effectiveIrritantWeather())) {
 				this.debug('weather canceled out');
 				return this.chainModify(1);
-			} else if (['bloodmoon'].includes(pokemon.effectiveClimateWeather())) {	
+			} else if (['bloodmoon'].includes(pokemon.effectiveClimateWeather())) {
 				this.debug('powered by blood moon');
 				return this.chainModify(1.25);
 			} else if (['sprinkle'].includes(pokemon.effectiveIrritantWeather())) {
@@ -22705,7 +22705,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Dragon",
 	},
-	dragonsdice: { // incomplete. tested, everything except OHKO works
+	/* dragonsdice: { // incomplete. tested, everything except OHKO works, pulls a fuckton of errors
 		num: -92,
 		accuracy: 100,
 		basePower: 20,
@@ -22810,7 +22810,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-	},
+	}, */
 	duststorm: {
 		num: -3,
 		accuracy: true,
@@ -23059,7 +23059,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Normal",
 	},
-	frostburnclaw: { // incomplete, doesnt switch types (FUCK YOU)
+	/* frostburnclaw: { // incomplete, doesnt switch types (FUCK YOU) pulls fuckton of errors
 		num: -97,
 		accuracy: 95,
 		basePower: 80,
@@ -23080,7 +23080,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		secondary: null,
 		target: "normal",
 		type: "Ice",
-	},
+	}, */
 	frostification: {
 		num: -99,
 		accuracy: true,
