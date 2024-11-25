@@ -589,7 +589,7 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 			for (const player of this.players) {
 				const nameIndex1 = options.inputLog.indexOf(`"name":"`, scanIndex);
 				const nameIndex2 = options.inputLog.indexOf(`"`, nameIndex1 + 8);
-				if (nameIndex1 < 0 || nameIndex2 < 0) break; // shouldn't happen. not complete inputlog?
+				if (nameIndex1 < 0 || nameIndex2 < 0) break; // shouldn't happen. incomplete inputlog?
 				scanIndex = nameIndex2 + 1;
 				const name = options.inputLog.slice(nameIndex1 + 8, nameIndex2);
 				player.name = name;
@@ -1101,7 +1101,7 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 	checkForcedUserSettings(user: User) {
 		this.forcedSettings = {
 			modchat: this.forcedSettings.modchat || RoomBattle.battleForcedSetting(user, 'modchat'),
-			privacy: this.forcedSettings.privacy || RoomBattle.battleForcedSetting(user, 'privacy'),
+			privacy: !!this.options.rated && (this.forcedSettings.privacy || RoomBattle.battleForcedSetting(user, 'privacy')),
 		};
 		if (
 			this.players.some(p => p.getUser()?.battleSettings.special) ||

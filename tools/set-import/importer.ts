@@ -55,7 +55,7 @@ const VALIDATORS = new Map<ID, TeamValidator>();
 for (let gen = 1; gen <= 9; gen++) {
 	for (const tier of TIERS) {
 		const format = Dex.formats.get(`gen${gen}${tier}`);
-		if (format.exists) {
+		if (format.effectType === 'Format') {
 			FORMATS.set(format.id, {gen: gen as GenerationNum, format});
 			VALIDATORS.set(format.id, new TeamValidator(format));
 		}
@@ -245,6 +245,7 @@ function movesetToPokemonSet(dex: ModdedDex, format: Format, pokemon: string, se
 		ability: fixedAbility(dex, pokemon, set.abilities[0]),
 		item: set.items[0] === 'No Item' ? undefined : set.items[0],
 		nature: set.natures[0],
+		teraType: set.teratypes ? set.teratypes[0] : undefined,
 		ivs: toStatsTable(set.ivconfigs[0], 31),
 		evs: toStatsTable(set.evconfigs[0]),
 	};

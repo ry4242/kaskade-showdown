@@ -576,35 +576,6 @@ export class Field {
 		return true;
 	}
 
-	/* setInitialClimateWeather(status: string | Effect) {
-        status = this.battle.dex.conditions.get(status);
-        this.climateWeatherState = {};
-        this.battle.add('-climateWeather', status.id);
-        this.climateWeather = status.id;
-        this.climateWeatherState.id = status.id;
-    }
-	setInitialIrritantWeather(status: string | Effect) {
-        status = this.battle.dex.conditions.get(status);
-        this.irritantWeatherState = {};
-        this.battle.add('-irritantWeather', status.id);
-        this.irritantWeather = status.id;
-        this.irritantWeatherState.id = status.id;
-    }
-	setInitialEnergyWeather(status: string | Effect) {
-        status = this.battle.dex.conditions.get(status);
-        this.energyWeatherState = {};
-        this.battle.add('-energyWeather', status.id);
-        this.energyWeather = status.id;
-        this.energyWeatherState.id = status.id;
-    }
-	setInitialClearingWeather(status: string | Effect) {
-        status = this.battle.dex.conditions.get(status);
-        this.clearingWeatherState = {};
-        this.battle.add('-clearingWeather', status.id);
-        this.clearingWeather = status.id;
-        this.clearingWeatherState.id = status.id;
-    } */
-
 	destroy() {
 		// deallocate ourself
 

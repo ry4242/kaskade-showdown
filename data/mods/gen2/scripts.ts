@@ -402,6 +402,10 @@ export const Scripts: ModdedBattleScriptsData = {
 					hitResult = this.battle.field.setClimateWeather(moveData.climateWeather, pokemon, move);
 					didSomething = didSomething || hitResult;
 				}
+				if (moveData.irritantWeather) {
+					hitResult = this.battle.field.setIrritantWeather(moveData.irritantWeather, pokemon, move);
+					didSomething = didSomething || hitResult;
+				}
 				if (moveData.pseudoWeather) {
 					hitResult = this.battle.field.addPseudoWeather(moveData.pseudoWeather, pokemon, move);
 					didSomething = didSomething || hitResult;

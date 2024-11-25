@@ -85,12 +85,9 @@ export function changeSet(context: Battle, pokemon: Pokemon, newSet: SSBSet, cha
 	if (newSet.species === 'Shedinja') percent = 1;
 	pokemon.formeChange(newSet.species, context.effect, true);
 	if (!pokemon.terastallized && newSet.teraType) {
-		const allTypes = context.dex.types.all().map(x => x.name);
-		pokemon.teraType = newSet.teraType === 'Any' ?
-			allTypes[Math.floor(Math.random() * allTypes.length)] :
-			Array.isArray(newSet.teraType) ?
-				newSet.teraType[Math.floor(Math.random() * newSet.teraType.length)] :
-				newSet.teraType;
+		const allTypes = context.dex.types.names();
+		pokemon.teraType = newSet.teraType === 'Any' ? context.sample(allTypes) :
+			Array.isArray(newSet.teraType) ? context.sample(newSet.teraType) : newSet.teraType;
 	}
 	const details = pokemon.species.name + (pokemon.level === 100 ? '' : ', L' + pokemon.level) +
 		(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
@@ -1764,7 +1761,7 @@ export const Scripts: ModdedBattleScriptsData = {
 			return item !== 'airballoon';
 		},
 		effectiveWeather() {
-			const weather = this.battle.field.effectiveClimateWeather();
+			const weather = this.battle.field.effectiveWeather();
 			switch (weather) {
 			case 'sunnyday':
 			case 'raindance':
@@ -1815,10 +1812,10 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 				if (this.battle.activePerHalf > 1 && !move.tracksTarget) {
 					const isCharging = move.flags['charge'] && !this.volatiles['twoturnmove'] &&
-						!(move.id.startsWith('solarb') && ['sunnyday', 'desolateland'].includes(this.effectiveClimateWeather())) &&
-						!(move.id === 'fruitfullongbow' && ['sunnyday', 'desolateland'].includes(this.effectiveClimateWeather())) &&
+						!(move.id.startsWith('solarb') && ['sunnyday', 'desolateland'].includes(this.effectiveWeather())) &&
+						!(move.id === 'fruitfullongbow' && ['sunnyday', 'desolateland'].includes(this.effectiveWeather())) &&
 						!(move.id === 'praisethemoon' && this.battle.field.getPseudoWeather('gravity')) &&
-						!(move.id === 'electroshot' && ['stormsurge', 'raindance', 'primordialsea'].includes(this.effectiveClimateWeather())) &&
+						!(move.id === 'electroshot' && ['stormsurge', 'raindance', 'primordialsea'].includes(this.effectiveWeather())) &&
 						!(this.hasItem('powerherb') && move.id !== 'skydrop');
 					if (!isCharging) {
 						target = this.battle.priorityEvent('RedirectTarget', this, this, move, target);

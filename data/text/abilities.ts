@@ -265,7 +265,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	corrosion: {
 		name: "Corrosion",
 		desc: "This Pokemon can poison or badly poison a Pokemon regardless of its typing. If Smog is active, this Pokemon can hit Steel types with Poison-type moves.",
-		shortDesc: "Can poison Steel-types. Poison moves hit Steel.",
+		shortDesc: "This Pokemon can poison Steel-types. Poison moves hit Steel.",
 	},
 	costar: {
 		name: "Costar",
@@ -413,6 +413,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Earth Eater",
 		desc: "This Pokemon is immune to Ground-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Ground-type move.",
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Ground moves; Ground immunity.",
+	},
+	earthforce: {
+		name: "Earth Force",
+		desc: "If Sandstorm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm. These effects are prevented if this Pokemon is holding Safety Goggles.",
+		shortDesc: "This Pokemon's Ground/Rock/Steel attacks do 1.3x in Sandstorm; immunity to it.",
 	},
 	effectspore: {
 		name: "Effect Spore",
@@ -1055,7 +1060,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	motordrive: {
 		name: "Motor Drive",
-		desc: "This Pokemon is immune to Electric-type moves and its Speed is raised by 1 stage when hit by an Electric-type move.",
+		desc: "This Pokemon is immune to Electric-type moves and raises its Speed by 1 stage when hit by an Electric-type move.",
 		shortDesc: "This Pokemon's Speed is raised 1 stage if hit by an Electric move; Electric immunity.",
 	},
 	moxie: {
@@ -1516,11 +1521,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	runaway: {
 		name: "Run Away",
 		shortDesc: "No competitive use.",
-	},
-	earthforce: {
-		name: "Earth Force",
-		desc: "If Sandstorm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm. These effects are prevented if this Pokemon is holding Safety Goggles.",
-		shortDesc: "This Pokemon's Ground/Rock/Steel attacks do 1.3x in Sandstorm; immunity to it.",
 	},
 	sandrush: {
 		name: "Sand Rush",

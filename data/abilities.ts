@@ -537,7 +537,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					showMsg = true;
 				}
 			}
-			if (showMsg && !(effect as ActiveMove).secondaries && !['octolock', 'syrupbomb'].includes(effect.id)) {
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
 				this.add("-fail", target, "unboost", "[from] ability: Clear Body", "[of] " + target);
 			}
 		},
@@ -1888,7 +1888,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					showMsg = true;
 				}
 			}
-			if (showMsg && !(effect as ActiveMove).secondaries && !['octolock', 'syrupbomb'].includes(effect.id)) {
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
 				this.add("-fail", target, "unboost", "[from] ability: Full Metal Body", "[of] " + target);
 			}
 		},
@@ -1907,10 +1907,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: 169,
 	},
-	galewings: { // updated
+	galewings: {
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move.type !== 'Flying') return;
-			if (pokemon.hp === pokemon.maxhp || this.field.isClearingWeather('strongwinds')) return priority + 1;
+			if ((move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) || this.field.isClearingWeather('strongwinds')) {
+				return priority + 1;
+			}
 		},
 		flags: {},
 		name: "Gale Wings",
@@ -2567,6 +2568,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onBasePowerPriority: 23,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.flags['punch']) {
+				this.debug('Iron Fist boost');
 				return this.chainModify(1.5);
 			}
 		},
@@ -3415,7 +3417,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				return null;
 			}
 		},
-		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		// Partially implemented in Pokemon.effectiveIrritantWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['sandstorm', 'duststorm', 'pollinate',
@@ -3848,7 +3850,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (this.field.isClimateWeather('sunnyday')) {
 				pokemon.addVolatile('protosynthesis');
 			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster && this.field.climateWeather !== 'sunnyday') {
-				// Protosynthesis will not deactivite if Sun is suppressed, hence the direct ID check (isWeather respects supression)
+				// Protosynthesis will not deactivite if Sun is suppressed, hence the direct ID check (isClimateWeather respects supression)
 				pokemon.removeVolatile('protosynthesis');
 			}
 		},
@@ -5835,7 +5837,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					showMsg = true;
 				}
 			}
-			if (showMsg && !(effect as ActiveMove).secondaries && !['octolock', 'syrupbomb'].includes(effect.id)) {
+			if (showMsg && !(effect as ActiveMove).secondaries && effect.id !== 'octolock') {
 				this.add("-fail", target, "unboost", "[from] ability: White Smoke", "[of] " + target);
 			}
 		},
@@ -5884,7 +5886,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1,
 		num: 277,
 	},
-	windrider: { // updated
+	windrider: { // updated, untested??
 		onStart(pokemon) {
 			if (pokemon.side.sideConditions['tailwind'] || ['strongwinds'].includes(pokemon.effectiveClearingWeather())) {
 				this.boost({atk: 1}, pokemon, pokemon);
@@ -6014,7 +6016,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 
 	// CAP
-
 	mountaineer: {
 		onDamage(damage, target, source, effect) {
 			if (effect && effect.id === 'stealthrock') {
@@ -6144,7 +6145,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		// Partially implemented in Pokemon.effectiveIrritantWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['sandstorm', 'duststorm', 'pollinate',
@@ -6222,7 +6223,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		// Partially implemented in Pokemon.effectiveClimateWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea',
@@ -6484,7 +6485,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		// Partially implemented in Pokemon.effectiveWeather() in sim/pokemon.ts
+		// Partially implemented in Pokemon.effectiveClimateWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['raindance', 'primordialsea', 'hail'].includes(this.field.effectiveClimateWeather())) {

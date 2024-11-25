@@ -99,6 +99,7 @@ function sereneGraceBenefits(move: Move) {
 
 export class RandomGen7Teams extends RandomGen8Teams {
 	randomSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./sets.json');
+	protected cachedStatusMoves: ID[];
 
 	constructor(format: Format | string, prng: PRNG | PRNGSeed | null) {
 		super(format, prng);
@@ -141,6 +142,10 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			Steel: (movePool, moves, abilities, types, counter, species) => (!counter.get('Steel') && species.baseStats.atk >= 100),
 			Water: (movePool, moves, abilities, types, counter) => !counter.get('Water'),
 		};
+		// Nature Power is Tri Attack this gen
+		this.cachedStatusMoves = this.dex.moves.all()
+			.filter(move => move.category === 'Status' && move.id !== 'naturepower')
+			.map(move => move.id);
 	}
 
 	newQueryMoves(
@@ -311,10 +316,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		// Develop additional move lists
 		const badWithSetup = ['defog', 'dragontail', 'haze', 'healbell', 'nuzzle', 'pursuit', 'rapidspin', 'toxic'];
-		// Nature Power is Tri Attack this gen
-		const statusMoves = this.dex.moves.all()
-			.filter(move => move.category === 'Status' && move.id !== 'naturepower')
-			.map(move => move.id);
+		const statusMoves = this.cachedStatusMoves;
 
 		// General incompatibilities
 		const incompatiblePairs = [
@@ -1074,7 +1076,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 
 		// Minimize confusion damage, including if Foul Play is its only physical attack
 		if (
-			(!counter.get('Physical') || (counter.get('Physical') <= 1 && moves.has('foulplay'))) &&
+			(!counter.get('Physical') || (counter.get('Physical') <= 1 && (moves.has('foulplay') || moves.has('rapidspin')))) &&
 			!moves.has('copycat') && !moves.has('transform')
 		) {
 			evs.atk = 0;
@@ -1410,7 +1412,7 @@ export class RandomGen7Teams extends RandomGen8Teams {
 		const weatherAbilitiesRequire: {[k: string]: string} = {
 			hydration: 'raindance', swiftswim: 'raindance',
 			leafguard: 'sunnyday', solarpower: 'sunnyday', chlorophyll: 'sunnyday',
-			earthforce: 'sandstorm', sandrush: 'sandstorm', sandveil: 'sandstorm',
+			sandforce: 'sandstorm', sandrush: 'sandstorm', sandveil: 'sandstorm',
 			slushrush: 'hail', snowcloak: 'hail',
 		};
 		const weatherAbilities = ['drizzle', 'drought', 'snowwarning', 'sandstream'];
@@ -1438,8 +1440,8 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			const allowedAbilities: string[] = [];
 			for (const abilityString of curSet.ability) {
 				const ability = this.dex.abilities.get(abilityString);
-				if (weatherAbilitiesRequire[ability.id] && teamData.climateWeather !== weatherAbilitiesRequire[ability.id]) continue;
-				if (teamData.climateWeather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
+				if (weatherAbilitiesRequire[ability.id] && teamData.weather !== weatherAbilitiesRequire[ability.id]) continue;
+				if (teamData.weather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
 				allowedAbilities.push(abilityString);
 			}
 			if (allowedAbilities.length === 0) continue;
@@ -1737,10 +1739,10 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			if (teamData.has[item.id]) continue; // Item clause
 
 			const ability = this.dex.abilities.get(curSet.ability);
-			if (weatherAbilitiesRequire[ability.id] && teamData.climateWeather !== weatherAbilitiesRequire[ability.id]) continue;
-			if (teamData.climateWeather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
+			if (weatherAbilitiesRequire[ability.id] && teamData.weather !== weatherAbilitiesRequire[ability.id]) continue;
+			if (teamData.weather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
 
-			if (curSet.species === 'Aron' && teamData.climateWeather !== 'sandstorm') continue; // reject Aron w/o Sand Stream user
+			if (curSet.species === 'Aron' && teamData.weather !== 'sandstorm') continue; // reject Aron without a Sand Stream user
 
 			let reject = false;
 			let hasRequiredMove = false;

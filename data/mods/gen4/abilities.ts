@@ -381,7 +381,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onModifyAccuracyPriority: 8,
 		onModifyAccuracy(accuracy) {
 			if (typeof accuracy !== 'number') return;
-			if (this.field.isClimateWeather('sandstorm')) {
+			if (this.field.isIrritantWeather('sandstorm')) {
 				this.debug('Sand Veil - decreasing accuracy');
 				return accuracy * 0.8;
 			}

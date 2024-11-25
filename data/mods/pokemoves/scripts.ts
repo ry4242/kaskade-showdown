@@ -1,13 +1,13 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
 	field: {
-		suppressingClimateWeather() {
+		suppressingWeather() {
 			for (const pokemon of this.battle.getAllActive()) {
 				const pokemove = pokemon.m.pokemove;
 				if (pokemon && !pokemon.ignoringAbility() &&
-					(pokemon.getAbility().suppressClimateWeather ||
+					(pokemon.getAbility().suppressWeather ||
 						(pokemove && pokemon.volatiles['ability:' + this.battle.toID(pokemove.abilities['0'])] &&
-							this.battle.dex.abilities.get(pokemove.abilities['0']).suppressClimateWeather))) {
+							this.battle.dex.abilities.get(pokemove.abilities['0']).suppressWeather))) {
 					return true;
 				}
 			}

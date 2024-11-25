@@ -13,7 +13,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Standard',
 		desc: "The standard ruleset for all offical Smogon singles tiers (Ubers, OU, etc.)",
 		ruleset: [
-			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Obtainable', 'Team Preview', 'Sleep Clause Mod', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Items Clause', 'Evasion Moves Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
 			'Min Source Gen = 9',
 		],
 	},
@@ -68,7 +68,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 		name: 'Standard Doubles',
 		desc: "The standard ruleset for all official Smogon doubles tiers",
 		ruleset: [
-			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
+			'Obtainable', 'Team Preview', 'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause', 'Endless Battle Clause', 'HP Percentage Mod', 'Cancel Mod',
 			'Min Source Gen = 9',
 		],
 	},
@@ -1449,7 +1449,9 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 				if (pokemon.species.id === 'rayquaza') {
 					pokemon.canMegaEvo = null;
 					// ability to terastal was determined before the clause activated, causing incorrect behavior
-					pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+					if (!this.ruleTable.has('terastalclause')) {
+						pokemon.canTerastallize = this.actions.canTerastallize(pokemon);
+					}
 				}
 			}
 		},

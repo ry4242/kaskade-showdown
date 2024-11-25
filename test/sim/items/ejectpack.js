@@ -138,7 +138,7 @@ describe(`Eject Pack`, function () {
 			{species: 'Wynaut', moves: ['sleeptalk']},
 		]]);
 		battle.makeChoices();
-		assert(battle.field.isWeather('sunnyday'));
+		assert(battle.field.isClimateWeather('sunnyday'));
 		assert(battle.field.isTerrain('electricterrain'));
 		assert.equal(battle.p2.requestState, 'switch');
 	});

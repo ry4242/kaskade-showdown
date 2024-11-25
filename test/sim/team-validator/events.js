@@ -25,7 +25,7 @@ describe('Team Validator', function () {
 
 		// Both are Dream World moves, but Smack Down is also level-up/TM
 		team = [
-			{species: 'boldore', ability: 'earthforce', moves: ['heavyslam', 'smackdown'], evs: {hp: 1}},
+			{species: 'boldore', ability: 'sturdy', moves: ['heavyslam', 'smackdown'], evs: {hp: 1}},
 		];
 		assert.legalTeam(team, 'gen5ou');
 	});

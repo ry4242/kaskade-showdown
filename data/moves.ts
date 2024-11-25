@@ -1398,7 +1398,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Dark",
 		contestType: "Tough",
 	},
-	bitterblade: { // updated
+	bitterblade: {
 		num: 891,
 		accuracy: 100,
 		basePower: 90,
@@ -1429,7 +1429,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Ghost",
 	},
 	blackholeeclipse: {
-		num: -65,
+		num: 654,
 		accuracy: true,
 		basePower: 1,
 		category: "Physical",
@@ -1513,7 +1513,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				move.accuracy = true;
 			}
 		},
-		secondary: null,
+		secondary: {
+			chance: 30,
+			boosts: {
+				spe: -1,
+			},
+		},
 		target: "allAdjacentFoes",
 		type: "Flying",
 	},
@@ -1932,6 +1937,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		accuracy: 100,
 		basePower: 40,
 		category: "Special",
+		isNonstandard: "Past",
 		name: "Bubble",
 		pp: 30,
 		priority: 0,
@@ -2448,7 +2454,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Flying",
 		contestType: "Cute",
 	},
-	chillingwater: {
+	chillingwater: { // updated
 		num: 886,
 		accuracy: 100,
 		basePower: 50,
@@ -2907,11 +2913,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			}
 			const possibleTypes = [];
 			const attackType = target.lastMoveUsed.type;
-			for (const type of this.dex.types.all()) {
-				if (source.hasType(type.name)) continue;
-				const typeCheck = type.damageTaken[attackType];
+			for (const typeName of this.dex.types.names()) {
+				if (source.hasType(typeName)) continue;
+				const typeCheck = this.dex.types.get(typeName).damageTaken[attackType];
 				if (typeCheck === 2 || typeCheck === 3) {
-					possibleTypes.push(type.name);
+					possibleTypes.push(typeName);
 				}
 			}
 			if (!possibleTypes.length) {
@@ -4403,7 +4409,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Fighting",
 		contestType: "Tough",
 	},
-	dreameater: { // updated
+	dreameater: { // updated, untested
 		num: 138,
 		accuracy: 100,
 		basePower: 100,
@@ -7787,7 +7793,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		contestType: "Cool",
 	},
 	gmaxwindrage: {
-		num: -20,
+		num: 1000,
 		accuracy: true,
 		basePower: 10,
 		category: "Physical",
@@ -12858,7 +12864,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: {effect: 'clearnegativeboost'},
 		contestType: "Beautiful",
 	},
-	mortalspin: {
+	mortalspin: { // updated
 		num: 866,
 		accuracy: 100,
 		basePower: 30,
@@ -13570,7 +13576,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: {boost: {atk: 1}},
 		contestType: "Clever",
 	},
-	ominouswind: {
+	ominouswind: { // updated
 		num: 466,
 		accuracy: 100,
 		basePower: 60,
@@ -15356,7 +15362,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: {boost: {spe: 1}},
 		contestType: "Beautiful",
 	},
-	rapidspin: {
+	rapidspin: { // updated
 		num: 229,
 		accuracy: 100,
 		basePower: 50,
@@ -16407,7 +16413,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				move.accuracy = true;
 			}
 		},
-		secondary: null,
+		secondary: {
+			chance: 20,
+			status: 'brn',
+		},
 		target: "allAdjacentFoes",
 		type: "Ground",
 	},
@@ -17051,7 +17060,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Fire",
 		contestType: "Tough",
 	},
-	shelter: {
+	shelter: { // updated
 		num: 842,
 		accuracy: true,
 		basePower: 0,
@@ -17432,7 +17441,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Normal",
 		contestType: "Tough",
 	},
-	skyattack: {
+	skyattack: { // updated
 		num: 143,
 		accuracy: 95,
 		basePower: 140,
@@ -18620,7 +18629,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: {boost: {spd: 1}},
 		contestType: "Cute",
 	},
-	springtidestorm: { // updated
+	springtidestorm: {
 		num: 831,
 		accuracy: 80,
 		basePower: 100,
@@ -18629,8 +18638,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, wind: 1},
-		irritantWeather: 'sprinkle',
-		secondary: null,
+		secondary: {
+			chance: 30,
+			boosts: {
+				atk: -1,
+			},
+		},
 		target: "allAdjacentFoes",
 		type: "Fairy",
 	},
@@ -21879,7 +21892,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				move.accuracy = true;
 			}
 		},
-		secondary: null,
+		secondary: {
+			chance: 20,
+			status: 'par',
+		},
 		target: "allAdjacentFoes",
 		type: "Electric",
 	},

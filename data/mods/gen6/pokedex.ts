@@ -255,15 +255,15 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	roggenrola: {
 		inherit: true,
-		abilities: {0: "Sturdy", H: "Earth Force"},
+		abilities: {0: "Sturdy", H: "Sand Force"},
 	},
 	boldore: {
 		inherit: true,
-		abilities: {0: "Sturdy", H: "Earth Force"},
+		abilities: {0: "Sturdy", H: "Sand Force"},
 	},
 	gigalith: {
 		inherit: true,
-		abilities: {0: "Sturdy", H: "Earth Force"},
+		abilities: {0: "Sturdy", H: "Sand Force"},
 	},
 	woobat: {
 		inherit: true,
