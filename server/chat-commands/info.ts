@@ -2314,7 +2314,6 @@ export const commands: Chat.ChatCommands = {
 		const item = Dex.items.get(target);
 		const move = Dex.moves.get(target);
 		const ability = Dex.abilities.get(target);
-		// const nature = Dex.natures.get(target);
 		let atLeastOne = false;
 
 		// Pokemon
@@ -2347,7 +2346,6 @@ export const commands: Chat.ChatCommands = {
 			if (ability.isNonstandard && ability.isNonstandard !== 'Past') {
 				return this.errorReply(`${ability.name} is not a real ability.`);
 			}
-			// if (ability.name.startsWith('seance')) ability.name = 'Séance';
 			const link = `${baseLink}${encodeURIComponent(ability.name)}_(ability)`;
 			this.sendReplyBox(`<a href="${link}">${ability.name} ability description</a>`);
 		}

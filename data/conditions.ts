@@ -951,7 +951,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			return 5;
 		},
 		onIrritantWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('safetygoggles') || attacker.hasAbility(['overcoat', 'bubblehelm'])) return;
+			if (defender.hasItem('safetygoggles') || attacker.hasAbility(['overcoat', 'bubblehelm', 'earthforce', 'dustgather'])) return;
 			if (move.type === 'Water' || move.type === 'Grass') {
 				this.debug('Dust Storm Water/Grass supress');
 				return this.chainModify(0.5);
@@ -966,7 +966,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, target, pokemon) {
-			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'eartheater', 'bubblehelm'])) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm', 'eartheater'])) return;
 			if (this.field.irritantWeatherState.boosted) {
 				if (!move.ignoreImmunity) move.ignoreImmunity = {};
 				if (move.ignoreImmunity !== true) {
@@ -1137,9 +1137,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onIrritantWeather(target) {
 			// strong winds effect impemented in sim/pokemon.ts
-			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm'])) return;
+			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm', 'carboncapture'])) return;
 			target.trySetStatus('psn');
-			// this.hint("Non-Poison types become poisoned in Strong Winds Smog.");
 		},
 		onFieldEnd() {
 			this.add('-irritantWeather', 'none');

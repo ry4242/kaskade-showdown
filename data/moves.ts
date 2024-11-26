@@ -22721,112 +22721,117 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Dragon",
 	},
-	/* dragonsdice: { // incomplete. tested, everything except OHKO works, pulls a fuckton of errors
+	dragonsdice: { // incomplete. tested, everything except OHKO works
 		num: -92,
 		accuracy: 100,
-		basePower: 20,
+		basePower: 0,
+		basePowerCallback(pokemon, target, move) {
+			const result = this.random(20);
+			let bp;
+			if (result === 0) {
+				this.debug('self-hit');
+				this.activeTarget = pokemon;
+				const damage = this.actions.getConfusionDamage(pokemon, 40);
+				if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
+				const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
+				this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
+				this.hint("Nat 1...");
+				bp = 0;
+			} else if (result === 1) {
+				this.debug('0');
+				this.hint("Rolled a 2!");
+				bp = 0;
+			} else if (result === 2) {
+				this.debug('20');
+				this.hint("Rolled a 3!");
+				bp = 20;
+			} else if (result === 3) {
+				this.debug('40');
+				this.hint("Rolled a 4!");
+				bp = 40;
+			} else if (result === 4) {
+				this.debug('50');
+				this.hint("Rolled a 5!");
+				bp = 50;
+			} else if (result === 5) {
+				this.debug('60');
+				this.hint("Rolled a 6!");
+				bp = 60;
+			} else if (result === 6) {
+				this.debug('70');
+				this.hint("Rolled a 7!");
+				bp = 70;
+			} else if (result === 7) {
+				this.debug('75');
+				this.hint("Rolled an 8!");
+				bp = 75;
+			} else if (result === 8) {
+				this.debug('80');
+				this.hint("Rolled a 9!");
+				bp = 80;
+			} else if (result === 9) {
+				this.debug('85');
+				this.hint("Rolled a 10!");
+				bp = 85;
+			} else if (result === 10) {
+				this.debug('90');
+				this.hint("Rolled an 11!");
+				bp = 90;
+			} else if (result === 11) {
+				this.debug('95');
+				this.hint("Rolled a 12!");
+				bp = 95;
+			} else if (result === 12) {
+				this.debug('100');
+				this.hint("Rolled a 13!");
+				bp = 100;
+			} else if (result === 13) {
+				this.debug('110');
+				this.hint("Rolled a 14!");
+				bp = 110;
+			} else if (result === 14) {
+				this.debug('120');
+				this.hint("Rolled a 15!");
+				bp = 120;
+			} else if (result === 15) {
+				this.debug('130');
+				this.hint("Rolled a 16!");
+				bp = 130;
+			} else if (result === 16) {
+				this.debug('140');
+				this.hint("Rolled a 17!");
+				bp = 140;
+			} else if (result === 17) {
+				this.debug('150');
+				this.hint("Rolled an 18!");
+				bp = 150;
+			} else if (result === 18) {
+				this.debug('160');
+				this.hint("Rolled a 19!");
+				bp = 160;
+			} else {
+				this.debug('OHKO');
+				this.effectState.rolled20 = true;
+				this.hint("Nat 20!!!");
+				bp = 0;
+			}
+			return bp;
+		},
 		category: "Special",
 		name: "Dragon's Dice",
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		onBasePower(basePower, pokemon, target) {
-			for (const moveSlot of target.moveSlots) {
-				const move = this.dex.moves.get(moveSlot.move);
-				let bp = move.basePower;
-				const result = this.random(20);
-				if (result === 0) {
-					this.debug('self-hit');
-					this.activeTarget = pokemon;
-					const damage = this.actions.getConfusionDamage(pokemon, 40);
-					if (typeof damage !== 'number') throw new Error("Confusion damage not dealt");
-					const activeMove = {id: this.toID('confused'), effectType: 'Move', type: '???'};
-					this.damage(damage, pokemon, pokemon, activeMove as ActiveMove);
-					this.hint("Nat 1!");
-					return bp = 0;
-				} else if (result === 1) {
-					this.debug('0');
-					this.hint("Rolled a 2!");
-					return bp = 0;
-				} else if (result === 2) {
-					this.debug('20');
-					this.hint("Rolled a 3!");
-					return bp = 20;
-				} else if (result === 3) {
-					this.debug('40');
-					this.hint("Rolled a 4!");
-					return bp = 40;
-				} else if (result === 4) {
-					this.debug('50');
-					this.hint("Rolled a 5!");
-					return bp = 50;
-				} else if (result === 5) {
-					this.debug('60');
-					this.hint("Rolled a 6!");
-					return bp = 60;
-				} else if (result === 6) {
-					this.debug('70');
-					this.hint("Rolled a 7!");
-					return bp = 70;
-				} else if (result === 7) {
-					this.debug('75');
-					this.hint("Rolled an 8!");
-					return bp = 75;
-				} else if (result === 8) {
-					this.debug('80');
-					this.hint("Rolled a 9!");
-					return bp = 80;
-				} else if (result === 9) {
-					this.debug('85');
-					this.hint("Rolled a 10!");
-					return bp = 85;
-				} else if (result === 10) {
-					this.debug('90');
-					this.hint("Rolled an 11!");
-					return bp = 90;
-				} else if (result === 11) {
-					this.debug('95');
-					this.hint("Rolled a 12!");
-					return bp = 95;
-				} else if (result === 12) {
-					this.debug('100');
-					this.hint("Rolled a 13!");
-					return bp = 100;
-				} else if (result === 13) {
-					this.debug('110');
-					this.hint("Rolled a 14!");
-					return bp = 110;
-				} else if (result === 14) {
-					this.debug('120');
-					this.hint("Rolled a 15!");
-					return bp = 120;
-				} else if (result === 15) {
-					this.debug('130');
-					this.hint("Rolled a 16!");
-					return bp = 130;
-				} else if (result === 16) {
-					this.debug('140');
-					this.hint("Rolled a 17!");
-					return bp = 140;
-				} else if (result === 17) {
-					this.debug('150');
-					this.hint("Rolled an 18!");
-					return bp = 150;
-				} else if (result === 18) {
-					this.debug('160');
-					this.hint("Rolled a 19!");
-					return bp = 160;
-				} else if (result === 19) {
-					this.debug('OHKO');
-					this.hint("Nat 20!");
-					return target.maxhp;
-				}
+		/* onModifyMove(move) {
+			if (this.effectState.rolled20 = true) {
+				this.effectState.rolled20 = false;
+				move.ohko = true;
 			}
-		},
+		}, */
 		secondary: null,
 		target: "normal",
 		type: "Dragon",
-	}, */
+	},
 	duststorm: {
 		num: -3,
 		accuracy: true,

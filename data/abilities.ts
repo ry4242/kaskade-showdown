@@ -2617,18 +2617,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 103,
 	},
 	leafguard: { // updated
-		onClimateWeather(target, source, effect) {
-			if (target.hasItem('utilityumbrella')) return;
-			if (effect.id === 'sunnyday' || effect.id === 'desolateland') {
-				this.heal(target.baseMaxhp / 16);
-			}
-		},
-		onIrritantWeather(target, source, effect) {
-			if (target.hasItem('safetygoggles')) return;
-			if (effect.id === 'pollinate') {
-				this.heal(target.baseMaxhp / 16);
-			}
-		},
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
@@ -6078,7 +6066,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 
 	// swse
 
-	absolutezero: {
+	absolutezero: { // tested, works as intended
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (['hail', 'snow'].includes(attacker.effectiveClimateWeather())) {
@@ -6096,7 +6084,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -15,
 	},
-	ancientbody: {
+	ancientbody: { // tested, works as intended
 		onBeforeSwitchIn(pokemon) {
 			pokemon.addType('Rock');
 		},
@@ -6106,9 +6094,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Ancient Body",
 		rating: 2.5,
-		num: -4,
+	num: -65,
 	},
-	arcanum: { // works as intended
+	arcanum: {  // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('dragonforce');
 		},
@@ -6117,7 +6105,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -11,
 	},
-	bloomspring: {
+	bloomspring: { // tested, works as intended
 		onIrritantWeather(target, source, effect) {
 			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
 			if (effect.id === 'pollinate') {
@@ -6127,7 +6115,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Bloomspring",
 		rating: 1.5,
-		num: -20,
+		num: -21,
 	},
 	bubblehelm: { // incomplete, needs testing
 		onImmunity(type, pokemon) {
@@ -6159,9 +6147,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Bubble Helm",
 		rating: 2,
-		num: -38,
+		num: -45,
 	},
-	carboncapture: {
+	carboncapture: { // tested, works as intended
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (['smogspread'].includes(attacker.effectiveIrritantWeather())) {
@@ -6171,15 +6159,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				}
 			}
 		},
-		onImmunity(type, pokemon) {
-			if (type === 'smogspread') return false;
-		},
 		flags: {},
 		name: "Carbon Capture",
 		rating: 2,
-		num: -22,
+		num: -23,
 	},
-	chakra: {
+	chakra: { // tested, works as intended
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (move.type === 'Fairy') {
@@ -6190,9 +6175,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Chakra",
 		rating: 3.5,
-		num: -38,
+		num: -58,
 	},
-	condensation: { // works as intended
+	condensation: { // tested, works as intended
 		onStart(source) {
 			this.field.setClimateWeather('foghorn');
 		},
@@ -6201,7 +6186,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -2,
 	},
-	dreamer: { // works as intended
+	dreamer: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('daydream');
 		},
@@ -6240,27 +6225,25 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Droughtproof",
 		rating: 2.5,
-		num: -36,
+		num: -43,
 	},
-	druidry: { // incomplete, does not set grassy terrain
-		onIrritantWeather(target, source, effect) {
-			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
-			if (effect.id === 'sprinkle') {
-				this.heal(target.baseMaxhp / 16);
+	druidry: { // tested, works as intended
+		onStart(target) {
+			if (this.field.isTerrain('mistyterrain')) {
+				this.field.setTerrain('grassyterrain');
 			}
 		},
 		onTerrainChange(target, source, sourceEffect) {
 			if (this.field.isTerrain('mistyterrain')) {
 				this.field.setTerrain('grassyterrain');
-				return false;
 			}
 		},
 		flags: {},
 		name: "Druidry",
 		rating: 2,
-		num: -23,
+		num: -25,
 	},
-	dustdevil: { // works as intended
+	dustdevil: { // tested, works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('duststorm');
 		},
@@ -6269,7 +6252,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -3,
 	},
-	energizer: {
+	dustgather: { // tested, works as intended
+		onIrritantWeather(target, source, effect) {
+			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
+			if (effect.id === 'duststorm') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Dust Gather",
+		rating: 1.5,
+		num: -20,
+	},
+	energizer: { // tested, works as intended
 		onModifySpe(spe, pokemon) {
 			if (['supercell'].includes(pokemon.effectiveEnergyWeather())) {
 				return this.chainModify(2);
@@ -6278,9 +6273,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Energizer",
 		rating: 2.5,
-		num: -29,
+		num: -34,
 	},
-	eventide: { // works as intended
+	eventide: { // tested, works as intended
 		onStart(source) {
 			this.field.setClimateWeather('bloodmoon');
 		},
@@ -6316,9 +6311,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Evergreen",
 		rating: 3,
-		num: -47,
+		num: -54,
 	},
-	ferroflux: { // works as intended
+	ferroflux: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('magnetize');
 		},
@@ -6327,7 +6322,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -13,
 	},
-	fieldworker: {
+	fieldworker: { // tested, works as intended
 		onModifyAtkPriority: 5,
 		onModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Grass') {
@@ -6345,9 +6340,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Fieldworker",
 		rating: 3,
-		num: -34,
+		num: -41,
 	},
-	foil: {
+	foil: { // tested, works as intended
 		onSourceModifyAtkPriority: 5,
 		onSourceModifyAtk(atk, attacker, defender, move) {
 			if (move.type === 'Psychic') {
@@ -6363,24 +6358,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Foil",
 		rating: 2,
-		num: -41,
+		num: -48,
 	},
-	forked: {
-		onResidualOrder: 5,
-		onResidualSubOrder: 3,
-		onResidual(pokemon) {
-			if (pokemon.status && ['supercell'].includes(pokemon.effectiveEnergyWeather())) {
-				this.debug('forked');
-				this.add('-activate', pokemon, 'ability: Forked');
-				pokemon.cureStatus();
-			}
-		},
-		flags: {},
-		name: "Forked",
-		rating: 1.5,
-		num: -30,
-	},
-	galeforce: { // works as intended
+	galeforce: { // tested, works as intended
 		onStart(source) {
 			this.field.setClearingWeather('strongwinds');
 		},
@@ -6389,7 +6369,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -14,
 	},
-	glacialarmor: {
+	glacialarmor: { // tested, works as intended
 		onModifyDef(def, pokemon) {
 			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.2);
@@ -6408,50 +6388,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: -16,
 	},
-	heathaze: {
-		onStart(source) {
-			this.field.setClearingWeather('strongwinds');
-			this.field.setClimateWeather('sunnyday');
-		},
-		flags: {},
-		name: "Heat Haze",
-		rating: 5,
-		num: -200,
-	},
-	icearmor: {
-		onStart(source) {
-			this.field.setClearingWeather('strongwinds');
-			this.field.setClimateWeather('hail');
-		},
-		flags: {},
-		name: "Ice Armor",
-		rating: 5,
-		num: -201,
-	},
-	magnapult: {
-		onModifySpe(spe, pokemon) {
-			if (['magnetize'].includes(pokemon.effectiveEnergyWeather())) {
-				return this.chainModify(2);
-			}
-		},
-		flags: {},
-		name: "Magnapult",
-		rating: 2,
-		num: -31,
-	},
-	shadowstep: {
-		onModifySpe(spe, pokemon) {
-			if (['bloodmoon'].includes(pokemon.effectiveClimateWeather()) ||
-				['haunt'].includes(pokemon.effectiveEnergyWeather())) {
-				return this.chainModify(2);
-			}
-		},
-		flags: {},
-		name: "Shadow Step",
-		rating: 3,
-		num: -17,
-	},
-	hayfever: { // works as intended
+	hayfever: { // tested, works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('pollinate');
 		},
@@ -6459,6 +6396,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Hay Fever",
 		rating: 3,
 		num: -4,
+	},
+	heathaze: { // tested, works as intended
+		onStart(source) {
+			this.field.setClearingWeather('strongwinds');
+			this.field.setClimateWeather('sunnyday');
+		},
+		flags: {},
+		name: "Heat Haze",
+		rating: 5,
+		num: -74,
 	},
 	hydrophobic: { // incomplete. needs testing
 		onSourceModifyAtkPriority: 5,
@@ -6499,9 +6446,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "Hydrophobic",
 		rating: 3,
-		num: -37,
+		num: -44,
 	},
-	incantation: { // works as intended
+	icearmor: { // tested, works as intended
+		onStart(source) {
+			this.field.setClearingWeather('strongwinds');
+			this.field.setClimateWeather('hail');
+		},
+		flags: {},
+		name: "Ice Armor",
+		rating: 5,
+		num: -75,
+	},
+	incantation: { // tested, works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('sprinkle');
 		},
@@ -6510,7 +6467,44 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -7,
 	},
-	malice: {
+	indomitable: { // incomplete, crashes the game?
+		onDamage(damage, target, source, effect) {
+			if (['dragonforce'].includes(source.effectiveEnergyWeather())) {
+				if (effect.effectType !== 'Move') {
+					if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+					return false;
+				}
+			}
+		},
+		flags: {},
+		name: "Indomitable",
+		rating: 3,
+		num: -33,
+	},
+	machineprecision: { // incomplete, doesnt work?
+		onModifyCritRatio(critRatio, source) {
+			if (['magnetize'].includes(source.effectiveEnergyWeather())) {
+				this.debug("Machine Precision cirt rate increase");
+				return critRatio + 1;
+			}
+		},
+		flags: {},
+		name: "Machine Precision",
+		rating: 1,
+		num: -38,
+	},
+	magnapult: { // tested, works as intended
+		onModifySpe(spe, pokemon) {
+			if (['magnetize'].includes(pokemon.effectiveEnergyWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Magnapult",
+		rating: 2,
+		num: -36,
+	},
+	malice: { // tested, works as intended
 		onModifySpAPriority: 5,
 		onModifySpA(spa, source, pokemon) {
 			if (['bloodmoon'].includes(pokemon.effectiveClimateWeather())) {
@@ -6534,7 +6528,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -18,
 	},
-	masterinstinct: {
+	masterinstinct: { // tested, works as intended
 		onSourceModifyAccuracyPriority: -1,
 		onSourceModifyAccuracy(accuracy, source) {
 			if (typeof accuracy !== 'number') return;
@@ -6546,23 +6540,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Master Instinct",
 		rating: 2,
-		num: -25,
+		num: -27,
 	},
-	nesting: { // works as intended
-		onIrritantWeather(target, source, effect) {
-			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
-			if (effect.id === 'swarmsignal') {
-				if (target.allies().some(ally => ally.hasType('Bug'))) {
-					this.heal(target.baseMaxhp / 8);
-				} else {
-					this.heal(target.baseMaxhp / 16);
-				}
+	nanomachines: { // tested, works as intended
+		onEnergyWeather(target, source, effect) {
+			if (target.hasItem('energynullifier')) return;
+			if (effect.id === 'magnetize') {
+				this.heal(target.baseMaxhp / 16);
 			}
 		},
 		flags: {},
-		name: "Nesting",
+		name: "Nanomachines",
 		rating: 1.5,
-		num: -21,
+		num: -37,
 	},
 	nottobe: { // incomplete. stacks with perish song/perish body
 		onDamagingHit(damage, target, source, move) {
@@ -6592,31 +6582,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Not To Be",
 		rating: 2,
-		num: -40,
-	},
-	noxiousfumes: { // incomplete. missing immunity
-		onModifySpAPriority: 5,
-		onModifySpA(spa, source, pokemon) {
-			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				if (source.storedStats.spa >= source.storedStats.atk) return this.chainModify(1.5);
-			}
-		},
-		onModifyAtkPriority: 5,
-		onModifyAtk(atk, source, pokemon) {
-			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				if (source.storedStats.atk > source.storedStats.spa) return this.chainModify(1.5);
-			}
-		},
-		onClimateWeather(target, source, effect) {
-			if (target.hasItem('utilityumbrella')) return;
-			if (effect.id === 'foghorn') {
-				this.damage(target.baseMaxhp / 8, target, target);
-			}
-		},
-		flags: {},
-		name: "Noxious Fumes",
-		rating: 3,
-		num: -20,
+		num: -47,
 	},
 	nullify: { // incomplete. needs testing i think
 		onSwitchIn(pokemon) {
@@ -6659,7 +6625,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 		num: -39,
 	},
-	pearldrop: {
+	pearldrop: { // tested, works as intended
 		onStart(source) {
 			this.field.addPseudoWeather('pearldrop');
 		},
@@ -6684,9 +6650,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Pearl Drop",
 		rating: 1,
-		num: -45,
+		num: -52,
 	},
-	pollution: { // works as intended
+	pollution: { // tested, works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('smogspread');
 		},
@@ -6695,7 +6661,22 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -6,
 	},
-	powerabove: {
+	powdercure: { // tested, works as intended
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			if (pokemon.status && ['pollinate'].includes(pokemon.effectiveIrritantWeather())) {
+				this.debug('poweder cure');
+				this.add('-activate', pokemon, 'ability: Powder Cure');
+				pokemon.cureStatus();
+			}
+		},
+		flags: {},
+		name: "Powder Cure",
+		rating: 1.5,
+		num: -22,
+	},
+	powerabove: { // tested, works as intended
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (['sprinkle'].includes(attacker.effectiveIrritantWeather())) {
@@ -6710,7 +6691,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 		num: -24,
 	},
-	powerwithin: {
+	powerplumage: { // incomplete
+		flags: {},
+		name: "Power Plumage",
+		rating: 0.1,
+		num: -55,
+	},
+	powerwithin: { // tested, works as intended
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (['dragonforce'].includes(attacker.effectiveEnergyWeather())) {
@@ -6723,9 +6710,33 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Power Within",
 		rating: 2.5,
-		num: -28,
+		num: -32,
 	},
-	rockybody: {
+	ragestate: { // tested, works as intended
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, source, pokemon) {
+			if (['auraprojection'].includes(pokemon.effectiveEnergyWeather())) {
+				if (source.storedStats.atk >= source.storedStats.spa) return this.chainModify(1.5);
+			}
+		},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, source, pokemon) {
+			if (['auraprojection'].includes(pokemon.effectiveEnergyWeather())) {
+				if (source.storedStats.spa > source.storedStats.atk) return this.chainModify(1.5);
+			}
+		},
+		onEnergyWeather(target, source, effect) {
+			if (target.hasItem('energynullifier')) return;
+			if (effect.id === 'auraprojection') {
+				this.damage(target.baseMaxhp / 8, target, target);
+			}
+		},
+		flags: {},
+		name: "Rage State",
+		rating: 3,
+		num: -26,
+	},
+	rockybody: { // tested, works as intended
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
 			if (effect?.effectType === 'Move' && effect.category === 'Physical' && target.species.id === 'stackem') {
@@ -6767,27 +6778,27 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Rocky Body",
 		rating: 2,
-		num: -44,
+		num: -51,
 	},
-	rootcontrol: {
+	rootcontrol: { // tested, works as intended
 		onStart(pokemon) {
 			pokemon.addVolatile('ingrain');
 		},
 		flags: {},
 		name: "Root Control",
 		rating: 3.5,
-		num: -33,
+		num: -40,
 	},
-	seance: { // incomplete,  works as intended
+	seance: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('haunt');
 		},
 		flags: {},
-		name: "Seance", // should be "Se\u0301ance"
+		name: "Se\u0301ance",
 		rating: 3,
 		num: -9,
 	},
-	secretion: { // works as intended
+	secretion: { // tested, works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('swarmsignal');
 		},
@@ -6796,7 +6807,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -5,
 	},
-	smokeandmirrors: {
+	shadowstep: { // tested, works as intended
+		onModifySpe(spe, pokemon) {
+			if (['bloodmoon'].includes(pokemon.effectiveClimateWeather()) ||
+				['haunt'].includes(pokemon.effectiveEnergyWeather())) {
+				return this.chainModify(2);
+			}
+		},
+		flags: {},
+		name: "Shadow Step",
+		rating: 3,
+		num: -17,
+	},
+	smokeandmirrors: { // tested, works as intended
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
 			if (['daydream'].includes(attacker.effectiveEnergyWeather())) {
@@ -6820,9 +6843,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Smoke and Mirrors",
 		rating: 2.5,
-		num: -27,
+		num: -31,
 	},
-	smotherbody: {
+	smotherbody: { // tested, works as intended
 		onModifyMovePriority: -1,
 		onModifyMove(move) {
 			if (move.volatileStatus === 'partiallytrapped') {
@@ -6840,7 +6863,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Smother Body",
 		rating: 2,
-		num: -46,
+		num: -53,
 	},
 	souldrain: { // incomplete. needs testing
 		/* onAnyDamage(damage, target, pokemon, effect) {
@@ -6852,20 +6875,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Soul Drain",
 		rating: 2,
-		num: -26,
+		num: -29,
 	},
-	stalk: { // incomplete. missing immunity
-		onModifySpe(spe, pokemon) {
-			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				return this.chainModify(2);
-			}
-		},
-		flags: {},
-		name: "Stalk",
-		rating: 3,
-		num: -19,
-	},
-	standoff: { // works as intended
+	standoff: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('auraprojection');
 		},
@@ -6874,66 +6886,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -8,
 	},
-	stealthadvantage: { // incomplete. needs immunity
-		onStart(pokemon) {
-			this.singleEvent('ClimateWeatherChange', this.effect, this.effectState, pokemon);
-		},
-		onClimateWeatherChange(pokemon) {
-			if (pokemon.hasItem('utilityumbrella')) return;
-			if (this.field.isClimateWeather('foghorn')) {
-				pokemon.addVolatile('stealthadvantage');
-			}
-		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['stealthadvantage'];
-			this.add('-end', pokemon, 'Stealth Advantage', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				this.add('-activate', pokemon, 'ability: Stealth Advantage');
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'stealthadvantage' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Stealth Advantage atk boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Stealth Advantage def boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Stealth Advantage spa boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Stealth Advantage spd boost');
-				return this.chainModify([5325, 4096]);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				this.debug('Stealth Advantage spe boost');
-				return this.chainModify(1.5);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Stealth Advantage');
-			},
-		},
-		flags: {},
-		name: "Stealth Advantage",
-		rating: 3,
-		num: -21,
-	},
-	stormfront: { // works as intended
+	stormfront: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('supercell');
 		},
@@ -6942,16 +6895,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -12,
 	},
-	surveillance: { // works as intended
+	surveillance: { // tested, works as intended
 		onStart(pokemon) {
 			this.boost({accuracy: 1}, pokemon);
 		},
 		flags: {},
 		name: "Surveillance",
 		rating: 4,
-		num: -35,
+		num: -42,
 	},
-	swarming: {
+	swarming: { // tested, works as intended
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Eecroach' || pokemon.level < 20 || pokemon.transformed) return;
 			if (pokemon.hp > pokemon.maxhp / 4) {
@@ -6985,7 +6938,25 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1},
 		name: "Swarming",
 		rating: 3,
-		num: -43,
+		num: -50,
+	},
+	sweetdreams: { // tested, works as intended
+		onEnergyWeather(target, source, effect) {
+			if (target.hasItem('energynullifier')) return;
+			if (effect.id === 'daydream') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Sweet Dreams",
+		rating: 1.5,
+		num: -30,
+	},
+	thunderarmor: { // incomplete
+		flags: {},
+		name: "Thunder Armor",
+		rating: 0.1,
+		num: -35,
 	},
 	tobe: { // Complete.
 		onTryHit(pokemon, target, move) {
@@ -7012,9 +6983,27 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {breakable: 1},
 		name: "To Be",
 		rating: 3,
-		num: -39,
+		num: -46,
 	},
-	trumpetweevil: {
+	trainedeye: { // tested, works as intended
+		onModifyDamage(damage, source, target, move) {
+			if (move.flags['contact'] && target.volatiles['protect']) {
+				this.effectState.protectBroken = true;
+				return this.chainModify(0.25);
+			}
+		},
+		onModifyMove(move) {
+			if (this.effectState.protectBroken = true) {
+				this.effectState.protectBroken = false;
+				delete move.flags['protect'];
+			}
+		},
+		flags: {},
+		name: "Trained Eye",
+		rating: 2,
+		num: -28,
+	},
+	trumpetweevil: { // tested, works as intended
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			if (move.flags['sound'] &&
@@ -7030,9 +7019,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Trumpet Weevil",
 		rating: 4,
-		num: -42,
+		num: -49,
 	},
-	vegetate: { // works as intended
+	vegetate: { // tested, works as intended
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
@@ -7051,7 +7040,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Vegetate",
 		rating: 3,
-		num: -32,
+		num: -39,
 	},
 	warpmist: { // incomplete. needs immunity
 		onBasePowerPriority: 21,
