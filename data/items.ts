@@ -7637,12 +7637,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			type: "Electric",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox' || pokemon.status === 'blt') {
 				pokemon.eatItem();
 			}
 		},
 		onEat(pokemon) {
-			if (pokemon.status === 'psn' || pokemon.status === 'tox') {
+			if (pokemon.status === 'psn' || pokemon.status === 'tox' || pokemon.status === 'blt') {
 				pokemon.cureStatus();
 			}
 		},

@@ -1712,7 +1712,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	solarpower: {
 		name: "Solar Power",
-		desc: "If Sun is active, this Pokemon's highest attacking stat is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
+		desc: "If Sun is active, this Pokemon's highest attacking stat is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. Stat stage changes are considered at the time this Ability activates. If both stats are tied, Special Attack is prioritized. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
 		shortDesc: "If Sun is active, this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
 		gen7: {
 			desc: "If Sun is active, this Pokemon's Special Attack is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn.",
@@ -2275,8 +2275,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 	absolutezero: {
 		name: "Absolute Zero",
-		desc: "If Hail is active, this Pokemon's Ice-type attacks have their power multiplied by 1.3 and have their secondary effect chance doubled. This Pokemon takes no damage from Hail. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "This Pokemon's Ice attacks do 1.3x in Hail and have 2x status chance. Hail immunity.",
+		desc: "If Hail is active, this Pokemon's Ice-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Hail. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "This Pokemon's Ice attacks do 1.3x in Hail; immunity to it.",
 	},
 	arcanum: {
 		name: "Arcanum",
@@ -2284,7 +2284,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	bloomspring: {
 		name: "Bloomspring",
-		desc: "If Pollen is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding Safety Goggles.",
+		desc: "If Pollen is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon's Attack and Special Attack are not lowered by Pollen. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Pollen is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
 	bubblehelm: {
@@ -2293,8 +2293,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	carboncapture: {
 		name: "Carbon Capture",
-		desc: "If Smog is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon cannot be poisoned by Smog. These effects are prevented if this Pokemon is holding Safety Goggles.",
-		shortDesc: "If Smog is active, this Pokemon heals 1/16 of its max HP each turn; immunity to it.",
+		desc: "If Smog is active, this Pokemon's Poison-type attacks have their power multiplied by 1.5. This Pokemon cannot be poisoned by Smog. These effects are prevented if this Pokemon is holding Safety Goggles.",
+		shortDesc: "This Pokemon's Poison attacks do 1.5x in Smog.",
 	},
 	chakra: {
 		name: "Aerilate",
@@ -2304,20 +2304,28 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Condensation",
 		shortDesc: "On switch-in, this Pokemon summons Fog.",
 	},
+	dreamer: {
+		name: "Dreamer",
+		shortDesc: "On switch-in, this Pokemon summons Dreamscape.",
+	},
 	droughtproof: {
 		name: "Droughtproof",
 		shortDesc: "This Pokemon ignores Climate Weathergy's negative effects.",
 	},
 	druidry: {
 		name: "Druidry",
-		desc: "If Fairy Dust is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding Safety Goggles. If Strong Winds Fairy Dust is activated while this Pokemon is on the field, Grassy Terrain is set up instead of Misty Terrain.",
-		shortDesc: "If Fairy Dust is active, this Pokemon heals 1/16 of its max HP each turn. Sets up Grassy Terrain in Strong Winds Fairy Dust.",
+		desc: "On switch-in and while the user is active, Misty Terrain transforms into Grassy Terrain.",
 
 		activate: "  [POKEMON] transfigured the battlefield!",
 	},
 	dustdevil: {
 		name: "Dust Devil",
 		shortDesc: "On switch-in, this Pokemon summons Dust Storm.",
+	},
+	dustgather: {
+		name: "Dust Gather",
+		desc: "If Dust Storm is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. The power of this Pokemon's attacks are not lowered by Dust Storm. These effects are prevented if this Pokemon is holding Safety Goggles.",
+		shortDesc: "If Dust Storm is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
 	eclipse: {
 		name: "Glacial Armor",
@@ -2326,7 +2334,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	energizer: {
 		name: "Energizer",
-		desc: "If Thunderstorm is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding Safety Goggles.",
+		desc: "If Thunderstorm is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding and Energy Nullifier.",
 		shortDesc: "If Thunderstorm is active, this Pokemon's Speed is doubled.",
 	},
 	eventide: {
@@ -2364,44 +2372,50 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	glacialarmor: {
 		name: "Glacial Armor",
-		shortDesc: "This Pokemon's Defense and Special Defense are doubled in Hail; immunity to it.",
-	},
-	magnapult: {
-		name: "Magnapult",
-		desc: "If Magnetosphere is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
-		shortDesc: "If Magnetosphere is active, this Pokemon's Speed is doubled.",
-	},
-	shadowstep: {
-		name: "Shadow Step",
-		desc: "If Blood Moon is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "If Blood Moon is active, this Pokemon's Speed is doubled.",
+		desc: "If Hail is active, Defense and Special Defense are multipled by 1.2. This Pokemon takes no damage from Hail. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "1.2x Defense and Special Defense in Hail; immunity to it.",
 	},
 	hayfever: {
 		name: "Hay Fever",
 		shortDesc: "On switch-in, this Pokemon summons Pollen Storm.",
 	},
-	hydrophpbic: {
+	hydrophobic: {
 		name: "Hydrophobic",
-		desc: "This Pokemon ignores Rain and Hail's negative effects. If a Pokemon uses a Fire-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
+		desc: "This Pokemon ignores Rain and Hail's negative effects. If a Pokemon uses a Water-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
 		shortDesc: "This Pokemon ignores Rain and Hail's negative effects; Water power against it is halved.",
 	},
 	incantation: {
 		name: "Incantation",
 		shortDesc: "On switch-in, this Pokemon summons Fairy Dust.",
 	},
+	indomitable: {
+		name: "Indomitable",
+		desc: "If Dragon Force is active, this Pokemon can only be damaged by direct attacks. Curse and Substitute on use, Belly Drum, Pain Split, Struggle recoil, and confusion damage are considered direct damage. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
+		shortDesc: "Dragon Force: This Pokemon can only be damaged by direct attacks.",
+	},
+	magnapult: {
+		name: "Magnapult",
+		desc: "If Magnetosphere is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
+		shortDesc: "If Magnetosphere is active, this Pokemon's Speed is doubled.",
+	},
+	machineprecision: {
+		name: "Machine Precision",
+		desc: "In Magnetosphere, This Pokemon's critical hit ratio is raised by 1 stage. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
+		shortDesc: "In Magnetosphere, This Pokemon's critical hit ratio is raised by 1 stage.",
+	},
 	malice: {
 		name: "Malice",
-		desc: "If Blood Moon is active, this Pokemon's highest attacking stat is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
+		desc: "If Blood Moon is active, this Pokemon's highest attacking stat is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. Stat stage changes are considered at the time this Ability activates. If both stats are tied, Special Attack is prioritized. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
 		shortDesc: "If Blood Moon is active, this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
 	},
 	masterinstinct: {
 		name: "Master Instinct",
-		shortDesc: "If Battle Aura is active, this Pokemon's moves have their accuracy multiplied by 1.2.",
+		shortDesc: "If Battle Aura is active, this Pokemon's moves have their accuracy multiplied by 1.3.",
 	},
-	nesting: {
-		name: "Nesting",
-		desc: "If Pheromones is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. If this Pokemon's ally is a Bug-type, this Pokemon restores 1/8 of its maximum HP. These effects are prevented if this Pokemon is holding Safety Goggles.",
-		shortDesc: "If Pheromones is active, this Pokemon heals 1/16 of its max HP each turn; 1/8 if ally is Bug-type.",
+	nanomachines: {
+		name: "Nanomachines",
+		desc: "If Magnetosphere is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
+		shortDesc: "If magnetosphere is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
 	nottobe: {
 		name: "Not to Be",
@@ -2425,6 +2439,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Pollution",
 		shortDesc: "On switch-in, this Pokemon summons Smog.",
 	},
+	powdercure: {
+		name: "Powder Cure",
+		desc: "This Pokemon and its allies have their non-volatile status condition cured at the end of each turn if Pheromones is active. The user cannot become confused from Pheromones. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "This Pokemon and allies have status cured at the end of each turn if Pollen is active.",
+	},
 	powerabove: {
 		name: "Power Above",
 		desc: "If Fairy Dust is active, this Pokemon's Fairy-, Grass-, Fire-, and Water-type attacks have their power multiplied by 1.3. This effect is prevented if this Pokemon is holding Safety Goggles.",
@@ -2434,6 +2453,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Power Within",
 		desc: "If Dragon Force is active, this Pokemon's Dragon-, Fire-, Electric-, and Ice-type attacks have their power multiplied by 1.3. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
 		shortDesc: "This Pokemon's Dragon/Fire/Electric/Ice attacks do 1.3x in Dragon Force.",
+	},
+	ragestate: {
+		name: "Rage State",
+		desc: "If Battle Aura is active, this Pokemon's highest attacking stat is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. Stat stage changes are considered at the time this Ability activates. If both stats are tied, Attack is prioritized. These effects are prevented if the Pokemon is holding an Energy Nullifier.",
+		shortDesc: "If Battle Aura is active, this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
 	},
 	rockybody: {
 		name: "Rocky Body",
@@ -2456,10 +2480,15 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Secretion",
 		shortDesc: "On switch-in, this Pokemon summons Pheromones.",
 	},
+	shadowstep: {
+		name: "Shadow Step",
+		desc: "If Blood Moon or Paranormal Activity is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "If B.Moon/P.Activity is active, this Pokemon's Speed is doubled.",
+	},
 	smokeandmirrors: {
 		name: "Smoke and Mirrors",
 		desc: "If Dreamscape is active, this Pokemon's Special attacks have their power multiplied by 1.2 and have their Confusion chance doubled. These effects are prevented if this Pokemon is holding an Energy Nullifier.",
-		shortDesc: "This Pokemon's Special attacks do 1.2x and have doubled confuse chance in Dreamscape.",
+		shortDesc: "Dreamscape: Special attacks do 1.2x and have doubled confuse chance.",
 	},
 	smotherbody: {
 		name: "Smother Body",
@@ -2468,21 +2497,12 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	souldrain: {
 		name: "Soul Drain",
-		desc: "If Paranormal Activity is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn for each adjacent Pokemon who takes residual damage form Paranormal Activity.",
-		shortDesc: "This Pokemon heals 1/16 of its max HP for each Pokemon hurt by Paranormal Activity.",
+		desc: "This Pokemon restores 1/4 of its maximum HP, rounded down, when another Pokemon faints to indirect damage.If Paranormal Activity is active, this Pokemon restores an additional 1/8. This Pokemon takes no damage from Paranormal Activity. These effects are prevented if this Pokemon is holding an Energy Nullifier.",
+		shortDesc: "Heals 1/4 when another Pokemon faints to indirect damage, 3/8 in P.Acticity; immunity to it.",
 	},
 	standoff: {
 		name: "Stand Off",
 		shortDesc: "On switch-in, this Pokemon summons Battle Aura.",
-	},
-	stealthadvantage: {
-		name: "Stealth Advantage",
-		desc: "If Fog is active, this Pokemon's highest stat is multiplied by 1.3, or by 1.5 if the highest stat is Speed. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order.",
-		shortDesc: "Fog active: highest stat is 1.3x, or 1.5x if Speed.",
-
-		activate: "  The fog activated [POKEMON]'s Stealth Advantage!",
-		start: "  [POKEMON]'s [STAT] was heightened!",
-		end: "  The effects of [POKEMON]'s Stealth Advantage wore off!",
 	},
 	stormfront: {
 		name: "Stormfront",
@@ -2500,6 +2520,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		transform: "[POKEMON] formed a swarm!",
 		transformEnd: "[POKEMON]'s swarm dissipated!",
 	},
+	sweetdreams: {
+		name: "Sweet Dreams",
+		desc: "If Dreamscape is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
+		shortDesc: "If Dreamscape is active, this Pokemon heals 1/16 of its max HP each turn.",
+	},
 	tobe: {
 		name: "To Be",
 		desc: "If this Pokemon is at full HP, it survives one hit with at least 1 HP and its Speed is raised by 1 stage. OHKO moves fail when used against this Pokemon.",
@@ -2507,9 +2532,9 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 		activate: "  [POKEMON] decided to live!",
 	},
-	dreamer: {
-		name: "Dreamer",
-		shortDesc: "On switch-in, this Pokemon summons Dreamscape.",
+	trainedeye: {
+		name: "Trained Eye",
+		shortDesc: "This Pokemon's contact moves ignore the target's protection, and do 0.25x when they do.",
 	},
 	trumpetweevil: {
 		name: "Trumpet Weevil",
@@ -2523,7 +2548,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	warpmist: {
 		name: "Warp Mist",
-		desc: "This Pokemon can't have its type immunities bypassed. If Fog is active, its highest attacking stat is multiplied by 1.2",
-		shortDesc: "Overrides ignoring type immunity. 1.2 attack power in Fog.",
+		desc: "This Pokemon can't have its type immunities bypassed. If Fog is active, this Pokemon's highest stat is multiplied by 1.2. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order. This Pokemon's moves do not have their accuracy lowered by Fog. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "Overrides ignoring type immunity. highest stat is 1.2x in Fog.",
+
+		activate: "  The heavy dog activated [POKEMON]'s Warp mist!",
+		start: "  [POKEMON]'s [STAT] was heightened!",
+		end: "  The effects of [POKEMON]'s Warp Mist wore off!",
 	},
 };
