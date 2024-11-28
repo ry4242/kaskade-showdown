@@ -2314,7 +2314,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	druidry: {
 		name: "Druidry",
-		desc: "On switch-in and while the user is active, Misty Terrain transforms into Grassy Terrain.",
+		desc: "On switch-in + while the user is active, Misty Terrain transforms into Grassy Terrain.",
 
 		activate: "  [POKEMON] transfigured the battlefield!",
 	},
@@ -2326,11 +2326,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Dust Gather",
 		desc: "If Dust Storm is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. The power of this Pokemon's attacks are not lowered by Dust Storm. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Dust Storm is active, this Pokemon heals 1/16 of its max HP each turn.",
-	},
-	eclipse: {
-		name: "Glacial Armor",
-		desc: "This Pokemon's Defense is doubled in Sun, and Special Defense is doubled in Blood Moon.",
-		shortDesc: "Sun: 2x Def. Blood Moon: 2x Sp. Def.",
 	},
 	energizer: {
 		name: "Energizer",
@@ -2361,11 +2356,6 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If a Pokemon uses a Psychic-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
 		shortDesc: "Psychic-type moves against this Pokemon deal damage with a halved offensive stat.",
 	},
-	forked: {
-		name: "Forked",
-		desc: "This Pokemon has its non-volatile status condition cured at the end of each turn if Thunderstorm is active. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
-		shortDesc: "This Pokemon has its status cured at the end of each turn if Thunderstorm is active.",
-	},
 	galeforce: {
 		name: "Galeforce",
 		shortDesc: "On switch-in, this Pokemon summons Strong Winds.",
@@ -2382,7 +2372,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	hydrophobic: {
 		name: "Hydrophobic",
 		desc: "This Pokemon ignores Rain and Hail's negative effects. If a Pokemon uses a Water-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
-		shortDesc: "This Pokemon ignores Rain and Hail's negative effects; Water power against it is halved.",
+		shortDesc: "User ignores Rain and Hail's negative effects; Water power against it is halved.",
 	},
 	incantation: {
 		name: "Incantation",
@@ -2406,7 +2396,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	malice: {
 		name: "Malice",
 		desc: "If Blood Moon is active, this Pokemon's highest attacking stat is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. Stat stage changes are considered at the time this Ability activates. If both stats are tied, Special Attack is prioritized. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
-		shortDesc: "If Blood Moon is active, this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
+		shortDesc: "Blood Moon: this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
 	},
 	masterinstinct: {
 		name: "Master Instinct",
@@ -2457,7 +2447,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	ragestate: {
 		name: "Rage State",
 		desc: "If Battle Aura is active, this Pokemon's highest attacking stat is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. Stat stage changes are considered at the time this Ability activates. If both stats are tied, Attack is prioritized. These effects are prevented if the Pokemon is holding an Energy Nullifier.",
-		shortDesc: "If Battle Aura is active, this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
+		shortDesc: "Battle Aura: this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
 	},
 	rockybody: {
 		name: "Rocky Body",
@@ -2483,7 +2473,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	shadowstep: {
 		name: "Shadow Step",
 		desc: "If Blood Moon or Paranormal Activity is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "If B.Moon/P.Activity is active, this Pokemon's Speed is doubled.",
+		shortDesc: "If Blood Moon or Paranormal Activity is active, this Pokemon's Speed is doubled.",
 	},
 	smokeandmirrors: {
 		name: "Smoke and Mirrors",
@@ -2498,7 +2488,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	souldrain: {
 		name: "Soul Drain",
 		desc: "This Pokemon restores 1/4 of its maximum HP, rounded down, when another Pokemon faints to indirect damage.If Paranormal Activity is active, this Pokemon restores an additional 1/8. This Pokemon takes no damage from Paranormal Activity. These effects are prevented if this Pokemon is holding an Energy Nullifier.",
-		shortDesc: "Heals 1/4 when another Pokemon faints to indirect damage, 3/8 in P.Acticity; immunity to it.",
+		shortDesc: "Other Pokemon faints to indirect: heal 1/4, 3/8 in P.Activity; immunity to it.",
 	},
 	standoff: {
 		name: "Stand Off",
@@ -2534,7 +2524,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	trainedeye: {
 		name: "Trained Eye",
-		shortDesc: "This Pokemon's contact moves ignore the target's protection, and do 0.25x when they do.",
+		shortDesc: "User's contact moves ignore the target's protection, but do 0.25x when they do.",
 	},
 	trumpetweevil: {
 		name: "Trumpet Weevil",
