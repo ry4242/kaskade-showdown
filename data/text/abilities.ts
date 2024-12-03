@@ -24,11 +24,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 		damage: "  [POKEMON] was hurt!",
 	},
-	airlock: {
+	airlock: { // updated
 		name: "Air Lock",
-		shortDesc: "While this Pokemon is active, the effects of weather conditions are disabled.",
+		shortDesc: "While this Pokemon is active, the effects of Weathergy conditions are disabled.",
 
-		start: "  The effects of the weather disappeared.",
+		start: "  The effects of the Weathergy disappeared.",
 	},
 	analytic: {
 		name: "Analytic",
@@ -119,8 +119,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 		start: "  [POKEMON] reversed all other Pok\u00E9mon's auras!",
 	},
-	baddreams: {
+	baddreams: { // updated
 		name: "Bad Dreams",
+		/* desc: "Causes opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep or if Dreamscape is active.",
+		shortDesc: "Causes sleeping foes to lose 1/8 of their max HP at the end of each turn.", */
 		desc: "Causes opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep.",
 		shortDesc: "Causes sleeping foes to lose 1/8 of their max HP at the end of each turn.",
 		gen6: {
@@ -215,11 +217,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Clear Body",
 		shortDesc: "Prevents other Pokemon from lowering this Pokemon's stat stages.",
 	},
-	cloudnine: {
+	cloudnine: { // updated
 		name: "Cloud Nine",
 		shortDesc: "While this Pokemon is active, the effects of Climate Weathergy conditions are disabled.",
 
-		start: "#airlock",
+		start: "  The climate changed.",
 	},
 	colorchange: {
 		name: "Color Change",
@@ -262,10 +264,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 			desc: "If this Pokemon has a stat stage raised it is lowered instead, and vice versa.",
 		},
 	},
-	corrosion: {
+	corrosion: { // updated
 		name: "Corrosion",
 		desc: "This Pokemon can poison or badly poison a Pokemon regardless of its typing. If Smog is active, this Pokemon can hit Steel types with Poison-type moves.",
-		shortDesc: "This Pokemon can poison Steel-types. Poison moves hit Steel.",
+		shortDesc: "This Pokemon can poison Steel-types. Smog: Poison moves hit Steel.",
 	},
 	costar: {
 		name: "Costar",
@@ -366,7 +368,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "On switch-in, the weather becomes Desolate Land, which includes all the effects of Sun and prevents damaging Water-type moves from executing. This weather remains in effect until this Ability is no longer active for any Pokemon, or the weather is changed by the Delta Stream or Primordial Sea Abilities.",
 		shortDesc: "On switch-in, extremely harsh sunlight begins until this Ability is not active in battle.",
 	},
-	disguise: {
+	disguise: { // updated
 		name: "Disguise",
 		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form. Confusion damage also breaks the disguise.",
 		shortDesc: "(Mimikyu only) First hit deals 0 damage, breaks disguise.",
@@ -414,10 +416,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "This Pokemon is immune to Ground-type moves and restores 1/4 of its maximum HP, rounded down, when hit by a Ground-type move.",
 		shortDesc: "This Pokemon heals 1/4 of its max HP when hit by Ground moves; Ground immunity.",
 	},
-	earthforce: {
+	earthforce: { // updated
 		name: "Earth Force",
-		desc: "If Sandstorm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm. These effects are prevented if this Pokemon is holding Safety Goggles.",
-		shortDesc: "This Pokemon's Ground/Rock/Steel attacks do 1.3x in Sandstorm; immunity to it.",
+		desc: "If Sandstorm or Dust Storm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm, and the power of this Pokemon's attacks are not lowered by Dust Storm. These effects are prevented if this Pokemon is holding Safety Goggles.",
+		shortDesc: "Sandstorm/Dust Storm: user's Ground/Rock/Steel attacks do 1.3x; immunity to them.",
 	},
 	effectspore: {
 		name: "Effect Spore",
@@ -481,9 +483,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Filter",
 		shortDesc: "This Pokemon receives 3/4 damage from supereffective attacks.",
 	},
-	flamebody: {
+	flamebody: { // updated
 		name: "Flame Body",
-		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be burned. This Pokemon takes no damage from Hail.",
+		desc: "30% chance a Pokemon making contact with this Pokemon will be burned. This Pokemon takes no damage from Hail.",
+		shortDesc: "30% chance a Pokemon making contact with this Pokemon will be burned; Hail immunity.",
 		gen4: {
 			desc: "30% chance a Pokemon making contact with this Pokemon will be burned. This effect does not happen if this Pokemon did not lose HP from the attack.",
 		},
@@ -575,9 +578,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Fur Coat",
 		shortDesc: "This Pokemon's Defense is doubled.",
 	},
-	galewings: {
+	galewings: { // updated
 		name: "Gale Wings",
-		shortDesc: "If this Pokemon is at full HP or Strong Winds is active, its Flying-type moves have their priority increased by 1.",
+		desc: "If this Pokemon is at full HP or Strong Winds is active, its Flying-type moves have their priority increased by 1.",
+		shortDesc: "Full HP/Strong Winds: This Pokemon's Flying-type moves have +1 priority.",
 		gen6: {
 			shortDesc: "This Pokemon's Flying-type moves have their priority increased by 1.",
 		},
@@ -605,9 +609,9 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "This Pokemon's Attack is multiplied by 1.5, but it can only select the first move it executes. These effects are prevented while this Pokemon is Dynamaxed.",
 		shortDesc: "This Pokemon's Attack is 1.5x, but it can only select the first move it executes.",
 	},
-	grasspelt: {
+	grasspelt: { // updated
 		name: "Grass Pelt",
-		shortDesc: "If Grassy Terrain or Pollen is active, this Pokemon's Defense is multiplied by 1.5.",
+		shortDesc: "Grassy Terrain/Pollen Storm: this Pokemon's Defense is multiplied by 1.5.",
 	},
 	grassysurge: {
 		name: "Grassy Surge",
@@ -819,10 +823,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 		damage: "#roughskin",
 	},
-	ironfist: {
+	ironfist: { // updated
 		name: "Iron Fist",
-		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.2.",
-		shortDesc: "This Pokemon's punch-based attacks have 1.2x power. Sucker Punch is not boosted.",
+		desc: "This Pokemon's punch-based attacks have their power multiplied by 1.5.",
+		shortDesc: "This Pokemon's punch-based attacks have 1.5x power. Sucker Punch is not boosted.",
 	},
 	justified: {
 		name: "Justified",
@@ -842,10 +846,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "This Pokemon's held item has no effect. This Pokemon cannot use Fling successfully. Macho Brace, Power Anklet, Power Band, Power Belt, Power Bracer, Power Lens, and Power Weight still have their effects.",
 		shortDesc: "This Pokemon's held item has no effect, except Macho Brace. Fling cannot be used.",
 	},
-	leafguard: {
+	leafguard: { // updated
 		name: "Leaf Guard",
-		desc: "If Sun is active, this Pokemon cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it. This effect is prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "If Sun is active, this Pokemon cannot be statused and Rest will fail for it.",
+		desc: "This Pokemon has its non-volatile status condition cured at the end of each turn if Sun or Pollen Storm is active. This effect is prevented if this Pokemon is holding a Utility Umbrella in Sun or Safety Goggles in Pollen Storm.",
+		shortDesc: "Sun/Pollen Storm: this Pokemon has its status cured at the end of each turn.",
 		gen7: {
 			desc: "If Sun is active, this Pokemon cannot become affected by a non-volatile status condition or Yawn, and Rest will fail for it.",
 		},
@@ -955,9 +959,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack. Does not affect Doom Desire and Future Sight.",
 		shortDesc: "If this Pokemon has no item, it steals the item off a Pokemon it hits with an attack.",
 	},
-	magmaarmor: {
+	magmaarmor: { // updated
 		name: "Magma Armor",
-		shortDesc: "This Pokemon cannot be frozen. Gaining this Ability while frozen cures it. Immune to Hail.",
+		desc: "This Pokemon cannot be frozen. Gaining this Ability while frozen cures it. This Pokemon takes no damage from Hail.",
+		shortDesc: "Immunity to Hail damage and being frozen.",
 	},
 	magnetpull: {
 		name: "Magnet Pull",
@@ -1703,14 +1708,14 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 			shortDesc: "If Hail is active, this Pokemon's evasiveness is 1.25x; immunity to Hail.",
 		},
 	},
-	snowwarning: {
+	snowwarning: { // updated
 		name: "Snow Warning",
 		shortDesc: "On switch-in, this Pokemon summons Hail.",
 		gen8: {
 			shortDesc: "On switch-in, this Pokemon summons Hail.",
 		},
 	},
-	solarpower: {
+	solarpower: { // updated
 		name: "Solar Power",
 		desc: "If Sun is active, this Pokemon's highest attacking stat is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. Stat stage changes are considered at the time this Ability activates. If both stats are tied, Special Attack is prioritized. These effects are prevented if the Pokemon is holding a Utility Umbrella.",
 		shortDesc: "If Sun is active, this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
@@ -1786,10 +1791,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Steadfast",
 		shortDesc: "If this Pokemon flinches, its Speed is raised by 1 stage.",
 	},
-	steamengine: {
+	steamengine: { // upadted
 		name: "Steam Engine",
 		desc: "This Pokemon's Speed is raised by 6 stages after it is hit by a Fire- or Water-type move. This Pokemon is immune to Water-type attacks",
-		shortDesc: "This Pokemon's Speed is raised by 6 stages after it is hit by Fire/Water moves; Water immunity.",
+		shortDesc: "User's Speed is raised by 6 stages after it is hit by Fire/Water moves; Water immunity.",
 	},
 	steelworker: {
 		name: "Steelworker",
@@ -2203,17 +2208,17 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "When this Pokemon has more than 1/2 its maximum HP and takes damage bringing it to 1/2 or less of its maximum HP, it immediately switches out to a chosen ally. This effect applies after all hits from a multi-hit move. This effect is prevented if the move had a secondary effect removed by the Sheer Force Ability. This effect applies to both direct and indirect damage, except Curse and Substitute on use, Belly Drum, Pain Split, and confusion damage.",
 		shortDesc: "This Pokemon switches out when it reaches 1/2 or less of its maximum HP.",
 	},
-	windpower: {
+	windpower: { // updated
 		name: "Wind Power",
 		desc: "This Pokemon gains the Charge effect when it takes a hit from a wind move or when Tailwind begins on this Pokemon's side.",
-		shortDesc: "This Pokemon gains the Charge effect when hit by a wind move or Tailwind begins.",
+		shortDesc: "This Pokemon gains the Charge effect when hit by a wind move or Tailwind/Strong Winds begins.",
 
 		start: "#electromorphosis",
 	},
-	windrider: {
+	windrider: { // updated
 		name: "Wind Rider",
-		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move or when Tailwind begins on this Pokemon's side.",
-		shortDesc: "Attack raised by 1 if hit by a wind move or Tailwind begins. Wind move immunity.",
+		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move or when Tailwind or Strong Winds begins on this Pokemon's side.",
+		shortDesc: "Attack raised by 1 if hit by a wind move or Tailwind/Strong Winds begins. Wind move immunity.",
 	},
 	wonderguard: {
 		name: "Wonder Guard",
@@ -2284,8 +2289,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	bloomspring: {
 		name: "Bloomspring",
-		desc: "If Pollen is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon's Attack and Special Attack are not lowered by Pollen. These effects are prevented if this Pokemon is holding Safety Goggles.",
-		shortDesc: "If Pollen is active, this Pokemon heals 1/16 of its max HP each turn.",
+		desc: "If Pollen Storm is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon's Attack and Special Attack are not lowered by Pollen. These effects are prevented if this Pokemon is holding Safety Goggles.",
+		shortDesc: "If Pollen Storm is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
 	bubblehelm: {
 		name: "Bubble Helm",
@@ -2432,7 +2437,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	powdercure: {
 		name: "Powder Cure",
 		desc: "This Pokemon and its allies have their non-volatile status condition cured at the end of each turn if Pheromones is active. The user cannot become confused from Pheromones. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "This Pokemon and allies have status cured at the end of each turn if Pollen is active.",
+		shortDesc: "This Pokemon and allies have status cured at the end of each turn if Pollen Storm is active.",
 	},
 	powerabove: {
 		name: "Power Above",

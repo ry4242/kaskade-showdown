@@ -1907,9 +1907,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: 169,
 	},
-	galewings: {
+	galewings: { // updated
 		onModifyPriority(priority, pokemon, target, move) {
-			if ((move?.type === 'Flying' && pokemon.hp === pokemon.maxhp) || this.field.isClearingWeather('strongwinds')) {
+			if (move?.type === 'Flying' && (pokemon.hp === pokemon.maxhp || this.field.isClearingWeather('strongwinds'))) {
 				return priority + 1;
 			}
 		},
@@ -2294,7 +2294,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	iceface: {
 		onStart(pokemon) {
-			if (pokemon.hasItem('utilityumbrella')) return;
 			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather()) && pokemon.species.id === 'eiscuenoice') {
 				this.add('-activate', pokemon, 'ability: Ice Face');
 				this.effectState.busted = false;
@@ -6289,7 +6288,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			this.singleEvent('ClimateWeatherChange', this.effect, this.effectState, pokemon);
 		},
 		onClimateWeatherChange(pokemon) {
-			if (pokemon.hasItem('utilityumbrella')) return;
 			if (!(pokemon.baseSpecies.baseSpecies === 'Snover' || pokemon.baseSpecies.baseSpecies === 'Abomasnow')) return;
 			let forme = null;
 			switch (pokemon.effectiveClimateWeather()) {
