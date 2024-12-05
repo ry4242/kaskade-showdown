@@ -951,7 +951,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			return 5;
 		},
 		onIrritantWeatherModifyDamage(damage, attacker, defender, move) {
-			if (defender.hasItem('safetygoggles') || attacker.hasAbility(['overcoat', 'dustgather', 'bubblehelm', 'earthforce'])) return;
+			if (defender.hasItem('safetygoggles') ||
+			attacker.hasAbility(['overcoat', 'earthforce', 'bubblehelm', 'dustgather'])) return;
 			if (move.type === 'Water' || move.type === 'Grass') {
 				this.debug('Dust Storm Water/Grass supress');
 				return this.chainModify(0.5);

@@ -23437,7 +23437,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Dragon",
 	},
-	juicedrink: {  // untested
+	juicedrink: { // untested
 		num: -83,
 		accuracy: true,
 		basePower: 0,

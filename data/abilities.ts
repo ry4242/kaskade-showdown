@@ -6093,9 +6093,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Ancient Body",
 		rating: 2.5,
-	num: -65,
+		num: -65,
 	},
-	arcanum: {  // tested, works as intended
+	arcanum: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('dragonforce');
 		},
@@ -6991,7 +6991,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onModifyMove(move) {
-			if (this.effectState.protectBroken = true) {
+			if (this.effectState.protectBroken) {
 				this.effectState.protectBroken = false;
 				delete move.flags['protect'];
 			}
