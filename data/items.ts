@@ -631,7 +631,6 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (source.baseSpecies.tags.includes("Paradox")) return false;
 			return true;
 		},
-		itemUser: ["Great Tusk", "Scream Tail", "Brute Bonnet", "Flutter Mane", "Slither Wing", "Sandy Shocks", "Iron Treads", "Iron Bundle", "Iron Hands", "Iron Jugulis", "Iron Moth", "Iron Thorns", "Roaring Moon", "Iron Valiant", "Walking Wake", "Iron Leaves", "Gouging Fire", "Raging Bolt", "Iron Boulder", "Iron Crown"],
 		num: 1880,
 		gen: 9,
 	},
