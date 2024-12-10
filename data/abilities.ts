@@ -6483,7 +6483,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onModifyCritRatio(critRatio, source) {
 			if (['magnetize'].includes(source.effectiveEnergyWeather())) {
 				this.debug("Machine Precision cirt rate increase");
-				return critRatio + 1;
+				return critRatio + 2;
 			}
 		},
 		flags: {},

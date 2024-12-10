@@ -752,7 +752,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (defender.hasItem('utilityumbrella') || defender.hasAbility('droughtproof')) return;
 			if (move && defender.getMoveHitData(move).typeMod > 0) {
 				this.debug('Blood Moon super-effective boost');
-				return this.chainModify(1.5);
+				return this.chainModify(1.25);
 			}
 		},
 		onModifyPriority(priority, pokemon, target, move) {
@@ -1203,8 +1203,15 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifyCritRatioPriority: 10,
 		onModifyCritRatio(critRatio, pokemon) {
-			if (pokemon.hasItem('energynullifier')) return;
+			if (!pokemon.hasType('Fighting') || pokemon.hasItem('energynullifier')) return;
 			return critRatio + 1;
+		},
+		onAnyAccuracy(accuracy, target, source, move) {
+			if (target.hasItem('energynullifier')) return;
+			if (source !== target && move.type === 'Fighting') {
+				this.chainModify(1.2);
+			}
+			return accuracy;
 		},
 		onTryBoost(boost, target, source, effect) {
 			if (this.field.energyWeatherState.boosted) {
@@ -1223,15 +1230,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 						this.add("-fail", target, "unboost", "[from] energyWeather: Battle Aura", "[of] " + target); // incomplete
 					}
 				}
-			}
-		},
-		onAnyModifyBoost(boosts, pokemon) {
-			if (!this.activePokemon?.hasType('Fighting') || pokemon.hasItem('energynullifier')) return;
-			const auraUser = this.effectState.target;
-			if (auraUser === pokemon) return;
-			if (auraUser === this.activePokemon && pokemon === this.activeTarget) {
-				boosts['def'] = 0;
-				boosts['spd'] = 0;
 			}
 		},
 		onFieldStart(field, source, effect) {

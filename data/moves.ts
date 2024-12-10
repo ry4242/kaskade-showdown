@@ -757,7 +757,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			onBeforeMovePriority: 2,
 			onBeforeMove(pokemon, target, move) {
 				this.add('-activate', pokemon, 'move: Attract', '[of] ' + this.effectState.source);
-				if (this.randomChance(1, 2)) {
+				if (this.randomChance(1, 3)) {
 					this.add('cant', pokemon, 'Attract');
 					return false;
 				}
@@ -21902,7 +21902,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	wildcharge: { // updated
 		num: 528,
 		accuracy: 100,
-		basePower: 120,
+		basePower: 100,
 		category: "Physical",
 		name: "Wild Charge",
 		pp: 15,
@@ -22539,7 +22539,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	conduction: { // tested, works as intended
 		num: -35,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 80,
 		category: "Special",
 		name: "Conduction",
 		pp: 10,
@@ -22548,7 +22548,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		onBasePower(basePower, pokemon, target) {
 			if (['magnetize'].includes(pokemon.effectiveEnergyWeather())) {
 				this.debug('powered by Magnetosphere');
-				return this.chainModify([5006, 4096]);
+				return this.chainModify(1.5);
 			}
 		},
 		onHit(target, source, move) {
@@ -22592,6 +22592,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		recoil: [33, 100],
 		secondary: null,
 		target: "normal",
 		type: "Rock",
@@ -22881,6 +22882,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 5,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onTry(source) {
+			return ['seance'].includes(source.effectiveEnergyWeather());
+		},
 		secondary: null,
 		target: "normal",
 		type: "Ghost",
@@ -22928,10 +22932,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				move.accuracy = true;
 			}
 		},
-		secondary: {
-			chance: 10,
-			status: 'psn',
-		},
+		secondary: null,
 		target: "normal",
 		type: "Fire",
 	},
@@ -23734,7 +23735,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	peekaboo: { // tested, works as intended
 		num: -67,
 		accuracy: 100,
-		basePower: 70,
+		basePower: 60,
 		category: "Physical",
 		name: "Peek-a-Boo",
 		pp: 10,
@@ -23744,7 +23745,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			if (['bloodmoon'].includes(pokemon.effectiveClimateWeather()) ||
 			['sprinkle'].includes(pokemon.effectiveIrritantWeather())) {
 				this.debug('powered by Weathergy');
-				return this.chainModify([5266, 4096]);
+				return this.chainModify(1.5);
 			}
 		},
 		secondary: {
@@ -23858,7 +23859,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		name: "Psion Rush",
 		pp: 5,
 		priority: 0,
-		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
+		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1, cantusetwice: 1},
 		self: {
 			boosts: {
 				def: -1,
@@ -24231,11 +24232,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		onEffectiveness(typeMod, target, type) {
 			if (type === 'Fire') return 1;
 		},
-		basePowerCallback(pokemon, target, move) {
-			if (['hail', 'snow', 'rain', 'primordialsea'].includes(target.effectiveClimateWeather())) {
-				return move.basePower * 1.5;
+		onBasePower(basePower, pokemon, target) {
+			if (['rain', 'primordialsea', 'hail'].includes(pokemon.effectiveClimateWeather())) {
+				this.debug('powered by Weathergy');
+				return this.chainModify(1.5);
 			}
-			return move.basePower;
 		},
 		secondary: null,
 		target: "normal",
@@ -24566,10 +24567,15 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		basePower: 90,
 		category: "Special",
 		name: "Whip Up",
-		pp: 15,
+		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, wind: 1},
-		secondary: null,
+		secondary: {
+			chance: 10,
+			boosts: {
+				spe: -1,
+			},
+		},
 		target: "normal",
 		type: "Flying",
 	},
@@ -24734,7 +24740,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	windtunnel: { // tested, works as intended
 		num: -19,
 		accuracy: 100,
-		basePower: 90,
+		basePower: 60,
 		category: "Physical",
 		name: "Wind Tunnel",
 		pp: 15,
