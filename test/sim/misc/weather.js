@@ -17,7 +17,7 @@ describe('Weather damage calculation', function () {
 		battle.setPlayer('p2', {team: [{species: 'Cryogonal', ability: 'levitate', moves: ['splash']}]});
 		const attacker = battle.p1.active[0];
 		const defender = battle.p2.active[0];
-		assert.hurtsBy(defender, 152, () => battle.makeChoices('move incinerate', 'move splash'));
+		assert.hurtsBy(defender, 180, () => battle.makeChoices('move incinerate', 'move splash'));
 		const move = Dex.moves.get('incinerate');
 		const basePower = battle.runEvent('BasePower', attacker, defender, move, move.basePower, true);
 		assert.equal(basePower, move.basePower);
@@ -30,7 +30,7 @@ describe('Weather damage calculation', function () {
 		battle.setPlayer('p2', {team: [{species: 'Cryogonal', ability: 'levitate', moves: ['splash']}]});
 		const attacker = battle.p1.active[0];
 		const defender = battle.p2.active[0];
-		assert.hurtsBy(defender, 50, () => battle.makeChoices('move incinerate', 'move splash'));
+		assert.hurtsBy(defender, 60, () => battle.makeChoices('move incinerate', 'move splash'));
 		const move = Dex.moves.get('incinerate');
 		const basePower = battle.runEvent('BasePower', attacker, defender, move, move.basePower, true);
 		assert.equal(basePower, move.basePower);

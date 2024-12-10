@@ -14,7 +14,7 @@ describe('Eviolite', function () {
 		battle = common.createBattle([[
 			{species: 'Omanyte', ability: 'shellarmor', item: 'eviolite', moves: ['rest']},
 		], [
-			{species: 'Cherrim', moves: ['seedbomb', 'megadrain']},
+			{species: 'Cherubi', moves: ['seedbomb', 'megadrain']},
 		]]);
 		battle.makeChoices();
 		assert.false.fainted(battle.p1.active[0]);

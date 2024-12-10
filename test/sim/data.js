@@ -277,11 +277,12 @@ describe('Dex data', function () {
 		9: 140,
 	};
 	const formes = {
-		// Gens 1 and 2 have no alternate formes
+		// Gens 1 has no alternate formes
 		1: 0,
-		2: 0,
-		3: 3 + 3, // Deoxys (3) + Castform (3)
+		2: 1, // Unown-TA
 	};
+	// Deoxys (3) + Castform (3)
+	formes[3] = formes[2] + 3 + 3;
 	// Wormadam (2) + Cherrim (1) + Arceus (16) + Pichu (1) +
 	// Rotom (5) + Giratina (1) + Shaymin (1)
 	formes[4] = formes[3] + 2 + 1 + 16 + 1 + 5 + 1 + 1;

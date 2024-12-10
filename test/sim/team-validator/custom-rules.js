@@ -110,7 +110,7 @@ describe("Custom Rules", function () {
 
 	it('should allow moves to be unbanned', function () {
 		const team = [
-			{species: 'absol', ability: 'pressure', moves: ['batonpass'], evs: {hp: 1}},
+			{species: 'absol', ability: 'superluck', moves: ['batonpass'], evs: {hp: 1}},
 		];
 		assert.legalTeam(team, 'gen7ou@@@+Baton Pass');
 	});
