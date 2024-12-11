@@ -247,7 +247,7 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Earthquake", "Iron Head", "Stealth Rock", "Stone Edge", "Sucker Punch", "Swords Dance"],
-                "abilities": ["Sand Force", "Tangling Hair"],
+                "abilities": ["Earth Force", "Tangling Hair"],
                 "teraTypes": ["Ground", "Steel"]
             }
         ]

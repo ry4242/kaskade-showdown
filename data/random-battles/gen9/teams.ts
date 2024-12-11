@@ -1048,7 +1048,7 @@ export class RandomTeams {
 			return !counter.get('Grass');
 		case 'Prankster':
 			return !counter.get('Status');
-		case 'Sand Force': case 'Sand Rush':
+		case 'Earth Force': case 'Sand Rush':
 			return !teamDetails.sand;
 		case 'Slush Rush':
 			return !teamDetails.snow;
@@ -1115,7 +1115,7 @@ export class RandomTeams {
 		// If all abilities are rejected, prioritize weather abilities over non-weather abilities
 		if (!abilityAllowed.length) {
 			const weatherAbilities = abilities.filter(
-				a => ['Chlorophyll', 'Hydration', 'Sand Force', 'Sand Rush', 'Slush Rush', 'Solar Power', 'Swift Swim'].includes(a)
+				a => ['Chlorophyll', 'Hydration', 'Earth Force', 'Sand Rush', 'Slush Rush', 'Solar Power', 'Swift Swim'].includes(a)
 			);
 			if (weatherAbilities.length) return this.sample(weatherAbilities);
 		}
@@ -2403,7 +2403,7 @@ export class RandomTeams {
 			}
 
 			// reject 2+ weather setters
-			if (teamData.weather && weatherAbilities.includes(curSet.ability)) {
+			if (teamData.climateWeather && weatherAbilities.includes(curSet.ability)) {
 				continue;
 			}
 

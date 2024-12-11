@@ -581,7 +581,7 @@
             {
                 "role": "Wallbreaker",
                 "movepool": ["Earthquake", "Iron Head", "Stealth Rock", "Stone Edge", "Swords Dance"],
-                "abilities": ["Sand Force", "Tangling Hair"],
+                "abilities": ["Earth Force", "Tangling Hair"],
                 "teraTypes": ["Ground", "Rock", "Steel"]
             }
         ]

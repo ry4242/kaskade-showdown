@@ -78,7 +78,7 @@ describe('Cloud Nine', function () {
 		], [
 			{species: 'Groudon', ability: 'desolateland', moves: ['sunnyday']},
 		]]);
-		assert.constant(() => battle.weather, () => battle.makeChoices('move raindance', 'move sunnyday'));
+		assert.constant(() => battle.climateWeather, () => battle.makeChoices('move raindance', 'move sunnyday'));
 	});
 
 	it('should not negate Primordial Sea\'s ability to prevent other weathers from activating', function () {
@@ -87,7 +87,7 @@ describe('Cloud Nine', function () {
 		], [
 			{species: 'Kyogre', ability: 'primordialsea', moves: ['sunnyday']},
 		]]);
-		assert.constant(() => battle.weather, () => battle.makeChoices('move raindance', 'move sunnyday'));
+		assert.constant(() => battle.climateWeather, () => battle.makeChoices('move raindance', 'move sunnyday'));
 	});
 
 	it('should not negate Delta Stream\'s ability to prevent other weathers from activating', function () {
@@ -96,7 +96,7 @@ describe('Cloud Nine', function () {
 		], [
 			{species: 'Rayquaza', ability: 'deltastream', moves: ['sunnyday']},
 		]]);
-		assert.constant(() => battle.weather, () => battle.makeChoices('move raindance', 'move sunnyday'));
+		assert.constant(() => battle.climateWeather, () => battle.makeChoices('move raindance', 'move sunnyday'));
 	});
 
 	it('should still display status of the weather', function () {

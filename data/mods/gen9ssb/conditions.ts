@@ -3063,9 +3063,9 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 		onFieldStart(battle, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-weather', 'StormSurge', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-climateWeather', 'StormSurge', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-weather', 'StormSurge');
+				this.add('-climateWeather', 'StormSurge');
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -3074,11 +3074,11 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'StormSurge', '[upkeep]');
-			this.eachEvent('Weather');
+			this.add('-climateWeather', 'StormSurge', '[upkeep]');
+			this.eachEvent('climateWeather');
 		},
 		onFieldEnd() {
-			this.add('-weather', 'none');
+			this.add('-climateWeather', 'none');
 		},
 	},
 
@@ -3101,18 +3101,18 @@ export const Conditions: {[id: IDEntry]: ModdedConditionData & {innateName?: str
 			}
 		},
 		onFieldStart(field, source, effect) {
-			this.add('-weather', 'DesertedDunes', '[from] ability: ' + effect.name, '[of] ' + source);
+			this.add('-irritantWeather', 'DesertedDunes', '[from] ability: ' + effect.name, '[of] ' + source);
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-weather', 'DesertedDunes', '[upkeep]');
-			this.eachEvent('Weather');
+			this.add('-irritantWeather', 'DesertedDunes', '[upkeep]');
+			this.eachEvent('irritantWeather');
 		},
 		onClimateWeather(target) {
 			this.damage(target.baseMaxhp / 16);
 		},
 		onFieldEnd() {
-			this.add('-weather', 'none');
+			this.add('-irritantWeather', 'none');
 		},
 	},
 

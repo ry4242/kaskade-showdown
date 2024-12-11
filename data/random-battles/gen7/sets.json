@@ -404,7 +404,7 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["earthquake", "ironhead", "stealthrock", "stoneedge", "suckerpunch", "toxic"],
-                "abilities": ["Sand Force", "Tangling Hair"]
+                "abilities": ["Earth Force", "Tangling Hair"]
             }
         ]
     },

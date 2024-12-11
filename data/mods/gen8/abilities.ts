@@ -855,7 +855,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		inherit: true,
 		rating: 0,
 	},
-	sandforce: {
+	earthforce: {
 		inherit: true,
 		rating: 2,
 	},

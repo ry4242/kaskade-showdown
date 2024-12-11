@@ -234,7 +234,7 @@
             {
                 "role": "Offensive Protect",
                 "movepool": ["Iron Head", "Protect", "Rock Slide", "Stomping Tantrum", "Sucker Punch"],
-                "abilities": ["Sand Force", "Tangling Hair"],
+                "abilities": ["Earth Force", "Tangling Hair"],
                 "teraTypes": ["Fire", "Steel", "Water"]
             }
         ]
