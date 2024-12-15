@@ -6293,13 +6293,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			switch (pokemon.effectiveClimateWeather()) {
 			case 'sunnyday':
 			case 'desolateland':
-				if (pokemon.species.id !== 'snoverlowland') forme = 'Snover-Lowland';
-				if (pokemon.species.id !== 'abomasnowlowland') forme = 'Abomasnow-Lowland';
+				if (pokemon.baseSpecies.baseSpecies === 'Snover' &&
+					pokemon.species.id !== 'snoverlowland') forme = 'Snover-Lowland';
+				if (pokemon.baseSpecies.baseSpecies === 'Abomasnow' &&
+					pokemon.species.id !== 'abomasnowlowland') forme = 'Abomasnow-Lowland';
 				break;
 			case 'hail':
 			case 'snow':
-				if (pokemon.species.id !== 'snover') forme = 'Snover';
-				if (pokemon.species.id !== 'abomasnow') forme = 'Abomasnow';
+				if (pokemon.baseSpecies.baseSpecies === 'Snover' &&
+					pokemon.species.id !== 'snover') forme = 'Snover';
+				if (pokemon.baseSpecies.baseSpecies === 'Abomasnow' &&
+					pokemon.species.id !== 'abomasnow') forme = 'Abomasnow';
 				break;
 			}
 			if (pokemon.isActive && forme) {
