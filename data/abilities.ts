@@ -3544,7 +3544,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 
 			let announced = false;
 			for (const pokemon of [target, source]) {
-				if (pokemon.volatiles['perishsong'] || pokemon.volatiles['nottobe']) continue;
+				if (pokemon.volatiles['perishsong']) continue;
 				if (!announced) {
 					this.add('-ability', target, 'Perish Body');
 					announced = true;
@@ -6283,7 +6283,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -1,
 	},
-	evergreen: { // incomplete. needs testing
+	evergreen: { // tested, works as intended
 		onStart(pokemon) {
 			this.singleEvent('ClimateWeatherChange', this.effect, this.effectState, pokemon);
 		},
@@ -6306,7 +6306,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					pokemon.species.id !== 'abomasnow') forme = 'Abomasnow';
 				break;
 			}
-			if (pokemon.isActive && forme) {
+			if (forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
 		},
@@ -6486,7 +6486,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	machineprecision: { // incomplete, doesnt work?
 		onModifyCritRatio(critRatio, source) {
 			if (['magnetize'].includes(source.effectiveEnergyWeather())) {
-				this.debug("Machine Precision cirt rate increase");
+				this.debug("Machine Precision crit rate increase");
 				return critRatio + 2;
 			}
 		},
@@ -6556,37 +6556,26 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1.5,
 		num: -37,
 	},
-	nottobe: { // incomplete. stacks with perish song/perish body
+	nottobe: { // tested, works as intended
 		onDamagingHit(damage, target, source, move) {
-			if (target.hp) return;
+			if (!target.hp) return;
+			if (!this.checkMoveMakesContact(move, source, target)) return;
 			let announced = false;
-			for (const pokemon of [source]) {
-				if (pokemon.volatiles['perishsong'] || pokemon.volatiles['nottobe']) continue;
+			for (const pokemon of [target, source]) {
+				if (pokemon.volatiles['perishsong']) continue;
 				if (!announced) {
 					this.add('-ability', target, 'Not To Be');
 					announced = true;
 				}
-				pokemon.addVolatile('nottobe');
+				pokemon.addVolatile('perishsong');
 			}
-		},
-		condition: {
-			duration: 3,
-			onEnd(target) {
-				this.add('-start', target, 'perish0');
-				target.faint();
-			},
-			onResidualOrder: 24,
-			onResidual(pokemon) {
-				const duration = pokemon.volatiles['nottobe'].duration;
-				this.add('-start', pokemon, 'perish' + duration);
-			},
 		},
 		flags: {},
 		name: "Not To Be",
 		rating: 2,
 		num: -47,
 	},
-	nullify: { // incomplete. needs testing i think
+	nullify: { // incomplete. needs testing, along with whirligig form
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
 		},
@@ -6693,8 +6682,46 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 		num: -24,
 	},
-	powerplumage: { // incomplete
-		flags: {},
+	powerplumage: { // tested, works as intended
+		onStart(pokemon) {
+			this.singleEvent('EnergyWeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onEnergyWeatherChange(pokemon) {
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Blurrun' || pokemon.transformed) return; // does this revert on switch?
+			if (!pokemon.hp) return;
+			if (['supercell'].includes(pokemon.effectiveEnergyWeather())) {
+				if (pokemon.species.id !== 'blurruncharged') {
+					pokemon.formeChange('Blurrun-Charged', this.effect, false, '[msg]');
+				}
+			} else {
+				if (pokemon.species.id === 'blurruncharged') {
+					pokemon.formeChange('Blurrun', this.effect, false, '[msg]');
+				}
+			}
+		},
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				this.add('-immune', target, '[from] ability: Power Plumage');
+				if (target.species.id !== 'blurruncharged') {
+					target.formeChange('Blurrun-Charged', this.effect, false, '[msg]');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.flags['pledgecombo']) return;
+			if (move.type === 'Electric' || source2.energyWeather === 'supercell') {
+				const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+				if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+					if (move.smartTarget) move.smartTarget = false;
+					if (this.effectState.target !== target) {
+						this.add('-activate', this.effectState.target, 'ability: Power Plumage');
+					}
+					return this.effectState.target;
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, breakable: 1},
 		name: "Power Plumage",
 		rating: 0.1,
 		num: -55,
@@ -7044,22 +7071,65 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -39,
 	},
-	warpmist: { // incomplete. needs immunity
-		onBasePowerPriority: 21,
-		onBasePower(basePower, pokemon, target, move) {
-			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				return this.chainModify(1.2);
-			}
-		},
+	warpmist: { // tested, works as intended
 		onTryHit(target, source, move) {
 			if (move.category === 'Status' || target.hasItem('ringtarget')) return;
 			if (target !== source && move.ignoreImmunity) {
-				// this.add('-immune', target, '[from] ability: Warp Mist');
 				this.debug('Warp Mist negate immunity');
 				move.ignoreImmunity = false;
-			}/* else {
-				move.ignoreImmunity = true;
-			} */
+			}
+		},
+		onStart(pokemon) {
+			this.singleEvent('ClimateWeatherChange', this.effect, this.effectState, pokemon);
+		},
+		onClimateWeatherChange(pokemon) {
+			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
+				pokemon.addVolatile('warpmist');
+			}
+		},
+		onEnd(pokemon) {
+			delete pokemon.volatiles['warpmist'];
+			this.add('-end', pokemon, 'warpmist', '[silent]');
+		},
+		condition: {
+			noCopy: true,
+			onStart(pokemon, source, effect) {
+				this.add('-activate', pokemon, 'ability: Warp Mist');
+				this.effectState.bestStat = pokemon.getBestStat(false, true);
+				this.add('-start', pokemon, 'warpmist' + this.effectState.bestStat);
+			},
+			onModifyAtkPriority: 5,
+			onModifyAtk(atk, pokemon) {
+				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
+				this.debug('Warp Mist atk boost');
+				return this.chainModify(1.2);
+			},
+			onModifyDefPriority: 6,
+			onModifyDef(def, pokemon) {
+				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
+				this.debug('Warp Mist def boost');
+				return this.chainModify(1.2);
+			},
+			onModifySpAPriority: 5,
+			onModifySpA(spa, pokemon) {
+				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
+				this.debug('Warp Mist spa boost');
+				return this.chainModify(1.2);
+			},
+			onModifySpDPriority: 6,
+			onModifySpD(spd, pokemon) {
+				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
+				this.debug('Warp Mist spd boost');
+				return this.chainModify(1.2);
+			},
+			onModifySpe(spe, pokemon) {
+				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
+				this.debug('Warp Mist spe boost');
+				return this.chainModify(1.2);
+			},
+			onEnd(pokemon) {
+				this.add('-end', pokemon, 'Warp Mist');
+			},
 		},
 		flags: {},
 		name: "Warp Mist",

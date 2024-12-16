@@ -2416,7 +2416,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Not to Be",
 		shortDesc: "If an opponent knocks out the user, it faints in 2 turns.",
 
-		start: "  [POKEMON]'s attacker will faint in two turns!",
+		start: "  [POKEMON] and its attacker will faint in two turns!",
 	},
 	nullify: {
 		name: "Cloud Nine",
@@ -2546,7 +2546,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "This Pokemon can't have its type immunities bypassed. If Fog is active, this Pokemon's highest stat is multiplied by 1.2. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order. This Pokemon's moves do not have their accuracy lowered by Fog. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "Overrides ignoring type immunity. highest stat is 1.2x in Fog.",
 
-		activate: "  The heavy dog activated [POKEMON]'s Warp mist!",
+		activate: "  The heavy fog activated [POKEMON]'s Warp Mist!",
 		start: "  [POKEMON]'s [STAT] was heightened!",
 		end: "  The effects of [POKEMON]'s Warp Mist wore off!",
 	},

@@ -805,7 +805,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy, target, source, move) {
-			if (target.hasItem('utilityumbrella') || source.hasAbility('droughtproof')) return;
+			if (target.hasItem('utilityumbrella') || source.hasAbility(['droughtproof', 'warpmist'])) return;
 			if (typeof accuracy === 'number' && move?.type !== 'Normal' && move?.type !== '???') {
 				// This one piece of code took over 5 hours to do because it was reading move as move: Pokemon and not move: ActiveMove
 				this.debug('Fog accuracy decrease');
@@ -1457,7 +1457,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onEnergyWeather(target) {
 			if (target.hasItem('energynullifier')) return;
-			this.debug('lightning is striking');
 			for (const newTarget of this.getAllActive()) {
 				if (newTarget.hasAbility('lightningrod')) target = newTarget;
 			}
@@ -1466,8 +1465,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (target.hasType('Water')) typeMod *= 2;
 			if (target.hasType('Flying')) typeMod *= 2;
 			// resist electric
-			if (target.hasType('Dragon')) typeMod *= 0.5;
 			if (target.hasType('Grass')) typeMod *= 0.5;
+			if (target.hasType('Dragon')) typeMod *= 0.5;
 			// immune to lightning
 			if (target.hasType('Electric')) typeMod *= 0;
 			if (target.hasType('Ground')) typeMod *= 0;

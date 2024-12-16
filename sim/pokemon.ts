@@ -620,7 +620,7 @@ export class Pokemon {
 	/**
 	 * Gets the Pokemon's best stat.
 	 * Moved to its own method due to frequent use of the same code.
-	 * Used by Beast Boost, Quark Drive, Protosynthesis, and Stealth Advantage.
+	 * Used by Beast Boost, Quark Drive, Protosynthesis, and Warp Mist.
 	 */
 	getBestStat(unboosted?: boolean, unmodified?: boolean): StatIDExceptHP {
 		let statName: StatIDExceptHP = 'atk';

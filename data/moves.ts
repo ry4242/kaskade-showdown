@@ -13816,7 +13816,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	perishsong: {
+	perishsong: { // updated
 		num: 195,
 		accuracy: true,
 		basePower: 0,
@@ -13834,7 +13834,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 					result = true;
 				} else if (this.runEvent('TryHit', pokemon, source, move) === null) {
 					result = true;
-				} else if (!pokemon.volatiles['perishsong'] || !pokemon.volatiles['nottobe']) {
+				} else if (!pokemon.volatiles['perishsong']) {
 					pokemon.addVolatile('perishsong');
 					this.add('-start', pokemon, 'perish3', '[silent]');
 					result = true;
@@ -13846,6 +13846,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		},
 		condition: {
 			duration: 4,
+			durationCallback(target, source, effect) {
+				if (effect?.name === "Not To Be") {
+					return 3;
+				}
+				return 4;
+			},
 			onEnd(target) {
 				this.add('-start', target, 'perish0');
 				target.faint();
@@ -23896,7 +23902,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Psychic",
 	},
-	resilientoil: { // incomplete. non-stacking not implemented
+	resilientoil: { // tested, works as intended
 		num: -96,
 		accuracy: true,
 		basePower: 0,
@@ -23912,9 +23918,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			},
 			onResidualOrder: 6,
 			onResidual(pokemon) {
-				this.heal(pokemon.baseMaxhp / 16);
+				if (!pokemon.volatiles['aquaring']) {
+					this.heal(pokemon.baseMaxhp / 16);
+				}
 			},
 			onTryBoost(boost, target, source, effect) {
+				if (source.volatiles['mist']) return;
 				if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
 				if (source && target !== source) {
 					let showMsg = false;
@@ -23930,13 +23939,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 					}
 				}
 			},
-			/* duration: 5,
-			durationCallback(target, source, effect) {
-				if (['hail', 'fog'].includes(source.effectiveClimateWeather())) {
-					return 8;
-				}
-				return 5;
-			}, */
 		},
 		secondary: null,
 		target: "self",
