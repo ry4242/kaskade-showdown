@@ -24494,7 +24494,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 25,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		thawsTarget: true,
 		multihit: [2, 5],
 		onModifyMove(move, attacker) {
 			if (['haunt'].includes(attacker.effectiveEnergyWeather())) {
