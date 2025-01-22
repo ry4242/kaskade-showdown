@@ -1644,8 +1644,7 @@ export class Pokemon {
 		}
 
 		if (!ignoreImmunities && status.id &&
-			!((source?.hasAbility('corrosion') || (this.battle.field.irritantWeatherState.boosted &&
-			this.battle.field.isIrritantWeather('smogspread'))) && ['tox', 'psn', 'blt'].includes(status.id))) {
+			!((source?.hasAbility('corrosion')))) {
 			// the game currently never ignores immunities
 			if (!this.runStatusImmunity((status.id === 'tox' || status.id === 'blt') ? 'psn' : status.id)) {
 				this.battle.debug('immune to status');

@@ -792,8 +792,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.add('-climateWeather', 'none');
 		},
 	},
-	foghorn: { // incomplete. i have no clue how to do a temporary type change
-		// for when it is figured out: this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.");
+	foghorn: { // incomplete.
 		name: 'Foghorn',
 		effectType: 'ClimateWeather',
 		duration: 5,
@@ -831,6 +830,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (pokemon.hasType('Normal') && this.field.climateWeatherState.boosted) {
 				pokemon.setType('???');
 				pokemon.fogType = true;
+				this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.")
 			}
 		},
 		onSwitchOut(pokemon) {
@@ -842,6 +842,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (pokemon.hasType('Normal') && this.field.climateWeatherState.boosted) {
 				pokemon.setType('???');
 				pokemon.fogType = true;
+				this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.")
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -860,6 +861,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 					if (pokemon.hasType('Normal')) {
 						pokemon.setType('???');
 						pokemon.fogType = true;
+						this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.")
 					}
 				}
 			}
@@ -1109,7 +1111,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.add('-irritantWeather', 'none');
 		},
 	},
-	smogspread: {
+	smogspread: { // TODO: Fix residual priority so that pokemon take poison damage the turn they get poisoned by smog, maybe? discuss
 		name: 'SmogSpread',
 		effectType: 'IrritantWeather',
 		duration: 5,
@@ -1137,9 +1139,16 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.eachEvent('IrritantWeather');
 		},
 		onIrritantWeather(target) {
-			// strong winds effect impemented in sim/pokemon.ts
 			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm', 'carboncapture'])) return;
-			target.trySetStatus('psn');
+			if (target.status === 'psn' && !target.hasType('Steel') && !target.hasType('Poison')) {
+				target.clearStatus();
+				target.setStatus('tox');
+			} else {
+				if (target.getStatus() != null && !target.hasType('Steel') && !target.hasType('Poison') && target.status != 'tox' && target.status != 'psn') {
+					target.clearStatus();
+				}
+				target.trySetStatus('psn');
+			}
 		},
 		onFieldEnd() {
 			this.add('-irritantWeather', 'none');
@@ -1262,23 +1271,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				return 8;
 			}
 			return 5;
-		},
-		onModifySpDPriority: 10,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.hasItem('energynullifier')) return;
-			if (pokemon.hasType('Ghost') && this.field.isEnergyWeather('haunt')) {
-				return this.modify(spd, 1.25);
-			}
-		},
-		onBeforeTurn(pokemon) {
-			if (this.field.energyWeatherState.boosted) {
-				if (pokemon.hasItem('energynullifier')) return;
-				if (pokemon.hasType(['Ghost', 'Dark'])) return;
-				if (this.randomChance(1, 10)) {
-					pokemon.addVolatile('flinch');
-					this.hint("Non-Ghost and Dark types have a 10% chance to flinch in Strong Winds Paranormal Activity :)");
-				}
-			}
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (this.field.energyWeatherState.boosted) {
@@ -1453,13 +1445,26 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-energyWeather', 'Supercell', '[upkeep]');
-			this.eachEvent('EnergyWeather');
-		},
-		onEnergyWeather(target) {
-			if (target.hasItem('energynullifier')) return;
-			for (const newTarget of this.getAllActive()) {
-				if (newTarget.hasAbility('lightningrod')) target = newTarget;
+
+			// Lightning Strike is run here so it only triggers once per turn
+			// If run in onEnergyWeather() it runs once for each active pokemon
+			let validTargets = [];
+			let lightningRodPresent = false;
+			for (const target of this.getAllActive()) {
+				if (target.hasAbility('lightningrod')) {
+					lightningRodPresent = true;
+				}
 			}
+			for (const target of this.getAllActive()) {
+				if (!target.hasItem('energynullifier')) {
+					if (lightningRodPresent) {
+						if (target.hasAbility('lightningrod')) validTargets.push(target);
+					} else {
+						validTargets.push(target);
+					}
+				}
+			}
+			const target = validTargets[this.random(validTargets.length)];
 			let typeMod = 1;
 			// weak to electric
 			if (target.hasType('Water')) typeMod *= 2;
@@ -1501,6 +1506,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 			this.debug('lightning strike damage is based on the pokemons weakness/resistance to electric');
 			this.damage(typeMod * target.baseMaxhp / 10, target);
+
+			this.eachEvent('EnergyWeather');
 		},
 		onFieldEnd() {
 			this.add('-energyWeather', 'none');
