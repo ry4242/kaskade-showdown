@@ -1272,6 +1272,17 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 			return 5;
 		},
+		onModifyMovePriority: -5,
+		onModifyMove(move, target, pokemon) {
+			if (target?.item === 'energynullifier' || move.type !== 'Ghost') return;
+			if (this.field.energyWeatherState.boosted) {
+				if (!move.ignoreImmunity) move.ignoreImmunity = {};
+				if (move.ignoreImmunity !== true) {
+					this.debug('Boosted further by Strong Winds');
+					move.ignoreImmunity['Ghost'] = true;
+				}
+			}
+		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (this.field.energyWeatherState.boosted) {
 				if (target?.item === 'energynullifier' || move.type !== 'Ghost') return;
