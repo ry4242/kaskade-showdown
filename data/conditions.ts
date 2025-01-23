@@ -1136,7 +1136,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
 			this.add('-irritantWeather', 'SmogSpread', '[upkeep]');
-			this.eachEvent('IrritantWeather');
+			if (this.field.isIrritantWeather('smogspread')) this.eachEvent('IrritantWeather');
 		},
 		onIrritantWeather(target) {
 			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm', 'carboncapture'])) return;
