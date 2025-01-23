@@ -1144,7 +1144,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				target.clearStatus();
 				target.trySetStatus('tox');
 			} else {
-				if (target.getStatus() != null && !target.hasType('Steel') && !target.hasType('Poison') && target.status != 'tox' && target.status != 'psn') {
+				if (target.getStatus() != null && !target.hasType('Steel') && !target.hasType('Poison') && !['psn', 'tox', 'blt'].includes(target.status) && this.field.irritantWeatherState.boosted) {
 					target.clearStatus();
 				}
 				target.trySetStatus('psn');
