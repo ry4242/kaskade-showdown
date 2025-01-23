@@ -1140,7 +1140,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onIrritantWeather(target) {
 			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm', 'carboncapture'])) return;
-			if (target.status === 'psn' && !target.hasType('Steel') && !target.hasType('Poison')) {
+			if (target.status === 'psn' && !target.hasType('Steel') && !target.hasType('Poison') && this.field.irritantWeatherState.boosted) {
 				target.clearStatus();
 				target.trySetStatus('tox');
 			} else {
