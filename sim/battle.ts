@@ -2556,6 +2556,8 @@ export class Battle {
 					rawSpecies = this.dex.species.get('Zacian-Crowned');
 				} else if (pokemon.species.id === 'zamazenta' && pokemon.item === 'rustedshield') {
 					rawSpecies = this.dex.species.get('Zamazenta-Crowned');
+				} else if (pokemon.species.id === 'castform' && pokemon.item === 'whirligig') {
+					rawSpecies = this.dex.species.get('Castform-Whirly')
 				}
 				if (!rawSpecies) continue;
 				const species = pokemon.setSpecies(rawSpecies);
@@ -2565,6 +2567,8 @@ export class Battle {
 					(pokemon.gender === '' ? '' : ', ' + pokemon.gender) + (pokemon.set.shiny ? ', shiny' : '');
 				pokemon.setAbility(species.abilities['0'], null, true);
 				pokemon.baseAbility = pokemon.ability;
+
+				if (rawSpecies === this.dex.species.get('Castform-Whirly')) continue;
 
 				const behemothMove: {[k: string]: string} = {
 					'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash',

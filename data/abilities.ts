@@ -1456,8 +1456,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			this.debug(this.field.activeWeathers.toString());
-			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -1513,24 +1511,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			default:
 				if (pokemon.species.id !== 'castform') forme = 'Castform';
 				break;
-			}
-			if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
-				if (pokemon.species.id !== 'castformwhirly') {
-					forme = 'Castform-Whirly';
-				} else {
-					forme = null;
-				}
 			}
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
 		},
 		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			this.debug(this.field.activeWeathers.toString());
-			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -1587,14 +1575,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'castform') forme = 'Castform';
 				break;
 			}
-			if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
-				if (pokemon.species.id !== 'castformwhirly') {
-					forme = 'Castform-Whirly';
-				} else {
-					forme = null;
-				}
-			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1602,8 +1582,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onIrritantWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			this.debug(this.field.activeWeathers.toString());
-			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -1660,14 +1638,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'castform') forme = 'Castform';
 				break;
 			}
-			if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
-				if (pokemon.species.id !== 'castformwhirly') {
-					forme = 'Castform-Whirly';
-				} else {
-					forme = null;
-				}
-			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1675,8 +1645,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onEnergyWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			this.debug(this.field.activeWeathers.toString());
-			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -1733,14 +1701,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'castform') forme = 'Castform';
 				break;
 			}
-			if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
-				if (pokemon.species.id !== 'castformwhirly') {
-					forme = 'Castform-Whirly';
-				} else {
-					forme = null;
-				}
-			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
@@ -1748,8 +1708,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onClearingWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			this.debug(this.field.activeWeathers.toString());
-			this.debug(this.field.activeWeathers.length.toString());
 			switch (this.field.getRecentWeather('magnetize', pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -1806,14 +1764,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'castform') forme = 'Castform';
 				break;
 			}
-			if (pokemon.hasItem('whirligig') && pokemon.effectiveEnergyWeather() === 'magnetize') {
-				if (pokemon.species.id !== 'castformwhirly') {
-					forme = 'Castform-Whirly';
-				} else {
-					forme = null;
-				}
-			}
-			this.debug(this.field.getRecentWeather(null, pokemon));
 			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}

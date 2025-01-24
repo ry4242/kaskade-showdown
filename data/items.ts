@@ -3158,7 +3158,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		itemUser: [
 			"Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World",
-			"Pichu", "Raichu", "Guruchi",
+			"Pichu", "Raichu", "Guruchi", "Emolga"
 		],
 		num: 236,
 		gen: 2,
@@ -8025,8 +8025,10 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	whirligig: {
 		name: "Whirligig",
 		spritenum: 64,
-		onTakeItem(item, source) {
-			if (source.baseSpecies.baseSpecies === 'Castform') return false;
+		onTakeItem(item, pokemon, source) {
+			if ((source && source.baseSpecies.num === 351) || pokemon.baseSpecies.num === 351) {
+				return false;
+			}
 			return true;
 		},
 		itemUser: ["Castform"],
