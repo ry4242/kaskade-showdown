@@ -1111,7 +1111,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.add('-irritantWeather', 'none');
 		},
 	},
-	smogspread: { // TODO: Fix residual priority so that pokemon take poison damage the turn they get poisoned by smog
+	smogspread: {
 		name: 'SmogSpread',
 		effectType: 'IrritantWeather',
 		duration: 5,
@@ -1138,7 +1138,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.add('-irritantWeather', 'SmogSpread', '[upkeep]');
 			if (this.field.isIrritantWeather('smogspread')) this.eachEvent('IrritantWeather');
 		},
-		onIrritantWeather(target) {
+		onBeforeResidual(target) {
 			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm', 'carboncapture'])) return;
 			if (target.status === 'psn' && !target.hasType('Steel') && !target.hasType('Poison') && this.field.irritantWeatherState.boosted) {
 				target.clearStatus();

@@ -75,6 +75,7 @@ export interface EventMethods {
 	onRedirectTarget?: (
 		this: Battle, target: Pokemon, source: Pokemon, source2: Effect, move: ActiveMove
 	) => Pokemon | void;
+	onBeforeResidual?: (this: Battle, target: Pokemon, source: Pokemon, effect: Effect) => void;
 	onResidual?: (this: Battle, target: Pokemon, source: Pokemon, effect: Effect) => void;
 	onSetAbility?: (
 		this: Battle, ability: string, target: Pokemon, source: Pokemon, effect: Effect
