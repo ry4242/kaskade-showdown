@@ -1421,6 +1421,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
+		onBasePower(basePower, pokemon, target) {
+			if (target.status === 'frz' || target.status === 'frb') {
+				return this.chainModify(2);
+			}
+		},
 		secondary: {
 			chance: 30,
 			status: 'frb',
@@ -3419,7 +3424,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		accuracy: 95,
 		basePower: 70,
 		category: "Physical",
-		isNonstandard: "Unobtainable",
 		name: "Cut",
 		pp: 30,
 		priority: 0,
@@ -4421,7 +4425,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		drain: [1, 2],
 		onTryImmunity(target) {
 			return target.status === 'slp' || target.hasAbility('comatose') ||
-			target && ['daydream'].includes(target.effectiveEnergyWeather());
+			['daydream'].includes(target.effectiveEnergyWeather());
 		},
 		secondary: null,
 		target: "normal",
@@ -13274,7 +13278,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			noCopy: true,
 			onStart(pokemon, target) {
 				if (pokemon.status !== 'slp' && !pokemon.hasAbility('comatose') &&
-					(target && !['daydream'].includes(target.effectiveEnergyWeather()))) {
+					!['daydream'].includes(pokemon.effectiveEnergyWeather())) {
 					return false;
 				}
 				this.add('-start', pokemon, 'Nightmare');
@@ -18653,7 +18657,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 	},
-	stealthrock: {
+	stealthrock: { // TODO: might be complete?
 		num: 446,
 		accuracy: true,
 		basePower: 0,
@@ -23645,7 +23649,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Steel",
 	},
-	mockery: { // untested
+	mockery: { // tested, works as intended
 		num: -61,
 		accuracy: true,
 		basePower: 20,
