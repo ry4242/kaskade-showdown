@@ -17484,7 +17484,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	skydrop: { // incomplete
+	skydrop: {
 		num: 507,
 		accuracy: 100,
 		basePower: 70,

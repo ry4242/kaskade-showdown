@@ -3158,7 +3158,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		itemUser: [
 			"Pikachu", "Pikachu-Cosplay", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Original", "Pikachu-Hoenn", "Pikachu-Sinnoh", "Pikachu-Unova", "Pikachu-Kalos", "Pikachu-Alola", "Pikachu-Partner", "Pikachu-Starter", "Pikachu-World",
-			"Pichu", "Raichu", "Guruchi", "Emolga"
+			"Pichu", "Raichu", "Emolga", "Guruchi"
 		],
 		num: 236,
 		gen: 2,
