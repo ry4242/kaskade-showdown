@@ -692,7 +692,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Corrosion",
 		onModifyMovePriority: -5,
 		onModifyMove(move, pokemon) {
-			if (['smogspread'].includes(pokemon.effectiveIrritantWeather())) return;
+			if (!['smogspread'].includes(pokemon.effectiveIrritantWeather())) return;
 			if (!move.ignoreImmunity) move.ignoreImmunity = {};
 			if (move.ignoreImmunity !== true) {
 				move.ignoreImmunity['Poison'] = true;
@@ -6070,7 +6070,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'sandstorm') return false;
 		},
-		// Partially implemented in Pokemon.effectiveIrritantWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['sandstorm', 'duststorm', 'pollinate',
@@ -6148,7 +6147,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		// Partially implemented in Pokemon.effectiveClimateWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea',
@@ -6375,7 +6373,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onImmunity(type, pokemon) {
 			if (type === 'hail') return false;
 		},
-		// Partially implemented in Pokemon.effectiveClimateWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
 			if (['raindance', 'primordialsea', 'hail'].includes(this.field.effectiveClimateWeather())) {

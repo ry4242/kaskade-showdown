@@ -555,13 +555,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				}
 			}
 		},
-		onModifySpDPriority: 10,
-		onModifySpD(spd, pokemon) {
-			if (pokemon.hasItem('utilityumbrella')) return;
-			if (pokemon.hasType('Grass')) {
-				return this.modify(spd, 1.25);
-			}
-		},
 		onFieldStart(battle, source, effect) {
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.climateWeatherState.boosted = true;
@@ -618,13 +611,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				} else {
 					return this.chainModify(0.5);
 				}
-			}
-		},
-		onModifyDefPriority: 10,
-		onModifyDef(def, pokemon) {
-			if (pokemon.hasItem('utilityumbrella')) return;
-			if (pokemon.hasType('Grass')) {
-				return this.modify(def, 1.25);
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -1011,7 +997,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifyAtkPriority: 10,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.hasItem('safetygoggles') || pokemon.hasAbility(['overcoat', 'bubblehelm'])) return;
+			if (pokemon.hasItem('safetygoggles') || pokemon.hasAbility(['overcoat', 'bubblehelm', 'bloomspring'])) return;
 			if (pokemon.hasType('Grass') || pokemon.hasType('Bug')) {
 				return;
 			} else {
@@ -1020,7 +1006,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifySpAPriority: 10,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.hasItem('safetygoggles') || pokemon.hasAbility(['overcoat', 'bubblehelm'])) return;
+			if (pokemon.hasItem('safetygoggles') || pokemon.hasAbility(['overcoat', 'bubblehelm', 'bloomspring'])) return;
 			if (pokemon.hasType('Grass') || pokemon.hasType('Bug')) {
 				return;
 			} else {
@@ -1463,14 +1449,14 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			let validTargets = [];
 			let lightningRodPresent = false;
 			for (const target of this.getAllActive()) {
-				if (target.hasAbility('lightningrod')) {
+				if (target.hasAbility('lightningrod') || target.hasAbility('powerplumage')) {
 					lightningRodPresent = true;
 				}
 			}
 			for (const target of this.getAllActive()) {
 				if (!target.hasItem('energynullifier')) {
 					if (lightningRodPresent) {
-						if (target.hasAbility('lightningrod')) validTargets.push(target);
+						if (target.hasAbility('lightningrod') || target.hasAbility('powerplumage')) validTargets.push(target);
 					} else {
 						validTargets.push(target);
 					}
