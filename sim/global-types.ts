@@ -112,7 +112,7 @@ type ModdedEffectData = EffectData | Partial<EffectData> & {inherit: true};
 type EffectType =
 	'Condition' | 'Pokemon' | 'Move' | 'Item' | 'Ability' | 'Format' |
 	'Nature' | 'Ruleset' | 'ClimateWeather' | 'IrritantWeather' | 'EnergyWeather' | 'ClearingWeather' |
-	'Status' | 'Terastal' | 'Rule' | 'ValidatorRule';
+	'CataclysmWeather' | 'Status' | 'Terastal' | 'Rule' | 'ValidatorRule';
 
 interface BasicEffect extends EffectData {
 	id: ID;
@@ -337,6 +337,7 @@ interface ModdedField extends Partial<Field> {
 	suppressingIrritantWeather?: (this: Field) => boolean;
 	suppressingEnergyWeather?: (this: Field) => boolean;
 	suppressingClearingWeather?: (this: Field) => boolean;
+	suppressingCataclysmWeather?: (this: Field) => boolean;
 }
 
 interface ModdedBattleScriptsData extends Partial<BattleScriptsData> {
@@ -365,6 +366,7 @@ interface ModdedBattleScriptsData extends Partial<BattleScriptsData> {
 	suppressingIrritantWeather?: (this: Battle) => boolean;
 	suppressingEnergyWeather?: (this: Battle) => boolean;
 	suppressingClearingWeather?: (this: Battle) => boolean;
+	suppressingCataclysmWeather?: (this: Battle) => boolean;
 	trunc?: (n: number) => number;
 	win?: (this: Battle, side?: SideID | '' | Side | null) => boolean;
 	faintMessages?: (this: Battle, lastFirst?: boolean, forceCheck?: boolean, checkWin?: boolean) => boolean | undefined;
@@ -491,6 +493,7 @@ namespace RandomTeamsTypes {
 		irritantWeather?: string;
 		energyWeather?: string;
 		clearingWeather?: string;
+		cataclysmWeather?: string;
 		terrain?: string[];
 		typeCount: {[k: string]: number};
 		typeComboCount: {[k: string]: number};

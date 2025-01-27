@@ -1456,7 +1456,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (this.field.getRecentWeather('magnetize', pokemon)) {
+			switch (this.field.getRecentWeather(['magnetize', 'cataclysmiclight'], pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -1519,7 +1519,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onClimateWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (this.field.getRecentWeather('magnetize', pokemon)) {
+			switch (this.field.getRecentWeather(['magnetize', 'cataclysmiclight'], pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -1582,7 +1582,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onIrritantWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (this.field.getRecentWeather('magnetize', pokemon)) {
+			switch (this.field.getRecentWeather(['magnetize', 'cataclysmiclight'], pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -1645,7 +1645,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onEnergyWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (this.field.getRecentWeather('magnetize', pokemon)) {
+			switch (this.field.getRecentWeather(['magnetize', 'cataclysmiclight'], pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -1708,7 +1708,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onClearingWeatherChange(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
-			switch (this.field.getRecentWeather('magnetize', pokemon)) {
+			switch (this.field.getRecentWeather(['magnetize', 'cataclysmiclight'], pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
 				if (pokemon.species.id !== 'castformsunny') forme = 'Castform-Sunny';
@@ -6045,6 +6045,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 		num: -65,
 	},
+	anxiety: { // tested, works as intended, TODO: add text
+		onDamage(damage, target, source, effect) {
+			this.actions.useMove(this.toID('explosion'), target);
+		},
+		flags: {},
+		name: "Anxiety",
+		rating: -1,
+		num: -59
+	},
 	arcanum: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('dragonforce');
@@ -6053,6 +6062,36 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Arcanum",
 		rating: 3,
 		num: -11,
+	},
+	arenabloom: { // tested, works as intended
+		onStart(source) {
+			this.field.setIrritantWeather('pollinate');
+		},
+		onIrritantWeather(target, source, effect) {
+			if (target.hasItem('safetygoggles') || target.hasAbility('overcoat')) return;
+			if (effect.id === 'pollinate') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Arena Bloom",
+		rating: 4,
+		num: -61,
+	},
+	arenacurse: { // tested, works as intended
+		onStart(source) {
+			this.field.setEnergyWeather('haunt');
+		},
+		onEnergyWeather(target, source, effect) {
+			if (target.hasItem('energynullifier')) return;
+			if (effect.id === 'haunt') {
+				this.heal(target.baseMaxhp / 16);
+			}
+		},
+		flags: {},
+		name: "Arena Bloom",
+		rating: 4,
+		num: -62,
 	},
 	bloomspring: { // tested, works as intended
 		onIrritantWeather(target, source, effect) {
@@ -6112,6 +6151,26 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: -23,
 	},
+	cataclysmiclight: { // tested, works as intended
+		onStart(source) {
+			this.field.setCataclysmWeather('cataclysmiclight');
+		},
+		onEnd(pokemon) {
+			if (this.field.cataclysmWeatherState.source !== pokemon) return;
+			for (const target of this.getAllActive()) {
+				if (target === pokemon) continue;
+				if (target.hasAbility('cataclysmiclight')) {
+					this.field.climateWeatherState.source = target;
+					return;
+				}
+			}
+			this.field.clearCataclysmWeather();
+		},
+		flags: {},
+		name: "Cataclysmic Light",
+		rating: 4.5,
+		num: -63,
+	},
 	chakra: { // tested, works as intended
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
@@ -6133,6 +6192,44 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Condensation",
 		rating: 3,
 		num: -2,
+	},
+	consecration: { // tested, works as intended
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Bearvoyance' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveEnergyWeather()) {
+			case 'haunt':
+			case 'daydream':
+				if (pokemon.species.id !== 'bearvoyancewhite') forme = 'Bearvoyance-White';
+				break;
+			default:
+				if (pokemon.species.id !== 'bearvoyance') forme = 'Bearvoyance';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		onEnergyWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Bearvoyance' || pokemon.transformed) return;
+			let forme = null;
+			switch (pokemon.effectiveEnergyWeather()) {
+			case 'haunt':
+			case 'daydream':
+				if (pokemon.species.id !== 'bearvoyancewhite') forme = 'Bearvoyance-White';
+				break;
+			default:
+				if (pokemon.species.id !== 'bearvoyance') forme = 'Bearvoyance';
+				break;
+			}
+			if (pokemon.isActive && forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
+		name: "Consecration",
+		rating: 2,
+		num: -65,
 	},
 	dreamer: { // tested, works as intended
 		onStart(source) {
@@ -6211,6 +6308,25 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1.5,
 		num: -20,
 	},
+	echolocation: { //tested, works as intended
+		onPrepareHit(source, target, move) {
+			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
+			move.flags['futuremove'] || move.isZ || move.isMax || !move.flags['sound']) return;
+			move.multihit = 2;
+			move.multihitType = 'parentalbond';
+		},
+		// Damage modifier implemented in BattleActions#modifyDamage()
+		onSourceModifySecondaries(secondaries, target, source, move) {
+			if (move.multihitType === 'parentalbond' && move.id === 'secretpower' && move.hit < 2) {
+				// hack to prevent accidentally suppressing King's Rock/Razor Fang
+				return secondaries.filter(effect => effect.volatileStatus === 'flinch');
+			}
+		},
+		flags: {},
+		name: "Echolocation",
+		rating: 4.5,
+		num: -66,
+	},
 	energizer: { // tested, works as intended
 		onModifySpe(spe, pokemon) {
 			if (['supercell'].includes(pokemon.effectiveEnergyWeather())) {
@@ -6263,6 +6379,27 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -54,
 	},
+	expiation: { // tested, works as intended, TODO: fix text to attribute healing to proper pokemon
+		onFaint(target) {
+			if (!target.hp) {
+				target.side.addSlotCondition(target, 'expiation');
+			}
+		},
+		condition: {
+			onSwap(target) {
+				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
+					target.heal(target.maxhp/2);
+					target.clearStatus();
+					this.add('-heal', target, target.getHealth, '[from] ability: Expiation');
+					target.side.removeSlotCondition(target, 'expiation');
+				}
+			},
+		},
+		flags: {},
+		name: "Expiation",
+		rating: 3,
+		num: -67,
+	},
 	ferroflux: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('magnetize');
@@ -6291,6 +6428,30 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Fieldworker",
 		rating: 3,
 		num: -41,
+	},
+	flytrap: { // tested, works as intended
+		onAnyModifySpe(spe, pokemon) {
+			if (!pokemon.hasAbility('flytrap') && pokemon.hasType('Bug')) {
+				return this.chainModify(0.5);
+			}
+		},
+		onFoeTrapPokemon(pokemon) {
+			if (!pokemon.hasAbility('flytrap') && pokemon.isAdjacent(this.effectState.target) &&
+				pokemon.hasType('Bug')) {
+				pokemon.tryTrap(true);
+			}
+		},
+		onFoeMaybeTrapPokemon(pokemon, source) {
+			if (!source) source = this.effectState.target;
+			if (!source || !pokemon.isAdjacent(source)) return;
+			if (!pokemon.hasAbility('flytrap') && pokemon.hasType('Bug')) {
+				pokemon.maybeTrapped = true;
+			}
+		},
+		flags: {},
+		name: "Flytrap",
+		rating: 5,
+		num: -68,
 	},
 	foil: { // tested, works as intended
 		onSourceModifyAtkPriority: 5,
@@ -6429,6 +6590,27 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Indomitable",
 		rating: 3,
 		num: -33,
+	},
+	intoxicate: { // tested, works as intended
+		onModifyTypePriority: -1,
+		onModifyType(move, pokemon) {
+			const noModifyType = [
+				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
+			];
+			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
+				move.type = 'Poison';
+				move.typeChangerBoosted = this.effect;
+			}
+		},
+		onBasePowerPriority: 23,
+		onBasePower(basePower, pokemon, target, move) {
+			if (move.typeChangerBoosted === this.effect) return this.chainModify([4915, 4096]);
+		},
+		flags: {},
+		name: "Intoxicate",
+		rating: 3,
+		num: -60,
 	},
 	machineprecision: { // incomplete, doesnt work?
 		onModifyCritRatio(critRatio, source) {

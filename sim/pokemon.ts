@@ -2143,6 +2143,11 @@ export class Pokemon {
 		return weather;
 	}
 
+	effectiveCataclysmWeather() {
+		const weather = this.battle.field.effectiveCataclysmWeather();
+		return weather;
+	}
+
 	runEffectiveness(move: ActiveMove) {
 		if (this.terastallized && move.type === 'Stellar') return 1;
 		let totalTypeMod = 0;

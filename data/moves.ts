@@ -21753,6 +21753,9 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			case 'strongwinds':
 				move.type = 'Flying';
 				break;
+			case 'cataclysmiclight':
+				move.type = '???';
+				break;
 			}
 		},
 		basePowerCallback(pokemon, target, move) {
@@ -21762,7 +21765,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				'swarmsignal', 'smogspread', 'sprinkle'].includes(this.field.effectiveIrritantWeather()) ||
 			['auraprojection', 'haunt', 'daydream',
 				'dragonforce', 'supercell', 'magnetize'].includes(this.field.effectiveEnergyWeather()) ||
-			['strongwinds'].includes(this.field.effectiveClearingWeather())) {
+			['strongwinds'].includes(this.field.effectiveClearingWeather()) ||
+			['cataclysmiclight'].includes(this.field.effectiveCataclysmWeather())) {
 				return move.basePower * 2;
 			}
 			return move.basePower;

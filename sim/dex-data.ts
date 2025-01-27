@@ -107,6 +107,7 @@ export abstract class BasicEffect implements EffectData {
 	irritantWeather?: ID;
 	energyWeather?: ID;
 	clearingWeather?: ID;
+	cataclysmWeather?: ID;
 	/** ??? */
 	sourceEffect: string;
 
@@ -129,6 +130,7 @@ export abstract class BasicEffect implements EffectData {
 		this.irritantWeather = data.irritantWeather as ID || undefined;
 		this.energyWeather = data.energyWeather as ID || undefined;
 		this.clearingWeather = data.clearingWeather as ID || undefined;
+		this.cataclysmWeather = data.cataclysmWeather as ID || undefined;
 		this.sourceEffect = data.sourceEffect || '';
 	}
 

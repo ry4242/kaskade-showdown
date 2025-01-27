@@ -1622,6 +1622,37 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 	},
 
+	// Cataclysm weathers
+
+	cataclysmiclight: { // TODO: client side implementation
+		name: 'Cataclysmic Light',
+		effectType: 'CataclysmWeather',
+		duration: 0,
+		onCataclysmWeatherModifyDamage(damage, attacker, defender, move) {
+			let damageModifier = 1
+			if (attacker.baseSpecies.tags.includes('Ultra Beast')) {
+				damageModifier *= 1.25;
+				this.debug('Cataclysmic Light damage buff');
+			}
+			if (defender.baseSpecies.tags.includes('Ultra Beast')) {
+				damageModifier *= 0.75;
+				this.debug("Cataclysmic Light damage debuff");
+			}
+			return this.chainModify(damageModifier);
+		},
+		onFieldStart(field, source, effect) {
+			this.add('-cataclysmWeather', 'CataclysmicLight', '[from] ability: ' + effect.name, '[of] ' + source);
+		},
+		onFieldResidualOrder: 1,
+		onFieldResidual() {
+			this.add('-cataclysmWeather', 'Cataclysmic', '[upkeep]');
+			this.eachEvent('CataclysmWeather');
+		},
+		onFieldEnd() {
+			this.add('-cataclysmWeather', 'none');
+		},
+	},
+
 	// Extra weathers
 
 	desolateland: {

@@ -38,6 +38,7 @@ export class Ability extends BasicEffect implements Readonly<BasicEffect> {
 	readonly suppressIrritantWeather: boolean;
 	readonly suppressEnergyWeather: boolean;
 	readonly suppressClearingWeather: boolean;
+	readonly suppressCataclysmWeather: boolean;
 	readonly flags: AbilityFlags;
 	declare readonly condition?: ConditionData;
 
@@ -50,6 +51,7 @@ export class Ability extends BasicEffect implements Readonly<BasicEffect> {
 		this.suppressIrritantWeather = !!data.suppressIrritantWeather;
 		this.suppressEnergyWeather = !!data.suppressEnergyWeather;
 		this.suppressClearingWeather = !!data.suppressClearingWeather;
+		this.suppressCataclysmWeather = !!data.suppressCataclysmWeather;
 		this.flags = data.flags || {};
 		this.rating = data.rating || 0;
 
