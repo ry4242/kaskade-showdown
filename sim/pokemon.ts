@@ -833,10 +833,11 @@ export class Pokemon {
 		if (this.volatiles['gastroacid']) return true;
 
 		// Check if any active pokemon have the ability Neutralizing Gas
-		if (this.hasItem('Ability Shield') || this.ability === ('neutralizinggas' as ID)) return false;
+		if (this.hasItem('Ability Shield') || this.ability === ('neutralizinggas' as ID) ||
+			this.ability === ('neutralize' as ID)) return false;
 		for (const pokemon of this.battle.getAllActive()) {
 			// can't use hasAbility because it would lead to infinite recursion
-			if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
+			if ((pokemon.ability === ('neutralizinggas' as ID) || pokemon.ability === ('neutralize' as ID)) && !pokemon.volatiles['gastroacid'] &&
 				!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
 				return true;
 			}

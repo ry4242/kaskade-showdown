@@ -6471,6 +6471,25 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: -48,
 	},
+	frigidblaze: { // tested, works as intended
+		onSourceDamagingHit(damage, target, source, move) {
+			// Despite not being a secondary, Shield Dust / Covert Cloak block Frigid Blaze's effect
+			if (target.hasAbility('shielddust') || target.hasItem('covertcloak')) return;
+			if (move.type === 'Ice') {
+				if (this.randomChance(2, 10)) {
+					target.trySetStatus('brn', source);
+				}
+			} else if (move.type === 'Fire') {
+				if (this.randomChance(2, 10)) {
+					target.trySetStatus('frb', source);
+				}
+			}
+		},
+		flags: {},
+		name: "Frigid Blaze",
+		rating: 2,
+		num: -69,
+	},
 	galeforce: { // tested, works as intended
 		onStart(source) {
 			this.field.setClearingWeather('strongwinds');
@@ -6479,6 +6498,21 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Galeforce",
 		rating: 3,
 		num: -14,
+	},
+	geigeraura: { // tested, works as intended
+		onResidualOrder: 5,
+		onResidualSubOrder: 3,
+		onResidual(pokemon) {
+			for (const target of this.getAllActive()) {
+				if (!target.hasAbility('geigeraura')) {
+					this.damage(target.baseMaxhp/16, target, pokemon);
+				}
+			}
+		},
+		flags: {},
+		name: "Geiger Aura",
+		rating: 3,
+		num: -70,
 	},
 	glacialarmor: { // tested, works as intended
 		onModifyDef(def, pokemon) {
@@ -6684,6 +6718,127 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Nanomachines",
 		rating: 1.5,
 		num: -37,
+	},
+	nastywebbing: { // tested, works as intended
+		onDamagingHit(damage, target, source, move) {
+			const side = source.isAlly(target) ? source.side.foe : source.side;
+			const stickyweb = side.sideConditions['stickyweb'];
+			if (move.category === 'Physical' && !stickyweb) {
+				this.add('-activate', target, 'ability: Nasty Webbing');
+				side.addSideCondition('stickyweb', target);
+			}
+		},
+		flags: {},
+		name: "Nasty Webbing",
+		rating: 4,
+		num: -71,
+	},
+	neutralize: { // tested, works as intended TODO: remove failure message when using moves that deal damage and set weather
+		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
+		onPreStart(pokemon) {
+			this.add('-ability', pokemon, 'Neutralize');
+			pokemon.abilityState.ending = false;
+			const strongWeathers = ['desolateland', 'primordialsea', 'deltastream', 'cataclysmiclight'];
+			for (const target of this.getAllActive()) {
+				if (target.hasItem('Ability Shield')) {
+					this.add('-block', target, 'item: Ability Shield');
+					continue;
+				}
+				// Can't suppress a Tatsugiri inside of Dondozo already
+				if (target.volatiles['commanding']) {
+					continue;
+				}
+				if (target.illusion) {
+					this.singleEvent('End', this.dex.abilities.get('Illusion'), target.abilityState, target, pokemon, 'neutralize');
+				}
+				if (target.volatiles['slowstart']) {
+					delete target.volatiles['slowstart'];
+					this.add('-end', target, 'Slow Start', '[silent]');
+				}
+				if (strongWeathers.includes(target.getAbility().id)) {
+					this.singleEvent('End', this.dex.abilities.get(target.getAbility().id), target.abilityState, target, pokemon, 'neutralize');
+				}
+			}
+		},
+		onAnyTryMove(target, source, effect) {
+			if (['sunnyday', 'raindance', 'bloodmoon', 'hail', 'foghorn',
+				'pollinate', 'sprinkle', 'smogspread', 'sandstorm', 'dustdevil',
+				'haunt', 'daydream', 'supercell', 'dragonforce', 'magnetize',
+				'swarmsignal', 'auraprojection', 'strongwinds'].includes(effect.id)) {
+				this.attrLastMove('[still]');
+				this.add('cant', this.effectState.target, 'ability: Neutralize', effect, '[of] ' + target);
+				return false;
+			}
+		},
+		onAnySetClimateWeather(target, source, climateWeather) {
+			return false;
+		},
+		onAnySetIrritantWeather(target, source, climateWeather) {
+			return false;
+		},
+		onAnySetEnergyWeather(target, source, climateWeather) {
+			return false;
+		},
+		onAnySetClearingWeather(target, source, climateWeather) {
+			return false;
+		},
+		onStart(pokemon) {
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snow',
+				'bloodmoon', 'foghorn', 'deltastream'].includes(this.field.effectiveClimateWeather())) {
+				this.field.clearClimateWeather();
+				this.debug('Cleared Climate Weathers');
+			}
+			if (['sandstorm', 'duststorm', 'pollinate',
+				'swarmsignal', 'smogspread', 'sprinkle'].includes(this.field.effectiveIrritantWeather())) {
+				this.field.clearIrritantWeather();
+				this.debug('Cleared Irritant Weathers');
+			}
+			if (['auraprojection', 'haunt', 'daydream',
+				'dragonforce', 'supercell', 'magnetize'].includes(this.field.effectiveEnergyWeather())) {
+				this.field.clearEnergyWeather();
+				this.debug('Cleared Energy Weathers');
+			}
+			if (['strongwinds'].includes(this.field.effectiveClearingWeather())) {
+				this.field.clearClearingWeather();
+				this.debug('Cleared Clearing Weathers');
+			}
+		},
+		onEnd(source) {
+			if (source.transformed) return;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon !== source && pokemon.hasAbility('Neutralize')) {
+					return;
+				}
+			}
+			this.add('-end', source, 'ability: Neutralize');
+
+			// FIXME this happens before the pokemon switches out, should be the opposite order.
+			// Not an easy fix since we cant use a supported event. Would need some kind of special event that
+			// gathers events to run after the switch and then runs them when the ability is no longer accessible.
+			// (If you're tackling this, do note extreme weathers have the same issue)
+
+			// Mark this pokemon's ability as ending so Pokemon#ignoringAbility skips it
+			if (source.abilityState.ending) return;
+			source.abilityState.ending = true;
+			const sortedActive = this.getAllActive();
+			this.speedSort(sortedActive);
+			for (const pokemon of sortedActive) {
+				if (pokemon !== source) {
+					if (pokemon.getAbility().flags['cantsuppress']) continue; // does not interact with e.g Ice Face, Zen Mode
+					if (pokemon.hasItem('abilityshield')) continue; // don't restart abilities that weren't suppressed
+
+					// Will be suppressed by Pokemon#ignoringAbility if needed
+					this.singleEvent('Start', pokemon.getAbility(), pokemon.abilityState, pokemon);
+					if (pokemon.ability === "gluttony") {
+						pokemon.abilityState.gluttony = false;
+					}
+				}
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, cantsuppress: 1},
+		name: "Neutralize",
+		rating: 4,
+		num: -72,
 	},
 	nottobe: { // tested, works as intended
 		onDamagingHit(damage, target, source, move) {
