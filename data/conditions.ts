@@ -613,6 +613,44 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				}
 			}
 		},
+		onModifyDamage(damage, attacker, defender, move) {
+			let petrichorActive = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) petrichorActive = true;
+			}
+			if (!petrichorActive) return;
+			if (defender.hasItem('utilityumbrella') || defender.hasAbility('droughtproof')) return;
+			if (move && defender.getMoveHitData(move).typeMod > 0) {
+				this.debug('Blood Moon super-effective boost');
+				return this.chainModify(1.25);
+			}
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			let petrichorActive = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) petrichorActive = true;
+			}
+			if (!petrichorActive) return;
+			if (pokemon.hasItem('utilityumbrella')) return;
+			if (this.field.climateWeatherState.boosted && move?.category === 'Status') {
+				return 1;
+			}
+			if (move?.type === 'Dark' && move.category === 'Status') return 1;
+		},
+		onTryHit(target, source, move) {
+			let petrichorActive = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) petrichorActive = true;
+			}
+			if (!petrichorActive) return;
+			if (target.hasItem('utilityumbrella')) return;
+			if (this.field.climateWeatherState.boosted &&
+			target.hasType('Dark') && move.category === 'Status' && target !== source) {
+				this.add('-immune', target);
+				this.hint("Dark types are immune to Status moves in Strong Winds-boosted Blood Moon.");
+				return null;
+			}
+		},
 		onFieldStart(field, source, effect) {
 			if (this.field.isClearingWeather('strongwinds')) {
 				this.field.climateWeatherState.boosted = true;
@@ -733,6 +771,34 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				return 8;
 			}
 			return 5;
+		},
+		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
+			let petrichorActive = false;
+			for (const pokemon of this.getAllActive()) {
+				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) petrichorActive = true;
+			}
+			if (!petrichorActive) return;
+			if (defender.hasItem('utilityumbrella')) return;
+			if (move.type === 'Water') {
+				if (defender.hasAbility(['droughtproof', 'hydrophobic'])) return;
+				this.debug('rain water boost');
+				if (this.field.climateWeatherState.boosted) {
+					this.debug('Boosted further by Strong Winds');
+					return this.chainModify(1.75);
+				} else {
+					return this.chainModify(1.5);
+				}
+			}
+			if (move.type === 'Fire') {
+				if (attacker.hasAbility(['droughtproof', 'hydrophobic'])) return;
+				this.debug('rain fire suppress');
+				if (this.field.climateWeatherState.boosted) {
+					this.debug('Supressed further by Strong Winds');
+					return this.chainModify(0.25);
+				} else {
+					return this.chainModify(0.5);
+				}
+			}
 		},
 		onModifyDamage(damage, attacker, defender, move) {
 			if (defender.hasItem('utilityumbrella') || defender.hasAbility('droughtproof')) return;

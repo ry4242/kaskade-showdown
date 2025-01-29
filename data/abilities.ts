@@ -6927,6 +6927,22 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1,
 		num: -52,
 	},
+	petrichor: {
+		onStart(target) {
+			if (this.field.climateWeather && target.effectiveClimateWeather() === this.field.climateWeather) {
+				this.add('-activate', target, 'ability: Petrichor');
+			}
+		},
+		onClimateWeatherChange(target, source, sourceEffect) {
+			if (this.field.climateWeather && target.effectiveClimateWeather() === this.field.climateWeather) {
+				this.add('-activate', target, 'ability: Petrichor');
+			}
+		},
+		flags: {},
+		name: "Petrichor",
+		rating: 2.5,
+		num: -73,
+	},
 	pollution: { // tested, works as intended
 		onStart(source) {
 			this.field.setIrritantWeather('smogspread');
