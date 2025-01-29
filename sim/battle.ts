@@ -173,7 +173,7 @@ export class Battle {
 	lastDamage: number;
 	abilityOrder: number;
 	quickClawRoll: boolean;
-
+	
 	teamGenerator: ReturnType<typeof Teams.getGenerator> | null;
 
 	readonly hints: Set<string>;
@@ -1523,6 +1523,7 @@ export class Battle {
 	}
 
 	faint(pokemon: Pokemon, source?: Pokemon, effect?: Effect) {
+		pokemon.side.lastFaintedBoosts = pokemon.boosts
 		pokemon.faint(source, effect);
 	}
 

@@ -7234,6 +7234,24 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: -29,
 	},
+	soulpassage: { // tested, works as intended
+		onStart(target) {
+			let statName: StatIDExceptHP = 'atk';
+			let bestStat = 0;
+			const stats: StatIDExceptHP[] = ['atk', 'def', 'spa', 'spd', 'spe'];
+			for (const i of stats) {
+				if (target.side.lastFaintedBoosts[i] > bestStat) {
+					statName = i;
+					bestStat = target.side.lastFaintedBoosts[i];
+				}
+			}
+			if (bestStat > 0) this.boost({[statName]: bestStat}, target);
+		},
+		flags: {},
+		name: "Soul Passage",
+		rating: 2.5,
+		num: -76,
+	},
 	standoff: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('auraprojection');

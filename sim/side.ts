@@ -86,6 +86,7 @@ export class Side {
 
 	faintedLastTurn: Pokemon | null;
 	faintedThisTurn: Pokemon | null;
+	lastFaintedBoosts: BoostsTable;
 	totalFainted: number;
 	/** only used by Gen 1 Counter */
 	lastSelectedMove: ID = '';
@@ -136,6 +137,7 @@ export class Side {
 		this.pokemonLeft = this.pokemon.length;
 		this.faintedLastTurn = null;
 		this.faintedThisTurn = null;
+		this.lastFaintedBoosts = {atk: 0, def: 0, spa: 0, spd: 0, spe: 0, accuracy: 0, evasion: 0};
 		this.totalFainted = 0;
 		this.zMoveUsed = false;
 		this.dynamaxUsed = this.battle.gen !== 8;
