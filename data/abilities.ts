@@ -7226,6 +7226,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				this.heal(this.effectState.target.baseMaxhp/4, this.effectState.target);
 			}
 		},
+		onImmunity(type, pokemon) {
+			if (type === 'haunt') return false;
+		},
 		flags: {},
 		name: "Soul Drain",
 		rating: 2,
