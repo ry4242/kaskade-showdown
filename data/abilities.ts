@@ -7065,6 +7065,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -26,
 	},
+	relicsoul: {
+		onStart(source) {
+			this.field.setEnergyWeather('supercell');
+		},
+		// airborneness implemented in sim/pokemon.js:Pokemon#isGrounded
+		flags: {breakable: 1},
+		name: "Relic Soul",
+		rating: 4.5,
+		num: -74,
+	},
 	rockybody: { // tested, works as intended
 		onDamagePriority: 1,
 		onDamage(damage, target, source, effect) {
