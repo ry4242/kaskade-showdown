@@ -6927,7 +6927,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1,
 		num: -52,
 	},
-	petrichor: {
+	petrichor: { // tested, works as intended
 		onStart(target) {
 			if (this.field.climateWeather && target.effectiveClimateWeather() === this.field.climateWeather) {
 				this.add('-activate', target, 'ability: Petrichor');
@@ -7065,7 +7065,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -26,
 	},
-	relicsoul: {
+	relicsoul: { // tested, works as intended
 		onStart(source) {
 			this.field.setEnergyWeather('supercell');
 		},
@@ -7203,6 +7203,18 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Smother Body",
 		rating: 2,
 		num: -53,
+	},
+	songbird: { // tested, works as intended
+		onAllyDamage(damage, target, source, effect) {
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
+			}
+		},
+		flags: {},
+		name: "Songbird",
+		rating: 0,
+		num: -75,
 	},
 	souldrain: { // tested, works as intended TODO: fix ability splash when pokemon dies from recoil
 		onAnyFaintPriority: 1,
