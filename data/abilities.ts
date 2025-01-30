@@ -6349,7 +6349,27 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	evergreen: { // tested, works as intended
 		onStart(pokemon) {
-			this.singleEvent('ClimateWeatherChange', this.effect, this.effectState, pokemon);
+			if (!(pokemon.baseSpecies.baseSpecies === 'Snover' || pokemon.baseSpecies.baseSpecies === 'Abomasnow')) return;
+			let forme = null;
+			switch (pokemon.effectiveClimateWeather()) {
+			case 'sunnyday':
+			case 'desolateland':
+				if (pokemon.baseSpecies.baseSpecies === 'Snover' &&
+					pokemon.species.id !== 'snoverlowland') forme = 'Snover-Lowland';
+				if (pokemon.baseSpecies.baseSpecies === 'Abomasnow' &&
+					pokemon.species.id !== 'abomasnowlowland') forme = 'Abomasnow-Lowland';
+				break;
+			case 'hail':
+			case 'snow':
+				if (pokemon.baseSpecies.baseSpecies === 'Snover' &&
+					pokemon.species.id !== 'snover') forme = 'Snover';
+				if (pokemon.baseSpecies.baseSpecies === 'Abomasnow' &&
+					pokemon.species.id !== 'abomasnow') forme = 'Abomasnow';
+				break;
+			}
+			if (forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
 		},
 		onClimateWeatherChange(pokemon) {
 			if (!(pokemon.baseSpecies.baseSpecies === 'Snover' || pokemon.baseSpecies.baseSpecies === 'Abomasnow')) return;
@@ -6376,7 +6396,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
 		name: "Evergreen",
-		rating: 3,
+		rating: 1,
 		num: -54,
 	},
 	expiation: { // tested, works as intended, TODO: fix text to attribute healing to proper pokemon
@@ -7482,5 +7502,87 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Warp Mist",
 		rating: 2,
 		num: -19,
+	},
+	wetanddry: { // maybe works? needs client implementation to check (i think)
+		onStart(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Drout') return;
+			let forme = null;
+			const exclude = ['bloodmoon', 'pollinate', 'swarmsignal', 'sprinkle', 'smogspread',
+				this.field.energyWeather, this.field.clearingWeather, this.field.cataclysmWeather];
+			switch (this.field.getRecentWeather(exclude, pokemon)) {
+			case 'sunnyday':
+			case 'desolateland':
+			case 'sandstorm':
+			case 'duststorm':
+				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
+					pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
+				break;
+			case 'hail':
+			case 'snow':
+			case 'raindance':
+			case 'foghorn':
+				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
+					pokemon.species.id !== 'drout') forme = 'Drout';
+				break;
+			}
+			if (forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		onClimateWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Drout') return;
+			let forme = null;
+			const exclude = ['bloodmoon', 'pollinate', 'swarmsignal', 'sprinkle', 'smogspread',
+				this.field.energyWeather, this.field.clearingWeather, this.field.cataclysmWeather];
+			switch (this.field.getRecentWeather(exclude, pokemon)) {
+			case 'sunnyday':
+			case 'desolateland':
+			case 'sandstorm':
+			case 'duststorm':
+				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
+					pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
+				break;
+			case 'hail':
+			case 'snow':
+			case 'raindance':
+			case 'foghorn':
+				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
+					pokemon.species.id !== 'drout') forme = 'Drout';
+				break;
+			}
+			if (forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		onIrritantWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Drout') return;
+			let forme = null;
+			const exclude = ['bloodmoon', 'pollinate', 'swarmsignal', 'sprinkle', 'smogspread',
+				this.field.energyWeather, this.field.clearingWeather, this.field.cataclysmWeather];
+			switch (this.field.getRecentWeather(exclude, pokemon)) {
+			case 'sunnyday':
+			case 'desolateland':
+			case 'sandstorm':
+			case 'duststorm':
+				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
+					pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
+				break;
+			case 'hail':
+			case 'snow':
+			case 'raindance':
+			case 'primordialsea':
+			case 'foghorn':
+				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
+					pokemon.species.id !== 'drout') forme = 'Drout';
+				break;
+			}
+			if (forme) {
+				pokemon.formeChange(forme, this.effect, false, '[msg]');
+			}
+		},
+		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		name: "Wet and Dry",
+		rating: 1,
+		num: -77,
 	},
 };
