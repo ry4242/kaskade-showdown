@@ -6624,7 +6624,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -7,
 	},
-	indomitable: { // incomplete, crashes the game?
+	indomitable: { // tested, works as intended
 		onDamage(damage, target, source, effect) {
 			if (['dragonforce'].includes(source.effectiveEnergyWeather())) {
 				if (effect.effectType !== 'Move') {
@@ -6659,7 +6659,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -60,
 	},
-	machineprecision: { // incomplete, doesnt work?
+	machineprecision: { // tested, works as intended
 		onModifyCritRatio(critRatio, source) {
 			if (['magnetize'].includes(source.effectiveEnergyWeather())) {
 				this.debug("Machine Precision crit rate increase");
