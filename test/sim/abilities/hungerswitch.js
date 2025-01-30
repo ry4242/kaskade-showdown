@@ -51,9 +51,9 @@ describe("Hunger Switch", function () {
 		assert.species(peko, 'Morpeko-Hangry');
 		battle.makeChoices('move 1 terastallize', 'auto');
 		assert.species(peko, 'Morpeko-Hangry');
-	}); */
+	});
 
-	/* it("should maintain its form when Terastallized, even when switched out", function () {
+	it("should maintain its form when Terastallized, even when switched out", function () {
 		battle = common.createBattle([[
 			{species: 'Morpeko', ability: 'hungerswitch', moves: ['rest']},
 			{species: 'Furret', ability: 'Run Away', moves: ['sleeptalk']},

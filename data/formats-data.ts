@@ -6504,6 +6504,11 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
+	terapagosstellar: {
+		tier: "Uber",
+		doublesTier: "DUber",
+		natDexTier: "Uber",
+	},
 	pecharunt: {
 		isNonstandard: "Past",
 		tier: "Illegal",
@@ -7309,6 +7314,14 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "CAP",
 	},
 	cresceidon: {
+		isNonstandard: "CAP",
+		tier: "CAP",
+	},
+	chuggalong: {
+		isNonstandard: "CAP",
+		tier: "CAP",
+	},
+	shox: {
 		isNonstandard: "CAP",
 		tier: "CAP",
 	},

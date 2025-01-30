@@ -19,7 +19,7 @@
  * @license MIT
  */
 
-import {Utils} from '../lib';
+import {Utils} from '../lib/utils';
 import type {RequestState} from './battle';
 import {Pokemon, EffectState} from './pokemon';
 import {State} from './state';
@@ -296,13 +296,13 @@ export class Side {
 			if (!(status as any).onSideRestart) return false;
 			return this.battle.singleEvent('SideRestart', status, this.sideConditions[status.id], this, source, sourceEffect);
 		}
-		this.sideConditions[status.id] = {
+		this.sideConditions[status.id] = this.battle.initEffectState({
 			id: status.id,
 			target: this,
 			source,
 			sourceSlot: source.getSlot(),
 			duration: status.duration,
-		};
+		});
 		if (status.durationCallback) {
 			this.sideConditions[status.id].duration =
 				status.durationCallback.call(this.battle, this.active[0], source, sourceEffect);
@@ -348,13 +348,14 @@ export class Side {
 			if (!status.onRestart) return false;
 			return this.battle.singleEvent('Restart', status, this.slotConditions[target][status.id], this, source, sourceEffect);
 		}
-		const conditionState = this.slotConditions[target][status.id] = {
+		const conditionState = this.slotConditions[target][status.id] = this.battle.initEffectState({
 			id: status.id,
 			target: this,
 			source,
 			sourceSlot: source.getSlot(),
+			isSlotCondition: true,
 			duration: status.duration,
-		};
+		});
 		if (status.durationCallback) {
 			conditionState.duration =
 				status.durationCallback.call(this.battle, this.active[0], source, sourceEffect);
@@ -602,6 +603,7 @@ export class Side {
 
 		// Mega evolution
 
+		const mixandmega = this.battle.format.mod === 'mixandmega';
 		const mega = (event === 'mega');
 		const megax = (event === 'megax');
 		const megay = (event === 'megay');
@@ -614,14 +616,14 @@ export class Side {
 		if (megay && !pokemon.canMegaEvoY) {
 			return this.emitChoiceError(`Can't move: ${pokemon.name} can't mega evolve Y`);
 		}
-		if ((mega || megax || megay) && this.choice.mega) {
+		if ((mega || megax || megay) && this.choice.mega && !mixandmega) {
 			return this.emitChoiceError(`Can't move: You can only mega-evolve once per battle`);
 		}
 		const ultra = (event === 'ultra');
 		if (ultra && !pokemon.canUltraBurst) {
 			return this.emitChoiceError(`Can't move: ${pokemon.name} can't ultra burst`);
 		}
-		if (ultra && this.choice.ultra) {
+		if (ultra && this.choice.ultra && !mixandmega) {
 			return this.emitChoiceError(`Can't move: You can only ultra burst once per battle`);
 		}
 		let dynamax = (event === 'dynamax');
