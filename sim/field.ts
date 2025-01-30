@@ -21,6 +21,8 @@ export class Field {
 	energyWeatherState: EffectState;
 	clearingWeather: ID;
 	clearingWeatherState: EffectState;
+	cataclysmWeather: ID;
+	cataclysmWeatherState: EffectState;
 	activeWeathers: ID[];
 	terrain: ID;
 	terrainState: EffectState;
@@ -40,6 +42,8 @@ export class Field {
 		this.energyWeatherState = {id: ''};
 		this.clearingWeather = '';
 		this.clearingWeatherState = {id: ''};
+		this.cataclysmWeather = '';
+		this.cataclysmWeatherState = {id: ''};
 		this.activeWeathers = [];
 		this.terrain = '';
 		this.terrainState = {id: ''};
@@ -286,6 +290,65 @@ export class Field {
 		return true;
 	}
 
+	setCataclysmWeather(
+		status: string | Condition, source: Pokemon | 'debug' | null = null, sourceEffect: Effect | null = null
+	) {
+		status = this.battle.dex.conditions.get(status);
+		if (!sourceEffect && this.battle.effect) sourceEffect = this.battle.effect;
+		if (!source && this.battle.event && this.battle.event.target) source = this.battle.event.target;
+		if (source === 'debug') source = this.battle.sides[0].active[0];
+
+		if (this.cataclysmWeather === status.id) {
+			if (sourceEffect && sourceEffect.effectType === 'Ability') {
+				if (this.battle.gen > 5 || this.clearingWeatherState.duration === 0) {
+					return false;
+				}
+			} else if (this.battle.gen > 2 || status.id === 'sandstorm') {
+				return false;
+			}
+		}
+		if (source) {
+			const result = this.battle.runEvent('SetCataclysmWeather', source, source, status);
+			if (!result) {
+				if (result === false) {
+					if ((sourceEffect as Move)?.cataclysmWeather) {
+						this.battle.add('-fail', source, sourceEffect, '[from] ' + this.cataclysmWeather);
+					} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
+						this.battle.add('-ability', source, sourceEffect, '[from] ' + this.cataclysmWeather, '[fail]');
+					}
+				}
+				return null;
+			}
+		}
+		const prevCataclysmWeather = this.cataclysmWeather;
+		const prevCataclysmWeatherState = this.cataclysmWeatherState;
+		this.cataclysmWeather = status.id;
+		this.cataclysmWeatherState = {id: status.id};
+		if (source) {
+			this.cataclysmWeatherState.source = source;
+			this.cataclysmWeatherState.sourceSlot = source.getSlot();
+		}
+		if (status.duration) {
+			this.cataclysmWeatherState.duration = status.duration;
+		}
+		if (status.durationCallback) {
+			if (!source) throw new Error(`setting cataclysmWeather without a source`);
+			this.cataclysmWeatherState.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
+		}
+		if (!this.battle.singleEvent('FieldStart', status, this.cataclysmWeatherState, this, source, sourceEffect)) {
+			this.cataclysmWeather = prevCataclysmWeather;
+			this.cataclysmWeatherState = prevCataclysmWeatherState;
+			return false;
+		}
+		const indexToRemove = this.activeWeathers.indexOf(prevCataclysmWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
+		this.activeWeathers.push(this.cataclysmWeather);
+		this.battle.eachEvent('CataclysmWeatherChange', sourceEffect);
+		return true;
+	}
+
 	clearClimateWeather() {
 		if (!this.climateWeather) return false;
 		const indexToRemove = this.activeWeathers.indexOf(this.climateWeather);
@@ -342,6 +405,20 @@ export class Field {
 		return true;
 	}
 
+	clearCataclysmWeather() {
+		if (!this.cataclysmWeather) return false;
+		const indexToRemove = this.activeWeathers.indexOf(this.cataclysmWeather);
+		if (indexToRemove !== -1) {
+			this.activeWeathers.splice(indexToRemove, 1);
+		}
+		const prevCataclysmWeather = this.getCataclysmWeather();
+		this.battle.singleEvent('FieldEnd', prevCataclysmWeather, this.cataclysmWeatherState, this);
+		this.cataclysmWeather = '';
+		this.cataclysmWeatherState = {id: ''};
+		this.battle.eachEvent('CataclysmWeatherChange');
+		return true;
+	}
+
 	effectiveClimateWeather() {
 		if (this.suppressingClimateWeather()) return '';
 		return this.climateWeather;
@@ -360,6 +437,11 @@ export class Field {
 	effectiveClearingWeather() {
 		if (this.suppressingClearingWeather()) return '';
 		return this.clearingWeather;
+	}
+
+	effectiveCataclysmWeather() {
+		if (this.suppressingCataclysmWeather()) return '';
+		return this.cataclysmWeather;
 	}
 
 	suppressingClimateWeather() {
@@ -410,6 +492,18 @@ export class Field {
 		return false;
 	}
 
+	suppressingCataclysmWeather() {
+		for (const side of this.battle.sides) {
+			for (const pokemon of side.active) {
+				if (pokemon && !pokemon.fainted && !pokemon.ignoringAbility() &&
+					pokemon.getAbility().suppressCataclysmWeather && !pokemon.abilityState.ending) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	isClimateWeather(climateWeather: string | string[]) {
 		const ourClimateWeather = this.effectiveClimateWeather();
 		if (!Array.isArray(climateWeather)) {
@@ -442,6 +536,14 @@ export class Field {
 		return clearingWeather.map(toID).includes(ourClearingWeather);
 	}
 
+	isCataclysmWeather(cataclysmWeather: string | string[]) {
+		const ourCataclysmWeather = this.effectiveCataclysmWeather();
+		if (!Array.isArray(cataclysmWeather)) {
+			return ourCataclysmWeather === toID(cataclysmWeather);
+		}
+		return cataclysmWeather.map(toID).includes(ourCataclysmWeather);
+	}
+
 	getClimateWeather() {
 		return this.battle.dex.conditions.getByID(this.climateWeather);
 	}
@@ -458,16 +560,21 @@ export class Field {
 		return this.battle.dex.conditions.getByID(this.clearingWeather);
 	}
 
-	getRecentWeather(exclude: string | null = null, pokemon: Pokemon | null = null) {
+	getCataclysmWeather() {
+		return this.battle.dex.conditions.getByID(this.cataclysmWeather);
+	}
+
+	getRecentWeather(exclude: string | string[] | null = null, pokemon: Pokemon | null = null) {
 		if (this.activeWeathers.length <= 0) return "bozo";
 		for (let i = this.activeWeathers.length; i > 0; i--) {
 			const recentWeather = this.activeWeathers[i - 1];
 			this.battle.debug(recentWeather);
-			if (recentWeather !== exclude &&
+			if (exclude?.includes(recentWeather) &&
 				(pokemon && (recentWeather === pokemon.effectiveClimateWeather() ||
 							 recentWeather === pokemon.effectiveIrritantWeather() ||
 							 recentWeather === pokemon.effectiveEnergyWeather() ||
-							 recentWeather === pokemon.effectiveClearingWeather()))) {
+							 recentWeather === pokemon.effectiveClearingWeather() ||
+							recentWeather === pokemon.effectiveCataclysmWeather()))) {
 				return recentWeather;
 			}
 		}

@@ -173,7 +173,7 @@ export class Battle {
 	lastDamage: number;
 	abilityOrder: number;
 	quickClawRoll: boolean;
-
+	
 	teamGenerator: ReturnType<typeof Teams.getGenerator> | null;
 
 	readonly hints: Set<string>;
@@ -463,7 +463,7 @@ export class Battle {
 			this.runEvent(eventid, pokemon, null, effect, relayVar);
 		}
 		if ((eventid === 'ClimateWeather' || eventid === 'IrritantWeather' ||
-		eventid === 'EnergyWeather' || eventid === 'ClearingWeather') && this.gen >= 7) {
+		eventid === 'EnergyWeather' || eventid === 'ClearingWeather' || eventid === 'CataclysmWeather') && this.gen >= 7) {
 			// TODO: further research when updates happen
 			this.eachEvent('Update');
 		}
@@ -569,21 +569,28 @@ export class Battle {
 			effect.effectType === 'IrritantWeather' && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
 			eventid !== 'FieldEnd' && this.field.suppressingIrritantWeather()
 		) {
-			this.debug(eventid + ' handler suppressed by some Irritant blocking thing');
+			this.debug(eventid + ' handler suppressed by some Irritant weather blocking thing');
 			return relayVar;
 		}
 		if (
 			effect.effectType === 'EnergyWeather' && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
 			eventid !== 'FieldEnd' && this.field.suppressingEnergyWeather()
 		) {
-			this.debug(eventid + ' handler suppressed by some Energy blocking thing');
+			this.debug(eventid + ' handler suppressed by some Energy weather blocking thing');
 			return relayVar;
 		}
 		if (
 			effect.effectType === 'ClearingWeather' && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
 			eventid !== 'FieldEnd' && this.field.suppressingClearingWeather()
 		) {
-			this.debug(eventid + ' handler suppressed by some Clearing blocking thing');
+			this.debug(eventid + ' handler suppressed by some Clearing weather blocking thing');
+			return relayVar;
+		}
+		if (
+			effect.effectType === 'CataclysmWeather' && eventid !== 'FieldStart' && eventid !== 'FieldResidual' &&
+			eventid !== 'FieldEnd' && this.field.suppressingCataclysmWeather()
+		) {
+			this.debug(eventid + ' handler suppressed by some Cataclysm weather blocking thing');
 			return relayVar;
 		}
 
@@ -858,17 +865,22 @@ export class Battle {
 			}
 			if ((effect.effectType === 'IrritantWeather' || eventid === 'IrritantWeather') &&
 				eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingIrritantWeather()) {
-				this.debug(eventid + ' handler suppressed by some Irritant blocking thing');
+				this.debug(eventid + ' handler suppressed by some Irritant weather blocking thing');
 				continue;
 			}
 			if ((effect.effectType === 'EnergyWeather' || eventid === 'EnergyWeather') &&
 				eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingEnergyWeather()) {
-				this.debug(eventid + ' handler suppressed by some Energy blocking thing');
+				this.debug(eventid + ' handler suppressed by some Energy weather blocking thing');
 				continue;
 			}
 			if ((effect.effectType === 'ClearingWeather' || eventid === 'ClearingWeather') &&
 				eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingClearingWeather()) {
-				this.debug(eventid + ' handler suppressed by some Clearing blocking thing');
+				this.debug(eventid + ' handler suppressed by some Clearing weather blocking thing');
+				continue;
+			}
+			if ((effect.effectType === 'CataclysmWeather' || eventid === 'CataclysmWeather') &&
+				eventid !== 'Residual' && eventid !== 'End' && this.field.suppressingCataclysmWeather()) {
+				this.debug(eventid + ' handler suppressed by some Cataclysm weather blocking thing');
 				continue;
 			}
 			let returnVal;
@@ -954,7 +966,8 @@ export class Battle {
 		}
 		// events usually run through EachEvent should never have any handlers besides `on${eventName}` so don't check for them
 		const prefixedHandlers = !['BeforeTurn', 'Update', 'ClimateWeather', 'ClimateWeatherChange', 'IrritantWeather',
-			'IrritantWeatherChange', 'EnergyWeather', 'EnergyWeatherChange', 'ClearingWeather', 'ClearingWeatherChange', 'TerrainChange'].includes(eventName);
+			'IrritantWeatherChange', 'EnergyWeather', 'EnergyWeatherChange', 'ClearingWeather', 'ClearingWeatherChange', 
+			'Cataclysm', 'CataclysmWeatherChange', 'TerrainChange'].includes(eventName);
 		if (target instanceof Pokemon && (target.isActive || source?.isActive)) {
 			handlers = this.findPokemonEventHandlers(target, `on${eventName}`);
 			if (prefixedHandlers) {
@@ -1129,6 +1142,15 @@ export class Battle {
 			handlers.push(this.resolvePriority({
 				effect: clearingWeather, callback, state: this.field.clearingWeatherState,
 				end: customHolder ? null : field.clearClearingWeather, effectHolder: customHolder || field,
+			}, callbackName));
+		}
+		const cataclysmWeather = field.getCataclysmWeather();
+		// @ts-ignore - dynamic lookup
+		callback = cataclysmWeather[callbackName];
+		if (callback !== undefined || (getKey && this.field.cataclysmWeatherState[getKey])) {
+			handlers.push(this.resolvePriority({
+				effect: cataclysmWeather, callback, state: this.field.cataclysmWeatherState,
+				end: customHolder ? null : field.clearCataclysmWeather, effectHolder: customHolder || field,
 			}, callbackName));
 		}
 		const terrain = field.getTerrain();
@@ -1501,6 +1523,7 @@ export class Battle {
 	}
 
 	faint(pokemon: Pokemon, source?: Pokemon, effect?: Effect) {
+		pokemon.side.lastFaintedBoosts = pokemon.boosts
 		pokemon.faint(source, effect);
 	}
 
@@ -1983,8 +2006,8 @@ export class Battle {
 
 			if (effect.id !== 'struggle-recoil') { // Struggle recoil is not affected by effects
 				if ((effect.effectType === 'ClimateWeather' || effect.effectType === 'IrritantWeather' ||
-				effect.effectType === 'EnergyWeather' ||
-				effect.effectType === 'ClearingWeather') && !target.runStatusImmunity(effect.id)) {
+				effect.effectType === 'EnergyWeather' || effect.effectType === 'ClearingWeather' || 
+				effect.effectType === 'CataclysmWeather') && !target.runStatusImmunity(effect.id)) {
 					this.debug('Weather immunity');
 					retVals[i] = 0;
 					continue;

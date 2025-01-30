@@ -87,6 +87,7 @@ export interface EventMethods {
 	onSetIrritantWeather?: (this: Battle, target: Pokemon, source: Pokemon, irritantWeather: Condition) => boolean | void;
 	onSetEnergyWeather?: (this: Battle, target: Pokemon, source: Pokemon, energyWeather: Condition) => boolean | void;
 	onSetClearingWeather?: (this: Battle, target: Pokemon, source: Pokemon, clearingWeather: Condition) => boolean | void;
+	onSetCataclysmWeather?: (this: Battle, target: Pokemon, source: Pokemon, cataclysmWeather: Condition) => boolean | void;
 	onStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
 	onSwitchOut?: (this: Battle, pokemon: Pokemon) => void;
@@ -98,6 +99,7 @@ export interface EventMethods {
 	onIrritantWeatherChange?: (this: Battle, target: Pokemon, source: Pokemon, sourceEffect: Effect) => void;
 	onEnergyWeatherChange?: (this: Battle, target: Pokemon, source: Pokemon, sourceEffect: Effect) => void;
 	onClearingWeatherChange?: (this: Battle, target: Pokemon, source: Pokemon, sourceEffect: Effect) => void;
+	onCataclysmWeatherChange?: (this: Battle, target: Pokemon, source: Pokemon, sourceEffect: Effect) => void;
 	onTerrainChange?: (this: Battle, target: Pokemon, source: Pokemon, sourceEffect: Effect) => void;
 	onTrapPokemon?: (this: Battle, pokemon: Pokemon) => void;
 	onTryAddVolatile?: (
@@ -120,10 +122,12 @@ export interface EventMethods {
 	onIrritantWeather?: (this: Battle, target: Pokemon, source: null, effect: Condition) => void;
 	onEnergyWeather?: (this: Battle, target: Pokemon, source: null, effect: Condition) => void;
 	onClearingWeather?: (this: Battle, target: Pokemon, source: null, effect: Condition) => void;
+	onCataclysmWeather?: (this: Battle, target: Pokemon, source: null, effect: Condition) => void;
 	onClimateWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onIrritantWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onEnergyWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onClearingWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
+	onCataclysmWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onModifyDamagePhase1?: CommonHandlers['ModifierSourceMove'];
 	onModifyDamagePhase2?: CommonHandlers['ModifierSourceMove'];
 	onFoeDamagingHit?: (this: Battle, damage: number, target: Pokemon, source: Pokemon, move: ActiveMove) => void;
@@ -207,6 +211,9 @@ export interface EventMethods {
 	onFoeSetClearingWeather?: (
 		this: Battle, target: Pokemon, source: Pokemon, clearingWeather: Condition
 	) => boolean | void;
+	onFoeSetCataclysmWeather?: (
+		this: Battle, target: Pokemon, source: Pokemon, cataclysmWeather: Condition
+	) => boolean | void;
 	onFoeStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onFoeSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
 	onFoeSwitchOut?: (this: Battle, pokemon: Pokemon) => void;
@@ -237,6 +244,7 @@ export interface EventMethods {
 	onFoeIrritantWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onFoeEnergyWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onFoeClearingWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
+	onFoeCataclysmWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onFoeModifyDamagePhase1?: CommonHandlers['ModifierSourceMove'];
 	onFoeModifyDamagePhase2?: CommonHandlers['ModifierSourceMove'];
 	onSourceDamagingHit?: (this: Battle, damage: number, target: Pokemon, source: Pokemon, move: ActiveMove) => void;
@@ -322,6 +330,9 @@ export interface EventMethods {
 	onSourceSetClearingWeather?: (
 		this: Battle, target: Pokemon, source: Pokemon, clearingWeather: Condition
 	) => boolean | void;
+	onSourceSetCataclysmWeather?: (
+		this: Battle, target: Pokemon, source: Pokemon, cataclysmWeather: Condition
+	) => boolean | void;
 	onSourceStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onSourceSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
 	onSourceSwitchOut?: (this: Battle, pokemon: Pokemon) => void;
@@ -352,6 +363,7 @@ export interface EventMethods {
 	onSourceIrritantWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onSourceEnergyWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onSourceClearingWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
+	onSourceCataclysmWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onSourceModifyDamagePhase1?: CommonHandlers['ModifierSourceMove'];
 	onSourceModifyDamagePhase2?: CommonHandlers['ModifierSourceMove'];
 	onAnyDamagingHit?: (this: Battle, damage: number, target: Pokemon, source: Pokemon, move: ActiveMove) => void;
@@ -436,6 +448,9 @@ export interface EventMethods {
 	onAnySetClearingWeather?: (
 		this: Battle, target: Pokemon, source: Pokemon, clearingWeather: Condition
 	) => boolean | void;
+	onAnySetCataclysmWeather?: (
+		this: Battle, target: Pokemon, source: Pokemon, cataclysmWeather: Condition
+	) => boolean | void;
 	onAnyStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onAnySwitchIn?: (this: Battle, pokemon: Pokemon) => void;
 	onAnySwitchOut?: (this: Battle, pokemon: Pokemon) => void;
@@ -466,6 +481,7 @@ export interface EventMethods {
 	onAnyIrritantWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onAnyEnergyWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onAnyClearingWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
+	onAnyCataclysmWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onAnyModifyDamagePhase1?: CommonHandlers['ModifierSourceMove'];
 	onAnyModifyDamagePhase2?: CommonHandlers['ModifierSourceMove'];
 
@@ -616,6 +632,9 @@ export interface PokemonEventMethods extends EventMethods {
 	onAllySetClearingWeather?: (
 		this: Battle, target: Pokemon, source: Pokemon, clearingWeather: Condition
 	) => boolean | void;
+	onAllySetCataclysmWeather?: (
+		this: Battle, target: Pokemon, source: Pokemon, cataclysmWeather: Condition
+	) => boolean | void;
 	onAllySideConditionStart?: (this: Battle, target: Pokemon, source: Pokemon, sideCondition: Condition) => void;
 	onAllyStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onAllySwitchIn?: (this: Battle, pokemon: Pokemon) => void;
@@ -647,6 +666,7 @@ export interface PokemonEventMethods extends EventMethods {
 	onAllyIrritantWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onAllyEnergyWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onAllyClearingWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
+	onAllyCataclysmWeatherModifyDamage?: CommonHandlers['ModifierSourceMove'];
 	onAllyModifyDamagePhase1?: CommonHandlers['ModifierSourceMove'];
 	onAllyModifyDamagePhase2?: CommonHandlers['ModifierSourceMove'];
 }
@@ -683,7 +703,7 @@ export interface ModdedConditionDataTable {[id: IDEntry]: ModdedConditionData}
 export class Condition extends BasicEffect implements
 	Readonly<BasicEffect & SideConditionData & FieldConditionData & PokemonConditionData> {
 	declare readonly effectType: 'Condition' | 'ClimateWeather' | 'IrritantWeather' | 'EnergyWeather' |
-	'ClearingWeather' | 'Status' | 'Terastal';
+	'ClearingWeather' | 'CataclysmWeather' | 'Status' | 'Terastal';
 	declare readonly counterMax?: number;
 
 	declare readonly durationCallback?: (this: Battle, target: Pokemon, source: Pokemon, effect: Effect | null) => number;
@@ -699,7 +719,7 @@ export class Condition extends BasicEffect implements
 	constructor(data: AnyObject) {
 		super(data);
 		this.effectType = (['ClimateWeather', 'IrritantWeather', 'EnergyWeather',
-			'ClearingWeather', 'Status'].includes(data.effectType) ? data.effectType : 'Condition');
+			'ClearingWeather', 'CataclysmWeather', 'Status'].includes(data.effectType) ? data.effectType : 'Condition');
 		assignMissingFields(this, data);
 	}
 }

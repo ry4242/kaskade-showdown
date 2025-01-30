@@ -84,6 +84,7 @@ export interface HitEffect {
 	irritantWeather?: string;
 	energyWeather?: string;
 	clearingWeather?: string;
+	cataclysmWeather?: string;
 }
 
 export interface SecondaryEffect extends HitEffect {
@@ -321,6 +322,7 @@ export interface ActiveMove extends MutableMove {
 	irritantWeather?: ID;
 	energyWeather?: ID;
 	clearingWeather?: ID;
+	cataclysmWeather?: ID;
 	status?: ID;
 	hit: number;
 	moveHitData?: MoveHitData;

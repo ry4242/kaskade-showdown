@@ -833,10 +833,11 @@ export class Pokemon {
 		if (this.volatiles['gastroacid']) return true;
 
 		// Check if any active pokemon have the ability Neutralizing Gas
-		if (this.hasItem('Ability Shield') || this.ability === ('neutralizinggas' as ID)) return false;
+		if (this.hasItem('Ability Shield') || this.ability === ('neutralizinggas' as ID) ||
+			this.ability === ('neutralize' as ID)) return false;
 		for (const pokemon of this.battle.getAllActive()) {
 			// can't use hasAbility because it would lead to infinite recursion
-			if (pokemon.ability === ('neutralizinggas' as ID) && !pokemon.volatiles['gastroacid'] &&
+			if ((pokemon.ability === ('neutralizinggas' as ID) || pokemon.ability === ('neutralize' as ID)) && !pokemon.volatiles['gastroacid'] &&
 				!pokemon.transformed && !pokemon.abilityState.ending && !this.volatiles['commanding']) {
 				return true;
 			}
@@ -2061,6 +2062,7 @@ export class Pokemon {
 		// If a Fire/Flying type uses Burn Up and Roost, it becomes ???/Flying-type, but it's still grounded.
 		if (!negateImmunity && this.hasType('Flying') && !(this.hasType('???') && 'roost' in this.volatiles)) return false;
 		if (this.hasAbility('levitate') && !this.battle.suppressingAbility(this)) return null;
+		if (this.hasAbility('relicsoul') && !this.battle.suppressingAbility(this)) return null;
 		if ('magnetrise' in this.volatiles) return false;
 		if ('telekinesis' in this.volatiles) return false;
 		return item !== 'airballoon';
@@ -2143,6 +2145,11 @@ export class Pokemon {
 		return weather;
 	}
 
+	effectiveCataclysmWeather() {
+		const weather = this.battle.field.effectiveCataclysmWeather();
+		return weather;
+	}
+
 	runEffectiveness(move: ActiveMove) {
 		if (this.terastallized && move.type === 'Stellar') return 1;
 		let totalTypeMod = 0;
@@ -2169,7 +2176,7 @@ export class Pokemon {
 		if (notImmune) return true;
 		if (!message) return false;
 		if (notImmune === null) {
-			this.battle.add('-immune', this, '[from] ability: Levitate');
+			this.battle.add('-immune', this, '[from] ability:' + this.getAbility().name);
 		} else {
 			this.battle.add('-immune', this);
 		}
