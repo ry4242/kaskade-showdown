@@ -7035,7 +7035,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.flags['pledgecombo']) return;
-			if (!this.effectState.target.isActive || this.effectState.target.baseSpecies.baseSpecies !== 'Blurrun' || this.effectState.target.transformed) return;
+			if (!this.effectState.target.isActive || this.effectState.target.baseSpecies.baseSpecies !== 'Blurrun' ||
+				this.effectState.target.transformed) return;
 			if (move.type === 'Electric') {
 				const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
 				if (this.validTarget(this.effectState.target, source, redirectTarget)) {
