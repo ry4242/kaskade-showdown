@@ -119,7 +119,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 		start: "  [POKEMON] reversed all other Pok\u00E9mon's auras!",
 	},
-	baddreams: { // updated, incomplete
+	baddreams: { // updated
 		name: "Bad Dreams",
 		desc: "Causes opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep or if Dreamscape is active.",
 		shortDesc: "Dreamscape/asleep foe: foes lose 1/8 of their max HP at the end of each turn.",
