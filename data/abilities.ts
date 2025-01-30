@@ -7477,6 +7477,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			case 'hail':
 			case 'snow':
 			case 'raindance':
+			case 'primordialsea':
 			case 'foghorn':
 				if (pokemon.species.id !== 'drout') forme = 'Drout';
 				break;
@@ -7500,6 +7501,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			case 'hail':
 			case 'snow':
 			case 'raindance':
+			case 'primordialsea':
 			case 'foghorn':
 				if (pokemon.species.id !== 'drout') forme = 'Drout';
 				break;
@@ -7523,6 +7525,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			case 'hail':
 			case 'snow':
 			case 'raindance':
+			case 'primordialsea':
 			case 'foghorn':
 				if (pokemon.species.id !== 'drout') forme = 'Drout';
 				break;

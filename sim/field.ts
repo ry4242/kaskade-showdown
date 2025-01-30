@@ -568,8 +568,7 @@ export class Field {
 		if (this.activeWeathers.length <= 0) return "bozo";
 		for (let i = this.activeWeathers.length; i > 0; i--) {
 			const recentWeather = this.activeWeathers[i - 1];
-			this.battle.debug(recentWeather);
-			if (exclude?.includes(recentWeather) &&
+			if (!exclude?.includes(recentWeather) &&
 				(pokemon && (recentWeather === pokemon.effectiveClimateWeather() ||
 							 recentWeather === pokemon.effectiveIrritantWeather() ||
 							 recentWeather === pokemon.effectiveEnergyWeather() ||
