@@ -1514,62 +1514,81 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			// If run in onEnergyWeather() it runs once for each active pokemon
 			let validTargets = [];
 			let lightningRodPresent = false;
+			let thunderArmorPresent = false;
 			for (const target of this.getAllActive()) {
-				if (target.hasAbility('lightningrod') || target.hasAbility('powerplumage')) {
-					lightningRodPresent = true;
+				if (!target.hasItem('energynullifier')) {
+					if (target.hasAbility('lightningrod') || target.hasAbility('powerplumage')) {
+						thunderArmorPresent = false;
+						for (const ally of target.alliesAndSelf()) {
+							if (ally.hasAbility('thunderarmor')) thunderArmorPresent = true;
+						}
+						if (!thunderArmorPresent) lightningRodPresent = true;
+					}
 				}
 			}
 			for (const target of this.getAllActive()) {
 				if (!target.hasItem('energynullifier')) {
 					if (lightningRodPresent) {
-						if (target.hasAbility('lightningrod') || target.hasAbility('powerplumage')) validTargets.push(target);
+						if (target.hasAbility('lightningrod') || target.hasAbility('powerplumage')) {
+							thunderArmorPresent = false;
+							for (const ally of target.alliesAndSelf()) {
+								if (ally.hasAbility('thunderarmor')) thunderArmorPresent = true;
+							}
+							if (!thunderArmorPresent) validTargets.push(target);
+						}
 					} else {
-						validTargets.push(target);
+						thunderArmorPresent = false;
+						for (const ally of target.alliesAndSelf()) {
+							if (ally.hasAbility('thunderarmor')) thunderArmorPresent = true;
+						}
+						if (!thunderArmorPresent) validTargets.push(target);
 					}
 				}
 			}
-			const target = validTargets[this.random(validTargets.length)];
-			let typeMod = 1;
-			// weak to electric
-			if (target.hasType('Water')) typeMod *= 2;
-			if (target.hasType('Flying')) typeMod *= 2;
-			// resist electric
-			if (target.hasType('Grass')) typeMod *= 0.5;
-			if (target.hasType('Dragon')) typeMod *= 0.5;
-			// immune to lightning
-			if (target.hasType('Electric')) typeMod *= 0;
-			if (target.hasType('Ground')) typeMod *= 0;
-			// electric types gain charge and take no damage
-			if (target.hasType('Electric')) {
-				target.addVolatile('charge');
-				this.hint("Electric types gain the Charge effect when struck by lightning.");
-			} else if (target.hasType('Ground')) { // ground types lose speed
-				this.boost({spe: -1});
-				this.hint("Ground types receive -1 Speed when struck by lightning.");
-			}
-			if (target.hasAbility('lightningrod')) {
-				if (!this.boost({spa: 1}, target)) {
-					this.add('-immune', target, '[from] ability: Lightning Rod');
+			if (validTargets.length > 0) {
+				const target = validTargets[this.random(validTargets.length)];
+				let typeMod = 1;
+				// weak to electric
+				if (target.hasType('Water')) typeMod *= 2;
+				if (target.hasType('Flying')) typeMod *= 2;
+				// resist electric
+				if (target.hasType('Grass')) typeMod *= 0.5;
+				if (target.hasType('Dragon')) typeMod *= 0.5;
+				// immune to lightning
+				if (target.hasType('Electric')) typeMod *= 0;
+				if (target.hasType('Ground')) typeMod *= 0;
+				// electric types gain charge and take no damage
+				if (target.hasType('Electric')) {
+					target.addVolatile('charge');
+					this.hint("Electric types gain the Charge effect when struck by lightning.");
+				} else if (target.hasType('Ground')) { // ground types lose speed
+					this.boost({spe: -1});
+					this.hint("Ground types receive -1 Speed when struck by lightning.");
 				}
-				this.hint("Pokemon with Lightning Rod draw in any lightning strike.");
-				typeMod *= 0;
-			}
-			if (target.hasAbility('motordrive')) {
-				if (!this.boost({spe: 1}, target)) {
-					this.add('-immune', target, '[from] ability: Motor Drive');
+				if (target.hasAbility('lightningrod')) {
+					if (!this.boost({spa: 1}, target)) {
+						this.add('-immune', target, '[from] ability: Lightning Rod');
+					}
+					this.hint("Pokemon with Lightning Rod draw in any lightning strike.");
+					typeMod *= 0;
 				}
-				this.hint("Pokemon with Motor Drive receive +1 Speed when struck by lightning.");
-				typeMod *= 0;
-			}
-			if (target.hasAbility('voltabsorb')) {
-				if (!target.heal(target.baseMaxhp / 4, target)) {
-					this.add('-immune', target, '[from] ability: Volt Absorb');
+				if (target.hasAbility('motordrive')) {
+					if (!this.boost({spe: 1}, target)) {
+						this.add('-immune', target, '[from] ability: Motor Drive');
+					}
+					this.hint("Pokemon with Motor Drive receive +1 Speed when struck by lightning.");
+					typeMod *= 0;
 				}
-				this.hint("Pokemon with Volt Absorb heal from lightning strikes.");
-				typeMod *= 0;
+				if (target.hasAbility('voltabsorb')) {
+					if (!target.heal(target.baseMaxhp / 4, target)) {
+						this.add('-immune', target, '[from] ability: Volt Absorb');
+					}
+					this.hint("Pokemon with Volt Absorb heal from lightning strikes.");
+					typeMod *= 0;
+				}
+				this.debug('lightning strike damage is based on the pokemons weakness/resistance to electric');
+				this.damage(typeMod * target.baseMaxhp / 10, target);
 			}
-			this.debug('lightning strike damage is based on the pokemons weakness/resistance to electric');
-			this.damage(typeMod * target.baseMaxhp / 10, target);
 
 			this.eachEvent('EnergyWeather');
 		},

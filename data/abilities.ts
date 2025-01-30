@@ -7327,7 +7327,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1.5,
 		num: -30,
 	},
-	thunderarmor: { // incomplete
+	thunderarmor: { // tested, works as intended
+		// implemented in data/conditions.ts
 		flags: {},
 		name: "Thunder Armor",
 		rating: 0.1,
