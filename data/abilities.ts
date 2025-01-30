@@ -6054,7 +6054,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Anxiety",
 		rating: -1,
-		num: -59
+		num: -59,
 	},
 	arcanum: { // tested, works as intended
 		onStart(source) {
@@ -6310,7 +6310,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 1.5,
 		num: -20,
 	},
-	echolocation: { //tested, works as intended
+	echolocation: { // tested, works as intended
 		onPrepareHit(source, target, move) {
 			if (move.category === 'Status' || move.multihit || move.flags['noparentalbond'] || move.flags['charge'] ||
 			move.flags['futuremove'] || move.isZ || move.isMax || !move.flags['sound']) return;
@@ -6410,7 +6410,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		condition: {
 			onSwap(target) {
 				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
-					target.heal(target.maxhp/2);
+					target.heal(target.maxhp / 2);
 					target.clearStatus();
 					this.add('-heal', target, target.getHealth, '[from] ability: Expiation');
 					target.side.removeSlotCondition(target, 'expiation');
@@ -6527,7 +6527,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidual(pokemon) {
 			for (const target of this.getAllActive()) {
 				if (!target.hasAbility('geigeraura')) {
-					this.damage(target.baseMaxhp/16, target, pokemon);
+					this.damage(target.baseMaxhp / 16, target, pokemon);
 				}
 			}
 		},
@@ -6755,7 +6755,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: -71,
 	},
-	neutralize: { // tested, works as intended TODO: remove failure message when using moves that deal damage and set weather
+	neutralize: { // tested, works intendedly TODO: remove failure message when using moves that deal damage and set weather
 		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
 		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Neutralize');
@@ -7008,8 +7008,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onStart(pokemon) {
 			this.singleEvent('EnergyWeatherChange', this.effect, this.effectState, pokemon);
 		},
-		onEnergyWeatherChange(pokemon) {
-			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Blurrun' || pokemon.transformed) return; // does this revert on switch?
+		onEnergyWeatherChange(pokemon) { // does this revert on switch?
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Blurrun' || pokemon.transformed) return;
 			if (!pokemon.hp) return;
 			if (['supercell'].includes(pokemon.effectiveEnergyWeather())) {
 				if (pokemon.species.id !== 'blurruncharged') {
@@ -7243,9 +7243,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onAnyFaint(target, source, effect) {
 			if (effect.effectType === "Move" || !this.effectState.target.hp) return;
 			if (['haunt'].includes(this.effectState.target.effectiveEnergyWeather())) {
-				this.heal(3*this.effectState.target.baseMaxhp/8, this.effectState.target);
+				this.heal(3 * this.effectState.target.baseMaxhp / 8, this.effectState.target);
 			} else {
-				this.heal(this.effectState.target.baseMaxhp/4, this.effectState.target);
+				this.heal(this.effectState.target.baseMaxhp / 4, this.effectState.target);
 			}
 		},
 		onImmunity(type, pokemon) {

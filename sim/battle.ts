@@ -173,7 +173,7 @@ export class Battle {
 	lastDamage: number;
 	abilityOrder: number;
 	quickClawRoll: boolean;
-	
+
 	teamGenerator: ReturnType<typeof Teams.getGenerator> | null;
 
 	readonly hints: Set<string>;
@@ -966,7 +966,7 @@ export class Battle {
 		}
 		// events usually run through EachEvent should never have any handlers besides `on${eventName}` so don't check for them
 		const prefixedHandlers = !['BeforeTurn', 'Update', 'ClimateWeather', 'ClimateWeatherChange', 'IrritantWeather',
-			'IrritantWeatherChange', 'EnergyWeather', 'EnergyWeatherChange', 'ClearingWeather', 'ClearingWeatherChange', 
+			'IrritantWeatherChange', 'EnergyWeather', 'EnergyWeatherChange', 'ClearingWeather', 'ClearingWeatherChange',
 			'Cataclysm', 'CataclysmWeatherChange', 'TerrainChange'].includes(eventName);
 		if (target instanceof Pokemon && (target.isActive || source?.isActive)) {
 			handlers = this.findPokemonEventHandlers(target, `on${eventName}`);
@@ -1523,7 +1523,7 @@ export class Battle {
 	}
 
 	faint(pokemon: Pokemon, source?: Pokemon, effect?: Effect) {
-		pokemon.side.lastFaintedBoosts = pokemon.boosts
+		pokemon.side.lastFaintedBoosts = pokemon.boosts;
 		pokemon.faint(source, effect);
 	}
 
@@ -2006,7 +2006,7 @@ export class Battle {
 
 			if (effect.id !== 'struggle-recoil') { // Struggle recoil is not affected by effects
 				if ((effect.effectType === 'ClimateWeather' || effect.effectType === 'IrritantWeather' ||
-				effect.effectType === 'EnergyWeather' || effect.effectType === 'ClearingWeather' || 
+				effect.effectType === 'EnergyWeather' || effect.effectType === 'ClearingWeather' ||
 				effect.effectType === 'CataclysmWeather') && !target.runStatusImmunity(effect.id)) {
 					this.debug('Weather immunity');
 					retVals[i] = 0;
@@ -2580,7 +2580,7 @@ export class Battle {
 				} else if (pokemon.species.id === 'zamazenta' && pokemon.item === 'rustedshield') {
 					rawSpecies = this.dex.species.get('Zamazenta-Crowned');
 				} else if (pokemon.species.id === 'castform' && pokemon.item === 'whirligig') {
-					rawSpecies = this.dex.species.get('Castform-Whirly')
+					rawSpecies = this.dex.species.get('Castform-Whirly');
 				}
 				if (!rawSpecies) continue;
 				const species = pokemon.setSpecies(rawSpecies);

@@ -1760,7 +1760,7 @@ export class BattleActions {
 			const spreadModifier = move.spreadModifier || (this.battle.gameType === 'freeforall' ? 0.5 : 0.75);
 			this.battle.debug('Spread modifier: ' + spreadModifier);
 			baseDamage = this.battle.modify(baseDamage, spreadModifier);
-		} 
+		}
 		if (move.multihitType === 'parentalbond' && move.hit > 1) {
 			// Parental Bond modifier
 			const bondModifier = this.battle.gen > 6 ? 0.25 : 0.5;
