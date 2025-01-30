@@ -6999,7 +6999,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	powerplumage: { // tested, works as intended
 		onSwitchInPriority: -2,
 		onStart(pokemon) {
-			this.singleEvent('EnergyWeatherChange', this.effect, this.effectState, pokemon);
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Blurrun' || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (['supercell'].includes(pokemon.effectiveEnergyWeather())) {
+				if (pokemon.species.id !== 'blurruncharged') {
+					pokemon.formeChange('Blurrun-Charged', this.effect, false, '[msg]');
+				}
+			} else {
+				if (pokemon.species.id === 'blurruncharged') {
+					pokemon.formeChange('Blurrun', this.effect, false, '[msg]');
+				}
+			}
 		},
 		onEnergyWeatherChange(pokemon) { // does this revert on switch?
 			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Blurrun' || pokemon.transformed) return;
@@ -7015,8 +7025,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onTryHit(target, source, move) {
+			if (!target.isActive || target.baseSpecies.baseSpecies !== 'Blurrun' || target.transformed) return;
 			if (target !== source && move.type === 'Electric') {
-				this.add('-immune', target, '[from] ability: Power Plumage');
 				if (target.species.id !== 'blurruncharged') {
 					target.formeChange('Blurrun-Charged', this.effect, false, '[msg]');
 				}
@@ -7025,7 +7035,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.flags['pledgecombo']) return;
-			if (move.type === 'Electric' || source2.energyWeather === 'supercell') {
+			if (!this.effectState.target.isActive || this.effectState.target.baseSpecies.baseSpecies !== 'Blurrun' || this.effectState.target.transformed) return;
+			if (move.type === 'Electric') {
 				const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
 				if (this.validTarget(this.effectState.target, source, redirectTarget)) {
 					if (move.smartTarget) move.smartTarget = false;
