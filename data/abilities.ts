@@ -7507,7 +7507,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	wetanddry: { // maybe works? needs client implementation to check (i think)
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Drout') return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Drout' || pokemon.transformed) return;
 			let forme = null;
 			const exclude = ['bloodmoon', 'pollinate', 'swarmsignal', 'sprinkle', 'smogspread',
 				this.field.energyWeather, this.field.clearingWeather, this.field.cataclysmWeather];
@@ -7516,23 +7516,21 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			case 'desolateland':
 			case 'sandstorm':
 			case 'duststorm':
-				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
-					pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
+				if (pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
 				break;
 			case 'hail':
 			case 'snow':
 			case 'raindance':
 			case 'foghorn':
-				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
-					pokemon.species.id !== 'drout') forme = 'Drout';
+				if (pokemon.species.id !== 'drout') forme = 'Drout';
 				break;
 			}
-			if (forme) {
+			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
 		},
 		onClimateWeatherChange(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Drout') return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Drout' || pokemon.transformed) return;
 			let forme = null;
 			const exclude = ['bloodmoon', 'pollinate', 'swarmsignal', 'sprinkle', 'smogspread',
 				this.field.energyWeather, this.field.clearingWeather, this.field.cataclysmWeather];
@@ -7541,23 +7539,21 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			case 'desolateland':
 			case 'sandstorm':
 			case 'duststorm':
-				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
-					pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
+				if (pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
 				break;
 			case 'hail':
 			case 'snow':
 			case 'raindance':
 			case 'foghorn':
-				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
-					pokemon.species.id !== 'drout') forme = 'Drout';
+				if (pokemon.species.id !== 'drout') forme = 'Drout';
 				break;
 			}
-			if (forme) {
+			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
 		},
 		onIrritantWeatherChange(pokemon) {
-			if (pokemon.baseSpecies.baseSpecies !== 'Drout') return;
+			if (pokemon.baseSpecies.baseSpecies !== 'Drout' || pokemon.transformed) return;
 			let forme = null;
 			const exclude = ['bloodmoon', 'pollinate', 'swarmsignal', 'sprinkle', 'smogspread',
 				this.field.energyWeather, this.field.clearingWeather, this.field.cataclysmWeather];
@@ -7566,19 +7562,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			case 'desolateland':
 			case 'sandstorm':
 			case 'duststorm':
-				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
-					pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
+				if (pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
 				break;
 			case 'hail':
 			case 'snow':
 			case 'raindance':
-			case 'primordialsea':
 			case 'foghorn':
-				if (pokemon.baseSpecies.baseSpecies === 'Drout' &&
-					pokemon.species.id !== 'drout') forme = 'Drout';
+				if (pokemon.species.id !== 'drout') forme = 'Drout';
 				break;
 			}
-			if (forme) {
+			if (pokemon.isActive && forme) {
 				pokemon.formeChange(forme, this.effect, false, '[msg]');
 			}
 		},
