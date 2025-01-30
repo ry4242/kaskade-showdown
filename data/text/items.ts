@@ -1567,7 +1567,7 @@ export const ItemsText: {[id: IDEntry]: ItemText} = {
 		name: "Safari Ball",
 		shortDesc: "A special Poke Ball that is used only in the Safari Zone and Great Marsh.",
 	},
-	safetygoggles: {
+	safetygoggles: { // updated
 		name: "Safety Goggles",
 		desc: "Holder is immune to powder moves and damage from Sandstorm. The holder ignores Irritant Weathergy effects. Damage and accuracy calculations from attacks used by the holder are affected by Irritant Weathergy, but not attacks used against the holder.",
 		shortDesc: "Holder is immune to powder moves, Sandstorm; ignores Irritant Weathergy effects.",
@@ -2271,7 +2271,7 @@ export const ItemsText: {[id: IDEntry]: ItemText} = {
 		name: "Up-Grade",
 		shortDesc: "Evolves Porygon into Porygon2 when used.",
 	},
-	utilityumbrella: {
+	utilityumbrella: { // updated
 		name: "Utility Umbrella",
 		desc: "The holder ignores Climate Weathergy effects. Damage and accuracy calculations from attacks used by the holder are affected by Climate Weathergy, but not attacks used against the holder.",
 		shortDesc: "The holder ignores Climate Weathergy effects.",

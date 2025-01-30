@@ -119,12 +119,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 		start: "  [POKEMON] reversed all other Pok\u00E9mon's auras!",
 	},
-	baddreams: { // updated
+	baddreams: { // updated, incomplete
 		name: "Bad Dreams",
-		/* desc: "Causes opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep or if Dreamscape is active.",
-		shortDesc: "Causes sleeping foes to lose 1/8 of their max HP at the end of each turn.", */
-		desc: "Causes opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep.",
-		shortDesc: "Causes sleeping foes to lose 1/8 of their max HP at the end of each turn.",
+		desc: "Causes opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep or if Dreamscape is active.",
+		shortDesc: "Dreamscape/asleep foe: foes lose 1/8 of their max HP at the end of each turn.",
 		gen6: {
 			desc: "Causes adjacent opposing Pokemon to lose 1/8 of their maximum HP, rounded down, at the end of each turn if they are asleep.",
 			shortDesc: "Causes sleeping adjacent foes to lose 1/8 of their max HP at the end of each turn.",
@@ -267,7 +265,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	corrosion: { // updated
 		name: "Corrosion",
 		desc: "This Pokemon can poison or badly poison a Pokemon regardless of its typing. If Smog is active, this Pokemon can hit Steel types with Poison-type moves.",
-		shortDesc: "This Pokemon can poison Steel-types. Smog: Poison moves hit Steel.",
+		shortDesc: "This Pokemon can poison Steel types. Smog: Poison moves hit Steel.",
 	},
 	costar: {
 		name: "Costar",
@@ -1176,10 +1174,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		start: "  [POKEMON] turned the sunlight harsh, sending its ancient pulse into a frenzy!",
 		activate: "  [POKEMON] basked in the sunlight, sending its ancient pulse into a frenzy!",
 	},
-	overcoat: {
+	overcoat: { // updated
 		name: "Overcoat",
-		desc: "This Pokemon is immune to powder moves, the effects of Rage Powder and the Effect Spore Ability, damage from Sandstorm, and Irritant Weathergy effects. Damage and accuracy calculations from attacks used by the holder are affected by Irritant Weathergy, but not attacks used against the holder.",
-		shortDesc: "This Pokemon is immune to powder moves, Sandstorm damage, and Effect Spore; ignores Irritant Weathergy effects.",
+		desc: "This Pokemon is immune to powder moves, the effects of Rage Powder and the Effect Spore Ability, and Irritant Weathergy effects. Damage and accuracy calculations from attacks used by this Pokemon are affected by Irritant Weathergy, but not attacks used against it.",
+		shortDesc: "This Pokemon is immune to powder moves and Effect Spore; ignores Irritant Weathergy effects.",
 		gen8: {
 			desc: "This Pokemon is immune to powder moves, damage from Sandstorm or Hail, and the effects of Rage Powder and the Effect Spore Ability.",
 			shortDesc: "This Pokemon is immune to powder moves, Sandstorm or Hail damage, Effect Spore.",
@@ -1793,7 +1791,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	steamengine: { // upadted
 		name: "Steam Engine",
-		desc: "This Pokemon's Speed is raised by 6 stages after it is hit by a Fire- or Water-type move. This Pokemon is immune to Water-type attacks",
+		desc: "This Pokemon's Speed is raised by 6 stages after it is hit by a Fire- or Water-type move. This Pokemon is immune to Water-type attacks.",
 		shortDesc: "User's Speed is raised by 6 stages after it is hit by Fire/Water moves; Water immunity.",
 	},
 	steelworker: {
@@ -2210,7 +2208,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	windpower: { // updated
 		name: "Wind Power",
-		desc: "This Pokemon gains the Charge effect when it takes a hit from a wind move or when Tailwind begins on this Pokemon's side.",
+		desc: "This Pokemon gains the Charge effect when it takes a hit from a wind move or when Tailwind or Strong Winds begins on this Pokemon's side.",
 		shortDesc: "This Pokemon gains the Charge effect when hit by a wind move or Tailwind/Strong Winds begins.",
 
 		start: "#electromorphosis",
@@ -2283,9 +2281,28 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If Hail is active, this Pokemon's Ice-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Hail. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
 		shortDesc: "This Pokemon's Ice attacks do 1.3x in Hail; immunity to it.",
 	},
+	ancientbody: {
+		name: "Ancient Body",
+		desc: "Causes the Rock type to be added to this Pokemon, effectively making it have two or three types. Fails if the target is already a Rock type. If Trick-or-Treat or Forest's Curse adds a type to the target, it replaces the type added by this ability and vice versa.",
+		shortDesc: "Adds Rock to this Pokemon's type(s).",
+	},
+	anxiety: {
+		name: "Anxiety",
+		shortDesc: "When this Pokemon takes damage, it uses Explosion.",
+	},
 	arcanum: {
 		name: "Arcanum",
 		shortDesc: "On switch-in, this Pokemon summons Dragon Force.",
+	},
+	arenabloom: {
+		name: "Arena Bloom",
+		desc: "On switch-in, this Pokemon summons Pollen Storm. If Pollen Storm is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon's Attack and Special Attack are not lowered by Pollen. These effects are prevented if this Pokemon is holding Safety Goggles.",
+		shortDesc: "On switch-in, this Pokemon summons Pollen Storm; heals 1/16 in it.",
+	},
+	arenacurse: {
+		name: "Arena Curse",
+		desc: "On switch-in, this Pokemon summons Paranormal Activity. If Paranormal Activity is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This Pokemon takes no damage from Paranormal Activity. These effects are prevented if this Pokemon is holding an Energy Nullifier.",
+		shortDesc: "On switch-in, this Pokemon summons Paranormal Activity; heals 1/16 in it.",
 	},
 	bloomspring: {
 		name: "Bloomspring",
@@ -2299,7 +2316,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	carboncapture: {
 		name: "Carbon Capture",
 		desc: "If Smog is active, this Pokemon's Poison-type attacks have their power multiplied by 1.5. This Pokemon cannot be poisoned by Smog. These effects are prevented if this Pokemon is holding Safety Goggles.",
-		shortDesc: "This Pokemon's Poison attacks do 1.5x in Smog.",
+		shortDesc: "If Smog is active, this Pokemon's Poison-type attacks have 1.5x power.",
 	},
 	chakra: {
 		name: "Aerilate",
@@ -2308,6 +2325,14 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	condensation: {
 		name: "Condensation",
 		shortDesc: "On switch-in, this Pokemon summons Fog.",
+	},
+	consecration: {
+		name: "Conseceration",
+		desc: "If this Pokemon is a Bearvoyance, it will change to White Form if Paranormal Activity or Dreamscape is active.",
+		shortDesc: "If user is a Bearvoyance, changes to White Form in P.Activity/Dreamscape.",
+
+		transform: "[POKEMON] formed a school!",
+		transformEnd: "[POKEMON] stopped schooling!",
 	},
 	dreamer: {
 		name: "Dreamer",
@@ -2342,7 +2367,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		shortDesc: "On switch-in, this Pokemon summons Blood Moon.",
 	},
 	evergreen: {
-		name: "Schooling",
+		name: "Evergreen",
 		desc: "If this Pokemon is a Snover or Abomasnow, it will change to Lowland Form if Sun is active or Highland Form if Hail is active.",
 		shortDesc: "If user is Snover/Abomasnow, changes to Lowland/Highland Form in Sun/Hail.",
 
