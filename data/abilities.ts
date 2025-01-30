@@ -6035,6 +6035,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	ancientbody: { // tested, works as intended
 		onBeforeSwitchIn(pokemon) {
+			if (pokemon.hasType('Rock')) return false;
+			if (!pokemon.addType('Rock')) return false;
 			pokemon.addType('Rock');
 		},
 		onStart(pokemon) {
