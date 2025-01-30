@@ -1210,7 +1210,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onBeforeResidual(target) {
 			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm', 'carboncapture'])) return;
-			if (this.field.irritantWeatherState.duration <= 1) return;
+			if (this.field.irritantWeatherState.duration && this.field.irritantWeatherState.duration <= 1) return;
 			if (target.status === 'psn' && this.field.irritantWeatherState.boosted) {
 				target.clearStatus();
 				target.trySetStatus('tox', null);
