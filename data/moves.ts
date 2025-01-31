@@ -13931,7 +13931,17 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		},
 		condition: {
 			duration: 2,
-			onInvulnerability: false,
+			onInvulnerability(target, source, move) {
+				if (['possess'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.id === 'possess') {
+					return this.chainModify(2);
+				}
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -16842,7 +16852,17 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		},
 		condition: {
 			duration: 2,
-			onInvulnerability: false,
+			onInvulnerability(target, source, move) {
+				if (['possess'].includes(move.id)) {
+					return;
+				}
+				return false;
+			},
+			onSourceModifyDamage(damage, source, target, move) {
+				if (move.id === 'possess') {
+					return this.chainModify(2);
+				}
+			},
 		},
 		secondary: null,
 		target: "normal",
@@ -23826,6 +23846,20 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		secondary: null,
 		target: "all",
 		type: "Grass",
+	},
+	possess: {
+		num: -110,
+		accuracy: 100,
+		basePower: 35,
+		category: "Special",
+		name: "Possess",
+		pp: 15,
+		priority: 0,
+		flags: {protect: 1, mirror: 1, metronome: 1},
+		volatileStatus: 'partiallytrapped',
+		secondary: null,
+		target: "normal",
+		type: "Ghost",
 	},
 	pricklypear: { // untested
 		num: -80,

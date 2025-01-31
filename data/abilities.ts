@@ -1452,7 +1452,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3.5,
 		num: 218,
 	},
-	forecast: { // incomplete. needs testing, add weather vane
+	forecast: { // updated
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Castform' || pokemon.transformed) return;
 			let forme = null;
