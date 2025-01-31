@@ -558,7 +558,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 9] UU'],
+		ruleset: ['[Gen 9] UU OLD'],
 		banlist: ['UU', 'RUBL', 'Light Clay'],
 	},
 	{
@@ -567,7 +567,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 9] RU'],
+		ruleset: ['[Gen 9] RU OLD'],
 		banlist: ['RU', 'NUBL', 'Drought', 'Quick Claw'],
 	},
 	{
@@ -576,7 +576,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 9] NU'],
+		ruleset: ['[Gen 9] NU OLD'],
 		banlist: ['NU', 'PUBL', 'Damp Rock'],
 	},
 	{
@@ -836,7 +836,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 9] PU'],
+		ruleset: ['[Gen 9] PU OLD'],
 		banlist: ['PU', 'ZUBL', 'Unburden'],
 	},
 	{

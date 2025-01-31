@@ -6091,7 +6091,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {},
-		name: "Arena Bloom",
+		name: "Arena Curse",
 		rating: 4,
 		num: -62,
 	},
@@ -6633,8 +6633,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -7,
 	},
-	indomitable: { // incomplete, crashes the game?
+	indomitable: { // tested, works as intended
 		onDamage(damage, target, source, effect) {
+			if (!this.field.energyWeather) return;
 			if (['dragonforce'].includes(source.effectiveEnergyWeather())) {
 				if (effect.effectType !== 'Move') {
 					if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
@@ -6668,7 +6669,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: -60,
 	},
-	machineprecision: { // incomplete, doesnt work?
+	machineprecision: { // tested, works as intended
 		onModifyCritRatio(critRatio, source) {
 			if (['magnetize'].includes(source.effectiveEnergyWeather())) {
 				this.debug("Machine Precision crit rate increase");
@@ -7005,8 +7006,19 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -24,
 	},
 	powerplumage: { // tested, works as intended
+		onSwitchInPriority: -2,
 		onStart(pokemon) {
-			this.singleEvent('EnergyWeatherChange', this.effect, this.effectState, pokemon);
+			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Blurrun' || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (['supercell'].includes(pokemon.effectiveEnergyWeather())) {
+				if (pokemon.species.id !== 'blurruncharged') {
+					pokemon.formeChange('Blurrun-Charged', this.effect, false, '[msg]');
+				}
+			} else {
+				if (pokemon.species.id === 'blurruncharged') {
+					pokemon.formeChange('Blurrun', this.effect, false, '[msg]');
+				}
+			}
 		},
 		onEnergyWeatherChange(pokemon) { // does this revert on switch?
 			if (!pokemon.isActive || pokemon.baseSpecies.baseSpecies !== 'Blurrun' || pokemon.transformed) return;
@@ -7022,8 +7034,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		onTryHit(target, source, move) {
+			if (!target.isActive || target.baseSpecies.baseSpecies !== 'Blurrun' || target.transformed) return;
 			if (target !== source && move.type === 'Electric') {
-				this.add('-immune', target, '[from] ability: Power Plumage');
 				if (target.species.id !== 'blurruncharged') {
 					target.formeChange('Blurrun-Charged', this.effect, false, '[msg]');
 				}
@@ -7032,7 +7044,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onAnyRedirectTarget(target, source, source2, move) {
 			if (move.flags['pledgecombo']) return;
-			if (move.type === 'Electric' || source2.energyWeather === 'supercell') {
+			if (!this.effectState.target.isActive || this.effectState.target.baseSpecies.baseSpecies !== 'Blurrun' ||
+				this.effectState.target.transformed) return;
+			if (move.type === 'Electric') {
 				const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
 				if (this.validTarget(this.effectState.target, source, redirectTarget)) {
 					if (move.smartTarget) move.smartTarget = false;
@@ -7238,14 +7252,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 0,
 		num: -75,
 	},
-	souldrain: { // tested, works as intended TODO: fix ability splash when pokemon dies from recoil
+	souldrain: { // tested, works as intended
 		onAnyFaintPriority: 1,
 		onAnyFaint(target, source, effect) {
 			if (effect.effectType === "Move" || !this.effectState.target.hp) return;
 			if (['haunt'].includes(this.effectState.target.effectiveEnergyWeather())) {
-				this.heal(3 * this.effectState.target.baseMaxhp / 8, this.effectState.target);
+				this.heal(3 * this.effectState.target.baseMaxhp / 8, this.effectState.target, this.effectState.target);
 			} else {
-				this.heal(this.effectState.target.baseMaxhp / 4, this.effectState.target);
+				this.heal(this.effectState.target.baseMaxhp / 4, this.effectState.target, this.effectState.target);
 			}
 		},
 		onImmunity(type, pokemon) {
@@ -7441,6 +7455,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -39,
 	},
 	warpmist: { // tested, works as intended
+		onSwitchInPriority: -2,
 		onTryHit(target, source, move) {
 			if (move.category === 'Status' || target.hasItem('ringtarget')) return;
 			if (target !== source && move.ignoreImmunity) {
@@ -7448,57 +7463,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				move.ignoreImmunity = false;
 			}
 		},
-		onStart(pokemon) {
-			this.singleEvent('ClimateWeatherChange', this.effect, this.effectState, pokemon);
-		},
-		onClimateWeatherChange(pokemon) {
+		onModifyAtkPriority: 5,
+		onModifyAtk(atk, source, pokemon) {
 			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
-				pokemon.addVolatile('warpmist');
+				if (source.storedStats.atk >= source.storedStats.spa) return this.chainModify(1.2);
 			}
 		},
-		onEnd(pokemon) {
-			delete pokemon.volatiles['warpmist'];
-			this.add('-end', pokemon, 'warpmist', '[silent]');
-		},
-		condition: {
-			noCopy: true,
-			onStart(pokemon, source, effect) {
-				this.add('-activate', pokemon, 'ability: Warp Mist');
-				this.effectState.bestStat = pokemon.getBestStat(false, true);
-				this.add('-start', pokemon, 'warpmist' + this.effectState.bestStat);
-			},
-			onModifyAtkPriority: 5,
-			onModifyAtk(atk, pokemon) {
-				if (this.effectState.bestStat !== 'atk' || pokemon.ignoringAbility()) return;
-				this.debug('Warp Mist atk boost');
-				return this.chainModify(1.2);
-			},
-			onModifyDefPriority: 6,
-			onModifyDef(def, pokemon) {
-				if (this.effectState.bestStat !== 'def' || pokemon.ignoringAbility()) return;
-				this.debug('Warp Mist def boost');
-				return this.chainModify(1.2);
-			},
-			onModifySpAPriority: 5,
-			onModifySpA(spa, pokemon) {
-				if (this.effectState.bestStat !== 'spa' || pokemon.ignoringAbility()) return;
-				this.debug('Warp Mist spa boost');
-				return this.chainModify(1.2);
-			},
-			onModifySpDPriority: 6,
-			onModifySpD(spd, pokemon) {
-				if (this.effectState.bestStat !== 'spd' || pokemon.ignoringAbility()) return;
-				this.debug('Warp Mist spd boost');
-				return this.chainModify(1.2);
-			},
-			onModifySpe(spe, pokemon) {
-				if (this.effectState.bestStat !== 'spe' || pokemon.ignoringAbility()) return;
-				this.debug('Warp Mist spe boost');
-				return this.chainModify(1.2);
-			},
-			onEnd(pokemon) {
-				this.add('-end', pokemon, 'Warp Mist');
-			},
+		onModifySpAPriority: 5,
+		onModifySpA(spa, source, pokemon) {
+			if (['foghorn'].includes(pokemon.effectiveClimateWeather())) {
+				if (source.storedStats.spa > source.storedStats.atk) return this.chainModify(1.2);
+			}
 		},
 		flags: {},
 		name: "Warp Mist",
@@ -7510,7 +7485,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.baseSpecies.baseSpecies !== 'Drout' || pokemon.transformed) return;
 			let forme = null;
 			const exclude = ['bloodmoon', 'pollinate', 'swarmsignal', 'sprinkle', 'smogspread',
-				this.field.energyWeather, this.field.clearingWeather, this.field.cataclysmWeather];
+				'auraprojection', 'haunt', 'daydream', 'dragonforce', 'supercell', 'magnetize',
+				'strongwinds', 'cataclysmiclight'];
 			switch (this.field.getRecentWeather(exclude, pokemon)) {
 			case 'sunnyday':
 			case 'desolateland':
@@ -7521,6 +7497,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			case 'hail':
 			case 'snow':
 			case 'raindance':
+			case 'primordialsea':
 			case 'foghorn':
 				if (pokemon.species.id !== 'drout') forme = 'Drout';
 				break;
@@ -7544,6 +7521,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			case 'hail':
 			case 'snow':
 			case 'raindance':
+			case 'primordialsea':
 			case 'foghorn':
 				if (pokemon.species.id !== 'drout') forme = 'Drout';
 				break;
@@ -7567,6 +7545,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			case 'hail':
 			case 'snow':
 			case 'raindance':
+			case 'primordialsea':
 			case 'foghorn':
 				if (pokemon.species.id !== 'drout') forme = 'Drout';
 				break;

@@ -643,8 +643,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onTryHit(target, source, move) {
 			let petrichorActive = false;
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) {
+			for (const allActive of this.getAllActive()) {
+				if (allActive.hasAbility('petrichor') && allActive.effectiveClimateWeather() === this.field.climateWeather) {
 					petrichorActive = true;
 				}
 			}
@@ -1200,14 +1200,13 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onBeforeResidual(target) {
 			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm', 'carboncapture'])) return;
-			if (this.field.irritantWeatherState.duration <= 1) return;
+			if (this.field.irritantWeatherState.duration && this.field.irritantWeatherState.duration <= 1) return;
 			if (target.status === 'psn' && this.field.irritantWeatherState.boosted) {
 				target.clearStatus();
 				target.trySetStatus('tox', null);
 			} else {
-				if (target.getStatus() !== null && !target.hasType('Steel') &&
-				!target.hasType('Poison') && !['psn', 'tox', 'blt'].includes(target.status) &&
-				this.field.irritantWeatherState.boosted) {
+				if (target.getStatus() !== null && !target.hasType('Steel') && !target.hasType('Poison') &&
+				!['psn', 'tox', 'blt'].includes(target.status) && this.field.irritantWeatherState.boosted) {
 					target.clearStatus();
 				}
 				target.trySetStatus('psn');
