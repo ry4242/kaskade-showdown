@@ -535,7 +535,7 @@
 		}, {
 			"species": "Chandelure",
 			"item": "Choice Scarf",
-			"ability": "Infiltrator",
+			"ability": "Flash Fire",
 			"evs": {"hp": 4, "spa": 252, "spe": 252},
 			"ivs": {"atk": 0},
 			"nature": "Timid",
@@ -543,7 +543,7 @@
 		}, {
 			"species": "Chandelure",
 			"item": "Focus Sash",
-			"ability": "Infiltrator",
+			"ability": "Flash Fire",
 			"evs": {"spa": 252, "spd": 4, "spe": 252},
 			"ivs": {"atk": 0},
 			"nature": "Modest",
@@ -782,7 +782,7 @@
 		"sets": [{
 			"species": "Eevee",
 			"item": "Eevium Z",
-			"ability": "Anticipation",
+			"ability": "Adaptability",
 			"evs": {"hp": 252, "def": 4, "spe": 252},
 			"nature": "Timid",
 			"moves": [["Last Resort"], ["Baton Pass"], ["Substitute"], ["Stored Power"]]
@@ -1644,28 +1644,28 @@
 		"sets": [{
 			"species": "Lucario",
 			"item": "Lucarionite",
-			"ability": "Justified",
+			"ability": "Steadfast",
 			"evs": {"hp": 4, "atk": 252, "spe": 252},
 			"nature": "Jolly",
 			"moves": [["Close Combat"], ["Bullet Punch", "Extreme Speed"], ["Earthquake", "Ice Punch", "Meteor Mash"], ["Swords Dance"]]
 		}, {
 			"species": "Lucario",
 			"item": "Lucarionite",
-			"ability": "Justified",
+			"ability": "Steadfast",
 			"evs": {"hp": 4, "spa": 252, "spe": 252},
 			"nature": "Timid",
 			"moves": [["Flash Cannon"], ["Focus Blast", "Aura Sphere"], ["Dark Pulse", "Vacuum Wave"], ["Nasty Plot"]]
 		}, {
 			"species": "Lucario",
 			"item": "Lucarionite",
-			"ability": "Justified",
+			"ability": "Steadfast",
 			"evs": {"atk": 4, "spa": 252, "spe": 252},
 			"nature": "Naive",
 			"moves": [["Flash Cannon"], ["Close Combat"], ["Substitute", "Ice Punch", "Dark Pulse", "Stone Edge"], ["Extreme Speed", "Bullet Punch", "Vacuum Wave"]]
 		}, {
 			"species": "Lucario",
 			"item": "Focus Sash",
-			"ability": "Inner Focus",
+			"ability": "Steadfast",
 			"evs": {"atk": 252, "spd": 4, "spe": 252},
 			"nature": "Jolly",
 			"moves": [["Counter"], ["Close Combat"], ["Rock Tomb"], ["Extreme Speed", "Bullet Punch"]]
@@ -1783,7 +1783,7 @@
 		"sets": [{
 			"species": "Mandibuzz",
 			"item": "Rocky Helmet",
-			"ability": "Overcoat",
+			"ability": "Weak Armor",
 			"evs": {"hp": 252, "def": 252, "spd": 4},
 			"ivs": {"atk": 0},
 			"nature": "Bold",

@@ -35,18 +35,18 @@ export class Field {
 		this.id = '';
 
 		this.climateWeather = '';
-		this.climateWeatherState = {id: ''};
+		this.climateWeatherState = this.battle.initEffectState({id: ''});
 		this.irritantWeather = '';
-		this.irritantWeatherState = {id: ''};
+		this.irritantWeatherState = this.battle.initEffectState({id: ''});
 		this.energyWeather = '';
-		this.energyWeatherState = {id: ''};
+		this.energyWeatherState = this.battle.initEffectState({id: ''});
 		this.clearingWeather = '';
-		this.clearingWeatherState = {id: ''};
+		this.clearingWeatherState = this.battle.initEffectState({id: ''});
 		this.cataclysmWeather = '';
-		this.cataclysmWeatherState = {id: ''};
+		this.cataclysmWeatherState = this.battle.initEffectState({id: ''});
 		this.activeWeathers = [];
 		this.terrain = '';
-		this.terrainState = {id: ''};
+		this.terrainState = this.battle.initEffectState({id: ''});
 		this.pseudoWeather = {};
 	}
 
@@ -87,7 +87,7 @@ export class Field {
 		const prevClimateWeather = this.climateWeather;
 		const prevClimateWeatherState = this.climateWeatherState;
 		this.climateWeather = status.id;
-		this.climateWeatherState = {id: status.id};
+		this.climateWeatherState = this.battle.initEffectState({id: status.id});
 		if (source) {
 			this.climateWeatherState.source = source;
 			this.climateWeatherState.sourceSlot = source.getSlot();
@@ -146,7 +146,7 @@ export class Field {
 		const prevIrritantWeather = this.irritantWeather;
 		const prevIrritantWeatherState = this.irritantWeatherState;
 		this.irritantWeather = status.id;
-		this.irritantWeatherState = {id: status.id};
+		this.irritantWeatherState = this.battle.initEffectState({id: status.id});
 		if (source) {
 			this.irritantWeatherState.source = source;
 			this.irritantWeatherState.sourceSlot = source.getSlot();
@@ -205,7 +205,7 @@ export class Field {
 		const prevEnergyWeather = this.energyWeather;
 		const prevEnergyWeatherState = this.energyWeatherState;
 		this.energyWeather = status.id;
-		this.energyWeatherState = {id: status.id};
+		this.energyWeatherState = this.battle.initEffectState({id: status.id});
 		if (source) {
 			this.energyWeatherState.source = source;
 			this.energyWeatherState.sourceSlot = source.getSlot();
@@ -264,7 +264,7 @@ export class Field {
 		const prevClearingWeather = this.clearingWeather;
 		const prevClearingWeatherState = this.clearingWeatherState;
 		this.clearingWeather = status.id;
-		this.clearingWeatherState = {id: status.id};
+		this.clearingWeatherState = this.battle.initEffectState({id: status.id});
 		if (source) {
 			this.clearingWeatherState.source = source;
 			this.clearingWeatherState.sourceSlot = source.getSlot();
@@ -323,7 +323,7 @@ export class Field {
 		const prevCataclysmWeather = this.cataclysmWeather;
 		const prevCataclysmWeatherState = this.cataclysmWeatherState;
 		this.cataclysmWeather = status.id;
-		this.cataclysmWeatherState = {id: status.id};
+		this.cataclysmWeatherState = this.battle.initEffectState({id: status.id});
 		if (source) {
 			this.cataclysmWeatherState.source = source;
 			this.cataclysmWeatherState.sourceSlot = source.getSlot();
@@ -358,7 +358,7 @@ export class Field {
 		const prevClimateWeather = this.getClimateWeather();
 		this.battle.singleEvent('FieldEnd', prevClimateWeather, this.climateWeatherState, this);
 		this.climateWeather = '';
-		this.climateWeatherState = {id: '', boosted: false};
+		this.climateWeatherState = this.battle.initEffectState({id: '', boosted: false});
 		this.battle.eachEvent('ClimateWeatherChange');
 		return true;
 	}
@@ -372,7 +372,7 @@ export class Field {
 		const prevIrritantWeather = this.getIrritantWeather();
 		this.battle.singleEvent('FieldEnd', prevIrritantWeather, this.irritantWeatherState, this);
 		this.irritantWeather = '';
-		this.irritantWeatherState = {id: '', boosted: false};
+		this.irritantWeatherState = this.battle.initEffectState({id: '', boosted: false});
 		this.battle.eachEvent('IrritantWeatherChange');
 		return true;
 	}
@@ -386,7 +386,7 @@ export class Field {
 		const prevEnergyWeather = this.getEnergyWeather();
 		this.battle.singleEvent('FieldEnd', prevEnergyWeather, this.energyWeatherState, this);
 		this.energyWeather = '';
-		this.energyWeatherState = {id: '', boosted: false};
+		this.energyWeatherState = this.battle.initEffectState({id: '', boosted: false});
 		this.battle.eachEvent('EnergyWeatherChange');
 		return true;
 	}
@@ -400,7 +400,7 @@ export class Field {
 		const prevClearingWeather = this.getClearingWeather();
 		this.battle.singleEvent('FieldEnd', prevClearingWeather, this.clearingWeatherState, this);
 		this.clearingWeather = '';
-		this.clearingWeatherState = {id: ''};
+		this.clearingWeatherState = this.battle.initEffectState({id: '', boosted: false});
 		this.battle.eachEvent('ClearingWeatherChange');
 		return true;
 	}
@@ -414,7 +414,7 @@ export class Field {
 		const prevCataclysmWeather = this.getCataclysmWeather();
 		this.battle.singleEvent('FieldEnd', prevCataclysmWeather, this.cataclysmWeatherState, this);
 		this.cataclysmWeather = '';
-		this.cataclysmWeatherState = {id: ''};
+		this.cataclysmWeatherState = this.battle.initEffectState({id: '', boosted: false});
 		this.battle.eachEvent('CataclysmWeatherChange');
 		return true;
 	}
@@ -591,12 +591,12 @@ export class Field {
 		const prevTerrain = this.terrain;
 		const prevTerrainState = this.terrainState;
 		this.terrain = status.id;
-		this.terrainState = {
+		this.terrainState = this.battle.initEffectState({
 			id: status.id,
 			source,
 			sourceSlot: source.getSlot(),
 			duration: status.duration,
-		};
+		});
 		if (status.durationCallback) {
 			this.terrainState.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
 		}
@@ -614,7 +614,7 @@ export class Field {
 		const prevTerrain = this.getTerrain();
 		this.battle.singleEvent('FieldEnd', prevTerrain, this.terrainState, this);
 		this.terrain = '';
-		this.terrainState = {id: ''};
+		this.battle.clearEffectState(this.terrainState);
 		this.battle.eachEvent('TerrainChange');
 		return true;
 	}
@@ -650,12 +650,12 @@ export class Field {
 			if (!(status as any).onFieldRestart) return false;
 			return this.battle.singleEvent('FieldRestart', status, state, this, source, sourceEffect);
 		}
-		state = this.pseudoWeather[status.id] = {
+		state = this.pseudoWeather[status.id] = this.battle.initEffectState({
 			id: status.id,
 			source,
 			sourceSlot: source?.getSlot(),
 			duration: status.duration,
-		};
+		});
 		if (status.durationCallback) {
 			if (!source) throw new Error(`setting fieldcond without a source`);
 			state.duration = status.durationCallback.call(this.battle, source, source, sourceEffect);
