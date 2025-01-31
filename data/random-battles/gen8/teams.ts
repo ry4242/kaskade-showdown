@@ -1707,6 +1707,10 @@ export class RandomGen8Teams {
 		if (abilityData.length <= 1) return abilityData[0].name;
 
 		// Hard-code abilities here
+		// swse Sharpness users pull errors bc that ability is illegal in Gen 8
+		if (species.id === 'kabutops') return 'Weak Armor';
+		if (species.id === 'haxorus') return 'Mold Breaker';
+		if (species.id === 'kartana') return 'Beast Boost';
 
 		// Lopunny, and other Facade users, don't want Limber, even if other abilities are poorly rated,
 		// since paralysis would arguably be good for them.

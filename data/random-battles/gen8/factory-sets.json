@@ -422,7 +422,7 @@
 			"sets": [{
 				"species": "Weavile",
 				"item": ["Heavy-Duty Boots"],
-				"ability": ["Pressure"],
+				"ability": ["Pickpocket"],
 				"evs": {"atk": 252, "spd": 4, "spe": 252},
 				"nature": ["Jolly", "Adamant"],
 				"moves": [["Triple Axel"], ["Knock Off"], ["Ice Shard"], ["Swords Dance"]]

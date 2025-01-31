@@ -43,7 +43,7 @@
         "sets": [
             {
                 "role": "Bulky Setup",
-                "movepool": ["Aqua Jet", "Belly Drum", "Body Slam", "Facade"],
+                "movepool": ["Bounce", "Slam", "Splash", "Water Gun"],
                 "abilities": ["Huge Power"],
                 "teraTypes": ["Water"]
             }

@@ -195,7 +195,7 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["energyball", "fireblast", "hiddenpowerrock", "hypnosis", "nastyplot"],
-                "abilities": ["Flash Fire"],
+                "abilities": ["Solar Power"],
                 "preferredTypes": ["Grass"]
             }
         ]

@@ -371,7 +371,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Healing Wish", "Moonblast", "Solar Beam", "Synthesis", "Tera Blast"],
+                "movepool": ["Healing Wish", "Moonblast", "Solar Beam", "Synthesis", "Protect"],
                 "abilities": ["Drought"],
                 "teraTypes": ["Fire", "Ground"]
             }
