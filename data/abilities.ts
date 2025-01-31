@@ -7243,14 +7243,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 0,
 		num: -75,
 	},
-	souldrain: { // tested, works as intended TODO: fix ability splash when pokemon dies from recoil
+	souldrain: { // tested, works as intended
 		onAnyFaintPriority: 1,
 		onAnyFaint(target, source, effect) {
 			if (effect.effectType === "Move" || !this.effectState.target.hp) return;
 			if (['haunt'].includes(this.effectState.target.effectiveEnergyWeather())) {
-				this.heal(3 * this.effectState.target.baseMaxhp / 8, this.effectState.target);
+				this.heal(3 * this.effectState.target.baseMaxhp / 8, this.effectState.target, this.effectState.target);
 			} else {
-				this.heal(this.effectState.target.baseMaxhp / 4, this.effectState.target);
+				this.heal(this.effectState.target.baseMaxhp / 4, this.effectState.target, this.effectState.target);
 			}
 		},
 		onImmunity(type, pokemon) {
