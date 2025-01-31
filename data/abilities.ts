@@ -1513,7 +1513,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				break;
 			}
 			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				if (pokemon.hasItem('weathervane')) {
+					if (pokemon.species.id === 'castform') pokemon.formeChange(forme, this.effect, true, '[msg]');
+				} else {
+					pokemon.formeChange(forme, this.effect, false, '[msg]');
+				}
 			}
 		},
 		onClimateWeatherChange(pokemon) {
@@ -1576,7 +1580,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				break;
 			}
 			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				if (pokemon.hasItem('weathervane')) {
+					if (pokemon.species.id === 'castform') pokemon.formeChange(forme, this.effect, true, '[msg]');
+				} else {
+					pokemon.formeChange(forme, this.effect, false, '[msg]');
+				}
 			}
 		},
 		onIrritantWeatherChange(pokemon) {
@@ -1639,7 +1647,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				break;
 			}
 			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				if (pokemon.hasItem('weathervane')) {
+					if (pokemon.species.id === 'castform') pokemon.formeChange(forme, this.effect, true, '[msg]');
+				} else {
+					pokemon.formeChange(forme, this.effect, false, '[msg]');
+				}
 			}
 		},
 		onEnergyWeatherChange(pokemon) {
@@ -1702,7 +1714,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				break;
 			}
 			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				if (pokemon.hasItem('weathervane')) {
+					if (pokemon.species.id === 'castform') pokemon.formeChange(forme, this.effect, true, '[msg]');
+				} else {
+					pokemon.formeChange(forme, this.effect, false, '[msg]');
+				}
 			}
 		},
 		onClearingWeatherChange(pokemon) {
@@ -1765,7 +1781,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				break;
 			}
 			if (pokemon.isActive && forme) {
-				pokemon.formeChange(forme, this.effect, false, '[msg]');
+				if (pokemon.hasItem('weathervane')) {
+					if (pokemon.species.id === 'castform') pokemon.formeChange(forme, this.effect, true, '[msg]');
+				} else {
+					pokemon.formeChange(forme, this.effect, false, '[msg]');
+				}
 			}
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1},
@@ -6404,6 +6424,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	expiation: { // tested, works as intended, TODO: fix text to attribute healing to proper pokemon
 		onFaint(target) {
 			if (!target.hp) {
+				this.add('-activate', target, 'ability: Expiation')
 				target.side.addSlotCondition(target, 'expiation');
 			}
 		},
@@ -6882,7 +6903,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: -47,
 	},
-	nullify: { // incomplete. needs testing, along with whirligig form
+	nullify: { // tested, works as intended TODO: remove failure message when using moves that deal damage and set weather
 		onSwitchIn(pokemon) {
 			this.effectState.switchingIn = true;
 		},
