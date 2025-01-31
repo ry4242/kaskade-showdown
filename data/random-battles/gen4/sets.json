@@ -105,7 +105,7 @@
         ]
     },
     "arbok": {
-        "level": 93,
+        "level": 92,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -195,7 +195,7 @@
             {
                 "role": "Setup Sweeper",
                 "movepool": ["energyball", "fireblast", "hiddenpowerrock", "hypnosis", "nastyplot"],
-                "abilities": ["Solar Power"],
+                "abilities": ["Flash Fire"],
                 "preferredTypes": ["Grass"]
             }
         ]
@@ -399,7 +399,7 @@
         ]
     },
     "rapidash": {
-        "level": 84,
+        "level": 85,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -452,7 +452,7 @@
         ]
     },
     "dewgong": {
-        "level": 92,
+        "level": 91,
         "sets": [
             {
                 "role": "Staller",
@@ -604,7 +604,7 @@
         ]
     },
     "weezing": {
-        "level": 90,
+        "level": 89,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1088,7 +1088,7 @@
         ]
     },
     "bellossom": {
-        "level": 94,
+        "level": 92,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1205,7 +1205,7 @@
         ]
     },
     "slowking": {
-        "level": 87,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1232,7 +1232,7 @@
         ]
     },
     "wobbuffet": {
-        "level": 86,
+        "level": 85,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1357,18 +1357,13 @@
         "sets": [
             {
                 "role": "Wallbreaker",
-                "movepool": ["closecombat", "crunch", "facade", "protect"],
-                "abilities": ["Guts"]
-            },
-            {
-                "role": "Wallbreaker",
-                "movepool": ["closecombat", "crunch", "facade", "swordsdance"],
-                "abilities": ["Quick Feet"]
+                "movepool": ["closecombat", "crunch", "facade", "protect", "swordsdance"],
+                "abilities": ["Guts", "Quick Feet"]
             }
         ]
     },
     "magcargo": {
-        "level": 98,
+        "level": 97,
         "sets": [
             {
                 "role": "Staller",
@@ -1627,7 +1622,7 @@
         ]
     },
     "hooh": {
-        "level": 72,
+        "level": 73,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1820,7 +1815,7 @@
         ]
     },
     "masquerain": {
-        "level": 99,
+        "level": 98,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -1951,7 +1946,7 @@
         ]
     },
     "sableye": {
-        "level": 97,
+        "level": 98,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1997,7 +1992,7 @@
         ]
     },
     "manectric": {
-        "level": 82,
+        "level": 83,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2085,7 +2080,7 @@
         ]
     },
     "sharpedo": {
-        "level": 84,
+        "level": 85,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2100,7 +2095,7 @@
         ]
     },
     "wailord": {
-        "level": 87,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -2419,7 +2414,7 @@
         "level": 88,
         "sets": [
             {
-                "role": "Bulky Support",
+                "role": "Fast Support",
                 "movepool": ["earthquake", "explosion", "icebeam", "spikes", "taunt"],
                 "abilities": ["Inner Focus"]
             }
@@ -2701,7 +2696,7 @@
         ]
     },
     "deoxysdefense": {
-        "level": 80,
+        "level": 81,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -2771,7 +2766,7 @@
         ]
     },
     "staraptor": {
-        "level": 79,
+        "level": 80,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -2788,7 +2783,7 @@
         ]
     },
     "bibarel": {
-        "level": 92,
+        "level": 93,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -2813,7 +2808,7 @@
         ]
     },
     "luxray": {
-        "level": 86,
+        "level": 88,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -2952,7 +2947,7 @@
         ]
     },
     "cherrim": {
-        "level": 97,
+        "level": 96,
         "sets": [
             {
                 "role": "Staller",
@@ -2972,7 +2967,7 @@
         ]
     },
     "ambipom": {
-        "level": 80,
+        "level": 81,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -3224,7 +3219,7 @@
         ]
     },
     "lickilicky": {
-        "level": 86,
+        "level": 87,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -3353,7 +3348,7 @@
         ]
     },
     "gliscor": {
-        "level": 80,
+        "level": 81,
         "sets": [
             {
                 "role": "Staller",
@@ -3444,11 +3439,6 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["hiddenpowerfighting", "hiddenpowerice", "shadowball", "thunderbolt", "trick"],
-                "abilities": ["Levitate"]
-            },
-            {
-                "role": "Bulky Attacker",
-                "movepool": ["painsplit", "shadowball", "thunderbolt", "thunderwave", "willowisp"],
                 "abilities": ["Levitate"]
             }
         ]
@@ -3688,7 +3678,7 @@
         ]
     },
     "manaphy": {
-        "level": 75,
+        "level": 76,
         "sets": [
             {
                 "role": "Bulky Setup",

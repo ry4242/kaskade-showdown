@@ -16,7 +16,7 @@
         ]
     },
     "charizard": {
-        "level": 79,
+        "level": 80,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -58,7 +58,7 @@
         ]
     },
     "butterfree": {
-        "level": 97,
+        "level": 96,
         "sets": [
             {
                 "role": "Generalist",
@@ -142,7 +142,7 @@
         ]
     },
     "pikachu": {
-        "level": 87,
+        "level": 88,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -224,7 +224,8 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["fireblast", "flamethrower", "hiddenpowergrass", "hypnosis", "substitute", "toxic", "willowisp"]
+                "movepool": ["fireblast", "flamethrower", "hiddenpowergrass", "hypnosis", "substitute", "toxic", "willowisp"],
+                "abilities": ["Flash Fire"]
             }
         ]
     },
@@ -259,7 +260,7 @@
         ]
     },
     "parasect": {
-        "level": 96,
+        "level": 95,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -429,7 +430,7 @@
         ]
     },
     "tentacruel": {
-        "level": 79,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -454,7 +455,7 @@
         ]
     },
     "rapidash": {
-        "level": 83,
+        "level": 82,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -509,7 +510,7 @@
         ]
     },
     "dodrio": {
-        "level": 77,
+        "level": 78,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -660,7 +661,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["brickbreak", "bulkup", "earthquake", "hiddenpowerghost", "machpunch", "rockslide"],
+                "movepool": ["bulkup", "earthquake", "hiddenpowerghost", "highjumpkick", "machpunch", "rockslide"],
                 "abilities": ["Limber"],
                 "preferredTypes": ["Ghost"]
             },
@@ -912,7 +913,7 @@
         ]
     },
     "vaporeon": {
-        "level": 79,
+        "level": 80,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -977,7 +978,7 @@
         ]
     },
     "aerodactyl": {
-        "level": 73,
+        "level": 74,
         "sets": [
             {
                 "role": "Fast Attacker",
@@ -1287,7 +1288,7 @@
         ]
     },
     "bellossom": {
-        "level": 92,
+        "level": 91,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1376,7 +1377,7 @@
         ]
     },
     "sunflora": {
-        "level": 100,
+        "level": 99,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1463,7 +1464,7 @@
         ]
     },
     "slowking": {
-        "level": 83,
+        "level": 84,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1528,11 +1529,11 @@
         ]
     },
     "girafarig": {
-        "level": 85,
+        "level": 86,
         "sets": [
             {
-                "role": "Setup Sweeper",
-                "movepool": ["batonpass", "calmmind", "hiddenpowerfire", "psychic", "rest", "substitute", "thunderbolt"],
+                "role": "Bulky Setup",
+                "movepool": ["batonpass", "calmmind", "crunch", "psychic", "rest", "substitute", "thunderbolt"],
                 "abilities": ["Early Bird"]
             },
             {
@@ -1692,7 +1693,7 @@
         ]
     },
     "ursaring": {
-        "level": 81,
+        "level": 82,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -1794,7 +1795,7 @@
         ]
     },
     "skarmory": {
-        "level": 74,
+        "level": 75,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1850,7 +1851,7 @@
         ]
     },
     "porygon2": {
-        "level": 80,
+        "level": 81,
         "sets": [
             {
                 "role": "Bulky Support",
@@ -1885,14 +1886,14 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["brickbreak", "bulkup", "earthquake", "hiddenpowerghost", "machpunch", "rapidspin", "rockslide", "toxic"],
+                "movepool": ["bulkup", "earthquake", "hiddenpowerghost", "highjumpkick", "machpunch", "rapidspin", "rockslide", "toxic"],
                 "abilities": ["Intimidate"],
                 "preferredTypes": ["Ghost"]
             }
         ]
     },
     "miltank": {
-        "level": 77,
+        "level": 78,
         "sets": [
             {
                 "role": "Bulky Attacker",
@@ -1902,7 +1903,7 @@
         ]
     },
     "blissey": {
-        "level": 77,
+        "level": 78,
         "sets": [
             {
                 "role": "Staller",
@@ -2028,7 +2029,7 @@
                 "abilities": ["Natural Cure"]
             },
             {
-                "role": "Staller",
+                "role": "Bulky Support",
                 "movepool": ["healbell", "hiddenpowerfire", "hiddenpowergrass", "leechseed", "psychic", "recover", "toxic"],
                 "abilities": ["Natural Cure"]
             }
@@ -2111,7 +2112,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["bellydrum", "extremespeed", "hiddenpowerground", "shadowball"],
+                "movepool": ["bellydrum", "extremespeed", "hiddenpowerfighting", "shadowball"],
                 "abilities": ["Pickup"]
             },
             {
@@ -2738,7 +2739,7 @@
         ]
     },
     "armaldo": {
-        "level": 83,
+        "level": 82,
         "sets": [
             {
                 "role": "Wallbreaker",
@@ -2881,7 +2882,7 @@
         ]
     },
     "huntail": {
-        "level": 89,
+        "level": 88,
         "sets": [
             {
                 "role": "Setup Sweeper",
@@ -3048,7 +3049,7 @@
         ]
     },
     "rayquaza": {
-        "level": 70,
+        "level": 71,
         "sets": [
             {
                 "role": "Setup Sweeper",

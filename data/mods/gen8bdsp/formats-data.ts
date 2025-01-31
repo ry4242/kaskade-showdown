@@ -533,7 +533,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DUU",
 	},
 	tauros: {
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DUU",
 	},
 	magikarp: {
@@ -559,7 +559,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DUU",
 	},
 	jolteon: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	flareon: {
@@ -798,7 +798,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NFE",
 	},
 	honchkrow: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	misdreavus: {
@@ -846,7 +846,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LC",
 	},
 	granbull: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	qwilfish: {
@@ -986,7 +986,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NFE",
 	},
 	sceptile: {
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DUU",
 	},
 	torchic: {
@@ -1169,7 +1169,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NFE",
 	},
 	aggron: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	meditite: {
@@ -1241,7 +1241,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DUU",
 	},
 	torkoal: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DOU",
 	},
 	spoink: {
@@ -1269,7 +1269,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LC",
 	},
 	cacturne: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	swablu: {
@@ -1313,7 +1313,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "LC",
 	},
 	claydol: {
-		tier: "NU",
+		tier: "RU",
 		doublesTier: "DUU",
 	},
 	lileep: {
@@ -1374,7 +1374,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DUU",
 	},
 	absol: {
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DUU",
 	},
 	snorunt: {
@@ -1746,7 +1746,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		doublesTier: "DUU",
 	},
 	mesprit: {
-		tier: "RU",
+		tier: "NUBL",
 		doublesTier: "DUU",
 	},
 	azelf: {

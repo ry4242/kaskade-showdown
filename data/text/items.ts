@@ -1,7 +1,7 @@
 export const ItemsText: {[id: IDEntry]: ItemText} = {
 	abilityshield: {
 		name: "Ability Shield",
-		shortDesc: "Holder's Ability cannot be changed, suppressed, or ignored by any effect.",
+		shortDesc: "Holder's Ability cannot be changed by any effect.",
 
 		block: "  [POKEMON]'s Ability is protected by the effects of its Ability Shield!",
 	},
@@ -985,7 +985,6 @@ export const ItemsText: {[id: IDEntry]: ItemText} = {
 	},
 	loadeddice: {
 		name: "Loaded Dice",
-		desc: "The holder's moves that normally hit 2 to 5 times instead hit 4 or 5 times. If the first hit is successful, the holder's use of Triple Kick or Triple Axel hits 3 times, and Population Bomb hits 4 to 10 times, at random.",
 		shortDesc: "Holder's moves that hit 2-5 times hit 4-5 times; Population Bomb hits 4-10 times.",
 	},
 	lopunnite: {
@@ -1570,7 +1569,7 @@ export const ItemsText: {[id: IDEntry]: ItemText} = {
 	},
 	safetygoggles: { // updated
 		name: "Safety Goggles",
-		desc: "Holder is immune to powder moves and damage from Sandstorm. The holder ignores Irritant Weathergy effects, including those of its Ability. Damage and accuracy calculations from attacks used by the holder are affected by Irritant Weathergy, but not attacks used against the holder.",
+		desc: "Holder is immune to powder moves and damage from Sandstorm. The holder ignores Irritant Weathergy effects. Damage and accuracy calculations from attacks used by the holder are affected by Irritant Weathergy, but not attacks used against the holder.",
 		shortDesc: "Holder is immune to powder moves, Sandstorm; ignores Irritant Weathergy effects.",
 
 		block: "  [POKEMON] is not affected by [MOVE] thanks to its Safety Goggles!",
@@ -1619,7 +1618,7 @@ export const ItemsText: {[id: IDEntry]: ItemText} = {
 	},
 	shedshell: {
 		name: "Shed Shell",
-		shortDesc: "Holder cannot be prevented from choosing to switch out by any effect.",
+		shortDesc: "Holder may switch out even when trapped by another Pokemon, or by Ingrain.",
 	},
 	shellbell: {
 		name: "Shell Bell",
@@ -2274,7 +2273,7 @@ export const ItemsText: {[id: IDEntry]: ItemText} = {
 	},
 	utilityumbrella: { // updated
 		name: "Utility Umbrella",
-		desc: "The holder ignores Climate Weathergy effects, including those of its Ability. Damage and accuracy calculations from attacks used by the holder are affected by Climate Weathergy, but not attacks used against the holder.",
+		desc: "The holder ignores Climate Weathergy effects. Damage and accuracy calculations from attacks used by the holder are affected by Climate Weathergy, but not attacks used against the holder.",
 		shortDesc: "The holder ignores Climate Weathergy effects.",
 		gen8: {
 			desc: "The holder ignores rain- and sun-based effects, including those of its Ability. Damage and accuracy calculations from attacks used by the holder are affected by rain and sun, but not attacks used against the holder.",
@@ -2468,7 +2467,7 @@ export const ItemsText: {[id: IDEntry]: ItemText} = {
 	},
 	energynullifier: {
 		name: "Energy Nullifier",
-		desc: "The holder ignores Energy Weathergy effects, including those of its Ability. Damage and accuracy calculations from attacks used by the holder are affected by Energy Weathergy, but not attacks used against the holder.",
+		desc: "The holder ignores Energy Weathergy effects. Damage and accuracy calculations from attacks used by the holder are affected by Energy Weathergy, but not attacks used against the holder.",
 		shortDesc: "The holder ignores Energy Weathergy effects.",
 	},
 	flatunovan: {

@@ -247,7 +247,7 @@
 			"sets": [{
 				"species": "Lucario",
 				"item": ["Lucarionite"],
-				"ability": ["Steadfast"],
+				"ability": ["Justified"],
 				"evs": {"atk": 252, "spd": 4, "spe": 252},
 				"nature": "Jolly",
 				"moves": [["Close Combat"], ["Meteor Mash"], ["Bullet Punch"], ["Swords Dance"]]
@@ -3982,7 +3982,7 @@
 			"sets": [{
 				"species": "Mandibuzz",
 				"item": ["Leftovers"],
-				"ability": ["Weak Armor"],
+				"ability": ["Overcoat"],
 				"evs": {"hp": 248, "def": 68, "spd": 176, "spe": 16},
 				"nature": "Careful",
 				"moves": [["Roost"], ["Defog"], ["Foul Play"], ["Knock Off", "Taunt", "Toxic", "U-turn"]]
@@ -10035,49 +10035,49 @@
 			"sets": [{
 				"species": "Weavile",
 				"item": ["Life Orb"],
-				"ability": ["Pickpocket"],
+				"ability": ["Pressure"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
 				"nature": "Jolly",
 				"moves": [["Icicle Crash"], ["Knock Off"], ["Ice Shard"], ["Low Kick", "Pursuit", "Swords Dance"]]
 			}, {
 				"species": "Weavile",
 				"item": ["Choice Band"],
-				"ability": ["Pickpocket"],
+				"ability": ["Pressure"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
 				"nature": "Jolly",
 				"moves": [["Icicle Crash"], ["Knock Off"], ["Ice Shard"], ["Low Kick"]]
 			}, {
 				"species": "Weavile",
 				"item": ["Life Orb"],
-				"ability": ["Pickpocket"],
+				"ability": ["Pressure"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
 				"nature": "Jolly",
 				"moves": [["Knock Off"], ["Icicle Crash"], ["Low Kick", "Pursuit"], ["Ice Shard"]]
 			}, {
 				"species": "Weavile",
 				"item": ["Life Orb"],
-				"ability": ["Pickpocket"],
+				"ability": ["Pressure"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
 				"nature": "Jolly",
 				"moves": [["Knock Off"], ["Icicle Crash"], ["Swords Dance"], ["Ice Shard"]]
 			}, {
 				"species": "Weavile",
 				"item": ["Fightinium Z"],
-				"ability": ["Pickpocket"],
+				"ability": ["Pressure"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
 				"nature": "Jolly",
 				"moves": [["Knock Off"], ["Swords Dance"], ["Low Kick"], ["Ice Shard"]]
 			}, {
 				"species": "Weavile",
 				"item": ["Groundium Z"],
-				"ability": ["Pickpocket"],
+				"ability": ["Pressure"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
 				"nature": "Jolly",
 				"moves": [["Knock Off"], ["Swords Dance"], ["Dig"], ["Ice Shard"]]
 			}, {
 				"species": "Weavile",
 				"item": ["Choice Scarf"],
-				"ability": ["Pickpocket"],
+				"ability": ["Pressure"],
 				"evs": {"atk": 252, "def": 4, "spe": 252},
 				"nature": "Jolly",
 				"moves": [["Knock Off"], ["Icicle Crash"], ["Low Kick"], ["Pursuit"]]

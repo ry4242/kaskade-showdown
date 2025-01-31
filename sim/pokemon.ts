@@ -31,9 +31,8 @@ interface Attacker {
 }
 
 export interface EffectState {
-	id: string;
-	effectOrder: number;
-	duration?: number;
+	// TODO: set this to be an actual number after converting data/ to .ts
+	duration?: number | any;
 	[k: string]: any;
 }
 
@@ -131,9 +130,6 @@ export class Pokemon {
 	fainted: boolean;
 	faintQueued: boolean;
 	subFainted: boolean | null;
-
-	/** If this Pokemon should revert to its set species when it faints */
-	regressionForme: boolean;
 
 	types: string[];
 	addedType: string;
@@ -256,6 +252,7 @@ export class Pokemon {
 
 	weighthg: number;
 	speed: number;
+	abilityOrder: number;
 
 	canMegaEvo: string | null | undefined;
 	canMegaEvoX: string | null | undefined;
@@ -314,7 +311,7 @@ export class Pokemon {
 		if (set.name === set.species || !set.name) {
 			set.name = this.baseSpecies.baseSpecies;
 		}
-		this.speciesState = this.battle.initEffectState({id: this.species.id});
+		this.speciesState = {id: this.species.id};
 
 		this.name = set.name.substr(0, 20);
 		this.fullname = this.side.id + ': ' + this.name;
@@ -322,7 +319,7 @@ export class Pokemon {
 		set.level = this.battle.clampIntRange(set.adjustLevel || set.level || 100, 1, 9999);
 		this.level = set.level;
 		const genders: {[key: string]: GenderName} = {M: 'M', F: 'F', N: 'N'};
-		this.gender = genders[set.gender] || this.species.gender || (this.battle.random(2) ? 'F' : 'M');
+		this.gender = genders[set.gender] || this.species.gender || (this.battle.random() * 2 < 1 ? 'M' : 'F');
 		if (this.gender === 'N') this.gender = '';
 		this.happiness = typeof set.happiness === 'number' ? this.battle.clampIntRange(set.happiness, 0, 255) : 255;
 		this.pokeball = this.set.pokeball || 'pokeball';
@@ -356,10 +353,13 @@ export class Pokemon {
 		}
 
 		this.position = 0;
-		this.details = this.getUpdatedDetails();
+		let displayedSpeciesName = this.species.name;
+		if (displayedSpeciesName === 'Greninja-Bond') displayedSpeciesName = 'Greninja';
+		this.details = displayedSpeciesName + (this.level === 100 ? '' : ', L' + this.level) +
+			(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
 
 		this.status = '';
-		this.statusState = this.battle.initEffectState({});
+		this.statusState = {};
 		this.volatiles = {};
 		this.showCure = undefined;
 
@@ -402,10 +402,10 @@ export class Pokemon {
 
 		this.baseAbility = toID(set.ability);
 		this.ability = this.baseAbility;
-		this.abilityState = this.battle.initEffectState({id: this.ability, target: this});
+		this.abilityState = {id: this.ability};
 
 		this.item = toID(set.item);
-		this.itemState = this.battle.initEffectState({id: this.item, target: this});
+		this.itemState = {id: this.item};
 		this.lastItem = '';
 		this.usedItemThisTurn = false;
 		this.ateBerry = false;
@@ -420,8 +420,6 @@ export class Pokemon {
 		this.fainted = false;
 		this.faintQueued = false;
 		this.subFainted = null;
-
-		this.regressionForme = false;
 
 		this.types = this.baseSpecies.types;
 		this.baseTypes = this.types;
@@ -466,6 +464,12 @@ export class Pokemon {
 
 		this.weighthg = 1;
 		this.speed = 0;
+		/**
+		 * Determines the order in which redirect abilities like Lightning Rod
+		 * activate if speed tied. Surprisingly not random like every other speed
+		 * tie, but based on who first switched in or acquired the ability!
+		 */
+		this.abilityOrder = 0;
 
 		this.canMegaEvo = this.battle.actions.canMegaEvo(this);
 		this.canMegaEvoX = this.battle.actions.canMegaEvoX?.(this);
@@ -508,20 +512,16 @@ export class Pokemon {
 		return this.isActive ? this.getSlot() + fullname.slice(2) : fullname;
 	}
 
-	getUpdatedDetails(level = this.level) {
-		let name = this.species.name;
-		if (name === 'Greninja-Bond') name = 'Greninja';
-		return name + (level === 100 ? '' : ', L' + level) +
-			(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
-	}
-
-	getFullDetails = () => {
+	getDetails = () => {
 		const health = this.getHealth();
 		let details = this.details;
 		if (this.illusion) {
-			details = this.illusion.getUpdatedDetails(
-				this.battle.ruleTable.has('illusionlevelmod') ? this.illusion.level : undefined
-			);
+			const level = this.battle.ruleTable.has('illusionlevelmod') ? this.illusion.level : this.level;
+			let displayedSpeciesName = this.illusion.species.name;
+			if (displayedSpeciesName === 'Greninja-Bond') displayedSpeciesName = 'Greninja';
+			const illusionDetails = displayedSpeciesName + (level === 100 ? '' : ', L' + level) +
+				(this.illusion.gender === '' ? '' : ', ' + this.illusion.gender) + (this.illusion.set.shiny ? ', shiny' : '');
+			details = illusionDetails;
 		}
 		if (this.terastallized) details += `, tera:${this.terastallized}`;
 		return {side: health.side, secret: `${details}|${health.secret}`, shared: `${details}|${health.shared}`};
@@ -611,9 +611,7 @@ export class Pokemon {
 
 	getActionSpeed() {
 		let speed = this.getStat('spe', false, false);
-		const trickRoomCheck = this.battle.ruleTable.has('twisteddimensionmod') ?
-			!this.battle.field.getPseudoWeather('trickroom') : this.battle.field.getPseudoWeather('trickroom');
-		if (trickRoomCheck) {
+		if (this.battle.field.getPseudoWeather('trickroom')) {
 			speed = 10000 - speed;
 		}
 		return this.battle.trunc(speed, 13);
@@ -850,7 +848,7 @@ export class Pokemon {
 	}
 
 	ignoringItem() {
-		return !this.getItem().isPrimalOrb && !!(
+		return !!(
 			this.itemState.knockedOff || // Gen 3-4
 			(this.battle.gen >= 5 && !this.isActive) ||
 			(!this.getItem().ignoreKlutz && this.hasAbility('klutz')) ||
@@ -1206,7 +1204,7 @@ export class Pokemon {
 			if (switchCause === 'shedtail' && i !== 'substitute') continue;
 			if (this.battle.dex.conditions.getByID(i as ID).noCopy) continue;
 			// shallow clones
-			this.volatiles[i] = this.battle.initEffectState({...pokemon.volatiles[i]});
+			this.volatiles[i] = {...pokemon.volatiles[i]};
 			if (this.volatiles[i].linkedPokemon) {
 				delete pokemon.volatiles[i].linkedPokemon;
 				delete pokemon.volatiles[i].linkedStatus;
@@ -1325,7 +1323,8 @@ export class Pokemon {
 
 		// Pokemon transformed into Ogerpon cannot Terastallize
 		// restoring their ability to tera after they untransform is handled ELSEWHERE
-		if (['Ogerpon', 'Terapagos'].includes(this.species.baseSpecies) && this.canTerastallize) this.canTerastallize = false;
+		if (this.species.baseSpecies === 'Ogerpon' && this.canTerastallize) this.canTerastallize = false;
+		if (this.species.baseSpecies === 'Terapagos' && this.canTerastallize) this.canTerastallize = false;
 
 		return true;
 	}
@@ -1333,7 +1332,7 @@ export class Pokemon {
 	/**
 	 * Changes this Pokemon's species to the given speciesId (or species).
 	 * This function only handles changes to stats and type.
-	 * Use formeChange to handle changes to ability and sending client messages.
+	 * Use formChange to handle changes to ability and sending client messages.
 	 */
 	setSpecies(rawSpecies: Species, source: Effect | null = this.battle.effect, isTransform = false) {
 		const species = this.battle.runEvent('ModifySpecies', this, null, source, rawSpecies);
@@ -1377,7 +1376,7 @@ export class Pokemon {
 	 */
 	formeChange(
 		speciesId: string | Species, source: Effect | null = this.battle.effect,
-		isPermanent?: boolean, abilitySlot = '0', message?: string
+		isPermanent?: boolean, message?: string
 	) {
 		const rawSpecies = this.battle.dex.species.get(speciesId);
 
@@ -1390,9 +1389,9 @@ export class Pokemon {
 		const apparentSpecies =
 			this.illusion ? this.illusion.species.name : species.baseSpecies;
 		if (isPermanent) {
-			if (!this.transformed) this.regressionForme = true;
 			this.baseSpecies = rawSpecies;
-			this.details = this.getUpdatedDetails();
+			this.details = species.name + (this.level === 100 ? '' : ', L' + this.level) +
+				(this.gender === '' ? '' : ', ' + this.gender) + (this.set.shiny ? ', shiny' : '');
 			let details = (this.illusion || this).details;
 			if (this.terastallized) details += `, tera:${this.terastallized}`;
 			this.battle.add('detailschange', this, details);
@@ -1404,7 +1403,7 @@ export class Pokemon {
 				if (source.zMove) {
 					this.battle.add('-burst', this, apparentSpecies, species.requiredItem);
 					this.moveThisTurnResult = true; // Ultra Burst counts as an action for Truant
-				} else if (source.isPrimalOrb) {
+				} else if (source.onPrimal) {
 					if (this.illusion) {
 						this.ability = '';
 						this.battle.add('-primal', this.illusion, species.requiredItem);
@@ -1430,11 +1429,10 @@ export class Pokemon {
 			if (this.illusion) {
 				this.ability = ''; // Don't allow Illusion to wear off
 			}
-			const ability = species.abilities[abilitySlot] || species.abilities['0'];
 			// Ogerpon's forme change doesn't override permanent abilities
-			if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, true);
+			if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(species.abilities['0'], null, true);
 			// However, its ability does reset upon switching out
-			this.baseAbility = toID(ability);
+			this.baseAbility = toID(species.abilities['0']);
 		}
 		if (this.terastallized) {
 			this.knownType = true;
@@ -1497,9 +1495,6 @@ export class Pokemon {
 		this.beingCalledBack = false;
 
 		this.volatileStaleness = undefined;
-
-		delete this.abilityState.started;
-		delete this.itemState.started;
 
 		this.setSpecies(this.baseSpecies);
 	}
@@ -1674,7 +1669,7 @@ export class Pokemon {
 		}
 
 		this.status = status.id;
-		this.statusState = this.battle.initEffectState({id: status.id, target: this});
+		this.statusState = {id: status.id, target: this};
 		if (source) this.statusState.source = source;
 		if (status.duration) this.statusState.duration = status.duration;
 		if (status.durationCallback) {
@@ -1740,7 +1735,7 @@ export class Pokemon {
 
 			this.lastItem = this.item;
 			this.item = '';
-			this.battle.clearEffectState(this.itemState);
+			this.itemState = {id: '', target: this};
 			this.usedItemThisTurn = true;
 			this.ateBerry = true;
 			this.battle.runEvent('AfterUseItem', this, null, null, item);
@@ -1777,7 +1772,7 @@ export class Pokemon {
 
 			this.lastItem = this.item;
 			this.item = '';
-			this.battle.clearEffectState(this.itemState);
+			this.itemState = {id: '', target: this};
 			this.usedItemThisTurn = true;
 			this.battle.runEvent('AfterUseItem', this, null, null, item);
 			return true;
@@ -1797,7 +1792,7 @@ export class Pokemon {
 		if (this.battle.runEvent('TakeItem', this, source, null, item)) {
 			this.item = '';
 			const oldItemState = this.itemState;
-			this.battle.clearEffectState(this.itemState);
+			this.itemState = {id: '', target: this};
 			this.pendingStaleness = undefined;
 			this.battle.singleEvent('End', item, oldItemState, this);
 			this.battle.runEvent('AfterTakeItem', this, null, null, item);
@@ -1822,7 +1817,7 @@ export class Pokemon {
 		const oldItem = this.getItem();
 		const oldItemState = this.itemState;
 		this.item = item.id;
-		this.itemState = this.battle.initEffectState({id: item.id, target: this});
+		this.itemState = {id: item.id, target: this};
 		if (oldItem.exists) this.battle.singleEvent('End', oldItem, oldItemState, this);
 		if (item.id) {
 			this.battle.singleEvent('Start', item, this.itemState, this, source, effect);
@@ -1864,11 +1859,12 @@ export class Pokemon {
 				this.battle.dex.moves.get(this.battle.effect.id));
 		}
 		this.ability = ability.id;
-		this.abilityState = this.battle.initEffectState({id: ability.id, target: this});
+		this.abilityState = {id: ability.id, target: this};
 		if (ability.id && this.battle.gen > 3 &&
 			(!isTransform || oldAbility !== ability.id || this.battle.gen <= 4)) {
 			this.battle.singleEvent('Start', ability, this.abilityState, this, source);
 		}
+		this.abilityOrder = this.battle.abilityOrder++;
 		return oldAbility;
 	}
 
@@ -1923,7 +1919,7 @@ export class Pokemon {
 			this.battle.debug('add volatile [' + status.id + '] interrupted');
 			return result;
 		}
-		this.volatiles[status.id] = this.battle.initEffectState({id: status.id, name: status.name, target: this});
+		this.volatiles[status.id] = {id: status.id, name: status.name, target: this};
 		if (source) {
 			this.volatiles[status.id].source = source;
 			this.volatiles[status.id].sourceSlot = source.getSlot();
@@ -2156,27 +2152,12 @@ export class Pokemon {
 	}
 
 	runEffectiveness(move: ActiveMove) {
+		if (this.terastallized && move.type === 'Stellar') return 1;
 		let totalTypeMod = 0;
-		if (this.terastallized && move.type === 'Stellar') {
-			totalTypeMod = 1;
-		} else {
-			for (const type of this.getTypes()) {
-				let typeMod = this.battle.dex.getEffectiveness(move, type);
-				typeMod = this.battle.singleEvent('Effectiveness', move, null, this, type, move, typeMod);
-				totalTypeMod += this.battle.runEvent('Effectiveness', this, type, move, typeMod);
-			}
-		}
-		if (this.species.name === 'Terapagos-Terastal' && this.hasAbility('Tera Shell') &&
-			!this.battle.suppressingAbility(this)) {
-			if (this.abilityState.resisted) return -1; // all hits of multi-hit move should be not very effective
-			if (move.category === 'Status' || move.id === 'struggle' || !this.runImmunity(move.type) ||
-				totalTypeMod < 0 || this.hp < this.maxhp) {
-				return totalTypeMod;
-			}
-
-			this.battle.add('-activate', this, 'ability: Tera Shell');
-			this.abilityState.resisted = true;
-			return -1;
+		for (const type of this.getTypes()) {
+			let typeMod = this.battle.dex.getEffectiveness(move, type);
+			typeMod = this.battle.singleEvent('Effectiveness', move, null, this, type, move, typeMod);
+			totalTypeMod += this.battle.runEvent('Effectiveness', this, type, move, typeMod);
 		}
 		return totalTypeMod;
 	}

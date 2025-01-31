@@ -1,10 +1,11 @@
 import type {PokemonEventMethods, ConditionData} from './dex-conditions';
 import {assignMissingFields, BasicEffect, toID} from './dex-data';
-import {Utils} from '../lib/utils';
+import {Utils} from '../lib';
 
 interface AbilityEventMethods {
 	onCheckShow?: (this: Battle, pokemon: Pokemon) => void;
 	onEnd?: (this: Battle, target: Pokemon & Side & Field) => void;
+	onPreStart?: (this: Battle, pokemon: Pokemon) => void;
 	onStart?: (this: Battle, target: Pokemon) => void;
 }
 

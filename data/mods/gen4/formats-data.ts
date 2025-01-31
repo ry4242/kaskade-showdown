@@ -222,7 +222,7 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "NU",
 	},
 	machamp: {
-		tier: "Uber",
+		tier: "OU",
 	},
 	bellsprout: {
 		tier: "LC",

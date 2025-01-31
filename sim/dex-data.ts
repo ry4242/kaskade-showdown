@@ -4,7 +4,7 @@
  *
  * @license MIT
  */
-import {Utils} from '../lib/utils';
+import {Utils} from '../lib';
 
 /**
 * Converts anything to an ID. An ID must have only lowercase alphanumeric

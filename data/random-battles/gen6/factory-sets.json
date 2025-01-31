@@ -415,7 +415,7 @@
         {
           "species": "Lucario",
           "item": "Lucarionite",
-          "ability": "Steadfast",
+          "ability": "Justified",
           "evs": {"hp": 0, "atk": 252, "def": 0, "spa": 0, "spd": 4, "spe": 252},
           "nature": "Jolly",
           "moves": [["Close Combat"], ["Bullet Punch"], ["Stone Edge"], ["Iron Tail"]]
@@ -1442,7 +1442,7 @@
         {
           "species": "Weavile",
           "item": "Life Orb",
-          "ability": "Pickpocket",
+          "ability": "Pressure",
           "evs": {"hp": 0, "atk": 252, "def": 4, "spa": 0, "spd": 0, "spe": 252},
           "nature": "Jolly",
           "moves": [["Ice Punch"], ["Knock Off"], ["Ice Shard"], ["Low Kick"]]
@@ -1450,7 +1450,7 @@
         {
           "species": "Weavile",
           "item": "Life Orb",
-          "ability": "Pickpocket",
+          "ability": "Pressure",
           "evs": {"hp": 0, "atk": 252, "def": 4, "spa": 0, "spd": 0, "spe": 252},
           "nature": "Jolly",
           "moves": [["Pursuit"], ["Knock Off"], ["Ice Shard"], ["Icicle Crash"]]
@@ -2230,7 +2230,7 @@
         {
           "species": "Mandibuzz",
           "item": "Leftovers",
-          "ability": "Weak Armor",
+          "ability": "Overcoat",
           "evs": {"hp": 248, "atk": 0, "def": 136, "spa": 0, "spd": 108, "spe": 16},
           "nature": "Bold",
           "moves": [["Foul Play"], ["Roost"], ["Taunt"], ["Defog"]]
@@ -3565,7 +3565,7 @@
         {
           "species": "Absol",
           "item": "Absolite",
-          "ability": "Super Luck",
+          "ability": "Justified",
           "evs": {"hp": 0, "atk": 252, "def": 0, "spa": 0, "spd": 4, "spe": 252},
           "nature": "Jolly",
           "moves": [["Swords Dance"], ["Sucker Punch"], ["Knock Off"], ["Superpower"]]
@@ -3573,7 +3573,7 @@
         {
           "species": "Absol",
           "item": "Absolite",
-          "ability": "Super Luck",
+          "ability": "Justified",
           "evs": {"hp": 0, "atk": 240, "def": 0, "spa": 44, "spd": 0, "spe": 224},
           "nature": "Naive",
           "moves": [["Sucker Punch"], ["Knock Off"], ["Ice Beam"], ["Fire Blast"]]

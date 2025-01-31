@@ -185,7 +185,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: {0: "Blitz of Ruin"},
 	},
 
-	// Breadey
+	// Breadstycks
 	dachsbun: {
 		inherit: true,
 		abilities: {0: "Painful Exit"},
@@ -435,7 +435,7 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	// in the hills
 	gligar: {
 		inherit: true,
-		abilities: {0: "Illiterit"},
+		abilities: {0: "Illterit"},
 	},
 
 	// ironwater
@@ -600,6 +600,12 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		baseStats: {hp: 100, atk: 50, def: 80, spa: 60, spd: 80, spe: 50},
 		abilities: {0: "Huge Power"},
+	},
+
+	// maroon
+	archaludon: {
+		inherit: true,
+		abilities: {0: "Built Different"},
 	},
 
 	// Mathy
@@ -791,12 +797,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	oranguru: {
 		inherit: true,
 		abilities: {0: "Monke See Monke Do"},
-	},
-
-	// Rio Vidal
-	archaludon: {
-		inherit: true,
-		abilities: {0: "Built Different"},
 	},
 
 	// Rissoux

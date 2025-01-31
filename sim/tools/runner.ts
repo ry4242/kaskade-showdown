@@ -58,7 +58,8 @@ export class Runner {
 	constructor(options: RunnerOptions) {
 		this.format = options.format;
 
-		this.prng = PRNG.get(options.prng);
+		this.prng = (options.prng && !Array.isArray(options.prng)) ?
+			options.prng : new PRNG(options.prng);
 		this.p1options = {...Runner.AI_OPTIONS, ...options.p1options};
 		this.p2options = {...Runner.AI_OPTIONS, ...options.p2options};
 		this.p3options = {...Runner.AI_OPTIONS, ...options.p3options};
@@ -85,7 +86,7 @@ export class Runner {
 	private async runGame(format: string, battleStream: RawBattleStream | DualStream) {
 		// @ts-ignore - DualStream implements everything relevant from BattleStream.
 		const streams = BattleStreams.getPlayerStreams(battleStream);
-		const spec = {formatid: format, seed: this.prng.getSeed()};
+		const spec = {formatid: format, seed: this.prng.seed};
 		const is4P = Dex.formats.get(format).playerCount > 2;
 		const p1spec = this.getPlayerSpec("Bot 1", this.p1options);
 		const p2spec = this.getPlayerSpec("Bot 2", this.p2options);
@@ -139,11 +140,11 @@ export class Runner {
 	// NOTE: advances this.prng's seed by 4.
 	private newSeed(): PRNGSeed {
 		return [
-			this.prng.random(2 ** 16),
-			this.prng.random(2 ** 16),
-			this.prng.random(2 ** 16),
-			this.prng.random(2 ** 16),
-		].join(',') as PRNGSeed;
+			Math.floor(this.prng.next() * 0x10000),
+			Math.floor(this.prng.next() * 0x10000),
+			Math.floor(this.prng.next() * 0x10000),
+			Math.floor(this.prng.next() * 0x10000),
+		];
 	}
 
 	private getPlayerSpec(name: string, options: AIOptions) {

@@ -826,7 +826,6 @@ export class Trivia extends Rooms.RoomGame<TriviaPlayer> {
 		const prizes = this.getPrizes();
 		const [p1, p2, p3] = winners;
 
-		if (!p1) return `No winners this game!`;
 		let initialPart = this.room.tr`${Utils.escapeHTML(p1.name)} won the game with a final score of <strong>${p1.player.points}</strong>`;
 		if (!this.game.givesPoints) {
 			return `${initialPart}.`;
@@ -848,25 +847,18 @@ export class Trivia extends Rooms.RoomGame<TriviaPlayer> {
 
 	getStaffEndMessage(winners: TopPlayer[], mapper: (k: TopPlayer) => string) {
 		let message = "";
-		if (winners.length) {
-			const winnerParts: ((k: TopPlayer) => string)[] = [
-				winner => this.room.tr`User ${mapper(winner)} won the game of ` +
-					(this.game.givesPoints ? this.room.tr`ranked ` : this.room.tr`unranked `) +
-					this.room.tr`${this.game.mode} mode trivia under the ${this.game.category} category with ` +
-					this.room.tr`a cap of ${this.getDisplayableCap()} ` +
-					this.room.tr`with ${winner.player.points} points and ` +
-					this.room.tr`${winner.player.correctAnswers} correct answers`,
-				winner => this.room.tr` Second place: ${mapper(winner)} (${winner.player.points} points)`,
-				winner => this.room.tr`, third place: ${mapper(winner)} (${winner.player.points} points)`,
-			];
-			for (const [i, winner] of winners.entries()) {
-				message += winnerParts[i](winner);
-			}
-		} else {
-			message = `No participants in the game of ` +
+		const winnerParts: ((k: TopPlayer) => string)[] = [
+			winner => this.room.tr`User ${mapper(winner)} won the game of ` +
 				(this.game.givesPoints ? this.room.tr`ranked ` : this.room.tr`unranked `) +
 				this.room.tr`${this.game.mode} mode trivia under the ${this.game.category} category with ` +
-				this.room.tr`a cap of ${this.getDisplayableCap()}`;
+				this.room.tr`a cap of ${this.getDisplayableCap()} ` +
+				this.room.tr`with ${winner.player.points} points and ` +
+				this.room.tr`${winner.player.correctAnswers} correct answers`,
+			winner => this.room.tr` Second place: ${mapper(winner)} (${winner.player.points} points)`,
+			winner => this.room.tr`, third place: ${mapper(winner)} (${winner.player.points} points)`,
+		];
+		for (let i = 0; i < winners.length; i++) {
+			message += winnerParts[i](winners[i]);
 		}
 		return `${message}`;
 	}
@@ -1096,9 +1088,11 @@ export class NumberModeTrivia extends Trivia {
 		);
 
 		const points = this.calculatePoints(innerBuffer.length);
-		const cap = this.getCap();
-		let winner = cap.questions && this.questionNumber >= cap.questions;
+		let winner = false;
 		if (points) {
+			const cap = this.getCap();
+			// We add 1 questionNumber because it starts at 0
+			winner = !!cap.questions && this.questionNumber >= cap.questions;
 			for (const userid in this.playerTable) {
 				const player = this.playerTable[userid];
 				if (player.isCorrect) player.incrementPoints(points, this.questionNumber);

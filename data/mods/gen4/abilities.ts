@@ -191,7 +191,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onStart(pokemon) {
 			const target = pokemon.side.randomFoe();
 			if (target?.item && !target.itemState.knockedOff) {
-				this.add('-item', '', target.getItem().name, '[from] ability: Frisk', '[of] ' + pokemon);
+				this.add('-item', pokemon, target.getItem().name, '[from] ability: Frisk', '[of] ' + pokemon);
 			}
 		},
 	},
@@ -526,7 +526,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	trace: {
 		inherit: true,
 		onUpdate(pokemon) {
-			if (!this.effectState.seek) return;
+			if (!pokemon.isStarted) return;
 			const target = pokemon.side.randomFoe();
 			if (!target || target.fainted) return;
 			const ability = target.getAbility();

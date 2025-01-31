@@ -110,7 +110,7 @@ function testTeam(options, test) {
 
 	const generator = Teams.getGenerator(options.format, [0, 0, 0, 0]);
 	for (let i = 0; i < rounds; i++) {
-		generator.setSeed(options.seed || [i, i, i, i].join(','));
+		generator.setSeed(options.seed || [i, i, i, i]);
 		const team = generator.getTeam();
 		test(team);
 	}

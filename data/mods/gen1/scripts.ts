@@ -24,7 +24,6 @@ export const Scripts: ModdedBattleScriptsData = {
 	},
 	// BattlePokemon scripts.
 	pokemon: {
-		inherit: true,
 		getStat(statName, unmodified) {
 			// @ts-ignore - type checking prevents 'hp' from being passed, but we're paranoid
 			if (statName === 'hp') throw new Error("Please read `maxhp` directly");
@@ -121,7 +120,6 @@ export const Scripts: ModdedBattleScriptsData = {
 		},
 	},
 	actions: {
-		inherit: true,
 		// This function is the main one when running a move.
 		// It deals with the beforeMove event.
 		// It also deals with how PP reduction works on gen 1.
@@ -530,7 +528,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				// Handle here the applying of partial trapping moves to Pokémon with Substitute
 				if (targetSub && moveData.volatileStatus && moveData.volatileStatus === 'partiallytrapped') {
 					target.addVolatile(moveData.volatileStatus, pokemon, move);
-					if (!pokemon.volatiles['partialtrappinglock'] || pokemon.volatiles['partialtrappinglock'].duration! > 1) {
+					if (!pokemon.volatiles['partialtrappinglock'] || pokemon.volatiles['partialtrappinglock'].duration > 1) {
 						target.volatiles[moveData.volatileStatus].duration = 2;
 					}
 				}

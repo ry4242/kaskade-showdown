@@ -36,7 +36,7 @@ import {Item, DexItems} from './dex-items';
 import {Ability, DexAbilities} from './dex-abilities';
 import {Species, DexSpecies} from './dex-species';
 import {Format, DexFormats} from './dex-formats';
-import {Utils} from '../lib/utils';
+import {Utils} from '../lib';
 
 const BASE_MOD = 'gen9' as ID;
 const DATA_DIR = path.resolve(__dirname, '../data');
@@ -364,19 +364,17 @@ export class ModdedDex {
 	}
 
 	dataSearch(
-		target: string,
-		searchIn?: ('Pokedex' | 'Moves' | 'Abilities' | 'Items' | 'Natures' | 'TypeChart')[] | null,
-		isInexact?: boolean
+		target: string, searchIn?: ('Pokedex' | 'Moves' | 'Abilities' | 'Items' | 'Natures')[] | null, isInexact?: boolean
 	): AnyObject[] | null {
 		if (!target) return null;
 
 		searchIn = searchIn || ['Pokedex', 'Moves', 'Abilities', 'Items', 'Natures'];
 
 		const searchObjects = {
-			Pokedex: 'species', Moves: 'moves', Abilities: 'abilities', Items: 'items', Natures: 'natures', TypeChart: 'types',
+			Pokedex: 'species', Moves: 'moves', Abilities: 'abilities', Items: 'items', Natures: 'natures',
 		} as const;
 		const searchTypes = {
-			Pokedex: 'pokemon', Moves: 'move', Abilities: 'ability', Items: 'item', Natures: 'nature', TypeChart: 'type',
+			Pokedex: 'pokemon', Moves: 'move', Abilities: 'ability', Items: 'item', Natures: 'nature',
 		} as const;
 		let searchResults: AnyObject[] | null = [];
 		for (const table of searchIn) {

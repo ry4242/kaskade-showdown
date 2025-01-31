@@ -1,6 +1,6 @@
 import type {PokemonEventMethods, ConditionData} from './dex-conditions';
 import {assignMissingFields, BasicEffect, toID} from './dex-data';
-import {Utils} from '../lib/utils';
+import {Utils} from '../lib';
 
 interface FlingData {
 	basePower: number;
@@ -92,8 +92,6 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 	readonly isGem: boolean;
 	/** Is this item a Pokeball? */
 	readonly isPokeball: boolean;
-	/** Is this item a Red or Blue Orb? */
-	readonly isPrimalOrb: boolean;
 
 	declare readonly condition?: ConditionData;
 	declare readonly forcedForme?: string;
@@ -103,7 +101,7 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 	declare readonly boosts?: SparseBoostsTable | false;
 
 	declare readonly onEat?: ((this: Battle, pokemon: Pokemon) => void) | false;
-	declare readonly onUse?: ((this: Battle, pokemon: Pokemon) => void) | false;
+	declare readonly onPrimal?: (this: Battle, pokemon: Pokemon) => void;
 	declare readonly onStart?: (this: Battle, target: Pokemon) => void;
 	declare readonly onEnd?: (this: Battle, target: Pokemon) => void;
 
@@ -126,7 +124,6 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 		this.onPlate = data.onPlate || undefined;
 		this.isGem = !!data.isGem;
 		this.isPokeball = !!data.isPokeball;
-		this.isPrimalOrb = !!data.isPrimalOrb;
 
 		if (!this.gen) {
 			if (this.num >= 1124) {

@@ -38,7 +38,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	neutralizinggas: {
 		inherit: true,
 		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
-		onSwitchIn(pokemon) {
+		onPreStart(pokemon) {
 			this.add('-ability', pokemon, 'Neutralizing Gas');
 			pokemon.abilityState.ending = false;
 			// Remove setter's innates before the ability starts
@@ -139,7 +139,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 	trace: {
 		inherit: true,
 		onUpdate(pokemon) {
-			if (!this.effectState.seek) return;
+			if (!pokemon.isStarted) return;
 			const isAbility = pokemon.ability === 'trace';
 			const possibleTargets: Pokemon[] = [];
 			for (const target of pokemon.side.foe.active) {

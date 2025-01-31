@@ -422,7 +422,7 @@
 			"sets": [{
 				"species": "Weavile",
 				"item": ["Heavy-Duty Boots"],
-				"ability": ["Pickpocket"],
+				"ability": ["Pressure"],
 				"evs": {"atk": 252, "spd": 4, "spe": 252},
 				"nature": ["Jolly", "Adamant"],
 				"moves": [["Triple Axel"], ["Knock Off"], ["Ice Shard"], ["Swords Dance"]]
@@ -2754,7 +2754,7 @@
 				"ability": ["Sturdy"],
 				"evs": {"hp": 252, "atk": 4, "spd": 252},
 				"nature": "Careful",
-				"moves": [["Earthquake"], ["Heavy Slam"], ["Stealth Rock", "Protect"], ["Toxic"]]
+				"moves": [["Earthquake"], ["Heavy Slam"], ["Stealth Rock", "Stealth Rock", "Protect"], ["Toxic"]]
 			}]
 		},
 		"suicune": {

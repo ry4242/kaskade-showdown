@@ -4,7 +4,6 @@
  * Ported to TypeScript by Annika and Mia.
  */
 import {SQL, PGDatabase} from '../lib/database';
-import * as crypto from 'crypto';
 
 export const replaysDB = Config.replaysdb ? new PGDatabase(Config.replaysdb) : null!;
 
@@ -145,7 +144,7 @@ export const Replays = new class {
 	generatePassword(length = 31) {
 		let password = '';
 		for (let i = 0; i < length; i++) {
-			password += this.passwordCharacters[crypto.randomInt(0, this.passwordCharacters.length - 1)];
+			password += this.passwordCharacters[Math.floor(Math.random() * this.passwordCharacters.length)];
 		}
 
 		return password;

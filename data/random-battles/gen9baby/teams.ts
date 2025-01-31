@@ -220,12 +220,6 @@ export class RandomBabyTeams extends RandomTeams {
 				movePool, teraType, role);
 		}
 
-		// Enforce Knock Off on most roles
-		if (movePool.includes('knockoff') && role !== 'Bulky Support') {
-			counter = this.addMove('knockoff', moves, types, abilities, teamDetails, species, isLead, isDoubles,
-				movePool, teraType, role);
-		}
-
 		// Enforce hazard removal on Bulky Support if the team doesn't already have it
 		if (role === 'Bulky Support' && !teamDetails.defog && !teamDetails.rapidSpin) {
 			if (movePool.includes('rapidspin')) {
@@ -669,7 +663,7 @@ export class RandomBabyTeams extends RandomTeams {
 	randomBabyTeam() {
 		this.enforceNoDirectCustomBanlistChanges();
 
-		const seed = this.prng.getSeed();
+		const seed = this.prng.seed;
 		const ruleTable = this.dex.formats.getRuleTable(this.format);
 		const pokemon: RandomTeamsTypes.RandomSet[] = [];
 

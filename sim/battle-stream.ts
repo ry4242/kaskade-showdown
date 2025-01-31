@@ -136,9 +136,10 @@ export class BattleStream extends Streams.ObjectReadWriteStream<string> {
 			this.battle!.inputLog.push(`>forcelose ${message}`);
 			break;
 		case 'reseed':
-			this.battle!.resetRNG(message as PRNGSeed);
+			const seed = message ? message.split(',').map(Number) as PRNGSeed : null;
+			this.battle!.resetRNG(seed);
 			// could go inside resetRNG, but this makes using it in `eval` slightly less buggy
-			this.battle!.inputLog.push(`>reseed ${this.battle!.prng.getSeed()}`);
+			this.battle!.inputLog.push(`>reseed ${this.battle!.prng.seed.join(',')}`);
 			break;
 		case 'tiebreak':
 			this.battle!.tiebreak();
@@ -224,7 +225,7 @@ export class BattleStream extends Streams.ObjectReadWriteStream<string> {
 			this.push(`requesteddata\n${team}`);
 			break;
 		case 'show-openteamsheets':
-			this.battle!.showOpenTeamSheets();
+			this.battle!.showOpenTeamSheets(this.battle!.rated === true);
 			break;
 		case 'version':
 		case 'version-origin':

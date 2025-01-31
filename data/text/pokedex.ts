@@ -3519,7 +3519,7 @@ export const PokedexText: {[id: IDEntry]: PokedexText} = {
 		name: "Calyrex-Shadow",
 	},
 	wyrdeer: {
-		name: "Wyrdeer",
+		name: "Wydreer",
 	},
 	kleavor: {
 		name: "Kleavor",
