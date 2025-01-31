@@ -792,7 +792,7 @@
 				"evs": {"atk": 252, "spd": 4, "spe": 252},
 				"nature": ["Jolly"],
 				"teraType": ["Ghost"],
-				"moves": [["Dragon Darts"], ["Tera Blast"], ["U-turn"], ["Phantom Force", "Sucker Punch"]]
+				"moves": [["Dragon Darts"], ["Protect"], ["U-turn"], ["Phantom Force", "Sucker Punch"]]
 			}]
 		},
 		"gholdengo": {
@@ -939,7 +939,7 @@
 				"evs": {"hp": 8, "atk": 240, "spd": 8, "spe": 252},
 				"nature": ["Jolly"],
 				"teraType": ["Flying", "Ice"],
-				"moves": [["Earthquake"], ["U-turn"], ["Tera Blast"], ["Stone Edge"]]
+				"moves": [["Earthquake"], ["U-turn"], ["Protect"], ["Stone Edge"]]
 			}]
 		},
 		"darkrai": {
@@ -1156,7 +1156,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Fiery Dance"], ["Sludge Wave"], ["Tera Blast"], ["Substitute", "Dazzling Gleam"]]
+				"moves": [["Fiery Dance"], ["Sludge Wave"], ["Protect"], ["Substitute", "Dazzling Gleam"]]
 			}, {
 				"species": "Iron Moth",
 				"weight": 25,
@@ -1241,7 +1241,7 @@
 				"evs": {"atk": 252, "spd": 4, "spe": 252},
 				"nature": ["Jolly"],
 				"teraType": ["Ground", "Fire"],
-				"moves": [["Icicle Spear"], ["Scale Shot"], ["Dragon Dance"], ["Tera Blast"]]
+				"moves": [["Icicle Spear"], ["Scale Shot"], ["Dragon Dance"], ["Protect"]]
 			}, {
 				"species": "Kyurem",
 				"weight": 20,
@@ -1615,7 +1615,7 @@
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
 				"nature": ["Timid"],
 				"teraType": ["Stellar"],
-				"moves": [["Moonblast"], ["Earth Power"], ["Tera Blast"], ["Healing Wish"]]
+				"moves": [["Moonblast"], ["Earth Power"], ["Protect"], ["Healing Wish"]]
 			}, {
 				"species": "Enamorus",
 				"weight": 40,
@@ -1852,7 +1852,7 @@
 				"species": "Corviknight",
 				"weight": 50,
 				"item": ["Leftovers", "Rocky Helmet"],
-				"ability": ["Pressure"],
+				"ability": ["Unnerve"],
 				"evs": {"hp": 248, "def": 252, "spd": 8},
 				"nature": ["Impish"],
 				"teraType": ["Water", "Dragon"],
@@ -1861,7 +1861,7 @@
 				"species": "Corviknight",
 				"weight": 15,
 				"item": ["Leftovers", "Rocky Helmet"],
-				"ability": ["Pressure"],
+				"ability": ["Unnerve"],
 				"evs": {"hp": 248, "def": 252, "spd": 8},
 				"nature": ["Impish"],
 				"teraType": ["Water", "Dragon"],
@@ -1870,7 +1870,7 @@
 				"species": "Corviknight",
 				"weight": 20,
 				"item": ["Leftovers", "Rocky Helmet"],
-				"ability": ["Pressure"],
+				"ability": ["Unnerve"],
 				"evs": {"hp": 248, "def": 252, "spd": 8},
 				"ivs": {"atk": 0},
 				"nature": ["Bold"],
@@ -1880,7 +1880,7 @@
 				"species": "Corviknight",
 				"weight": 15,
 				"item": ["Leftovers", "Rocky Helmet"],
-				"ability": ["Pressure"],
+				"ability": ["Unnerve"],
 				"evs": {"hp": 248, "def": 252, "spd": 8},
 				"nature": ["Impish"],
 				"teraType": ["Water", "Dragon", "Fighting"],
@@ -2257,7 +2257,7 @@
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
 				"nature": ["Timid"],
 				"teraType": ["Fire", "Ground"],
-				"moves": [["Leaf Storm"], ["Glare"], ["Tera Blast"], ["Substitute", "Dragon Pulse"]]
+				"moves": [["Leaf Storm"], ["Glare"], ["Protect"], ["Substitute", "Dragon Pulse"]]
 			}]
 		},
    		"slitherwing": {
@@ -2298,7 +2298,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Fairy"],
-				"moves": [["Steam Eruption"], ["Flamethrower"], ["Tera Blast"], ["Earth Power"]]
+				"moves": [["Steam Eruption"], ["Flamethrower"], ["Protect"], ["Earth Power"]]
 			}, {
 				"species": "Volcanion",
 				"weight": 25,
@@ -3053,7 +3053,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ice"],
-				"moves": [["Earth Power"], ["Volt Switch"], ["Tera Blast"], ["Spikes", "Stealth Rock"]]
+				"moves": [["Earth Power"], ["Volt Switch"], ["Protect"], ["Spikes", "Stealth Rock"]]
 			}]
 		},
 		"serperior": {
@@ -3068,7 +3068,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Electric"],
-				"moves": [["Leaf Storm"], ["Glare"], ["Tera Blast"], ["Synthesis", "Dragon Pulse"]]
+				"moves": [["Leaf Storm"], ["Glare"], ["Protect"], ["Synthesis", "Dragon Pulse"]]
 			}]
 		},
 		"toxapex": {
@@ -3119,7 +3119,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Ground"],
-				"moves": [["Calm Mind"], ["Taunt"], ["Draining Kiss"], ["Tera Blast"]]
+				"moves": [["Calm Mind"], ["Taunt"], ["Draining Kiss"], ["Protect"]]
 			}]
 		},
 		"fezandipiti": {
@@ -3775,7 +3775,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Grass", "Water"],
-				"moves": [["Thunderbolt"], ["Flash Cannon"], ["Volt Switch"], ["Tera Blast"]]
+				"moves": [["Thunderbolt"], ["Flash Cannon"], ["Volt Switch"], ["Protect"]]
 			}, {
 				"species": "Magnezone",
 				"wantsTera": true,
@@ -3786,7 +3786,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Ground"],
-				"moves": [["Thunderbolt"], ["Flash Cannon"], ["Volt Switch"], ["Tera Blast"]]
+				"moves": [["Thunderbolt"], ["Flash Cannon"], ["Volt Switch"], ["Protect"]]
 			}, {
 				"species": "Magnezone",
 				"wantsTera": true,
@@ -3797,7 +3797,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Fairy"],
-				"moves": [["Discharge"], ["Flash Cannon"], ["Volt Switch"], ["Tera Blast"]]
+				"moves": [["Discharge"], ["Flash Cannon"], ["Volt Switch"], ["Protect"]]
 			}, {
 				"species": "Magnezone",
 				"weight": 25,
@@ -3966,7 +3966,7 @@
 				"evs": {"atk": 252, "spd": 4, "spe": 252},
 				"nature": ["Jolly"],
 				"teraType": ["Ghost"],
-				"moves": [["Close Combat"], ["Stone Edge"], ["Earthquake"], ["Tera Blast"]]
+				"moves": [["Close Combat"], ["Stone Edge"], ["Earthquake"], ["Protect"]]
 			}, {
 				"species": "Terrakion",
 				"weight": 20,
@@ -4055,7 +4055,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Fairy"],
-				"moves": [["Shadow Ball"], ["Tera Blast"], ["Flamethrower"], ["Trick", "Grass Knot"]]
+				"moves": [["Shadow Ball"], ["Protect"], ["Flamethrower"], ["Trick", "Grass Knot"]]
 			}, {
 				"species": "Zoroark-Hisui",
 				"weight": 10,
@@ -4064,7 +4064,7 @@
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
 				"nature": ["Timid"],
 				"teraType": ["Fairy"],
-				"moves": [["Shadow Ball"], ["Tera Blast"], ["Flamethrower"], ["U-turn"]]
+				"moves": [["Shadow Ball"], ["Protect"], ["Flamethrower"], ["U-turn"]]
 			}, {
 				"species": "Zoroark-Hisui",
 				"weight": 20,
@@ -4165,7 +4165,7 @@
 				"evs": {"atk": 252, "def": 4, "spe": 252},
 				"nature": ["Jolly"],
 				"teraType": ["Flying"],
-				"moves": [["Dragon Dance"], ["Waterfall"], ["Earthquake"], ["Tera Blast"]]
+				"moves": [["Dragon Dance"], ["Waterfall"], ["Earthquake"], ["Protect"]]
 			}, {
 				"species": "Gyarados",
 				"weight": 10,
@@ -4252,7 +4252,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Nasty Plot"], ["Freeze-Dry", "Blizzard"], ["Moonblast"], ["Tera Blast"]]
+				"moves": [["Nasty Plot"], ["Freeze-Dry", "Blizzard"], ["Moonblast"], ["Protect"]]
 			}]
 		},
 		"slowbrogalar": {
@@ -4447,7 +4447,7 @@
 				"evs": {"atk": 252, "spd": 4, "spe": 252},
 				"nature": ["Jolly"],
 				"teraType": ["Psychic"],
-				"moves": [["Close Combat"], ["Leaf Blade"], ["Victory Dance"], ["Tera Blast"]]
+				"moves": [["Close Combat"], ["Leaf Blade"], ["Victory Dance"], ["Protect"]]
 			}, {
 				"species": "Lilligant-Hisui",
 				"weight": 50,
@@ -4914,7 +4914,7 @@
 				"evs": {"spa": 252, "spd": 4, "spe": 252},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Sludge Wave", "Sludge Bomb"], ["Psychic", "Psyshock"], ["U-turn"], ["Tera Blast"]]
+				"moves": [["Sludge Wave", "Sludge Bomb"], ["Psychic", "Psyshock"], ["U-turn"], ["Protect"]]
 			}, {
 				"species": "Munkidori",
 				"weight": 40,
@@ -4943,7 +4943,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Sludge Wave", "Sludge Bomb"], ["Psychic", "Psyshock"], ["Nasty Plot"], ["Tera Blast"]]
+				"moves": [["Sludge Wave", "Sludge Bomb"], ["Psychic", "Psyshock"], ["Nasty Plot"], ["Protect"]]
 			}, {
 				"species": "Munkidori",
 				"weight": 10,
@@ -5014,7 +5014,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Moonblast"], ["Freeze-Dry", "Blizzard"], ["Nasty Plot"], ["Tera Blast"]]
+				"moves": [["Moonblast"], ["Freeze-Dry", "Blizzard"], ["Nasty Plot"], ["Protect"]]
 			}]
 		},
 		"amoonguss": {
@@ -5228,7 +5228,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Tera Blast"], ["Shadow Ball"], ["Trick"], ["Nasty Plot", "Ice Beam", "Recover"]]
+				"moves": [["Protect"], ["Shadow Ball"], ["Trick"], ["Nasty Plot", "Ice Beam", "Recover"]]
 			}, {
 				"species": "Porygon-Z",
 				"weight": 5,
@@ -5248,7 +5248,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Tera Blast"], ["Shadow Ball"], ["Recover"], ["Nasty Plot"]]
+				"moves": [["Protect"], ["Shadow Ball"], ["Recover"], ["Nasty Plot"]]
 			}, {
 				"species": "Porygon-Z",
 				"weight": 5,
@@ -5278,7 +5278,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid", "Modest"],
 				"teraType": ["Ground"],
-				"moves": [["Tera Blast"], ["Shadow Ball"], ["Agility"], ["Nasty Plot"]]
+				"moves": [["Protect"], ["Shadow Ball"], ["Agility"], ["Nasty Plot"]]
 			}, {
 				"species": "Porygon-Z",
 				"weight": 5,
@@ -5308,7 +5308,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Ground"],
-				"moves": [["Tera Blast"], ["Thunderbolt"], ["Shadow Ball"], ["Agility"]]
+				"moves": [["Protect"], ["Thunderbolt"], ["Shadow Ball"], ["Agility"]]
 			}, {
 				"species": "Porygon-Z",
 				"wantsTera": true,
@@ -5319,7 +5319,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Fighting"],
-				"moves": [["Tera Blast"], ["Tri Attack"], ["Shadow Ball"], ["Agility"]]
+				"moves": [["Protect"], ["Tri Attack"], ["Shadow Ball"], ["Agility"]]
 			}]
 		},
 		"registeel": {
@@ -5443,7 +5443,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest", "Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Hyper Voice"], ["Psyshock"], ["Shadow Ball"], ["Tera Blast"]]
+				"moves": [["Hyper Voice"], ["Psyshock"], ["Shadow Ball"], ["Protect"]]
 			}, {
 				"species": "Sylveon",
 				"weight": 50,
@@ -5696,7 +5696,7 @@
 				"evs": {"atk": 252, "spd": 4, "spe": 252},
 				"nature": ["Jolly"],
 				"teraType": ["Ground"],
-				"moves": [["Knock Off"], ["Bulk Up"], ["Acrobatics"], ["Tera Blast"]]
+				"moves": [["Knock Off"], ["Bulk Up"], ["Acrobatics"], ["Protect"]]
 			}, {
 				"species": "Tornadus",
 				"weight": 10,
@@ -5728,7 +5728,7 @@
 				"evs": {"atk": 252, "spd": 4, "spe": 252},
 				"nature": ["Jolly"],
 				"teraType": ["Ghost", "Fire"],
-				"moves": [["Bullet Seed"], ["Headlong Rush", "Earthquake"], ["Tera Blast"], ["Shell Smash"]]
+				"moves": [["Bullet Seed"], ["Headlong Rush", "Earthquake"], ["Protect"], ["Shell Smash"]]
 			}]
 		},
 		"uxie": {
@@ -5814,7 +5814,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Ground"],
-				"moves": [["Moonblast"], ["Psychic"], ["Tera Blast"], ["Trick"]]
+				"moves": [["Moonblast"], ["Psychic"], ["Protect"], ["Trick"]]
 			}, {
 				"species": "Florges",
 				"wantsTera": true,
@@ -5825,7 +5825,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Bold"],
 				"teraType": ["Ground"],
-				"moves": [["Moonblast"], ["Calm Mind"], ["Tera Blast"], ["Synthesis"]]
+				"moves": [["Moonblast"], ["Calm Mind"], ["Protect"], ["Synthesis"]]
 			}, {
 				"species": "Florges",
 				"weight": 20,
@@ -5985,7 +5985,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Fighting"],
-				"moves": [["Tera Blast"], ["Shadow Ball"], ["Substitute"], ["Calm Mind"]]
+				"moves": [["Protect"], ["Shadow Ball"], ["Substitute"], ["Calm Mind"]]
 			}]
 		},
 		"orthworm": {
@@ -6032,7 +6032,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Fairy"],
-				"moves": [["Calm Mind"], ["Thunderbolt"], ["Tera Blast"], ["Volt Switch"]]
+				"moves": [["Calm Mind"], ["Thunderbolt"], ["Protect"], ["Volt Switch"]]
 			}, {
 				"species": "Raikou",
 				"weight": 20,
@@ -6063,7 +6063,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Fairy"],
-				"moves": [["Calm Mind"], ["Thunderbolt"], ["Tera Blast"], ["Substitute"]]
+				"moves": [["Calm Mind"], ["Thunderbolt"], ["Protect"], ["Substitute"]]
 			}, {
 				"species": "Raikou",
 				"weight": 20,
@@ -6233,7 +6233,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Moonblast"], ["Tera Blast"], ["Synthesis"], ["Trick"]]
+				"moves": [["Moonblast"], ["Protect"], ["Synthesis"], ["Trick"]]
 			}, {
 				"species": "Florges",
 				"wantsTera": true,
@@ -6244,7 +6244,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Ground"],
-				"moves": [["Moonblast"], ["Trick"], ["Tera Blast"], ["Synthesis", "Psychic Noise"]]
+				"moves": [["Moonblast"], ["Trick"], ["Protect"], ["Synthesis", "Psychic Noise"]]
 			}, {
 				"species": "Florges",
 				"wantsTera": true,
@@ -6255,7 +6255,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Modest"],
 				"teraType": ["Ground"],
-				"moves": [["Moonblast"], ["Calm Mind"], ["Tera Blast"], ["Synthesis"]]
+				"moves": [["Moonblast"], ["Calm Mind"], ["Protect"], ["Synthesis"]]
 			}, {
 				"species": "Florges",
 				"weight": 10,
@@ -6476,7 +6476,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Fire Blast"], ["Sludge Bomb"], ["Nasty Plot"], ["Tera Blast"]]
+				"moves": [["Fire Blast"], ["Sludge Bomb"], ["Nasty Plot"], ["Protect"]]
 			}, {
 				"species": "Salazzle",
 				"weight": 25,
@@ -6911,7 +6911,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Fire"],
-				"moves": [["Volt Switch"], ["Giga Drain", "Leaf Storm"], ["Thunderbolt"], ["Tera Blast"]]
+				"moves": [["Volt Switch"], ["Giga Drain", "Leaf Storm"], ["Thunderbolt"], ["Protect"]]
 			}, {
 				"species": "Electrode-Hisui",
 				"weight": 60,
@@ -6936,7 +6936,7 @@
 				"ivs": {"atk": 0},
 				"nature": ["Timid"],
 				"teraType": ["Ground"],
-				"moves": [["Quiver Dance"], ["Ice Beam"], ["Tera Blast"], ["Giga Drain", "Bug Buzz"]]
+				"moves": [["Quiver Dance"], ["Ice Beam"], ["Protect"], ["Giga Drain", "Bug Buzz"]]
 			}, {
 				"species": "Frosmoth",
 				"weight": 50,

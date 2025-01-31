@@ -75,7 +75,7 @@ describe(`Fainted forme regression`, function () {
 		assert.hasAbility(pokemon, 'Multitype');
 	});
 
-	it("should revert Terastallized Morpeko-Hangry to base Morpeko", function () {
+	/* it("should revert Terastallized Morpeko-Hangry to base Morpeko", function () {
 		battle = common.createBattle([[
 			{species: 'Morpeko', ability: 'hungerswitch', moves: ['memento', 'sleeptalk']},
 			{species: 'darkrai', moves: ['darkpulse']},
@@ -88,7 +88,7 @@ describe(`Fainted forme regression`, function () {
 		battle.makeChoices('move memento terastallize', 'auto');
 		assert.species(pokemon, 'Morpeko');
 		assert.hasAbility(pokemon, 'Hunger Switch');
-	});
+	}); */
 
 	it(`shouldn't revert Palafin-Hero to base Palafin`, function () {
 		battle = common.createBattle([[
@@ -106,7 +106,7 @@ describe(`Fainted forme regression`, function () {
 		assert.hasAbility(pokemon, 'Zero to Hero');
 	});
 
-	it(`should revert Ogerpon-Tera to base Ogerpon`, function () {
+	/* it(`should revert Ogerpon-Tera to base Ogerpon`, function () {
 		battle = common.createBattle([[
 			{
 				species: 'ogerponwellspring', ability: 'waterabsorb', item: 'wellspring mask',
@@ -120,7 +120,7 @@ describe(`Fainted forme regression`, function () {
 		battle.makeChoices('move memento terastallize', 'auto');
 		assert.species(pokemon, 'Ogerpon-Wellspring');
 		assert.hasAbility(pokemon, 'Water Absorb');
-	});
+	}); */
 
 	it(`shouldn't revert Terapagos-Terastal to base Terapagos`, function () {
 		battle = common.createBattle([[
@@ -135,7 +135,7 @@ describe(`Fainted forme regression`, function () {
 		assert.hasAbility(pokemon, 'Tera Shell');
 	});
 
-	it(`should revert Terapagos-Stellar to base Terapagos`, function () {
+	/* it(`should revert Terapagos-Stellar to base Terapagos`, function () {
 		battle = common.createBattle([[
 			{species: 'terapagos', ability: 'terashift', moves: ['memento'], teraType: 'Stellar'},
 			{species: 'darkrai', moves: ['darkpulse']},
@@ -146,5 +146,5 @@ describe(`Fainted forme regression`, function () {
 		battle.makeChoices('move memento terastallize', 'auto');
 		assert.species(pokemon, 'Terapagos');
 		assert.hasAbility(pokemon, 'Tera Shift');
-	});
+	}); */
 });

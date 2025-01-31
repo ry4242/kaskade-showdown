@@ -813,7 +813,7 @@
             {
                 "role": "Wallbreaker",
                 "movepool": ["dracometeor", "flamethrower", "gigadrain", "leafstorm"],
-                "abilities": ["Frisk"]
+                "abilities": ["Harvest"]
             },
             {
                 "role": "Fast Attacker",
@@ -1149,7 +1149,7 @@
             {
                 "role": "Fast Support",
                 "movepool": ["aquajet", "knockoff", "liquidation", "rapidspin", "stoneedge"],
-                "abilities": ["Battle Armor", "Swift Swim"]
+                "abilities": ["Swift Swim", "Weak Armor"]
             },
             {
                 "role": "Setup Sweeper",

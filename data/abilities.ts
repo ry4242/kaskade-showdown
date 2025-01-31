@@ -6080,7 +6080,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {},
-		name: "Arena Bloom",
+		name: "Arena Curse",
 		rating: 4,
 		num: -62,
 	},
@@ -6633,6 +6633,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				}
 			}
 		},
+		// },
 		flags: {},
 		name: "Indomitable",
 		rating: 3,

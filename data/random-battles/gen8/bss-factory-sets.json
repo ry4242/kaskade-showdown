@@ -1487,7 +1487,7 @@
       {
         "species": "Togekiss",
         "item": ["Scope Lens"],
-        "ability": ["Super Luck"],
+        "ability": ["Serene Grace"],
         "evs": {"hp": 4, "spa": 252, "spe": 252},
         "nature": "Timid",
         "ivs": {"atk": 0},
@@ -1674,7 +1674,7 @@
       {
         "species": "Lucario",
         "item": ["Focus Sash"],
-        "ability": ["Inner Focus"],
+        "ability": ["Steadfast"],
         "evs": {"atk": 252, "spd": 4, "spe": 252},
         "nature": "Jolly",
         "moves": [["Close Combat"], ["Meteor Mash"], ["Extreme Speed"], ["Ice Punch", "Counter"]]
@@ -1741,7 +1741,7 @@
       {
         "species": "Corviknight",
         "item": ["Maranga Berry"],
-        "ability": ["Pressure"],
+        "ability": ["Unnerve"],
         "evs": {"hp": 252, "def": 4, "spd": 252},
         "nature": "Careful",
         "moves": [["Brave Bird"], ["Taunt", "Iron Head"], ["Bulk Up"], ["Roost"]]
@@ -1949,7 +1949,7 @@
       {
         "species": "Weavile",
         "item": ["Choice Band"],
-        "ability": ["Pressure"],
+        "ability": ["Pickpocket"],
         "evs": {"atk": 252, "spd": 4, "spe": 252},
         "nature": "Jolly",
         "moves": [["Triple Axel"], ["Ice Shard"], ["Throat Chop"], ["Poison Jab"]]
@@ -2236,7 +2236,7 @@
       {
         "species": "Chandelure",
         "item": ["Focus Sash"],
-        "ability": ["Infiltrator"],
+        "ability": ["Flash Fire"],
         "evs": {"hp": 252, "spa": 252, "spd": 4},
         "nature": "Quiet",
         "ivs": {"atk": 0, "spe": 0},
@@ -2245,7 +2245,7 @@
       {
         "species": "Chandelure",
         "item": ["Choice Scarf"],
-        "ability": ["Infiltrator"],
+        "ability": ["Flash Fire"],
         "evs": {"spa": 252, "spd": 4, "spe": 252},
         "nature": "Timid",
         "ivs": {"atk": 0},

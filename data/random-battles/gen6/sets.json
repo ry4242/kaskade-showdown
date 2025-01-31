@@ -959,7 +959,7 @@
             {
                 "role": "Fast Support",
                 "movepool": ["aquajet", "knockoff", "rapidspin", "stoneedge", "waterfall"],
-                "abilities": ["Battle Armor", "Swift Swim"]
+                "abilities": ["Swift Swim", "Weak Armor"]
             },
             {
                 "role": "Setup Sweeper",

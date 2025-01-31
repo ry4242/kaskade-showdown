@@ -44,7 +44,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Hydro Pump", "Ice Beam", "Shell Smash", "Tera Blast"],
+                "movepool": ["Hydro Pump", "Ice Beam", "Protect", "Shell Smash"],
                 "abilities": ["Torrent"],
                 "teraTypes": ["Electric", "Grass"]
             }
@@ -95,7 +95,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Encore", "Focus Blast", "Nasty Plot", "Surf", "Tera Blast", "Thunderbolt"],
+                "movepool": ["Encore", "Focus Blast", "Nasty Plot", "Surf", "Protect", "Thunderbolt"],
                 "abilities": ["Lightning Rod"],
                 "teraTypes": ["Ice"]
             }
@@ -280,7 +280,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Dark Pulse", "Nasty Plot", "Tera Blast", "Thunderbolt"],
+                "movepool": ["Dark Pulse", "Nasty Plot", "Protect", "Thunderbolt"],
                 "abilities": ["Fur Coat"],
                 "teraTypes": ["Fairy", "Poison"]
             },
@@ -603,7 +603,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Taunt", "Tera Blast", "Thunderbolt", "Volt Switch"],
+                "movepool": ["Taunt", "Protect", "Thunderbolt", "Volt Switch"],
                 "abilities": ["Aftermath", "Soundproof", "Static"],
                 "teraTypes": ["Ice"]
             }
@@ -835,7 +835,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Dragon Dance", "Earthquake", "Tera Blast", "Waterfall"],
+                "movepool": ["Dragon Dance", "Earthquake", "Protect", "Waterfall"],
                 "abilities": ["Intimidate", "Moxie"],
                 "teraTypes": ["Flying"]
             }
@@ -909,7 +909,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Calm Mind", "Substitute", "Tera Blast", "Thunderbolt"],
+                "movepool": ["Calm Mind", "Substitute", "Protect", "Thunderbolt"],
                 "abilities": ["Volt Absorb"],
                 "teraTypes": ["Ice"]
             }
@@ -1026,7 +1026,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Dragon Dance", "Earthquake", "Outrage", "Tera Blast"],
+                "movepool": ["Dragon Dance", "Earthquake", "Outrage", "Protect"],
                 "abilities": ["Multiscale"],
                 "teraTypes": ["Flying"]
             }
@@ -1218,7 +1218,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Giga Drain", "Quiver Dance", "Strength Sap", "Tera Blast"],
+                "movepool": ["Giga Drain", "Quiver Dance", "Strength Sap", "Protect"],
                 "abilities": ["Chlorophyll"],
                 "teraTypes": ["Fire", "Rock"]
             }
@@ -1680,7 +1680,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Recover", "Shadow Ball", "Tera Blast", "Thunder Wave"],
+                "movepool": ["Recover", "Shadow Ball", "Protect", "Thunder Wave"],
                 "abilities": ["Download"],
                 "teraTypes": ["Fairy", "Fighting"]
             }
@@ -2846,7 +2846,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Nasty Plot", "Shadow Ball", "Substitute", "Tera Blast"],
+                "movepool": ["Nasty Plot", "Shadow Ball", "Substitute", "Protect"],
                 "abilities": ["Levitate"],
                 "teraTypes": ["Fighting"]
             }
@@ -3111,7 +3111,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Air Slash", "Bug Buzz", "Protect", "Tera Blast"],
+                "movepool": ["Air Slash", "Bug Buzz", "Protect", "Protect"],
                 "abilities": ["Speed Boost"],
                 "teraTypes": ["Ground"]
             }
@@ -3178,7 +3178,7 @@
         "sets": [
             {
                 "role": "Tera Blast user",
-                "movepool": ["Agility", "Nasty Plot", "Shadow Ball", "Tera Blast"],
+                "movepool": ["Agility", "Nasty Plot", "Shadow Ball", "Protect"],
                 "abilities": ["Adaptability"],
                 "teraTypes": ["Fighting"]
             },
@@ -3864,7 +3864,7 @@
         "sets": [
             {
                 "role": "Tera Blast user",
-                "movepool": ["Glare", "Leaf Storm", "Leech Seed", "Substitute", "Synthesis", "Tera Blast"],
+                "movepool": ["Glare", "Leaf Storm", "Leech Seed", "Substitute", "Synthesis", "Protect"],
                 "abilities": ["Contrary"],
                 "teraTypes": ["Fire", "Rock"]
             },
@@ -4016,7 +4016,7 @@
         "sets": [
             {
                 "role": "Tera Blast user",
-                "movepool": ["Giga Drain", "Quiver Dance", "Sleep Powder", "Tera Blast"],
+                "movepool": ["Giga Drain", "Quiver Dance", "Sleep Powder", "Protect"],
                 "abilities": ["Chlorophyll"],
                 "teraTypes": ["Fire", "Rock"]
             },
@@ -4325,7 +4325,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Ice Beam", "Rapid Spin", "Recover", "Tera Blast"],
+                "movepool": ["Ice Beam", "Rapid Spin", "Recover", "Protect"],
                 "abilities": ["Levitate"],
                 "teraTypes": ["Electric"]
             }
@@ -4438,7 +4438,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Bug Buzz", "Fiery Dance", "Fire Blast", "Giga Drain", "Quiver Dance", "Tera Blast"],
+                "movepool": ["Bug Buzz", "Fiery Dance", "Fire Blast", "Giga Drain", "Quiver Dance", "Protect"],
                 "abilities": ["Flame Body", "Swarm"],
                 "teraTypes": ["Ground", "Water"]
             }
@@ -4534,7 +4534,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Focus Blast", "Nasty Plot", "Tera Blast", "Thunderbolt"],
+                "movepool": ["Focus Blast", "Nasty Plot", "Protect", "Thunderbolt"],
                 "abilities": ["Defiant"],
                 "teraTypes": ["Flying"]
             },
@@ -4557,7 +4557,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Focus Blast", "Nasty Plot", "Tera Blast", "Thunderbolt"],
+                "movepool": ["Focus Blast", "Nasty Plot", "Protect", "Thunderbolt"],
                 "abilities": ["Volt Absorb"],
                 "teraTypes": ["Flying"]
             }
@@ -4618,7 +4618,7 @@
         "sets": [
             {
                 "role": "Tera Blast user",
-                "movepool": ["Dragon Dance", "Icicle Spear", "Scale Shot", "Tera Blast"],
+                "movepool": ["Dragon Dance", "Icicle Spear", "Scale Shot", "Protect"],
                 "abilities": ["Pressure"],
                 "teraTypes": ["Ground"]
             },
@@ -4658,7 +4658,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Dragon Dance", "Icicle Spear", "Scale Shot", "Tera Blast"],
+                "movepool": ["Dragon Dance", "Icicle Spear", "Scale Shot", "Protect"],
                 "abilities": ["Teravolt"],
                 "teraTypes": ["Ground"]
             }
@@ -4765,7 +4765,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Brave Bird", "Flare Blitz", "Swords Dance", "Tera Blast"],
+                "movepool": ["Brave Bird", "Flare Blitz", "Swords Dance", "Protect"],
                 "abilities": ["Flame Body"],
                 "teraTypes": ["Ground"]
             }
@@ -4782,7 +4782,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Hurricane", "Quiver Dance", "Sleep Powder", "Tera Blast"],
+                "movepool": ["Hurricane", "Quiver Dance", "Sleep Powder", "Protect"],
                 "abilities": ["Compound Eyes"],
                 "teraTypes": ["Ground"]
             }
@@ -4810,7 +4810,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Calm Mind", "Moonblast", "Synthesis", "Tera Blast"],
+                "movepool": ["Calm Mind", "Moonblast", "Synthesis", "Protect"],
                 "abilities": ["Flower Veil"],
                 "teraTypes": ["Ground"]
             }
@@ -5274,7 +5274,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Bug Buzz", "Moonblast", "Quiver Dance", "Tera Blast"],
+                "movepool": ["Bug Buzz", "Moonblast", "Quiver Dance", "Protect"],
                 "abilities": ["Shield Dust"],
                 "teraTypes": ["Ground"]
             }
@@ -5374,7 +5374,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Fire Blast", "Nasty Plot", "Sludge Wave", "Tera Blast"],
+                "movepool": ["Fire Blast", "Nasty Plot", "Sludge Wave", "Protect"],
                 "abilities": ["Corrosion"],
                 "teraTypes": ["Grass"]
             }
@@ -5402,7 +5402,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Calm Mind", "Draining Kiss", "Encore", "Giga Drain", "Synthesis", "Taunt", "Tera Blast"],
+                "movepool": ["Calm Mind", "Draining Kiss", "Encore", "Giga Drain", "Synthesis", "Taunt", "Protect"],
                 "abilities": ["Triage"],
                 "teraTypes": ["Ground"]
             }
@@ -5628,7 +5628,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Fleur Cannon", "Iron Head", "Shift Gear", "Tera Blast"],
+                "movepool": ["Fleur Cannon", "Iron Head", "Shift Gear", "Protect"],
                 "abilities": ["Soul-Heart"],
                 "teraTypes": ["Ground"]
             }
@@ -5752,7 +5752,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Dragon Dance", "Grav Apple", "Outrage", "Tera Blast"],
+                "movepool": ["Dragon Dance", "Grav Apple", "Outrage", "Protect"],
                 "abilities": ["Hustle"],
                 "teraTypes": ["Fire"]
             }
@@ -5836,7 +5836,7 @@
         "sets": [
             {
                 "role": "Tera Blast user",
-                "movepool": ["Shadow Ball", "Shell Smash", "Stored Power", "Strength Sap", "Tera Blast"],
+                "movepool": ["Shadow Ball", "Shell Smash", "Stored Power", "Strength Sap", "Protect"],
                 "abilities": ["Cursed Body"],
                 "teraTypes": ["Fighting"]
             },
@@ -5910,7 +5910,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Alluring Voice", "Calm Mind", "Recover", "Tera Blast"],
+                "movepool": ["Alluring Voice", "Calm Mind", "Recover", "Protect"],
                 "abilities": ["Aroma Veil"],
                 "teraTypes": ["Ground"]
             }
@@ -5949,7 +5949,7 @@
         "sets": [
             {
                 "role": "Tera Blast user",
-                "movepool": ["Bug Buzz", "Giga Drain", "Ice Beam", "Quiver Dance", "Tera Blast"],
+                "movepool": ["Bug Buzz", "Giga Drain", "Ice Beam", "Quiver Dance", "Protect"],
                 "abilities": ["Ice Scales"],
                 "teraTypes": ["Ground"]
             },
@@ -5983,7 +5983,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Belly Drum", "Ice Spinner", "Liquidation", "Substitute", "Tera Blast"],
+                "movepool": ["Belly Drum", "Ice Spinner", "Liquidation", "Substitute", "Protect"],
                 "abilities": ["Ice Face"],
                 "teraTypes": ["Electric", "Ground"]
             }
@@ -6067,7 +6067,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Dragon Dance", "Dragon Darts", "Fire Blast", "Tera Blast"],
+                "movepool": ["Dragon Dance", "Dragon Darts", "Fire Blast", "Protect"],
                 "abilities": ["Clear Body"],
                 "teraTypes": ["Ghost"]
             },
@@ -6202,7 +6202,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Rapid Spin", "Tera Blast", "Thunderbolt", "Volt Switch"],
+                "movepool": ["Rapid Spin", "Protect", "Thunderbolt", "Volt Switch"],
                 "abilities": ["Transistor"],
                 "teraTypes": ["Ice"]
             }
@@ -6219,7 +6219,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Dragon Claw", "Dragon Dance", "Earthquake", "Tera Blast"],
+                "movepool": ["Dragon Claw", "Dragon Dance", "Earthquake", "Protect"],
                 "abilities": ["Dragon's Maw"],
                 "teraTypes": ["Steel"]
             },
@@ -6253,7 +6253,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Nasty Plot", "Shadow Ball", "Substitute", "Tera Blast", "Will-O-Wisp"],
+                "movepool": ["Nasty Plot", "Shadow Ball", "Substitute", "Protect", "Will-O-Wisp"],
                 "abilities": ["Grim Neigh"],
                 "teraTypes": ["Fighting"]
             }
@@ -7538,7 +7538,7 @@
             },
             {
                 "role": "Tera Blast user",
-                "movepool": ["Gunk Shot", "Play Rough", "Swords Dance", "Tera Blast"],
+                "movepool": ["Gunk Shot", "Play Rough", "Swords Dance", "Protect"],
                 "abilities": ["Toxic Chain"],
                 "teraTypes": ["Ground"]
             }

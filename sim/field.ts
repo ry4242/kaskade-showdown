@@ -570,9 +570,9 @@ export class Field {
 			const recentWeather = this.activeWeathers[i - 1];
 			if (!exclude?.includes(recentWeather) &&
 				(pokemon && (recentWeather === pokemon.effectiveClimateWeather() ||
-							 recentWeather === pokemon.effectiveIrritantWeather() ||
-							 recentWeather === pokemon.effectiveEnergyWeather() ||
-							 recentWeather === pokemon.effectiveClearingWeather() ||
+							recentWeather === pokemon.effectiveIrritantWeather() ||
+							recentWeather === pokemon.effectiveEnergyWeather() ||
+							recentWeather === pokemon.effectiveClearingWeather() ||
 							recentWeather === pokemon.effectiveCataclysmWeather()))) {
 				return recentWeather;
 			}

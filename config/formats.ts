@@ -558,7 +558,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 9] UU'],
+		ruleset: ['[Gen 9] UU OLD'],
 		banlist: ['UU', 'RUBL', 'Light Clay'],
 	},
 	{
@@ -567,7 +567,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 9] RU'],
+		ruleset: ['[Gen 9] RU OLD'],
 		banlist: ['RU', 'NUBL', 'Drought', 'Quick Claw'],
 	},
 	{
@@ -1200,7 +1200,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Mix and Mega OLD",
+		name: "[Gen 9] Mix and Mega",
 		desc: `Mega evolve any Pok&eacute;mon with any mega stone, or transform them with Primal orbs, Origin orbs, and Rusted items with no limit. Mega and Primal boosts based on form changes from gen 7.`,
 		mod: 'mixandmega',
 		ruleset: ['Standard OMs', 'Evasion Items Clause', 'Evasion Abilities Clause', 'Sleep Moves Clause', 'Terastal Clause'],

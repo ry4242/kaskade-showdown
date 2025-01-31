@@ -867,12 +867,12 @@
             {
                 "role": "Spinner",
                 "movepool": ["aquajet", "rapidspin", "stealthrock", "stoneedge", "superpower", "waterfall"],
-                "abilities": ["Battle Armor", "Swift Swim"]
+                "abilities": ["Swift Swim", "Weak Armor"]
             },
             {
                 "role": "Fast Attacker",
                 "movepool": ["aquajet", "stealthrock", "stoneedge", "superpower", "swordsdance", "waterfall"],
-                "abilities": ["Battle Armor", "Swift Swim"]
+                "abilities": ["Swift Swim", "Weak Armor"]
             }
         ]
     },
