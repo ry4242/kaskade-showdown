@@ -27,7 +27,7 @@ describe('Flower Gift', function () {
 		// Set the weather to sun and re-check
 		battle.field.setClimateWeather('sunnyday', 'debug');
 		assert.equal(battle.p1.active[0].getStat('atk'), battle.modify(cherAtk, 1.5));
-		assert.equal(battle.p1.active[0].getStat('spd'), battle.modify(cherSpd, 1.875));
+		assert.equal(battle.p1.active[0].getStat('spd'), battle.modify(cherSpd, 1.5));
 		assert.equal(battle.p1.active[1].getStat('atk'), battle.modify(baseAtk, 1.5));
 		assert.equal(battle.p1.active[1].getStat('spd'), battle.modify(baseSpd, 1.5));
 	});

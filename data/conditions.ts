@@ -616,7 +616,9 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onModifyDamage(damage, attacker, defender, move) {
 			let petrichorActive = false;
 			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) petrichorActive = true;
+				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) {
+					petrichorActive = true;
+				}
 			}
 			if (!petrichorActive) return;
 			if (defender.hasItem('utilityumbrella') || defender.hasAbility('droughtproof')) return;
@@ -627,8 +629,10 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifyPriority(priority, pokemon, target, move) {
 			let petrichorActive = false;
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) petrichorActive = true;
+			for (const allActive of this.getAllActive()) {
+				if (allActive.hasAbility('petrichor') && allActive.effectiveClimateWeather() === this.field.climateWeather) {
+					petrichorActive = true;
+				}
 			}
 			if (!petrichorActive) return;
 			if (pokemon.hasItem('utilityumbrella')) return;
@@ -639,8 +643,10 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onTryHit(target, source, move) {
 			let petrichorActive = false;
-			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) petrichorActive = true;
+			for (const allActive of this.getAllActive()) {
+				if (allActive.hasAbility('petrichor') && allActive.effectiveClimateWeather() === this.field.climateWeather) {
+					petrichorActive = true;
+				}
 			}
 			if (!petrichorActive) return;
 			if (target.hasItem('utilityumbrella')) return;
@@ -775,7 +781,9 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onClimateWeatherModifyDamage(damage, attacker, defender, move) {
 			let petrichorActive = false;
 			for (const pokemon of this.getAllActive()) {
-				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) petrichorActive = true;
+				if (pokemon.hasAbility('petrichor') && pokemon.effectiveClimateWeather() === this.field.climateWeather) {
+					petrichorActive = true;
+				}
 			}
 			if (!petrichorActive) return;
 			if (defender.hasItem('utilityumbrella')) return;
@@ -882,7 +890,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (pokemon.hasType('Normal') && this.field.climateWeatherState.boosted) {
 				pokemon.setType('???');
 				pokemon.fogType = true;
-				this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.")
+				this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.");
 			}
 		},
 		onSwitchOut(pokemon) {
@@ -894,7 +902,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (pokemon.hasType('Normal') && this.field.climateWeatherState.boosted) {
 				pokemon.setType('???');
 				pokemon.fogType = true;
-				this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.")
+				this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.");
 			}
 		},
 		onFieldStart(field, source, effect) {
@@ -913,7 +921,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 					if (pokemon.hasType('Normal')) {
 						pokemon.setType('???');
 						pokemon.fogType = true;
-						this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.")
+						this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.");
 					}
 				}
 			}
@@ -1192,12 +1200,13 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onBeforeResidual(target) {
 			if (target.hasItem('safetygoggles') || target.hasAbility(['overcoat', 'bubblehelm', 'carboncapture'])) return;
-			if (this.field.irritantWeatherState.duration <= 1) return;
+			if (this.field.irritantWeatherState.duration && this.field.irritantWeatherState.duration <= 1) return;
 			if (target.status === 'psn' && this.field.irritantWeatherState.boosted) {
 				target.clearStatus();
 				target.trySetStatus('tox', null);
 			} else {
-				if (target.getStatus() != null && !target.hasType('Steel') && !target.hasType('Poison') && !['psn', 'tox', 'blt'].includes(target.status) && this.field.irritantWeatherState.boosted) {
+				if (target.getStatus() !== null && !target.hasType('Steel') && !target.hasType('Poison') &&
+				!['psn', 'tox', 'blt'].includes(target.status) && this.field.irritantWeatherState.boosted) {
 					target.clearStatus();
 				}
 				target.trySetStatus('psn');
@@ -1512,7 +1521,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 
 			// Lightning Strike is run here so it only triggers once per turn
 			// If run in onEnergyWeather() it runs once for each active pokemon
-			let validTargets = [];
+			const validTargets = [];
 			let lightningRodPresent = false;
 			let thunderArmorPresent = false;
 			for (const target of this.getAllActive()) {
@@ -1714,7 +1723,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		effectType: 'CataclysmWeather',
 		duration: 0,
 		onCataclysmWeatherModifyDamage(damage, attacker, defender, move) {
-			let damageModifier = 1
+			let damageModifier = 1;
 			if (attacker.baseSpecies.tags.includes('Ultra Beast')) {
 				damageModifier *= 1.25;
 				this.debug('Cataclysmic Light damage buff');
