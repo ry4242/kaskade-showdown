@@ -6626,6 +6626,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	indomitable: { // tested, works as intended
 		onDamage(damage, target, source, effect) {
+			if (!this.field.energyWeather) return;
 			if (['dragonforce'].includes(source.effectiveEnergyWeather())) {
 				if (effect.effectType !== 'Move') {
 					if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
