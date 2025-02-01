@@ -23128,7 +23128,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Normal",
 	},
-	/* frostburnclaw: { // incomplete, doesnt switch types (FUCK YOU) pulls fuckton of errors
+	frostburnclaw: { // tested, works as intended
 		num: -97,
 		accuracy: 95,
 		basePower: 80,
@@ -23139,17 +23139,16 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		thawsTarget: true,
 		onModifyType(move, pokemon, target) {
-			if (move.type === 'Ice' && pokemon.moveLastTurnResult === true) {
-				return move.type = 'Fire';
-			}
-			if (move.type === 'Fire' && pokemon.moveLastTurnResult === true) {
-				return move.type = 'Ice';
+			if (this.turn % 2 === 1) {
+				move.type = 'Fire';
+			} else {
+				move.type = 'Ice';
 			}
 		},
 		secondary: null,
 		target: "normal",
 		type: "Ice",
-	}, */
+	},
 	frostification: { // untested
 		num: -99,
 		accuracy: true,
