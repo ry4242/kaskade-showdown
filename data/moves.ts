@@ -22365,15 +22365,53 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 
 	// swse
 
-	amazeassault: { // incomplete
+	amazeassault: { // tested, works as intended
 		num: -107,
 		accuracy: 100,
 		basePower: 90,
+		basePowerCallback(pokemon, target, move) {
+			let bp = move.basePower;
+			if (pokemon.effectiveClimateWeather() && pokemon.effectiveClimateWeather() != '') {
+				bp += 15;
+			}
+			if (pokemon.effectiveIrritantWeather() && pokemon.effectiveIrritantWeather() != '') {
+				bp += 15;
+			}
+			if (pokemon.effectiveEnergyWeather() && pokemon.effectiveEnergyWeather() != '') {
+				bp += 15;
+			}
+			if (pokemon.effectiveClearingWeather() && pokemon.effectiveClearingWeather() != '') {
+				bp += 15;
+			}
+			if (pokemon.effectiveCataclysmWeather() && pokemon.effectiveCataclysmWeather() != '') {
+				bp += 15;
+			}
+			this.debug('BP: ' + bp);
+			return bp;
+		},
 		category: "Special",
 		name: "Amaze-Assault",
 		pp: 10,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
+		onHit(target, pokemon, move) {
+			if (pokemon.effectiveClimateWeather() && pokemon.effectiveClimateWeather() != '') {
+				this.field.climateWeatherState.duration +=1;
+				this.add('-climateWeather', pokemon.effectiveClimateWeather(), '[from] move: Amaze-Assault');
+			}
+			if (pokemon.effectiveIrritantWeather() && pokemon.effectiveIrritantWeather() != '') {
+				this.field.irritantWeatherState.duration +=1;
+				this.add('-irritantWeather', pokemon.effectiveIrritantWeather(), '[from] move: Amaze-Assault');
+			}
+			if (pokemon.effectiveEnergyWeather() && pokemon.effectiveEnergyWeather() != '') {
+				this.field.energyWeatherState.duration +=1;
+				this.add('-energyWeather', pokemon.effectiveEnergyWeather(), '[from] move: Amaze-Assault');
+			}
+			if (pokemon.effectiveClearingWeather() && pokemon.effectiveClearingWeather() != '') {
+				this.field.clearingWeatherState.duration +=1;
+				this.add('-clearingWeather', pokemon.effectiveClearingWeather(), '[from] move: Amaze-Assault');
+			}
+		},
 		secondary: null,
 		target: "normal",
 		type: "Steel",
@@ -23846,7 +23884,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Grass",
 	},
-	possess: {
+	possess: { // tested, works as intended
 		num: -110,
 		accuracy: 100,
 		basePower: 35,
