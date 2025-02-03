@@ -22807,7 +22807,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Dragon",
 	},
-	dragonsdice: { // incomplete. tested, everything except OHKO works
+	dragonsdice: { // tested, works as intended
 		num: -92,
 		accuracy: 100,
 		basePower: 0,
@@ -22897,7 +22897,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				bp = 160;
 			} else {
 				this.debug('OHKO');
-				this.effectState.rolled20 = true;
+				move.ohko = true;
 				this.hint("Nat 20!!!");
 				bp = 0;
 			}
@@ -22908,12 +22908,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 20,
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
-		/* onModifyMove(move) {
-			if (this.effectState.rolled20 = true) {
-				this.effectState.rolled20 = false;
-				move.ohko = true;
-			}
-		}, */
+		ohko: false,
 		secondary: null,
 		target: "normal",
 		type: "Dragon",

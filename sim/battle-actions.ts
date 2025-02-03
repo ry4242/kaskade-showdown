@@ -708,6 +708,7 @@ export class BattleActions {
 					if (move.ohko === 'Ice' && this.battle.gen >= 7 && !pokemon.hasType('Ice')) {
 						accuracy = 20;
 					}
+					if (move.id === 'dragonsdice') accuracy = 100;
 					if (!target.volatiles['dynamax'] && pokemon.level >= target.level &&
 						(move.ohko === true || !target.hasType(move.ohko))) {
 						accuracy += (pokemon.level - target.level);
@@ -1629,8 +1630,7 @@ export class BattleActions {
 				return false;
 			}
 		}
-
-		if (move.ohko) return target.maxhp;
+		
 		if (move.damageCallback) return move.damageCallback.call(this.battle, source, target);
 		if (move.damage === 'level') {
 			return source.level;
@@ -1644,6 +1644,7 @@ export class BattleActions {
 		if (move.basePowerCallback) {
 			basePower = move.basePowerCallback.call(this.battle, source, target, move);
 		}
+		if (move.ohko) return target.maxhp;
 		if (!basePower) return basePower === 0 ? undefined : basePower;
 		basePower = this.battle.clampIntRange(basePower, 1);
 
