@@ -5142,13 +5142,15 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		onBasePower(basePower, source) {
-			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+			if ((this.field.isTerrain('psychicterrain') && source.isGrounded()) ||
+				['daydream'].includes(source.effectiveEnergyWeather())) {
 				this.debug('terrain buff');
 				return this.chainModify(1.5);
 			}
 		},
 		onModifyMove(move, source, target) {
-			if (this.field.isTerrain('psychicterrain') && source.isGrounded()) {
+			if ((this.field.isTerrain('psychicterrain') && source.isGrounded()) ||
+				['daydream'].includes(source.effectiveEnergyWeather())) {
 				move.target = 'allAdjacentFoes';
 			}
 		},
@@ -7967,7 +7969,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {contact: 1, protect: 1, mirror: 1, metronome: 1},
 		onModifyPriority(priority, source, target, move) {
-			if (this.field.isTerrain('grassyterrain') && source.isGrounded()) {
+			if ((this.field.isTerrain('grassyterrain') && source.isGrounded()) ||
+				['pollinate'].includes(source.effectiveIrritantWeather())) {
 				return priority + 1;
 			}
 		},
@@ -12680,7 +12683,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		selfdestruct: "always",
 		onBasePower(basePower, source) {
-			if (this.field.isTerrain('mistyterrain') && source.isGrounded()) {
+			if ((this.field.isTerrain('mistyterrain') && source.isGrounded()) ||
+				['sprinkle'].includes(source.effectiveIrritantWeather())) {
 				this.debug('misty terrain boost');
 				return this.chainModify(1.5);
 			}
@@ -15860,7 +15864,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		accuracy: 100,
 		basePower: 70,
 		basePowerCallback(source, target, move) {
-			if (this.field.isTerrain('electricterrain') && target.isGrounded()) {
+			if ((this.field.isTerrain('electricterrain') && target.isGrounded()) ||
+				['supercell'].includes(source.effectiveEnergyWeather())) {
 				if (!source.isAlly(target)) this.hint(`${move.name}'s BP doubled on grounded target.`);
 				return move.basePower * 2;
 			}
@@ -17504,12 +17509,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		type: "Flying",
 		contestType: "Cool",
 	},
-	skydrop: {
+	skydrop: { // updated
 		num: 507,
 		accuracy: 100,
 		basePower: 70,
 		category: "Physical",
-		isNonstandard: "Past",
 		name: "Sky Drop",
 		pp: 10,
 		priority: 0,
@@ -17547,7 +17551,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				if (target.volatiles['substitute'] || target.isAlly(source)) {
 					return false;
 				}
-				if (target.getWeight() >= 2000) {
+				if (target.getWeight() >= 2000 && !['strongwinds'].includes(source.effectiveClearingWeather())) {
 					this.add('-fail', target, 'move: Sky Drop', '[heavy]');
 					return null;
 				}
@@ -20831,11 +20835,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 					target.trySetStatus('par', source);
 				} else if (result <= 5){
 					target.trySetStatus('frb', source);
-				} else if (result === 6 && ['sunnyday', 'desolateland'].includes(target.effectiveClimateWeather())) {
+				} else if (result === 6 && ['sunnyday', 'desolateland'].includes(source.effectiveClimateWeather())) {
 					target.trySetStatus('brn', source);
-				} else if (result === 7 && ['hail'].includes(target.effectiveClimateWeather())) {
+				} else if (result === 7 && ['hail'].includes(source.effectiveClimateWeather())) {
 					target.trySetStatus('frb', source);
-				} else if (result === 8 && ['supercell'].includes(target.effectiveEnergyWeather())) {
+				} else if (result === 8 && ['supercell'].includes(source.effectiveEnergyWeather())) {
 					target.trySetStatus('par', source);
 				}
 			},
