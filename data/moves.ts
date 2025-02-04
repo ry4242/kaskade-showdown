@@ -18677,7 +18677,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fairy",
 	},
-	stealthrock: { // TODO: might be complete?
+	stealthrock: { // updated
 		num: 446,
 		accuracy: true,
 		basePower: 0,
@@ -22623,7 +22623,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				return this.chainModify(1.5);
 			}
 		},
-		onHit(target, source, move) {
+		// old conduction effect
+		/* onHit(target, source, move) {
 			const result = this.random(2); // coin flip for status priority
 			let chance = 0;
 			if (move.hasSheerForce || target.hasAbility('Shield Dust') || target.hasItem('Covert Cloak')) return;
@@ -22649,6 +22650,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				if (['hail', 'snow'].includes(source.effectiveClimateWeather()) && this.random(5) <= chance) {
 					target.trySetStatus('frb');
 				}
+			}
+		},  */
+		onModifyMove(move, pokemon, target) {
+			if (['supercell'].includes(pokemon.effectiveEnergyWeather())) {
+				move.secondary = {chance: 20, status:'par'};
 			}
 		},
 		secondary: {}, // Boosted by Sheer Force
@@ -23304,6 +23310,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			}
 		},
 		slotCondition: 'heartshock',
+		// revive implemented in sim/battle-actions.ts
 		forceSwitch: true,
 		condition: {
 			duration: 1,
@@ -24391,7 +24398,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Fairy",
 	},
-	steelbarbs: { // untested
+	steelbarbs: { // tested, works as intended
 		num: -37,
 		accuracy: true,
 		basePower: 0,
