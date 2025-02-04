@@ -20812,7 +20812,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: {effect: 'heal'},
 		contestType: "Clever",
 	},
-	triattack: {
+	triattack: { // updated
 		num: 161,
 		accuracy: 100,
 		basePower: 80,
@@ -20822,15 +20822,21 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1},
 		secondary: {
-			chance: 20,
+			chance: 30,
 			onHit(target, source) {
-				const result = this.random(3);
-				if (result === 0) {
+				const result = this.random(9);
+				if (result <= 1) {
 					target.trySetStatus('brn', source);
-				} else if (result === 1) {
+				} else if (result <= 3) {
 					target.trySetStatus('par', source);
-				} else {
-					target.trySetStatus('frz', source);
+				} else if (result <= 5){
+					target.trySetStatus('frb', source);
+				} else if (result === 6 && ['sunnyday', 'desolateland'].includes(target.effectiveClimateWeather())) {
+					target.trySetStatus('brn', source);
+				} else if (result === 7 && ['hail'].includes(target.effectiveClimateWeather())) {
+					target.trySetStatus('frb', source);
+				} else if (result === 8 && ['supercell'].includes(target.effectiveEnergyWeather())) {
+					target.trySetStatus('par', source);
 				}
 			},
 		},
