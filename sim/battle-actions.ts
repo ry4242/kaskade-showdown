@@ -156,7 +156,28 @@ export class BattleActions {
 		return true;
 	}
 	dragIn(side: Side, pos: number) {
-		const pokemon = this.battle.getRandomSwitchable(side);
+		let pokemon;
+		if (side.slotConditions[pos]['heartshock']) {
+			const faintedPokemon = [];
+			for (const pokemonF of side.pokemon) {
+				if (pokemonF.fainted) {
+					faintedPokemon.push(pokemonF);
+				}
+			}
+			if (faintedPokemon) {
+				pokemon = this.battle.sample(faintedPokemon);
+				side.pokemonLeft++;
+				pokemon.fainted = false;
+				pokemon.faintQueued = false;
+				pokemon.subFainted = false;
+				pokemon.status = '';
+				pokemon.hp = 1; // Needed so hp functions works
+				pokemon.sethp(pokemon.maxhp / 2);
+				this.battle.add('-heal', pokemon, pokemon.getHealth, '[from] move: Heartshock');
+			}
+		} else {
+			pokemon = this.battle.getRandomSwitchable(side);
+		}
 		if (!pokemon || pokemon.isActive) return false;
 		const oldActive = side.active[pos];
 		if (!oldActive) throw new Error(`nothing to drag out`);
@@ -1397,7 +1418,8 @@ export class BattleActions {
 		damage: SpreadMoveDamage, targets: SpreadMoveTargets, source: Pokemon, move: ActiveMove
 	) {
 		for (const [i, target] of targets.entries()) {
-			if (target && target.hp > 0 && source.hp > 0 && this.battle.canSwitch(target.side)) {
+			if (target && target.hp > 0 && source.hp > 0 && 
+				(this.battle.canSwitch(target.side)|| target.side.slotConditions[target.position]['heartshock'])) {
 				const hitResult = this.battle.runEvent('DragOut', target, source, move);
 				if (hitResult) {
 					target.forceSwitchFlag = true;

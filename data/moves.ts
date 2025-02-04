@@ -23289,7 +23289,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Ghost",
 	},
-	heartshock: { // incomplete, for sure does not work
+	heartshock: { //tested, works as intended
 		num: -90,
 		accuracy: true,
 		basePower: 0,
@@ -23304,18 +23304,16 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			}
 		},
 		slotCondition: 'heartshock',
+		forceSwitch: true,
 		condition: {
+			duration: 1,
 			onSwap(target) {
-				if (!target.fainted && (target.hp < target.maxhp || target.status)) {
-					target.heal(target.maxhp / 2);
+				if (!target.fainted) {
 					target.trySetStatus('par');
-					this.add('-heal', target, target.getHealth, '[from] move: Heartshock');
-					target.side.removeSlotCondition(target, 'heartshock');
 				}
+				target.side.removeSlotCondition(target, 'heartshock');
 			},
 		},
-		selfSwitch: true,
-		forceSwitch: true,
 		secondary: null,
 		target: "self",
 		type: "Electric",
