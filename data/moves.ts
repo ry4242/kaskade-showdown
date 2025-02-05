@@ -8943,52 +8943,32 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: {basePower: 160},
 		contestType: "Clever",
 	},
-	hiddenpower: { // incomplete, needs testing
+	hiddenpower: { // tested, works as intended TODO: ensure it always shows as normal type
 		num: 237,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
-		isNonstandard: "Past",
 		name: "Hidden Power",
 		pp: 15,
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, nosketch: 1},
-		onModifyType(move, pokemon) {
-			move.type = pokemon.hpType || 'Dark';
-		},
-		/* onPrepareHit(source, target, move) {
-			let type = '???';
-			const typeArray = [];
+		onModifyType(move, pokemon, target) {
+			let effectivenessTable: {[id: string]: number} = {};
+			let highestEffectiveness = 0;
 			const fullArray = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying',
 				'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'];
-			for (const typeCheck of fullArray) {
-				if (this.dex.getEffectiveness(typeCheck, target) === 1) {
-					typeArray.push(typeCheck);
-				}
+			const bestTypes = [];
+			for (const type of fullArray) {
+				const effectiveness = this.dex.getEffectiveness(type, target);
+				effectivenessTable[type] = effectiveness;
+				if (effectiveness > highestEffectiveness) highestEffectiveness = effectiveness;
 			}
-			if (typeArray.length > 0) {
-				const diceRoll = this.random(typeArray.length);
-				type = typeArray[diceRoll];
+			for (const type of fullArray) {
+				if (effectivenessTable[type] === highestEffectiveness) bestTypes.push(type);
 			}
+			move.type = this.sample(bestTypes);
+			this.debug("Hidden Power: " + move.type);
 		},
-		onPrepareHit(target, source, move) {
-			const possibleTypes = [];
-			const targetType = target.getTypes();
-			for (const type of this.dex.types.names()) {
-				const typeCheck = this.dex.getEffectiveness(type, targetType);
-				if (typeCheck === 1) {
-					possibleTypes.push(type);
-				}
-			}
-			if (!possibleTypes.length) {
-				return false;
-			}
-			const randomType = this.sample(possibleTypes);
-
-			if (!source.setType(randomType)) return false;
-			this.add('-start', source, 'typechange', randomType);
-			move.type = randomType;
-		}, */
 		onTry(source, target, move) {
 			if (source.baseSpecies.name === 'Unown' || move.hasBounced) {
 				return;

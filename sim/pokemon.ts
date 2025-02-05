@@ -57,14 +57,14 @@ export class Pokemon {
 	readonly gigantamax: boolean;
 
 	/** Transform keeps the original pre-transformed Hidden Power in Gen 2-4. */
-	readonly baseHpType: string;
-	readonly baseHpPower: number;
+	/* readonly baseHpType: string;
+	readonly baseHpPower: number; */
 
 	readonly baseMoveSlots: MoveSlot[];
 	moveSlots: MoveSlot[];
 
-	hpType: string;
-	hpPower: number;
+	/* hpType: string;
+	hpPower: number; */
 
 	/**
 	 * Index of `pokemon.side.pokemon` and `pokemon.side.active`, which are
@@ -334,10 +334,10 @@ export class Pokemon {
 		for (const moveid of this.set.moves) {
 			let move = this.battle.dex.moves.get(moveid);
 			if (!move.id) continue;
-			if (move.id === 'hiddenpower' && move.type !== 'Normal') {
+			/* if (move.id === 'hiddenpower' && move.type !== 'Normal') {
 				if (!set.hpType) set.hpType = move.type;
 				move = this.battle.dex.moves.get('hiddenpower');
-			}
+			} */
 			let basepp = (move.noPPBoosts || move.isZ) ? move.pp : move.pp * 8 / 5;
 			if (this.battle.gen < 3) basepp = Math.min(61, basepp);
 			this.baseMoveSlots.push({
@@ -388,12 +388,12 @@ export class Pokemon {
 			}
 		}
 
-		const hpData = this.battle.dex.getHiddenPower(this.set.ivs);
+		/* const hpData = this.battle.dex.getHiddenPower(this.set.ivs);
 		this.hpType = set.hpType || hpData.type;
 		this.hpPower = hpData.power;
 
 		this.baseHpType = this.hpType;
-		this.baseHpPower = this.hpPower;
+		this.baseHpPower = this.hpPower; */
 
 		// initialized in this.setSpecies(this.baseSpecies)
 		this.baseStoredStats = null!;
@@ -947,10 +947,10 @@ export class Pokemon {
 		let hasValidMove = false;
 		for (const moveSlot of this.moveSlots) {
 			let moveName = moveSlot.move;
-			if (moveSlot.id === 'hiddenpower') {
+			/* if (moveSlot.id === 'hiddenpower') {
 				moveName = 'Hidden Power ' + this.hpType;
 				if (this.battle.gen < 6) moveName += ' ' + this.hpPower;
-			} else if (moveSlot.id === 'return' || moveSlot.id === 'frustration') {
+			} else */ if (moveSlot.id === 'return' || moveSlot.id === 'frustration') {
 				const basePowerCallback = this.battle.dex.moves.get(moveSlot.id).basePowerCallback as (pokemon: Pokemon) => number;
 				moveName += ' ' + basePowerCallback(this);
 			}
@@ -1118,9 +1118,9 @@ export class Pokemon {
 				spe: this.baseStoredStats['spe'],
 			},
 			moves: this[forAlly ? 'baseMoves' : 'moves'].map(move => {
-				if (move === 'hiddenpower') {
+				/* if (move === 'hiddenpower') {
 					return move + toID(this.hpType) + (this.battle.gen < 6 ? '' : this.hpPower);
-				}
+				} */
 				if (move === 'frustration' || move === 'return') {
 					const basePowerCallback = this.battle.dex.moves.get(move).basePowerCallback as (pokemon: Pokemon) => number;
 					return move + basePowerCallback(this);
@@ -1254,14 +1254,14 @@ export class Pokemon {
 			if (this.modifiedStats) this.modifiedStats[statName] = pokemon.modifiedStats![statName]; // Gen 1: Copy modified stats.
 		}
 		this.moveSlots = [];
-		this.hpType = (this.battle.gen >= 5 ? this.hpType : pokemon.hpType);
-		this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower);
+		/* this.hpType = (this.battle.gen >= 5 ? this.hpType : pokemon.hpType);
+		this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower); */
 		this.timesAttacked = pokemon.timesAttacked;
 		for (const moveSlot of pokemon.moveSlots) {
 			let moveName = moveSlot.move;
-			if (moveSlot.id === 'hiddenpower') {
+			/* if (moveSlot.id === 'hiddenpower') {
 				moveName = 'Hidden Power ' + this.hpType;
-			}
+			} */
 			this.moveSlots.push({
 				move: moveName,
 				id: moveSlot.id,
@@ -1463,8 +1463,8 @@ export class Pokemon {
 
 		this.transformed = false;
 		this.ability = this.baseAbility;
-		this.hpType = this.baseHpType;
-		this.hpPower = this.baseHpPower;
+		/* this.hpType = this.baseHpType;
+		this.hpPower = this.baseHpPower; */
 		if (this.canTerastallize === false) this.canTerastallize = this.teraType;
 		for (const i in this.volatiles) {
 			if (this.volatiles[i].linkedStatus) {

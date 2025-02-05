@@ -317,7 +317,7 @@ export class ModdedDex {
 		return moveCopy;
 	}
 
-	getHiddenPower(ivs: StatsTable) {
+	/* getHiddenPower(ivs: StatsTable) {
 		const hpTypes = [
 			'Fighting', 'Flying', 'Poison', 'Ground', 'Rock', 'Bug', 'Ghost', 'Steel',
 			'Fire', 'Water', 'Grass', 'Electric', 'Psychic', 'Ice', 'Dragon', 'Dark',
@@ -352,7 +352,7 @@ export class ModdedDex {
 				power: (this.gen && this.gen < 6) ? tr(hpPowerX * 40 / 63) + 30 : 60,
 			};
 		}
-	}
+	} */
 
 	/**
 	 * Truncate a number into an unsigned 32-bit integer, for
