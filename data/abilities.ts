@@ -6473,7 +6473,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: -41,
 	},
 	flytrap: { // tested, works as intended
-		onAnyModifySpe(spe, pokemon) {
+		onFoeModifySpe(spe, pokemon) {
 			if (!pokemon.hasAbility('flytrap') && pokemon.hasType('Bug')) {
 				return this.chainModify(0.5);
 			}

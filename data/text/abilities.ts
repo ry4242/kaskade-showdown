@@ -1125,7 +1125,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	neutralizinggas: {
 		name: "Neutralizing Gas",
-		desc: "While this Pokemon is active, Abilities have no effect. This Ability activates before hazards and other Abilities take effect. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, or Zero to Hero Abilities.",
+		desc: "While this Pokemon is active, Abilities have no effect. This Ability activates before hazards and other Abilities take effect. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Neutralize, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, or Zero to Hero Abilities.",
 		shortDesc: "While this Pokemon is active, Abilities have no effect.",
 		gen8: {
 			desc: "While this Pokemon is active, Abilities have no effect. This Ability activates before hazards and other Abilities take effect. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode Abilities.",
@@ -2279,7 +2279,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	absolutezero: {
 		name: "Absolute Zero",
 		desc: "If Hail is active, this Pokemon's Ice-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Hail. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "This Pokemon's Ice attacks do 1.3x in Hail; immunity to it.",
+		shortDesc: "This Pokemon's Ice attacks do 1.3x in Hail; immunity to Hail.",
 	},
 	ancientbody: {
 		name: "Ancient Body",
@@ -2318,8 +2318,12 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If Smog is active, this Pokemon's Poison-type attacks have their power multiplied by 1.5. This Pokemon cannot be poisoned by Smog. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Smog is active, this Pokemon's Poison-type attacks have 1.5x power.",
 	},
+	cataclysmiclight: {
+		name: "Primordial Sea",
+		shortDesc: "On switch-in, Ultra Radiance begins until this Ability is not active in battle.",
+	},
 	chakra: {
-		name: "Aerilate",
+		name: "Chakra",
 		shortDesc: "This Pokemon's Fairy-type moves have 1.3x power.",
 	},
 	condensation: {
@@ -2331,8 +2335,8 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If this Pokemon is a Bearvoyance, it will change to White Form if Paranormal Activity or Dreamscape is active.",
 		shortDesc: "If user is a Bearvoyance, changes to White Form in P.Activity/Dreamscape.",
 
-		transform: "[POKEMON] formed a school!",
-		transformEnd: "[POKEMON] stopped schooling!",
+		transform: "[POKEMON] awakened its power!",
+		transformEnd: "[POKEMON]'s power has faded!",
 	},
 	dreamer: {
 		name: "Dreamer",
@@ -2357,10 +2361,19 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If Dust Storm is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. The power of this Pokemon's attacks are not lowered by Dust Storm. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Dust Storm is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
+	echolocation: {
+		name: "Echolocation",
+		desc: "This Pokemon's damaging sound moves become multi-hit moves that hit twice. The second hit has its damage quartered. Does not affect any multi-hit move, or any two-turn move.",
+		shortDesc: "This Pokemon's damaging sound moves hit twice. The second hit has its damage quartered.",
+	},
 	energizer: {
 		name: "Energizer",
 		desc: "If Thunderstorm is active, this Pokemon's Speed is doubled. This effect is prevented if this Pokemon is holding and Energy Nullifier.",
 		shortDesc: "If Thunderstorm is active, this Pokemon's Speed is doubled.",
+	},
+	enjoin: {
+		name: "Enjoin",
+		shortDesc: "Does nothing (yet)",
 	},
 	eventide: {
 		name: "Eventide",
@@ -2373,6 +2386,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 
 		transform: "[POKEMON] adapted to the climate!",
 	},
+	expiation: {
+		name: "Expiation",
+		desc: "When this Pokemon faints, and if the Pokemon brought out to replace it does not have full HP or has a non-volatile status condition, it is healed 50% of its max HP along with having any non-volatile status condition cured. The replacement is sent out at the end of the turn, and the healing happens before hazards take effect. This effect continues until a Pokemon that meets either of these conditions switches in at the user's position or gets swapped into the position with Ally Switch.",
+		shortDesc: "When this Pokemon faints, the next hurt Pokemon is healed 50% HP and cures its status",
+	},
 	ferroflux: {
 		name: "Ferroflux",
 		shortDesc: "On switch-in, this Pokemon summons Magnetosphere.",
@@ -2381,28 +2399,50 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Fieldworker",
 		shortDesc: "This Pokemon's offensive stat is multiplied by 1.5 while using a Grass-type attack.",
 	},
+	flytrap: {
+		name: "Flytrap",
+		desc: "Prevents opposing Bug-type Pokemon from choosing to switch out unless they are holding a Shed Shell, have the ability Flytrap, or are a Ghost type. Halves the speed of opposing Bug-type Pokemon unless they have the ability Flytrap.",
+		shortDesc: "Prevents opposing Bug-type Pokemon from choosing to switch out and halves their Speed."
+	},
 	foil: {
 		name: "Foil",
 		desc: "If a Pokemon uses a Psychic-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
 		shortDesc: "Psychic-type moves against this Pokemon deal damage with a halved offensive stat.",
 	},
+	frigidblaze: {
+		name: "Frigid Blaze",
+		desc: "This Pokemon's Ice-type moves have a 20% chance of burning. This Pokemon's Fire-type moves have a 20% chance of inflicting frostbite. This effect comes after a move's inherent secondary effect chance.",
+		shortDesc: "User's Ice-type moves have a 20% chance to burn. User's Fire-type moves have a 20% chance to inflict frostbite.",
+	},
 	galeforce: {
 		name: "Galeforce",
 		shortDesc: "On switch-in, this Pokemon summons Strong Winds.",
 	},
+	geigeraura: {
+		name: "Geiger Aura",
+		shortDesc: "Each turn, adjacent Pokemon lose 1/16 max HP. Immune to Geiger Aura.",
+	},
 	glacialarmor: {
 		name: "Glacial Armor",
 		desc: "If Hail is active, Defense and Special Defense are multipled by 1.2. This Pokemon takes no damage from Hail. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "1.2x Defense and Special Defense in Hail; immunity to it.",
+		shortDesc: "1.2x Defense and Special Defense in Hail; immunity to Hail.",
 	},
 	hayfever: {
 		name: "Hay Fever",
 		shortDesc: "On switch-in, this Pokemon summons Pollen Storm.",
 	},
+	heathaze: {
+		name: "Heat Haze",
+		shortDesc: "On switch-in, this Pokemon summons Strong Winds and Sun."
+	},
 	hydrophobic: {
 		name: "Hydrophobic",
 		desc: "This Pokemon ignores Rain and Hail's negative effects. If a Pokemon uses a Water-type attack against this Pokemon, that Pokemon's offensive stat is halved when calculating the damage to this Pokemon.",
 		shortDesc: "User ignores Rain and Hail's negative effects; Water power against it is halved.",
+	},
+	icearmor: {
+		name: "Ice Armor",
+		shortDesc: "On switch-in, this Pokemon summons Strong Winds and Hail."
 	},
 	incantation: {
 		name: "Incantation",
@@ -2412,6 +2452,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Indomitable",
 		desc: "If Dragon Force is active, this Pokemon can only be damaged by direct attacks. Curse and Substitute on use, Belly Drum, Pain Split, Struggle recoil, and confusion damage are considered direct damage. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
 		shortDesc: "Dragon Force: This Pokemon can only be damaged by direct attacks.",
+	},
+	intoxicate: {
+		name: "Intoxicate",
+		desc: "This Pokemon's Normal-type moves become Poison-type moves and have their power multiplied by 1.2. This effect comes after other effects that change a move's type, but before Ion Deluge and Electrify's effects.",
+		shortDesc: "This Pokemon's Normal-type moves become Poison type and have 1.2x power.",
 	},
 	magnapult: {
 		name: "Magnapult",
@@ -2437,6 +2482,18 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If Magnetosphere is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
 		shortDesc: "If magnetosphere is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
+	nastywebbing: {
+		name: "Nasty Webbing",
+		shortDesc: "If this Pokemon is hit by a physical attack, Stick Web is set on the opposing side.",
+	},
+	neutralize: {
+		name: "Neutralize",
+		desc: "On switch-in this Pokemon clears all weathers. While this Pokemon is active, Abilities have no effect and weathers cannont be set. This Ability activates before hazards and other Abilities take effect. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Neutralize, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, or Zero to Hero Abilities.",
+		shortDesc: "Switch-in: Clears all weathers. While active: Abilities have no effect and weather cannot be set.",
+
+		start: "  All Pokemon and Weathergy are being neutralized!",
+		end: "  The effects of the neutralization wore off!",
+	},
 	nottobe: {
 		name: "Not to Be",
 		shortDesc: "If an opponent knocks out the user, it faints in 2 turns.",
@@ -2444,7 +2501,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		start: "  [POKEMON] and its attacker will faint in two turns!",
 	},
 	nullify: {
-		name: "Cloud Nine",
+		name: "Nullify",
 		desc: "While this Pokemon is active, the effects of Weathergy are disabled and any other Weathergies are prevented from being set up.",
 		shortDesc: "While this Pokemon is active, Weathergy conditions are disabled and can't be set up.",
 
@@ -2454,6 +2511,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Pearl Drop",
 		desc: "On switch-in, summons Pearl Drop for 5 turns. Pearl Drop: all moves have their accuracy multiplied by 0.9.",
 		shortDesc: "On switch-in, all moves have 0.9x accuracy for 5 turns.",
+	},
+	petrichor: {
+		name: "Petrichor",
+		shortDesc: "While this Pokemon is active, Rain and Blood Moon gain the effects of the other.",
+		start: "  The scent of petrichor fills the air."
 	},
 	pollution: {
 		name: "Pollution",
@@ -2469,6 +2531,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If Fairy Dust is active, this Pokemon's Fairy-, Grass-, Fire-, and Water-type attacks have their power multiplied by 1.3. This effect is prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "This Pokemon's Fairy/Grass/Fire/Water attacks do 1.3x in Fairy Dust.",
 	},
+	powerplumage: {
+		name: "Power Plumage",
+		shortDesc: "Blurrun: Changes to Charged forme in Thunderstorm or when hit by an Electric-type move; attracts Electric-type moves.",
+	},
 	powerwithin: {
 		name: "Power Within",
 		desc: "If Dragon Force is active, this Pokemon's Dragon-, Fire-, Electric-, and Ice-type attacks have their power multiplied by 1.3. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
@@ -2478,6 +2544,11 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		name: "Rage State",
 		desc: "If Battle Aura is active, this Pokemon's highest attacking stat is multiplied by 1.5 and it loses 1/8 of its maximum HP, rounded down, at the end of each turn. Stat stage changes are considered at the time this Ability activates. If both stats are tied, Attack is prioritized. These effects are prevented if the Pokemon is holding an Energy Nullifier.",
 		shortDesc: "Battle Aura: this Pokemon's attacks do 1.5x damage; loses 1/8 max HP per turn.",
+	},
+	relicsoul: {
+		name: "Relic Soul",
+		desc: "On switch-in, this Pokemon summons Thunderstorm. This Pokemon is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability. The effects of Gravity, Ingrain, Smack Down, Thousand Arrows, and Iron Ball nullify the immunity. Thousand Arrows can hit this Pokemon as if it did not have this Ability.",
+		shortDesc: "Switch-in: Summons Thunderstorm. This Pokemon is immune to Ground; Gravity/Ingrain/Smack Down/Iron Ball nullify it.",
 	},
 	rockybody: {
 		name: "Rocky Body",
@@ -2515,10 +2586,19 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "This Pokemon's partial-trapping moves without a chance to paralyze the target gain a 30% chance to paralyze the target.",
 		shortDesc: "This Pokemon's partial-trapping moves gain a 30% chance to paralyze.",
 	},
+	songbird: {
+		name: "Songbird",
+		desc: "This Pokemon's allies can only be damaged by direct attacks. Curse and Substitute on use, Belly Drum, Pain Split, Struggle recoil, and confusion damage are considered direct damage.",
+		shortDesc: "This Pokemon's allies can only be damaged by direct attacks.",
+	},
 	souldrain: {
 		name: "Soul Drain",
 		desc: "This Pokemon restores 1/4 of its maximum HP, rounded down, when another Pokemon faints to indirect damage.If Paranormal Activity is active, this Pokemon restores an additional 1/8. This Pokemon takes no damage from Paranormal Activity. These effects are prevented if this Pokemon is holding an Energy Nullifier.",
-		shortDesc: "Other Pokemon faints to indirect: heal 1/4, 3/8 in P.Activity; immunity to it.",
+		shortDesc: "Other Pokemon faints to indirect: heal 1/4, 3/8 in P.Activity; immunity to P.Activity.",
+	},
+	soulpassage: {
+		name: "Soul Passage",
+		shortDesc: "On switch-in, gains the highest stat boost of the previous fainted ally."
 	},
 	standoff: {
 		name: "Stand Off",
@@ -2545,6 +2625,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If Dreamscape is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
 		shortDesc: "If Dreamscape is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
+	thunderarmor: {
+		name: "Thunder Armor",
+		shortDesc: "This Pokemon and its allies cannot be struck by lightning during Thunderstorm.",
+	},
 	tobe: {
 		name: "To Be",
 		desc: "If this Pokemon is at full HP, it survives one hit with at least 1 HP and its Speed is raised by 1 stage. OHKO moves fail when used against this Pokemon.",
@@ -2568,11 +2652,17 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	warpmist: {
 		name: "Warp Mist",
-		desc: "This Pokemon can't have its type immunities bypassed. If Fog is active, this Pokemon's highest stat is multiplied by 1.2. Stat stage changes are considered at the time this Ability activates. If multiple stats are tied, Attack, Defense, Special Attack, Special Defense, and Speed are prioritized in that order. This Pokemon's moves do not have their accuracy lowered by Fog. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
-		shortDesc: "Overrides ignoring type immunity. highest stat is 1.2x in Fog.",
+		desc: "This Pokemon can't have its type immunities bypassed. If Fog is active, this Pokemon's highest attacking stat is multiplied by 1.2. Stat stage changes are considered at the time this Ability activates. If both stats are tied, Special Attack is prioritized. This Pokemon's moves do not have their accuracy lowered by Fog. These effects are prevented if this Pokemon is holding a Utility Umbrella.",
+		shortDesc: "Overrides ignoring type immunity. Highest attacking stat is 1.2x in Fog.",
 
 		activate: "  The heavy fog activated [POKEMON]'s Warp Mist!",
-		start: "  [POKEMON]'s [STAT] was heightened!",
 		end: "  The effects of [POKEMON]'s Warp Mist wore off!",
 	},
+	wetanddry: {
+		name: "Wet and Dry",
+		desc: "If this Pokemon is a Drout, it will change to Wet Form if Rain, Primordial Sea, Hail, or Fog is active or Dry Form if Sun, Desolate Land, Sandstorm, or Dust Storm is active.",
+		shortDesc: "If user is Drout, changes to Wet/Dry Form in Rain/Hail/Fog or Sun/Sand/Dust.",
+
+		transform: "[POKEMON] adapted to the climate!",
+	},	
 };

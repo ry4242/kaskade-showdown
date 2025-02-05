@@ -415,6 +415,15 @@ export const DefaultText: {[id: IDEntry]: DefaultText} = {
 		upkeep: "  (The winds blow strong.)",
 	},
 
+	// Cataclysm
+
+	cataclysmiclight: {
+		weatherName: "Ultra Radiance",
+		start: "  An otherworldly light radiates across the battlefield!",
+		end: "  The light vanished.",
+		upkeep: "  (The otherworldly light shines brilliantly.)",
+	},
+
 	// extra weather
 
 	desolateland: {
