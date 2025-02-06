@@ -6424,7 +6424,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	expiation: { // tested, works as intended, TODO: fix text to attribute healing to proper pokemon
 		onFaint(target) {
 			if (!target.hp) {
-				this.add('-activate', target, 'ability: Expiation')
+				this.add('-activate', target, 'ability: Expiation');
 				target.side.addSlotCondition(target, 'expiation');
 			}
 		},

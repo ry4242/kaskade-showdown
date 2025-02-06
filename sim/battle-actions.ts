@@ -1418,8 +1418,8 @@ export class BattleActions {
 		damage: SpreadMoveDamage, targets: SpreadMoveTargets, source: Pokemon, move: ActiveMove
 	) {
 		for (const [i, target] of targets.entries()) {
-			if (target && target.hp > 0 && source.hp > 0 && 
-				(this.battle.canSwitch(target.side)|| target.side.slotConditions[target.position]['heartshock'])) {
+			if (target && target.hp > 0 && source.hp > 0 &&
+				(this.battle.canSwitch(target.side) || target.side.slotConditions[target.position]['heartshock'])) {
 				const hitResult = this.battle.runEvent('DragOut', target, source, move);
 				if (hitResult) {
 					target.forceSwitchFlag = true;
@@ -1652,7 +1652,7 @@ export class BattleActions {
 				return false;
 			}
 		}
-		
+
 		if (move.damageCallback) return move.damageCallback.call(this.battle, source, target);
 		if (move.damage === 'level') {
 			return source.level;

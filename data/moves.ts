@@ -8953,7 +8953,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1, metronome: 1, nosketch: 1},
 		onModifyType(move, pokemon, target) {
-			let effectivenessTable: {[id: string]: number} = {};
+			const effectivenessTable: {[id: string]: number} = {};
 			let highestEffectiveness = 0;
 			const fullArray = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying',
 				'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'];
@@ -20813,7 +20813,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 					target.trySetStatus('brn', source);
 				} else if (result <= 3) {
 					target.trySetStatus('par', source);
-				} else if (result <= 5){
+				} else if (result <= 5) {
 					target.trySetStatus('frb', source);
 				} else if (result === 6 && ['sunnyday', 'desolateland'].includes(source.effectiveClimateWeather())) {
 					target.trySetStatus('brn', source);
@@ -22361,19 +22361,19 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		basePower: 90,
 		basePowerCallback(pokemon, target, move) {
 			let bp = move.basePower;
-			if (pokemon.effectiveClimateWeather() && pokemon.effectiveClimateWeather() != '') {
+			if (pokemon.effectiveClimateWeather() && pokemon.effectiveClimateWeather() !== '') {
 				bp += 15;
 			}
-			if (pokemon.effectiveIrritantWeather() && pokemon.effectiveIrritantWeather() != '') {
+			if (pokemon.effectiveIrritantWeather() && pokemon.effectiveIrritantWeather() !== '') {
 				bp += 15;
 			}
-			if (pokemon.effectiveEnergyWeather() && pokemon.effectiveEnergyWeather() != '') {
+			if (pokemon.effectiveEnergyWeather() && pokemon.effectiveEnergyWeather() !== '') {
 				bp += 15;
 			}
-			if (pokemon.effectiveClearingWeather() && pokemon.effectiveClearingWeather() != '') {
+			if (pokemon.effectiveClearingWeather() && pokemon.effectiveClearingWeather() !== '') {
 				bp += 15;
 			}
-			if (pokemon.effectiveCataclysmWeather() && pokemon.effectiveCataclysmWeather() != '') {
+			if (pokemon.effectiveCataclysmWeather() && pokemon.effectiveCataclysmWeather() !== '') {
 				bp += 15;
 			}
 			this.debug('BP: ' + bp);
@@ -22385,20 +22385,20 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: {protect: 1, mirror: 1},
 		onHit(target, pokemon, move) {
-			if (pokemon.effectiveClimateWeather() && pokemon.effectiveClimateWeather() != '') {
-				this.field.climateWeatherState.duration +=1;
+			if (pokemon.effectiveClimateWeather() && pokemon.effectiveClimateWeather() !== '') {
+				this.field.climateWeatherState.duration += 1;
 				this.add('-climateWeather', pokemon.effectiveClimateWeather(), '[from] move: Amaze-Assault');
 			}
-			if (pokemon.effectiveIrritantWeather() && pokemon.effectiveIrritantWeather() != '') {
-				this.field.irritantWeatherState.duration +=1;
+			if (pokemon.effectiveIrritantWeather() && pokemon.effectiveIrritantWeather() !== '') {
+				this.field.irritantWeatherState.duration += 1;
 				this.add('-irritantWeather', pokemon.effectiveIrritantWeather(), '[from] move: Amaze-Assault');
 			}
-			if (pokemon.effectiveEnergyWeather() && pokemon.effectiveEnergyWeather() != '') {
-				this.field.energyWeatherState.duration +=1;
+			if (pokemon.effectiveEnergyWeather() && pokemon.effectiveEnergyWeather() !== '') {
+				this.field.energyWeatherState.duration += 1;
 				this.add('-energyWeather', pokemon.effectiveEnergyWeather(), '[from] move: Amaze-Assault');
 			}
-			if (pokemon.effectiveClearingWeather() && pokemon.effectiveClearingWeather() != '') {
-				this.field.clearingWeatherState.duration +=1;
+			if (pokemon.effectiveClearingWeather() && pokemon.effectiveClearingWeather() !== '') {
+				this.field.clearingWeatherState.duration += 1;
 				this.add('-clearingWeather', pokemon.effectiveClearingWeather(), '[from] move: Amaze-Assault');
 			}
 		},
@@ -22644,7 +22644,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		},  */
 		onModifyMove(move, pokemon, target) {
 			if (['supercell'].includes(pokemon.effectiveEnergyWeather())) {
-				move.secondary = {chance: 20, status:'par'};
+				move.secondary = {chance: 20, status: 'par'};
 			}
 		},
 		secondary: {}, // Boosted by Sheer Force
@@ -23285,7 +23285,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "all",
 		type: "Ghost",
 	},
-	heartshock: { //tested, works as intended
+	heartshock: { // tested, works as intended
 		num: -90,
 		accuracy: true,
 		basePower: 0,

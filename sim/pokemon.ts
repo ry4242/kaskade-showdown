@@ -332,7 +332,7 @@ export class Pokemon {
 			throw new Error(`Set ${this.name} has no moves`);
 		}
 		for (const moveid of this.set.moves) {
-			let move = this.battle.dex.moves.get(moveid);
+			const move = this.battle.dex.moves.get(moveid);
 			if (!move.id) continue;
 			/* if (move.id === 'hiddenpower' && move.type !== 'Normal') {
 				if (!set.hpType) set.hpType = move.type;
@@ -1258,7 +1258,7 @@ export class Pokemon {
 		this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower); */
 		this.timesAttacked = pokemon.timesAttacked;
 		for (const moveSlot of pokemon.moveSlots) {
-			let moveName = moveSlot.move;
+			const moveName = moveSlot.move;
 			/* if (moveSlot.id === 'hiddenpower') {
 				moveName = 'Hidden Power ' + this.hpType;
 			} */

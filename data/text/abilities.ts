@@ -2402,7 +2402,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	flytrap: {
 		name: "Flytrap",
 		desc: "Prevents opposing Bug-type Pokemon from choosing to switch out unless they are holding a Shed Shell, have the ability Flytrap, or are a Ghost type. Halves the speed of opposing Bug-type Pokemon unless they have the ability Flytrap.",
-		shortDesc: "Prevents opposing Bug-type Pokemon from choosing to switch out and halves their Speed."
+		shortDesc: "Prevents opposing Bug-type Pokemon from choosing to switch out and halves their Speed.",
 	},
 	foil: {
 		name: "Foil",
@@ -2433,7 +2433,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	heathaze: {
 		name: "Heat Haze",
-		shortDesc: "On switch-in, this Pokemon summons Strong Winds and Sun."
+		shortDesc: "On switch-in, this Pokemon summons Strong Winds and Sun.",
 	},
 	hydrophobic: {
 		name: "Hydrophobic",
@@ -2442,7 +2442,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	icearmor: {
 		name: "Ice Armor",
-		shortDesc: "On switch-in, this Pokemon summons Strong Winds and Hail."
+		shortDesc: "On switch-in, this Pokemon summons Strong Winds and Hail.",
 	},
 	incantation: {
 		name: "Incantation",
@@ -2515,7 +2515,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	petrichor: {
 		name: "Petrichor",
 		shortDesc: "While this Pokemon is active, Rain and Blood Moon gain the effects of the other.",
-		start: "  The scent of petrichor fills the air."
+		start: "  The scent of petrichor fills the air.",
 	},
 	pollution: {
 		name: "Pollution",
@@ -2598,7 +2598,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	soulpassage: {
 		name: "Soul Passage",
-		shortDesc: "On switch-in, gains the highest stat boost of the previous fainted ally."
+		shortDesc: "On switch-in, gains the highest stat boost of the previous fainted ally.",
 	},
 	standoff: {
 		name: "Stand Off",
@@ -2664,5 +2664,5 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		shortDesc: "If user is Drout, changes to Wet/Dry Form in Rain/Hail/Fog or Sun/Sand/Dust.",
 
 		transform: "[POKEMON] adapted to the climate!",
-	},	
+	},
 };
