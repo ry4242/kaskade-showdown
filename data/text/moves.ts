@@ -7320,7 +7320,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	weatherball: { // updated
 		name: "Weather Ball",
-		desc: "Power doubles if a Weathergy is active, and this move's type changes to match. If the user is holding a Utility Umbrella during a Climate Weathergy, Safety Goggles during an Irritant Weathergy, or an Energy Nullifier during an Energy Weathergy, Weather Ball remains Normal type and does not double in power.",
+		desc: "Power doubles if a Weathergy is active, and this move's type changes to match the most recent Weathergy. If the user is holding a Utility Umbrella during a Climate Weathergy, Safety Goggles during an Irritant Weathergy, or an Energy Nullifier during an Energy Weathergy, Weather Ball matches the type of the next most recent Weathergy.",
 		shortDesc: "Power doubles and type varies in each Weathergy.",
 		gen8: {
 			desc: "Power doubles if a weather condition other than Delta Stream is active, and this move's type changes to match. Ice type during Hail, Water type during Primordial Sea or Rain, Rock type during Sandstorm, and Fire type during Desolate Land or Sun. If the user is holding Utility Umbrella and uses Weather Ball during Primordial Sea, Rain, Desolate Land, or Sun, this move remains Normal type and does not double in power.",
@@ -7552,15 +7552,77 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 
 	// swse
 
+	amazeassault: {
+		name: "Amaze-Assault",
+		desc: "Power is equal to 90+(X*15), where X is the number of active Weathergies. Increases the duration of all Weathergies by 1.",
+		shortDesc: " + 15 power for each weather. Increases weather durations by 1.",
+	},
 	auraprojection: {
 		name: "Aura Projection",
 		desc: "For 5 turns, the weather becomes Battle Aura. During the effect, raises the chance for a critical hit by 1 stage and prevents other Pokemon from lowering Fighting-type Pokemon's stat stages. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Battle Aura.",
 		shortDesc: "For 5 turns, a battle aura raises crit rate by 1.",
 	},
+	auraspark: {
+		name: "Aura Spark",
+		shortDesc: "No additional effect.",
+	},
+	battlecry: {
+		name: "Battle Cry",
+		desc: "No additional effect.",
+		shortDesc: "No additional effect. Hits adjacent foes.",
+	},
+	bearhug: {
+		name: "Bear Hug",
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+	
+		start: "  [POKEMON] became trapped in a vicious hug!",
+	},
+	blackhole: {
+		name: "Black Hole",
+		desc: "If this move is successful, begins the effects of Gravity.",
+		shortDesc: "Sets Gravity.",
+	},
+	blightspore: {
+		name: "Blight Spore",
+		shortDesc: "Horribly poisons the target.",
+	},
 	bloodmoon: {
 		name: "Blood Moon",
 		desc: "For 5 turns, the weather becomes Blood Moon. During the effect, the damage of supereffective attacks is multiplied by 1.5 and Dark-type Status moves have their priority increased by 1. Lasts for 8 turns if the user is holding a Weather Balloon. Fails if the current weather is Blood Moon.",
 		shortDesc: "For 5 turns, the moon powers supereffective moves.",
+	},
+	brainstorm: {
+		name: "Brainstorm",
+		shortDesc: "Sets Rain and Dreamscape, and confuses the user."
+	},
+	cidercannon: {
+		name: "Cider Cannon",
+		desc: "Lowers the target's evasiveness by 1 stage. Heals the user 25% of their maximum HP and cures the user's non-volatile status conditions",
+		shortDesc: "Lowers target evasion by 1 stage. Heals user 25% and cures status."
+	},
+	comradesarmor: {
+		name: "Comrade's Armor",
+		desc: "The user protects their ally from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Also increases the Protect counter of the user's ally. Fails if the user moves last this turn.",
+		shortDesc: "Prevents moves from affecting the user's ally this turn.",
+
+		start: "  [POKEMON] protected their ally!",
+		block: "  [POKEMON] was protected!",
+	},
+	conduction: {
+		name: "Conduction",
+		desc: "If Magnetosphere is active, this move has x 1.5 Base Power. If Thunderstorm is active, this move has a 20% chance to paralyze the target.",
+		shortDesc: "Magnetosphere: x 1.5 BP; Thunderstorm: 20% chance to para."
+	},
+	crystalforce: {
+		name: "Crystal Force",
+		desc: "If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 33% recoil.",
+	},
+	darkdepletion: {
+		name: "Dark Depletion",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. This move's type effectiveness against Water and Grass is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Heals 50% of damage dealt. Super effective on Grass/Water."
 	},
 	daydream: {
 		name: "Daydream",
