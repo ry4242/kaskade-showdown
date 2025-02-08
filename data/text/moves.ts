@@ -7025,8 +7025,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	triattack: {
 		name: "Tri Attack",
-		desc: "Has a 20% chance to either burn, freeze, or paralyze the target.",
-		shortDesc: "20% chance to paralyze or burn or freeze target.",
+		desc: "Has a 20% chance to either burn, frostbite, or paralyze the target.",
+		shortDesc: "20% chance to paralyze or burn or frostbite target.",
 		gen2: {
 			desc: "This move selects burn, freeze, or paralysis at random, and has a 20% chance to inflict the target with that status. If the target is frozen and burn was selected, it thaws out.",
 		},
@@ -7622,22 +7622,65 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	darkdepletion: {
 		name: "Dark Depletion",
 		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. This move's type effectiveness against Water and Grass is changed to be super effective no matter what this move's type is.",
-		shortDesc: "Heals 50% of damage dealt. Super effective on Grass/Water."
+		shortDesc: "Heals 50% of damage dealt. Super effective on Grass/Water.",
 	},
 	daydream: {
 		name: "Daydream",
 		desc: "For 5 turns, the weather becomes Dreamscape. During the effect, the damage of Psychic-type attacks is multiplied by 1.5 and the damage of Dark-type attacks is multiplied by 0.5. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Dreamscape.",
 		shortDesc: "For 5 turns, a dreamscape powers Psychic moves.",
 	},
+	deception: {
+		name: "Deception",
+		desc: "Base Power is increased by x 1.25 during Blood Moon. Base Power is halved during Fairy Dust. If both weathers are active the Base Power is not changed. This move's type effectiveness against Fairy is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Blood Moon: x 1.25 BP; Super effective on Fairy."
+	},
+	deviledyolk: {
+		name: "Deviled Yolk",
+		desc: "Hits two to five times. Each hit has an individual 10% chance to burn the target. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit five times. The target thaws out if it is frozen.",
+		shortDesc: "Hits 2-5 times in one turn. Each hit: 10% burn.",
+	},
+	draconicorb: {
+		name: "Draconic Orb",
+		desc: "Has a 20% chance to either burn, poison, frostbite, or paralyze the target.",
+		shortDesc: "20% chance to paralyze or burn or frostbite or poison target.",
+	},
+	draconicroar: {
+		name: "Draconic Roar",
+		desc: "No additional effect.",
+		shortDesc: "No additional effect. Hits adjacent foes.",
+	},
 	dragonforce: {
 		name: "Dragon Force",
 		desc: "For 5 turns, the weather becomes Dragon Force. During the effect, the damage of supereffective attacks is multiplied by 0.8 and the Attack and Special Attack of Dragon-type Pokemon is multiplied by 1.15. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Dragon Force.",
 		shortDesc: "For 5 turns, the arcane weakens supereffective moves.",
 	},
+	dragonsdice: {
+		name: "Dragon's Dice",
+		desc: "Rolls a D20 die. Based on the roll has a different effect. 1: 0 BP, User hits themselves in confusion; 2: 0 BP; 3: 20 BP; 4: 40 BP; 5: 50 BP; 6: 60 BP; 7: 70 BP; 8: 75 BP; 9: 80 BP; 10: 85 BP; 11: 90 BP; 12: 95 BP; 13: 100 BP; 14: 110 BP; 15: 120 BP; 16: 130 BP; 17: 140 BP; 18: 150 BP; 19: 160 BP; 20: 0 BP, OHKOs the target, OHKO fails if the target has the Sturdy Ability or if it has a higher level than the user.",
+		shortDesc: "Has a random Base Power, damages the user, or OHKOs the target.",
+	},
 	duststorm: {
 		name: "Dust Storm",
 		desc: "For 5 turns, the weather becomes Dust Storm. During the effect, the Speed of Ground-type Pokemon is multiplied by 1.5 and the the damage of Electric-type attacks is multiplied by 0.5. Lasts for 8 turns if the user is holding Volatile Spray. Fails if the current weather is Dust Storm.",
 		shortDesc: "For 5 turns, dust fills the air. Ground: 1.5x Spe.",
+	},
+	earthrush: {
+		name: "Earth Rush",
+		shortDesc: "No additional effect.",
+	},
+	ectoplasma: {
+		name: "Ectoplasma",
+		shortDesc: "Fails if Paranormal Activity is not active.",
+	},
+	efflorescence: {
+		name: "Efflorescence",
+		desc: "Sets the Fairy Dust Weathergy. Every Pokemon in the user's party is cured of its non-volatile status condition.",
+		shortDesc: "Sets Fairy Dust. Cures user's party status conditions."
+	},
+	emberplume: {
+		name: "Ember Plume",
+		desc: "Has a 10% chance to poison the target. This move's type effectiveness against Flying is changed to be super effective no matter what this move's type is. If the weather is Smog, this move does not check accuracy. If this move is used against a Pokemon holding Safety Goggles or has the Overcoat Ability, this move's accuracy remains at 70%.",
+		shortDesc: "10% chance to poison target. Can't miss in smog. Super effective on Flying.",
 	},
 	escaperoot: {
 		name: "Escape Root",
@@ -7645,6 +7688,16 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		shortDesc: "User cures its status and switches out.",
 
 		heal: "  [POKEMON] absorbed the remaining nutrients!",
+	},
+	evoboost: {
+		name: "Evoboost",
+		desc: "Raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage. Move fails if the user is not Eevee or Skinka.",
+		shortDesc: "Eevee/Skinka: Raises user's Atk, Def, SpA, SpD, and Spe by 1.",
+	},
+	excalibur: {
+		name: "Excalibur",
+		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Cannot be selected the turn after it's used.",
+		shortDesc: "Destroys screens. Cannot be selected the turn after it's used.",
 	},
 	foghorn: {
 		name: "Foghorn",
