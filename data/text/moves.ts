@@ -1598,7 +1598,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	dreameater: {
 		name: "Dream Eater",
 		desc: "The target is unaffected by this move unless it is asleep or Dreamscape is active. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
-		shortDesc: "User gains 1/2 HP inflicted. Sleeping/Dreamscape only.",
+		shortDesc: "User heals 50% damage. Sleeping/Dreamscape only.",
 		gen4: {
 			desc: "The target is unaffected by this move unless it is asleep and does not have a substitute. The user recovers 1/2 the HP lost by the target, rounded down, but not less than 1 HP. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded down.",
 		},
@@ -1718,7 +1718,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	electroshot: {
 		name: "Electro Shot",
 		desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb or the weather is Thunderstorm, Primordial Sea or Rain Dance, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Primordial Sea or Rain Dance, the move still requires a turn to charge.",
-		shortDesc: "Raises Sp. Atk by 1, hits turn 2. Rain/Thunder: no charge.",
+		shortDesc: "Raises SpA by 1, hits turn 2. Rain/Thunder: no charge.",
 
 		prepare: "[POKEMON] absorbed electricity!",
 	},
@@ -2180,7 +2180,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	fly: {
 		name: "Fly",
 		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thousand Arrows, Thunder, and Twister, and Gust and Twister have doubled power when used against it. If the user is holding a Power Herb or Strong Winds is active, the move completes in one turn.",
-		shortDesc: "Charges turn 1. Hits turn 2. No charge in Strong Winds.",
+		shortDesc: "Charges turn 1. Hits turn 2. No charge in winds.",
 		gen5: {
 			desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thunder, and Twister, and Gust and Twister have doubled power when used against it. If the user is holding a Power Herb, the move completes in one turn.",
 		},
@@ -5701,7 +5701,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	shoreup: { // updated
 		name: "Shore Up",
 		desc: "The user restores 1/2 of its maximum HP, rounded half down. If Sandstorm or Dust Storm is active, the user instead restores 2/3 of its maximum HP, rounded half down.",
-		shortDesc: "User restores 1/2 its max HP; 2/3 in Sandstorm/Dust Storm.",
+		shortDesc: "User restores 1/2 its max HP; 2/3 in Sand/Dust.",
 	},
 	signalbeam: {
 		name: "Signal Beam",
@@ -7556,7 +7556,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	amazeassault: {
 		name: "Amaze-Assault",
 		desc: "Power is equal to 90+(X*15), where X is the number of active Weathergies. Increases the duration of all Weathergies by 1.",
-		shortDesc: " + 15 power for each weather. Increases weather durations by 1.",
+		shortDesc: "+15 power for each weather. Weather durations by 1.",
 	},
 	auraprojection: {
 		name: "Aura Projection",
@@ -7595,17 +7595,17 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	brainstorm: {
 		name: "Brainstorm",
-		shortDesc: "Sets Rain and Dreamscape, and confuses the user."
+		shortDesc: "Sets Rain and Dreamscape, and confuses the user.",
 	},
 	cidercannon: {
 		name: "Cider Cannon",
 		desc: "Lowers the target's evasiveness by 1 stage. Heals the user 25% of their maximum HP and cures the user's non-volatile status conditions",
-		shortDesc: "Lowers target evasion by 1 stage. Heals user 25% and cures status."
+		shortDesc: "Target evasion: -1. Heals user 25% and cures status.",
 	},
 	comradesarmor: {
 		name: "Comrade's Armor",
 		desc: "The user protects their ally from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Also increases the Protect counter of the user's ally. Fails if the user moves last this turn.",
-		shortDesc: "Prevents moves from affecting the user's ally this turn.",
+		shortDesc: "Prevents moves from affecting target ally this turn.",
 
 		start: "  [POKEMON] protected their ally!",
 		block: "  [POKEMON] was protected!",
@@ -7613,7 +7613,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	conduction: {
 		name: "Conduction",
 		desc: "If Magnetosphere is active, this move has x 1.5 Base Power. If Thunderstorm is active, this move has a 20% chance to paralyze the target.",
-		shortDesc: "Magnetosphere: x 1.5 BP; Thunderstorm: 20% chance to para."
+		shortDesc: "Magnetosphere: x1.5 BP; Thunder: 20% chance to para."
 	},
 	crystalforce: {
 		name: "Crystal Force",
@@ -7623,7 +7623,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	darkdepletion: {
 		name: "Dark Depletion",
 		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. This move's type effectiveness against Water and Grass is changed to be super effective no matter what this move's type is.",
-		shortDesc: "Heals 50% of damage dealt. Super effective on Grass/Water.",
+		shortDesc: "Heals 50% of damage. Super effective on Grass/Water.",
 	},
 	daydream: {
 		name: "Daydream",
@@ -7643,7 +7643,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	draconicorb: {
 		name: "Draconic Orb",
 		desc: "Has a 20% chance to either burn, poison, frostbite, or paralyze the target.",
-		shortDesc: "20% chance to paralyze or burn or frostbite or poison target.",
+		shortDesc: "20% chance to paralyze/burn/frostbite/poison.",
 	},
 	draconicroar: {
 		name: "Draconic Roar",
@@ -7658,7 +7658,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	dragonsdice: {
 		name: "Dragon's Dice",
 		desc: "Rolls a D20 die. Based on the roll has a different effect. 1: 0 BP, User hits themselves in confusion; 2: 0 BP; 3: 20 BP; 4: 40 BP; 5: 50 BP; 6: 60 BP; 7: 70 BP; 8: 75 BP; 9: 80 BP; 10: 85 BP; 11: 90 BP; 12: 95 BP; 13: 100 BP; 14: 110 BP; 15: 120 BP; 16: 130 BP; 17: 140 BP; 18: 150 BP; 19: 160 BP; 20: 0 BP, OHKOs the target, OHKO fails if the target has the Sturdy Ability or if it has a higher level than the user.",
-		shortDesc: "Has a random Base Power, damages the user, or OHKOs the target.",
+		shortDesc: "Random Base Power, damages the user, or OHKOs.",
 	},
 	duststorm: {
 		name: "Dust Storm",
@@ -7676,12 +7676,12 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	efflorescence: {
 		name: "Efflorescence",
 		desc: "Sets the Fairy Dust Weathergy. Every Pokemon in the user's party is cured of its non-volatile status condition.",
-		shortDesc: "Sets Fairy Dust. Cures user's party status conditions."
+		shortDesc: "Sets Fairy Dust. Cures user's party status conditions.",
 	},
 	emberplume: {
 		name: "Ember Plume",
 		desc: "Has a 10% chance to poison the target. This move's type effectiveness against Flying is changed to be super effective no matter what this move's type is. If the weather is Smog, this move does not check accuracy. If this move is used against a Pokemon holding Safety Goggles or has the Overcoat Ability, this move's accuracy remains at 70%.",
-		shortDesc: "10% chance to poison target. Can't miss in smog. Super effective on Flying.",
+		shortDesc: "10% psn. Cant miss in smog. Super effective on Flying.",
 	},
 	escaperoot: {
 		name: "Escape Root",
@@ -7693,12 +7693,12 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	evoboost: {
 		name: "Evoboost",
 		desc: "Raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage. Move fails if the user is not Eevee or Skinka.",
-		shortDesc: "Eevee/Skinka: Raises user's Atk, Def, SpA, SpD, and Spe by 1.",
+		shortDesc: "Eevee/Skinka: Raises Atk, Def, SpA, SpD, and Spe by 1.",
 	},
 	excalibur: {
 		name: "Excalibur",
 		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Cannot be selected the turn after it's used.",
-		shortDesc: "Destroys screens. Cannot be selected the turn after it's used.",
+		shortDesc: "Destroys screens. Cannot be selected the turn after.",
 	},
 	ferrospikebarrage: {
 		name: "Ferrospike Barrage",
@@ -7727,7 +7727,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	frostburnclaw: {
 		name: "Frostburn Claw",
 		desc: "On even turns this move is Ice-type. On odd turns this move is Fire-type. If this move is Ice-type it has a 20% chance to inflict the target with frostbite. If this move is Fire type it has a 20% chance to burn the target. The target thaws out if it is frozen.",
-		shortDesc: "Switches between Fire and Ice-type. 20% chance to burn or frostbite.",
+		shortDesc: "Switch between Fire/Ice-type. 20% chance to brn/frb.",
 	},
 	frostification: {
 		name: "Frostification",
@@ -7752,7 +7752,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	hiveshriek: {
 		name: "Hive Shriek",
 		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Has a 30% chance to lower the target's Def by 1 stage.",
-		shortDesc: "Destroys screens. 30% chance to lower target's Def by 1."
+		shortDesc: "Destroys screens. 30% chance to lower target's Def."
 	},
 	hornswoggle: {
 		name: "Hornswoggle",
@@ -7786,7 +7786,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	juicedrink: {
 		name: "Juice Drink",
 		desc: "The user becomes confused and restores 2/3 of its maximum HP, rounded half up.",
-		shortDesc: "Confuses the user. Heals the user by 66% of its max HP.",
+		shortDesc: "Confuses the user. Heals the user by 66% max HP.",
 	},
 	kihop: {
 		name: "Ki-hop",
@@ -7810,7 +7810,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	lunarsurge: {
 		name: "Lunar Surge",
 		desc: "This attack charges on the first turn and executes on the second. If the user is holding a Power Herb or the weather is Blood Moon, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Blood Moon, the move still requires a turn to charge.",
-		shortDesc: "Charges turn 1. Hits turn 2. No charge in Blood Moon.",
+		shortDesc: "Charges turn 1. Hits turn 2. No charge in moonlight.",
 
 		prepare: "  [POKEMON] absorbed moonlight!",
 	},
@@ -7836,7 +7836,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	mockery: {
 		name: "Mockery",
 		desc: "Hits one to two times. If the user has the Skill Link Ability, this move will always hit two times. Each hit lowers the target's SpD and Spe by one stage.",
-		shortDesc: "Hits 1-2 times. Lowers target's SpD and Spe by 1 stage."
+		shortDesc: "Hits 1-2 times. Lowers target's SpD and Spe by 1."
 	},
 	muckvolley: {
 		name: "Muck Volley",
@@ -7937,7 +7937,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	shade: {
 		name: "Shade",
 		desc: "Has a 10% chance to make the target flinch. During Blood Moon this move has double Base Power.",
-		shortDesc: "Power doubles during Blood Moon. 10% flinch chance.",
+		shortDesc: "Power doubles in Blood Moon. 10% flinch chance.",
 	},
 	shadowfang: {
 		name: "Shadow Fang",
@@ -7972,7 +7972,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	snooze: {
 		name: "Snooze",
 		desc: "The user restores 1/2 of its maximum HP, rounded half up. Causes all Pokemon to fall asleep at the end of the next turn. At the end of the next turn, if a Pokemon is still active, does not have a non-volatile status condition, and can fall asleep, it falls asleep. If a Pokemon becomes affected, this effect cannot be prevented by Safeguard or a substitute, or by falling asleep and waking up during the effect.",
-		shortDesc: "Heals user 50% of its max HP. Makes all Pokemon drowsy.",
+		shortDesc: "Heals user 50% max HP. Makes all Pokemon drowsy.",
 	},
 	spectrum: {
 		name: "Spectrum",
@@ -8066,7 +8066,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	whirlduel: {
 		name: "Whirlduel",
 		desc: "Sets Rain Dance. Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
-		shortDesc: "Sets Rain. Traps and damages the target for 4-5 turns.",
+		shortDesc: "Sets Rain. Traps + damages the target for 4-5 turns.",
 	
 		start: "  [POKEMON] became trapped in the vortex!",
 	},
