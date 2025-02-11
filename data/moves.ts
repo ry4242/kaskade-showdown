@@ -23174,7 +23174,16 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				move.type = 'Ice';
 			}
 		},
-		secondary: null,
+		secondary: {
+			chance: 20,
+			onHit(target, source, move) {
+				if (move.type === 'Fire') {
+					target.trySetStatus('brn');
+				} else if (move.type === 'Ice') {
+					target.trySetStatus('frb');
+				}
+			},
+		},
 		target: "normal",
 		type: "Ice",
 	},
@@ -23593,7 +23602,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: {protect: 1, reflectable: 1, mirror: 1, metronome: 1},
 		onModifyMove(move, pokemon, target) {
 			if (['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
-				move.target = "allAdjacentFoes";
+				move.target = "allAdjacent";
 			}
 			if (target && ['swarmsigal'].includes(target.effectiveIrritantWeather())) {
 				move.accuracy = true;
@@ -23622,7 +23631,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['sunnyday'].includes(attacker.effectiveClimateWeather())) {
+			if (['bloodmoon'].includes(attacker.effectiveClimateWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -23770,7 +23779,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			chance: 100,
 			onHit(target, source) {
 				const result = this.random(10);
-				if (result >= 6) {
+				if (result <= 6) {
 					target.addVolatile('confusion', source);
 				} else {
 					target.trySetStatus('slp', source);
@@ -24576,7 +24585,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Electric",
 	},
-	thermalvortex: { // tested, works as intended
+	thermalvortex: { // tested, works as intended TODO: fix move failure message when unable to set the weather
 		num: -74,
 		accuracy: 100,
 		basePower: 90,

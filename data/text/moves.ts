@@ -337,7 +337,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	banefulbunker: {
 		name: "Baneful Bunker",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become poisoned. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become poisoned. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from moves. Contact: poison.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become poisoned. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -503,8 +503,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	bittermalice: {
 		name: "Bitter Malice",
-		desc: "Has a 100% chance to lower the target's Attack by 1 stage.",
-		shortDesc: "100% chance to lower the target's Attack by 1.",
+		desc: "Has a 30% chance to inflict the target with frostbite. Power doubles if the target is already frostbitten or frozen.",
+		shortDesc: "30% frb. 2x power if target already frb/frz.",
 	},
 	blackholeeclipse: {
 		name: "Black Hole Eclipse",
@@ -532,8 +532,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	blizzard: {
 		name: "Blizzard",
-		desc: "Has a 10% chance to freeze the target. If the weather is Hail, this move does not check accuracy.",
-		shortDesc: "10% chance to freeze foe(s). Can't miss in Hail.",
+		desc: "Has a 10% chance to inflict the target with frostbite and a 5% chance to freeze the target. If the weather is Hail, this move does not check accuracy and the effect chances are doubled.",
+		shortDesc: "10% frosbite / 5% freeze foe(s). Can't miss in Hail.",
 		gen8: {
 			desc: "Has a 10% chance to freeze the target. If the weather is Hail, this move does not check accuracy.",
 			shortDesc: "10% chance to freeze foe(s). Can't miss in Hail.",
@@ -769,7 +769,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	burningbulwark: {
 		name: "Burning Bulwark",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user become burned. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user become burned. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from damaging attacks. Contact: burn.",
 	},
 	burningjealousy: {
@@ -874,12 +874,12 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 			shortDesc: "For Chatot, 31% chance to confuse the target.",
 		},
 	},
-	chillingwater: {
+	chillingwater: { // updated
 		name: "Chilling Water",
 		desc: "Has a 100% chance to lower the target's Attack by 1 stage.",
-		shortDesc: "100% chance to lower the target's Attack by 1.",
+		shortDesc: "100% chance to lower the foe(s) Attack by 1.",
 	},
-	chillyreception: {
+	chillyreception: { // updated
 		name: "Chilly Reception",
 		desc: "For 5 turns, the weather becomes Hail. The user switches out even if it is trapped and is replaced immediately by a selected party member. The user does not switch out if there are no unfainted party members.",
 		shortDesc: "Starts Hail. User switches out.",
@@ -1139,7 +1139,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	courtchange: {
 		name: "Court Change",
-		desc: "Switches the Mist, Light Screen, Reflect, Spikes, Safeguard, Tailwind, Toxic Spikes, Stealth Rock, Water Pledge, Fire Pledge, Grass Pledge, Sticky Web, Aurora Veil, G-Max Steelsurge, G-Max Cannonade, G-Max Vine Lash, and G-Max Wildfire effects from the user's side to the opposing side and vice versa.",
+		desc: "Switches the Mist, Light Screen, Reflect, Spikes, Safeguard, Tailwind, Toxic Spikes, Stealth Rock, Steel Barbs, Water Pledge, Fire Pledge, Grass Pledge, Sticky Web, Aurora Veil, G-Max Steelsurge, G-Max Cannonade, G-Max Vine Lash, and G-Max Wildfire effects from the user's side to the opposing side and vice versa.",
 		shortDesc: "Swaps user's field effects with the opposing side.",
 
 		activate: "  [POKEMON] swapped the battle effects affecting each side of the field!",
@@ -1222,7 +1222,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	cut: {
 		name: "Cut",
-		shortDesc: "No additional effect.",
+		desc: "Has a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio.",
 	},
 	darkestlariat: {
 		name: "Darkest Lariat",
@@ -1272,16 +1273,16 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 			desc: "Raises the user's Defense by 1 stage.",
 		},
 	},
-	defog: {
+	defog: { // updated
 		name: "Defog",
-		desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness. If there is a terrain active and this move is successful, the terrain will be cleared.",
+		desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, Steel Barbs, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, Steel Barbs, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness. If there is a terrain active and this move is successful, the terrain will be cleared. If Fog is active and this move is successful, Fog will be cleared.",
 		shortDesc: "-1 evasion; clears terrain and hazards on both sides.",
 		gen7: {
-			desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness.",
+			desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, Steel Barbs, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, Steel Barbs, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness.",
 			shortDesc: "-1 evasion; clears user and target side's hazards.",
 		},
 		gen6: {
-			desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness.",
+			desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Safeguard, Mist, Spikes, Toxic Spikes, Stealth Rock, Steel Barbs, and Sticky Web end for the target's side, and the effects of Spikes, Toxic Spikes, Stealth Rock, Steel Barbs, and Sticky Web end for the user's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness.",
 		},
 		gen5: {
 			desc: "Lowers the target's evasiveness by 1 stage. If this move is successful and whether or not the target's evasiveness was affected, the effects of Reflect, Light Screen, Safeguard, Mist, Spikes, Toxic Spikes, and Stealth Rock end for the target's side. Ignores a target's substitute, although a substitute will still block the lowering of evasiveness.",
@@ -1304,7 +1305,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	detect: {
 		name: "Detect",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Prevents moves from affecting the user this turn.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -1570,8 +1571,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	dragonrush: {
 		name: "Dragon Rush",
-		desc: "Has a 20% chance to make the target flinch. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
-		shortDesc: "20% chance to make the target flinch.",
+		desc: "Has a 20% chance to make the target flinch. If Dragon Force is active, this move does not check accuracy. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
+		shortDesc: "20% chance to flinch target. Cant miss in D. Force",
 		gen5: {
 			desc: "Has a 20% chance to make the target flinch.",
 		},
@@ -1596,8 +1597,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	dreameater: {
 		name: "Dream Eater",
-		desc: "The target is unaffected by this move unless it is asleep. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
-		shortDesc: "User gains 1/2 HP inflicted. Sleeping target only.",
+		desc: "The target is unaffected by this move unless it is asleep or Dreamscape is active. The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User gains 1/2 HP inflicted. Sleeping/Dreamscape only.",
 		gen4: {
 			desc: "The target is unaffected by this move unless it is asleep and does not have a substitute. The user recovers 1/2 the HP lost by the target, rounded down, but not less than 1 HP. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded down.",
 		},
@@ -1716,8 +1717,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	electroshot: {
 		name: "Electro Shot",
-		desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb or the weather is Primordial Sea or Rain Dance, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Primordial Sea or Rain Dance, the move still requires a turn to charge.",
-		shortDesc: "Raises Sp. Atk by 1, hits turn 2. Rain: no charge.",
+		desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb or the weather is Thunderstorm, Primordial Sea or Rain Dance, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Primordial Sea or Rain Dance, the move still requires a turn to charge.",
+		shortDesc: "Raises Sp. Atk by 1, hits turn 2. Rain/Thunder: no charge.",
 
 		prepare: "[POKEMON] absorbed electricity!",
 	},
@@ -1774,7 +1775,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	endure: {
 		name: "Endure",
-		desc: "The user will survive attacks made by other Pokemon during this turn with at least 1 HP. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user will survive attacks made by other Pokemon during this turn with at least 1 HP. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "User survives attacks this turn with at least 1 HP.",
 		gen8: {
 			desc: "The user will survive attacks made by other Pokemon during this turn with at least 1 HP. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -1840,8 +1841,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	expandingforce: {
 		name: "Expanding Force",
-		desc: "If the current terrain is Psychic Terrain and the user is grounded, this move hits all opposing Pokemon and has its power multiplied by 1.5.",
-		shortDesc: "User on Psychic Terrain: 1.5x power, hits foes.",
+		desc: "If the current terrain is Psychic Terrain and the user is grounded or Dreamscape is active, this move hits all opposing Pokemon and has its power multiplied by 1.5.",
+		shortDesc: "Psychic Terrain/Dreamscape: 1.5x power, hits foes.",
 	},
 	explosion: {
 		name: "Explosion",
@@ -2178,8 +2179,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	fly: {
 		name: "Fly",
-		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thousand Arrows, Thunder, and Twister, and Gust and Twister have doubled power when used against it. If the user is holding a Power Herb, the move completes in one turn.",
-		shortDesc: "Flies up on first turn, then strikes the next turn.",
+		desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thousand Arrows, Thunder, and Twister, and Gust and Twister have doubled power when used against it. If the user is holding a Power Herb or Strong Winds is active, the move completes in one turn.",
+		shortDesc: "Charges turn 1. Hits turn 2. No charge in Strong Winds.",
 		gen5: {
 			desc: "This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thunder, and Twister, and Gust and Twister have doubled power when used against it. If the user is holding a Power Herb, the move completes in one turn.",
 		},
@@ -2225,9 +2226,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		startFromItem: "  [POKEMON] used the [ITEM] to get pumped!",
 		startFromZEffect: "  [POKEMON] boosted its critical-hit ratio using its Z-Power!",
 	},
-	focuspunch: {
+	focuspunch: { // updated
 		name: "Focus Punch",
-		desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move.",
+		desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move. During Battle Aura, the user cannot lose focus.",
 		shortDesc: "Fails if the user takes damage before it hits.",
 		gen4: {
 			desc: "The user loses its focus and does nothing if it is hit by a damaging attack this turn before it can execute the move, but it still loses PP.",
@@ -2380,8 +2381,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	gastroacid: {
 		name: "Gastro Acid",
-		desc: "Causes the target's Ability to be rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If the target's Ability is As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, or Zero to Hero, this move fails, and receiving the effect through Baton Pass ends the effect immediately.",
-		shortDesc: "Nullifies the target's Ability.",
+		desc: "Causes the target's Ability to be rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If Smog is active, this move hits all active Pokemon. If the target's Ability is As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, or Zero to Hero, this move fails, and receiving the effect through Baton Pass ends the effect immediately.",
+		shortDesc: "Nullifies target's Ability. Smog: Hits all.",
 		gen8: {
 			desc: "Causes the target's Ability to be rendered ineffective as long as it remains active. If the target uses Baton Pass, the replacement will remain under this effect. If the target's Ability is As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Power Construct, RKS System, Schooling, Shields Down, Stance Change, or Zen Mode, this move fails, and receiving the effect through Baton Pass ends the effect immediately.",
 		},
@@ -2401,8 +2402,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	gearup: {
 		name: "Gear Up",
-		desc: "Raises the Attack and Special Attack of Pokemon on the user's side with the Plus or Minus Abilities by 1 stage.",
-		shortDesc: "Raises Atk, Sp. Atk of allies with Plus/Minus by 1.",
+		desc: "Raises the Attack and Special Attack of Pokemon on the user's side with the Plus or Minus Abilities by 1 stage. If Magnetosphere is active, all Pokemon on the user's side have their stats raised regardless of their Ability.",
+		shortDesc: "Magnetosphere: Raises Atk, SpA of allies by 1.",
 	},
 	genesissupernova: {
 		name: "Genesis Supernova",
@@ -2653,7 +2654,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	gmaxwindrage: {
 		name: "G-Max Wind Rage",
-		desc: "Power is equal to the base move's Max Move power. If this move is successful, the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain end, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the target's side, and the effects of G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, and Sticky Web end for the user's side.",
+		desc: "Power is equal to the base move's Max Move power. If this move is successful, the effects of Electric Terrain, Grassy Terrain, Misty Terrain, and Psychic Terrain end, the effects of Reflect, Light Screen, Aurora Veil, Safeguard, Mist, G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, Steel Barbs, and Sticky Web end for the target's side, and the effects of G-Max Steelsurge, Spikes, Toxic Spikes, Stealth Rock, Steel Barbs, and Sticky Web end for the user's side.",
 		shortDesc: "Base move affects power. Ends Terrain, hazards.",
 	},
 	grassknot: {
@@ -2676,8 +2677,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	grassyglide: {
 		name: "Grassy Glide",
-		desc: "If the current terrain is Grassy Terrain and the user is grounded, this move has its priority increased by 1.",
-		shortDesc: "User on Grassy Terrain: +1 priority.",
+		desc: "If the current terrain is Grassy Terrain and the user is grounded or if Pollen Storm is active, this move has its priority increased by 1.",
+		shortDesc: "Grassy Terrain/Pollen Storm: +1 priority.",
 	},
 	grassyterrain: {
 		name: "Grassy Terrain",
@@ -2983,8 +2984,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	hiddenpower: {
 		name: "Hidden Power",
-		desc: "This move's type depends on the user's individual values (IVs), and can be any type but Fairy and Normal.",
-		shortDesc: "Varies in type based on the user's IVs.",
+		desc: "Changes type to a random type that is super effective against the target, while prioritizing 4x weaknesses over 2x weaknesses. This move does not consider Items, Abilities, or other effects when determining weaknesses. This move cannot be used successfully unless the user's current form, while considering Transform, is a form of Unown.",
+		shortDesc: "Unown: Change type to be super effective.",
 		gen5: {
 			desc: "This move's type and power depend on the user's individual values (IVs). Power varies between 30 and 70, and type can be any but Normal.",
 			shortDesc: "Varies in power and type based on the user's IVs.",
@@ -3210,20 +3211,20 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 
 		prepare: "  [POKEMON] became cloaked in freezing air!",
 	},
-	icefang: {
+	icefang: { // updated
 		name: "Ice Fang",
-		desc: "Has a 10% chance to freeze the target and a 10% chance to make it flinch.",
-		shortDesc: "10% chance to freeze. 10% chance to flinch.",
+		desc: "Has a 10% chance to inflict the target with frostbite and a 10% chance to make it flinch.",
+		shortDesc: "10% chance to frostbite. 10% chance to flinch.",
 	},
 	icehammer: {
 		name: "Ice Hammer",
 		desc: "Lowers the user's Speed by 1 stage.",
 		shortDesc: "Lowers the user's Speed by 1.",
 	},
-	icepunch: {
+	icepunch: { // updated
 		name: "Ice Punch",
-		desc: "Has a 10% chance to freeze the target.",
-		shortDesc: "10% chance to freeze the target.",
+		desc: "Has a 10% chance to inflict the target with frostbite.",
+		shortDesc: "10% chance to frostbite the target.",
 	},
 	iceshard: {
 		name: "Ice Shard",
@@ -3253,7 +3254,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	icywind: {
 		name: "Icy Wind",
-		desc: "Has a 100% chance to lower the target's Speed by 1 stage.",
+		desc: "Has a 100% chance to lower the target's Speed by 1 stage. This move bypasses accuracy checks during Hail.",
 		shortDesc: "100% chance to lower the foe(s) Speed by 1.",
 		gen2: {
 			shortDesc: "100% chance to lower the target's Speed by 1.",
@@ -3431,7 +3432,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	kingsshield: {
 		name: "King's Shield",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Attack lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Attack lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from damaging attacks. Contact: -1 Atk.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Attack lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -3576,8 +3577,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	lightofruin: {
 		name: "Light of Ruin",
-		desc: "If the target lost HP, the user takes recoil damage equal to 1/2 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 1/2 recoil.",
+		desc: "If the target lost HP, the user takes recoil damage equal to 1/3 the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 1/3 recoil.",
 	},
 	lightscreen: {
 		name: "Light Screen",
@@ -3705,7 +3706,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	magiccoat: {
 		name: "Magic Coat",
-		desc: "Until the end of the turn, the user is unaffected by certain non-damaging moves directed at it and will instead use such moves against the original user. Moves reflected in this way are unable to be reflected again by this or the Magic Bounce Ability's effect. Spikes, Stealth Rock, Sticky Web, and Toxic Spikes can only be reflected once per side, by the leftmost Pokemon under this or the Magic Bounce Ability's effect. The Lightning Rod and Storm Drain Abilities redirect their respective moves before this move takes effect.",
+		desc: "Until the end of the turn, the user is unaffected by certain non-damaging moves directed at it and will instead use such moves against the original user. Moves reflected in this way are unable to be reflected again by this or the Magic Bounce Ability's effect. Spikes, Stealth Rock, Sticky Web, Steel Barbs, and Toxic Spikes can only be reflected once per side, by the leftmost Pokemon under this or the Magic Bounce Ability's effect. The Lightning Rod and Storm Drain Abilities redirect their respective moves before this move takes effect.",
 		shortDesc: "Bounces back certain non-damaging moves.",
 		gen5: {
 			desc: "Until the end of the turn, the user is unaffected by certain non-damaging moves directed at it and will instead use such moves against the original user. Moves reflected in this way are unable to be reflected again by this or the Magic Bounce Ability's effect. Spikes, Stealth Rock, and Toxic Spikes can only be reflected once per side, by the leftmost Pokemon under this or the Magic Bounce Ability's effect. The Lightning Rod and Storm Drain Abilities redirect their respective moves before this move takes effect.",
@@ -3730,7 +3731,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	magicroom: {
 		name: "Magic Room",
-		desc: "For 5 turns, the held items of all active Pokemon have no effect. An item's effect of causing forme changes is unaffected, but any other effects from such items are negated. During the effect, Fling and Natural Gift are prevented from being used by all active Pokemon. If this move is used during the effect, the effect ends.",
+		desc: "For 5 turns, the held items of all active Pokemon have no effect. An item's effect of causing forme changes is unaffected, but any other effects from such items are negated. During the effect, Fling and Natural Gift are prevented from being used by all active Pokemon. The duration is 8 turns if Magic Room is set during Dreamscape. If this move is used during the effect, the effect ends.",
 		shortDesc: "For 5 turns, all held items have no effect.",
 	},
 	magmastorm: {
@@ -3759,12 +3760,12 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	magneticflux: {
 		name: "Magnetic Flux",
-		desc: "Raises the Defense and Special Defense of Pokemon on the user's side with the Plus or Minus Abilities by 1 stage.",
-		shortDesc: "Raises Def, Sp. Def of allies with Plus/Minus by 1.",
+		desc: "Raises the Defense and Special Defense of Pokemon on the user's side with the Plus or Minus Abilities by 1 stage. If Magnetosphere is active, all Pokemon on the user's side have their stats raised regardless of their Ability.",
+		shortDesc: "Magnetosphere: Raises Def, SpD of allies by 1.",
 	},
 	magnetrise: {
 		name: "Magnet Rise",
-		desc: "For 5 turns, the user is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. If the user uses Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this move if the user is under any of their effects. Fails if the user is already under this effect or the effects of Ingrain, Smack Down, or Thousand Arrows.",
+		desc: "For 5 turns, the user is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability as long as it remains active. The duration is 8 turns if Magnet Rise was used while Magnetosphere is active. If the user uses Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, Thousand Arrows, and Iron Ball override this move if the user is under any of their effects. Fails if the user is already under this effect or the effects of Ingrain, Smack Down, or Thousand Arrows.",
 		shortDesc: "For 5 turns, the user has immunity to Ground.",
 		gen5: {
 			desc: "For 5 turns, the user is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, and the Arena Trap Ability as long as it remains active. If the user uses Baton Pass, the replacement will gain the effect. Ingrain, Smack Down, and Iron Ball override this move if the user is under any of their effects. Fails if the user is already under this effect or the effects of Ingrain or Smack Down.",
@@ -4203,9 +4204,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "Has a 30% chance to lower the target's accuracy by 1 stage.",
 		shortDesc: "30% chance to lower the target's accuracy by 1.",
 	},
-	mist: {
+	mist: { // updated
 		name: "Mist",
-		desc: "For 5 turns, the user and its party members are protected from having their stat stages lowered by other Pokemon. Fails if the effect is already active on the user's side.",
+		desc: "For 5 turns, the user and its party members are protected from having their stat stages lowered by other Pokemon. The duration is 8 turns if Mist is set during Hail or Fog. Fails if the effect is already active on the user's side.",
 		shortDesc: "For 5 turns, protects user's party from stat drops.",
 		gen2: {
 			desc: "While the user remains active, it is protected from having its stat stages lowered by other Pokemon. Fails if the user already has the effect. Baton Pass can be used to transfer this effect to an ally.",
@@ -4228,10 +4229,10 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "Has a 50% chance to lower the target's Special Attack by 1 stage.",
 		shortDesc: "50% chance to lower the target's Sp. Atk by 1.",
 	},
-	mistyexplosion: {
+	mistyexplosion: { // updated
 		name: "Misty Explosion",
-		desc: "If the current terrain is Misty Terrain and the user is grounded, this move's power is multiplied by 1.5. The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokemon has the Damp Ability.",
-		shortDesc: "User faints. User on Misty Terrain: 1.5x power.",
+		desc: "If the current terrain is Misty Terrain and the user is grounded or Fairy Dust is active, this move's power is multiplied by 1.5. The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokemon has the Damp Ability.",
+		shortDesc: "User faints. Misty Terrain/Fairy Dust: 1.5x power.",
 	},
 	mistyterrain: {
 		name: "Misty Terrain",
@@ -4241,9 +4242,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 			desc: "For 5 turns, the terrain becomes Misty Terrain. During the effect, the power of Dragon-type attacks used against grounded Pokemon is multiplied by 0.5 and grounded Pokemon cannot be inflicted with a non-volatile status condition. Grounded Pokemon can become affected by Yawn but cannot fall asleep from its effect. Camouflage transforms the user into a Fairy type, Nature Power becomes Moonblast, and Secret Power has a 30% chance to lower Special Attack by 1 stage. Fails if the current terrain is Misty Terrain.",
 		},
 	},
-	moonblast: {
+	moonblast: { // updated
 		name: "Moonblast",
-		desc: "Has a 30% chance to lower the target's Special Attack by 1 stage.",
+		desc: "Has a 30% chance to lower the target's Special Attack by 1 stage. If Blood Moon is active, this move bypasses accuracy checks.",
 		shortDesc: "30% chance to lower the target's Sp. Atk by 1.",
 	},
 	moongeistbeam: {
@@ -4408,7 +4409,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	nightmare: {
 		name: "Nightmare",
-		desc: "Causes the target to lose 1/4 of its maximum HP, rounded down, at the end of each turn as long as it is asleep. This move does not affect the target unless it is asleep. The effect ends when the target wakes up, even if it falls asleep again in the same turn.",
+		desc: "Causes the target to lose 1/4 of its maximum HP, rounded down, at the end of each turn as long as it is asleep or Dreamscape is active. This move does not affect the target unless it is asleep or Dreamscape is active. The effect ends when the target wakes up or Dreamscape ends, even if it falls asleep again in the same turn.",
 		shortDesc: "A sleeping target is hurt by 1/4 max HP per turn.",
 
 		start: "  [POKEMON] began having a nightmare!",
@@ -4457,7 +4458,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	obstruct: {
 		name: "Obstruct",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Defense lowered by 2 stages. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Defense lowered by 2 stages. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from damaging attacks. Contact: -2 Def.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Defense lowered by 2 stages. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -4618,7 +4619,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	phantomforce: {
 		name: "Phantom Force",
-		desc: "If this move is successful, it breaks through the target's Baneful Bunker, Detect, King's Shield, Protect, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks. If the user is holding a Power Herb, the move completes in one turn.",
+		desc: "If this move is successful, it breaks through the target's Baneful Bunker, Detect, King's Shield, Protect, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Possess but takes double damage from it. If the user is holding a Power Herb, the move completes in one turn.",
 		shortDesc: "Disappears turn 1. Hits turn 2. Breaks protection.",
 		gen6: {
 			desc: "If this move is successful, it breaks through the target's Detect, King's Shield, Protect, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks. If the user is holding a Power Herb, the move completes in one turn. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
@@ -4717,9 +4718,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "Has a 10% chance to poison the target and a higher chance for a critical hit.",
 		shortDesc: "High critical hit ratio. 10% chance to poison.",
 	},
-	pollenpuff: {
+	pollenpuff: { // updated
 		name: "Pollen Puff",
-		desc: "If the target is an ally, this move restores 1/2 of its maximum HP, rounded down, instead of dealing damage.",
+		desc: "If Pollen Storm is active, this move's Base Power is increase by x 1.3333. If the target is an ally, this move restores 1/2 of its maximum HP, rounded down, instead of dealing damage.",
 		shortDesc: "If the target is an ally, heals 50% of its max HP.",
 	},
 	poltergeist: {
@@ -4753,10 +4754,10 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		start: "  [POKEMON] is covered in powder!",
 		activate: "  When the flame touched the powder on the Pok\u00E9mon, it exploded!",
 	},
-	powdersnow: {
+	powdersnow: { // updated
 		name: "Powder Snow",
-		desc: "Has a 10% chance to freeze the target.",
-		shortDesc: "10% chance to freeze the foe(s).",
+		desc: "Has a 10% chance to inflict the target with frostbite.",
+		shortDesc: "10% chance to frostbite the foe(s).",
 		gen2: {
 			shortDesc: "10% chance to freeze the target.",
 		},
@@ -4827,7 +4828,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	protect: {
 		name: "Protect",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Prevents moves from affecting the user this turn.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -4998,7 +4999,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	quickguard: {
 		name: "Quick Guard",
-		desc: "The user and its party members are protected from attacks with original or altered priority greater than 0 made by other Pokemon, including allies, during this turn. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
+		desc: "The user and its party members are protected from attacks with original or altered priority greater than 0 made by other Pokemon, including allies, during this turn. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
 		shortDesc: "Protects allies from priority attacks this turn.",
 		gen8: {
 			desc: "The user and its party members are protected from attacks with original or altered priority greater than 0 made by other Pokemon, including allies, during this turn. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
@@ -5260,8 +5261,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	risingvoltage: {
 		name: "Rising Voltage",
-		desc: "If the current terrain is Electric Terrain and the target is grounded, this move's power is doubled.",
-		shortDesc: "2x power if target is grounded in Electric Terrain.",
+		desc: "If the current terrain is Electric Terrain and the target is grounded or Thunderstorm is active, this move's power is doubled.",
+		shortDesc: "2x power if target is in Electric Terrain/Thunderstorm.",
 	},
 	roar: {
 		name: "Roar",
@@ -5318,8 +5319,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	rocksmash: {
 		name: "Rock Smash",
-		desc: "Has a 50% chance to lower the target's Defense by 1 stage.",
-		shortDesc: "50% chance to lower the target's Defense by 1.",
+		desc: "Has a 100% chance to lower the target's Defense by 1 stage.",
+		shortDesc: "100% chance to lower the target's Defense by 1.",
 	},
 	rockthrow: {
 		name: "Rock Throw",
@@ -5576,10 +5577,10 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 			shortDesc: "Damage = user's level. Can hit Ghost types.",
 		},
 	},
-	selfdestruct: {
+	selfdestruct: { // updated
 		name: "Self-Destruct",
-		desc: "The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokemon has the Damp Ability.",
-		shortDesc: "Hits adjacent Pokemon. The user faints.",
+		desc: "Sets Dust Storm. The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokemon has the Damp Ability.",
+		shortDesc: "Sets Dust. Hits adjacent Pokemon. User faints.",
 		gen4: {
 			desc: "The user faints after using this move, unless this move has no target. The target's Defense is halved during damage calculation. This move is prevented from executing if any active Pokemon has the Damp Ability.",
 			shortDesc: "Target's Def halved during damage. User faints.",
@@ -5611,7 +5612,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	shadowforce: {
 		name: "Shadow Force",
-		desc: "If this move is successful, it breaks through the target's Baneful Bunker, Detect, King's Shield, Protect, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks. If the user is holding a Power Herb, the move completes in one turn.",
+		desc: "If this move is successful, it breaks through the target's Baneful Bunker, Detect, King's Shield, Protect, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks other than Possess but takes double damage from it. If the user is holding a Power Herb, the move completes in one turn.",
 		shortDesc: "Disappears turn 1. Hits turn 2. Breaks protection.",
 		gen6: {
 			desc: "If this move is successful, it breaks through the target's Detect, King's Shield, Protect, or Spiky Shield for this turn, allowing other Pokemon to attack the target normally. If the target's side is protected by Crafty Shield, Mat Block, Quick Guard, or Wide Guard, that protection is also broken for this turn and other Pokemon may attack the target's side normally. This attack charges on the first turn and executes on the second. On the first turn, the user avoids all attacks. If the user is holding a Power Herb, the move completes in one turn. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
@@ -5683,10 +5684,10 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		prepare: "  [POKEMON] set a shell trap!",
 		cant: "[POKEMON]'s shell trap didn't work!",
 	},
-	shelter: {
+	shelter: { // updated
 		name: "Shelter",
-		desc: "Raises the user's Defense by 2 stages.",
-		shortDesc: "Raises the user's Defense by 2.",
+		desc: "Sets Rain Dance. Raises the user's Defense by 2 stages.",
+		shortDesc: "Sets Rain. Raises the user's Defense by 2.",
 	},
 	shiftgear: {
 		name: "Shift Gear",
@@ -5709,7 +5710,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	silktrap: {
 		name: "Silk Trap",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Speed lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Speed lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from damaging attacks. Contact: -1 Spe.",
 	},
 	silverwind: {
@@ -5824,7 +5825,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	skydrop: {
 		name: "Sky Drop",
-		desc: "This attack takes the target into the air with the user on the first turn and executes on the second. Pokemon weighing 200 kg or more cannot be lifted. On the first turn, the user and the target avoid all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thousand Arrows, Thunder, and Twister. The user and the target cannot make a move between turns, but the target can select a move to use. This move cannot damage Flying-type Pokemon. Fails on the first turn if the target is an ally, if the target has a substitute, or if the target is using Bounce, Dig, Dive, Fly, Phantom Force, Shadow Force, or Sky Drop.",
+		desc: "This attack takes the target into the air with the user on the first turn and executes on the second. Pokemon weighing 200 kg or more cannot be lifted unless Strong Winds is active. On the first turn, the user and the target avoid all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thousand Arrows, Thunder, and Twister. The user and the target cannot make a move between turns, but the target can select a move to use. This move cannot damage Flying-type Pokemon. Fails on the first turn if the target is an ally, if the target has a substitute, or if the target is using Bounce, Dig, Dive, Fly, Phantom Force, Shadow Force, or Sky Drop.",
 		shortDesc: "User and foe fly up turn 1. Damages on turn 2.",
 		gen5: {
 			desc: "This attack takes the target into the air with the user on the first turn and executes on the second. On the first turn, the user and the target avoid all attacks other than Gust, Hurricane, Sky Uppercut, Smack Down, Thunder, and Twister. The user and the target cannot make a move between turns, but the target can select a move to use. This move cannot damage Flying-type Pokemon. Fails on the first turn if the target is an ally, if the target has a substitute, or if the target is using Bounce, Dig, Dive, Fly, Shadow Force, or Sky Drop. If the effect of Gravity ends this effect before the second turn, both the user and the target return to the ground, but the target will otherwise remain under this effect until the user leaves the field or successfully executes the second turn of any two-turn move.",
@@ -5935,7 +5936,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	smog: {
 		name: "Smog",
-		desc: "Has a 40% chance to poison the target.",
+		desc: "Has a 40% chance to poison the target. If the Smog Weathergy is active, this move bypasses accuracy checks.",
 		shortDesc: "40% chance to poison the target.",
 	},
 	smokescreen: {
@@ -6157,7 +6158,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	spikyshield: {
 		name: "Spiky Shield",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user lose 1/8 of their maximum HP, rounded down. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user lose 1/8 of their maximum HP, rounded down. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from moves. Contact: loses 1/8 max HP.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user lose 1/8 of their maximum HP, rounded down. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -6249,7 +6250,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	stealthrock: {
 		name: "Stealth Rock",
-		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
+		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, or 1/4 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, or 2x/4x respectively. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
 		shortDesc: "Hurts foes on switch-in. Factors Rock weakness.",
 		gen8: {
 			desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, 1/4, or 1/2 of their maximum HP, rounded down, based on their weakness to the Rock type; 0.25x, 0.5x, neutral, 2x, or 4x, respectively. Can be removed from the opposing side if any opposing Pokemon uses Rapid Spin or Defog successfully, or is hit by Defog.",
@@ -6810,9 +6811,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "Power doubles if the user is grounded and a terrain is active, and this move's type changes to match. Electric type during Electric Terrain, Grass type during Grassy Terrain, Fairy type during Misty Terrain, and Psychic type during Psychic Terrain.",
 		shortDesc: "User on terrain: power doubles, type varies.",
 	},
-	thief: {
+	thief: { // updated
 		name: "Thief",
-		desc: "If this attack was successful and the user has not fainted, it steals the target's held item if the user is not holding one. The target's item is not stolen if it is a Mail or Z-Crystal, or if the target is a Kyogre holding a Blue Orb, a Groudon holding a Red Orb, a Giratina holding a Griseous Orb, an Arceus holding a Plate, a Genesect holding a Drive, a Silvally holding a Memory, or a Pokemon that can Mega Evolve holding the Mega Stone for its species. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
+		desc: "If this attack was successful and the user has not fainted, it steals the target's held item if the user is not holding one. If Blood Moon is active, this move gains +1 priority. The target's item is not stolen if it is a Mail or Z-Crystal, or if the target is a Kyogre holding a Blue Orb, a Groudon holding a Red Orb, a Giratina holding a Griseous Orb, an Arceus holding a Plate, a Genesect holding a Drive, a Silvally holding a Memory, or a Pokemon that can Mega Evolve holding the Mega Stone for its species. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
 		shortDesc: "If the user has no item, it steals the target's.",
 		gen6: {
 			desc: "If this attack was successful and the user has not fainted, it steals the target's held item if the user is not holding one. The target's item is not stolen if it is a Mail, or if the target is a Kyogre holding a Blue Orb, a Groudon holding a Red Orb, a Giratina holding a Griseous Orb, an Arceus holding a Plate, a Genesect holding a Drive, or a Pokemon that can Mega Evolve holding the Mega Stone for its species. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
@@ -6876,8 +6877,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	thunder: { // updated
 		name: "Thunder",
-		desc: "Has a 30% chance to paralyze the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Rain or Primordial Sea, this move does not check accuracy. If the weather is Sun or Desolate Land, this move's accuracy is 50%. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 70%.",
-		shortDesc: "30% chance to paralyze. Can't miss in rain.",
+		desc: "Has a 30% chance to paralyze the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Rain, Primordial Sea or Thunderstorm, this move does not check accuracy. If the weather is Sun or Desolate Land, this move's accuracy is 50%. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 70%.",
+		shortDesc: "30% chance to paralyze. Can't miss in rain/thunder.",
 		gen7: {
 			desc: "Has a 30% chance to paralyze the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea or Rain, this move does not check accuracy. If the weather is Desolate Land or Sun, this move's accuracy is 50%.",
 		},
@@ -6895,9 +6896,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 			shortDesc: "10% chance to paralyze the target.",
 		},
 	},
-	thunderbolt: {
+	thunderbolt: { // updated
 		name: "Thunderbolt",
-		desc: "Has a 10% chance to paralyze the target.",
+		desc: "Has a 10% chance to paralyze the target. If Thunderstorm is active, this move does not check accuracy.",
 		shortDesc: "10% chance to paralyze the target.",
 	},
 	thundercage: {
@@ -6947,7 +6948,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	tidyup: {
 		name: "Tidy Up",
-		desc: "Raises the user's Attack and Speed by 1 stage. Removes subtitutes from all active Pokemon and ends the effects of Spikes, Stealth Rock, Sticky Web, and Toxic Spikes for both sides.",
+		desc: "Raises the user's Attack and Speed by 1 stage. Removes subtitutes from all active Pokemon and ends the effects of Spikes, Stealth Rock, Sticky Web, Steel Barbs, and Toxic Spikes for both sides.",
 		shortDesc: "User +1 Atk, Spe. Clears all substitutes/hazards.",
 
 		activate: "  Tidying up complete!",
@@ -7023,9 +7024,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 
 		transform: "[POKEMON] transformed into [SPECIES]!",
 	},
-	triattack: {
+	triattack: { // updated
 		name: "Tri Attack",
-		desc: "Has a 20% chance to either burn, frostbite, or paralyze the target.",
+		desc: "Has a 20% chance to either burn, frostbite, or paralyze the target. If Sunny Day, Hail, or Thunderstorm are active their corresponding status has an additional 3.333% chance of triggering above the base 20% chance.",
 		shortDesc: "20% chance to paralyze or burn or frostbite target.",
 		gen2: {
 			desc: "This move selects burn, freeze, or paralysis at random, and has a 20% chance to inflict the target with that status. If the target is frozen and burn was selected, it thaws out.",
@@ -7061,7 +7062,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	trickroom: {
 		name: "Trick Room",
-		desc: "For 5 turns, the Speed of every Pokemon is recalculated for the purposes of determining turn order. During the effect, each Pokemon's Speed is considered to be (10000 - its normal Speed), and if this value is greater than 8191, 8192 is subtracted from it. If this move is used during the effect, the effect ends.",
+		desc: "For 5 turns, the Speed of every Pokemon is recalculated for the purposes of determining turn order. During the effect, each Pokemon's Speed is considered to be (10000 - its normal Speed), and if this value is greater than 8191, 8192 is subtracted from it. The duration is 8 turns if Trick Room is set during Dreamscape. If this move is used during the effect, the effect ends.",
 		shortDesc: "Goes last. For 5 turns, turn order is reversed.",
 		gen4: {
 			desc: "For 5 turns, all active Pokemon with lower Speed will move before those with higher Speed, within their priority brackets. If this move is used during the effect, the effect ends.",
@@ -7084,7 +7085,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	triplekick: {
 		name: "Triple Kick",
-		desc: "Hits three times. Power increases to 20 for the second hit and 30 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
+		desc: "Hits three times. Power increases to 40 for the second hit and 60 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability, this move will always hit three times.",
 		shortDesc: "Hits 3 times. Each hit can miss, but power rises.",
 		gen4: {
 			desc: "Hits three times. Power increases to 20 for the second hit and 30 for the third. This move checks accuracy for each hit, and the attack ends if the target avoids a hit. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the target has a Focus Sash and had full HP when this move started, it will not be knocked out regardless of the number of hits.",
@@ -7241,8 +7242,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	volttackle: {
 		name: "Volt Tackle",
-		desc: "Has a 10% chance to paralyze the target. If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 33% recoil. 10% chance to paralyze target.",
+		desc: "Has a 10% chance to paralyze the target. If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP. This move cannot be used successfully unless the user's current form, while considering Transform, is a form of Pikachu",
+		shortDesc: "Pikachu: 33% recoil. 10% chance to paralyze.",
 		gen4: {
 			desc: "Has a 10% chance to paralyze the target. If the target lost HP, the user takes recoil damage equal to 1/3 the HP lost by the target, rounded down, but not less than 1 HP.",
 			shortDesc: "Has 1/3 recoil. 10% chance to paralyze target.",
@@ -7385,7 +7386,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	wideguard: {
 		name: "Wide Guard",
-		desc: "The user and its party members are protected from moves made by other Pokemon, including allies, during this turn that target all adjacent foes or all adjacent Pokemon. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
+		desc: "The user and its party members are protected from moves made by other Pokemon, including allies, during this turn that target all adjacent foes or all adjacent Pokemon. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
 		shortDesc: "Protects allies from multi-target moves this turn.",
 		gen8: {
 			desc: "The user and its party members are protected from moves made by other Pokemon, including allies, during this turn that target all adjacent foes or all adjacent Pokemon. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
@@ -7409,10 +7410,10 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "Has a 20% chance to paralyze the target. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
 		shortDesc: "20% chance to paralyze foe(s). Rain: can't miss.",
 	},
-	wildcharge: {
+	wildcharge: { // updated
 		name: "Wild Charge",
-		desc: "If the target lost HP, the user takes recoil damage equal to 1/4 the HP lost by the target, rounded half up, but not less than 1 HP.",
-		shortDesc: "Has 1/4 recoil.",
+		desc: "Has a 10% chance to paralyze the target. If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 33% recoil. 10% chance to paralyze.",
 	},
 	willowisp: {
 		name: "Will-O-Wisp",
@@ -7441,7 +7442,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	wonderroom: {
 		name: "Wonder Room",
-		desc: "For 5 turns, all active Pokemon have their Defense and Special Defense stats swapped. Stat stage changes are unaffected. If this move is used during the effect, the effect ends.",
+		desc: "For 5 turns, all active Pokemon have their Defense and Special Defense stats swapped. Stat stage changes are unaffected. The duration is 8 turns if Wonder Room is set during Dreamscape. If this move is used during the effect, the effect ends.",
 		shortDesc: "For 5 turns, all Defense and Sp. Def stats switch.",
 	},
 	woodhammer: {
@@ -7527,8 +7528,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	zapcannon: {
 		name: "Zap Cannon",
-		desc: "Has a 100% chance to paralyze the target.",
-		shortDesc: "100% chance to paralyze the target.",
+		desc: "Has a 100% chance to paralyze the target. If Thunderstorm is active, this move has x 1.5 accuracy.",
+		shortDesc: "100% chance to paralyze. Thunder: x 1.5 acc.",
 	},
 	zenheadbutt: {
 		name: "Zen Headbutt",
@@ -7603,7 +7604,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	comradesarmor: {
 		name: "Comrade's Armor",
-		desc: "The user protects their ally from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Also increases the Protect counter of the user's ally. Fails if the user moves last this turn.",
+		desc: "The user protects their ally from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Also increases the Protect counter of the user's ally. Fails if the user moves last this turn.",
 		shortDesc: "Prevents moves from affecting the user's ally this turn.",
 
 		start: "  [POKEMON] protected their ally!",
@@ -7699,45 +7700,328 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Cannot be selected the turn after it's used.",
 		shortDesc: "Destroys screens. Cannot be selected the turn after it's used.",
 	},
+	ferrospikebarrage: {
+		name: "Ferrospike Barrage",
+		desc: "Has a 30% chance to poison the target.",
+		shortDesc: "30% chance to poison the target.",
+	},
+	fireglass: {
+		name: "Fire Glass",
+		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Has a 30% chance to burn the target. The target thaws out if it is frozen.",
+		shortDesc: "Destroys screens. 30% chance to burn the target.",
+	},
+	fluffbuff: {
+		name: "Fluff Buff",
+		shortDesc: "Sets Pollen Storm. Raises user's Def by 1 stage.",
+	},
 	foghorn: {
 		name: "Foghorn",
 		desc: "For 5 turns, the weather becomes Fog. During the effect, Ghost types can be hit with Normal-type moves and non-Normal-type moves have their accuracy multiplied by 0.9. Lasts for 8 turns if the user is holding a Weather Balloon. Fails if the current weather is Fog.",
 		shortDesc: "For 5 turns, fog negates Ghost's normal immunity.",
+	},
+	frostkick: {
+		name: "Frost Kick",
+		desc: "Has a 10% chance to inflict frostbite on the target and a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio. 10% chance to frostbite.",
+	},
+	frostburnclaw: {
+		name: "Frostburn Claw",
+		desc: "On even turns this move is Ice-type. On odd turns this move is Fire-type. If this move is Ice-type it has a 20% chance to inflict the target with frostbite. If this move is Fire type it has a 20% chance to burn the target. The target thaws out if it is frozen.",
+		shortDesc: "Switches between Fire and Ice-type. 20% chance to burn or frostbite.",
+	},
+	frostification: {
+		name: "Frostification",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user becomes inflicted with frostbite. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		shortDesc: "Protects from moves. Contact: frostbite.",
+	},
+	glacialcharge: {
+		name: "Glacial Charge",
+		desc: "Power doubles if the target is frozen. The target thaws out if it is frozen.",
+		shortDesc: "Power doubles if the target is frozen.",
 	},
 	haunt: {
 		name: "Haunt",
 		desc: "For 5 turns, the weather becomes Paranormal Activity. At the end of each turn except the last, all active Pokemon lose 1/16 of their maximum HP, rounded down, unless they are a Ghost, Normal, or Dark type, or have the Magic Guard ability. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Paranormal Activity.",
 		shortDesc: "For 5 turns, paranormal activity drains HP.",
 	},
+	heartshock: {
+		name: "Heartshock",
+		desc: "Revives a random fainted ally at 1 / 2 their max HP. Then switches to them and paralyzes them. Fails if there are no fainted allies, if the user has the Ingrain effect, or if the user has the Suction Cups Ability.",
+		shortDesc: "Switches to a random fainted ally reviving them with paralysis.",
+	},
+	hiveshriek: {
+		name: "Hive Shriek",
+		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Has a 30% chance to lower the target's Def by 1 stage.",
+		shortDesc: "Destroys screens. 30% chance to lower target's Def by 1."
+	},
+	hornswoggle: {
+		name: "Hornswoggle",
+		desc: "Lowers the target's Attack and Special Attack by 2 stages.",
+		shortDesc: "Hits first. Lowers the target's Attack and Sp. Atk by 2.",
+	},
+	hydraulicjaw: {
+		name: "Hydraulic Jaw",
+		shortDesc: "No additional effect.",
+	},
+	hydrocharge: {
+		name: "Hydrocharge",
+		desc: "This move combines Electric in its type effectiveness against the target.",
+		shortDesc: "Combines Electric in its type effectiveness.",
+	},
+	icebreak: {
+		name: "Ice Break",
+		desc: "The target thaws out if it is frozen.",
+		shortDesc: "Thaws target.",
+	},
+	ignition: {
+		name: "Ignition",
+		desc: "Has a 10% chance to burn the target.",
+		shortDesc: "10% chance to burn the target. Thaws user.",
+	},
 	initiative: {
 		name: "Initiative",
 		desc: "If this move is successful, it has an equal chance to apply any of the following effects: put the target to sleep, put the user to sleep, paralyze the target, paralyze the user, confuse the target, confuse the user, disable the target's last move used, disable the user's last move used, hurt the target by 1/4 of its maximum HP, hurt the user by 1/4 of its maximum HP, heal the target by 1/4 of its maximum HP, or heal the user by 1/4 of its maximum HP",
 		shortDesc: "Has a random positive or negative effect.",
+	},
+	juicedrink: {
+		name: "Juice Drink",
+		desc: "The user becomes confused and restores 2/3 of its maximum HP, rounded half up.",
+		shortDesc: "Confuses the user. Heals the user by 66% of its max HP.",
+	},
+	kihop: {
+		name: "Ki-hop",
+		shortDesc: "No additional effect.",
+	},
+	languishingaura: {
+		name: "Languishing Aura",
+		desc: "Sets the Paranormal Activity Weathergy. Every Pokemon in the user's party is cured of its non-volatile status condition.",
+		shortDesc: "Sets P. Activity. Cures user's party status conditions.",
+	},
+	lavajet: {
+		name: "Lava Jet",
+		desc: "No additional effect.",
+		shortDesc: "Usually goes first. THaws user.",
+	},
+	lovespray: {
+		name: "Lovespray",
+		desc: "Lowers the target's SpA by 1 stage. Causes the target to become infatuated, making it unable to attack 50% of the time. The effect ends when either the user or the target is no longer active. Pokemon with the Oblivious Ability or protected by the Aroma Veil Ability are immune. During Pheromones the move bypasses accuracy checks and target all other active Pokemon.",
+		shortDesc: "Infatuates target. Lowers target's SpA by 1 stage.",
+	},
+	lunarsurge: {
+		name: "Lunar Surge",
+		desc: "This attack charges on the first turn and executes on the second. If the user is holding a Power Herb or the weather is Blood Moon, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Blood Moon, the move still requires a turn to charge.",
+		shortDesc: "Charges turn 1. Hits turn 2. No charge in Blood Moon.",
+
+		prepare: "  [POKEMON] absorbed moonlight!",
+	},
+	magicmissile: {
+		name: "Magic Missile",
+		desc: "Hits three times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
+		shortDesc: "Can't miss. Hits 3 times.",
 	},
 	magnetize: {
 		name: "Magnetize",
 		desc: "For 5 turns, the weather becomes Magnetosphere. During the effect, Steel-type moves and Electric-type moves targeted at Steel-type Pokemon ignore accuracy checks, and the Special Defense of Steel-type Pokemon is multiplied by 1.25. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Magnetosphere.",
 		shortDesc: "For 5 turns, Steel moves ignore accuracy checks.",
 	},
+	mindmeld: {
+		name: "Mind Meld",
+		desc: "Has a 10% chance to confuse the target. During Dreamscape, ignores the target's stat stage changes, including evasiveness.",
+		shortDesc: "10% chance to confuse the target."
+	},
+	minilaser: {
+		name: "Minilaser",
+		shortDesc: "This move does not check accuracy.",
+	},
+	mockery: {
+		name: "Mockery",
+		desc: "Hits one to two times. If the user has the Skill Link Ability, this move will always hit two times. Each hit lowers the target's SpD and Spe by one stage.",
+		shortDesc: "Hits 1-2 times. Lowers target's SpD and Spe by 1 stage."
+	},
+	muckvolley: {
+		name: "Muck Volley",
+		desc: "Hits three times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
+		shortDesc: "Hits 3 times."
+	},
+	osmosis: {
+		name: "Osmosis",
+		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down.",
+		shortDesc: "User recovers 50% of the damage dealt.",
+	},
+	overbearingcommand: {
+		name: "Overbearing Command",
+		desc: "Has a 70% chance to confuse the target. Has a 30% chance to sleep the target. If the target is already confused, the sleep chance is increase to 80%.",
+		shortDesc: "70% confusion chance; 30% sleep chance."
+	},
+	paddle: {
+		name: "Paddle",
+		shortDesc: "No additional effect.",
+	},
+	peekaboo: {
+		name: "Peek-a-Boo",
+		desc: "Has a 20% chance to make the target flinch. If Blood Moon or Paranormal Activity are active this move's Base Power increases by x 1.5.",
+		shortDesc: "20% flinch chance. B. Moon/P. Activity: x 1.5 BP."
+	},
+	permafrost: {
+		name: "Permafrost",
+		desc: "Has a 10% chance to inflict the target with frostbite. If the target lost HP, the user takes recoil damage equal to 33% the HP lost by the target, rounded half up, but not less than 1 HP.",
+		shortDesc: "Has 33% recoil. 10% chance to frostbite.",
+	},
+	pixiepunch: {
+		name: "Pixie Punch",
+		desc: "Has a 30% chance to lower target's Atk by 1 stage. Chance gets increased to 60% during Fairy Dust.", 
+		shortDesc: "30% chance to lower target's Atk by 1 stage."
+	},
 	pollinate: {
 		name: "Pollinate",
 		desc: "For 5 turns, the weather becomes Pollen Storm. During the effect, the Attack of non-Grass- and Bug-type Pokemon is multiplied by 0.5. Lasts for 8 turns if the user is holding Volatile Spray. Fails if the current weather is Pollen Storm.",
 		shortDesc: "For 5 turns, non-Grass/Bug: 0.5x Atk.",
+	},
+	possess: {
+		name: "Possess",
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+
+		start: "  [POKEMON] became trapped by evil spirits!",
+	},
+	pricklypear: {
+		name: "Prickly Pear",
+		desc: "The Pokemon at the user's position steals 1/16 of the target's maximum HP, rounded down, at the end of each turn. The HP stolen increases by 1/16 of the target's maximum HP each turn. If Big Root is held by the recipient, the HP recovered is 1.3x normal, rounded half down. If the target uses Baton Pass, the replacement will continue being leeched. If the target switches out or uses Mortal Spin or Rapid Spin successfully, the effect ends. Grass-type Pokemon are immune to this move on use, but not its effect.",
+		shortDesc: "Badly seeds the target.",
+
+		start: "  [POKEMON] was seeded!",
+		end: "  [POKEMON] was freed from Prickly Pear!",
+		damage: "  [POKEMON]'s health is sapped by Prickly Pear!",
+	},
+	psionrush: {
+		name: "Psion Rush",
+		shortDesc: "Cannot be selected the turn after it's used.",
+	},
+	psychicclap: {
+		name: "Psychic Clap",
+		shortDesc: "No additional effect.",
+	},
+	psychocannon: {
+		name: "Psycho Cannon",
+		desc: "If this move is successful, the user must recharge on the following turn and cannot select a move.",
+		shortDesc: "User cannot move next turn.",
+	},
+	resilientoil: {
+		name: "Resilient Oil",
+		desc: "For 5 turns, the user and its party members are protected from having their stat stages lowered by other Pokemon. The user has 1/16 of its maximum HP, rounded down, restored at the end of each turn while it remains active. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. If the user uses Baton Pass, the replacement will receive the healing effect. Fails if both effects are already active on the user and the user's side.",
+		shortDesc: "Sets Mist. Gives user the Aqua Ring effect.",
+	},
+	rockjaw: {
+		name: "Rock Jaw",
+		shortDesc: "No additional effect.",
+	},
+	rollerblitz: {
+		name: "Roller Blitz",
+		desc: "Damage is calculated using the user's Speed stat as its Attack, including stat stage changes. Other effects that modify the Attack stat are used as normal.",
+		shortDesc: "Uses user's Spe stat as Atk in damage calculation.",
+	},
+	sandblast: {
+		name: "Sandblast",
+		shortDesc: "Power doubles during Sandstorm or Dust Storm.",
+	},
+	sandstonesweep: {
+		name: "Sandstone Sweep",
+		desc: "If this move is successful and the user has not fainted, the effects of Leech Seed and binding moves end for the user, and all hazards are removed from the user's side of the field.",
+		shortDesc: "Free user from hazards/bind/Leech Seed.",
+	},
+	scavenge: {
+		name: "Scavenge",
+		desc: "Before dealing damage if user is holding a Berry it is consumed. If this attack was successful and the user has not fainted, it steals the target's held item if the user is not holding one. If the stolen item is a berry, it is immediately consumed. The target's item is not stolen if it is a Mail or Z-Crystal, or if the target is a Kyogre holding a Blue Orb, a Groudon holding a Red Orb, a Giratina holding a Griseous Orb, an Arceus holding a Plate, a Genesect holding a Drive, a Silvally holding a Memory, or a Pokemon that can Mega Evolve holding the Mega Stone for its species. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
+		shortDesc: "Eats user's berry. Steals target's item."
+	},
+	shade: {
+		name: "Shade",
+		desc: "Has a 10% chance to make the target flinch. During Blood Moon this move has double Base Power.",
+		shortDesc: "Power doubles during Blood Moon. 10% flinch chance.",
+	},
+	shadowfang: {
+		name: "Shadow Fang",
+		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated.",
+		shortDesc: "Destroys screens.",
+	},
+	shadowspit: {
+		name: "Shadow Spit",
+		desc: "Has a 30% chance to paralyze the target",
+		shortDesc: "30% chance to paralyze the target.",
+	},
+	shockshelter: {
+		name: "Shock Shelter",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user becomes paralyzed. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		shortDesc: "Protects from moves. Contact: paralysis.",
+	},
+	shreddingriff: {
+		name: "Shredding Riff",
+		desc: "Lowers the user's Special Defense by one stage. Ends the the effects of Reflect, Light Screen, and Aurora Veil on the user's side of the field. If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated.",
+		shortDesc: "Destroys all screens. Lowers user SpD by 1 stage.",
+	},
+	slushball: {
+		name: "Slushball",
+		desc: "During Rain, Primordial Sea or Hail, this move has x 1.5 Base Power. This move's type effectiveness against Flying is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Rain/Hail: x 1.5 BP. Super effective on Water.",
 	},
 	smogspread: {
 		name: "Smog Spread",
 		desc: "For 5 turns, the weather becomes Smog. At the end of each turn except the last, all active Pokemon are poisoned, unless they are a Poison or Steel type. Lasts for 8 turns if the user is holding Volatile Spray. Fails if the current weather is Smog.",
 		shortDesc: "For 5 turns, smog fills the air. Poisons all active.",
 	},
+	snooze: {
+		name: "Snooze",
+		desc: "The user restores 1/2 of its maximum HP, rounded half up. Causes all Pokemon to fall asleep at the end of the next turn. At the end of the next turn, if a Pokemon is still active, does not have a non-volatile status condition, and can fall asleep, it falls asleep. If a Pokemon becomes affected, this effect cannot be prevented by Safeguard or a substitute, or by falling asleep and waking up during the effect.",
+		shortDesc: "Heals user 50% of its max HP. Makes all Pokemon drowsy.",
+	},
+	spectrum: {
+		name: "Spectrum",
+		desc: "Has a 30% chance to lower the target's accuracy by one stage.",
+		shortDesc: "30% chance to lower target's accuracy by 1 stage."
+	},
 	sprinkle: {
 		name: "Sprinkle",
 		desc: "For 5 turns, the weather becomes Fairy Dust. At the end of each turn except the last, all active Pokemon have 1/16 of their maximum HP restored, rounded down. During the effect, the evasion of non-Fairy-type Pokemon is multiplied by 0.75 during accuracy checks, and the Special Defense of Fairy-type Pokemon is multiplied by 1.25. Lasts for 8 turns if the user is holding Volatile Spray. Fails if the current weather is Fairy Dust.",
 		shortDesc: "For 5 turns, fairy dust heals. Fairy: 1.25x SpDef.",
 	},
+	steelbarbs: {
+		name: "Steel Barbs",
+		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, or 1/4 of their maximum HP, rounded down, based on their weakness to the Steel type; 0.25x, 0.5x, neutral, or 2x/4x respectively. Can be removed from the opposing side if any opposing Pokemon uses Mortal Spin, Rapid Spin, or Defog successfully, or is hit by Defog.",
+		shortDesc: "Hurts foes on switch-in. Factors Steel weakness.",
+
+		start: "  Sharp metal floats in the air around [TEAM]!",
+		end: "  The sharp metal disappeared from around [TEAM]!",
+		damage: "  Sharp metal dug into [POKEMON]!",
+	},
+	stonestorm: {
+		name: "Stone Storm",
+		desc: "Hits twice in Sandstorm or Dust Storm. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
+		shortDesc: "Hits twice in Sandstorm or Dust Storm."
+	},
 	strongwinds: {
 		name: "Strong Winds",
 		desc: "For 5 turns, the weather becomes Strong Winds. Clears all active Weathergies on activation. If other Weathergies are activated after Strong Winds, they gain boosted effects for as long as Strong Winds remains active. During the effect, wind moves ignore accuracy checks and the Speed of Flying-type Pokemon is multiplied by 1.25. Lasts for 8 turns if the user is holding a Portable Turbine. Fails if the current weather is Strong Winds.",
 		shortDesc: "Clears weather. For 5 turns, boosts all weather.",
+	},
+	stunningsolo: {
+		name: "Stunning Solo",
+		desc: "Has a 20% chance to either poison or paralyze the target.",
+		shortDesc: "20% chance to paralyze or poison target.",
+	},
+	sulphurbeam: {
+		name: "Sulphur Beam",
+		desc: "Has a 30% chance to burn the target.",
+		shortDesc: "30% chance to burn the target.",
+	},
+	sultryspin: {
+		name: "Sultry Spin",
+		desc: "Has a 30% chance to infatuate the ",
+		shortDesc: "30% chance to infatuate on hit. Hits all foes."
+	},
+	sunscreen: {
+		name: "Sunscreen",
+		desc: "Boosts the user's and their allies' Defense and Special Defense by 1 stage. Gives the user and their allies immunity to Fire moves until they switch out. This move fails unless Sunny Day or Desolate Land are active. If a Pokemon with the Dry Skin Ability is affected by this move it stops taking damage from Sunny Day and Desolate Land.",
+		shortDesc: "Sun: Side Def and SpD +1; Fire immunity."
 	},
 	supercell: {
 		name: "Supercell",
@@ -7748,5 +8032,79 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		name: "Swarm Signal",
 		desc: "For 5 turns, the weather becomes Pheromones. During the effect, the Speed of Bug- and Poison-type Pokemon is multiplied by 1.5 and the accuracy of moves used by Bug- and Poison-type Pokemon is multiplied by 1.3. Lasts for 8 turns if the user is holding Volatile Spray. Fails if the current weather is Pheromones.",
 		shortDesc: "For 5 turns, Bug/Poison: 1.5x Spe, 1.3x Acc.",
+	},
+	technoplasm: {
+		name: "Technoplasm",
+		desc: "Hits two to five times. Each hit has an individual 10% chance to paralyze the target. Has a 35% chance to hit two or three times and a 15% chance to hit four or five times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. If the user has the Skill Link Ability or if Cursed Winds is active, this move will always hit five times.",
+		shortDesc: "Hits 2-5 times in one turn. Each hit: 10% para.",
+	},
+	thermalvortex: {
+		name: "Thermal Vortex",
+		desc: "Sets Sunny Day.",
+		shortDesc: "Sets Sun. Hits adjacent foes.",
+	},
+	thunderhammer: {
+		name: "Thunder Hammer",
+		desc: "Has a 10% chance to paralyze the target.",
+		shortDesc: "10% chance to paralyze the target."
+	},
+	viralblast: {
+		name: "Viral Blast",
+		desc: "Has a 30% chance to poison the target.",
+		shortDesc: "30% chance to poison the target.",
+	},
+	voltkick: {
+		name: "Volt Kick",
+		desc: "Has a 10% chance to paralyze the target and a higher chance for a critical hit.",
+		shortDesc: "High critical hit ratio. 10% chance to paralyze.",
+	},
+	whipup: {
+		name: "Whip Up",
+		desc: "Has a 10% chance to lower the target's Speed by one stage.",
+		shortDesc: "10% chance to lower targets Spe by 1 stage",
+	},
+	whirlduel: {
+		name: "Whirlduel",
+		desc: "Sets Rain Dance. Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Sets Rain. Traps and damages the target for 4-5 turns.",
+	
+		start: "  [POKEMON] became trapped in the vortex!",
+	},
+	whitewand: {
+		name: "White Wand",
+		desc: "Inflicts the target with frostbite.",
+		shortDesc: "Frostbites the target.",
+	},
+	whiteout: {
+		name: "Whiteout",
+		desc: "Sets Hail. Has a 100% chance to inflict the target(s) with frostbite.",
+		shortDesc: "Sets Hail. 100% frostbite chance. Hits all Pokemon.",
+	},
+	wildmagic: {
+		name: "Wild Magic",
+		desc: "If used by a Pokemon with the Power Above Ability this move randomly becomes Grass, Fire or Water type. If used by a Pokemon with the Power Within Ability this move randomly becomes Fire, Electric or Ice type.",
+		shortDesc: "Changes type based on Power Above/Within.",
+	},
+	wildfire: {
+		name: "Wildfire",
+		desc: "Sets Sun. Has a 100% chance to burn the target(s).",
+		shortDesc: "Sets Sun. 100% burn chance. Hits all Pokemon.",
+	},
+	windtunnel: {
+		name: "Wind Tunnel",
+		desc: "If Strong Winds is active, this move has its priority increased by 1.",
+		shortDesc: "Strong Winds: +1 priority.",
+	},
+	windrage: {
+		name: "Windrage",
+		desc: "This move fails if Strong Winds is not active. If this move is successful and the user has not fainted, the effects of Leech Seed and binding moves end for the user, and all hazards are removed from the user's side of the field.",
+		shortDesc: "Fails if no Strong Winds. Clear hazards.",
+	},
+	wrangle: {
+		name: "Wrangle",
+		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
+		shortDesc: "Traps and damages the target for 4-5 turns.",
+	
+		start: "  [POKEMON] was wrangled by [SOURCE]!",
 	},
 };
