@@ -23168,7 +23168,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: {contact: 1, protect: 1, mirror: 1},
 		thawsTarget: true,
 		onModifyType(move, pokemon, target) {
-			if (this.turn % 2 === 1) {
+			if (pokemon.activeTurns % 2 === 1) {
 				move.type = 'Fire';
 			} else {
 				move.type = 'Ice';
