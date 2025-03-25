@@ -7726,7 +7726,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	frostburnclaw: {
 		name: "Frostburn Claw",
-		desc: "On even turns this move is Ice-type. On odd turns this move is Fire-type. If this move is Ice-type it has a 20% chance to inflict the target with frostbite. If this move is Fire type it has a 20% chance to burn the target. The target thaws out if it is frozen.",
+		desc: "Starts as a Fire-type move. Switches between Fire- and Ice-type every turn. If this move is Ice-type it has a 20% chance to inflict the target with frostbite. If this move is Fire type it has a 20% chance to burn the target. The target thaws out if it is frozen.",
 		shortDesc: "Swaps between Fire/Ice. 20% chance to frb/brn.",
 	},
 	frostification: {
