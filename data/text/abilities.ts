@@ -1177,7 +1177,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	overcoat: { // updated
 		name: "Overcoat",
 		desc: "This Pokemon is immune to powder moves, the effects of Rage Powder and the Effect Spore Ability, and Irritant Weathergy effects. Damage and accuracy calculations from attacks used by this Pokemon are affected by Irritant Weathergy, but not attacks used against it.",
-		shortDesc: "This Pokemon is immune to powder moves and Effect Spore; ignores Irritant Weathergy effects.",
+		shortDesc: "Immunity to powder moves and Effect Spore; ignores Irritant Weathergy effects.",
 		gen8: {
 			desc: "This Pokemon is immune to powder moves, damage from Sandstorm or Hail, and the effects of Rage Powder and the Effect Spore Ability.",
 			shortDesc: "This Pokemon is immune to powder moves, Sandstorm or Hail damage, Effect Spore.",
@@ -2209,14 +2209,14 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	windpower: { // updated
 		name: "Wind Power",
 		desc: "This Pokemon gains the Charge effect when it takes a hit from a wind move or when Tailwind or Strong Winds begins on this Pokemon's side.",
-		shortDesc: "This Pokemon gains the Charge effect when hit by a wind move or Tailwind/Strong Winds begins.",
+		shortDesc: "Gains the Charge effect when hit by a wind move or Tailwind/Strong Winds begins.",
 
 		start: "#electromorphosis",
 	},
 	windrider: { // updated
 		name: "Wind Rider",
 		desc: "This Pokemon is immune to wind moves and raises its Attack by 1 stage when hit by a wind move or when Tailwind or Strong Winds begins on this Pokemon's side.",
-		shortDesc: "Attack raised by 1 if hit by a wind move or Tailwind/Strong Winds begins. Wind move immunity.",
+		shortDesc: "+1 Attack if hit by a wind move or Tailwind/Strong Winds begins. Wind move immunity.",
 	},
 	wonderguard: {
 		name: "Wonder Guard",
@@ -2364,7 +2364,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	echolocation: {
 		name: "Echolocation",
 		desc: "This Pokemon's damaging sound moves become multi-hit moves that hit twice. The second hit has its damage quartered. Does not affect any multi-hit move.",
-		shortDesc: "This Pokemon's damaging sound moves hit twice. The second hit has its damage quartered.",
+		shortDesc: "This Pokemon's sound attacks hit twice. The second hit has its damage quartered.",
 	},
 	energizer: {
 		name: "Energizer",
@@ -2489,7 +2489,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	neutralize: {
 		name: "Neutralize",
 		desc: "On switch-in, this Pokemon clears all weathers. While this Pokemon is active, Abilities have no effect and weathers cannont be set. This Ability activates before hazards and other Abilities take effect. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Neutralize, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, or Zero to Hero Abilities.",
-		shortDesc: "Switch-in: Clears all weathers. While active: Abilities have no effect and weather cannot be set.",
+		shortDesc: "Switch-in: Clears weather. Active: Abilities have no effect and weather cannot be set.",
 
 		start: "  All Abilities and Weathergy are being neutralized!",
 		end: "  The effects of the neutralization wore off!",
@@ -2532,7 +2532,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "If Fairy Dust is active, this Pokemon's Fairy-, Grass-, Fire-, and Water-type attacks have their power multiplied by 1.3. This effect is prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "This Pokemon's Fairy/Grass/Fire/Water attacks do 1.3x in Fairy Dust.",
 	},
-	powerplumage: {
+	powerplumage: { // TODO: shortDesc is too long
 		name: "Power Plumage",
 		desc: "If this Pokemon is a Blurrun, it will change to Charged Form if Thunderstorm is active or if hit by an Electric-type move. This Pokemon is immune to Electric-type moves. If this Pokemon is not the target of a single-target Electric-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move. If multiple Pokemon could redirect with this Ability, it goes to the one with the highest Speed, or in the case of a tie to the one that has had this Ability active longer.",
 		shortDesc: "(Blurrun only) Changes to Charged Form in Thunderstorm/hit by an Electric-type move; attracts Electric-type moves.",

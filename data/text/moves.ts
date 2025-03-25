@@ -1718,7 +1718,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	electroshot: {
 		name: "Electro Shot",
 		desc: "This attack charges on the first turn and executes on the second. Raises the user's Special Attack by 1 stage on the first turn. If the user is holding a Power Herb or the weather is Thunderstorm, Primordial Sea or Rain Dance, the move completes in one turn. If the user is holding Utility Umbrella and the weather is Primordial Sea or Rain Dance, the move still requires a turn to charge.",
-		shortDesc: "Raises SpA by 1, hits turn 2. Rain/Thunder: no charge.",
+		shortDesc: "+1 SpA, hits turn 2. Rain/Thunder: no charge.",
 
 		prepare: "[POKEMON] absorbed electricity!",
 	},
@@ -5262,7 +5262,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	risingvoltage: {
 		name: "Rising Voltage",
 		desc: "If the current terrain is Electric Terrain and the target is grounded or Thunderstorm is active, this move's power is doubled.",
-		shortDesc: "2x power if target is in Electric Terrain/Thunderstorm.",
+		shortDesc: "2x power if target is in Thunderstorm/E.Terrain.",
 	},
 	roar: {
 		name: "Roar",
@@ -7556,7 +7556,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	amazeassault: {
 		name: "Amaze-Assault",
 		desc: "Power is equal to 90+(X*15), where X is the number of active Weathergies. Increases the duration of all Weathergies by 1.",
-		shortDesc: "+15 power for each weather. Weather durations by 1.",
+		shortDesc: "+15 power per weather. Extends weather durations by 1.",
 	},
 	auraprojection: {
 		name: "Aura Projection",
@@ -7600,7 +7600,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	cidercannon: {
 		name: "Cider Cannon",
 		desc: "Lowers the target's evasiveness by 1 stage. Heals the user 25% of their maximum HP and cures the user's non-volatile status conditions",
-		shortDesc: "Target evasion: -1. Heals user 25% and cures status.",
+		shortDesc: "Target: -1 evasion. User: heals 25%, cures status.",
 	},
 	comradesarmor: {
 		name: "Comrade's Armor",
@@ -7613,7 +7613,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	conduction: {
 		name: "Conduction",
 		desc: "If Magnetosphere is active, this move has x1.5 power. If Thunderstorm is active, this move has a 20% chance to paralyze the target.",
-		shortDesc: "Magnetosphere: x1.5 BP; Thunderstorm: 20% chance to para.",
+		shortDesc: "Magnetosphere: x1.5 BP; Thunder: 20% chance to para.",
 	},
 	crystalforce: {
 		name: "Crystal Force",
@@ -7623,7 +7623,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	darkdepletion: {
 		name: "Dark Depletion",
 		desc: "The user recovers 1/2 the HP lost by the target, rounded half up. If Big Root is held by the user, the HP recovered is 1.3x normal, rounded half down. This move's type effectiveness against Water and Grass is changed to be super effective no matter what this move's type is.",
-		shortDesc: "Heals 50% of damage. Super effective on Grass/Water.",
+		shortDesc: "Heals 50% damage. Super effective on Grass/Water.",
 	},
 	daydream: {
 		name: "Daydream",
@@ -7653,12 +7653,12 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	dragonforce: {
 		name: "Dragon Force",
 		desc: "For 5 turns, the weather becomes Dragon Force. During the effect, the damage of supereffective attacks is multiplied by 0.8 and the Attack and Special Attack of Dragon-type Pokemon is multiplied by 1.15. Lasts for 8 turns if the user is holding an Energy Channelizer. Fails if the current weather is Dragon Force.",
-		shortDesc: "For 5 turns, the arcane weakens supereffective moves.",
+		shortDesc: "For 5 turns, the arcane empowers Dragon attacks.",
 	},
 	dragonsdice: {
 		name: "Dragon's Dice",
 		desc: "Rolls a D20 die. Based on the roll has a different effect. 1: 0 BP, User hits themselves in confusion; 2: 0 BP; 3: 20 BP; 4: 40 BP; 5: 50 BP; 6: 60 BP; 7: 70 BP; 8: 75 BP; 9: 80 BP; 10: 85 BP; 11: 90 BP; 12: 95 BP; 13: 100 BP; 14: 110 BP; 15: 120 BP; 16: 130 BP; 17: 140 BP; 18: 150 BP; 19: 160 BP; 20: 0 BP, OHKOs the target, OHKO fails if the target has the Sturdy Ability or if it has a higher level than the user.",
-		shortDesc: "Has a random Base Power, damages the user, or OHKOs.",
+		shortDesc: "Has random power, damages the user, or OHKOs.",
 	},
 	duststorm: {
 		name: "Dust Storm",
@@ -7681,7 +7681,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	emberplume: {
 		name: "Ember Plume",
 		desc: "Has a 10% chance to poison the target. This move's type effectiveness against Flying is changed to be super effective no matter what this move's type is. If the weather is Smog, this move does not check accuracy. If this move is used against a Pokemon holding Safety Goggles or has the Overcoat Ability, this move's accuracy remains at 70%.",
-		shortDesc: "10% psn. Cant miss in smog. Super effective on Flying.",
+		shortDesc: "10% psn. Super effective on Flying. Smog: can't miss.",
 	},
 	escaperoot: {
 		name: "Escape Root",
@@ -7693,7 +7693,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	evoboost: {
 		name: "Evoboost",
 		desc: "Raises the user's Attack, Defense, Special Attack, Special Defense, and Speed by 1 stage. Move fails if the user is not Eevee or Skinka.",
-		shortDesc: "Eevee/Skinka: Raises Atk, Def, SpA, SpD, and Spe by 1.",
+		shortDesc: "Eevee/Skinka: +1 Atk, Def, SpA, SpD, and Spe.",
 	},
 	excalibur: {
 		name: "Excalibur",
@@ -7727,7 +7727,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	frostburnclaw: {
 		name: "Frostburn Claw",
 		desc: "On even turns this move is Ice-type. On odd turns this move is Fire-type. If this move is Ice-type it has a 20% chance to inflict the target with frostbite. If this move is Fire type it has a 20% chance to burn the target. The target thaws out if it is frozen.",
-		shortDesc: "Switch between Fire/Ice-type. 20% chance to brn/frb.",
+		shortDesc: "Swaps between Fire/Ice. 20% chance to frb/brn.",
 	},
 	frostification: {
 		name: "Frostification",
@@ -7747,7 +7747,9 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	heartshock: {
 		name: "Heartshock",
 		desc: "Revives a random fainted ally at 1 / 2 their max HP. Then switches to them and paralyzes them. Fails if there are no fainted allies, if the user has the Ingrain effect, or if the user has the Suction Cups Ability.",
-		shortDesc: "Switches to a random fainted ally reviving them with paralysis.",
+		shortDesc: "Switches to a random fainted ally, revived and paralysed.",
+
+		heal: "  [POKEMON] was shocked back into action!",
 	},
 	hiveshriek: {
 		name: "Hive Shriek",

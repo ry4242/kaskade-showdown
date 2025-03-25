@@ -7080,7 +7080,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, breakable: 1},
 		name: "Power Plumage",
-		rating: 0.1,
+		rating: 5,
 		num: -55,
 	},
 	powerwithin: { // tested, works as intended
