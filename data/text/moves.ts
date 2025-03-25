@@ -337,7 +337,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	banefulbunker: {
 		name: "Baneful Bunker",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become poisoned. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become poisoned. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from moves. Contact: poison.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user become poisoned. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -769,7 +769,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	burningbulwark: {
 		name: "Burning Bulwark",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user become burned. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user become burned. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from damaging attacks. Contact: burn.",
 	},
 	burningjealousy: {
@@ -1305,7 +1305,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	detect: {
 		name: "Detect",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Prevents moves from affecting the user this turn.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -1775,7 +1775,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	endure: {
 		name: "Endure",
-		desc: "The user will survive attacks made by other Pokemon during this turn with at least 1 HP. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user will survive attacks made by other Pokemon during this turn with at least 1 HP. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "User survives attacks this turn with at least 1 HP.",
 		gen8: {
 			desc: "The user will survive attacks made by other Pokemon during this turn with at least 1 HP. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -3432,7 +3432,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	kingsshield: {
 		name: "King's Shield",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Attack lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Attack lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from damaging attacks. Contact: -1 Atk.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Attack lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -4458,7 +4458,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	obstruct: {
 		name: "Obstruct",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Defense lowered by 2 stages. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Defense lowered by 2 stages. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from damaging attacks. Contact: -2 Def.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Defense lowered by 2 stages. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -4720,7 +4720,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	pollenpuff: { // updated
 		name: "Pollen Puff",
-		desc: "If Pollen Storm is active, this move's Base Power is increase by x 1.3333. If the target is an ally, this move restores 1/2 of its maximum HP, rounded down, instead of dealing damage.",
+		desc: "If Pollen Storm is active, this move's power is increased by x1.3333. If the target is an ally, this move restores 1/2 of its maximum HP, rounded down, instead of dealing damage.",
 		shortDesc: "If the target is an ally, heals 50% of its max HP.",
 	},
 	poltergeist: {
@@ -4828,7 +4828,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	protect: {
 		name: "Protect",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Prevents moves from affecting the user this turn.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -4999,7 +4999,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	quickguard: {
 		name: "Quick Guard",
-		desc: "The user and its party members are protected from attacks with original or altered priority greater than 0 made by other Pokemon, including allies, during this turn. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
+		desc: "The user and its party members are protected from attacks with original or altered priority greater than 0 made by other Pokemon, including allies, during this turn. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
 		shortDesc: "Protects allies from priority attacks this turn.",
 		gen8: {
 			desc: "The user and its party members are protected from attacks with original or altered priority greater than 0 made by other Pokemon, including allies, during this turn. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
@@ -5710,7 +5710,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	silktrap: {
 		name: "Silk Trap",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Speed lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon trying to make contact with the user have their Speed lowered by 1 stage. Non-damaging moves go through this protection. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from damaging attacks. Contact: -1 Spe.",
 	},
 	silverwind: {
@@ -6158,7 +6158,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	spikyshield: {
 		name: "Spiky Shield",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user lose 1/8 of their maximum HP, rounded down. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user lose 1/8 of their maximum HP, rounded down. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from moves. Contact: loses 1/8 max HP.",
 		gen8: {
 			desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user lose 1/8 of their maximum HP, rounded down. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
@@ -7386,7 +7386,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	wideguard: {
 		name: "Wide Guard",
-		desc: "The user and its party members are protected from moves made by other Pokemon, including allies, during this turn that target all adjacent foes or all adjacent Pokemon. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
+		desc: "The user and its party members are protected from moves made by other Pokemon, including allies, during this turn that target all adjacent foes or all adjacent Pokemon. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
 		shortDesc: "Protects allies from multi-target moves this turn.",
 		gen8: {
 			desc: "The user and its party members are protected from moves made by other Pokemon, including allies, during this turn that target all adjacent foes or all adjacent Pokemon. This move modifies the same 1/X chance of being successful used by other protection moves, where X starts at 1 and triples each time this move is successfully used, but does not use the chance to check for failure. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Detect, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn or if this move is already in effect for the user's side.",
@@ -7576,7 +7576,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		name: "Bear Hug",
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
-	
+
 		start: "  [POKEMON] became trapped in a vicious hug!",
 	},
 	blackhole: {
@@ -7604,7 +7604,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	comradesarmor: {
 		name: "Comrade's Armor",
-		desc: "The user protects their ally from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Also increases the Protect counter of the user's ally. Fails if the user moves last this turn.",
+		desc: "The user protects their ally from most attacks made by other Pokemon during this turn. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Also increases the Protect counter of the user's ally. Fails if the user moves last this turn.",
 		shortDesc: "Prevents moves from affecting target ally this turn.",
 
 		start: "  [POKEMON] protected their ally!",
@@ -7612,8 +7612,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	conduction: {
 		name: "Conduction",
-		desc: "If Magnetosphere is active, this move has x 1.5 Base Power. If Thunderstorm is active, this move has a 20% chance to paralyze the target.",
-		shortDesc: "Magnetosphere: x1.5 BP; Thunder: 20% chance to para."
+		desc: "If Magnetosphere is active, this move has x1.5 power. If Thunderstorm is active, this move has a 20% chance to paralyze the target.",
+		shortDesc: "Magnetosphere: x1.5 BP; Thunderstorm: 20% chance to para.",
 	},
 	crystalforce: {
 		name: "Crystal Force",
@@ -7632,8 +7632,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	deception: {
 		name: "Deception",
-		desc: "Base Power is increased by x 1.25 during Blood Moon. Base Power is halved during Fairy Dust. If both weathers are active the Base Power is not changed. This move's type effectiveness against Fairy is changed to be super effective no matter what this move's type is.",
-		shortDesc: "Blood Moon: x 1.25 BP; Super effective on Fairy."
+		desc: "Power is increased by x1.25 during Blood Moon. Power is halved during Fairy Dust. If both weathers are active the power is not changed. This move's type effectiveness against Fairy is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Blood Moon: x1.25 BP; Super effective on Fairy.",
 	},
 	deviledyolk: {
 		name: "Deviled Yolk",
@@ -7658,7 +7658,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	dragonsdice: {
 		name: "Dragon's Dice",
 		desc: "Rolls a D20 die. Based on the roll has a different effect. 1: 0 BP, User hits themselves in confusion; 2: 0 BP; 3: 20 BP; 4: 40 BP; 5: 50 BP; 6: 60 BP; 7: 70 BP; 8: 75 BP; 9: 80 BP; 10: 85 BP; 11: 90 BP; 12: 95 BP; 13: 100 BP; 14: 110 BP; 15: 120 BP; 16: 130 BP; 17: 140 BP; 18: 150 BP; 19: 160 BP; 20: 0 BP, OHKOs the target, OHKO fails if the target has the Sturdy Ability or if it has a higher level than the user.",
-		shortDesc: "Random Base Power, damages the user, or OHKOs.",
+		shortDesc: "Has a random Base Power, damages the user, or OHKOs.",
 	},
 	duststorm: {
 		name: "Dust Storm",
@@ -7731,7 +7731,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	frostification: {
 		name: "Frostification",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user becomes inflicted with frostbite. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user becomes inflicted with frostbite. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from moves. Contact: frostbite.",
 	},
 	glacialcharge: {
@@ -7752,7 +7752,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	hiveshriek: {
 		name: "Hive Shriek",
 		desc: "If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated. Has a 30% chance to lower the target's Def by 1 stage.",
-		shortDesc: "Destroys screens. 30% chance to lower target's Def."
+		shortDesc: "Destroys screens. 30% chance to lower target's Def.",
 	},
 	hornswoggle: {
 		name: "Hornswoggle",
@@ -7827,7 +7827,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	mindmeld: {
 		name: "Mind Meld",
 		desc: "Has a 10% chance to confuse the target. During Dreamscape, ignores the target's stat stage changes, including evasiveness.",
-		shortDesc: "10% chance to confuse the target."
+		shortDesc: "10% chance to confuse the target.",
 	},
 	minilaser: {
 		name: "Minilaser",
@@ -7836,12 +7836,12 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	mockery: {
 		name: "Mockery",
 		desc: "Hits one to two times. If the user has the Skill Link Ability, this move will always hit two times. Each hit lowers the target's SpD and Spe by one stage.",
-		shortDesc: "Hits 1-2 times. Lowers target's SpD and Spe by 1."
+		shortDesc: "Hits 1-2 times. Lowers target's SpD and Spe by 1.",
 	},
 	muckvolley: {
 		name: "Muck Volley",
 		desc: "Hits three times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
-		shortDesc: "Hits 3 times."
+		shortDesc: "Hits 3 times.",
 	},
 	osmosis: {
 		name: "Osmosis",
@@ -7851,7 +7851,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	overbearingcommand: {
 		name: "Overbearing Command",
 		desc: "Has a 70% chance to confuse the target. Has a 30% chance to sleep the target. If the target is already confused, the sleep chance is increase to 80%.",
-		shortDesc: "70% confusion chance; 30% sleep chance."
+		shortDesc: "70% confusion chance; 30% sleep chance.",
 	},
 	paddle: {
 		name: "Paddle",
@@ -7859,8 +7859,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	peekaboo: {
 		name: "Peek-a-Boo",
-		desc: "Has a 20% chance to make the target flinch. If Blood Moon or Paranormal Activity are active this move's Base Power increases by x 1.5.",
-		shortDesc: "20% flinch chance. B. Moon/P. Activity: x 1.5 BP."
+		desc: "Has a 20% chance to make the target flinch. If Blood Moon or Paranormal Activity are active, this move's power is increased by x1.5.",
+		shortDesc: "20% flinch chance. B. Moon/P. Activity: x1.5 BP.",
 	},
 	permafrost: {
 		name: "Permafrost",
@@ -7869,8 +7869,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	pixiepunch: {
 		name: "Pixie Punch",
-		desc: "Has a 30% chance to lower target's Atk by 1 stage. Chance gets increased to 60% during Fairy Dust.", 
-		shortDesc: "30% chance to lower target's Atk by 1 stage."
+		desc: "Has a 30% chance to lower target's Atk by 1 stage. Chance gets increased to 60% during Fairy Dust.",
+		shortDesc: "30% chance to lower target's Atk by 1 stage.",
 	},
 	pollinate: {
 		name: "Pollinate",
@@ -7932,11 +7932,11 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	scavenge: {
 		name: "Scavenge",
 		desc: "Before dealing damage if user is holding a Berry it is consumed. If this attack was successful and the user has not fainted, it steals the target's held item if the user is not holding one. If the stolen item is a berry, it is immediately consumed. The target's item is not stolen if it is a Mail or Z-Crystal, or if the target is a Kyogre holding a Blue Orb, a Groudon holding a Red Orb, a Giratina holding a Griseous Orb, an Arceus holding a Plate, a Genesect holding a Drive, a Silvally holding a Memory, or a Pokemon that can Mega Evolve holding the Mega Stone for its species. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
-		shortDesc: "Eats user's berry. Steals target's item."
+		shortDesc: "Eats user's berry. Steals target's item.",
 	},
 	shade: {
 		name: "Shade",
-		desc: "Has a 10% chance to make the target flinch. During Blood Moon this move has double Base Power.",
+		desc: "Has a 10% chance to make the target flinch. During Blood Moon this move has double power.",
 		shortDesc: "Power doubles in Blood Moon. 10% flinch chance.",
 	},
 	shadowfang: {
@@ -7951,7 +7951,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	shockshelter: {
 		name: "Shock Shelter",
-		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user becomes paralyzed. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Detect, Frostification, Comrade's Armor, Shock Shelter, Endure, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
+		desc: "The user is protected from most attacks made by other Pokemon during this turn, and Pokemon making contact with the user becomes paralyzed. This move has a 1/X chance of being successful, where X starts at 1 and triples each time this move is successfully used. X resets to 1 if this move fails, if the user's last move used is not Baneful Bunker, Burning Bulwark, Comrade's Armor, Detect, Endure, Frostification, King's Shield, Max Guard, Obstruct, Protect, Quick Guard, Shock Shelter, Silk Trap, Spiky Shield, or Wide Guard, or if it was one of those moves and the user's protection was broken. Fails if the user moves last this turn.",
 		shortDesc: "Protects from moves. Contact: paralysis.",
 	},
 	shreddingriff: {
@@ -7961,8 +7961,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	slushball: {
 		name: "Slushball",
-		desc: "During Rain, Primordial Sea or Hail, this move has x 1.5 Base Power. This move's type effectiveness against Flying is changed to be super effective no matter what this move's type is.",
-		shortDesc: "Rain/Hail: x 1.5 BP. Super effective on Water.",
+		desc: "During Rain, Primordial Sea or Hail, this move has x1.5 power. This move's type effectiveness against Flying is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Rain/Hail: x1.5 BP. Super effective on Water.",
 	},
 	smogspread: {
 		name: "Smog Spread",
@@ -7977,7 +7977,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	spectrum: {
 		name: "Spectrum",
 		desc: "Has a 30% chance to lower the target's accuracy by one stage.",
-		shortDesc: "30% chance to lower target's accuracy by 1 stage."
+		shortDesc: "30% chance to lower target's accuracy by 1 stage.",
 	},
 	sprinkle: {
 		name: "Sprinkle",
@@ -7996,7 +7996,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	stonestorm: {
 		name: "Stone Storm",
 		desc: "Hits twice in Sandstorm or Dust Storm. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
-		shortDesc: "Hits twice in Sandstorm or Dust Storm."
+		shortDesc: "Hits twice in Sandstorm or Dust Storm.",
 	},
 	strongwinds: {
 		name: "Strong Winds",
@@ -8016,12 +8016,12 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	sultryspin: {
 		name: "Sultry Spin",
 		desc: "Has a 30% chance to infatuate the ",
-		shortDesc: "30% chance to infatuate on hit. Hits all foes."
+		shortDesc: "30% chance to infatuate on hit. Hits all foes.",
 	},
 	sunscreen: {
 		name: "Sunscreen",
 		desc: "Boosts the user's and their allies' Defense and Special Defense by 1 stage. Gives the user and their allies immunity to Fire moves until they switch out. This move fails unless Sunny Day or Desolate Land are active. If a Pokemon with the Dry Skin Ability is affected by this move it stops taking damage from Sunny Day and Desolate Land.",
-		shortDesc: "Sun: Side Def and SpD +1; Fire immunity."
+		shortDesc: "Sun: Side Def and SpD +1; Fire immunity.",
 	},
 	supercell: {
 		name: "Supercell",
@@ -8046,7 +8046,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	thunderhammer: {
 		name: "Thunder Hammer",
 		desc: "Has a 10% chance to paralyze the target.",
-		shortDesc: "10% chance to paralyze the target."
+		shortDesc: "10% chance to paralyze the target.",
 	},
 	viralblast: {
 		name: "Viral Blast",
@@ -8067,7 +8067,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		name: "Whirlduel",
 		desc: "Sets Rain Dance. Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Sets Rain. Traps + damages the target for 4-5 turns.",
-	
+
 		start: "  [POKEMON] became trapped in the vortex!",
 	},
 	whitewand: {
@@ -8104,7 +8104,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 		name: "Wrangle",
 		desc: "Prevents the target from switching for four or five turns (seven turns if the user is holding Grip Claw). Causes damage to the target equal to 1/8 of its maximum HP (1/6 if the user is holding Binding Band), rounded down, at the end of each turn during effect. The target can still switch out if it is holding Shed Shell or uses Baton Pass, Flip Turn, Parting Shot, Shed Tail, Teleport, U-turn, or Volt Switch. The effect ends if either the user or the target leaves the field, or if the target uses Mortal Spin, Rapid Spin, or Substitute successfully. This effect is not stackable or reset by using this or another binding move.",
 		shortDesc: "Traps and damages the target for 4-5 turns.",
-	
+
 		start: "  [POKEMON] was wrangled by [SOURCE]!",
 	},
 };

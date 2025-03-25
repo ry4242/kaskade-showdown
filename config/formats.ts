@@ -2556,7 +2556,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			},
 		},
 	},
-	{
+	/* {
 		name: "[Gen 9] The Card Game",
 		desc: `The type chart is simplified based off of the Pok&eacute;mon Trading Card Game.`,
 		mod: 'thecardgame',
@@ -2596,7 +2596,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
 			pokemon.apparentType = pokemon.getTypes(true).join('/');
 		},
-	},
+	}, */
 	{
 		name: "[Gen 9] The Loser's Game",
 		desc: `The first player to lose all of their Pok&eacute;mon wins.`,
