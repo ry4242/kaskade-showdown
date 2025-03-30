@@ -2381,7 +2381,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	},
 	evergreen: {
 		name: "Evergreen",
-		desc: "If this Pokemon is a Snover or Abomasnow, it will change to Lowland Form if Sun is active or Highland Form if Hail is active.",
+		desc: "If this Pokemon is a Snover or Abomasnow, it will change to Lowland Form if Sun is active and Highland Form if Hail is active.",
 		shortDesc: "If user is Snover/Abomasnow, changes to Lowland/Highland Form in Sun/Hail.",
 
 		transform: "[POKEMON] adapted to the climate!",
