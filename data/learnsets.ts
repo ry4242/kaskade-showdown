@@ -85515,7 +85515,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			workup: ["9L17"],
 		},
 	},
-	rascoom: {
+	rascume: {
 		learnset: {
 			bellydrum: ["9L38"],
 			bite: ["9L1"],

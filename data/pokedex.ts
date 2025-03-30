@@ -21819,9 +21819,9 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Kituff",
 		eggGroups: ["Field", "Human-Like"],
 	},
-	rascoom: {
+	rascume: {
 		num: 10078,
-		name: "Rascoom",
+		name: "Rascume",
 		types: ["Fire", "Steel"],
 		baseStats: {hp: 75, atk: 105, def: 60, spa: 55, spd: 60, spe: 115},
 		abilities: {0: "Stench", 1: "Aftermath", H: "Strong Jaw"},

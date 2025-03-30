@@ -6846,7 +6846,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
-	rascoom: {
+	rascume: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
