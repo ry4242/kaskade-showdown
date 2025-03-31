@@ -12732,7 +12732,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 35,
 		eggGroups: ["Field"],
 	},
-	flabebe: {
+	flabebe: { // updated
 		num: 669,
 		name: "Flabe\u0301be\u0301",
 		baseForme: "Red",
@@ -12745,10 +12745,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "White",
 		evos: ["Floette"],
 		eggGroups: ["Fairy"],
-		cosmeticFormes: ["Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-White", "Flabe\u0301be\u0301-Yellow"],
-		formeOrder: ["Flabe\u0301be\u0301", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-White", "Flabe\u0301be\u0301-Yellow"],
+		cosmeticFormes: ["Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-Yellow", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-White"],
+		formeOrder: ["Flabe\u0301be\u0301", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-Yellow", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-White"],
 	},
-	floette: {
+	floette: { // updated
 		num: 670,
 		name: "Floette",
 		baseForme: "Red",
@@ -12764,8 +12764,8 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Florges"],
 		eggGroups: ["Fairy"],
 		otherFormes: ["Floette-Eternal"],
-		cosmeticFormes: ["Floette-Blue", "Floette-Orange", "Floette-White", "Floette-Yellow"],
-		formeOrder: ["Floette", "Floette-Blue", "Floette-Orange", "Floette-White", "Floette-Yellow", "Floette-Eternal"],
+		cosmeticFormes: ["Floette-Orange", "Floette-Yellow", "Floette-Blue", "Floette-White"],
+		formeOrder: ["Floette", "Floette-Orange", "Floette-Yellow", "Floette-Blue", "Floette-White", "Floette-Eternal"],
 	},
 	floetteeternal: {
 		num: 670,
@@ -12796,8 +12796,8 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Dawn Stone",
 		eggGroups: ["Fairy"],
-		cosmeticFormes: ["Florges-Blue", "Florges-Orange", "Florges-White", "Florges-Yellow"],
-		formeOrder: ["Florges", "Florges-Blue", "Florges-Orange", "Florges-White", "Florges-Yellow"],
+		cosmeticFormes: ["Florges-Orange", "Florges-Yellow", "Florges-Blue", "Florges-White"],
+		formeOrder: ["Florges", "Florges-Orange", "Florges-Yellow", "Florges-Blue", "Florges-White"],
 	},
 	skiddo: { // updated
 		num: 672,
