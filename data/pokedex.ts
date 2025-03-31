@@ -22221,8 +22221,8 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 486,
 		color: "Green",
 		eggGroups: ["Undiscovered"],
-		// cosmeticFormes: ["???"],
-		// formeOrder: ["???"],
+		cosmeticFormes: ["Botnyak-LR", "Botnyak-LG", "Botnyak-DB", "Botnyak-DR", "Botnyak-DG"],
+		formeOrder: ["Botnyak", "Botnyak-LR", "Botnyak-LG", "Botnyak-DB", "Botnyak-DR", "Botnyak-DG"],
 	},
 	buwuve: {
 		num: 10110,
