@@ -533,10 +533,10 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	blizzard: {
 		name: "Blizzard",
 		desc: "Has a 10% chance to inflict the target with frostbite and a 5% chance to freeze the target. If the weather is Hail, this move does not check accuracy and the effect chances are doubled.",
-		shortDesc: "10% frosbite / 5% freeze foe(s). Can't miss in Hail.",
+		shortDesc: "10% frosbite / 5% freeze foe(s). Hail: can't miss.",
 		gen8: {
 			desc: "Has a 10% chance to freeze the target. If the weather is Hail, this move does not check accuracy.",
-			shortDesc: "10% chance to freeze foe(s). Can't miss in Hail.",
+			shortDesc: "10% chance to freeze foe(s). Hail: can't miss.",
 		},
 		gen3: {
 			desc: "Has a 10% chance to freeze the target.",
@@ -3114,7 +3114,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	hurricane: { // updated
 		name: "Hurricane",
 		desc: "Has a 30% chance to confuse the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Rain or Primordial Sea, this move does not check accuracy. If the weather is Sun or Desolate Land, this move's accuracy is 50%. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 70%.",
-		shortDesc: "30% chance to confuse target. Can't miss in rain.",
+		shortDesc: "30% chance to confuse target. Rain: can't miss.",
 		gen7: {
 			desc: "Has a 30% chance to confuse the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea or Rain, this move does not check accuracy. If the weather is Desolate Land or Sun, this move's accuracy is 50%.",
 		},
@@ -5446,7 +5446,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	sandsearstorm: {
 		name: "Sandsear Storm",
 		desc: "Has a 20% chance to burn the target. If the weather is Primordial Sea or Rain Dance, this move does not check accuracy. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 80%.",
-		shortDesc: "20% chance to burn foe(s). Can't miss in rain.",
+		shortDesc: "20% chance to burn foe(s). Rain: can't miss.",
 	},
 	sandstorm: {
 		name: "Sandstorm",
@@ -6878,7 +6878,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	thunder: { // updated
 		name: "Thunder",
 		desc: "Has a 30% chance to paralyze the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Rain, Primordial Sea or Thunderstorm, this move does not check accuracy. If the weather is Sun or Desolate Land, this move's accuracy is 50%. If this move is used against a Pokemon holding Utility Umbrella, this move's accuracy remains at 70%.",
-		shortDesc: "30% chance to paralyze. Can't miss in rain/thunder.",
+		shortDesc: "30% chance to paralyze. Rain/Thunder: can't miss.",
 		gen7: {
 			desc: "Has a 30% chance to paralyze the target. This move can hit a target using Bounce, Fly, or Sky Drop, or is under the effect of Sky Drop. If the weather is Primordial Sea or Rain, this move does not check accuracy. If the weather is Desolate Land or Sun, this move's accuracy is 50%.",
 		},
@@ -7802,7 +7802,7 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	lavajet: {
 		name: "Lava Jet",
 		desc: "No additional effect.",
-		shortDesc: "Usually goes first. THaws user.",
+		shortDesc: "Usually goes first. Thaws user.",
 	},
 	lovespray: {
 		name: "Lovespray",
@@ -7818,8 +7818,8 @@ export const MovesText: {[id: IDEntry]: MoveText} = {
 	},
 	magicmissile: {
 		name: "Magic Missile",
-		desc: "Hits three times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits.",
-		shortDesc: "Can't miss. Hits 3 times.",
+		desc: "Hits three times. If one of the hits breaks the target's substitute, it will take damage for the remaining hits. In Double Battles, this move attempts to hit the targeted Pokemon and its ally at random. If this move is redirected, it hits that target three times.",
+		shortDesc: "Hits 3 random foes. Can't miss.",
 	},
 	magnetize: {
 		name: "Magnetize",
