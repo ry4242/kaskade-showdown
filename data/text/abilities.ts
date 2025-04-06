@@ -369,7 +369,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	disguise: { // updated
 		name: "Disguise",
 		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form. Confusion damage also breaks the disguise.",
-		shortDesc: "(Mimikyu only) First hit deals 0 damage, breaks disguise.",
+		shortDesc: "(Mimikyu only) The first hit it takes is blocked.",
 		gen7: {
 			desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken and it changes to Busted Form. Confusion damage also breaks the disguise.",
 			shortDesc: "(Mimikyu only) First hit deals 0 damage, breaks disguise.",
@@ -2552,10 +2552,10 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 		desc: "On switch-in, this Pokemon summons Thunderstorm. This Pokemon is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability. The effects of Gravity, Ingrain, Smack Down, Thousand Arrows, and Iron Ball nullify the immunity. Thousand Arrows can hit this Pokemon as if it did not have this Ability.",
 		shortDesc: "Switch-in: Summons Thunderstorm. Immunity to Ground.",
 	},
-	rockybody: {
+	rockybody: { // TODO: shortDesc is too long
 		name: "Rocky Body",
-		desc: "If this Pokemon is a Stackem, the first hit it takes in battle deals 0 neutral damage and Stealth Rock is set on the opposing side. Its rocks are then knocked over, and it changes to Rockless Form. Confusion damage also knocks the rocks over.",
-		shortDesc: "(Stackem only) First hit deals 0 damage, sets Stealth Rock, knocks rocks.",
+		desc: "If this Pokemon is a Stackem, the first physical hit it takes in battle deals 0 neutral damage and Stealth Rock is set on the opposing side. Its rocks are then knocked over, it changes to Rockless Form, and it loses 1/8 of its max HP. Confusion damage also knocks the rocks over.",
+		shortDesc: "(Stackem only) First physical hit sets Stealth Rock on the opposing side, and it takes 1/8 HP damage instead of damage.",
 
 		block: "  Its rocks were knocked over!",
 		transform: "[POKEMON]'s rocks fell off!",

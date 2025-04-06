@@ -7166,6 +7166,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onUpdate(pokemon) {
 			if (pokemon.species.id === 'stackem' && this.effectState.busted) {
 				pokemon.formeChange('Stackem-Rockless', this.effect, true);
+				this.damage(pokemon.baseMaxhp / 8, pokemon, pokemon, this.dex.species.get(pokemon.species.id));
 			}
 		},
 		flags: {
