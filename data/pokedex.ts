@@ -12745,8 +12745,8 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "White",
 		evos: ["Floette"],
 		eggGroups: ["Fairy"],
-		cosmeticFormes: ["Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-Yellow", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-White"],
-		formeOrder: ["Flabe\u0301be\u0301", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-Yellow", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-White"],
+		cosmeticFormes: ["Flabe\u0301be\u0301-Yellow", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-White"],
+		formeOrder: ["Flabe\u0301be\u0301", "Flabe\u0301be\u0301-Yellow", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-White"],
 	},
 	floette: { // updated
 		num: 670,
@@ -12764,8 +12764,8 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Florges"],
 		eggGroups: ["Fairy"],
 		otherFormes: ["Floette-Eternal"],
-		cosmeticFormes: ["Floette-Orange", "Floette-Yellow", "Floette-Blue", "Floette-White"],
-		formeOrder: ["Floette", "Floette-Orange", "Floette-Yellow", "Floette-Blue", "Floette-White", "Floette-Eternal"],
+		cosmeticFormes: ["Floette-Yellow", "Floette-Blue", "Floette-Orange", "Floette-White"],
+		formeOrder: ["Floette", "Floette-Yellow", "Floette-Blue", "Floette-Orange", "Floette-White", "Floette-Eternal"],
 	},
 	floetteeternal: {
 		num: 670,
@@ -12796,8 +12796,8 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Dawn Stone",
 		eggGroups: ["Fairy"],
-		cosmeticFormes: ["Florges-Orange", "Florges-Yellow", "Florges-Blue", "Florges-White"],
-		formeOrder: ["Florges", "Florges-Orange", "Florges-Yellow", "Florges-Blue", "Florges-White"],
+		cosmeticFormes: ["Florges-Yellow", "Florges-Blue", "Florges-Orange", "Florges-White"],
+		formeOrder: ["Florges", "Florges-Yellow", "Florges-Blue", "Florges-Orange", "Florges-White"],
 	},
 	skiddo: { // updated
 		num: 672,
@@ -12861,7 +12861,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 28,
 		color: "White",
 		eggGroups: ["Field"],
-		cosmeticFormes: ["Furfrou-Dandy", "Furfrou-Debutante", "Furfrou-Diamond", "Furfrou-Heart", "Furfrou-Kabuki", "Furfrou-La Reine", "Furfrou-Matron", "Furfrou-Pharaoh", "Furfrou-Star"],
+		cosmeticFormes: ["Furfrou-Heart", "Furfrou-Star", "Furfrou-Diamond", "Furfrou-Debutante", "Furfrou-Matron", "Furfrou-Dandy", "Furfrou-La Reine", "Furfrou-Kabuki", "Furfrou-Pharaoh",],
 		formeOrder: [
 			"Furfrou",
 			"Furfrou-Heart",
