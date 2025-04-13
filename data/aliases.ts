@@ -442,7 +442,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	enamorusincarnate: "Enamorus",
 	enamorusincarnation: "Enamorus",
 	gimmighoulchest: "Gimmighoul",
-	mausholdthree: "Maushold",
+	mausholdfour: "Maushold",
 	oinkolognem: "Oinkologne",
 	palafinzero: "Palafin",
 	poltchageistcounterfeit: "Poltchageist",
