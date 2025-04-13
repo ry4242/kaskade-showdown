@@ -2515,7 +2515,7 @@ export const AbilitiesText: {[id: IDEntry]: AbilityText} = {
 	petrichor: {
 		name: "Petrichor",
 		shortDesc: "While this Pokemon is active, Rain and Blood Moon gain the effects of the other.",
-	
+
 		start: "  The scent of petrichor fills the air.",
 	},
 	pollution: {

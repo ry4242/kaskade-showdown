@@ -6591,7 +6591,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 			"Castform-Sandy", "Castform-Dusty", "Castform-Allergy", "Castform-Swarmy", "Castform-Smoggy", "Castform-Lovely",
 			"Castform-Gutsy", "Castform-Spooky", "Castform-Zenny", "Castform-Sorcery", "Castform-Zappy",
 			"Castform-Windy",
-			"Castform-Whirly"
+			"Castform-Whirly",
 		],
 	},
 	castformsunny: { // updated
@@ -12868,7 +12868,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 28,
 		color: "White",
 		eggGroups: ["Field"],
-		cosmeticFormes: ["Furfrou-Heart", "Furfrou-Star", "Furfrou-Diamond", "Furfrou-Debutante", "Furfrou-Matron", "Furfrou-Dandy", "Furfrou-La Reine", "Furfrou-Kabuki", "Furfrou-Pharaoh",],
+		cosmeticFormes: ["Furfrou-Heart", "Furfrou-Star", "Furfrou-Diamond", "Furfrou-Debutante", "Furfrou-Matron", "Furfrou-Dandy", "Furfrou-La Reine", "Furfrou-Kabuki", "Furfrou-Pharaoh"],
 		formeOrder: [
 			"Furfrou",
 			"Furfrou-Heart",
