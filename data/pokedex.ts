@@ -8910,6 +8910,21 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Shiny Stone",
 		eggGroups: ["Flying", "Fairy"],
 	},
+	yanmega: {
+		num: 469,
+		name: "Yanmega",
+		types: ["Bug", "Flying"],
+		baseStats: {hp: 86, atk: 76, def: 86, spa: 116, spd: 56, spe: 95},
+		abilities: {0: "Speed Boost", 1: "Tinted Lens", H: "Frisk"},
+		heightm: 1.9,
+		weightkg: 51.5,
+		color: "Green",
+		prevo: "Yanma",
+		evoType: "levelMove",
+		evoMove: "Ancient Power",
+		eggGroups: ["Bug"],
+	},
+
 	leafeon: { // updated
 		num: 470,
 		name: "Leafeon",
