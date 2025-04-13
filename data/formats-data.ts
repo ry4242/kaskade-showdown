@@ -6866,11 +6866,27 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
+	botnyak: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
 	hurchin: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
 	vendrom: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	buwuve: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	wasgrowl: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	worcane: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
@@ -6898,6 +6914,14 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "Illegal",
 	},
 	obsidious: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	mercryni: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+	},
+	meraculisk: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
@@ -6937,31 +6961,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
-	mercryni: {
-		isNonstandard: "Future",
-		tier: "Illegal",
-	},
-	meraculisk: {
-		isNonstandard: "Future",
-		tier: "Illegal",
-	},
 	rotomb: {
-		isNonstandard: "Future",
-		tier: "Illegal",
-	},
-	botnyak: {
-		isNonstandard: "Future",
-		tier: "Illegal",
-	},
-	buwuve: {
-		isNonstandard: "Future",
-		tier: "Illegal",
-	},
-	wasgrowl: {
-		isNonstandard: "Future",
-		tier: "Illegal",
-	},
-	worcane: {
 		isNonstandard: "Future",
 		tier: "Illegal",
 	},
