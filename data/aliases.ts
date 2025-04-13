@@ -45,6 +45,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	ndbh: "[Gen 9] National Dex BH",
 	bh: "[Gen 9] Balanced Hackmons",
 	mnm: "[Gen 9] Mix and Mega",
+	mixnm: "[Gen 9] Mix and Mega",
 	aaa: "[Gen 9] Almost Any Ability",
 	aaauu: "[Gen 9] Almost Any Ability UU",
 	stab: "[Gen 9] STABmons",
