@@ -3,9 +3,9 @@
 const assert = require('assert').strict;
 
 global.Ladders = require('../../dist/server/ladders').Ladders;
-const { makeUser } = require('../users-utils');
+const {makeUser} = require('../users-utils');
 
-describe('Matchmaker', () => {
+describe('Matchmaker', function () {
 	const FORMATID = 'gen7ou';
 	const addSearch = (player, rating = 1000, formatid = FORMATID) => {
 		const search = new Ladders.BattleReady(player.id, formatid, player.battleSettings, rating);
@@ -19,7 +19,7 @@ describe('Matchmaker', () => {
 		return null;
 	};
 
-	before(() => {
+	before(function () {
 		clearInterval(Ladders.periodicMatchInterval);
 		Ladders.periodicMatchInterval = null;
 	});
@@ -108,7 +108,7 @@ describe('Matchmaker', () => {
 		assert.equal(Ladders.searches.get(FORMATID).searches.size, 0);
 	});
 
-	describe('#startBattle', () => {
+	describe('#startBattle', function () {
 		beforeEach(function () {
 			this.s1 = addSearch(this.p1);
 			this.s2 = addSearch(this.p2);
@@ -126,8 +126,8 @@ describe('Matchmaker', () => {
 				room = Rooms.createBattle({
 					format: FORMATID,
 					players: [
-						{ user: this.p1, team: this.s1.team },
-						{ user: this.p1, team: this.s2.team },
+						{user: this.p1, team: this.s1.team},
+						{user: this.p1, team: this.s2.team},
 					],
 					rated: 1000,
 				});
@@ -148,7 +148,7 @@ describe('Matchmaker', () => {
 		it('should prevent battles from starting if the server is in lockdown', function () {
 			const room = Rooms.createBattle({
 				format: FORMATID,
-				players: [{ user: this.p1, team: this.s1.team }, { user: this.p2, team: this.s2.team }],
+				players: [{user: this.p1, team: this.s1.team}, {user: this.p2, team: this.s2.team}],
 				rated: 1000,
 			});
 			assert.equal(room, null);

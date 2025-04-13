@@ -5,16 +5,16 @@ const common = require('./../../common');
 
 let battle;
 
-describe('Fury Cutter', () => {
-	afterEach(() => {
+describe('Fury Cutter', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it('should double in power with each successful hit', () => {
+	it('should double in power with each successful hit', function () {
 		battle = common.createBattle([[
-			{ species: 'kangaskhan', moves: ['luckychant'] },
+			{species: 'kangaskhan', moves: ['luckychant']},
 		], [
-			{ species: 'wynaut', ability: "compoundeyes", moves: ['furycutter'] },
+			{species: 'wynaut', ability: "compoundeyes", moves: ['furycutter']},
 		]]);
 
 		battle.makeChoices();
@@ -31,11 +31,11 @@ describe('Fury Cutter', () => {
 		assert.bounded(damage, [49, 58]); // 160 BP
 	});
 
-	it('should double in power with each successful hit (Gen 3)', () => {
+	it('should double in power with each successful hit (Gen 3)', function () {
 		battle = common.gen(3).createBattle([[
-			{ species: 'kangaskhan', moves: ['luckychant'] },
+			{species: 'kangaskhan', moves: ['luckychant']},
 		], [
-			{ species: 'wynaut', ability: "compoundeyes", moves: ['furycutter'] },
+			{species: 'wynaut', ability: "compoundeyes", moves: ['furycutter']},
 		]]);
 
 		battle.makeChoices();

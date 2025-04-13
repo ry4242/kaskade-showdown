@@ -5,19 +5,19 @@ const common = require('./../../common');
 
 let battle;
 
-describe('Ring Target', () => {
-	afterEach(() => {
+describe('Ring Target', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it(`should negate natural immunities and deal normal type effectiveness with the other type(s)`, () => {
+	it(`should negate natural immunities and deal normal type effectiveness with the other type(s)`, function () {
 		battle = common.createBattle([[
-			{ species: "Smeargle", ability: 'owntempo', moves: ['earthquake', 'vitalthrow', 'shadowball', 'psychic'] },
+			{species: "Smeargle", ability: 'owntempo', moves: ['earthquake', 'vitalthrow', 'shadowball', 'psychic']},
 		], [
-			{ species: "Thundurus", ability: 'prankster', item: 'ringtarget', moves: ['rest'] },
-			{ species: "Drifblim", ability: 'unburden', item: 'ringtarget', moves: ['rest'] },
-			{ species: "Girafarig", ability: 'innerfocus', item: 'ringtarget', moves: ['rest'] },
-			{ species: "Absol", ability: 'superluck', item: 'ringtarget', moves: ['rest'] },
+			{species: "Thundurus", ability: 'prankster', item: 'ringtarget', moves: ['rest']},
+			{species: "Drifblim", ability: 'unburden', item: 'ringtarget', moves: ['rest']},
+			{species: "Girafarig", ability: 'innerfocus', item: 'ringtarget', moves: ['rest']},
+			{species: "Absol", ability: 'superluck', item: 'ringtarget', moves: ['rest']},
 		]]);
 
 		battle.makeChoices('move earthquake', 'move rest');
@@ -36,12 +36,12 @@ describe('Ring Target', () => {
 		assert.false.fullHP(battle.p2.active[0]);
 	});
 
-	it(`should not affect ability-based immunities`, () => {
+	it(`should not affect ability-based immunities`, function () {
 		battle = common.createBattle([[
-			{ species: 'Hariyama', moves: ['earthquake'] },
+			{species: 'Hariyama', moves: ['earthquake']},
 		], [
-			{ species: 'Mismagius', ability: 'levitate', item: 'ringtarget', moves: ['sleeptalk'] },
-			{ species: 'Rotom-Fan', ability: 'levitate', item: 'ringtarget', moves: ['sleeptalk'] },
+			{species: 'Mismagius', ability: 'levitate', item: 'ringtarget', moves: ['sleeptalk']},
+			{species: 'Rotom-Fan', ability: 'levitate', item: 'ringtarget', moves: ['sleeptalk']},
 		]]);
 
 		battle.makeChoices();
@@ -52,11 +52,11 @@ describe('Ring Target', () => {
 		assert.fullHP(battle.p2.active[0]);
 	});
 
-	it(`should not affect Magnet Rise`, () => {
+	it(`should not affect Magnet Rise`, function () {
 		battle = common.createBattle([[
-			{ species: 'Wynaut', moves: ['earthquake'] },
+			{species: 'Wynaut', moves: ['earthquake']},
 		], [
-			{ species: 'Klefki', item: 'ringtarget', moves: ['magnetrise'] },
+			{species: 'Klefki', item: 'ringtarget', moves: ['magnetrise']},
 		]]);
 
 		battle.makeChoices();

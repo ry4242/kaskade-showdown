@@ -5,39 +5,39 @@ const common = require('./../../common');
 
 let battle;
 
-describe('Room Service', () => {
-	afterEach(() => {
+describe('Room Service', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it(`should activate when Trick Room is set`, () => {
+	it(`should activate when Trick Room is set`, function () {
 		battle = common.createBattle([[
-			{ species: 'slowpoke', item: 'roomservice', moves: ['sleeptalk'] },
+			{species: 'slowpoke', item: 'roomservice', moves: ['sleeptalk']},
 		], [
-			{ species: 'whimsicott', item: 'roomservice', moves: ['trickroom'] },
+			{species: 'whimsicott', item: 'roomservice', moves: ['trickroom']},
 		]]);
 		battle.makeChoices();
 		assert.statStage(battle.p1.active[0], 'spe', -1);
 		assert.statStage(battle.p2.active[0], 'spe', -1);
 	});
 
-	it(`should activate after entrance Abilities`, () => {
+	it(`should activate after entrance Abilities`, function () {
 		battle = common.createBattle([[
-			{ species: 'slowpoke', moves: ['teleport'] },
-			{ species: 'ditto', ability: 'imposter', item: 'roomservice', moves: ['transform'] },
+			{species: 'slowpoke', moves: ['teleport']},
+			{species: 'ditto', ability: 'imposter', item: 'roomservice', moves: ['transform']},
 		], [
-			{ species: 'whimsicott', ability: 'prankster', moves: ['trickroom'] },
+			{species: 'whimsicott', ability: 'prankster', moves: ['trickroom']},
 		]]);
 		battle.makeChoices();
 		battle.makeChoices();
 		assert.statStage(battle.p1.active[0], 'spe', -1, `Ditto-Whimsicott should be at -1 Speed after transforming`);
 	});
 
-	it(`should not trigger Defiant`, () => {
+	it(`should not trigger Defiant`, function () {
 		battle = common.createBattle([[
-			{ species: 'slowpoke', ability: 'defiant', item: 'roomservice', moves: ['sleeptalk'] },
+			{species: 'slowpoke', ability: 'defiant', item: 'roomservice', moves: ['sleeptalk']},
 		], [
-			{ species: 'whimsicott', moves: ['trickroom'] },
+			{species: 'whimsicott', moves: ['trickroom']},
 		]]);
 		battle.makeChoices();
 		assert.statStage(battle.p1.active[0], 'atk', 0);

@@ -5,16 +5,16 @@ const common = require('./../../common');
 
 let battle;
 
-describe('No Retreat', () => {
-	afterEach(() => {
+describe('No Retreat', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it(`should not allow usage multiple times in a row normally`, () => {
+	it(`should not allow usage multiple times in a row normally`, function () {
 		battle = common.createBattle([[
-			{ species: "Wynaut", moves: ['noretreat'] },
+			{species: "Wynaut", moves: ['noretreat']},
 		], [
-			{ species: "Caterpie", moves: ['sleeptalk'] },
+			{species: "Caterpie", moves: ['sleeptalk']},
 		]]);
 
 		battle.makeChoices();
@@ -24,11 +24,11 @@ describe('No Retreat', () => {
 		assert.statStage(wynaut, 'atk', 1);
 	});
 
-	it(`should allow usage multiple times in a row normally if it has the trapped volatile`, () => {
+	it(`should allow usage multiple times in a row normally if it has the trapped volatile`, function () {
 		battle = common.createBattle([[
-			{ species: "Wynaut", moves: ['noretreat'] },
+			{species: "Wynaut", moves: ['noretreat']},
 		], [
-			{ species: "Caterpie", moves: ['block'] },
+			{species: "Caterpie", moves: ['block']},
 		]]);
 
 		battle.makeChoices();

@@ -5,13 +5,13 @@ const common = require('../../common');
 
 let battle;
 
-describe('Mighty Cleave', () => {
+describe('Mighty Cleave', function () {
 	afterEach(() => battle.destroy());
 
-	it(`should go through Protect`, () => {
+	it(`should go through Protect`, function () {
 		battle = common.createBattle([
-			[{ species: "Terrakion", ability: 'justified', moves: ['mightycleave'] }],
-			[{ species: "Entei", ability: 'innerfocus', moves: ['protect'] }],
+			[{species: "Terrakion", ability: 'justified', moves: ['mightycleave']}],
+			[{species: "Entei", ability: 'innerfocus', moves: ['protect']}],
 		]);
 		battle.makeChoices();
 		const damage = battle.p2.active[0].maxhp - battle.p2.active[0].hp;

@@ -5,16 +5,16 @@ const common = require('./../../common');
 
 let battle;
 
-describe('Multiscale', () => {
-	afterEach(() => {
+describe('Multiscale', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it(`should halve damage when it is at full health`, () => {
+	it(`should halve damage when it is at full health`, function () {
 		battle = common.createBattle([[
-			{ species: 'Dragonite', ability: 'multiscale', moves: ['sleeptalk'] },
+			{species: 'Dragonite', ability: 'multiscale', moves: ['sleeptalk']},
 		], [
-			{ species: 'Wynaut', moves: ['wickedblow'] },
+			{species: 'Wynaut', moves: ['wickedblow']},
 		]]);
 
 		battle.makeChoices();
@@ -26,11 +26,11 @@ describe('Multiscale', () => {
 		assert.bounded(dnite.maxhp - dnite.hp - damage, [30, 36], `Multiscale should not reduce damage, because Dragonite was damaged`);
 	});
 
-	it('should be suppressed by Mold Breaker', () => {
+	it('should be suppressed by Mold Breaker', function () {
 		battle = common.createBattle([[
-			{ species: 'Dragonite', ability: 'multiscale', moves: ['sleeptalk'] },
+			{species: 'Dragonite', ability: 'multiscale', moves: ['sleeptalk']},
 		], [
-			{ species: 'Wynaut', ability: 'moldbreaker', moves: ['wickedblow'] },
+			{species: 'Wynaut', ability: 'moldbreaker', moves: ['wickedblow']},
 		]]);
 
 		battle.makeChoices();

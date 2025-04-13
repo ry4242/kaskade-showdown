@@ -5,25 +5,25 @@ const common = require('./../../common');
 
 let battle;
 
-describe('Chloroblast', () => {
-	afterEach(() => {
+describe('Chloroblast', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it('should deal recoil damage to the user equal to half its max HP, rounded up', () => {
+	it('should deal recoil damage to the user equal to half its max HP, rounded up', function () {
 		battle = common.createBattle([[
-			{ species: "Electrode-Hisui", item: 'widelens', moves: ['chloroblast'] },
+			{species: "Electrode-Hisui", item: 'widelens', moves: ['chloroblast']},
 		], [
-			{ species: "Blissey", moves: ['sleeptalk'] },
+			{species: "Blissey", moves: ['sleeptalk']},
 		]]);
 		assert.hurtsBy(battle.p1.active[0], Math.round(battle.p1.active[0].maxhp / 2), () => battle.makeChoices());
 	});
 
-	it('should not deal recoil damage to the user if it misses or is blocked by Protect', () => {
+	it('should not deal recoil damage to the user if it misses or is blocked by Protect', function () {
 		battle = common.createBattle([[
-			{ species: "Electrode-Hisui", item: 'widelens', moves: ['chloroblast', 'protect'] },
+			{species: "Electrode-Hisui", item: 'widelens', moves: ['chloroblast', 'protect']},
 		], [
-			{ species: "Talonflame", ability: 'galewings', moves: ['fly', 'protect'] },
+			{species: "Talonflame", ability: 'galewings', moves: ['fly', 'protect']},
 		]]);
 		battle.makeChoices('move chloroblast', 'move fly');
 		battle.makeChoices('move protect', 'auto');
@@ -31,21 +31,21 @@ describe('Chloroblast', () => {
 		assert.fullHP(battle.p1.active[0]);
 	});
 
-	it('should have its recoil damage negated by Rock Head', () => {
+	it('should have its recoil damage negated by Rock Head', function () {
 		battle = common.createBattle([[
-			{ species: "Electrode-Hisui", ability: 'rockhead', item: 'widelens', moves: ['chloroblast'] },
+			{species: "Electrode-Hisui", ability: 'rockhead', item: 'widelens', moves: ['chloroblast']},
 		], [
-			{ species: "Blissey", moves: ['sleeptalk'] },
+			{species: "Blissey", moves: ['sleeptalk']},
 		]]);
 		battle.makeChoices();
 		assert.fullHP(battle.p1.active[0]);
 	});
 
-	it('should not have its base power boosted by Reckless', () => {
+	it('should not have its base power boosted by Reckless', function () {
 		battle = common.createBattle([[
-			{ species: "Electrode-Hisui", ability: 'reckless', item: 'widelens', moves: ['chloroblast'] },
+			{species: "Electrode-Hisui", ability: 'reckless', item: 'widelens', moves: ['chloroblast']},
 		], [
-			{ species: "Blissey", ability: 'shellarmor', moves: ['sleeptalk'] },
+			{species: "Blissey", ability: 'shellarmor', moves: ['sleeptalk']},
 		]]);
 		battle.makeChoices();
 		const damage = battle.p2.active[0].maxhp - battle.p2.active[0].hp;

@@ -10,21 +10,21 @@ const Responder = require('../../../dist/server/chat-plugins/responder').AutoRes
 const room = Rooms.createChatRoom('etheria');
 const Help = new Responder(room);
 
-describe('Autoresponder', () => {
-	it('should only return true on added regexes', () => {
+describe('Autoresponder', function () {
+	it('should only return true on added regexes', function () {
 		Help.data.pairs.catra = [];
 		Help.data.pairs.catra.push(Help.stringRegex(`Hey & Adora`));
 		assert(Help.test('Hey, Adora', 'catra'));
 		assert(!Help.test('Hello, Adora', 'catra'));
 	});
 
-	it('should produce valid regexes', () => {
+	it('should produce valid regexes', function () {
 		const regexString = Help.stringRegex(`uwu & awa`);
 		assert.equal(regexString, "(?=.*?(uwu))(?=.*?(awa))");
 		const regex = new RegExp(regexString);
 		assert(regex.test('uwu awa'));
 	});
-	it('should handle |, &, and ! correctly', () => {
+	it('should handle |, &, and ! correctly', function () {
 		const and = new RegExp(Help.stringRegex(`Horde & Prime`));
 		assert(and.test('Horde Prime'));
 		assert(!and.test('Horde'));

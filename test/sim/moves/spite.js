@@ -5,16 +5,16 @@ const common = require('./../../common');
 
 let battle;
 
-describe('Spite', () => {
-	afterEach(() => {
+describe('Spite', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it(`should fail on Z-moves`, () => {
+	it(`should fail on Z-moves`, function () {
 		battle = common.gen(7).createBattle([[
-			{ species: 'Gengar', item: 'ghostiumz', moves: ['shadowball'] },
+			{species: 'Gengar', item: 'ghostiumz', moves: ['shadowball']},
 		], [
-			{ species: 'Snorlax', moves: ['spite'] },
+			{species: 'Snorlax', moves: ['spite']},
 		]]);
 
 		battle.makeChoices('move shadowball zmove', 'move spite');
@@ -23,11 +23,11 @@ describe('Spite', () => {
 	});
 
 	// Eerie Spell and G-Max Depletion should also behave this way
-	it(`should succeed on Max Moves, and announce the base move that PP was deducted from`, () => {
+	it(`should succeed on Max Moves, and announce the base move that PP was deducted from`, function () {
 		battle = common.gen(8).createBattle([[
-			{ species: 'Gengar', moves: ['shadowball'] },
+			{species: 'Gengar', moves: ['shadowball']},
 		], [
-			{ species: 'Snorlax', moves: ['spite'] },
+			{species: 'Snorlax', moves: ['spite']},
 		]]);
 
 		battle.makeChoices('move shadowball dynamax', 'move spite');

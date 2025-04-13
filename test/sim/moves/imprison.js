@@ -5,21 +5,21 @@ const common = require('./../../common');
 
 let battle;
 
-describe('Imprison', () => {
-	afterEach(() => {
+describe('Imprison', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it(`should prevent foes from using moves that the user knows`, () => {
+	it(`should prevent foes from using moves that the user knows`, function () {
 		battle = common.createBattle();
-		battle.setPlayer('p1', { team: [
-			{ species: 'Abra', ability: 'prankster', moves: ['imprison', 'calmmind', 'batonpass'] },
-			{ species: 'Kadabra', ability: 'prankster', moves: ['imprison', 'calmmind'] },
-		] });
-		battle.setPlayer('p2', { team: [
-			{ species: 'Abra', ability: 'synchronize', moves: ['calmmind', 'gravity'] },
-			{ species: 'Kadabra', ability: 'prankster', moves: ['imprison', 'calmmind'] },
-		] });
+		battle.setPlayer('p1', {team: [
+			{species: 'Abra', ability: 'prankster', moves: ['imprison', 'calmmind', 'batonpass']},
+			{species: 'Kadabra', ability: 'prankster', moves: ['imprison', 'calmmind']},
+		]});
+		battle.setPlayer('p2', {team: [
+			{species: 'Abra', ability: 'synchronize', moves: ['calmmind', 'gravity']},
+			{species: 'Kadabra', ability: 'prankster', moves: ['imprison', 'calmmind']},
+		]});
 
 		battle.makeChoices('move imprison', 'move calmmind');
 		assert.statStage(battle.p2.active[0], 'spa', 0);
@@ -48,24 +48,24 @@ describe('Imprison', () => {
 		assert.statStage(battle.p2.active[0], 'spa', 3);
 	});
 
-	it(`should not prevent foes from using Z-Powered Status moves`, () => {
+	it(`should not prevent foes from using Z-Powered Status moves`, function () {
 		battle = common.createBattle();
-		battle.setPlayer('p1', { team: [{ species: 'Sableye', ability: 'prankster', moves: ['imprison', 'sunnyday'] }] });
-		battle.setPlayer('p2', { team: [{ species: 'Charmander', ability: 'blaze', item: 'firiumz', moves: ['sunnyday'] }] });
+		battle.setPlayer('p1', {team: [{species: 'Sableye', ability: 'prankster', moves: ['imprison', 'sunnyday']}]});
+		battle.setPlayer('p2', {team: [{species: 'Charmander', ability: 'blaze', item: 'firiumz', moves: ['sunnyday']}]});
 
 		battle.makeChoices('move imprison', 'move sunnyday zmove');
 		assert.statStage(battle.p2.active[0], 'spe', 1);
 		assert(battle.field.isClimateWeather('sunnyday'));
 	});
 
-	it(`should not prevent the user from using moves that a foe knows`, () => {
+	it(`should not prevent the user from using moves that a foe knows`, function () {
 		battle = common.createBattle();
-		battle.setPlayer('p1', { team: [
-			{ species: 'Abra', ability: 'prankster', moves: ['imprison', 'calmmind', 'batonpass'] },
-		] });
-		battle.setPlayer('p2', { team: [
-			{ species: 'Abra', ability: 'synchronize', moves: ['calmmind', 'gravity'] },
-		] });
+		battle.setPlayer('p1', {team: [
+			{species: 'Abra', ability: 'prankster', moves: ['imprison', 'calmmind', 'batonpass']},
+		]});
+		battle.setPlayer('p2', {team: [
+			{species: 'Abra', ability: 'synchronize', moves: ['calmmind', 'gravity']},
+		]});
 		const imprisonUser = battle.p1.active[0];
 
 		battle.makeChoices('move imprison', 'auto');

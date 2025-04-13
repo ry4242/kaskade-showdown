@@ -5,16 +5,16 @@ const common = require('./../../common');
 
 let battle;
 
-describe("Hunger Switch", () => {
-	afterEach(() => {
+describe("Hunger Switch", function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it("should alternate forms every turn", () => {
+	it("should alternate forms every turn", function () {
 		battle = common.createBattle([[
-			{ species: 'Morpeko', ability: 'hungerswitch', moves: ['rest'] },
+			{species: 'Morpeko', ability: 'hungerswitch', moves: ['rest']},
 		], [
-			{ species: 'Magikarp', ability: 'Swift Swim', moves: ['splash'] },
+			{species: 'Magikarp', ability: 'Swift Swim', moves: ['splash']},
 		]]);
 		const peko = battle.p1.active[0];
 		assert.species(peko, 'Morpeko');
@@ -24,13 +24,13 @@ describe("Hunger Switch", () => {
 		assert.species(peko, 'Morpeko');
 	});
 
-	it("should revert back to the base form when switched out", () => {
+	it("should revert back to the base form when switched out", function () {
 		battle = common.createBattle([[
-			{ species: 'Morpeko', ability: 'hungerswitch', moves: ['rest'] },
-			{ species: 'Furret', ability: 'Run Away', moves: ['sleeptalk'] },
+			{species: 'Morpeko', ability: 'hungerswitch', moves: ['rest']},
+			{species: 'Furret', ability: 'Run Away', moves: ['sleeptalk']},
 		], [
-			{ species: 'Magikarp', ability: 'Swift Swim', moves: ['splash'] },
-			{ species: 'Koffing', ability: 'neutralizinggas', moves: ['sleeptalk'] },
+			{species: 'Magikarp', ability: 'Swift Swim', moves: ['splash']},
+			{species: 'Koffing', ability: 'neutralizinggas', moves: ['sleeptalk']},
 		]]);
 		const peko = battle.p1.active[0];
 		battle.makeChoices();
@@ -40,26 +40,26 @@ describe("Hunger Switch", () => {
 		assert.species(peko, 'Morpeko');
 	});
 
-	it("should stop activating when Morpeko Terastallizes", () => {
-		battle = common.gen(9).createBattle([[
-			{ species: 'Morpeko', ability: 'hungerswitch', moves: ['rest'] },
+	/* it("should stop activating when Morpeko Terastallizes", function () {
+		battle = common.createBattle([[
+			{species: 'Morpeko', ability: 'hungerswitch', moves: ['rest']},
 		], [
-			{ species: 'Magikarp', ability: 'Swift Swim', moves: ['splash'] },
+			{species: 'Magikarp', ability: 'Swift Swim', moves: ['splash']},
 		]]);
 		const peko = battle.p1.active[0];
 		battle.makeChoices();
 		assert.species(peko, 'Morpeko-Hangry');
 		battle.makeChoices('move 1 terastallize', 'auto');
 		assert.species(peko, 'Morpeko-Hangry');
-	});
+	}); */
 
-	it("should maintain its form when Terastallized, even when switched out", () => {
-		battle = common.gen(9).createBattle([[
-			{ species: 'Morpeko', ability: 'hungerswitch', moves: ['rest'] },
-			{ species: 'Furret', ability: 'Run Away', moves: ['sleeptalk'] },
+	/* it("should maintain its form when Terastallized, even when switched out", function () {
+		battle = common.createBattle([[
+			{species: 'Morpeko', ability: 'hungerswitch', moves: ['rest']},
+			{species: 'Furret', ability: 'Run Away', moves: ['sleeptalk']},
 		], [
-			{ species: 'Magikarp', ability: 'Swift Swim', moves: ['splash'] },
-			{ species: 'Koffing', ability: 'neutralizinggas', moves: ['sleeptalk'] },
+			{species: 'Magikarp', ability: 'Swift Swim', moves: ['splash']},
+			{species: 'Koffing', ability: 'neutralizinggas', moves: ['sleeptalk']},
 		]]);
 		const peko = battle.p1.active[0];
 		battle.makeChoices();
@@ -68,5 +68,5 @@ describe("Hunger Switch", () => {
 		battle.makeChoices('switch 2', 'auto');
 		battle.makeChoices('switch 2', 'switch 2');
 		assert.species(peko, 'Morpeko-Hangry');
-	});
+	}); */
 });

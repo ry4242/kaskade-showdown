@@ -5,17 +5,17 @@ const common = require('./../../common');
 
 let battle;
 
-describe('U-turn', () => {
-	afterEach(() => {
+describe('U-turn', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it('should switch the user out after a successful hit against a Substitute', () => {
+	it('should switch the user out after a successful hit against a Substitute', function () {
 		battle = common.createBattle([[
-			{ species: 'Beedrill', ability: 'swarm', moves: ['uturn'] },
-			{ species: 'Kakuna', ability: 'shedskin', moves: ['harden'] },
+			{species: 'Beedrill', ability: 'swarm', moves: ['uturn']},
+			{species: 'Kakuna', ability: 'shedskin', moves: ['harden']},
 		], [
-			{ species: 'Alakazam', ability: 'magicguard', moves: ['substitute'] },
+			{species: 'Alakazam', ability: 'magicguard', moves: ['substitute']},
 		]]);
 
 		battle.makeChoices('move uturn', 'move substitute');

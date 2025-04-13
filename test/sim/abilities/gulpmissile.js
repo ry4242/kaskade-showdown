@@ -5,36 +5,36 @@ const common = require('./../../common');
 
 let battle;
 
-describe('Gulp Missile', () => {
-	afterEach(() => {
+describe('Gulp Missile', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it(`should retrieve a catch on the first turn of Dive`, () => {
+	it(`should retrieve a catch on the first turn of Dive`, function () {
 		battle = common.createBattle([[
-			{ species: 'cramorant', ability: 'gulpmissile', moves: ['dive'] },
+			{species: 'cramorant', ability: 'gulpmissile', moves: ['dive']},
 		], [
-			{ species: 'wynaut', moves: ['sleeptalk'] },
+			{species: 'wynaut', moves: ['sleeptalk']},
 		]]);
 		battle.makeChoices();
 		assert.species(battle.p1.active[0], 'Cramorant-Gulping');
 	});
 
-	it(`should retrieve a catch only if the move was successful`, () => {
+	it(`should retrieve a catch only if the move was successful`, function () {
 		battle = common.createBattle([[
-			{ species: 'cramorant', ability: 'gulpmissile', moves: ['surf'] },
+			{species: 'cramorant', ability: 'gulpmissile', moves: ['surf']},
 		], [
-			{ species: 'lapras', ability: 'waterabsorb', moves: ['sleeptalk'] },
+			{species: 'lapras', ability: 'waterabsorb', moves: ['sleeptalk']},
 		]]);
 		battle.makeChoices();
 		assert.false.species(battle.p1.active[0], 'Cramorant-Gulping');
 	});
 
-	it(`should not spit out its catch if the Cramorant is semi-invulnerable`, () => {
+	it(`should not spit out its catch if the Cramorant is semi-invulnerable`, function () {
 		battle = common.createBattle([[
-			{ species: 'cramorant', ability: 'gulpmissile', moves: ['dive'] },
+			{species: 'cramorant', ability: 'gulpmissile', moves: ['dive']},
 		], [
-			{ species: 'ludicolo', ability: 'noguard', moves: ['sleeptalk', 'machpunch'] },
+			{species: 'ludicolo', ability: 'noguard', moves: ['sleeptalk', 'machpunch']},
 		]]);
 		battle.makeChoices();
 		battle.makeChoices('auto', 'move machpunch');
@@ -42,11 +42,11 @@ describe('Gulp Missile', () => {
 		assert.statStage(battle.p2.active[0], 'def', 0);
 	});
 
-	it(`should change forms before damage calculation`, () => {
+	it(`should change forms before damage calculation`, function () {
 		battle = common.createBattle([[
-			{ species: 'cramorant', ability: 'gulpmissile', moves: ['surf'] },
+			{species: 'cramorant', ability: 'gulpmissile', moves: ['surf']},
 		], [
-			{ species: 'sceptile', ability: 'shellarmor', moves: ['magicpowder'] },
+			{species: 'sceptile', ability: 'shellarmor', moves: ['magicpowder']},
 		]]);
 		battle.makeChoices();
 		const sceptile = battle.p2.active[0];
@@ -54,13 +54,13 @@ describe('Gulp Missile', () => {
 		assert.bounded(damage, [48, 57], `Cramorant should have received STAB in damage calculation`);
 	});
 
-	describe(`Hackmons Cramorant`, () => {
-		it(`should be sent out as the hacked form`, () => {
+	describe(`Hackmons Cramorant`, function () {
+		it(`should be sent out as the hacked form`, function () {
 			battle = common.createBattle([[
-				{ species: 'cramorantgulping', ability: 'gulpmissile', moves: ['sleeptalk'] },
-				{ species: 'wynaut', moves: ['sleeptalk'] },
+				{species: 'cramorantgulping', ability: 'gulpmissile', moves: ['sleeptalk']},
+				{species: 'wynaut', moves: ['sleeptalk']},
 			], [
-				{ species: 'togepi', moves: ['fairywind'] },
+				{species: 'togepi', moves: ['fairywind']},
 			]]);
 			battle.makeChoices();
 
@@ -73,11 +73,11 @@ describe('Gulp Missile', () => {
 			assert.statStage(togepi, 'def', -2);
 		});
 
-		it(`should not force Cramorant-Gorging or -Gulping to have Gulp Missile`, () => {
+		it(`should not force Cramorant-Gorging or -Gulping to have Gulp Missile`, function () {
 			battle = common.createBattle([[
-				{ species: 'cramorantgorging', ability: 'intimidate', moves: ['sleeptalk'] },
+				{species: 'cramorantgorging', ability: 'intimidate', moves: ['sleeptalk']},
 			], [
-				{ species: 'togepi', moves: ['fairywind'] },
+				{species: 'togepi', moves: ['fairywind']},
 			]]);
 			battle.makeChoices();
 

@@ -1,3 +1,4 @@
+
 'use strict';
 
 const assert = require('./../../assert');
@@ -5,18 +6,18 @@ const common = require('./../../common');
 
 let battle;
 
-describe('Flower Veil', () => {
-	afterEach(() => {
+describe('Flower Veil', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
-	it(`should block status conditions and stat drops on Grass-type Pokemon and its allies`, () => {
-		battle = common.createBattle({ gameType: 'doubles' }, [[
-			{ species: 'Breloom', moves: ['sleeptalk'] },
-			{ species: 'Venusaur', ability: 'flowerveil', moves: ['sleeptalk'] },
+	it(`should block status conditions and stat drops on Grass-type Pokemon and its allies`, function () {
+		battle = common.createBattle({gameType: 'doubles'}, [[
+			{species: 'Breloom', moves: ['sleeptalk']},
+			{species: 'Venusaur', ability: 'flowerveil', moves: ['sleeptalk']},
 		], [
-			{ species: 'Persian', moves: ['sandattack'] },
-			{ species: 'Raticate', moves: ['glare'] },
+			{species: 'Persian', moves: ['sandattack']},
+			{species: 'Raticate', moves: ['glare']},
 		]]);
 
 		battle.makeChoices('auto', 'move sandattack 1, move glare 1');
@@ -31,14 +32,14 @@ describe('Flower Veil', () => {
 		assert.statStage(venusaur, 'accuracy', 0);
 	});
 
-	it(`should not stop an ally from falling asleep when Yawn was already affecting it`, () => {
-		battle = common.createBattle({ gameType: 'doubles' }, [[
-			{ species: 'Breloom', moves: ['sleeptalk'] },
-			{ species: 'Heatran', moves: ['sleeptalk'] },
-			{ species: 'Florges', ability: 'flowerveil', moves: ['sleeptalk'] },
+	it(`should not stop an ally from falling asleep when Yawn was already affecting it`, function () {
+		battle = common.createBattle({gameType: 'doubles'}, [[
+			{species: 'Breloom', moves: ['sleeptalk']},
+			{species: 'Heatran', moves: ['sleeptalk']},
+			{species: 'Florges', ability: 'flowerveil', moves: ['sleeptalk']},
 		], [
-			{ species: 'Persian', moves: ['sleeptalk', 'yawn'] },
-			{ species: 'Raticate', moves: ['sleeptalk'] },
+			{species: 'Persian', moves: ['sleeptalk', 'yawn']},
+			{species: 'Raticate', moves: ['sleeptalk']},
 		]]);
 
 		battle.makeChoices('move sleeptalk, move sleeptalk', 'move yawn 1, move sleeptalk');
