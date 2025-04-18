@@ -3398,12 +3398,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Draft Factory",
+		desc: `Randomized matchups sourced from various 6v6 singles draft leagues.`,
 		mod: 'gen9',
 		team: 'randomDraftFactory',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['Obtainable', 'Team Preview', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
+		ruleset: ['Standard Draft'],
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
 				if (!(pokemon.set as any).teraCaptain) pokemon.canTerastallize = null;
@@ -3419,6 +3420,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 				}
 				this.add(`${buf}`);
 			}
+			this.add(`raw|Only Tera Captains are allowed to Terastallize!`);
 		},
 	},
 	{
