@@ -153,11 +153,11 @@ describe('Substitute', () => {
 		assert(battle.log.some(line => line.includes('confusion')));
 	});
 
-	it(`[Gen 1] if a Pokemon with a Substitute hurts itself due to confusion and the target does not have a Substitute, there is no damage dealt.`, () => {
-		battle = common.gen(1).createBattle({ forceRandomChance: true }, [[
-			{ species: 'Magikarp', moves: ['substitute', 'agility'] },
+	it(`[Gen 1] if a Pokemon with a Substitute hurts itself due to confusion and the target does not have a Substitute, there is no damage dealt.`, function () {
+		battle = common.gen(1).createBattle({forceRandomChance: true}, [[
+			{species: 'Magikarp', moves: ['substitute', 'agility']},
 		], [
-			{ species: 'Alakazam', moves: ['confuseray', 'agility'] },
+			{species: 'Alakazam', moves: ['confuseray', 'agility']},
 		]]);
 		const magikarp = battle.p1.active[0];
 		const alakazam = battle.p2.active[0];
@@ -176,11 +176,11 @@ describe('Substitute', () => {
 		assert.equal(alakazam.hp, alakaxamHp);
 	});
 
-	it(`[Gen 1] if a Pokemon with a Substitute hurts itself due to confusion and the target has a Substitute, the target's Substitute takes the damage.`, () => {
-		battle = common.gen(1).createBattle({ forceRandomChance: true }, [[
-			{ species: 'Magikarp', moves: ['substitute', 'agility'] },
+	it(`[Gen 1] if a Pokemon with a Substitute hurts itself due to confusion and the target has a Substitute, the target's Substitute takes the damage.`, function () {
+		battle = common.gen(1).createBattle({forceRandomChance: true}, [[
+			{species: 'Magikarp', moves: ['substitute', 'agility']},
 		], [
-			{ species: 'Alakazam', moves: ['confuseray', 'substitute', 'agility'] },
+			{species: 'Alakazam', moves: ['confuseray', 'substitute', 'agility']},
 		]]);
 		const magikarp = battle.p1.active[0];
 		const alakazam = battle.p2.active[0];
