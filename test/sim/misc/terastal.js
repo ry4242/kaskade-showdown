@@ -167,11 +167,11 @@ describe("Terastallization", () => {
 			assert.bounded(arceus.maxhp - arceus.hp, [38, 45], `Should be a 40 BP no-STAB Leafage`);
 		});
 
-		it(`shouldn't boost <60 Base Power priority moves forced via Encore`, () => {
-			battle = common.gen(9).createBattle([[
-				{ species: 'hariyama', moves: ['bulletpunch', 'sleeptalk'], teraType: 'Steel' },
+		it(`shouldn't boost <60 Base Power priority moves forced via Encore`, function () {
+			battle = common.createBattle([[
+				{species: 'hariyama', moves: ['bulletpunch', 'sleeptalk'], teraType: 'Steel'},
 			], [
-				{ species: 'salazzle ', moves: ['encore', 'sleeptalk'] },
+				{species: 'salazzle ', moves: ['encore', 'sleeptalk']},
 			]]);
 
 			battle.makeChoices('move bulletpunch terastallize', 'move sleeptalk');
