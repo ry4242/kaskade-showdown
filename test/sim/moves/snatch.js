@@ -78,12 +78,12 @@ describe('Snatch', () => {
 	});
 
 	it('should not snatch Swallow if the Swallow user has no Stockpiles', () => {
-		battle = common.createBattle({ gameType: 'doubles' }, [[
-			{ species: 'mandibuzz', moves: ['snatch'] },
-			{ species: 'accelgor', moves: ['swallow'] },
+		battle = common.createBattle({gameType: 'doubles'}, [[
+			{species: 'mandibuzz', moves: ['snatch']},
+			{species: 'accelgor', moves: ['swallow']},
 		], [
-			{ species: 'surskit', moves: ['quickattack'] },
-			{ species: 'wingull', moves: ['quickattack'] },
+			{species: 'surskit', moves: ['quickattack']},
+			{species: 'wingull', moves: ['quickattack']},
 		]]);
 
 		battle.makeChoices('auto', 'move quickattack 1, move quickattack 2');
@@ -94,9 +94,9 @@ describe('Snatch', () => {
 
 	it('Snatched Swallow should heal the snatcher by 25% if the snatcher has no Stockpiles', () => {
 		battle = common.createBattle([[
-			{ species: 'clefable', moves: ['sleeptalk', 'bellydrum', 'snatch'] },
+			{species: 'clefable', moves: ['sleeptalk', 'bellydrum', 'snatch']},
 		], [
-			{ species: 'dewgong', moves: ['stockpile', 'swallow'] },
+			{species: 'dewgong', moves: ['stockpile', 'swallow']},
 		]]);
 		battle.makeChoices('move bellydrum', 'auto');
 		battle.makeChoices();
@@ -106,8 +106,8 @@ describe('Snatch', () => {
 	});
 });
 
-describe('Snatch [Gen 4]', () => {
-	afterEach(() => {
+describe('Snatch [Gen 4]', function () {
+	afterEach(function () {
 		battle.destroy();
 	});
 
