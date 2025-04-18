@@ -3404,13 +3404,21 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['Standard Draft'],
+		ruleset: ['Standard Draft', '!Team Preview'],
 		onBegin() {
 			for (const pokemon of this.getAllPokemon()) {
 				if (!(pokemon.set as any).teraCaptain) pokemon.canTerastallize = null;
 			}
+			this.add('rule', 'Tera Captain Clause: Only Tera Captains can Terastallize');
 		},
 		onTeamPreview() {
+			this.add('clearpoke');
+			for (const pokemon of this.getAllPokemon()) {
+				const details = pokemon.details.replace(', shiny', '')
+					.replace(/(Greninja|Gourgeist|Pumpkaboo|Xerneas|Zacian|Zamazenta|Dudunsparce)(-[a-zA-Z?-]+)?/g, '$1-*');
+				this.add('poke', pokemon.side.id, details, '');
+			}
+			this.makeRequest('teampreview');
 			for (const side of this.sides) {
 				let buf = ``;
 				for (const pokemon of side.pokemon) {
@@ -3420,7 +3428,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 				}
 				this.add(`${buf}`);
 			}
-			this.add(`raw|Only Tera Captains are allowed to Terastallize!`);
 		},
 	},
 	{
