@@ -3196,6 +3196,19 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	},
 	{
+		name: "[Gen 9] Battle Factory",
+		desc: `Randomized teams of Pok&eacute;mon for a generated Smogon tier with sets that are competitively viable.`,
+		mod: 'gen9',
+		team: 'randomFactory',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard'],
+		onBegin() {
+			this.add(`raw|<div class="broadcast-blue"><b>Battle Factory Tier: ${this.teamGenerator.factoryTier}</b></div>`);
+		},
+	},
+	{
 		name: "[Gen 9] BSS Factory",
 		desc: `Randomized 3v3 Singles featuring Pok&eacute;mon and movesets popular in Battle Stadium Singles.`,
 		mod: 'gen9',
