@@ -65,8 +65,8 @@ describe('Team Validator', () => {
 
 	it('should reject Pokemon that cannot obtain moves in a particular forme', () => {
 		team = [
-			{ species: 'toxtricity', ability: 'punkrock', moves: ['venomdrench, magneticflux'], evs: { hp: 1 } },
-			{ species: 'toxtricity-low-key', ability: 'punkrock', moves: ['venoshock, shiftgear'], evs: { hp: 1 } },
+			{species: 'toxtricity', ability: 'punkrock', moves: ['venomdrench, magneticflux'], evs: {hp: 1}},
+			{species: 'toxtricity-low-key', ability: 'punkrock', moves: ['venoshock, shiftgear'], evs: {hp: 1}},
 		];
 		assert.false.legalTeam(team, 'gen8anythinggoes');
 
