@@ -3510,17 +3510,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	perishbody: {
 		onDamagingHit(damage, target, source, move) {
-			if (!this.checkMoveMakesContact(move, source, target)) return;
-
-			let announced = false;
-			for (const pokemon of [target, source]) {
-				if (pokemon.volatiles['perishsong']) continue;
-				if (!announced) {
-					this.add('-ability', target, 'Perish Body');
-					announced = true;
-				}
-				pokemon.addVolatile('perishsong');
-			}
+			if (!this.checkMoveMakesContact(move, source, target) || source.volatiles['perishsong'] ||
+				target.volatiles['perishsong']) return;
+			this.add('-ability', target, 'Perish Body');
+			source.addVolatile('perishsong');
+			target.addVolatile('perishsong');
 		},
 		flags: {},
 		name: "Perish Body",
@@ -6888,17 +6882,11 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	nottobe: { // tested, works as intended
 		onDamagingHit(damage, target, source, move) {
-			if (!target.hp) return;
-			if (!this.checkMoveMakesContact(move, source, target)) return;
-			let announced = false;
-			for (const pokemon of [target, source]) {
-				if (pokemon.volatiles['perishsong']) continue;
-				if (!announced) {
-					this.add('-ability', target, 'Not To Be');
-					announced = true;
-				}
-				pokemon.addVolatile('perishsong');
-			}
+			if (!this.checkMoveMakesContact(move, source, target) || source.volatiles['perishsong'] ||
+				target.volatiles['perishsong']) return;
+			this.add('-ability', target, 'Not To Be');
+			source.addVolatile('perishsong');
+			target.addVolatile('perishsong');
 		},
 		flags: {},
 		name: "Not To Be",
