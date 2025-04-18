@@ -3120,41 +3120,33 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
-		name: "[Gen 9] Random Battle (Shared Power, B12P6)",
-		desc: `[Gen 9] Random Battle with Shared Power, Team Preview, and Bring 12 Pick 6.`,
-		mod: 'sharedpower',
+		name: "[Gen 7] Random Battle (Apex Abilities)",
+		desc: `[Gen 7] Random Battle, but every Pok&eacute;mon has their usual ability overriden by a powerful ability chosen from a restricted pool.`,
+		mod: 'gen7apex',
 		team: 'random',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 9] Random Battle', 'Picked Team Size = 6', 'Max Team Size = 12', 'Team Preview'],
-		onValidateRule() {
-			if (this.format.gameType !== 'singles') {
-				throw new Error(`Shared Power currently does not support ${this.format.gameType} battles.`);
-			}
-		},
-		onBeforeSwitchIn(pokemon) {
-			let format = this.format;
-			if (!format.getSharedPower) format = this.dex.formats.get('gen9sharedpower');
-			for (const ability of format.getSharedPower!(pokemon)) {
-				const effect = 'ability:' + ability;
-				pokemon.volatiles[effect] = {id: this.toID(effect), target: pokemon};
-				if (!pokemon.m.abils) pokemon.m.abils = [];
-				if (!pokemon.m.abils.includes(effect)) pokemon.m.abils.push(effect);
-			}
-		},
-		onSwitchInPriority: 2,
-		onSwitchIn(pokemon) {
-			let format = this.format;
-			if (!format.getSharedPower) format = this.dex.formats.get('gen9sharedpower');
-			for (const ability of format.getSharedPower!(pokemon)) {
-				if (ability === 'noability') {
-					this.hint(`Mirror Armor and Trace break in Shared Power formats that don't use Shared Power as a base, so they get removed from non-base users.`);
-				}
-				const effect = 'ability:' + ability;
-				delete pokemon.volatiles[effect];
-				pokemon.addVolatile(effect);
-			}
+		ruleset: ['[Gen 7] Random Battle'],
+		onBegin() {
+			const POWERFUL_ABILITIES = [
+				'Adaptability', 'Aftermath', 'Analytic', 'Arena Trap', 'Beast Boost', 'Berserk', 'Comatose', 'Competitive',
+				'Compound Eyes', 'Contrary', 'Cursed Body', 'Defiant', 'Desolate Land', 'Download', 'Drizzle', 'Drought', 'Dry Skin',
+				'Effect Spore', 'Electric Surge', 'Filter', 'Flame Body', 'Flash Fire', 'Fluffy', 'Gooey', 'Grassy Surge', 'Heatproof',
+				'Huge Power', 'Hustle', 'Illusion', 'Imposter', 'Innards Out', 'Intimidate', 'Iron Barbs', 'Levitate', 'Lightning Rod',
+				'Magic Bounce', 'Magic Guard', 'Marvel Scale', 'Misty Surge', 'Mold Breaker', 'Moody', 'Motor Drive', 'Moxie', 'Multiscale',
+				'Natural Cure', 'Neuroforce', 'Parental Bond', 'Poison Point', 'Poison Touch', 'Prankster', 'Primordial Sea', 'Prism Armor',
+				'Protean', 'Psychic Surge', 'Pure Power', 'Regenerator', 'Rough Skin', 'Sand Stream', 'Sap Sipper', 'Serene Grace',
+				'Shadow Shield', 'Shadow Tag', 'Shed Skin', 'Sheer Force', 'Shield Dust', 'Simple', 'Snow Warning', 'Solid Rock',
+				'Soul-Heart', 'Speed Boost', 'Stakeout', 'Stamina', 'Static', 'Storm Drain', 'Sturdy', 'Tangling Hair', 'Technician',
+				'Teravolt', 'Thick Fat', 'Tinted Lens', 'Tough Claws', 'Trace', 'Triage', 'Turboblaze', 'Unaware', 'Volt Absorb',
+				'Water Absorb', 'Water Bubble', 'Wonder Guard',
+			];
+			let buf = `<b>Every Pok&eacute;mon's ability is randomly selected from the following pool:</b><br>`;
+			buf += `<details><summary><b>Click to expand</b></summary>`;
+			buf += POWERFUL_ABILITIES.sort().join(', ');
+			buf += '</details>';
+			this.add(`raw|<div class="broadcast-blue">${buf}</div>`);
 		},
 	},
 
