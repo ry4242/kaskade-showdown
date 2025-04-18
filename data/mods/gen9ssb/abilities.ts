@@ -511,7 +511,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Astrothunder",
 		onStart(source) {
 			if (source.species.id === 'kyogre' && source.item === 'blueorb') return;
-			this.field.setWeather('raindance');
+			this.field.setClimateWeather('raindance');
 		},
 		onDamagingHit(damage, target, source, move) {
 			if (this.checkMoveMakesContact(move, source, target)) {
@@ -1111,12 +1111,12 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Fortifying Frost",
 		onModifySpAPriority: 5,
 		onModifySpA(spa, pokemon) {
-			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
+			if (['hail', 'snowscape'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
 		onModifySpD(spd, pokemon) {
-			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
+			if (['hail', 'snowscape'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -1919,7 +1919,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		onStart(source) {
 			if (this.suppressingAbility(source)) return;
 			if (source.species.id === 'kyogre' && source.item === 'blueorb') return;
-			this.field.setWeather('raindance');
+			this.field.setClimateWeather('raindance');
 		},
 		onAnyBasePowerPriority: 20,
 		onAnyBasePower(basePower, source, target, move) {
@@ -2276,7 +2276,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 		name: "Ride the Sun!",
 		onStart(source) {
 			if (source.species.id === 'groudon' && source.item === 'redorb') return;
-			this.field.setWeather('sunnyday');
+			this.field.setClimateWeather('sunnyday');
 		},
 		onModifySpe(spe, pokemon) {
 			if (['sunnyday', 'desolateland'].includes(pokemon.effectiveClimateWeather())) {
@@ -3044,7 +3044,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
 				break;
 			default:

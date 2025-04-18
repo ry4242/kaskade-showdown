@@ -744,8 +744,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			this.add('-climateWeather', 'none');
 		},
 	},
-	snow: {
-		name: 'Snow',
+	snowscape: {
+		name: 'Snowscape',
 		effectType: 'ClimateWeather',
 		duration: 5,
 		durationCallback(source, effect) {
@@ -757,22 +757,22 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onModifyDefPriority: 10,
 		onModifyDef(def, pokemon) {
 			if (pokemon.hasItem('utilityumbrella')) return;
-			if (pokemon.hasType('Ice') && this.field.isClimateWeather('snow')) {
+			if (pokemon.hasType('Ice') && this.field.isClimateWeather('snowscape')) {
 				return this.modify(def, 1.5);
 			}
 		},
 		onFieldStart(field, source, effect) {
 			if (effect?.effectType === 'Ability') {
 				if (this.gen <= 5) this.effectState.duration = 0;
-				this.add('-climateWeather', 'Snow', '[from] ability: ' + effect.name, '[of] ' + source);
+				this.add('-climateWeather', 'Snowscape', '[from] ability: ' + effect.name, '[of] ' + source);
 			} else {
-				this.add('-climateWeather', 'Snow');
+				this.add('-climateWeather', 'Snowscape');
 			}
 		},
 		onFieldResidualOrder: 1,
 		onFieldResidual() {
-			this.add('-climateWeather', 'Snow', '[upkeep]');
-			this.eachEvent('ClimateWeather');
+			this.add('-weather', 'Snowscape', '[upkeep]');
+			if (this.field.isClimateWeather('snowscape')) this.eachEvent('ClimateWeather');
 		},
 		onFieldEnd() {
 			this.add('-climateWeather', 'none');

@@ -140,7 +140,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 			}
 		},
 		onModifySpe(spe, pokemon) {
-			if (this.field.isClimateWeather(['hail', 'snow'])) {
+			if (this.field.isClimateWeather(['hail', 'snowscape'])) {
 				return this.chainModify(2);
 			}
 		},
