@@ -3807,8 +3807,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			// Protosynthesis is not affected by Utility Umbrella
 			if (this.field.isClimateWeather('sunnyday')) {
 				pokemon.addVolatile('protosynthesis');
-			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster && this.field.climateWeather !== 'sunnyday') {
-				// Protosynthesis will not deactivite if Sun is suppressed, hence the direct ID check (isClimateWeather respects supression)
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster && !this.field.isClimateWeather('sunnyday')) {
 				pokemon.removeVolatile('protosynthesis');
 			}
 		},

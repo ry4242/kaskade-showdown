@@ -77,7 +77,7 @@ describe('Protosynthesis', () => {
 		assert.equal(tail.volatiles['protosynthesis'].bestStat, 'spd', `Scream Tail's SpD should have been boosted by Protosynthesis in Sun while holding Utility Umbrella`);
 	});
 
-	it(`should be deactiviated by climateWeather suppressing abilities`, () => {
+	it(`should be deactiviated by climateWeather suppressing abilities`, function () {
 		battle = common.createBattle([[
 			{ species: 'Scream Tail', ability: 'protosynthesis', moves: ['splash'] },
 		], [
