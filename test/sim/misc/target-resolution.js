@@ -359,12 +359,12 @@ describe('Target Resolution', () => {
 
 	it(`should cause Rollout to target the same slot after being called as a submove`, () => {
 		// hardcoded RNG seed to show the erroneous targeting behavior
-		battle = common.createBattle({ gameType: 'doubles', seed: [1, 2, 3, 4] }, [[
-			{ species: 'shuckle', ability: 'compoundeyes', moves: ['copycat'] },
-			{ species: 'foongus', item: 'laggingtail', moves: ['spore'] },
+		battle = common.createBattle({gameType: 'doubles', seed: [1, 2, 3, 4]}, [[
+			{species: 'shuckle', ability: 'compoundeyes', moves: ['copycat']},
+			{species: 'foongus', item: 'laggingtail', moves: ['spore']},
 		], [
-			{ species: 'aggron', moves: ['splash'] },
-			{ species: 'slowbro', moves: ['splash', 'rollout'] },
+			{species: 'aggron', moves: ['splash']},
+			{species: 'slowbro', moves: ['splash', 'rollout']},
 		]]);
 
 		battle.makeChoices('move copycat, move spore 2', 'move splash, move rollout 1');
