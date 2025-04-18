@@ -2027,6 +2027,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			this.add('-activate', pokemon, 'ability: Guard Dog');
 			return null;
 		},
+		onTryBoostPriority: 2,
 		onTryBoost(boost, target, source, effect) {
 			if (effect.name === 'Intimidate' && boost.atk) {
 				delete boost.atk;
