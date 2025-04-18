@@ -629,6 +629,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		restricted: ['Restricted Legendary'],
 	},
 	{
+		name: "[Gen 9] BSS Reg H",
+		mod: 'gen9',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer'],
+		banlist: ['Sub-Legendary', 'Paradox', 'Gouging Fire', 'Iron Boulder', 'Iron Crown', 'Raging Bolt'],
+	},
+	{
 		name: "[Gen 9] Custom Game OLD",
 		mod: 'gen9',
 		searchShow: false,
