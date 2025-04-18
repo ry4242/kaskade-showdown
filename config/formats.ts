@@ -673,7 +673,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['Standard Doubles'],
+		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Shadow Tag'],
 	},
 	{
@@ -692,7 +692,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 9] Doubles OU', 'Evasion Abilities Clause'],
+		ruleset: ['[Gen 9] Doubles OU'],
 		banlist: ['DOU', 'DBL'],
 	},
 	{
