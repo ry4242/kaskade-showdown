@@ -128,16 +128,16 @@ describe(`Eject Pack`, () => {
 		assert.species(battle.p2.active[1], 'Wynaut');
 	});
 
-	it(`should not prevent entrance Abilities from resolving during simultaneous switches`, () => {
-		battle = common.createBattle({ gameType: 'doubles' }, [[
-			{ species: 'Hydreigon', ability: 'intimidate', moves: ['sleeptalk'] },
-			{ species: 'Wynaut', moves: ['sleeptalk'] },
+	it(`should not prevent entrance Abilities from resolving during simultaneous switches`, function () {
+		battle = common.createBattle({gameType: 'doubles'}, [[
+			{species: 'Hydreigon', ability: 'intimidate', moves: ['sleeptalk']},
+			{species: 'Wynaut', moves: ['sleeptalk']},
 		], [
 			{ species: 'Morelull', ability: 'drought', item: 'ejectpack', moves: ['sleeptalk'] },
 			{ species: 'Mew', level: 1, ability: 'electricsurge', moves: ['sleeptalk'] },
 			{ species: 'Wynaut', moves: ['sleeptalk'] },
 		]]);
-		assert(battle.field.isCLimateWeather('sunnyday'));
+		assert(battle.field.isWeather('sunnyday'));
 		assert(battle.field.isTerrain('electricterrain'));
 		assert.equal(battle.p2.requestState, 'switch');
 	});

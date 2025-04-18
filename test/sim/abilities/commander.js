@@ -106,9 +106,9 @@ describe('Commander', () => {
 			{ species: 'wynaut', item: 'redcard', ability: 'noguard', moves: ['sleeptalk', 'tackle', 'dragontail'] },
 			{ species: 'gyarados', item: 'ejectbutton', ability: 'intimidate', moves: ['sleeptalk', 'trick', 'roar'] },
 		], [
-			{ species: 'tatsugiri', ability: 'commander', moves: ['sleeptalk'] },
-			{ species: 'dondozo', moves: ['sleeptalk', 'peck'] },
-			{ species: 'rufflet', moves: ['sleeptalk'] },
+			{species: 'tatsugiri', ability: 'commander', moves: ['sleeptalk']},
+			{species: 'dondozo', moves: ['sleeptalk', 'peck']},
+			{species: 'rufflet', moves: ['sleeptalk']},
 		]]);
 
 		// const tatsugiri = battle.p2.active[0];
@@ -126,10 +126,30 @@ describe('Commander', () => {
 		assert.equal(battle.requestState, 'move', 'It should not have switched out on standard phazing moves');
 	});
 
-	it.skip(`should prevent Eject Pack switchouts`, () => {
-		battle = common.createBattle({ gameType: 'doubles' }, [[
-			{ species: 'wynaut', item: 'redcard', ability: 'noguard', moves: ['sleeptalk', 'tackle', 'dragontail'] },
-			{ species: 'gyarados', item: 'ejectbutton', ability: 'intimidate', moves: ['sleeptalk', 'trick', 'roar'] },
+	it.skip(`should prevent Eject Pack switchouts`, function () {
+		battle = common.createBattle({gameType: 'doubles'}, [[
+			{species: 'wynaut', item: 'redcard', ability: 'noguard', moves: ['sleeptalk', 'tackle', 'dragontail']},
+			{species: 'gyarados', item: 'ejectbutton', ability: 'intimidate', moves: ['sleeptalk', 'trick', 'roar']},
+		], [
+			{species: 'tatsugiri', ability: 'commander', item: 'ejectpack', moves: ['sleeptalk']},
+			{species: 'dondozo', item: 'ejectpack', moves: ['sleeptalk', 'peck']},
+			{species: 'rufflet', moves: ['sleeptalk']},
+		]]);
+
+		const tatsugiri = battle.p2.active[0];
+		const dondozo = battle.p2.active[1];
+
+		assert.statStage(tatsugiri, 'atk', -1);
+		assert.equal(battle.requestState, 'move', 'It should not have switched out on Eject Pack');
+		assert.holdsItem(tatsugiri);
+		assert.statStage(dondozo, 'atk', 1);
+		assert.holdsItem(dondozo);
+	});
+
+	it(`should cause Dondozo to stay commanded even if Tatsugiri faints`, function () {
+		battle = common.createBattle({gameType: 'doubles'}, [[
+			{species: 'hypno', moves: ['sleeptalk']},
+			{species: 'shuckle', moves: ['sleeptalk']},
 		], [
 			{ species: 'tatsugiri', ability: 'commander', item: 'ejectpack', moves: ['sleeptalk'] },
 			{ species: 'dondozo', item: 'ejectpack', moves: ['sleeptalk', 'peck'] },
@@ -255,10 +275,10 @@ describe('Commander', () => {
 		assert.false.fullHP(shuckle, `Shuckle should have taken damage from Dazzling Gleam`);
 	});
 
-	it(`should activate after hazards run`, () => {
-		battle = common.createBattle({ gameType: 'doubles' }, [[
-			{ species: 'regieleki', moves: ['toxicspikes'] },
-			{ species: 'registeel', moves: ['sleeptalk'] },
+	it(`should activate after hazards run`, function () {
+		battle = common.createBattle({gameType: 'doubles'}, [[
+			{species: 'regieleki', moves: ['toxicspikes']},
+			{species: 'registeel', moves: ['sleeptalk']},
 		], [
 			{ species: 'shuckle', moves: ['uturn'] },
 			{ species: 'dondozo', moves: ['sleeptalk'] },

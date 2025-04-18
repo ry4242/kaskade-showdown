@@ -37,12 +37,12 @@ describe("White Herb", () => {
 		assert.statStage(wynaut, 'spa', 0);
 	});
 
-	it('should activate after two Intimidate switch in at the same time', () => {
-		battle = common.createBattle({ gameType: 'doubles' }, [[
-			{ species: 'litten', ability: 'intimidate', moves: ['sleeptalk'] },
-			{ species: 'torracat', ability: 'intimidate', moves: ['sleeptalk', 'finalgambit'] },
-			{ species: 'litten', ability: 'intimidate', moves: ['sleeptalk'] },
-			{ species: 'landorustherian', ability: 'intimidate', moves: ['sleeptalk'] },
+	it('should activate after two Intimidate switch in at the same time', function () {
+		battle = common.createBattle({gameType: 'doubles'}, [[
+			{species: 'litten', ability: 'intimidate', moves: ['sleeptalk']},
+			{species: 'torracat', ability: 'intimidate', moves: ['sleeptalk', 'finalgambit']},
+			{species: 'litten', ability: 'intimidate', moves: ['sleeptalk']},
+			{species: 'landorustherian', ability: 'intimidate', moves: ['sleeptalk']},
 		], [
 			{ species: 'wynaut', item: 'whiteherb', moves: ['sleeptalk', 'recycle'] },
 			{ species: 'fraxure', moves: ['sleeptalk'] },
@@ -61,15 +61,15 @@ describe("White Herb", () => {
 		assert.statStage(wynaut, 'atk', 0);
 	});
 
-	it('should activate before Opportunist during switch-ins', () => {
-		battle = common.createBattle({ gameType: 'doubles' }, [[
-			{ species: 'axew', moves: ['sleeptalk'] },
-			{ species: 'fraxure', moves: ['finalgambit'] },
-			{ species: 'zacian', ability: 'intrepidsword', moves: ['sleeptalk'] },
-			{ species: 'torracat', ability: 'intimidate', moves: ['sleeptalk'] },
+	it('should activate before Opportunist during switch-ins', function () {
+		battle = common.createBattle({gameType: 'doubles'}, [[
+			{species: 'axew', moves: ['sleeptalk']},
+			{species: 'fraxure', moves: ['finalgambit']},
+			{species: 'zacian', ability: 'intrepidsword', moves: ['sleeptalk']},
+			{species: 'torracat', ability: 'intimidate', moves: ['sleeptalk']},
 		], [
-			{ species: 'flittle', item: 'whiteherb', ability: 'opportunist', moves: ['sleeptalk'] },
-			{ species: 'haxorus', moves: ['sleeptalk'] },
+			{species: 'flittle', item: 'whiteherb', ability: 'opportunist', moves: ['sleeptalk']},
+			{species: 'haxorus', moves: ['sleeptalk']},
 		]]);
 		battle.makeChoices('move sleeptalk, move finalgambit -1', 'auto');
 		battle.makeChoices('switch 3, switch 4');

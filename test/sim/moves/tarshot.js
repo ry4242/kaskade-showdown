@@ -41,8 +41,8 @@ describe('Tar Shot', () => {
 			{ species: 'wobbuffet', moves: ['tarshot'] },
 			{ species: 'wynaut', moves: ['fusionflare'] },
 		], [
-			{ species: 'tornadus', ability: 'shellarmor', moves: ['sleeptalk'] },
-			{ species: 'thundurus', ability: 'deltastream', moves: ['sleeptalk'] },
+			{species: 'tornadus', ability: 'shellarmor', moves: ['sleeptalk']},
+			{species: 'thundurus', ability: 'deltastream', moves: ['sleeptalk']},
 		]]);
 		battle.makeChoices('move tarshot 1, move fusionflare 1', 'auto');
 		const torn = battle.p2.active[0];

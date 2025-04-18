@@ -33,11 +33,11 @@ describe("Terastallization", () => {
 		assert.equal(battle.p1.pokemon[1].getTypes().join('/'), 'Dragon');
 	});
 
-	it('should give STAB correctly to the user\'s old types', () => {
-		battle = common.gen(9).createBattle([[
-			{ species: 'Ampharos', ability: 'shellarmor', moves: ['shockwave', 'swift'], teraType: 'Electric' },
+	it('should give STAB correctly to the user\'s old types', function () {
+		battle = common.createBattle([[
+			{species: 'Ampharos', ability: 'shellarmor', moves: ['shockwave', 'swift'], teraType: 'Electric'},
 		], [
-			{ species: 'Ampharos', ability: 'shellarmor', moves: ['shockwave', 'swift'], teraType: 'Normal' },
+			{species: 'Ampharos', ability: 'shellarmor', moves: ['shockwave', 'swift'], teraType: 'Normal'},
 		]]);
 		battle.makeChoices('move shockwave terastallize', 'move shockwave terastallize');
 		const teraDamage = battle.p2.active[0].maxhp - battle.p2.active[0].hp;

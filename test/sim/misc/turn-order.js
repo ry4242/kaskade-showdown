@@ -154,8 +154,8 @@ describe('Pokemon Speed', () => {
 	});
 });
 
-describe('Switching out', () => {
-	it('should happen in order of switch-out\'s Speed stat', () => {
+describe('Switching out', function () {
+	it('should happen in order of switch-out\'s Speed stat', function () {
 		battle = common.createBattle();
 		const p1team = [
 			{ species: 'Accelgor', ability: 'runaway', moves: ['sleeptalk'] },
@@ -173,26 +173,26 @@ describe('Switching out', () => {
 	});
 });
 
-describe('Switching in', () => {
-	it(`should trigger events in an order determined by what each Pokemon's speed was when they switched in`, () => {
+describe('Switching in', function () {
+	it(`should trigger events in an order determined by what each Pokemon's speed was when they switched in`, function () {
 		battle = common.gen(7).createBattle([[
-			{ species: "ribombee", moves: ['stickyweb'] },
-			{ species: "groudon", item: 'redorb', moves: ['sleeptalk'], evs: { spe: 0 } },
+			{species: "ribombee", moves: ['stickyweb']},
+			{species: "groudon", item: 'redorb', moves: ['sleeptalk'], evs: {spe: 0}},
 		], [
-			{ species: "golemalola", ability: 'galvanize', moves: ['explosion'] },
-			{ species: "kyogre", item: 'blueorb', moves: ['sleeptalk'], evs: { spe: 252 } },
+			{species: "golemalola", ability: 'galvanize', moves: ['explosion']},
+			{species: "kyogre", item: 'blueorb', moves: ['sleeptalk'], evs: {spe: 252}},
 		]]);
 		battle.makeChoices();
 		battle.makeChoices('switch 2', 'switch 2');
 		const kyogre = battle.p2.active[0];
 		assert.statStage(kyogre, 'spe', -1);
-		assert.equal(battle.field.climateWeather, 'desolateland', 'Groudon should have reverted after Kyogre in spite of Sticky Web because it was slower before the SwitchIn event started');
+		assert.equal(battle.field.weather, 'desolateland', 'Groudon should have reverted after Kyogre in spite of Sticky Web because it was slower before the SwitchIn event started');
 	});
 });
 
-describe('Speed ties', () => {
-	it('(slow) Perish Song faint order should be random', () => {
-		const wins = { p1: 0, p2: 0 };
+describe('Speed ties', function () {
+	it('(slow) Perish Song faint order should be random', function () {
+		const wins = {p1: 0, p2: 0};
 		for (let i = 0; i < 20; i++) {
 			battle = common.createBattle({
 				seed: [i, 2, 3, 4],

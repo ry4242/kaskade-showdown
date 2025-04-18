@@ -29,8 +29,8 @@ describe('Pastel Veil', () => {
 			{ species: 'wynaut', moves: ['sleeptalk'] },
 			{ species: 'wynaut', moves: ['sleeptalk'] },
 		], [
-			{ species: 'croagunk', moves: ['sleeptalk', 'skillswap'] },
-			{ species: 'wynaut', ability: 'compoundeyes', moves: ['poisongas'] },
+			{species: 'croagunk', moves: ['sleeptalk', 'skillswap']},
+			{species: 'wynaut', ability: 'compoundeyes', moves: ['poisongas']},
 		]]);
 		battle.makeChoices('auto', 'move skillswap 1, move poisongas');
 		battle.makeChoices('switch 3, move sleeptalk', 'auto');
