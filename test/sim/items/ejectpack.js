@@ -68,7 +68,7 @@ describe(`Eject Pack`, () => {
 		assert.equal(battle.p1.requestState, 'switch');
 	});
 
-	it(`should not switch out the user if the user acquired the Eject Pack after the stat drop occurred`, () => {
+	it(`should not switch out the user if the user acquired the Eject Pack after the stat drop occurred`, function () {
 		battle = common.createBattle([[
 			{ species: 'Klefki', ability: 'magician', moves: ['lowsweep'] },
 			{ species: 'Wynaut', moves: ['sleeptalk'] },

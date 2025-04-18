@@ -49,7 +49,7 @@ describe('Dex#getSpecies', () => {
 		assert(!Dex.forGen(7).species.get('Minior-Meteor').isNonstandard);
 	});
 
-	it('should handle Rockruff-Dusk', () => {
+	it('should handle Rockruff-Dusk', function () {
 		assert.equal(Dex.species.get('rockruffdusk').name, 'Rockruff-Dusk');
 	});
 
