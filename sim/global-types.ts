@@ -261,6 +261,7 @@ interface ModdedBattleActions {
 }
 
 interface ModdedBattleSide {
+	inherit?: true;
 	canDynamaxNow?: (this: Side) => boolean;
 	chooseSwitch?: (this: Side, slotText?: string) => any;
 	getChoice?: (this: Side) => string;
@@ -329,10 +330,12 @@ interface ModdedBattlePokemon {
 }
 
 interface ModdedBattleQueue extends Partial<BattleQueue> {
+	inherit?: true;
 	resolveAction?: (this: BattleQueue, action: ActionChoice, midTurn?: boolean) => Action[];
 }
 
 interface ModdedField extends Partial<Field> {
+	inherit?: true;
 	suppressingClimateWeather?: (this: Field) => boolean;
 	suppressingIrritantWeather?: (this: Field) => boolean;
 	suppressingEnergyWeather?: (this: Field) => boolean;
