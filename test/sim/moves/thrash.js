@@ -24,10 +24,10 @@ describe('Thrash [Gen 1]', () => {
 		assert(nidoking.volatiles['confusion']);
 	});
 
-	it("Four turn Thrash", () => {
-		battle = common.gen(1).createBattle({ seed: 'gen5,0001000100010001' });
-		battle.setPlayer('p1', { team: [{ species: "Nidoking", moves: ['thrash'] }] });
-		battle.setPlayer('p2', { team: [{ species: "Golem", moves: ['splash'] }] });
+	it("Four turn Thrash", function () {
+		battle = common.gen(1).createBattle({seed: 'gen5,0001000100010001'});
+		battle.setPlayer('p1', {team: [{species: "Nidoking", moves: ['thrash']}]});
+		battle.setPlayer('p2', {team: [{species: "Golem", moves: ['splash']}]});
 		const nidoking = battle.p1.active[0];
 		battle.makeChoices();
 		assert.equal(nidoking.volatiles['lockedmove'].time, 3);
