@@ -40,9 +40,9 @@ describe("Hunger Switch", () => {
 		assert.species(peko, 'Morpeko');
 	});
 
-	it("should stop activating when Morpeko Terastallizes", () => {
+	it("should stop activating when Morpeko Terastallizes", function () {
 		battle = common.gen(9).createBattle([[
-			{ species: 'Morpeko', ability: 'hungerswitch', moves: ['rest'] },
+			{species: 'Morpeko', ability: 'hungerswitch', moves: ['rest']},
 		], [
 			{ species: 'Magikarp', ability: 'Swift Swim', moves: ['splash'] },
 		]]);
@@ -53,10 +53,10 @@ describe("Hunger Switch", () => {
 		assert.species(peko, 'Morpeko-Hangry');
 	});
 
-	it("should maintain its form when Terastallized, even when switched out", () => {
+	it("should maintain its form when Terastallized, even when switched out", function () {
 		battle = common.gen(9).createBattle([[
-			{ species: 'Morpeko', ability: 'hungerswitch', moves: ['rest'] },
-			{ species: 'Furret', ability: 'Run Away', moves: ['sleeptalk'] },
+			{species: 'Morpeko', ability: 'hungerswitch', moves: ['rest']},
+			{species: 'Furret', ability: 'Run Away', moves: ['sleeptalk']},
 		], [
 			{ species: 'Magikarp', ability: 'Swift Swim', moves: ['splash'] },
 			{ species: 'Koffing', ability: 'neutralizinggas', moves: ['sleeptalk'] },

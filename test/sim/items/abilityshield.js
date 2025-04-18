@@ -211,9 +211,9 @@ describe('Ability Shield', () => {
 		assert.equal(battle.p1.active[0].ability, 'libero', `Ditto should copy Libero`);
 	});
 
-	it(`should not prevent forme changes from changing the holder's ability`, () => {
+	it(`should not prevent forme changes from changing the holder's ability`, function () {
 		battle = common.gen(9).createBattle([[
-			{ species: 'ogerpon', ability: 'defiant', item: 'abilityshield', moves: ['sleeptalk'] },
+			{species: 'ogerpon', ability: 'defiant', item: 'abilityshield', moves: ['sleeptalk']},
 		], [
 			{ species: 'scorbunny', ability: 'libero', moves: ['agility'] },
 		]]);
