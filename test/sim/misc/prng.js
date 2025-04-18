@@ -3,10 +3,10 @@
 const PRNG = require('../../../dist/sim/prng').PRNG;
 const assert = require('../../assert');
 
-const testSeed = 'sodium,00000001000000020000000300000004';
+const testSeed = ['sodium', '00000001000000020000000300000004'];
 
-describe(`PRNG`, () => {
-	it("should always generate the same results off the same seed", () => {
+describe(`PRNG`, function () {
+	it("should always generate the same results off the same seed", function () {
 		const results = [];
 		const testAgainst = new PRNG(testSeed);
 		for (let i = 0; i < 100; i++) {
@@ -21,8 +21,8 @@ describe(`PRNG`, () => {
 		}
 	});
 
-	describe(`randomChance(numerator=0, denominator=1)`, () => {
-		it(`should always return false`, () => {
+	describe(`randomChance(numerator=0, denominator=1)`, function () {
+		it(`should always return false`, function () {
 			const prng = new PRNG(testSeed);
 			for (let i = 0; i < 100; ++i) {
 				assert.equal(prng.randomChance(0, 1), false);
@@ -56,7 +56,7 @@ describe(`PRNG`, () => {
 			}
 			assert.bounded(trueCount, [45, 55]);
 		});
-		it(`should be identical to (random(2) == 0)`, () => {
+		it(`should be identical to (random(2) == 0)`, function () {
 			// This invariant is important for battle logs.
 			const coinPRNG = new PRNG(testSeed);
 			const numberPRNG = new PRNG(testSeed);
@@ -76,7 +76,7 @@ describe(`PRNG`, () => {
 			}
 			assert.bounded(trueCount, [80, 90]);
 		});
-		it(`should be identical to (random(256) < 217)`, () => {
+		it(`should be identical to (random(256) < 217)`, function () {
 			// This invariant is important for battle logs.
 			const coinPRNG = new PRNG(testSeed);
 			const numberPRNG = new PRNG(testSeed);
@@ -144,7 +144,7 @@ describe(`PRNG`, () => {
 			assert.bounded(occurences.x, [63, 71]);
 			assert.bounded(occurences.y, [29, 37]);
 		});
-		it(`should be identical to array[random(array.length)]`, () => {
+		it(`should be identical to array[random(array.length)]`, function () {
 			// This invariant is important for battle logs.
 			const items = [{}, {}, {}, {}, {}, {}, {}, {}];
 			const samplePRNG = new PRNG(testSeed);
