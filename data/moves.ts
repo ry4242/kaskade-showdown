@@ -589,7 +589,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			let success = false;
 			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
 			for (const ally of allies) {
-				if (ally !== source) {
+				if (ally !== source && !this.suppressingAbility(ally)) {
 					if (ally.hasAbility('sapsipper')) {
 						this.add('-immune', ally, '[from] ability: Sap Sipper');
 						continue;
@@ -8584,7 +8584,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			let success = false;
 			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
 			for (const ally of allies) {
-				if (ally !== source) {
+				if (ally !== source && !this.suppressingAbility(ally)) {
 					if (ally.hasAbility('soundproof')) {
 						this.add('-immune', ally, '[from] ability: Soundproof');
 						continue;
@@ -23014,7 +23014,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			let success = false;
 			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
 			for (const ally of allies) {
-				if (ally !== source) {
+				if (ally !== source && !this.suppressingAbility(ally)) {
 					if (ally.hasAbility('sapsipper')) {
 						this.add('-immune', ally, '[from] ability: Sap Sipper');
 						continue;
@@ -23624,7 +23624,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			let success = false;
 			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
 			for (const ally of allies) {
-				if (ally !== source) {
+				if (ally !== source && !this.suppressingAbility(ally)) {
 					if (ally.hasAbility('sapsipper')) {
 						this.add('-immune', ally, '[from] ability: Sap Sipper');
 						continue;
