@@ -2949,10 +2949,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Baton Pass + Rapid Spin',
 		],
 		unbanlist: [
-			'Absol-Base', 'Alcremie', 'Bellibolt', 'Clodsire', 'Comfey', 'Crawdaunt', 'Cursola', 'Dachsbun', 'Donphan', 'Flapple', 'Golurk',
-			'Goodra-Base', 'Houndoom-Base', 'Infernape', 'Jynx', 'Kecleon', 'Kingdra', 'Mesprit', 'Oricorio-Pom-Pom', 'Probopass', 'Reuniclus',
-			'Sawsbuck', 'Scyther', 'Shaymin-Land', 'Shiftry', 'Slowbro-Base', 'Spiritomb', 'Swanna', 'Toedscruel', 'Torkoal', 'Type: Null',
-			'Unown', 'Vileplume', 'Virizion', 'Wugtrio',
+			'Accelgor', 'Aggron-Base', 'Appletun', 'Ariados', 'Charizard-Base', 'Drifblim', 'Eldegoss', 'Gabite', 'Golem', 'Gourgeist-Small', 'Grafaiai', 'Granbull', 'Jynx', 'Kabutops',
+			'Kingler', 'Klawf', 'Linoone-Base', 'Lucario-Base', 'Luxray', 'Magcargo', 'Mantine', 'Medicham-Base', 'Morpeko', 'Qwilfish-Base', 'Raichu-Base', 'Rapidash-Base', 'Revavroom',
+			'Scolipede', 'Stunfisk-Base', 'Sudowoodo', 'Swalot', 'Thievul', 'Unfezant', 'Wormadam-Trash', 'Wyrdeer',
 		],
 		// Stupid hardcode
 		onValidateSet(set, format, setHas, teamHas) {
