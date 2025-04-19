@@ -91,7 +91,7 @@ export interface PokemonSwitchRequestData {
 	terastallized?: string;
 }
 export interface PokemonMoveRequestData {
-	moves: { move: string, id: ID, target?: string, disabled?: string | boolean, disabledSource?: string }[];
+	moves: { move: string, id: ID, target?: string, disabled?: string | boolean }[];
 	maybeDisabled?: boolean;
 	maybeLocked?: boolean;
 	trapped?: boolean;
@@ -789,7 +789,7 @@ export class Side {
 		return true;
 	}
 
-	updateRequestForPokemon(pokemon: Pokemon, update: (req: PokemonMoveRequestData) => boolean | void) {
+	updateRequestForPokemon(pokemon: Pokemon, update: (req: AnyObject) => boolean) {
 		if (!(this.activeRequest as MoveRequest)?.active) {
 			throw new Error(`Can't update a request without active Pokemon`);
 		}
