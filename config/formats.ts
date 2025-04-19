@@ -959,7 +959,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		challengeShow: false,
 		tournamentShow: false,
 		teraPreviewDefault: true,
-		ruleset: ['Standard Draft', '+Unobtainable', '+Past'],
+		ruleset: ['Standard Draft', 'NatDex Mod'],
 	},
 	{
 		name: "[Gen 9] NatDex 6v6 Doubles Draft",
@@ -969,7 +969,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		challengeShow: false,
 		tournamentShow: false,
 		teraPreviewDefault: true,
-		ruleset: ['[Gen 9] 6v6 Doubles Draft', '+Unobtainable', '+Past', '!! Min Source Gen = 3'],
+		ruleset: ['[Gen 9] 6v6 Doubles Draft', 'NatDex Mod', '!! Min Source Gen = 3'],
 	},
 	{
 		name: "[Gen 9] NatDex LC Draft",
@@ -995,7 +995,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['Standard Draft', 'Dynamax Clause', '+Past'],
+		ruleset: ['Standard Draft', 'NatDex Mod', 'Dynamax Clause'],
 	},
 	{
 		name: "[Gen 8] NatDex 4v4 Doubles Draft",
@@ -1004,7 +1004,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['Standard Draft', 'Item Clause = 1', '!Sleep Clause Mod', '!OHKO Clause', '!Evasion Moves Clause', 'Adjust Level = 50', 'Picked Team Size = 4', '+Past'],
+		ruleset: ['Standard Draft', 'Item Clause = 1', 'NatDex Mod', '!Sleep Clause Mod', '!OHKO Clause', '!Evasion Moves Clause', 'Adjust Level = 50', 'Picked Team Size = 4'],
 	},
 	{
 		name: "[Gen 7] Draft",
