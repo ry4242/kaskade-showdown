@@ -36906,6 +36906,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	},
 	absol: {
 		learnset: {
+			batonpass: ["8M"],
 			detect: ["9L15"],
 			excalibur: ["9L50"],
 			facade: ["9M"],

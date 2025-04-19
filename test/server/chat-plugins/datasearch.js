@@ -96,20 +96,20 @@ describe("Datasearch Plugin", () => {
 
 	it('should exclude formes where the base Pokemon is included', () => {
 		const cmd = 'ds';
-		const target = 'ice, monotype';
+		const target = 'grass, bug';
 		const search = datasearch.testables.runDexsearch(target, cmd, `/${cmd} ${target}`);
-		assert.false(search.reply.includes('Eiscue-Noice'));
+		assert.false(search.reply.includes('Eecroach-Swarm'));
 	});
 
 	it('should include formes if a sort differentiates them from the base Pokemon', () => {
 		const cmd = 'ds';
-		let target = 'ice, monotype, spe desc';
+		let target = 'grass, bug, spe desc';
 		let search = datasearch.testables.runDexsearch(target, cmd, `/${cmd} ${target}`);
-		assert(search.reply.includes('Eiscue-Noice'));
+		assert(search.reply.includes('Eecroach-Swarm'));
 
-		target = 'ice, monotype, hp desc';
+		target = 'grass, bug, hp desc';
 		search = datasearch.testables.runDexsearch(target, cmd, `/${cmd} ${target}`);
-		assert.false(search.reply.includes('Eiscue-Noice'));
+		assert.false(search.reply.includes('Eecroach-Swarm'));
 	});
 
 	it('should include Pokemon capable of learning normally unobtainable moves under the provided rulsets', () => {

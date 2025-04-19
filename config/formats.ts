@@ -5053,6 +5053,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['RU', 'NUBL', 'Assist', 'Copycat'],
 	},
 	{
+		name: "[Gen 5] PU",
+		mod: 'gen5',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 5] NU', 'Sleep Moves Clause'],
+		banlist: ['NU', 'PUBL', 'Damp Rock'],
+	},
+	{
 		name: "[Gen 5] LC",
 		mod: 'gen5',
 		searchShow: false,
