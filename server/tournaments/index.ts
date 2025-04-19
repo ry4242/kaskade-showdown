@@ -131,7 +131,7 @@ export class Tournament extends Rooms.RoomGame<TournamentPlayer> {
 		this.baseFormat = formatId;
 		this.fullFormat = formatId;
 		// This will sometimes be sent alone in updates as "format", if the tour doesn't have a custom name
-		this.name = name || formatId;
+		this.name = name || Dex.formats.get(formatId).name;
 		this.customRules = [];
 		this.generator = generator;
 		this.isRated = isRated;
@@ -1300,19 +1300,47 @@ const commands: Chat.ChatCommands = {
 	tournaments: 'tournament',
 	tournament: {
 		''(target, room, user) {
-			room = this.requireRoom();
 			if (!this.runBroadcast()) return;
-			const update = [];
+			const roomTours = [];
 			for (const tourRoom of Rooms.rooms.values()) {
 				const tournament = tourRoom.getGame(Tournament);
 				if (!tournament) continue;
 				if (tourRoom.settings.isPrivate || tourRoom.settings.isPersonal || tourRoom.settings.staffRoom) continue;
-				update.push({
-					room: tourRoom.roomid, title: room.title, format: tournament.name,
-					generator: tournament.generator.name, isStarted: tournament.isTournamentStarted,
-				});
+				roomTours.push(tournament);
 			}
-			this.sendReply(`|tournaments|info|${JSON.stringify(update)}`);
+			if (!roomTours.length) {
+				throw new Chat.ErrorMessage(`No tournaments are currently running.`);
+			}
+			const started = Utils.sortBy(roomTours.filter(tour => tour.isTournamentStarted), tour => tour.room.roomid);
+			const signups = Utils.sortBy(roomTours.filter(tour => !tour.isTournamentStarted), tour => tour.room.roomid);
+
+			function renderLink(tour: Tournament) {
+				const name = Dex.formats.get(tour.name).exists ? Dex.formats.get(tour.name).name : tour.name;
+				const icon = tour.generator.name === 'Round Robin' ? '<i class="fa fa-th"></i>' :
+					tour.generator.name === 'Single Elimination' ? '<i class="fa fa-share-alt"></i>' :
+					'<i class="fa fa-share-alt"></i><i class="fa fa-share-alt"></i>';
+				const plural = tour.players.length !== 1 ? 's' : '';
+				return `<li><a href="/${tour.room.roomid}" class="blocklink">&laquo;<strong>${tour.room.roomid}</strong>&raquo;<small style="float:right">(${tour.players.length} player${plural})</small><br />${icon} <small>${Utils.escapeHTML(name)} ${tour.generator.name}</small></a></li>`;
+			}
+
+			let buf = ``;
+			if (signups.length) {
+				buf += `<strong>Accepting Signups:</strong><ul class="roomlist">`;
+				for (const tour of signups) {
+					buf += renderLink(tour);
+				}
+				buf += `</ul>`;
+			}
+			if (started.length) {
+				if (signups.length) buf += `<br />`;
+				buf += `<strong>Started:</strong><ul class="roomlist">`;
+				for (const tour of started) {
+					buf += renderLink(tour);
+				}
+				buf += `</ul>`;
+			}
+
+			this.sendReplyBox(buf);
 		},
 		help() {
 			return this.parse('/help tournament');
@@ -1673,7 +1701,7 @@ const commands: Chat.ChatCommands = {
 			tournament.customRules = [];
 			tournament.fullFormat = tournament.baseFormat;
 			if (tournament.name === tournament.getDefaultCustomName()) {
-				tournament.name = tournament.baseFormat;
+				tournament.name = Dex.formats.get(tournament.baseFormat).name;
 				room.send(`|tournament|update|${JSON.stringify({ format: tournament.name })}`);
 				tournament.update();
 			}
@@ -1710,7 +1738,7 @@ const commands: Chat.ChatCommands = {
 			this.checkCan('tournaments', null, room);
 			const tournament = this.requireGame(Tournament);
 			if (tournament.name === tournament.baseFormat) throw new Chat.ErrorMessage("The tournament does not have a name.");
-			tournament.name = tournament.baseFormat;
+			tournament.name = Dex.formats.get(tournament.baseFormat).name;
 			room.send(`|tournament|update|${JSON.stringify({ format: tournament.name })}`);
 			this.privateModAction(`${user.name} cleared the tournament's name.`);
 			this.modlog('TOUR CLEARNAME');
