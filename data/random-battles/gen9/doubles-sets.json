@@ -218,7 +218,7 @@
         ]
     },
     "dugtrio": {
-        "level": 90,
+        "level": 91,
         "sets": [
             {
                 "role": "Offensive Protect",
@@ -335,7 +335,7 @@
         ]
     },
     "victreebel": {
-        "level": 90,
+        "level": 91,
         "sets": [
             {
                 "role": "Offensive Protect",
@@ -1184,7 +1184,7 @@
         ]
     },
     "umbreon": {
-        "level": 86,
+        "level": 85,
         "sets": [
             {
                 "role": "Doubles Support",
@@ -1738,7 +1738,7 @@
         ]
     },
     "sableye": {
-        "level": 94,
+        "level": 95,
         "sets": [
             {
                 "role": "Doubles Support",
@@ -1838,7 +1838,7 @@
         ]
     },
     "torkoal": {
-        "level": 87,
+        "level": 86,
         "sets": [
             {
                 "role": "Doubles Bulky Attacker",
@@ -2339,7 +2339,7 @@
         ]
     },
     "pachirisu": {
-        "level": 94,
+        "level": 93,
         "sets": [
             {
                 "role": "Doubles Support",
@@ -3399,7 +3399,7 @@
         ]
     },
     "leavanny": {
-        "level": 90,
+        "level": 91,
         "sets": [
             {
                 "role": "Doubles Support",
@@ -3791,7 +3791,7 @@
         ]
     },
     "mandibuzz": {
-        "level": 87,
+        "level": 86,
         "sets": [
             {
                 "role": "Doubles Support",
@@ -4673,7 +4673,7 @@
         ]
     },
     "lurantis": {
-        "level": 86,
+        "level": 85,
         "sets": [
             {
                 "role": "Doubles Bulky Attacker",
@@ -5044,7 +5044,7 @@
         ]
     },
     "flapple": {
-        "level": 94,
+        "level": 95,
         "sets": [
             {
                 "role": "Doubles Bulky Attacker",
@@ -6715,7 +6715,7 @@
         ]
     },
     "fezandipiti": {
-        "level": 80,
+        "level": 81,
         "sets": [
             {
                 "role": "Doubles Support",
