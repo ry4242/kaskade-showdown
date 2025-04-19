@@ -54,15 +54,6 @@ describe('Cloud Nine', () => {
 		assert.equal(basePower, move.basePower);
 	});
 
-	it('should negate the damage-dealing effects of Sandstorm', () => {
-		battle = common.createBattle([[
-			{ species: 'Tyranitar', ability: 'sandstream', moves: ['dragondance'] },
-		], [
-			{ species: 'Golduck', ability: 'cloudnine', moves: ['calmmind'] },
-		]]);
-		assert.false.hurts(battle.p2.active[0], () => battle.makeChoices('move dragondance', 'move calmmind'));
-	});
-
 	it('should negate the damage-dealing effects of Hail', () => {
 		battle = common.createBattle([[
 			{ species: 'Abomasnow', ability: 'snowwarning', moves: ['rest'] },

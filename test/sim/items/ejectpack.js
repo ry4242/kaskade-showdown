@@ -137,7 +137,7 @@ describe(`Eject Pack`, () => {
 			{ species: 'Mew', level: 1, ability: 'electricsurge', moves: ['sleeptalk'] },
 			{ species: 'Wynaut', moves: ['sleeptalk'] },
 		]]);
-		assert(battle.field.isWeather('sunnyday'));
+		assert(battle.field.isClimateWeather('sunnyday'));
 		assert(battle.field.isTerrain('electricterrain'));
 		assert.equal(battle.p2.requestState, 'switch');
 	});

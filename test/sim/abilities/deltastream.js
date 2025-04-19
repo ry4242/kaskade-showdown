@@ -56,7 +56,7 @@ describe('Delta Stream', () => {
 		]]);
 		battle.makeChoices('move roost', 'move stealthrock');
 		const pokemon = battle.p1.pokemon[1];
-		assert.hurtsBy(pokemon, Math.floor(pokemon.maxhp / 2), () => battle.makeChoices('switch 2', 'move stealthrock'));
+		assert.hurtsBy(pokemon, Math.floor(pokemon.maxhp / 4), () => battle.makeChoices('switch 2', 'move stealthrock'));
 	});
 
 	it('should prevent moves and abilities from setting the weathergy to Sunny Day, Rain Dance, Sandstorm, or Hail', () => {

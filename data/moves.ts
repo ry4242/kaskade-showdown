@@ -24075,19 +24075,20 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				}
 			},
 			onTryBoost(boost, target, source, effect) {
-				if (source.volatiles['mist']) return;
-				if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
-				if (source && target !== source) {
-					let showMsg = false;
-					let i: BoostID;
-					for (i in boost) {
-						if (boost[i]! < 0) {
-							delete boost[i];
-							showMsg = true;
+				if (!source.volatiles['mist']) {
+					if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
+					if (source && target !== source) {
+						let showMsg = false;
+						let i: BoostID;
+						for (i in boost) {
+							if (boost[i]! < 0) {
+								delete boost[i];
+								showMsg = true;
+							}
 						}
-					}
-					if (showMsg && !(effect as ActiveMove).secondaries) {
-						this.add('-activate', target, 'move: Resilient Oil');
+						if (showMsg && !(effect as ActiveMove).secondaries) {
+							this.add('-activate', target, 'move: Resilient Oil');
+						}
 					}
 				}
 			},

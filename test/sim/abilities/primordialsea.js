@@ -109,7 +109,7 @@ describe('Primordial Sea', () => {
 			{ species: "Ho-Oh", ability: 'pressure', moves: ['roost'] },
 		] });
 		battle.setPlayer('p2', { team: [{ species: "Kyogre", ability: 'primordialsea', moves: ['bulkup'] }] });
-		assert.constant(() => battle.field.isCLimateWeather('primordialsea'), () => battle.makeChoices('switch 2', 'move bulkup'));
+		assert.constant(() => battle.field.isClimateWeather('primordialsea'), () => battle.makeChoices('switch 2', 'move bulkup'));
 	});
 
 	it('should cause the Primordial Sea climateWeather to fade if its ability is suppressed and no other Primordial Sea Pokemon are active', () => {

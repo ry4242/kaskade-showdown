@@ -759,7 +759,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		restricted: ['Restricted Legendary'],
 	},
 	{
-		name: "[Gen 9] Doubles Custom Game",
+		name: "[Gen 9] Doubles Custom Game OLD",
 		mod: 'gen9',
 		gameType: 'doubles',
 		searchShow: false,
@@ -3150,7 +3150,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 9] National Dex', 'Terastal Clause'],
+		ruleset: ['[Gen 9] National Dex'],
 		banlist: ['ND OU', 'ND UUBL', 'Drizzle', 'Drought', 'Light Clay'],
 	},
 	{
@@ -5375,15 +5375,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		tournamentShow: false,
 		ruleset: ['Standard', 'Deoxys Camouflage Clause', 'One Baton Pass Clause'],
 		banlist: ['Wobbuffet + Leftovers', 'Wynaut + Leftovers', 'Baton Pass'],
-	},
-	{
-		name: "[Gen 3] RU",
-		mod: 'gen3',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Standard'],
-		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'Smeargle + Ingrain', 'Arena Trap', 'Baton Pass', 'Swagger'],
 	},
 	{
 		name: "[Gen 3] RU",

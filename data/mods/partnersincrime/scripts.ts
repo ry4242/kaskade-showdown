@@ -88,8 +88,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				}
 			} else if (handler.state?.target instanceof Field) {
 				let expectedStateLocation;
-				if (effect.effectType === 'Weather') {
-					expectedStateLocation = handler.state.target.weatherState;
+				if (effect.effectType === 'ClimateWeather') {
+					expectedStateLocation = handler.state.target.climateWeatherState;
 				} else if (effect.effectType === 'Terrain') {
 					expectedStateLocation = handler.state.target.terrainState;
 				} else {

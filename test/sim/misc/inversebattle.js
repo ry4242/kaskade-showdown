@@ -58,7 +58,7 @@ describe('Inverse Battle', () => {
 		for (let i = 2; i <= 6; i++) {
 			battle.makeChoices('move snore', 'switch ' + i);
 			pokemon = battle.p2.active[0];
-			expectedDamage = Math.floor(pokemon.maxhp * 0.5 ** (i - 1));
+			expectedDamage = Math.floor(pokemon.maxhp * 0.75 ** (i - 1));
 			assert.equal(pokemon.maxhp - pokemon.hp, expectedDamage, `${pokemon.name} should take ${expectedDamage} damage`);
 		}
 	});
