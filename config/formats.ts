@@ -796,6 +796,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Scream Tail', 'Shaymin-Sky', 'Snorlax', 'Solgaleo', 'Terapagos', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Moody',
 			'Focus Band', 'Focus Sash', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Acupressure', 'Perish Song',
 		],
+		// AFD
+		onModifyDamage(damage, source, target, move) {
+			const sourceNickID = this.toID(source.name);
+			const targetNickID = this.toID(target.name);
+			if (sourceNickID === 'paper' && targetNickID === 'rock') return this.chainModify(1.5);
+			if (sourceNickID === 'rock' && targetNickID === 'scissors') return this.chainModify(1.5);
+			if (sourceNickID === 'scissors' && targetNickID === 'paper') return this.chainModify(1.5);
+		},
 	},
 	{
 		name: "[Gen 9] 2v2 Doubles OLD",
@@ -1324,8 +1332,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		restricted: [
 			'Armor Tail', 'Chlorophyll', 'Comatose', 'Contrary', 'Dazzling', 'Fur Coat', 'Gale Wings', 'Good as Gold', 'Huge Power', 'Ice Scales', 'Illusion', 'Imposter',
 			'Magic Bounce', 'Magic Guard', 'Magnet Pull', 'Mold Breaker', 'Multiscale', 'Poison Heal', 'Prankster', 'Protosynthesis', 'Psychic Surge', 'Pure Power',
-			'Purifying Salt', 'Queenly Majesty', 'Quick Draw', 'Quick Feet', 'Regenerator', 'Sand Rush', 'Simple', 'Slush Rush', 'Stakeout', 'Stamina', 'Sturdy',
-			'Surge Surfer', 'Technician', 'Tinted Lens', 'Triage', 'Unaware', 'Unburden', 'Water Bubble',
+			'Quark Drive', 'Queenly Majesty', 'Quick Draw', 'Quick Feet', 'Regenerator', 'Sand Rush', 'Simple', 'Slush Rush', 'Stakeout', 'Stamina',
+			'Sturdy', 'Surge Surfer', 'Technician', 'Tinted Lens', 'Triage', 'Unaware', 'Unburden', 'Water Bubble',
 		],
 		onValidateRule() {
 			if (this.format.gameType !== 'singles') {
@@ -3127,6 +3135,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Focus Band', 'Icy Rock', 'King\'s Rock', 'Leppa Berry', 'Quick Claw', 'Razor Fang', 'Smooth Rock', 'Terrain Extender', 'Acupressure', 'Baton Pass',
 			'Last Respects', 'Shed Tail',
 		],
+		onValidateSet(set, format) {
+			const species = this.dex.species.get(set.species);
+			if (species.types.includes('Steel')) {
+				return [`${species.name} is a Steel-type, which is banned from ${format.name}.`];
+			}
+		},
 	},
 	{
 		name: "[Gen 9] National Dex Doubles",
@@ -3979,31 +3993,34 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 4,
 	},
 	{
-		name: "[Gen 8] Ubers",
-		mod: 'gen8',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Standard', 'Dynamax Clause'],
-		banlist: ['AG', 'Shadow Tag', 'Baton Pass'],
-	},
-	{
-		name: "[Gen 3] RU",
-		mod: 'gen3',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Standard'],
-		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'Smeargle + Ingrain', 'Arena Trap', 'Baton Pass', 'Swagger'],
-	},
-	{
-		name: "[Gen 1] ZU",
+		name: "[Gen 1] UU",
 		mod: 'gen1',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 1] PU'],
-		banlist: ['PU', 'ZUBL', 'Bind', 'Clamp', 'Fire Spin', 'Wrap'],
+		ruleset: ['[Gen 1] OU', 'APT Clause'],
+		banlist: ['OU', 'UUBL'],
+	},
+	{
+		name: "[Gen 5] VGC 2011",
+		mod: 'gen5bw1',
+		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		bestOfDefault: true,
+		ruleset: ['Flat Rules', 'Old Unova Pokedex'],
+		banlist: ['Sky Drop', 'Belue Berry', 'Durin Berry', 'Nomel Berry', 'Rabuta Berry', 'Spelon Berry', 'Watmel Berry'],
+	},
+	{
+		name: "[Gen 2] PU",
+		mod: 'gen2',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 2] NU'],
+		banlist: ['NU', 'PUBL', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web'],
+		unbanlist: ['Swagger'],
 	},
 	{
 		name: "[Gen 3] UUBL",
@@ -4175,6 +4192,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: "Sw/Sh Singles",
 		column: 4,
+	},
+	{
+		name: "[Gen 8] Ubers",
+		mod: 'gen8',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard', 'Dynamax Clause'],
+		banlist: ['AG', 'Shadow Tag', 'Baton Pass'],
 	},
 	{
 		name: "[Gen 8] UU",
@@ -5070,17 +5096,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['Dark Void', 'Sky Drop'],
 	},
 	{
-		name: "[Gen 5] VGC 2011",
-		mod: 'gen5bw1',
-		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		bestOfDefault: true,
-		ruleset: ['Flat Rules', 'Old Unova Pokedex'],
-		banlist: ['Sky Drop', 'Belue Berry', 'Durin Berry', 'Nomel Berry', 'Rabuta Berry', 'Spelon Berry', 'Watmel Berry'],
-	},
-	{
 		name: "[Gen 5] Doubles Custom Game",
 		mod: 'gen5',
 		gameType: 'doubles',
@@ -5265,13 +5280,31 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 4,
 	},
 	{
-		name: "[Gen 3] UU",
+		name: "[Gen 3] Ubers",
+		mod: 'gen3',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard', 'Deoxys Camouflage Clause', 'One Baton Pass Clause'],
+		banlist: ['Wobbuffet + Leftovers', 'Wynaut + Leftovers', 'Baton Pass'],
+	},
+	{
+		name: "[Gen 3] RU",
 		mod: 'gen3',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
 		ruleset: ['Standard'],
-		banlist: ['Uber', 'OU', 'UUBL', 'Smeargle + Ingrain', 'Arena Trap', 'Baton Pass', 'Swagger'],
+		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'Smeargle + Ingrain', 'Arena Trap', 'Baton Pass', 'Swagger'],
+	},
+	{
+		name: "[Gen 3] RU",
+		mod: 'gen3',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard'],
+		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'Smeargle + Ingrain', 'Arena Trap', 'Baton Pass', 'Swagger'],
 	},
 	{
 		name: "[Gen 3] NU",
@@ -5375,16 +5408,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		unbanlist: ['Agility + Baton Pass'],
 	},
 	{
-		name: "[Gen 2] PU",
-		mod: 'gen2',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 2] NU'],
-		banlist: ['NU', 'PUBL', 'Baton Pass + Mean Look', 'Baton Pass + Spider Web'],
-		unbanlist: ['Swagger'],
-	},
-	{
 		name: "[Gen 2] 1v1",
 		mod: 'gen2',
 		searchShow: false,
@@ -5475,6 +5498,15 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		tournamentShow: false,
 		ruleset: ['[Gen 1] NU'],
 		banlist: ['NU', 'PUBL'],
+	},
+	{
+		name: "[Gen 1] ZU",
+		mod: 'gen1',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 1] PU'],
+		banlist: ['PU', 'ZUBL', 'Bind', 'Clamp', 'Fire Spin', 'Wrap'],
 	},
 	{
 		name: "[Gen 1] 1v1",
