@@ -1133,10 +1133,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		challengeShow: false,
 		tournamentShow: false,
 		ruleset: [
-			'Standard AG', 'Evasion Clause', 'Forme Clause', 'OHKO Clause', 'Overflow Stat Mod',
+			'Standard AG', '!Obtainable Formes', '+Past', 'Evasion Clause', 'Forme Clause', 'OHKO Clause', 'Overflow Stat Mod',
 			'Sleep Moves Clause', 'Species Reveal Clause', 'Hackmons Forme Legality',
 		],
 		banlist: ['Calyrex-Shadow', 'Gengar-Mega', 'Miraidon', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass'],
+		onValidateSet(set, format, setHas, teamHas) {
+			const species = this.dex.species.get(set.species);
+			if (this.dex.species.get(species.baseSpecies).isNonstandard) return [`${species.name} does not exist in Gen 9.`];
+		},
 	},
 	{
 		name: "[Gen 9] April Fool's Day",
