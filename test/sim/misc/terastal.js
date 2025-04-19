@@ -10,9 +10,9 @@ describe("Terastallization", () => {
 		battle.destroy();
 	});
 
-	it('should change the user\'s type to its Tera type after terastallizing', function () {
+	it('should change the user\'s type to its Tera type after terastallizing', () => {
 		battle = common.gen(9).createBattle([[
-			{species: 'Ampharos', ability: 'static', moves: ['voltswitch', 'dragonpulse'], teraType: 'Dragon'},
+			{ species: 'Ampharos', ability: 'static', moves: ['voltswitch', 'dragonpulse'], teraType: 'Dragon' },
 		], [
 			{ species: 'Ampharos', ability: 'static', moves: ['voltswitch'], teraType: 'Dragon' },
 		]]);
@@ -20,10 +20,10 @@ describe("Terastallization", () => {
 		assert.equal(battle.p1.active[0].getTypes().join('/'), 'Dragon');
 	});
 
-	it('should persist the user\'s changed type after switching', function () {
+	it('should persist the user\'s changed type after switching', () => {
 		battle = common.gen(9).createBattle([[
-			{species: 'Ampharos', ability: 'static', moves: ['voltswitch', 'dragonpulse'], teraType: 'Dragon'},
-			{species: 'Flaaffy', ability: 'static', moves: ['voltswitch', 'dragonpulse'], teraType: 'Electric'},
+			{ species: 'Ampharos', ability: 'static', moves: ['voltswitch', 'dragonpulse'], teraType: 'Dragon' },
+			{ species: 'Flaaffy', ability: 'static', moves: ['voltswitch', 'dragonpulse'], teraType: 'Electric' },
 		], [
 			{ species: 'Ampharos', ability: 'static', moves: ['voltswitch'], teraType: 'Dragon' },
 		]]);
@@ -33,11 +33,11 @@ describe("Terastallization", () => {
 		assert.equal(battle.p1.pokemon[1].getTypes().join('/'), 'Dragon');
 	});
 
-	it('should give STAB correctly to the user\'s old types', function () {
+	it('should give STAB correctly to the user\'s old types', () => {
 		battle = common.gen(9).createBattle([[
-			{species: 'Ampharos', ability: 'shellarmor', moves: ['shockwave', 'swift'], teraType: 'Electric'},
+			{ species: 'Ampharos', ability: 'shellarmor', moves: ['shockwave', 'swift'], teraType: 'Electric' },
 		], [
-			{species: 'Ampharos', ability: 'shellarmor', moves: ['shockwave', 'swift'], teraType: 'Normal'},
+			{ species: 'Ampharos', ability: 'shellarmor', moves: ['shockwave', 'swift'], teraType: 'Normal' },
 		]]);
 		battle.makeChoices('move shockwave terastallize', 'move shockwave terastallize');
 		const teraDamage = battle.p2.active[0].maxhp - battle.p2.active[0].hp;
@@ -50,7 +50,7 @@ describe("Terastallization", () => {
 			"Terastallizing did not keep old type's STAB; actual damage: " + nonTeraDamage);
 
 		battle = common.gen(9).createBattle([[
-			{species: 'Mimikyu', ability: 'disguise', item: 'laggingtail', moves: ['shadowclaw', 'waterfall', 'sleeptalk'], teraType: 'Water'},
+			{ species: 'Mimikyu', ability: 'disguise', item: 'laggingtail', moves: ['shadowclaw', 'waterfall', 'sleeptalk'], teraType: 'Water' },
 		], [
 			{ species: 'Alomomola', ability: 'battlearmor', moves: ['soak'], teraType: 'Normal' },
 		]]);
@@ -72,9 +72,9 @@ describe("Terastallization", () => {
 			"Terastallizing did not keep old changed type's STAB; actual damage: " + damage);
 	});
 
-	it('should give STAB correctly to the user\'s underlying types after changing forme', function () {
+	it('should give STAB correctly to the user\'s underlying types after changing forme', () => {
 		battle = common.gen(9).createBattle([[
-			{species: 'Mimikyu', ability: 'disguise', item: 'laggingtail', moves: ['shadowclaw', 'waterfall', 'sleeptalk'], teraType: 'Water'},
+			{ species: 'Mimikyu', ability: 'disguise', item: 'laggingtail', moves: ['shadowclaw', 'waterfall', 'sleeptalk'], teraType: 'Water' },
 		], [
 			{ species: 'Alomomola', ability: 'battlearmor', moves: ['watergun', 'soak'], teraType: 'Normal' },
 		]]);
@@ -97,10 +97,10 @@ describe("Terastallization", () => {
 			"Terastallizing did not keep old changed type's STAB; actual damage: " + damage);
 	});
 
-	describe('Buffing low BP move behavior', function () {
-		it(`should boost the base power of weaker moves with the same Tera Type to 60 BP`, function () {
+	describe('Buffing low BP move behavior', () => {
+		it(`should boost the base power of weaker moves with the same Tera Type to 60 BP`, () => {
 			battle = common.gen(9).createBattle([[
-				{species: 'magnemite', moves: ['nuzzle']},
+				{ species: 'magnemite', moves: ['nuzzle'] },
 			], [
 				{ species: 'mew', ability: 'shellarmor', moves: ['sleeptalk'] },
 			]]);
@@ -111,9 +111,9 @@ describe("Terastallization", () => {
 			assert.bounded(mew.maxhp - mew.hp, damageRange, `Should be a 60 BP Nuzzle`);
 		});
 
-		it(`should only boost base power 60 BP after all other base power modifiers are applied`, function () {
+		it(`should only boost base power 60 BP after all other base power modifiers are applied`, () => {
 			battle = common.gen(9).createBattle([[
-				{species: 'cufant', ability: 'technician', moves: ['bulletpunch']},
+				{ species: 'cufant', ability: 'technician', moves: ['bulletpunch'] },
 			], [
 				{ species: 'mew', ability: 'shellarmor', moves: ['sleeptalk'] },
 			]]);
@@ -124,9 +124,9 @@ describe("Terastallization", () => {
 			assert.bounded(mew.maxhp - mew.hp, damageRange, `Should be a 60 BP Bullet Punch`);
 		});
 
-		it(`should not boost the base power of moves with variable base power under 60 BP`, function () {
+		it(`should not boost the base power of moves with variable base power under 60 BP`, () => {
 			battle = common.gen(9).createBattle([[
-				{species: 'wiglett', ivs: {hp: 0}, moves: ['waterspout']},
+				{ species: 'wiglett', ivs: { hp: 0 }, moves: ['waterspout'] },
 			], [
 				{ species: 'mew', ability: 'shellarmor', moves: ['seismictoss'] },
 			]]);
@@ -137,9 +137,9 @@ describe("Terastallization", () => {
 			assert.bounded(mew.maxhp - mew.hp, damageRange, `Should be a 34 BP Water Spout`);
 		});
 
-		it(`should boost STAB moves that weren't STAB moves prior to terastallizing`, function () {
+		it(`should boost STAB moves that weren't STAB moves prior to terastallizing`, () => {
 			battle = common.gen(9).createBattle([[
-				{species: 'espathra', evs: {atk: 252}, moves: ['peck', 'aerialace'], teraType: 'Flying'},
+				{ species: 'espathra', evs: { atk: 252 }, moves: ['peck', 'aerialace'], teraType: 'Flying' },
 			], [
 				{ species: 'arceus', ability: 'shellarmor', moves: ['haze'] },
 			]]);
@@ -152,9 +152,9 @@ describe("Terastallization", () => {
 			assert.bounded(arceus.maxhp - arceus.hp, [51, 61], `Should be a 60 BP STAB Peck`);
 		});
 
-		it(`shouldn't boost non-STAB moves with <60 Base Power`, function () {
+		it(`shouldn't boost non-STAB moves with <60 Base Power`, () => {
 			battle = common.gen(9).createBattle([[
-				{species: 'palafinhero', moves: ['leafage'], teraType: 'Electric'},
+				{ species: 'palafinhero', moves: ['leafage'], teraType: 'Electric' },
 			], [
 				{ species: 'arceus', ability: 'shellarmor', moves: ['haze'] },
 			]]);
@@ -167,11 +167,11 @@ describe("Terastallization", () => {
 			assert.bounded(arceus.maxhp - arceus.hp, [38, 45], `Should be a 40 BP no-STAB Leafage`);
 		});
 
-		it(`shouldn't boost <60 Base Power priority moves forced via Encore`, function () {
+		it(`shouldn't boost <60 Base Power priority moves forced via Encore`, () => {
 			battle = common.gen(9).createBattle([[
-				{species: 'hariyama', moves: ['bulletpunch', 'sleeptalk'], teraType: 'Steel'},
+				{ species: 'hariyama', moves: ['bulletpunch', 'sleeptalk'], teraType: 'Steel' },
 			], [
-				{species: 'salazzle ', moves: ['encore', 'sleeptalk']},
+				{ species: 'salazzle ', moves: ['encore', 'sleeptalk'] },
 			]]);
 
 			battle.makeChoices('move bulletpunch terastallize', 'move sleeptalk');
@@ -185,7 +185,7 @@ describe("Terastallization", () => {
 
 	it("should combine with Adaptability for an overall STAB of x2.25", () => {
 		battle = common.gen(9).createBattle([[
-			{species: "Dragalge", ability: 'adaptability', moves: ['venoshock'], teraType: "Poison"},
+			{ species: "Dragalge", ability: 'adaptability', moves: ['venoshock'], teraType: "Poison" },
 		], [
 			{ species: "Mareep", ability: 'static', moves: ['sleeptalk'] },
 		]]);
@@ -196,7 +196,7 @@ describe("Terastallization", () => {
 
 	it("should not give the Adaptability boost on the user's old types", () => {
 		battle = common.gen(9).createBattle([[
-			{species: "Dragalge", ability: 'adaptability', moves: ['venoshock'], teraType: "Dragon"},
+			{ species: "Dragalge", ability: 'adaptability', moves: ['venoshock'], teraType: "Dragon" },
 		], [
 			{ species: "Mareep", ability: 'static', moves: ['sleeptalk'] },
 		]]);
@@ -205,9 +205,9 @@ describe("Terastallization", () => {
 		assert.bounded(damage, [127, 151], "Actual damage: " + damage);
 	});
 
-	it(`should allow hacked Megas to Terastallize in Hackmons play`, function () {
-		battle = common.gen(9).createBattle({formatid: 'gen9purehackmons@@@!teampreview'}, [[
-			{species: 'Mewtwo-Mega-X', moves: ['sleeptalk'], teraType: 'Fairy'},
+	it(`should allow hacked Megas to Terastallize in Hackmons play`, () => {
+		battle = common.gen(9).createBattle({ formatid: 'gen9purehackmons@@@!teampreview' }, [[
+			{ species: 'Mewtwo-Mega-X', moves: ['sleeptalk'], teraType: 'Fairy' },
 		], [
 			{ species: 'Necrozma-Ultra', moves: ['sleeptalk'], teraType: 'Normal' },
 		]]);

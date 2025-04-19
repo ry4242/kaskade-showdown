@@ -356,11 +356,11 @@ describe('Future Sight', () => {
 		assert.bounded(damage, [57, 68], `Future Sight should deal damage with +0 Sp. Atk`);
 	});
 
-	it(`should never resolve when used on turn 254 or later`, function () {
+	it(`should never resolve when used on turn 254 or later`, () => {
 		battle = common.createBattle([[
-			{species: 'Wynaut', moves: ['sleeptalk', 'futuresight']},
+			{ species: 'Wynaut', moves: ['sleeptalk', 'futuresight'] },
 		], [
-			{species: 'Stakataka', moves: ['sleeptalk']},
+			{ species: 'Stakataka', moves: ['sleeptalk'] },
 		]]);
 
 		battle.turn = 255; // Showdown turn is +1 from what the games are; this would ordinarily be 254
@@ -373,13 +373,13 @@ describe('Future Sight', () => {
 		assert.fullHP(stak, `Future Sight should have never resolved.`);
 	});
 
-	it(`should target particular slots in Doubles`, function () {
-		battle = common.createBattle({gameType: 'doubles'}, [[
-			{species: 'Wynaut', moves: ['sleeptalk', 'futuresight']},
-			{species: 'Steelix', moves: ['sleeptalk']},
+	it(`should target particular slots in Doubles`, () => {
+		battle = common.createBattle({ gameType: 'doubles' }, [[
+			{ species: 'Wynaut', moves: ['sleeptalk', 'futuresight'] },
+			{ species: 'Steelix', moves: ['sleeptalk'] },
 		], [
-			{species: 'Girafarig', moves: ['sleeptalk', 'recover']},
-			{species: 'Farigiraf', moves: ['sleeptalk', 'recover']},
+			{ species: 'Girafarig', moves: ['sleeptalk', 'recover'] },
+			{ species: 'Farigiraf', moves: ['sleeptalk', 'recover'] },
 		]]);
 
 		battle.makeChoices('move futuresight 2, auto', 'auto');
@@ -402,12 +402,12 @@ describe('Future Sight', () => {
 		assert.false.fullHP(steelix, `Steelix should have been damaged by the 3rd Future Sight`);
 	});
 
-	it(`should do nothing if no Pokemon is present to take damage from the Future attack`, function () {
+	it(`should do nothing if no Pokemon is present to take damage from the Future attack`, () => {
 		battle = common.createBattle([[
-			{species: 'Wynaut', ability: 'magicguard', moves: ['sleeptalk']},
-			{species: 'Shedinja', moves: ['sleeptalk']},
+			{ species: 'Wynaut', ability: 'magicguard', moves: ['sleeptalk'] },
+			{ species: 'Shedinja', moves: ['sleeptalk'] },
 		], [
-			{species: 'Happiny', moves: ['stealthrock', 'futuresight']},
+			{ species: 'Happiny', moves: ['stealthrock', 'futuresight'] },
 		]]);
 
 		battle.makeChoices('auto', 'move futuresight');

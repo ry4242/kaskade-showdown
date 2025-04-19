@@ -1,4 +1,4 @@
-import {RandomTeams, MoveCounter} from "../gen9/teams";
+import { RandomTeams, type MoveCounter } from "../gen9/teams";
 
 /** Pokemon who should never be in the lead slot */
 const NO_LEAD_POKEMON = [
@@ -14,14 +14,13 @@ export class RandomCAPTeams extends RandomTeams {
 		teamDetails: RandomTeamsTypes.TeamDetails,
 		species: Species,
 		isLead: boolean,
-		teraType: string,
 		role: RandomTeamsTypes.Role,
 	): string {
 		// Hard-code abilities here
 		if (species.id === 'fidgit') return moves.has('tailwind') ? 'Persistent' : 'Frisk';
 		if (species.id === 'tomohawk') return moves.has('haze') ? 'Prankster' : 'Intimidate';
 		// Default to regular ability selection
-		return this.getAbility(types, moves, abilities, counter, teamDetails, species, isLead, false, teraType, role);
+		return this.getAbility(types, moves, abilities, counter, teamDetails, species, isLead, false, role);
 	}
 
 	getCAPPriorityItem(
@@ -32,7 +31,6 @@ export class RandomCAPTeams extends RandomTeams {
 		teamDetails: RandomTeamsTypes.TeamDetails,
 		species: Species,
 		isLead: boolean,
-		teraType: string,
 		role: RandomTeamsTypes.Role,
 	) {
 		if (ability === 'Mountaineer') return 'Life Orb';
@@ -59,16 +57,10 @@ export class RandomCAPTeams extends RandomTeams {
 		const sets = this.randomCAPSets[species.id]["sets"];
 		const possibleSets = [];
 
-		const ruleTable = this.dex.formats.getRuleTable(this.format);
-
 		for (const set of sets) {
 			// Prevent Fast Bulky Setup on lead Paradox Pokemon, since it generates Booster Energy.
 			const abilities = new Set(Object.values(species.abilities));
 			if (isLead && (abilities.has('Protosynthesis') || abilities.has('Quark Drive')) && set.role === 'Fast Bulky Setup') {
-				continue;
-			}
-			// Prevent Tera Blast user if the team already has one, or if Terastallizion is prevented.
-			if ((teamDetails.teraBlast || ruleTable.has('terastalclause')) && set.role === 'Tera Blast user') {
 				continue;
 			}
 			possibleSets.push(set);
@@ -79,33 +71,31 @@ export class RandomCAPTeams extends RandomTeams {
 		for (const movename of set.movepool) {
 			movePool.push(this.dex.moves.get(movename).id);
 		}
-		const teraTypes = set.teraTypes;
-		let teraType = this.sampleIfArray(teraTypes);
 
 		let ability = '';
 		let item = undefined;
 
-		const evs = {hp: 85, atk: 85, def: 85, spa: 85, spd: 85, spe: 85};
-		const ivs = {hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31};
+		const evs = { hp: 85, atk: 85, def: 85, spa: 85, spd: 85, spe: 85 };
+		const ivs = { hp: 31, atk: 31, def: 31, spa: 31, spd: 31, spe: 31 };
 
 		const types = species.types;
 		const abilities = set.abilities!;
 
 		// Get moves
-		const moves = this.randomMoveset(types, abilities, teamDetails, species, isLead, isDoubles, movePool, teraType!, role);
-		const counter = this.queryMoves(moves, species, teraType!, abilities);
+		const moves = this.randomMoveset(types, abilities, teamDetails, species, isLead, isDoubles, movePool, role);
+		const counter = this.queryMoves(moves, species, abilities);
 
 		// Get ability
-		ability = this.getCAPAbility(types, moves, abilities, counter, teamDetails, species, isLead, teraType!, role);
+		ability = this.getCAPAbility(types, moves, abilities, counter, teamDetails, species, isLead, role);
 
 		// Get items
 		// First, the priority items
-		item = this.getCAPPriorityItem(ability, types, moves, counter, teamDetails, species, isLead, teraType!, role);
+		item = this.getCAPPriorityItem(ability, types, moves, counter, teamDetails, species, isLead, role);
 		if (item === undefined) {
-			item = this.getPriorityItem(ability, types, moves, counter, teamDetails, species, isLead, isDoubles, teraType!, role);
+			item = this.getPriorityItem(ability, types, moves, counter, teamDetails, species, isLead, isDoubles, role);
 		}
 		if (item === undefined) {
-			item = this.getItem(ability, types, moves, counter, teamDetails, species, isLead, teraType!, role);
+			item = this.getItem(ability, types, moves, counter, teamDetails, species, isLead, role);
 		}
 
 		// Get level
@@ -143,9 +133,6 @@ export class RandomCAPTeams extends RandomTeams {
 			if (move.damageCallback || move.damage) return true;
 			if (move.id === 'shellsidearm') return false;
 			// Magearna and doubles Dragonite, though these can work well as a general rule
-			if (move.id === 'terablast' && (
-				species.id === 'porygon2' || moves.has('shiftgear') || species.baseStats.atk > species.baseStats.spa)
-			) return false;
 			return move.category !== 'Physical' || move.id === 'bodypress' || move.id === 'foulplay';
 		});
 		if (noAttackStatMoves && !moves.has('transform') && this.format.mod !== 'partnersincrime') {
@@ -157,9 +144,6 @@ export class RandomCAPTeams extends RandomTeams {
 			evs.spe = 0;
 			ivs.spe = 0;
 		}
-
-		// Enforce Tera Type after all set generation is done to prevent infinite generation
-		if (this.forceTeraType) teraType = this.forceTeraType;
 
 		// shuffle moves to add more randomness to camomons
 		const shuffledMoves = Array.from(moves);
@@ -175,12 +159,11 @@ export class RandomCAPTeams extends RandomTeams {
 			evs,
 			ivs,
 			item,
-			teraType,
 			role,
 		};
 	}
 
-	randomCAPSets: {[species: string]: RandomTeamsTypes.RandomSpeciesData} = require('./sets.json');
+	randomCAPSets: { [species: string]: RandomTeamsTypes.RandomSpeciesData } = require('./sets.json');
 
 	randomTeam() {
 		this.enforceNoDirectCustomBanlistChanges();
@@ -195,12 +178,12 @@ export class RandomCAPTeams extends RandomTeams {
 		const typePool = this.dex.types.names().filter(name => name !== "Stellar");
 		const type = this.forceMonotype || this.sample(typePool);
 
-		const baseFormes: {[k: string]: number} = {};
+		const baseFormes: { [k: string]: number } = {};
 
-		const typeCount: {[k: string]: number} = {};
-		const typeComboCount: {[k: string]: number} = {};
-		const typeWeaknesses: {[k: string]: number} = {};
-		const typeDoubleWeaknesses: {[k: string]: number} = {};
+		const typeCount: { [k: string]: number } = {};
+		const typeComboCount: { [k: string]: number } = {};
+		const typeWeaknesses: { [k: string]: number } = {};
+		const typeDoubleWeaknesses: { [k: string]: number } = {};
 		const teamDetails: RandomTeamsTypes.TeamDetails = {};
 		let numMaxLevelPokemon = 0;
 
@@ -225,9 +208,6 @@ export class RandomCAPTeams extends RandomTeams {
 
 			// Limit to one of each species (Species Clause)
 			if (baseFormes[species.baseSpecies]) continue;
-
-			// Treat Ogerpon formes and Terapagos like the Tera Blast user role; reject if team has one already
-			if ((species.baseSpecies === 'Ogerpon' || species.baseSpecies === 'Terapagos') && teamDetails.teraBlast) continue;
 
 			// Illusion shouldn't be on the last slot
 			if (species.baseSpecies === 'Zoroark' && pokemon.length >= (this.maxTeamSize - 1)) continue;
@@ -265,7 +245,7 @@ export class RandomCAPTeams extends RandomTeams {
 					}
 					if (this.dex.getEffectiveness(typeName, species) > 1) {
 						if (!typeDoubleWeaknesses[typeName]) typeDoubleWeaknesses[typeName] = 0;
-						if (typeDoubleWeaknesses[typeName] >= 1 * limitFactor) {
+						if (typeDoubleWeaknesses[typeName] >= limitFactor) {
 							skip = true;
 							break;
 						}
@@ -373,9 +353,6 @@ export class RandomCAPTeams extends RandomTeams {
 			if (set.moves.includes('rapidspin') || set.moves.includes('mortalspin')) teamDetails.rapidSpin = 1;
 			if (set.moves.includes('auroraveil') || (set.moves.includes('reflect') && set.moves.includes('lightscreen'))) {
 				teamDetails.screens = 1;
-			}
-			if (set.role === 'Tera Blast user' || species.baseSpecies === "Ogerpon" || species.baseSpecies === "Terapagos") {
-				teamDetails.teraBlast = 1;
 			}
 		}
 		if (pokemon.length < this.maxTeamSize && pokemon.length < 12) { // large teams sometimes cannot be built

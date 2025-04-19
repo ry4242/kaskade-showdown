@@ -10,9 +10,9 @@ describe(`Tera Starstorm`, () => {
 		battle.destroy();
 	});
 
-	it(`should be a physical attack when terastallized with higher attack stat and the user is Terapagos-Stellar`, function () {
+	it(`should be a physical attack when terastallized with higher attack stat and the user is Terapagos-Stellar`, () => {
 		battle = common.gen(9).createBattle([[
-			{species: 'terapagos', evs: {atk: 252}, ability: 'terashift', moves: ['terastarstorm'], teraType: 'Stellar'},
+			{ species: 'terapagos', evs: { atk: 252 }, ability: 'terashift', moves: ['terastarstorm'], teraType: 'Stellar' },
 		], [
 			{ species: 'regirock', moves: ['sleeptalk'] },
 		]]);
@@ -21,10 +21,10 @@ describe(`Tera Starstorm`, () => {
 		assert.equal(battle.p1.pokemon[0].lastMove.category, 'Physical');
 	});
 
-	it(`should be a spread move when the user is Terapagos-Stellar`, function () {
-		battle = common.gen(9).createBattle({gameType: 'doubles'}, [[
-			{species: 'terapagos', ability: 'terashift', moves: ['terastarstorm'], teraType: 'Stellar'},
-			{species: 'pichu', moves: ['sleeptalk']},
+	it(`should be a spread move when the user is Terapagos-Stellar`, () => {
+		battle = common.gen(9).createBattle({ gameType: 'doubles' }, [[
+			{ species: 'terapagos', ability: 'terashift', moves: ['terastarstorm'], teraType: 'Stellar' },
+			{ species: 'pichu', moves: ['sleeptalk'] },
 		], [
 			{ species: 'regirock', moves: ['sleeptalk'] },
 			{ species: 'registeel', moves: ['sleeptalk'] },
@@ -37,10 +37,10 @@ describe(`Tera Starstorm`, () => {
 		assert.false.fullHP(battle.p2.active[1]);
 	});
 
-	it(`should only get its unique properties while the user is Terapagos-Stellar`, function () {
-		battle = common.gen(9).createBattle({gameType: 'doubles'}, [[
-			{species: 'incineroar', moves: ['terastarstorm'], teraType: 'Stellar'},
-			{species: 'pichu', moves: ['sleeptalk']},
+	it(`should only get its unique properties while the user is Terapagos-Stellar`, () => {
+		battle = common.gen(9).createBattle({ gameType: 'doubles' }, [[
+			{ species: 'incineroar', moves: ['terastarstorm'], teraType: 'Stellar' },
+			{ species: 'pichu', moves: ['sleeptalk'] },
 		], [
 			{ species: 'mismagius', moves: ['sleeptalk'] },
 			{ species: 'registeel', moves: ['sleeptalk'] },

@@ -43,11 +43,11 @@ describe('Wish', () => {
 		assert.fullHP(battle.p1.active[0]);
 	});
 
-	it(`should never resolve when used on a turn that is a multiple of 256n - 1`, function () {
+	it(`should never resolve when used on a turn that is a multiple of 256n - 1`, () => {
 		battle = common.createBattle([[
-			{species: 'Wynaut', moves: ['sleeptalk', 'wish', 'doubleedge']},
+			{ species: 'Wynaut', moves: ['sleeptalk', 'wish', 'doubleedge'] },
 		], [
-			{species: 'Stakataka', moves: ['sleeptalk']},
+			{ species: 'Stakataka', moves: ['sleeptalk'] },
 		]]);
 
 		battle.turn = 255; // Showdown turn is +1 from what the games are; this would ordinarily be 254
@@ -61,12 +61,12 @@ describe('Wish', () => {
 		assert.false.fullHP(wynaut, `Wish should have never resolved.`);
 	});
 
-	it(`should do nothing if no Pokemon is present to heal from Wish`, function () {
+	it(`should do nothing if no Pokemon is present to heal from Wish`, () => {
 		battle = common.createBattle([[
-			{species: 'Wynaut', moves: ['sleeptalk', 'wish']},
-			{species: 'Shedinja', moves: ['sleeptalk']},
+			{ species: 'Wynaut', moves: ['sleeptalk', 'wish'] },
+			{ species: 'Shedinja', moves: ['sleeptalk'] },
 		], [
-			{species: 'Happiny', ability: 'noguard', moves: ['sleeptalk', 'stoneaxe']},
+			{ species: 'Happiny', ability: 'noguard', moves: ['sleeptalk', 'stoneaxe'] },
 		]]);
 
 		battle.makeChoices('move wish', 'move stoneaxe');

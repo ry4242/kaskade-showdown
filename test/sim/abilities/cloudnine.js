@@ -10,7 +10,7 @@ describe('Cloud Nine', () => {
 		battle.destroy();
 	});
 
-	it('should treat the weathergy as none for the purposes of formes, moves and abilities', () => {
+	it('should treat the climateWeather as none for the purposes of formes, moves and abilities', () => {
 		battle = common.createBattle([[
 			{ species: 'Golduck', ability: 'cloudnine', moves: ['sunnyday'] },
 		], [
@@ -99,7 +99,7 @@ describe('Cloud Nine', () => {
 		assert.constant(() => battle.climateWeather, () => battle.makeChoices('move raindance', 'move sunnyday'));
 	});
 
-	it('should still display status of the weathergy', () => {
+	it('should still display status of the climateWeather', () => {
 		battle = common.createBattle([[
 			{ species: 'Golduck', ability: 'cloudnine', moves: ['calmmind'] },
 		], [

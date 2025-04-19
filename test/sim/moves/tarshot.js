@@ -41,8 +41,8 @@ describe('Tar Shot', () => {
 			{ species: 'wobbuffet', moves: ['tarshot'] },
 			{ species: 'wynaut', moves: ['fusionflare'] },
 		], [
-			{species: 'tornadus', ability: 'shellarmor', moves: ['sleeptalk']},
-			{species: 'thundurus', ability: 'deltastream', moves: ['sleeptalk']},
+			{ species: 'tornadus', ability: 'shellarmor', moves: ['sleeptalk'] },
+			{ species: 'thundurus', ability: 'deltastream', moves: ['sleeptalk'] },
 		]]);
 		battle.makeChoices('move tarshot 1, move fusionflare 1', 'auto');
 		const torn = battle.p2.active[0];
@@ -63,9 +63,9 @@ describe('Tar Shot', () => {
 		assert.bounded(damage, [88, 104]);
 	});
 
-	it(`should not remove the Tar Shot status when a Pokemon Terastallizes`, function () {
+	it(`should not remove the Tar Shot status when a Pokemon Terastallizes`, () => {
 		battle = common.gen(9).createBattle([[
-			{species: 'wynaut', moves: ['tarshot', 'flamecharge']},
+			{ species: 'wynaut', moves: ['tarshot', 'flamecharge'] },
 		], [
 			{ species: 'snorlax', item: 'weaknesspolicy', moves: ['sleeptalk'] },
 		]]);
@@ -75,9 +75,9 @@ describe('Tar Shot', () => {
 		assert.statStage(lax, 'atk', 2, `Weakness Policy should have activated`);
 	});
 
-	it(`should prevent a Terastallized Pokemon from being afflicted with the Tar Shot status`, function () {
+	it(`should prevent a Terastallized Pokemon from being afflicted with the Tar Shot status`, () => {
 		battle = common.gen(9).createBattle([[
-			{species: 'wynaut', moves: ['tarshot', 'flamecharge']},
+			{ species: 'wynaut', moves: ['tarshot', 'flamecharge'] },
 		], [
 			{ species: 'snorlax', item: 'weaknesspolicy', moves: ['sleeptalk'] },
 		]]);

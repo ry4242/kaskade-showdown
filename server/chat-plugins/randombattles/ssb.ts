@@ -1,6 +1,6 @@
-import {SSBSet, ssbSets} from "../../../data/mods/gen9ssb/random-teams";
-import {Utils} from "../../../lib";
-import {formatNature, STAT_NAMES} from ".";
+import { type SSBSet, ssbSets } from "../../../data/mods/gen9ssb/random-teams";
+import { Utils } from "../../../lib";
+import { formatNature, STAT_NAMES } from ".";
 
 function generateSSBSet(set: SSBSet, dex: ModdedDex, baseDex: ModdedDex) {
 	if (set.skip) {
@@ -13,9 +13,6 @@ function generateSSBSet(set: SSBSet, dex: ModdedDex, baseDex: ModdedDex) {
 	buf += `<ul style="list-style-type:none;"><li>${set.species}${set.gender !== '' ? ` (${set.gender})` : ``}`;
 	buf += `${set.item ? ' @ ' : ''}${Array.isArray(set.item) ? set.item.map(x => dex.items.get(x).name).join(' / ') : dex.items.get(set.item).name}</li>`;
 	buf += `<li>Ability: ${Array.isArray(set.ability) ? set.ability.map(x => dex.abilities.get(x).name).join(' / ') : dex.abilities.get(set.ability).name}</li>`;
-	if (set.teraType) {
-		buf += `<li>Tera Type: ${Array.isArray(set.teraType) ? set.teraType.map(x => dex.types.get(x).name).join(' / ') : set.teraType === 'Any' ? 'Any' : dex.types.get(set.teraType).name}</li>`;
-	}
 	if (set.shiny) buf += `<li>Shiny: ${typeof set.shiny === 'number' ? `1 in ${set.shiny} chance` : `Yes`}</li>`;
 	if (set.evs) {
 		const evs: string[] = [];
@@ -53,7 +50,7 @@ function generateSSBMoveInfo(sigMove: Move, dex: ModdedDex) {
 	if (sigMove.shortDesc || sigMove.desc) {
 		buf += `<hr />`;
 		buf += Chat.getDataMoveHTML(sigMove);
-		const details: {[k: string]: string} = {
+		const details: { [k: string]: string } = {
 			Priority: String(sigMove.priority),
 			Gen: String(sigMove.gen || 9),
 		};
@@ -81,7 +78,7 @@ function generateSSBMoveInfo(sigMove: Move, dex: ModdedDex) {
 		if (sigMove.zMove?.basePower) {
 			details["Z-Power"] = String(sigMove.zMove.basePower);
 		} else if (sigMove.zMove?.effect) {
-			const zEffects: {[k: string]: string} = {
+			const zEffects: { [k: string]: string } = {
 				clearnegativeboost: "Restores negative stat stages to 0",
 				crit2: "Crit ratio +2",
 				heal: "Restores HP 100%",
@@ -108,7 +105,7 @@ function generateSSBMoveInfo(sigMove: Move, dex: ModdedDex) {
 			details["Z-Effect"] = "None";
 		}
 
-		const targetTypes: {[k: string]: string} = {
+		const targetTypes: { [k: string]: string } = {
 			normal: "One Adjacent Pok\u00e9mon",
 			self: "User",
 			adjacentAlly: "One Ally",
@@ -147,7 +144,7 @@ function generateSSBItemInfo(set: SSBSet, dex: ModdedDex, baseDex: ModdedDex) {
 		if (!baseItem.exists || (baseItem.desc || baseItem.shortDesc) !== (sigItem.desc || sigItem.shortDesc)) {
 			buf += `<hr />`;
 			buf += Chat.getDataItemHTML(sigItem);
-			const details: {[k: string]: string} = {
+			const details: { [k: string]: string } = {
 				Gen: String(sigItem.gen),
 			};
 
@@ -196,7 +193,7 @@ function generateSSBAbilityInfo(set: SSBSet, dex: ModdedDex, baseDex: ModdedDex)
 		}
 		buf += `<hr />`;
 		buf += Chat.getDataAbilityHTML(sigAbil);
-		const details: {[k: string]: string} = {
+		const details: { [k: string]: string } = {
 			Gen: String(sigAbil.gen || 9) || 'CAP',
 		};
 		if (sigAbil.flags['cantsuppress']) details["&#10003; Not affected by Gastro Acid"] = "";
@@ -234,7 +231,7 @@ function generateSSBPokemonInfo(species: string, dex: ModdedDex, baseDex: Modded
 		} else if (newSpecies.weighthg >= 100) {
 			weighthit = 40;
 		}
-		const details: {[k: string]: string} = {
+		const details: { [k: string]: string } = {
 			"Dex#": String(newSpecies.num),
 			Gen: String(newSpecies.gen) || 'CAP',
 			Height: `${newSpecies.heightm} m`,
@@ -319,7 +316,7 @@ function generateSSBInnateInfo(name: string, dex: ModdedDex, baseDex: ModdedDex)
 		}
 	}
 	if (buf) {
-		const details: {[k: string]: string} = {Gen: '9'};
+		const details: { [k: string]: string } = { Gen: '9' };
 		buf += `<font size="1">${Object.entries(details).map(([detail, value]) => (
 			value === '' ? detail : `<font color="#686868">${detail}:</font> ${value}`
 		)).join("&nbsp;|&ThickSpace;")}</font>`;
@@ -334,7 +331,7 @@ function SSBSets(target: string) {
 	const baseDex = Dex;
 	const dex = Dex.forFormat('gen9superstaffbrosultimate');
 	if (!Object.keys(ssbSets).map(toID).includes(toID(target))) {
-		return {e: `Error: ${target.trim()} doesn't have a [Gen 9] Super Staff Bros Ultimate set.`};
+		return { e: `Error: ${target.trim()} doesn't have a [Gen 9] Super Staff Bros Ultimate set.` };
 	}
 	let name = '';
 	for (const member in ssbSets) {
@@ -379,7 +376,6 @@ function SSBSets(target: string) {
 	}
 	return buf;
 }
-
 
 export const disabledSets = Chat.oldPlugins.ssb?.disabledSets || [];
 

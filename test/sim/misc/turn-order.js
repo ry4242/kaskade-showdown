@@ -154,8 +154,8 @@ describe('Pokemon Speed', () => {
 	});
 });
 
-describe('Switching out', function () {
-	it('should happen in order of switch-out\'s Speed stat', function () {
+describe('Switching out', () => {
+	it('should happen in order of switch-out\'s Speed stat', () => {
 		battle = common.createBattle();
 		const p1team = [
 			{ species: 'Accelgor', ability: 'runaway', moves: ['sleeptalk'] },
@@ -173,14 +173,14 @@ describe('Switching out', function () {
 	});
 });
 
-describe('Switching in', function () {
-	it(`should trigger events in an order determined by what each Pokemon's speed was when they switched in`, function () {
+describe('Switching in', () => {
+	it(`should trigger events in an order determined by what each Pokemon's speed was when they switched in`, () => {
 		battle = common.gen(7).createBattle([[
-			{species: "ribombee", moves: ['stickyweb']},
-			{species: "groudon", item: 'redorb', moves: ['sleeptalk'], evs: {spe: 0}},
+			{ species: "ribombee", moves: ['stickyweb'] },
+			{ species: "groudon", item: 'redorb', moves: ['sleeptalk'], evs: { spe: 0 } },
 		], [
-			{species: "golemalola", ability: 'galvanize', moves: ['explosion']},
-			{species: "kyogre", item: 'blueorb', moves: ['sleeptalk'], evs: {spe: 252}},
+			{ species: "golemalola", ability: 'galvanize', moves: ['explosion'] },
+			{ species: "kyogre", item: 'blueorb', moves: ['sleeptalk'], evs: { spe: 252 } },
 		]]);
 		battle.makeChoices();
 		battle.makeChoices('switch 2', 'switch 2');
@@ -190,9 +190,9 @@ describe('Switching in', function () {
 	});
 });
 
-describe('Speed ties', function () {
-	it('(slow) Perish Song faint order should be random', function () {
-		const wins = {p1: 0, p2: 0};
+describe('Speed ties', () => {
+	it('(slow) Perish Song faint order should be random', () => {
+		const wins = { p1: 0, p2: 0 };
 		for (let i = 0; i < 20; i++) {
 			battle = common.createBattle({
 				seed: [i, 2, 3, 4],

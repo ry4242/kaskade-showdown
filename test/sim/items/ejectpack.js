@@ -68,7 +68,7 @@ describe(`Eject Pack`, () => {
 		assert.equal(battle.p1.requestState, 'switch');
 	});
 
-	it(`should not switch out the user if the user acquired the Eject Pack after the stat drop occurred`, function () {
+	it(`should not switch out the user if the user acquired the Eject Pack after the stat drop occurred`, () => {
 		battle = common.createBattle([[
 			{ species: 'Klefki', ability: 'magician', moves: ['lowsweep'] },
 			{ species: 'Wynaut', moves: ['sleeptalk'] },
@@ -128,10 +128,10 @@ describe(`Eject Pack`, () => {
 		assert.species(battle.p2.active[1], 'Wynaut');
 	});
 
-	it(`should not prevent entrance Abilities from resolving during simultaneous switches`, function () {
-		battle = common.createBattle({gameType: 'doubles'}, [[
-			{species: 'Hydreigon', ability: 'intimidate', moves: ['sleeptalk']},
-			{species: 'Wynaut', moves: ['sleeptalk']},
+	it(`should not prevent entrance Abilities from resolving during simultaneous switches`, () => {
+		battle = common.createBattle({ gameType: 'doubles' }, [[
+			{ species: 'Hydreigon', ability: 'intimidate', moves: ['sleeptalk'] },
+			{ species: 'Wynaut', moves: ['sleeptalk'] },
 		], [
 			{ species: 'Morelull', ability: 'drought', item: 'ejectpack', moves: ['sleeptalk'] },
 			{ species: 'Mew', level: 1, ability: 'electricsurge', moves: ['sleeptalk'] },
