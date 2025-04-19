@@ -5473,15 +5473,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard'],
 	},
 	{
-		name: "[Gen 1] UU",
-		mod: 'gen1',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 1] OU', 'APT Clause'],
-		banlist: ['OU', 'UUBL'],
-	},
-	{
 		name: "[Gen 1] NU",
 		mod: 'gen1',
 		searchShow: false,
