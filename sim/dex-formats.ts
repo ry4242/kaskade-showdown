@@ -230,7 +230,7 @@ export class RuleTable extends Map<string, string> {
 		this.evLimit = Number(this.valueRules.get('evlimit'));
 		if (isNaN(this.evLimit)) this.evLimit = null;
 		if (!this.minSourceGen) {
-			if (dex.gen >= 9 && this.has('obtainable') && !this.has('natdexmod')) {
+			if (dex.gen >= 9 && this.has('obtainable') && !this.has('+past')) {
 				this.minSourceGen = dex.gen;
 			} else {
 				this.minSourceGen = 1;
