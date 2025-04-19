@@ -641,6 +641,7 @@ const OFFICIAL_AVATARS_KYLEDOVE = new Set([
 	'rosa-pokestar3', 'sabrina-frlg', 'selene-masters', 'sierra', 'spark-casual', 'spark', 'spenser', 'toddsnap', 'toddsnap2',
 	'victor-masters', 'vince', 'wally-rse', 'willow-casual', 'willow', 'yancy', 'zinnia-masters',
 	'acerola-masters3', 'bianca-masters', 'cheren-masters', 'gardenia-masters', 'nemona-masters',
+	'baoba', 'bill', 'daisy', 'harmony', 'paxton', 'trace',
 ]);
 
 const OFFICIAL_AVATARS_HYOOPPA = new Set([
