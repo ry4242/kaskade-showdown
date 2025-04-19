@@ -1,14 +1,23 @@
 export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTable = {
 	commander: {
 		inherit: true,
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1 },
 	},
 	gulpmissile: {
 		inherit: true,
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1 },
 	},
 	protosynthesis: {
 		inherit: true,
+		onClimateWeatherChange(pokemon) {
+			// Protosynthesis is not affected by Utility Umbrella
+			if (this.field.isClimateWeather('sunnyday')) {
+				pokemon.addVolatile('protosynthesis');
+			} else if (!pokemon.volatiles['protosynthesis']?.fromBooster && this.field.climateWeather !== 'sunnyday') {
+				// Protosynthesis will not deactivite if Sun is suppressed, hence the direct ID check (isClimateWeather respects suppression)
+				pokemon.removeVolatile('protosynthesis');
+			}
+		},
 		condition: {
 			noCopy: true,
 			onStart(pokemon, source, effect) {
@@ -54,7 +63,7 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.add('-end', pokemon, 'Protosynthesis');
 			},
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, cantsuppress: 1 },
 	},
 	quarkdrive: {
 		inherit: true,
@@ -103,6 +112,6 @@ export const Abilities: import('../../../sim/dex-abilities').ModdedAbilityDataTa
 				this.add('-end', pokemon, 'Quark Drive');
 			},
 		},
-		flags: {failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, cantsuppress: 1},
+		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, cantsuppress: 1 },
 	},
 };
