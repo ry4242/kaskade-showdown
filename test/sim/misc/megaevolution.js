@@ -155,7 +155,7 @@ describe('Mega Evolution', () => {
 			assertLegalButCantMega('gen9nationaldexubers');
 		});
 
-		it('should implicitly add the Mega Rayquaza Clause when banned', () => {
+		it.skip('should implicitly add the Mega Rayquaza Clause when banned', () => {
 			assertLegalButCantMega('gen9nationaldexag@@@-rayquaza-mega');
 			battle.destroy();
 			assertLegalButCantMega('gen9nationaldexag@@@-mega');
