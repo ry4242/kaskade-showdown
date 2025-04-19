@@ -360,37 +360,6 @@ export default class TeamGenerator {
 			spe: 31,
 		};
 
-		// For Tera Type, we just pick a random type if it's got Tera Blast, Revelation Dance, or no attacking moves
-		// In the latter case, we avoid picking a type the Pokemon already is, and in the other two we avoid picking a
-		// type that matches the Pokemon's other moves
-		// Otherwise, we pick the type of one of its attacking moves
-		// Pokemon with 3 or more attack types and Pokemon with both Tera Blast and Contrary can also get Stellar type
-		// but Pokemon with Adaptability never get Stellar because Tera Stellar makes Adaptability have no effect
-		// Ogerpon's formes are forced to the Tera type that matches their forme
-		// Terapagos is forced to Stellar type
-		// Pokemon with Black Sludge don't generally want to tera to a type other than Poison
-		const hasTeraBlast = moves.some(m => m.id === 'terablast');
-		const hasRevelationDance = moves.some(m => m.id === 'revelationdance');
-		let attackingTypes = nonStatusMoves.map(m => TeamGenerator.moveType(this.dex.moves.get(m), species));
-		let teraType;
-		if (species.forceTeraType) {
-			teraType = species.forceTeraType;
-		} else if (item === 'blacksludge' && this.prng.randomChance(2, 3)) {
-			teraType = 'Poison';
-		} else if (hasTeraBlast && ability === 'Contrary' && this.prng.randomChance(2, 3)) {
-			teraType = 'Stellar';
-		} else {
-			const noStellar = ability === 'Adaptability' || new Set(attackingTypes).size < 3;
-			const noAttacks = !nonStatusMoves.length;
-			if (hasTeraBlast || hasRevelationDance || noAttacks) {
-				attackingTypes = [...this.dex.types.names().filter(t => !(noAttacks ? species.types : attackingTypes).includes(t))];
-				if (noStellar) attackingTypes.splice(attackingTypes.indexOf('Stellar'));
-			} else {
-				if (!noStellar) attackingTypes.push('Stellar');
-			}
-			teraType = this.prng.sample(attackingTypes);
-		}
-
 		return {
 			name: species.name,
 			species: species.name,
@@ -402,7 +371,6 @@ export default class TeamGenerator {
 			evs: { hp: 84, atk: 84, def: 84, spa: 84, spd: 84, spe: 84 },
 			ivs,
 			level,
-			teraType,
 			shiny: this.prng.randomChance(1, 1024),
 			happiness: 255,
 		};
@@ -762,10 +730,6 @@ export default class TeamGenerator {
 			const drainedFraction = move.drain[0] / move.drain[1];
 			weight *= 1 + (drainedFraction * 0.5);
 		}
-
-		// Oricorio should rarely get Tera Blast, as Revelation Dance is strictly better
-		// Tera Blast is also bad on species with forced Tera types, a.k.a. Ogerpon and Terapagos
-		if (move.id === 'terablast' && (species.baseSpecies === 'Oricorio' || species.forceTeraType)) weight *= 0.5;
 
 		return weight;
 	}
