@@ -1511,7 +1511,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 			const mixedSpecies = this.dex.deepClone(species);
 			mixedSpecies.weightkg =
-				Math.max(0.1, +(species.weightkg + crossSpecies.weightkg - crossPrevoSpecies.weightkg)).toFixed(1);
+				Math.max(0.1, species.weightkg + crossSpecies.weightkg - crossPrevoSpecies.weightkg).toFixed(1);
 			mixedSpecies.nfe = false;
 			mixedSpecies.evos = [];
 			mixedSpecies.eggGroups = crossSpecies.eggGroups;
