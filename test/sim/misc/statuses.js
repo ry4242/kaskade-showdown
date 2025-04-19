@@ -182,7 +182,9 @@ describe('Freeze', () => {
 	});
 
 	it('should cause an afflicted Shaymin-Sky to revert to its base forme', () => {
-		battle = common.createBattle([
+		battle = common.createBattle({
+			customRules: 'guaranteedsecondarymod',
+		}, [
 			[{ species: 'Chansey', ability: 'serenegrace', moves: ['icebeam'] }],
 			[{ species: 'Shaymin-Sky', ability: 'sturdy', moves: ['sleeptalk'] }],
 		]);
@@ -192,7 +194,9 @@ describe('Freeze', () => {
 	});
 
 	it('should not cause an afflicted Pokemon transformed into Shaymin-Sky to change to Shaymin', () => {
-		battle = common.createBattle([
+		battle = common.createBattle({
+			customRules: 'guaranteedsecondarymod',
+		}, [
 			[{ species: 'Ditto', ability: 'imposter', moves: ['transform'] }],
 			[{ species: 'Shaymin-Sky', ability: 'sturdy', moves: ['icebeam', 'sleeptalk'] }],
 		]);
@@ -203,21 +207,13 @@ describe('Freeze', () => {
 
 	it('should not linger after fainting from switch-out', () => {
 		battle = common.createBattle({
-			formatid: 'gen4customgame@@@freezeclausemod',
+			formatid: 'gen4customgame@@@freezeclausemod,guaranteedsecondarymod',
 		}, [[
 			{ species: 'weavile', moves: ['icebeam', 'pursuit'] },
 		], [
 			{ species: 'gastly', moves: ['splash'] },
 			{ species: 'seaking', moves: ['splash'] },
 		]]);
-		battle.onEvent('ModifyMove', battle.format, function (move) {
-			if (move.secondaries) {
-				this.debug('Freeze test: Guaranteeing secondary');
-				for (const secondary of move.secondaries) {
-					secondary.chance = 100;
-				}
-			}
-		});
 		battle.makeChoices('move icebeam', 'auto');
 		battle.makeChoices('move pursuit', 'switch seaking');
 		// battle.makeChoices('', 'switch seaking'); // in modern gens
