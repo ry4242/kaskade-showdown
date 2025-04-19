@@ -87,7 +87,7 @@ export const ssbSets: SSBSets = {
 		species: 'Leafeon', ability: 'Twin Fantasy', item: 'Leftovers', gender: 'F',
 		moves: ['Bitter Blade', ['Razor Shell', 'Strength Sap'], 'Tidy Up'],
 		signatureMove: "Herbal Dagger",
-		evs: { atk: 252, def: 4, spe: 252 }, nature: 'Jolly', teraType: 'Fire', shiny: 50,
+		evs: { atk: 252, def: 4, spe: 252 }, nature: 'Jolly', shiny: 50,
 	},
 	aQrator: {
 		species: 'Totodile', ability: 'Neverending fHunt', item: 'Eviolite', gender: 'F',
@@ -1107,7 +1107,7 @@ export class RandomStaffBrosTeams extends RandomTeams {
 		const debug: string[] = []; // Set this to a list of SSB sets to override the normal pool for debugging.
 		const ruleTable = this.dex.formats.getRuleTable(this.format);
 		const meme = ruleTable.has('dynamaxclause') && !debug.length;
-		const afd = this.format.id.includes('april');
+		const afd = !ruleTable.has('dynamaxclause') && ruleTable.has('zmovesclause') && debug.length;
 		const monotype = this.forceMonotype || (ruleTable.has('sametypeclause') ?
 			this.sample([...this.dex.types.names().filter(x => x !== 'Stellar')]) : false);
 
