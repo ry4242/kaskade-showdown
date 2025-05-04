@@ -1275,7 +1275,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		forme: "Alola",
 		types: ["Ground", "Steel"],
 		baseStats: { hp: 35, atk: 100, def: 60, spa: 50, spd: 70, spe: 110 },
-		abilities: { 0: "Sand Veil", 1: "Tangling Hair", H: "Sand Force" },
+		abilities: { 0: "Sand Veil", 1: "Tangling Hair", H: "Earth Force" },
 		heightm: 0.7,
 		weightkg: 66.6,
 		color: "Brown",
