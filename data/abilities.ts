@@ -182,7 +182,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				for (const moveSlot of target.moveSlots) {
 					const move = this.dex.moves.get(moveSlot.move);
 					if (move.category === 'Status') continue;
-					const moveType = move.type;
+					const moveType = move.id === 'hiddenpower' ? target.hpType : move.type;
 					if (
 						this.dex.getImmunity(moveType, pokemon) && this.dex.getEffectiveness(moveType, pokemon) > 0 ||
 						move.ohko

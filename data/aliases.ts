@@ -2372,6 +2372,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	// swse
 
 	alpha: "Alfalphalops",
+	bontyaklb: "Botnyak",
 
 	// formes
 

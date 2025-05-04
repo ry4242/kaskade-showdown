@@ -186,7 +186,7 @@ describe('Switching in', () => {
 		battle.makeChoices('switch 2', 'switch 2');
 		const kyogre = battle.p2.active[0];
 		assert.statStage(kyogre, 'spe', -1);
-		assert.equal(battle.field.weather, 'desolateland', 'Groudon should have reverted after Kyogre in spite of Sticky Web because it was slower before the SwitchIn event started');
+		assert.equal(battle.field.climateWeather, 'desolateland', 'Groudon should have reverted after Kyogre in spite of Sticky Web because it was slower before the SwitchIn event started');
 	});
 });
 

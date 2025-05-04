@@ -3019,8 +3019,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	hiddenpower: {
 		name: "Hidden Power",
-		desc: "Changes type to a random type that is super effective against the target, while prioritizing 4x weaknesses over 2x weaknesses. This move does not consider Items, Abilities, or other effects when determining weaknesses. This move cannot be used successfully unless the user's current form, while considering Transform, is a form of Unown.",
-		shortDesc: "Unown: Change type to be super effective.",
+		desc: "This move's type depends on the user's individual values (IVs), and can be any type but Fairy and Normal.",
+		shortDesc: "Varies in type based on the user's IVs.",
 		gen5: {
 			desc: "This move's type and power depend on the user's individual values (IVs). Power varies between 30 and 70, and type can be any but Normal.",
 			shortDesc: "Varies in power and type based on the user's IVs.",
@@ -8098,6 +8098,11 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 		desc: "Sets Sunny Day.",
 		shortDesc: "Sets Sun. Hits adjacent foes.",
 	},
+	/* thousandarms: {
+		name: "Thousand Arms",
+		desc: "Changes type to a random type that is super effective against the target, while prioritizing 4x weaknesses over 2x weaknesses. This move does not consider Items, Abilities, or other effects when determining weaknesses. This move cannot be used successfully unless the user's current form, while considering Transform, is a form of Unown.",
+		shortDesc: "Unown: Change type to be super effective.",
+	}, */
 	thunderhammer: {
 		name: "Thunder Hammer",
 		desc: "Has a 10% chance to paralyze the target.",

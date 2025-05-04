@@ -3280,7 +3280,7 @@ export class Battle {
 				if (this.gen === 9) newSet.teraType = set.teraType;
 				// Only display Hidden Power type if the Pokemon has Hidden Power
 				// This is based on how team sheets were written in past VGC formats
-				/* if (set.moves.some(m => this.dex.moves.get(m).id === 'hiddenpower')) newSet.hpType = set.hpType; */
+				if (set.moves.some(m => this.dex.moves.get(m).id === 'hiddenpower')) newSet.hpType = set.hpType;
 				// This is done so the client doesn't flag Zacian/Zamazenta as illusions
 				// when they use their signature move
 				if ((toID(set.species) === 'zacian' && toID(set.item) === 'rustedsword') ||

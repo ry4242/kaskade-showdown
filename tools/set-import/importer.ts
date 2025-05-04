@@ -338,9 +338,9 @@ function toPokemonSet(
 	let fill = dex.gen === 2 ? 30 : 31;
 	if (hp) {
 		const type = hp.slice(13);
-		if (type /* && dex.getHiddenPower(fillStats(set.ivs, fill)).type !== type */) {
+		if (type && dex.getHiddenPower(fillStats(set.ivs, fill)).type !== type) {
 			if (!set.ivs || (dex.gen >= 7 && (!set.level || set.level === 100))) {
-				// set.hpType = type;
+				set.hpType = type;
 				fill = 31;
 			} else if (dex.gen === 2) {
 				const dvs = { ...dex.types.get(type).HPdvs };

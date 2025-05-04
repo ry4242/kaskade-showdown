@@ -30,7 +30,7 @@ describe('Roost', () => {
 
 	it('should suppress user\'s current Flying type if succesful', () => {
 		battle = common.createBattle();
-		battle.setPlayer('p1', { team: [{ species: "Aggron", item: 'leftovers', ability: 'sturdy', moves: ['mudslap', 'grassknot'] }] });
+		battle.setPlayer('p1', { team: [{ species: "Aggron", item: 'leftovers', ability: 'sturdy', moves: ['mudslap', 'hiddenpowergrass'] }] });
 		battle.setPlayer('p2', { team: [{ species: "Aerodactyl", item: 'focussash', ability: 'wonderguard', moves: ['roost', 'doubleedge'] }] });
 
 		battle.makeChoices('move mudslap', 'move roost');
@@ -45,7 +45,7 @@ describe('Roost', () => {
 		// Ensure that Aerodactyl has some damage
 		battle.makeChoices('move mudslap', 'move doubleedge');
 
-		battle.makeChoices('move grassknot', 'move roost');
+		battle.makeChoices('move hiddenpowergrass', 'move roost');
 		assert.notEqual(battle.p2.active[0].hp, battle.p2.active[0].maxhp); // Hit super-effectively by HP Grass
 	});
 

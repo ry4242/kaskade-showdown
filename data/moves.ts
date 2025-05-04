@@ -8975,59 +8975,18 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: { basePower: 160 },
 		contestType: "Clever",
 	},
-	hiddenpower: { // tested, works as intended TODO: ensure it always shows as normal type
+	hiddenpower: {
 		num: 237,
 		accuracy: 100,
 		basePower: 60,
 		category: "Special",
+		isNonstandard: "Past",
 		name: "Hidden Power",
 		pp: 15,
 		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1, nosketch: 1 },
-		onModifyType(move, pokemon, target) {
-			const effectivenessTable: { [id: string]: number } = {};
-			let highestEffectiveness = 0;
-			const fullArray = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying',
-				'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'];
-			const bestTypes = [];
-			for (const type of fullArray) {
-				const effectiveness = this.dex.getEffectiveness(type, target);
-				effectivenessTable[type] = effectiveness;
-				if (effectiveness > highestEffectiveness) highestEffectiveness = effectiveness;
-			}
-			for (const type of fullArray) {
-				if (effectivenessTable[type] === highestEffectiveness) bestTypes.push(type);
-			}
-			move.type = this.sample(bestTypes);
-			this.debug("Hidden Power: " + move.type);
-		},
-		/* priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1, nosketch: 1 },
-		onPrepareHit(target, source, move) {
-			const possibleTypes = [];
-			const targetType = target.getTypes();
-			for (const type of this.dex.types.names()) {
-				const typeCheck = this.dex.getEffectiveness(type, targetType);
-				if (typeCheck === 1) {
-					possibleTypes.push(type);
-				}
-			}
-			if (!possibleTypes.length) {
-				return false;
-			}
-			const randomType = this.sample(possibleTypes);
-
-			if (!source.setType(randomType)) return false;
-			this.add('-start', source, 'typechange', randomType);
-			move.type = randomType;
-		}, */
-		onTry(source, target, move) {
-			if (source.baseSpecies.name === 'Unown' || move.hasBounced) {
-				return;
-			}
-			this.add('-fail', source, 'move: Hidden Power');
-			this.hint("Only a Pokemon whose form is Unown can use this move.");
-			return null;
+		flags: { protect: 1, mirror: 1, metronome: 1 },
+		onModifyType(move, pokemon) {
+			move.type = pokemon.hpType || 'Dark';
 		},
 		secondary: null,
 		target: "normal",
@@ -23719,7 +23678,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Fairy",
 	},
-	magicmissile: { // incomplete, TODO, crashes the game
+	magicmissile: {
 		num: -69,
 		accuracy: true,
 		basePower: 10,
@@ -23729,7 +23688,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, pulse: 1, noparentalbond: 1 },
 		multihit: 3,
-		// smartTarget: true,
+		smartTarget: true,
 		secondary: null,
 		target: "randomNormal",
 		type: "Fairy",
@@ -24674,6 +24633,44 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 	},
+	/* thousandarms: { // tested, works as intended TODO: ensure it always shows as normal type
+		num: -493,
+		accuracy: 100,
+		basePower: 60,
+		category: "Special",
+		name: "Thousand Arms",
+		pp: 15,
+		priority: 0,
+		flags: { protect: 1, mirror: 1, metronome: 1, nosketch: 1 },
+		onModifyType(move, pokemon, target) {
+			const effectivenessTable: { [id: string]: number } = {};
+			let highestEffectiveness = 0;
+			const fullArray = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying',
+				'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'];
+			const bestTypes = [];
+			for (const type of fullArray) {
+				const effectiveness = this.dex.getEffectiveness(type, target);
+				effectivenessTable[type] = effectiveness;
+				if (effectiveness > highestEffectiveness) highestEffectiveness = effectiveness;
+			}
+			for (const type of fullArray) {
+				if (effectivenessTable[type] === highestEffectiveness) bestTypes.push(type);
+			}
+			move.type = this.sample(bestTypes);
+			this.debug("Thousand Arms: " + move.type);
+		},
+		onTry(source, target, move) {
+			if (source.baseSpecies.name === 'Unown' || move.hasBounced) {
+				return;
+			}
+			this.add('-fail', source, 'move: Thousand Arms');
+			this.hint("Only a Pokemon whose form is Unown can use this move.");
+			return null;
+		},
+		secondary: null,
+		target: "normal",
+		type: "Normal",
+	}, */
 	thunderhammer: { // tested, works as intended
 		num: -48,
 		accuracy: 100,

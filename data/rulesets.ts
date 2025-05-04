@@ -2170,7 +2170,7 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			pokemon.set.evs = allies[2].set.evs;
 			pokemon.set.nature = allies[2].set.nature;
 			pokemon.set.ivs = allies[2].set.ivs;
-			// pokemon.hpType = (pokemon as any).baseHpType = allies[2].baseHpType;
+			pokemon.hpType = (pokemon as any).baseHpType = allies[2].baseHpType;
 			pokemon.moveSlots = (pokemon as any).baseMoveSlots = [
 				...allies[3].baseMoveSlots.slice(0, 2), ...allies[4].baseMoveSlots.slice(2),
 			].filter((move, index, moveSlots) => moveSlots.find(othermove => othermove.id === move.id) === move);

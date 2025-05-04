@@ -411,7 +411,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		inherit: true,
 		isNonstandard: "Past",
 	},
-	hiddenpower: {
+	old: {
 		inherit: true,
 		isNonstandard: null,
 	},

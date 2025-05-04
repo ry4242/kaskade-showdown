@@ -366,11 +366,11 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	hiddenpower: {
 		inherit: true,
 		basePower: 0,
-	/* 	basePowerCallback(pokemon) {
+		basePowerCallback(pokemon) {
 			const bp = pokemon.hpPower || 70;
 			this.debug(`BP: ${bp}`);
 			return bp;
-		}, */
+		},
 	},
 	hiddenpowerbug: {
 		inherit: true,

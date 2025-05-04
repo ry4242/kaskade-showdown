@@ -1142,9 +1142,9 @@ export class TeamValidator {
 				set.ivs = TeamValidator.fillStats(dex.types.get(set.hpType).HPivs, 31);
 			}
 		}
-		/* if (!set.hpType && set.moves.some(m => dex.moves.get(m).id === 'hiddenpower')) {
+		if (!set.hpType && set.moves.some(m => dex.moves.get(m).id === 'hiddenpower')) {
 			set.hpType = dex.getHiddenPower(set.ivs).type;
-		} */
+		}
 
 		const cantBreedNorEvolve = (species.eggGroups[0] === 'Undiscovered' && !species.prevo && !species.nfe);
 		const isLegendary = (cantBreedNorEvolve && !species.tags.includes('Paradox') && ![
@@ -1183,7 +1183,7 @@ export class TeamValidator {
 			}
 		}
 
-		/* if (set.hpType && !canBottleCap) {
+		if (set.hpType && !canBottleCap) {
 			const ivHpType = dex.getHiddenPower(set.ivs).type;
 			if (set.hpType !== ivHpType) {
 				problems.push(`${name} has Hidden Power ${set.hpType}, but its IVs are for Hidden Power ${ivHpType}.`);
@@ -1192,7 +1192,7 @@ export class TeamValidator {
 			if (!this.possibleBottleCapHpType(set.hpType, set.ivs)) {
 				problems.push(`${name} has Hidden Power ${set.hpType}, but its IVs don't allow this even with (Bottle Cap) Hyper Training.`);
 			}
-		} */
+		}
 
 		if (dex.gen <= 2) {
 			// validate DVs
@@ -2123,7 +2123,7 @@ export class TeamValidator {
 				}
 			}
 
-			/* if (canBottleCap) {
+			if (canBottleCap) {
 				// IVs can be overridden but Hidden Power type can't
 				if (Object.keys(eventData.ivs).length >= 6) {
 					const requiredHpType = dex.getHiddenPower(eventData.ivs as StatsTable).type;
@@ -2133,7 +2133,7 @@ export class TeamValidator {
 					}
 					set.hpType = requiredHpType;
 				}
-			} */
+			}
 		} else {
 			requiredIVs = eventData.perfectIVs || 0;
 		}

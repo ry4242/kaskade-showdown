@@ -34,7 +34,7 @@ describe('Stealth Rock', () => {
 		for (let i = 2; i <= 6; i++) {
 			battle.makeChoices('move splash', 'switch ' + i);
 			pokemon = battle.p2.active[0];
-			const expectedPercent = 0.75 ** (i - 1);
+			const expectedPercent = 0.25 ** (i - 1);
 			const expectedDamage = Math.floor(pokemon.maxhp * expectedPercent);
 			assert.equal(pokemon.maxhp - pokemon.hp, expectedDamage, `${pokemon.name} should take ${expectedPercent * 100}%`);
 		}

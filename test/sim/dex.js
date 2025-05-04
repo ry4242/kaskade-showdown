@@ -44,7 +44,7 @@ describe('Dex#getSpecies', () => {
 	});
 
 	it('should handle Minior-Meteor formes', () => {
-		assert(!Dex.species.get('Minior-Meteor').isNonstandard);
+		assert(Dex.species.get('Minior-Meteor').isNonstandard);
 		assert(Dex.forGen(8).species.get('Minior-Meteor').isNonstandard);
 		assert(!Dex.forGen(7).species.get('Minior-Meteor').isNonstandard);
 	});

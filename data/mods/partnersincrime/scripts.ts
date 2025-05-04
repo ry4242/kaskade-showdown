@@ -401,15 +401,15 @@ export const Scripts: ModdedBattleScriptsData = {
 				if (this.modifiedStats) this.modifiedStats[statName] = pokemon.modifiedStats![statName]; // Gen 1: Copy modified stats.
 			}
 			this.moveSlots = [];
-			// this.hpType = (this.battle.gen >= 5 ? this.hpType : pokemon.hpType);
-			// this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower);
+			this.hpType = (this.battle.gen >= 5 ? this.hpType : pokemon.hpType);
+			this.hpPower = (this.battle.gen >= 5 ? this.hpPower : pokemon.hpPower);
 			this.timesAttacked = pokemon.timesAttacked;
 			for (const moveSlot of pokemon.moveSlots) {
-				const moveName = moveSlot.move;
+				let moveName = moveSlot.move;
 				if (!pokemon.m.curMoves.includes(moveSlot.id)) continue;
-				/* if (moveSlot.id === 'hiddenpower') {
+				if (moveSlot.id === 'hiddenpower') {
 					moveName = 'Hidden Power ' + this.hpType;
-				} */
+				}
 				this.moveSlots.push({
 					move: moveName,
 					id: moveSlot.id,
