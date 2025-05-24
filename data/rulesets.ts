@@ -3084,4 +3084,22 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			}
 		},
 	},
+	tsolopokedex: {
+		effectType: 'ValidatorRule',
+		name: 'Tso-Lo Pokedex',
+		desc: "Only allows Pok&eacute;mon found in Quadrant 1 of the Kaskade Region",
+		banlist: [
+
+		],
+		onValidateSet(set, format) {
+			const tsoloDex = [
+				"Llampas", "Danfluff", "Alfalphalops", "Therpal", "Aspfault", "Tarmendoa", "Burbwhirl", "Spoutlaw", "Vaquamael", "Chewmunk", "Cheekat", "Specoey", "Opakespiel", "Kwaile", "Quailert", "Quailstion", "Sighlo", "Cooreds", "Probaska", "Histameanie", "Cherubi", "Cherrim", "Flabébé", "Floette", "Florges", "Petilil", "Lilligant", "Lilligant-Hisui", "Apheed", "Musleafo", "Eecroach", "Surskit", "Masquerain", "Ducklett", "Swanna", "Wingull", "Pelipper", "Sandygast", "Palossand-Kaskade", "Stackem", "Clamtrip", "Rowviar", "Sanook", "Azurill-Kaskade", "Marill-Kaskade", "Azumarill-Kaskade", "Pyukumuku", "Stunfisk", "Cereboral", "Bagoul", "Seedot", "Nuzleaf", "Shiftry", "Shroomish", "Breloom", "Tofrug", "Kaskazog", "Ananot", "Ananoop", "Vulpix", "Vulpix-Alola", "Ninetales", "Ninetales-Alola", "Deerling", "Sawsbuck", "Tropius-Kaskade", "Snover", "Abomasnow", "Mosster", "Mosskrat", "Mosskrat-Tide-Bloom", "Sewaddle", "Swadloon", "Leavanny", "Emolga", "Patrat", "Watchog", "Catteraxe", "Catatomb", "Bonsly", "Sudowoodo", "Sudowoodo-Amaze-All", "Bidoof-Kaskade", "Bibarel-Kaskade", "Toedscool", "Toedscruel", "Bunnelby-Kaskade", "Diggersby-Kaskade", "Tympole", "Palpitoad", "Seismitoad", "Lotad", "Lombre", "Ludicolo", "Gastly-Kaskade", "Haunter-Kaskade", "Gengar-Kaskade", "Teddiursa", "Ursaring", "Ursaluna", "Pichu", "Pikachu", "Raichu", "Raichu-Alola", "Eevee", "Vaporeon", "Jolteon", "Flareon", "Espeon", "Umbreon", "Leafeon", "Glaceon", "Sylveon", "Enigmeon", "Skinka", "Dredgen", "Stalagen", "Chromagen", "Aerogen", "Caragen", "Bludgen", "Pathagen", "Ectogen", "Legen", "Scatterbug", "Spewpa", "Vivillon", "Murkrow", "Honchkrow", "Morelull", "Shiinotic", "Nickit", "Thievul", "Phantump-Kaskade", "Trevenant-Kaskade", "Pumpkaboo", "Gourgeist", "Drifloon", "Drifblim", "Drifblim-Amaze-All", "Litwick", "Lampent", "Chandelure", "Shuppet", "Banette", "Misdreavus", "Mismagius", "Spinarak", "Ariados", "Klefki", "Mimikyu",
+			];
+			const species = this.dex.species.get(set.species || set.name);
+			if (!tsoloDex.includes(species.baseSpecies) && !tsoloDex.includes(species.name) &&
+				!this.ruleTable.has('+' + species.id)) {
+				return [`${species.baseSpecies} is not in the Tso-Lo Pokédex.`];
+			}
+		},
+	},
 };

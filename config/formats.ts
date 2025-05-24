@@ -100,6 +100,17 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "SwSe Doubles",
 	},
 	{
+		name: "[Gen 9] Tso-Lo Doubles OU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
 		name: "[Gen 9] Doubles OU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
@@ -110,7 +121,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard Doubles'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
-	/* {
+	{
 		name: "[Gen 9] Doubles Ubers",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712864/">Doubles Ubers</a>`,
@@ -119,8 +130,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
-	}, */
-	/* {
+	},
+	{
 		name: "[Gen 9] Doubles UU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712825/">Doubles UU</a>`,
@@ -130,7 +141,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'doubles',
 		ruleset: ['[Gen 9] Doubles OU'],
 		banlist: ['DOU', 'DBL'],
-	}, */
+	},
 	{
 		name: "[Gen 9] Doubles LC",
 		threads: [
@@ -193,6 +204,21 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	{
 		section: "SwSe Singles",
+	},
+	{
+		name: "[Gen 9] Tso-Lo OU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zEFfyzvffa">OU Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		ruleset: ['Tso-Lo Pokedex', 'Standard'],
+		banlist: [
+			'Uber', 'AG',
+			'Arena Trap', 'Shadow Tag',
+			'Baton Pass',
+			'King\'s Rock',
+		],
 	},
 	{
 		name: "[Gen 9] OU",
