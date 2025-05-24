@@ -14699,6 +14699,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	silvally: {
 		num: 773,
 		name: "Silvally",
+		baseForme: "Normal",
 		types: ["Normal"],
 		gender: "N",
 		baseStats: { hp: 95, atk: 95, def: 95, spa: 95, spd: 95, spe: 95 },
@@ -16766,7 +16767,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	alcremie: {
 		num: 869,
 		name: "Alcremie",
-		baseForme: "Vanilla Cream",
+		baseForme: "Vanilla-Cream",
 		types: ["Fairy"],
 		gender: "F",
 		baseStats: { hp: 65, atk: 60, def: 75, spa: 110, spd: 121, spe: 64 },
@@ -16860,6 +16861,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	eiscue: {
 		num: 875,
 		name: "Eiscue",
+		baseForme: "Ice",
 		types: ["Ice"],
 		baseStats: { hp: 75, atk: 80, def: 110, spa: 65, spd: 90, spe: 50 },
 		abilities: { 0: "Ice Face" },
@@ -16918,6 +16920,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	morpeko: {
 		num: 877,
 		name: "Morpeko",
+		baseForme: "Full-Belly",
 		types: ["Electric", "Dark"],
 		baseStats: { hp: 58, atk: 95, def: 58, spa: 70, spd: 58, spe: 97 },
 		abilities: { 0: "Hunger Switch" },
@@ -19189,7 +19192,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone", "Ogerpon-Teal-Tera", "Ogerpon-Wellspring-Tera", "Ogerpon-Hearthflame-Tera", "Ogerpon-Cornerstone-Tera"],
 		formeOrder: ["Ogerpon", "Ogerpon-Wellspring", "Ogerpon-Hearthflame", "Ogerpon-Cornerstone", "Ogerpon-Teal-Tera", "Ogerpon-Wellspring-Tera", "Ogerpon-Hearthflame-Tera", "Ogerpon-Cornerstone-Tera"],
-		forceTeraType: "Grass",
+		requiredTeraType: "Grass",
 	},
 	ogerponwellspring: {
 		num: 1017,
@@ -19206,7 +19209,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Wellspring Mask",
 		changesFrom: "Ogerpon",
-		forceTeraType: "Water",
+		requiredTeraType: "Water",
 	},
 	ogerponhearthflame: {
 		num: 1017,
@@ -19223,7 +19226,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Hearthflame Mask",
 		changesFrom: "Ogerpon",
-		forceTeraType: "Fire",
+		requiredTeraType: "Fire",
 	},
 	ogerponcornerstone: {
 		num: 1017,
@@ -19240,7 +19243,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Cornerstone Mask",
 		changesFrom: "Ogerpon",
-		forceTeraType: "Rock",
+		requiredTeraType: "Rock",
 	},
 	ogerpontealtera: {
 		num: 1017,
@@ -19256,7 +19259,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Green",
 		eggGroups: ["Undiscovered"],
 		battleOnly: "Ogerpon",
-		forceTeraType: "Grass",
+		requiredTeraType: "Grass",
 	},
 	ogerponwellspringtera: {
 		num: 1017,
@@ -19273,7 +19276,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Wellspring Mask",
 		battleOnly: "Ogerpon-Wellspring",
-		forceTeraType: "Water",
+		requiredTeraType: "Water",
 	},
 	ogerponhearthflametera: {
 		num: 1017,
@@ -19290,7 +19293,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Hearthflame Mask",
 		battleOnly: "Ogerpon-Hearthflame",
-		forceTeraType: "Fire",
+		requiredTeraType: "Fire",
 	},
 	ogerponcornerstonetera: {
 		num: 1017,
@@ -19307,7 +19310,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		requiredItem: "Cornerstone Mask",
 		battleOnly: "Ogerpon-Cornerstone",
-		forceTeraType: "Rock",
+		requiredTeraType: "Rock",
 	},
 	archaludon: {
 		num: 1018,
@@ -19398,7 +19401,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		otherFormes: ["Terapagos-Terastal", "Terapagos-Stellar"],
 		formeOrder: ["Terapagos", "Terapagos-Terastal", "Terapagos-Stellar"],
-		forceTeraType: "Stellar",
+		requiredTeraType: "Stellar",
 	},
 	terapagosterastal: {
 		num: 1024,
@@ -19413,7 +19416,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		battleOnly: "Terapagos",
-		forceTeraType: "Stellar",
+		requiredTeraType: "Stellar",
 	},
 	terapagosstellar: {
 		num: 1024,
@@ -19428,7 +19431,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Blue",
 		eggGroups: ["Undiscovered"],
 		battleOnly: "Terapagos",
-		forceTeraType: "Stellar",
+		requiredTeraType: "Stellar",
 	},
 	pecharunt: {
 		num: 1025,

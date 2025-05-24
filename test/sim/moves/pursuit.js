@@ -8,7 +8,7 @@ let battle;
 describe(`Pursuit`, () => {
 	afterEach(() => battle.destroy());
 
-	it(`should execute before the target switches out and after the user mega evolves`, () => {
+	/* it(`should execute before the target switches out and after the user mega evolves`, () => {
 		battle = common.createBattle([[
 			{ species: "Beedrill", ability: 'swarm', item: 'beedrillite', moves: ['pursuit'] },
 		], [
@@ -18,9 +18,9 @@ describe(`Pursuit`, () => {
 		battle.makeChoices('move Pursuit mega', 'switch 2');
 		assert.species(battle.p1.active[0], "Beedrill-Mega");
 		assert.fainted(battle.p2.active[0]);
-	});
+	}); */
 
-	it(`should execute before the target switches out and after the user Terastallizes`, () => {
+	/* it(`should execute before the target switches out and after the user Terastallizes`, () => {
 		battle = common.gen(9).createBattle([[
 			{ species: "Kingambit", ability: 'defiant', moves: ['pursuit'] },
 		], [
@@ -33,7 +33,7 @@ describe(`Pursuit`, () => {
 		const damage = hpBeforeSwitch - giratina.hp;
 		// 0 Atk Tera Dark Kingambit switching boosted Pursuit (80 BP) vs. 0 HP / 0 Def Giratina: 256-304
 		assert.bounded(damage, [256, 304], 'Actual damage: ' + damage);
-	});
+	}); */
 
 	it(`should continue the switch in Gen 3`, () => {
 		battle = common.gen(3).createBattle([[

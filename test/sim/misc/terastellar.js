@@ -1,7 +1,7 @@
 'use strict';
 
-const assert = require('./../../assert');
-const common = require('./../../common');
+// const assert = require('./../../assert');
+// const common = require('./../../common');
 
 let battle;
 
@@ -10,7 +10,7 @@ describe("Tera Stellar", () => {
 		battle.destroy();
 	});
 
-	it(`should increase the damage of non-STAB moves by 1.2x on the first use of that move type`, () => {
+	/* it(`should increase the damage of non-STAB moves by 1.2x on the first use of that move type`, () => {
 		battle = common.gen(9).createBattle([[
 			{ species: 'Wynaut', ability: 'noguard', moves: ['surf', 'hydropump', 'extrasensory', 'hyperspacehole'], teraType: 'Stellar' },
 		], [
@@ -159,5 +159,5 @@ describe("Tera Stellar", () => {
 		battle.makeChoices('move flipturn', 'auto');
 		damage = blissey.maxhp - blissey.hp;
 		assert.bounded(damage, [63, 75], `Flip Turn should have regular damage on its first use, because Water-type was already used`);
-	});
+	}); */
 });

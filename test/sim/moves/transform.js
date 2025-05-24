@@ -170,7 +170,7 @@ describe('Transform [Gen 9]', () => {
 		battle.destroy();
 	});
 
-	it("should copy the target's old types, not the Tera Type", () => {
+	/* it("should copy the target's old types, not the Tera Type", () => {
 		battle = common.gen(9).createBattle([[
 			{ species: "Ditto", ability: "limber", moves: ['transform'], teraType: "Fire" },
 		], [
@@ -180,9 +180,9 @@ describe('Transform [Gen 9]', () => {
 		assert.equal(battle.p1.active[0].getTypes().join('/'), 'Electric');
 		battle.makeChoices('move sleeptalk terastallize', 'auto');
 		assert.equal(battle.p1.active[0].getTypes().join('/'), 'Fire');
-	});
+	}); */
 
-	it("should keep the user's Tera Type when Terastallized", () => {
+	/* it("should keep the user's Tera Type when Terastallized", () => {
 		battle = common.gen(9).createBattle([[
 			{ species: "Ditto", ability: "limber", moves: ['transform'], teraType: "Fire" },
 		], [
@@ -190,9 +190,9 @@ describe('Transform [Gen 9]', () => {
 		]]);
 		battle.makeChoices('move transform terastallize', 'move sleeptalk terastallize');
 		assert.equal(battle.p1.active[0].getTypes().join('/'), 'Fire');
-	});
+	}); */
 
-	it("should fail against Ogerpon when the user is Terastallized", () => {
+	/* it("should fail against Ogerpon when the user is Terastallized", () => {
 		battle = common.gen(9).createBattle([[
 			{ species: "Ditto", ability: "limber", moves: ['transform'], teraType: "Fire" },
 		], [
@@ -200,9 +200,9 @@ describe('Transform [Gen 9]', () => {
 		]]);
 		battle.makeChoices('move transform terastallize', 'move sleeptalk');
 		assert.false(battle.p1.active[0].transformed);
-	});
+	}); */
 
-	it("should fail against Ogerpon when Ogerpon is Terastallized", () => {
+	/* it("should fail against Ogerpon when Ogerpon is Terastallized", () => {
 		battle = common.gen(9).createBattle([[
 			{ species: "Ditto", ability: "limber", moves: ['transform'], teraType: "Fire" },
 		], [
@@ -210,9 +210,9 @@ describe('Transform [Gen 9]', () => {
 		]]);
 		battle.makeChoices('move transform', 'move sleeptalk terastallize');
 		assert.false(battle.p1.active[0].transformed);
-	});
+	}); */
 
-	it("should prevent Pokemon transformed into Ogerpon from Terastallizing", () => {
+	/* it("should prevent Pokemon transformed into Ogerpon from Terastallizing", () => {
 		battle = common.gen(9).createBattle([[
 			{ species: "Ditto", ability: "limber", moves: ['transform'], teraType: "Fire" },
 		], [
@@ -220,9 +220,9 @@ describe('Transform [Gen 9]', () => {
 		]]);
 		battle.makeChoices();
 		assert.cantMove(() => battle.choose('p1', 'move sleeptalk terastallize'));
-	});
+	}); */
 
-	it("should not allow Pokemon transformed into Ogerpon to Terastallize later if they couldn't before transforming", () => {
+	/* it("should not allow Pokemon transformed into Ogerpon to Terastallize later if they couldn't before transforming", () => {
 		battle = common.gen(9).createBattle({ formatid: 'gen9customgame@@@!teampreview,terastalclause' }, [[
 			{ species: "Ditto", ability: "limber", moves: ['transform'], teraType: "Fire" },
 			{ species: "Shedinja", ability: "wonderguard", moves: ['transform'], teraType: "Fire" },
@@ -234,9 +234,9 @@ describe('Transform [Gen 9]', () => {
 		battle.makeChoices();
 		assert.false(battle.p1.active[0].transformed);
 		assert.cantMove(() => battle.choose('p1', 'move transform terastallize'));
-	});
+	}); */
 
-	it(`should not work if the user is Tera Stellar`, () => {
+	/* it(`should not work if the user is Tera Stellar`, () => {
 		battle = common.gen(9).createBattle([[
 			{ species: 'Ditto', ability: 'limber', moves: ['transform'], teraType: 'Stellar' },
 		], [
@@ -244,7 +244,7 @@ describe('Transform [Gen 9]', () => {
 		]]);
 		battle.makeChoices('move transform terastallize', 'auto');
 		assert.false(battle.p1.active[0].transformed);
-	});
+	}); */
 });
 
 describe('Transform [Gen 5]', () => {

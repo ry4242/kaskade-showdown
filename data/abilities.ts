@@ -301,7 +301,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	aurabreak: {
 		onStart(pokemon) {
-			if (this.suppressingAbility(pokemon)) return;
 			this.add('-ability', pokemon, 'Aura Break');
 		},
 		onAnyTryPrimaryHit(target, source, move) {
@@ -358,12 +357,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	battlebond: {
 		onSourceAfterFaint(length, target, source, effect) {
+			if (source.bondTriggered) return;
 			if (effect?.effectType !== 'Move') return;
-			if (source.abilityState.battleBondTriggered) return;
 			if (source.species.id === 'greninjabond' && source.hp && !source.transformed && source.side.foePokemonLeft()) {
 				this.boost({ atk: 1, spa: 1, spe: 1 }, source, source, this.effect);
 				this.add('-activate', source, 'ability: Battle Bond');
-				source.abilityState.battleBondTriggered = true;
+				source.bondTriggered = true;
 			}
 		},
 		onModifyMovePriority: -1,
@@ -1192,7 +1191,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	embodyaspectcornerstone: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Cornerstone-Tera' &&
+			if (pokemon.baseSpecies.name === 'Ogerpon-Cornerstone-Tera' && pokemon.terastallized &&
 				this.effectState.embodied !== pokemon.previouslySwitchedIn) {
 				this.effectState.embodied = pokemon.previouslySwitchedIn;
 				this.boost({ def: 1 }, pokemon);
@@ -1205,7 +1204,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	embodyaspecthearthflame: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Hearthflame-Tera' &&
+			if (pokemon.baseSpecies.name === 'Ogerpon-Hearthflame-Tera' && pokemon.terastallized &&
 				this.effectState.embodied !== pokemon.previouslySwitchedIn) {
 				this.effectState.embodied = pokemon.previouslySwitchedIn;
 				this.boost({ atk: 1 }, pokemon);
@@ -1218,7 +1217,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	embodyaspectteal: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Teal-Tera' &&
+			if (pokemon.baseSpecies.name === 'Ogerpon-Teal-Tera' && pokemon.terastallized &&
 				this.effectState.embodied !== pokemon.previouslySwitchedIn) {
 				this.effectState.embodied = pokemon.previouslySwitchedIn;
 				this.boost({ spe: 1 }, pokemon);
@@ -1231,7 +1230,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	embodyaspectwellspring: {
 		onStart(pokemon) {
-			if (pokemon.baseSpecies.name === 'Ogerpon-Wellspring-Tera' &&
+			if (pokemon.baseSpecies.name === 'Ogerpon-Wellspring-Tera' && pokemon.terastallized &&
 				this.effectState.embodied !== pokemon.previouslySwitchedIn) {
 				this.effectState.embodied = pokemon.previouslySwitchedIn;
 				this.boost({ spd: 1 }, pokemon);
@@ -2352,7 +2351,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (!possibleTarget.fainted) {
 					// If Ogerpon is in the last slot while the Illusion Pokemon is Terastallized
 					// Illusion will not disguise as anything
-					if (!pokemon.terastallized || possibleTarget.species.baseSpecies !== 'Ogerpon') {
+					if (!pokemon.terastallized || !['Ogerpon', 'Terapagos'].includes(possibleTarget.species.baseSpecies)) {
 						pokemon.illusion = possibleTarget;
 					}
 					break;
@@ -3671,6 +3670,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.species.id === 'zygardecomplete' || pokemon.hp > pokemon.maxhp / 2) return;
 			this.add('-activate', pokemon, 'ability: Power Construct');
 			pokemon.formeChange('Zygarde-Complete', this.effect, true);
+			pokemon.formeRegression = true;
 			pokemon.baseMaxhp = Math.floor(Math.floor(
 				2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 			) * pokemon.level / 100 + 10);
@@ -5259,7 +5259,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.species.forme !== 'Terastal') {
 				this.add('-activate', pokemon, 'ability: Tera Shift');
 				pokemon.formeChange('Terapagos-Terastal', this.effect, true);
-				pokemon.regressionForme = false;
 				pokemon.baseMaxhp = Math.floor(Math.floor(
 					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
 				) * pokemon.level / 100 + 10);
@@ -5954,7 +5953,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.baseSpecies.baseSpecies !== 'Palafin') return;
 			if (pokemon.species.forme !== 'Hero') {
 				pokemon.formeChange('Palafin-Hero', this.effect, true);
-				pokemon.regressionForme = false;
 			}
 		},
 		onSwitchIn(pokemon) {

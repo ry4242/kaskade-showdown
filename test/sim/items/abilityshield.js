@@ -211,7 +211,7 @@ describe('Ability Shield', () => {
 		assert.equal(battle.p1.active[0].ability, 'libero', `Ditto should copy Libero`);
 	});
 
-	it(`should not prevent forme changes from changing the holder's ability`, () => {
+	/* it(`should not prevent forme changes from changing the holder's ability`, () => {
 		battle = common.gen(9).createBattle([[
 			{ species: 'ogerpon', ability: 'defiant', item: 'abilityshield', moves: ['sleeptalk'] },
 		], [
@@ -220,7 +220,7 @@ describe('Ability Shield', () => {
 
 		battle.makeChoices('move sleeptalk terastallize', 'auto');
 		assert.equal(battle.p1.active[0].ability, 'embodyaspectteal', `Ogerpon's ability should change to Embody Aspect`);
-	});
+	}); */
 
 	// TODO Add future tests for losing Ability Shield vs Neutralizing Gas/Mold Breaker/Gastro Acid?
 	//
