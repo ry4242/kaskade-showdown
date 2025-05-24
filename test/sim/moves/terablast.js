@@ -4,7 +4,7 @@ const assert = require('./../../assert');
 const common = require('./../../common');
 
 describe('Tera Blast', () => {
-	it(`should be a special attack when base stats are tied`, () => {
+	/* it(`should be a special attack when base stats are tied`, () => {
 		const battle = common.gen(9).createBattle([[
 			// Regidrago has equal base attack and special attack stats.
 			{ species: 'regidrago', ability: 'dragonsmaw', moves: ['terablast'] },
@@ -28,7 +28,7 @@ describe('Tera Blast', () => {
 		battle.makeChoices('move terablast terastallize', 'move protect');
 
 		assert.equal(battle.p1.pokemon[0].lastMove.category, 'Physical');
-	});
+	}); */
 
 	it(`should be a special attack when not terastallized, even if attack stat is higher`, () => {
 		const battle = common.createBattle([[

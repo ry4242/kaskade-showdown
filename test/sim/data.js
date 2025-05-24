@@ -317,7 +317,7 @@ describe('Dex data', () => {
 		6: 721,
 		7: 807,
 		8: 664,
-		9: 140,
+		9: 733,
 	};
 	const formes = {
 		// Gens 1 and 2 have no alternate formes
@@ -339,7 +339,7 @@ describe('Dex data', () => {
 	// Alola (18) + Totem (12) + Pikachu (7) - Pikachu (6) + Greninja (2) + Zygarde (2) +
 	// Oricorio (3) + Rockruff (1) + Lycanroc (2) + Wishiwashi (1) + Silvally (17) + Minior (1)
 	// Mimikyu (1) + Necrozma (3) [Magearna (1) + LGPE Starters/Meltan/Melmetal (4)]
-	formes[7] = formes[6] + 18 + 12 + 7 - 6 + 2 + 2 + 3 + 1 + 2 + 1 + 17 + 1 + 1 + 3 - 1;
+	formes[7] = formes[6] + 18 + 12 + 7 - 6 + 2 + 2 + 3 + 1 + 2 + 1 + 17 + 1 + 1 + 3;
 	// Silvally (17) + Rotom (5) + Basculin (1) + Meowstic (1) +
 	// Aegislash (1) + Pumpkaboo (3) + Gourgeist (3) + Pikachu (7) + Galar (14) +
 	// Alola (8) + Indeedee (1) + Morpeko (1) + Eiscue (1) + Zacian/Zamazenta (2) +
@@ -352,9 +352,11 @@ describe('Dex data', () => {
 	// {GMax} 26 + 7
 	formes[8] = 17 + 5 + 1 + 1 + 1 + 3 + 3 + 7 + 14 + 8 +
 		1 + 1 + 1 + 2 + 1 + 2 + 2 + 2 + 1 + 1 + 2 + 2 + 1 +
-		(4 + 1 + 1 + 1 + 1 + 2 + (1 + 1)) + (1 + 3 + 4 + 2 + 3 + 1 + 2) - 1;
-	// some amount of formes idk
-	formes[9] = 36;
+		(4 + 1 + 1 + 1 + 1 + 2 + (1 + 1)) + (1 + 3 + 4 + 2 + 3 + 1 + 2);
+	// Alola (2) + Galar (0) Hisui (1) + Paldea (0) + Kaskade (15) + Amaze-All (2) +
+	// Cherrim (1) + Snover (1) + Abomasnow (1) + Vivillon (2) + Pumpkaboo (3) + Gourgeist (3) +
+	// Mimikyu (1) + Mimikyu (1) + Eecroach (1) + Stackem (1) + Mosskrat (1)
+	formes[9] = 35;
 
 	for (const gen of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
 		it(`Gen ${gen} should have ${species[gen]} species and ${formes[gen]} formes`, () => {

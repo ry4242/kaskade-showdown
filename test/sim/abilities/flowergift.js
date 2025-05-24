@@ -74,7 +74,7 @@ describe('Flower Gift', () => {
 			{ species: 'Haxorus', ability: 'moldbreaker', moves: ['roar'] },
 		]]);
 		battle.makeChoices();
-		assert.equal(battle.field.weather, 'sunnyday');
+		assert.equal(battle.field.climateWeather, 'sunnyday');
 		assert.species(battle.p1.active[0], 'Cherrim');
 	});
 });

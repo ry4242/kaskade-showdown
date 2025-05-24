@@ -1840,7 +1840,7 @@ export class BattleActions {
 				baseDamage = this.battle.modify(baseDamage, 0.5);
 			}
 		}
-		if (pokemon.status === 'frb' && move.category === 'Special') {
+		if (pokemon.status === 'fst' && move.category === 'Special') {
 			baseDamage = this.battle.modify(baseDamage, 0.5);
 		}
 

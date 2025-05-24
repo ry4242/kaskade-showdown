@@ -120,16 +120,16 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 		},
 	},
-	frb: {
-		name: 'frb',
+	fst: {
+		name: 'fst',
 		effectType: 'Status',
 		onStart(target, source, sourceEffect) {
 			if (sourceEffect && sourceEffect.id === 'frostorb') {
-				this.add('-status', target, 'frb', '[from] item: Frost Orb');
+				this.add('-status', target, 'fst', '[from] item: Frost Orb');
 			} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
-				this.add('-status', target, 'frb', '[from] ability: ' + sourceEffect.name, `[of] ${source}`);
+				this.add('-status', target, 'fst', '[from] ability: ' + sourceEffect.name, `[of] ${source}`);
 			} else {
-				this.add('-status', target, 'frb');
+				this.add('-status', target, 'fst');
 			}
 		},
 		// Damage reduction is handled directly in the sim/battle.js damage function

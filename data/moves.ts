@@ -1429,13 +1429,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		onBasePower(basePower, pokemon, target) {
-			if (target.status === 'frz' || target.status === 'frb') {
+			if (target.status === 'frz' || target.status === 'fst') {
 				return this.chainModify(2);
 			}
 		},
 		secondary: {
 			chance: 30,
-			status: 'frb',
+			status: 'fst',
 		},
 		target: "normal",
 		type: "Ghost",
@@ -1558,7 +1558,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			onHit(target, source) {
 				const result = this.random(3);
 				if (result > 0) {
-					target.trySetStatus('frb', source);
+					target.trySetStatus('fst', source);
 				} else {
 					target.trySetStatus('frz', source);
 				}
@@ -9754,7 +9754,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		secondaries: [
 			{
 				chance: 10,
-				status: 'frb',
+				status: 'fst',
 			}, {
 				chance: 10,
 				volatileStatus: 'flinch',
@@ -9794,7 +9794,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: { contact: 1, protect: 1, mirror: 1, punch: 1, metronome: 1 },
 		secondary: {
 			chance: 10,
-			status: 'frb',
+			status: 'fst',
 		},
 		target: "normal",
 		type: "Ice",
@@ -14327,7 +14327,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		secondary: {
 			chance: 10,
-			status: 'frb',
+			status: 'fst',
 		},
 		target: "allAdjacentFoes",
 		type: "Ice",
@@ -20825,11 +20825,11 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				} else if (result <= 3) {
 					target.trySetStatus('par', source);
 				} else if (result <= 5) {
-					target.trySetStatus('frb', source);
+					target.trySetStatus('fst', source);
 				} else if (result === 6 && ['sunnyday', 'desolateland'].includes(source.effectiveClimateWeather())) {
 					target.trySetStatus('brn', source);
 				} else if (result === 7 && ['hail'].includes(source.effectiveClimateWeather())) {
-					target.trySetStatus('frb', source);
+					target.trySetStatus('fst', source);
 				} else if (result === 8 && ['supercell'].includes(source.effectiveEnergyWeather())) {
 					target.trySetStatus('par', source);
 				}
@@ -22648,7 +22648,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 					target.trySetStatus('brn');
 				}
 				if (['hail', 'snow'].includes(source.effectiveClimateWeather()) && this.random(5) <= chance) {
-					target.trySetStatus('frb');
+					target.trySetStatus('fst');
 				}
 				if (['supercell'].includes(source.effectiveEnergyWeather()) && this.random(5) <= chance) {
 					target.trySetStatus('par');
@@ -22661,7 +22661,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 					target.trySetStatus('brn');
 				}
 				if (['hail', 'snow'].includes(source.effectiveClimateWeather()) && this.random(5) <= chance) {
-					target.trySetStatus('frb');
+					target.trySetStatus('fst');
 				}
 			}
 		},  */
@@ -22790,7 +22790,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				} else if (result === 1) {
 					target.trySetStatus('par', source);
 				} else if (result === 2) {
-					target.trySetStatus('frb', source);
+					target.trySetStatus('fst', source);
 				} else {
 					target.trySetStatus('psn', source);
 				}
@@ -23210,7 +23210,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				if (move.type === 'Fire') {
 					target.trySetStatus('brn');
 				} else if (move.type === 'Ice') {
-					target.trySetStatus('frb');
+					target.trySetStatus('fst');
 				}
 			},
 		},
@@ -23259,13 +23259,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 					}
 				}
 				if (this.checkMoveMakesContact(move, source, target)) {
-					source.trySetStatus('frb', target);
+					source.trySetStatus('fst', target);
 				}
 				return this.NOT_FAIL;
 			},
 			onHit(target, source, move) {
 				if (move.isZOrMaxPowered && this.checkMoveMakesContact(move, source, target)) {
-					source.trySetStatus('frb', target);
+					source.trySetStatus('fst', target);
 				}
 			},
 		},
@@ -23285,7 +23285,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		critRatio: 2,
 		secondary: {
 			chance: 10,
-			status: 'frb',
+			status: 'fst',
 		},
 		target: "normal",
 		type: "Ice",
@@ -23686,10 +23686,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Fairy",
 	},
-	magicmissile: {
+	magicmissile: { // tested, works as intended
 		num: -69,
 		accuracy: true,
-		basePower: 10,
+		basePower: 30,
 		category: "Special",
 		name: "Magic Missile",
 		pp: 10,
@@ -23878,7 +23878,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		recoil: [33, 100],
 		secondary: {
 			chance: 10,
-			status: 'frb',
+			status: 'fst',
 		},
 		target: "normal",
 		type: "Ice",
@@ -24773,7 +24773,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		climateWeather: "Hail",
 		secondary: {
 			chance: 100,
-			status: 'frb',
+			status: 'fst',
 		},
 		target: "allAdjacent",
 		type: "Ice",
@@ -24787,7 +24787,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		pp: 15,
 		priority: 0,
 		flags: { protect: 1, reflectable: 1, mirror: 1, metronome: 1 },
-		status: 'frb',
+		status: 'fst',
 		secondary: null,
 		target: "normal",
 		type: "Ice",

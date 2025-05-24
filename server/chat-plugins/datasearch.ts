@@ -1644,7 +1644,7 @@ function runMovesearch(target: string, cmd: string, message: string, isTest: boo
 		'highcrit', 'multihit', 'ohko', 'protection', 'secondary',
 		'zmove', 'maxmove', 'gmaxmove',
 	];
-	const allStatus = ['psn', 'tox', 'blt', 'brn', 'par', 'frz', 'slp', 'frb'];
+	const allStatus = ['psn', 'tox', 'blt', 'brn', 'par', 'frz', 'slp', 'fst'];
 	const allVolatileStatus = ['flinch', 'confusion', 'partiallytrapped', 'trapped'];
 	const allBoosts = ['hp', 'atk', 'def', 'spa', 'spd', 'spe', 'accuracy', 'evasion'];
 	const allTargets: { [k: string]: string } = {
@@ -2004,7 +2004,7 @@ function runMovesearch(target: string, cmd: string, message: string, isTest: boo
 			case 'confuse': target = 'confusion'; break;
 			case 'partiallytrap': target = 'partiallytrapped'; break;
 			case 'flinche': target = 'flinch'; break;
-			case 'frostbite': target = 'frb'; break;
+			case 'frostbite': target = 'fst'; break;
 			}
 
 			if (allStatus.includes(target)) {
@@ -2500,7 +2500,7 @@ function runItemsearch(target: string, cmd: string, message: string) {
 			case 'burn': case 'burns':
 			case 'brn': wordEff = 'brn'; break;
 			case 'frostbite':
-			case 'frostbitten': wordEff = 'frb'; break;
+			case 'frostbitten': wordEff = 'fst'; break;
 			case 'paralyze': case 'paralyzes':
 			case 'par': wordEff = 'par'; break;
 			case 'poison': case 'poisons':

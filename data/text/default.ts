@@ -224,7 +224,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		endFromItem: "  [POKEMON]'s [ITEM] woke it up!",
 		cant: "[POKEMON] is fast asleep.",
 	},
-	frb: {
+	fst: {
 		start: "  [POKEMON] got frostbite!",
 		startFromItem: "  [POKEMON] got frostbite from the [ITEM]!",
 		alreadyStarted: "  [POKEMON] is already frostbitten!",

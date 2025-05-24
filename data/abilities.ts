@@ -6512,6 +6512,33 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: -48,
 	},
+	forked: { // not implemented
+		onTryHit(target, source, move) {
+			if (target !== source && move.type === 'Electric') {
+				if (!this.boost({ spa: 1 })) {
+					this.add('-immune', target, '[from] ability: Forked');
+				}
+				return null;
+			}
+		},
+		onAnyRedirectTarget(target, source, source2, move) {
+			if (move.flags['pledgecombo']) return;
+			if (move.type === 'Electric' || source2.energyWeather === 'supercell') {
+				const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
+				if (this.validTarget(this.effectState.target, source, redirectTarget)) {
+					if (move.smartTarget) move.smartTarget = false;
+					if (this.effectState.target !== target) {
+						this.add('-activate', this.effectState.target, 'ability: Forked');
+					}
+					return this.effectState.target;
+				}
+			}
+		},
+		flags: { breakable: 1 },
+		name: "Forked",
+		rating: 0.1,
+		num: -106,
+	},
 	frigidblaze: { // tested, works as intended
 		onSourceDamagingHit(damage, target, source, move) {
 			// Despite not being a secondary, Shield Dust / Covert Cloak block Frigid Blaze's effect
@@ -7269,7 +7296,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	souldrain: { // tested, works as intended
 		onAnyFaintPriority: 1,
 		onAnyFaint(target, source, effect) {
-			if (effect.effectType === "Move" || !this.effectState.target.hp) return;
+			if (effect.effectType === 'Move' || !this.effectState.target.hp) return;
 			if (['haunt'].includes(this.effectState.target.effectiveEnergyWeather())) {
 				this.heal(3 * this.effectState.target.baseMaxhp / 8, this.effectState.target, this.effectState.target);
 			} else {

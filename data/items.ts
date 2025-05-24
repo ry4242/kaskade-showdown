@@ -7775,12 +7775,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			type: "Ice",
 		},
 		onUpdate(pokemon) {
-			if (pokemon.status === 'frb') {
+			if (pokemon.status === 'fst') {
 				pokemon.eatItem();
 			}
 		},
 		onEat(pokemon) {
-			if (pokemon.status === 'frb') {
+			if (pokemon.status === 'fst') {
 				pokemon.cureStatus();
 			}
 		},
@@ -7910,12 +7910,12 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		spritenum: 145,
 		fling: {
 			basePower: 30,
-			status: 'frb',
+			status: 'fst',
 		},
 		onResidualOrder: 28,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			pokemon.trySetStatus('frb', pokemon);
+			pokemon.trySetStatus('fst', pokemon);
 		},
 		num: -2,
 		gen: 9,

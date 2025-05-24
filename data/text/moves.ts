@@ -528,7 +528,7 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	bittermalice: {
 		name: "Bitter Malice",
 		desc: "Has a 30% chance to inflict the target with frostbite. Power doubles if the target is already frostbitten or frozen.",
-		shortDesc: "30% frb. 2x power if target already frb/frz.",
+		shortDesc: "30% fst. 2x power if target already fst/frz.",
 	},
 	blackholeeclipse: {
 		name: "Black Hole Eclipse",
@@ -7781,7 +7781,7 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	frostburnclaw: {
 		name: "Frostburn Claw",
 		desc: "Starts as a Fire-type move. Switches between Fire- and Ice-type every turn. If this move is Ice-type it has a 20% chance to inflict the target with frostbite. If this move is Fire type it has a 20% chance to burn the target. The target thaws out if it is frozen.",
-		shortDesc: "Swaps between Fire/Ice. 20% chance to frb/brn.",
+		shortDesc: "Swaps between Fire/Ice. 20% chance to fst/brn.",
 	},
 	frostification: {
 		name: "Frostification",

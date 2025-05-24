@@ -1766,6 +1766,10 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
+	ursalunabloodmoon: {
+		tier: "Illegal",
+		natDexTier: "OU",
+	},
 	slugma: {
 		isNonstandard: "Future",
 		tier: "Illegal",
