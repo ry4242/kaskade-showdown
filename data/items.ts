@@ -7759,7 +7759,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 
 	amazedrive: {
 		name: "Amaze-Drive",
-		spritenum: 803,
+		spritenum: 805,
 		fling: {
 			basePower: 30,
 		},
