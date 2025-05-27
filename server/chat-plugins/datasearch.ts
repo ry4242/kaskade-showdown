@@ -417,6 +417,7 @@ export const commands: Chat.ChatCommands = {
 	weathergy(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
 		if (!this.runBroadcast()) return;
+
 		const weathergies: {
 			[id: string]: {
 				name: string,
@@ -519,23 +520,23 @@ export const commands: Chat.ChatCommands = {
 		};
 
 		if (!target) {
-			this.sendReplyBox(
-				`Available Weathergies: ${Object.keys(weathergies).map(w =>
-					`<button name="send" value="/weathergy ${w}">${weathergies[w].name}</button>`
-				).join(' ')}`
-			);
-			return;
-		}
-
-		this.checkBroadcast();
-		if (!this.runBroadcast()) return;
-
-		if (!target) {
-			this.sendReplyBox(
-				`Available Weathergies: ${Object.keys(weathergies).map(w =>
-					`<button name="send" value="/weathergy ${w}">${weathergies[w].name}</button>`
-				).join(' ')}`
-			);
+			const groups = [
+				['sun', 'rain', 'hail', 'bloodmoon', 'fog'],
+				['sandstorm', 'duststorm', 'pollenstorm', 'pheromones', 'smog', 'fairydust'],
+				['battleaura', 'paranormalactivity', 'dreamscape', 'dragonforce', 'thunderstorm', 'magnetosphere'],
+				['strongwinds'],
+			];
+			const htmlLines = [
+				`Available Weathergies:`,
+				...groups.map(group =>
+					group
+						.filter(id => weathergies[id])
+						.map(id =>
+							`<button name="send" value="/weathergy ${id}">${weathergies[id].name}</button>`
+						).join(' ')
+				),
+			];
+			this.sendReplyBox(htmlLines.join('<br />'));
 			return;
 		}
 
@@ -548,13 +549,9 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		let html = '';
-		if (message && message !== "") {
-			html += `<span class="gray">${Utils.escapeHTML(message)}:</span><br />`;
-		}
 		html += `<h2>${weathergy.name}</h2><p>${Utils.escapeHTML(weathergy.desc)}</p>`;
 		if (weathergy.strongWindsBoosted) {
-			html += `<p><b>Strong Winds Boosted:</b> ` +
-				`${Utils.escapeHTML(weathergy.strongWindsBoosted)}</p>`;
+			html += `<p><b>Strong Winds Boosted:</b> ${Utils.escapeHTML(weathergy.strongWindsBoosted)}</p>`;
 		}
 		if (weathergy.extra) html += `<p>${Utils.escapeHTML(weathergy.extra)}</p>`;
 		this.sendReplyBox(html);
