@@ -22,7 +22,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// SwSe Popular Randomized Metas
 	///////////////////////////////////////////////////////////////////
 
-	{
+	/* {
 		section: "SwSe Popular Randomized Metas",
 	},
 	{
@@ -96,7 +96,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Max Team Size = 3',
 			'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod',
 		],
-	},
+	}, */
 
 	// SwSe Doubles
 	///////////////////////////////////////////////////////////////////
@@ -182,6 +182,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: [
 			'Picked Team Size = 2', 'Max Team Size = 4',
 			'Standard Doubles', 'Accuracy Moves Clause', 'Sleep Clause Mod',
@@ -254,7 +257,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'King\'s Rock',
 		],
 	},
-	/* {
+	{
 		name: "[Gen 9] UU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zuQ6MaMEwK">UU Discord channel</a>`,
@@ -263,7 +266,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'swse',
 		ruleset: ['[Gen 9] OU'],
 		banlist: ['OU', 'UUBL'],
-	}, */
+	},
 	/* {
 		name: "[Gen 9] RU",
 		threads: [
