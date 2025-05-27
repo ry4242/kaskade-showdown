@@ -6103,6 +6103,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	kilowattrel: {
 		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	maschiff: {
