@@ -413,6 +413,138 @@ export const commands: Chat.ChatCommands = {
 		);
 	},
 
+	weather: 'weathergy',
+	weathergy(target, room, user, connection, cmd, message) {
+		this.checkBroadcast();
+		const weathergies: {
+			[id: string]: {
+				name: string,
+				desc: string,
+				extra?: string,
+				strongWindsBoosted?: string,
+			},
+		} = {
+			sun: {
+				name: "Sun",
+				desc: "During the effect, the damage of Fire-type attacks is multiplied by 1.5x and the damage of Water-type attacks is multiplied by 0.5x, and Pokemon cannot be frozen.",
+				strongWindsBoosted: "1.5x increase to Fire-type moves boosted to 1.75x, and 0.5x decrease to Water-type moves is changed to 0.25x.",
+			},
+			rain: {
+				name: "Rain",
+				desc: "During the effect, the damage of Water-type attacks is multiplied by 1.5x and the damage of Fire-type attacks is multiplied by 0.5x.",
+				strongWindsBoosted: "1.5x increase to Water-type moves boosted to 1.75x, and 0.5 decrease to Fire-type moves is changed to 0.25x.",
+			},
+			hail: {
+				name: "Hail",
+				desc: "At the end of each turn except the last, all active Pokémon lose 1/16 of their maximum HP, rounded down, unless they are an Ice or Steel type. During the effect, the Defense and Sp.Def of Ice-type Pokémon is multiplied by 1.25x.",
+				strongWindsBoosted: "1/16 damage is increased to 1/8, and Steel types are no longer immune to Hail.",
+				extra: "Snow does not exist in Swirling Seasons.",
+			},
+			bloodmoon: {
+				name: "Blood Moon",
+				desc: "During the effect, the damage of super effective attacks is multiplied by 1.25x and Dark-type Status moves have their priority increased by 1.",
+				strongWindsBoosted: "All Status moves gain +1 priority, and Dark-type Pokémon become immune to all Status moves (not including self-targeting Status moves).",
+			},
+			fog: {
+				name: "Fog",
+				desc: "During the effect, Normal-type attacks can damage Ghost types and non-Normal-type moves have their accuracy multiplied by 0.9x (this includes Typeless moves).",
+				strongWindsBoosted: "Normal-type Pokemon and moves become Typeless, allowing them to take and deal neutral damage.",
+			},
+			sandstorm: {
+				name: "Sandstorm",
+				desc: "At the end of each turn except the last, all active Pokémon lose 1/16 of their maximum HP, rounded down, unless they are a Ground, Rock, or Steel type. During the effect, the Sp.Def of Rock-type Pokémon is multiplied by 1.5x.",
+				strongWindsBoosted: "The Defense of Rock-type Pokémon is multiplied by 1.5x. The Sp.Def of Ground- and Steel- type Pokémon is multiplied by 1.5x.",
+			},
+			duststorm: {
+				name: "Dust Storm",
+				desc: "During the effect, the Speed of Ground-type Pokémon is multiplied by 1.25x and the the damage of Water- and Grass-type attacks is multiplied by 0.5x.",
+				strongWindsBoosted: "Non-grounded Pokémon can be hit with Ground-type attacks.",
+			},
+			pollenstorm: {
+				name: "Pollen Storm",
+				desc: "During the effect, powder moves ignore accuracy checks and the Attack and Sp.Atk of non-Grass- and Bug-type Pokémon is multiplied by 0.75x.",
+				strongWindsBoosted: "Activates Grassy Terrain.",
+			},
+			pheromones: {
+				name: "Pheromones",
+				desc: "During the effect, the Speed of Bug- and Poison-type Pokémon is multiplied by 1.5x and the accuracy of moves used by Bug- and Poison-type Pokémon is multiplied by 1.33x.",
+				strongWindsBoosted: "At the end of each turn except the last, all active Pokémon are confused, unless they are a Bug or Poison type.",
+			},
+			smog: {
+				name: "Smog",
+				desc: "At the end of each turn except the last, all active Pokémon are poisoned, unless they are a Poison or Steel type.",
+				strongWindsBoosted: "At the end of each turn, <turns all non-volatile status conditions on non-Poison and -Steel type Pokemon into Poison> and <turns all Poison statuses into Badly Poisoned (Toxic).>",
+			},
+			fairydust: {
+				name: "Fairy Dust",
+				desc: "At the end of each turn except the last, all active Pokémon have 1/16 of their maximum HP restored, rounded down. During the effect, the Sp.Def of Fairy-type Pokémon is multiplied by 1.25x.",
+				strongWindsBoosted: "Activates Misty Terrain.",
+			},
+			battleaura: {
+				name: "Battle Aura",
+				desc: "During the effect, raises the chance for Fighting-type Pokémon to land a critical hit by 1 stage and Fighting-type moves have their accuracy multiplied by 1.2x.",
+				strongWindsBoosted: "Prevents Fighting-type Pokémon from having their stats lowered.",
+			},
+			paranormalactivity: {
+				name: "Paranormal Activity",
+				desc: "At the end of each turn except the last, all active Pokémon lose 1/16 of their maximum HP, rounded down, unless they are a Ghost, Normal, or Dark type.",
+				strongWindsBoosted: "Ghost-type attacks' type effectiveness against Normal is changed to be super effective.",
+			},
+			dreamscape: {
+				name: "Dreamscape",
+				desc: "During the effect, the damage of Psychic-type attacks is multiplied by 1.5x and the damage of Dark-type attacks is multiplied by 0.5x.",
+				strongWindsBoosted: "Activates Psychic Terrain.",
+			},
+			dragonforce: {
+				name: "Dragon Force",
+				desc: "During the effect, the damage of super effective attacks is multiplied by 0.8x and the damage of Dragon-type attacks is multiplied by 1.25x. These multipliers stack, so super effective Dragon-type attacks deal regular damage (0.8x1.25=1).",
+				strongWindsBoosted: "The damage of attacks is multiplied by 1.5x. Non-Dragon-type Pokémon lose 10% of their maximum HP after successfully landing a damaging move. The boosts are cumulative, meaning: super effective non-Dragon-type moves deal 20% more damage (0.8x1.5), super effective Dragon moves deal 50% more damage (0.8x1.25x1.5), neutral effective non-Dragon moves deal 50% more damage (1.5), and neutral effective Dragon moves deal 87.5% more damage (1.25x1.5).",
+			},
+			thunderstorm: {
+				name: "Thunderstorm",
+				desc: "At the end of each turn except the last, one random Pokémon is struck by lightning. During the effect, the Speed of Electric-type Pokémon is multiplied by 1.5x.",
+				strongWindsBoosted: "Activates Electric Terrain.",
+			},
+			magnetosphere: {
+				name: "Magnetosphere",
+				desc: "During the effect, Steel-type moves ignore accuracy checks, and the Sp.Def of Steel-type Pokémon is multiplied by 1.25x.",
+				strongWindsBoosted: "Steel-type Pokémon become non-grounded.",
+			},
+			strongwinds: {
+				name: "Strong Winds",
+				desc: "Clears all active Weathergies on activation. If other Weathergies are activated after Strong Winds, they gain the boosted effects described for as long as Strong Winds remains active. During the effect, wind moves ignore accuracy checks and the Speed of Flying-type Pokémon is multiplied by 1.25x.",
+				extra: "Cannot be boosted by Strong Winds.",
+			},
+		};
+
+		if (!target) {
+			this.sendReplyBox(
+				`Available Weathergies: ${Object.keys(weathergies).map(w => `<button name="send" value="/weathergy ${w}">${weathergies[w].name}</button>`).join(' ')}`
+			);
+			return;
+		}
+
+		const id = toID(target);
+		const weathergy = weathergies[id];
+		if (!weathergy) {
+			throw new Chat.ErrorMessage(`Weathergy "${target}" not found. Use /weathergy to see available options.`);
+		}
+
+		let html = `<h2>${weathergy.name}</h2><p>${Utils.escapeHTML(weathergy.desc)}</p>`;
+		if (weathergy.strongWindsBoosted) {
+			html += `<p><b>Strong Winds Boosted:</b> ` +
+				`${Utils.escapeHTML(weathergy.strongWindsBoosted)}</p>`;
+		}
+		if (weathergy.extra) html += `<p>${Utils.escapeHTML(weathergy.extra)}</p>`;
+		this.sendReplyBox(html);
+	},
+	weathergyhelp() {
+		this.sendReplyBox(
+			`<code>/weathergy [weathergy]</code>: Shows data about the specified Weathergy.<br />` +
+			`Use <code>/weathergy</code> to see a list of available Weathergies.`
+		);
+	},
+
 	randitem: 'randomitem',
 	async randomitem(target, room, user, connection, cmd, message) {
 		this.checkBroadcast(true);
