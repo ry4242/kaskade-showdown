@@ -416,6 +416,8 @@ export const commands: Chat.ChatCommands = {
 	weather: 'weathergy',
 	weathergy(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
+		if (!target) return this.parse('/help weathergy');
+
 		const weathergies: {
 			[id: string]: {
 				name: string,
@@ -517,9 +519,13 @@ export const commands: Chat.ChatCommands = {
 			},
 		};
 
+		if (!this.runBroadcast()) return;
+
 		if (!target) {
 			this.sendReplyBox(
-				`Available Weathergies: ${Object.keys(weathergies).map(w => `<button name="send" value="/weathergy ${w}">${weathergies[w].name}</button>`).join(' ')}`
+				`Available Weathergies: ${Object.keys(weathergies).map(w =>
+					`<button name="send" value="/weathergy ${w}">${weathergies[w].name}</button>`
+				).join(' ')}`
 			);
 			return;
 		}
@@ -527,10 +533,16 @@ export const commands: Chat.ChatCommands = {
 		const id = toID(target);
 		const weathergy = weathergies[id];
 		if (!weathergy) {
-			throw new Chat.ErrorMessage(`Weathergy "${target}" not found. Use /weathergy to see available options.`);
+			throw new Chat.ErrorMessage(
+				`Weathergy "${target}" not found. Use /weathergy to see available options.`
+			);
 		}
 
-		let html = `<h2>${weathergy.name}</h2><p>${Utils.escapeHTML(weathergy.desc)}</p>`;
+		let html = '';
+		if (message && message !== "") {
+			html += `<span class="gray">${Utils.escapeHTML(message)}:</span><br />`;
+		}
+		html += `<h2>${weathergy.name}</h2><p>${Utils.escapeHTML(weathergy.desc)}</p>`;
 		if (weathergy.strongWindsBoosted) {
 			html += `<p><b>Strong Winds Boosted:</b> ` +
 				`${Utils.escapeHTML(weathergy.strongWindsBoosted)}</p>`;
