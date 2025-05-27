@@ -416,8 +416,6 @@ export const commands: Chat.ChatCommands = {
 	weather: 'weathergy',
 	weathergy(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
-		if (!target) return this.parse('/help weathergy');
-
 		const weathergies: {
 			[id: string]: {
 				name: string,
@@ -518,6 +516,15 @@ export const commands: Chat.ChatCommands = {
 				extra: "Cannot be boosted by Strong Winds.",
 			},
 		};
+
+		if (!target) {
+			this.sendReplyBox(
+				`Available Weathergies: ${Object.keys(weathergies).map(w =>
+					`<button name="send" value="/weathergy ${w}">${weathergies[w].name}</button>`
+				).join(' ')}`
+			);
+			return;
+		}
 
 		if (!this.runBroadcast()) return;
 
