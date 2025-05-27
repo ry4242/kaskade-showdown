@@ -416,6 +416,7 @@ export const commands: Chat.ChatCommands = {
 	weather: 'weathergy',
 	weathergy(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
+		if (!this.runBroadcast()) return;
 		const weathergies: {
 			[id: string]: {
 				name: string,
@@ -526,6 +527,7 @@ export const commands: Chat.ChatCommands = {
 			return;
 		}
 
+		this.checkBroadcast();
 		if (!this.runBroadcast()) return;
 
 		if (!target) {
