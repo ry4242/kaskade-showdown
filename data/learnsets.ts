@@ -99892,6 +99892,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 
 	llampas: {
 		learnset: {
+			anchorshot: ["9M",]
 			aromatherapy: ["9M"],
 			bodypress: ["9M"],
 			bodyslam: ["9M"],
