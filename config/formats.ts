@@ -155,7 +155,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		gameType: 'doubles',
-		searchShow: false,
 		ruleset: ['Standard Doubles', 'Little Cup'],
 		banlist: [],
 	},
