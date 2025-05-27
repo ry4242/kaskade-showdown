@@ -50,6 +50,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		team: 'random',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
 	{
@@ -57,7 +60,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		team: 'random',
+		searchShow: false,
 		challengeShow: false,
+		tournamentShow: false,
 		rated: false,
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
@@ -1318,6 +1323,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Mix and Mega",
 		desc: `Mega evolve any Pok&eacute;mon with any mega stone, or transform them with Genesect Drives, Primal orbs, Origin orbs, Rusted items, Ogerpon Masks, Arceus Plates, and Silvally Memories with no limit. Mega and Primal boosts based on form changes from gen 7.`,
 		mod: 'mixandmega',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['Standard OMs', 'Evasion Items Clause', 'Evasion Abilities Clause', 'Sleep Moves Clause', 'Terastal Clause'],
 		banlist: [
 			'Calyrex-Shadow', 'Koraidon', 'Kyogre', 'Miraidon', 'Moody', 'Shadow Tag', 'Beedrillite', 'Blazikenite', 'Gengarite',
@@ -3514,6 +3522,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		desc: `Random Battles in a random generation! [Gen 1] Random Battle - [Gen 9] Random Battle.`,
 		mod: 'randomroulette',
 		team: 'random',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 	},
 	{
 		name: "[Gen 9] Monkey's Paw Random Battle",
