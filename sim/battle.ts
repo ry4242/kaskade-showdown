@@ -2889,6 +2889,7 @@ export class Battle {
 			this.clearActiveMove(true);
 			this.updateSpeed();
 			residualPokemon = this.getAllActive().map(pokemon => [pokemon, pokemon.getUndynamaxedHP()] as const);
+			this.eachEvent('BeforeResidual');
 			this.fieldEvent('Residual');
 			if (!this.ended) this.add('upkeep');
 			break;
