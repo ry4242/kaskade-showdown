@@ -3180,14 +3180,16 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	snover: {
-		tier: "LC",
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	snoverlowland: {
-		tier: "LC",
+		isNonstandard: "Future",
+		tier: "Illegal",
 	},
 	abomasnow: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
+		tier: "Illegal",
 		natDexTier: "OU",
 	},
 	abomasnowmega: {
@@ -3196,8 +3198,8 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	abomasnowlowland: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
+		tier: "Illegal",
 		natDexTier: "OU",
 	},
 	rotom: {
@@ -3912,11 +3914,12 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	foongus: {
-		tier: "LC",
+		isNonstandard: "Past",
+		tier: "Illegal",
 	},
 	amoonguss: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Past",
+		tier: "Illegal",
 		natDexTier: "OU",
 	},
 	frillish: {
