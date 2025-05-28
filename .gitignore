@@ -1,7 +1,5 @@
 /config/*
 !/config/formats.ts
-!/config/avatars
-!/config/avatars/*png
 /logs/**/*
 /test/modlogs
 /test/replays/*.html
