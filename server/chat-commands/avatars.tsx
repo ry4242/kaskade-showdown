@@ -677,6 +677,10 @@ const OFFICIAL_AVATARS_RADU = new Set([
 	'miku-ice',
 ]);
 
+const OFFICIAL_AVATARS_MYSTE = new Set([
+	'tofrug-stack',
+]);
+
 for (const avatar of OFFICIAL_AVATARS_BELIOT419) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_GNOMOWLADNY) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_BRUMIRAGE) OFFICIAL_AVATARS.add(avatar);
@@ -690,6 +694,7 @@ for (const avatar of OFFICIAL_AVATARS_SELENA) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_WISTERIAPURPLE) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_FLAMIBANE) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_RADU) OFFICIAL_AVATARS.add(avatar);
+for (const avatar of OFFICIAL_AVATARS_MYSTE) OFFICIAL_AVATARS.add(avatar);
 
 export const commands: Chat.ChatCommands = {
 	avatar(target, room, user) {
@@ -752,6 +757,9 @@ export const commands: Chat.ChatCommands = {
 			}
 			if (OFFICIAL_AVATARS_RADU.has(avatar)) {
 				this.sendReply(`|raw|(${this.tr`Artist: `}<a href="https://www.smogon.com/forums/members/455774/">RADU</a>)`);
+			}
+			if (OFFICIAL_AVATARS_MYSTE.has(avatar)) {
+				this.sendReply(`|raw|(${this.tr`Artist: `}Myste)`);
 			}
 		}
 	},
