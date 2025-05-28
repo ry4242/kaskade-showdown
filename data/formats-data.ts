@@ -1608,8 +1608,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "LC",
 	},
 	wooperpaldea: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "LC",
 		natDexTier: "LC",
 	},
 	quagsire: {
@@ -1618,8 +1617,8 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	clodsire: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	murkrow: {
@@ -3779,13 +3778,12 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	trubbish: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "LC",
 		natDexTier: "LC",
 	},
 	garbodor: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	garbodorgmax: {
@@ -4497,13 +4495,12 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	skrelp: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "LC",
 		natDexTier: "LC",
 	},
 	dragalge: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	clauncher: {
@@ -5621,13 +5618,12 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "Illegal",
 	},
 	sizzlipede: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "LC",
 		natDexTier: "LC",
 	},
 	centiskorch: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	centiskorchgmax: {
