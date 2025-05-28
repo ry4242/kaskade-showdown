@@ -496,6 +496,7 @@ const OFFICIAL_AVATARS = new Set([
 	'teamrocketgruntm-gen3',
 	'teamrocket',
 	'thorton',
+	'tofrug-stack',
 	'triathletebikerf-gen3',
 	'triathletebikerm-gen3',
 	'triathleterunnerf-gen3',
