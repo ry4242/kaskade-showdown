@@ -1770,18 +1770,16 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	teddiursa: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "LC",
 		natDexTier: "LC",
 	},
 	ursaring: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "NFE",
 		natDexTier: "NFE",
 	},
 	ursaluna: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	ursalunabloodmoon: {
@@ -2538,60 +2536,43 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	castform: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	castformsunny: {
-		isNonstandard: "Future",
 	},
 	castformrainy: {
-		isNonstandard: "Future",
 	},
 	castformsnowy: {
-		isNonstandard: "Future",
 	},
 	castformshady: {
-		isNonstandard: "Future",
 	},
 	castformsandy: {
-		isNonstandard: "Future",
 	},
 	castformdusty: {
-		isNonstandard: "Future",
 	},
 	castformallergy: {
-		isNonstandard: "Future",
 	},
 	castformswarmy: {
-		isNonstandard: "Future",
 	},
 	castformsmoggy: {
-		isNonstandard: "Future",
 	},
 	castformlovely: {
-		isNonstandard: "Future",
 	},
 	castformgutsy: {
-		isNonstandard: "Future",
 	},
 	castformspooky: {
-		isNonstandard: "Future",
 	},
 	castformzenny: {
-		isNonstandard: "Future",
 	},
 	castformsorcery: {
-		isNonstandard: "Future",
 	},
 	castformzappy: {
-		isNonstandard: "Future",
 	},
 	castformwindy: {
-		isNonstandard: "Future",
 	},
 	castformwhirly: {
-		isNonstandard: "Future",
 	},
 	kecleon: {
 		isNonstandard: "Past",
@@ -3232,58 +3213,58 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	rotom: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotomheat: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotomwash: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotomfrost: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotomfan: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotommow: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotomsol: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotomsway: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotombrawl: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotomweb: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	rotomjunk: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	uxie: {
@@ -6966,8 +6947,8 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	botnyak: {
-		isNonstandard: "Future",
-		tier: "Illegal",
+		tier: "OU",
+		doublesTier: "DOU",
 		natDexTier: "OU",
 	},
 	hurchin: {
