@@ -104,7 +104,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: "SwSe Doubles",
 	},
-	{
+	/* {
 		name: "[Gen 9] Tso-Lo Doubles OU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
@@ -114,7 +114,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		gameType: 'doubles',
 		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
-	},
+	}, */
 	{
 		name: "[Gen 9] Doubles OU",
 		threads: [
@@ -212,7 +212,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: "SwSe Singles",
 	},
-	{
+	/* {
 		name: "[Gen 9] Tso-Lo OU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zEFfyzvffa">OU Discord channel</a>`,
@@ -226,7 +226,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Baton Pass',
 			'King\'s Rock',
 		],
-	},
+	}, */
 	{
 		name: "[Gen 9] OU",
 		threads: [
