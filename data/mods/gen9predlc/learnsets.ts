@@ -85294,7 +85294,7 @@ export const Learnsets: import('../../../sim/dex-species').ModdedLearnsetDataTab
 			waterpulse: ["9M"],
 		},
 	},
-	mausholdthree: {
+	mausholdfour: {
 		learnset: {
 			aerialace: ["9M"],
 			agility: ["9M"],
