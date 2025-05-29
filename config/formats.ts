@@ -134,6 +134,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
 	},
 	{
@@ -144,6 +147,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['[Gen 9] Doubles OU'],
 		banlist: ['DOU', 'DBL'],
 	},
@@ -249,6 +255,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 
 		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['Standard'],
 		banlist: [
 			'AG',
@@ -263,6 +272,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 
 		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['[Gen 9] OU'],
 		banlist: ['OU', 'UUBL'],
 	},
