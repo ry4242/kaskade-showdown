@@ -1011,7 +1011,8 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "LC",
 	},
 	seadra: {
-		tier: "NFE",
+		isNonstandard: "Past",
+		tier: "Illegal",
 		natDexTier: "NFE",
 	},
 	kingdra: {
@@ -1115,7 +1116,8 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "LC",
 	},
 	magmar: {
-		tier: "NFE",
+		isNonstandard: "Past",
+		tier: "Illegal",
 		natDexTier: "NFE",
 	},
 	magmortar: {
@@ -1379,8 +1381,9 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "LC",
 	},
 	bayleef: {
-		tier: "NFE",
-		natDexTier: "NFE",
+		isNonstandard: "Past",
+		tier: "Illegal",
+		natDexTier: "LC",
 	},
 	meganium: {
 		isNonstandard: "Past",
@@ -1413,7 +1416,8 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "LC",
 	},
 	croconaw: {
-		tier: "NFE",
+		isNonstandard: "Past",
+		tier: "Illegal",
 		natDexTier: "NFE",
 	},
 	feraligatr: {
@@ -1766,17 +1770,18 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	teddiursa: {
-		tier: "LC",
+		isNonstandard: "Future",
+		tier: "Illegal",
 		natDexTier: "LC",
 	},
 	ursaring: {
-		tier: "NFE",
-		doublesTier: "NFE",
+		isNonstandard: "Future",
+		tier: "Illegal",
 		natDexTier: "NFE",
 	},
 	ursaluna: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
+		tier: "Illegal",
 		natDexTier: "OU",
 	},
 	ursalunabloodmoon: {
@@ -1954,7 +1959,8 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "LC",
 	},
 	grovyle: {
-		tier: "NFE",
+		isNonstandard: "Past",
+		tier: "Illegal",
 		natDexTier: "NFE",
 	},
 	sceptile: {
@@ -1973,7 +1979,8 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "LC",
 	},
 	combusken: {
-		tier: "NFE",
+		isNonstandard: "Past",
+		tier: "Illegal",
 		natDexTier: "NFE",
 	},
 	blaziken: {
@@ -1992,7 +1999,8 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "LC",
 	},
 	marshtomp: {
-		tier: "NFE",
+		isNonstandard: "Past",
+		tier: "Illegal",
 		natDexTier: "NFE",
 	},
 	swampert: {
