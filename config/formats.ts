@@ -22,7 +22,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	// SwSe Popular Randomized Metas
 	///////////////////////////////////////////////////////////////////
 
-	/* {
+	{
 		section: "SwSe Popular Randomized Metas",
 	},
 	{
@@ -34,7 +34,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		team: 'random',
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	},
-	{
+	/* {
 		name: "[Gen 9] Unrated Random Doubles Battle",
 
 		mod: 'swse',
@@ -43,7 +43,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		challengeShow: false,
 		rated: false,
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
-	},
+	}, */
 	{
 		name: "[Gen 9] Random Battle",
 		desc: `Randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
@@ -55,7 +55,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		tournamentShow: false,
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
-	{
+	/* {
 		name: "[Gen 9] Unrated Random Battle",
 
 		mod: 'swse',
@@ -266,7 +266,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['[Gen 9] OU'],
 		banlist: ['OU', 'UUBL'],
 	},
-	/* {
+	{
 		name: "[Gen 9] RU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3725482/">RU Metagame Discussion</a>`,
@@ -275,6 +275,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 
 		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['[Gen 9] UU'],
 		banlist: ['UU', 'RUBL'],
 	},
@@ -287,6 +290,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 
 		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['[Gen 9] RU'],
 		banlist: ['RU', 'NUBL', 'Quick Claw'],
 	},
@@ -294,9 +300,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] PU",
 
 		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['[Gen 9] NU'],
 		banlist: ['NU', 'PUBL'],
-	}, */
+	},
 	{
 		name: "[Gen 9] LC",
 		threads: [
@@ -363,17 +372,28 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'swse',
 		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
-	/* {
+	{
+		name: "[Gen 9] Ubers UU",
+		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 9] Ubers'],
+	},
+	{
 		name: "[Gen 9] ZU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3719022/">ZU Metagame Discussion</a>`,
 		],
 
 		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['[Gen 9] PU'],
 		banlist: ['PU'],
 	},
-	{
+	/* {
 		name: "[Gen 9] LC UU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3711750/">LC UU Metagame Discussion</a>`,
@@ -426,14 +446,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Hackmons Forme Legality', 'Species Reveal Clause', 'Endless Battle Clause'],
 	},
 
-	// OM of the Month
-	///////////////////////////////////////////////////////////////////
-
-	{
-		section: "OM of the Month",
-		column: 2,
-	},
-
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
 
@@ -447,9 +459,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause'],
-		banlist: [
-			'Baton Pass', 'Last Respects', 'Revival Blessing', 'Shed Tail',
-			'King\'s Rock',
+	},
+	{
+		name: "[Gen 9] STABmons",
+		desc: `Pok&eacute;mon can use any move of their typing, in addition to the moves they can normally learn.`,
+		mod: 'swse',
+		ruleset: ['Standard OMs', 'STABmons Move Legality', 'Sleep Moves Clause', 'Terastal Clause'],
+		restricted: [
+			'Astral Barrage', 'Acupressure', 'Belly Drum', 'Clangorous Soul', 'Ceaseless Edge', 'Dire Claw', 'Dragon Energy', 'Electro Shot', 'Extreme Speed', 'Fillet Away', 'Final Gambit',
+			'Flower Trick', 'Gigaton Hammer', 'No Retreat', 'Rage Fist', 'Revival Blessing', 'Shell Smash', 'Shift Gear', 'Triple Arrows', 'V-create', 'Victory Dance', 'Wicked Blow',
+			'Wicked Torque',
 		],
 	},
 
@@ -736,7 +755,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		challengeShow: false,
 		tournamentShow: false,
 		ruleset: ['Standard Doubles', 'Little Cup', 'Sleep Clause Mod'],
-		banlist: ['Basculin-White-Striped', 'Dunsparce', 'Duraludon', 'Gligar', 'Murkrow', 'Qwilfish-Hisui', 'Scyther', 'Sneasel', 'Sneasel-Hisui', 'Vulpix', 'Vulpix-Alola', 'Yanma'],
+		banlist: ['Basculin-White-Striped', 'Dunsparce', 'Duraludon', 'Girafarig', 'Gligar', 'Misdreavus', 'Murkrow', 'Qwilfish-Hisui', 'Scyther', 'Sneasel', 'Sneasel-Hisui', 'Vulpix', 'Vulpix-Alola', 'Yanma'],
 	},
 	{
 		name: "[Gen 9] VGC 2023 Reg D",
@@ -794,7 +813,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
 	},
 
-	// S/V Doubles
+	// S/V Unofficial Metagames
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -921,7 +940,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 
-	// Pet Mods
+	// S/V Pet Mods
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -970,7 +989,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 
-	// Draft League
+	// S/V Draft League
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -1105,7 +1124,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard Draft'],
 	},
 
-	// OM of the Month
+	// S/V OM of the Month
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -1255,7 +1274,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 
-	// Other Metagames
+	// S/V Other Metagames
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -1476,7 +1495,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['-Nonexistent', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
 	},
 
-	// Challengeable OMs
+	// S/V Challengeable OMs
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -1921,7 +1940,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 							(move.self as any)[i] = (forte.self as any)[i];
 						}
 					} else {
-						move.self = { ...(move.self || {}), ...forte.self };
+						move.self = { ...move.self, ...forte.self };
 					}
 				}
 				if (forte.selfBoost?.boosts) {
@@ -2929,7 +2948,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			},
 		},
 	},
-	/* {
+	{
 		name: "[Gen 9] The Card Game",
 		desc: `The type chart is simplified based off of the Pok&eacute;mon Trading Card Game.`,
 		mod: 'thecardgame',
@@ -2969,7 +2988,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			this.add('-start', pokemon, 'typechange', (pokemon.illusion || pokemon).getTypes(true).join('/'), '[silent]');
 			pokemon.apparentType = pokemon.getTypes(true).join('/');
 		},
-	}, */
+	},
 	{
 		name: "[Gen 9] The Loser's Game",
 		desc: `The first player to lose all of their Pok&eacute;mon wins.`,
@@ -3410,8 +3429,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard Doubles', 'NatDex Mod', 'Evasion Abilities Clause'],
 		banlist: [
 			'Arceus', 'Calyrex-Ice', 'Calyrex-Shadow', 'Dialga', 'Eternatus', 'Gengar-Mega', 'Giratina', 'Giratina-Origin', 'Groudon', 'Ho-Oh', 'Kyogre', 'Kyurem-White', 'Lugia', 'Lunala',
-			'Magearna', 'Melmetal', 'Mewtwo', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Rayquaza', 'Reshiram', 'Solgaleo', 'Xerneas', 'Yveltal', 'Zacian', 'Zacian-Crowned',
-			'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Complete', 'Power Construct', 'Shadow Tag', 'Coaching', 'Dark Void', 'Swagger',
+			'Magearna', 'Melmetal', 'Mewtwo', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Palkia', 'Rayquaza', 'Reshiram', 'Solgaleo', 'Venusaur', 'Xerneas', 'Yveltal', 'Zacian',
+			'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Zygarde-Complete', 'Power Construct', 'Shadow Tag', 'Ally Switch', 'Coaching', 'Dark Void', 'Swagger',
 		],
 	},
 	{
@@ -3439,7 +3458,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard AG', 'NatDex Mod'],
 	},
 
-	// Randomized Format Spotlight
+	// S/V Randomized Format Spotlight
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -3512,7 +3531,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 
-	// Randomized Metas
+	// S/V Randomized Metas
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -4230,7 +4249,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 
-	// RoA Spotlight
+	// S/V RoA Spotlight
 	///////////////////////////////////////////////////////////////////
 
 	{

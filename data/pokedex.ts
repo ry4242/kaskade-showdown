@@ -490,6 +490,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	spearow: {
 		num: 21,
@@ -1669,6 +1670,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Green",
 		evos: ["Drosabell"],
 		eggGroups: ["Grass"],
+		gen: 9,
 	},
 	weepinbell: {
 		num: 70,
@@ -2160,6 +2162,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "White",
 		evos: ["Haunter-Kaskade"],
 		eggGroups: ["Amorphous"],
+		gen: 9,
 	},
 	haunter: { // updated
 		num: 93,
@@ -2191,6 +2194,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Gastly-Kaskade",
 		evos: ["Gengar-Kaskade"],
 		eggGroups: ["Amorphous"],
+		gen: 9,
 	},
 	gengar: { // updated
 		num: 94,
@@ -2251,6 +2255,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "weather",
 		evoCondition: "Fog",
 		eggGroups: ["Amorphous"],
+		gen: 9,
 	},
 	onix: {
 		num: 95,
@@ -2822,6 +2827,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Smoochum",
 		evoType: "levelFriendship",
 		eggGroups: ["Human-Like"],
+		gen: 9,
 	},
 	electabuzz: {
 		num: 125,
@@ -3017,6 +3023,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 220,
 		color: "Blue",
 		eggGroups: ["Monster", "Water 1"],
+		gen: 9,
 	},
 	ditto: {
 		num: 132,
@@ -3926,6 +3933,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Azumarill-Kaskade"],
 		eggGroups: ["Water 1", "Fairy"],
 		canHatch: true,
+		gen: 9,
 	},
 	azumarill: { // updated
 		num: 184,
@@ -3956,6 +3964,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Marill-Kaskade",
 		evoLevel: 18,
 		eggGroups: ["Water 1", "Fairy"],
+		gen: 9,
 	},
 	sudowoodo: { // updated
 		num: 185,
@@ -3989,6 +3998,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Amaze-Drive",
 		eggGroups: ["Mineral"],
+		gen: 9,
 	},
 	politoed: {
 		num: 186,
@@ -4108,6 +4118,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Purple",
 		evos: ["Yanmage"],
 		eggGroups: ["Bug"],
+		gen: 9,
 	},
 	wooper: {
 		num: 194,
@@ -5719,6 +5730,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Loudred",
 		evoLevel: 40,
 		eggGroups: ["Monster", "Field"],
+		gen: 9,
 	},
 	makuhita: {
 		num: 296,
@@ -5777,6 +5789,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Marill-Kaskade"],
 		eggGroups: ["Water 1", "Fairy"],
 		canHatch: true,
+		gen: 9,
 	},
 	nosepass: { // updated
 		num: 299,
@@ -6639,6 +6652,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformsandy: {
 		num: 351,
@@ -6654,6 +6668,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformdusty: {
 		num: 351,
@@ -6669,6 +6684,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformallergy: {
 		num: 351,
@@ -6684,6 +6700,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformswarmy: {
 		num: 351,
@@ -6699,6 +6716,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformsmoggy: {
 		num: 351,
@@ -6714,6 +6732,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformlovely: {
 		num: 351,
@@ -6729,6 +6748,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformgutsy: {
 		num: 351,
@@ -6744,6 +6764,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformspooky: {
 		num: 351,
@@ -6759,6 +6780,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformzenny: {
 		num: 351,
@@ -6774,6 +6796,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformsorcery: {
 		num: 351,
@@ -6789,6 +6812,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformzappy: {
 		num: 351,
@@ -6804,6 +6828,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformwindy: {
 		num: 351,
@@ -6819,6 +6844,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredAbility: "Forecast",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	castformwhirly: {
 		num: 351,
@@ -6834,6 +6860,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy", "Amorphous"],
 		requiredItem: "Whirligig",
 		battleOnly: "Castform",
+		gen: 9,
 	},
 	kecleon: {
 		num: 352,
@@ -6938,6 +6965,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 193.5,
 		color: "Green",
 		eggGroups: ["Monster", "Grass"],
+		gen: 9,
 	},
 	chimecho: {
 		num: 358,
@@ -7707,6 +7735,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Brown",
 		evos: ["Bibarel-Kaskade"],
 		eggGroups: ["Water 1", "Field"],
+		gen: 9,
 	},
 	bibarel: { // updated
 		num: 400,
@@ -7737,6 +7766,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Bidoof-Kaskade",
 		evoLevel: 15,
 		eggGroups: ["Water 1", "Field"],
+		gen: 9,
 	},
 	kricketot: {
 		num: 401,
@@ -7790,6 +7820,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "White",
 		evos: ["Luxio-Kaskade"],
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	luxio: { // updated
 		num: 404,
@@ -7822,6 +7853,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 15,
 		evos: ["Luxray-Kaskade"],
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	luxray: { // updated
 		num: 405,
@@ -7852,6 +7884,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Luxio-Kaskade",
 		evoLevel: 30,
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	budew: {
 		num: 406,
@@ -8180,6 +8213,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "levelMove",
 		evoMove: "Rock Throw",
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	drifloon: { // updated
 		num: 425,
@@ -8223,6 +8257,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Amaze-Drive",
 		eggGroups: ["Amorphous"],
+		gen: 9,
 	},
 	buneary: {
 		num: 427,
@@ -8374,6 +8409,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Stunky",
 		evoLevel: 34,
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	bronzor: {
 		num: 436,
@@ -9162,6 +9198,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		gen: 9,
 	},
 	rotomsway: {
 		num: 479,
@@ -9177,6 +9214,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		gen: 9,
 	},
 	rotombrawl: {
 		num: 479,
@@ -9192,6 +9230,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		gen: 9,
 	},
 	rotomweb: {
 		num: 479,
@@ -9207,6 +9246,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		gen: 9,
 	},
 	rotomsol: {
 		num: 479,
@@ -9222,6 +9262,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Red",
 		eggGroups: ["Amorphous"],
 		changesFrom: "Rotom",
+		gen: 9,
 	},
 	uxie: {
 		num: 480,
@@ -10284,6 +10325,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Drilbur",
 		evoLevel: 31,
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	audino: {
 		num: 531,
@@ -10358,6 +10400,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 25,
 		evos: ["Conkeldurr-Kaskade"],
 		eggGroups: ["Human-Like"],
+		gen: 9,
 	},
 	conkeldurr: { // updated
 		num: 534,
@@ -10391,6 +10434,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Leaf Stone",
 		eggGroups: ["Human-Like"],
+		gen: 9,
 	},
 	tympole: {
 		num: 535,
@@ -11143,6 +11187,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Blue",
 		evos: ["Duosion-Kaskade"],
 		eggGroups: ["Amorphous"],
+		gen: 9,
 	},
 	duosion: { // updated
 		num: 578,
@@ -11175,6 +11220,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 32,
 		evos: ["Reuniclus-Kaskade"],
 		eggGroups: ["Amorphous"],
+		gen: 9,
 	},
 	reuniclus: { // updated
 		num: 579,
@@ -11206,6 +11252,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Water Stone",
 		eggGroups: ["Amorphous"],
+		gen: 9,
 	},
 	ducklett: { // updated
 		num: 580,
@@ -11790,6 +11837,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Brown",
 		evos: ["Golgre"],
 		eggGroups: ["Mineral"],
+		gen: 9,
 	},
 	golurk: {
 		num: 623,
@@ -12534,6 +12582,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "White",
 		evos: ["Diggersby-Kaskade"],
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	diggersby: { // updated
 		num: 660,
@@ -12564,6 +12613,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Bunnelby-Kaskade",
 		evoLevel: 20,
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	fletchling: {
 		num: 661,
@@ -12739,7 +12789,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Floette"],
 		eggGroups: ["Fairy"],
 		cosmeticFormes: ["Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-White", "Flabe\u0301be\u0301-Yellow"],
-		formeOrder: ["Flabe\u0301be\u0301", "Flabe\u0301be\u0301-Yellow", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-White"],
+		formeOrder: ["Flabe\u0301be\u0301", "Flabe\u0301be\u0301-Yellow", "Flabe\u0301be\u0301-Orange", "Flabe\u0301be\u0301-Blue", "Flabe\u0301be\u0301-White"],
 	},
 	floette: { // updated
 		num: 670,
@@ -12758,7 +12808,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Fairy"],
 		otherFormes: ["Floette-Eternal"],
 		cosmeticFormes: ["Floette-Blue", "Floette-Orange", "Floette-White", "Floette-Yellow"],
-		formeOrder: ["Floette", "Floette-Yellow", "Floette-Blue", "Floette-Orange", "Floette-White", "Floette-Eternal"],
+		formeOrder: ["Floette", "Floette-Yellow", "Floette-Orange", "Floette-Blue", "Floette-White", "Floette-Eternal"],
 	},
 	floetteeternal: {
 		num: 670,
@@ -12790,7 +12840,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Dawn Stone",
 		eggGroups: ["Fairy"],
 		cosmeticFormes: ["Florges-Blue", "Florges-Orange", "Florges-White", "Florges-Yellow"],
-		formeOrder: ["Florges", "Florges-Yellow", "Florges-Blue", "Florges-Orange", "Florges-White"],
+		formeOrder: ["Florges", "Florges-Yellow", "Florges-Orange", "Florges-Blue", "Florges-White"],
 	},
 	skiddo: {
 		num: 672,
@@ -13370,6 +13420,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Brown",
 		evos: ["Trevenant-Kaskade"],
 		eggGroups: ["Grass", "Amorphous"],
+		gen: 9,
 	},
 	trevenant: { // updated
 		num: 709,
@@ -13401,6 +13452,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "weather",
 		evoCondition: "Paranormal Activity starting at level 30",
 		eggGroups: ["Grass", "Amorphous"],
+		gen: 9,
 	},
 	pumpkaboo: {
 		num: 710,
@@ -13728,6 +13780,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 8.8,
 		color: "White",
 		eggGroups: ["Undiscovered"],
+		gen: 9,
 	},
 	hoopa: {
 		num: 720,
@@ -14095,6 +14148,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "other",
 		evoCondition: "Level up while knowing a Poison-type move",
 		eggGroups: ["Water 3"],
+		gen: 9,
 	},
 	oricorio: {
 		num: 741,
@@ -14670,6 +14724,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Sandygast",
 		evoLevel: 42,
 		eggGroups: ["Amorphous"],
+		gen: 9,
 	},
 	pyukumuku: {
 		num: 771,
@@ -15155,6 +15210,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 19,
 		color: "Orange",
 		eggGroups: ["Water 2"],
+		gen: 9,
 	},
 	drampa: {
 		num: 780,
@@ -16048,6 +16104,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		prevo: "Wooloo",
 		evoLevel: 24,
 		eggGroups: ["Field"],
+		gen: 9,
 	},
 	chewtle: {
 		num: 833,
@@ -22084,14 +22141,14 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "weather",
 		evoCondition: "Paranormal Activity with high Friendship",
 		eggGroups: ["Field"],
-		otherFormes: ["Bearvoyance-White"],
-		formeOrder: ["Bearvoyance", "Bearvoyance-White"],
+		otherFormes: ["Bearvoyance-Awakened"],
+		formeOrder: ["Bearvoyance", "Bearvoyance-Awakened"],
 	},
-	bearvoyancewhite: {
+	bearvoyanceawakened: {
 		num: 10095,
-		name: "Bearvoyance-White",
+		name: "Bearvoyance-Awakened",
 		baseSpecies: "Bearvoyance",
-		forme: "White",
+		forme: "Awakened",
 		types: ["Ghost", "Psychic"],
 		baseStats: { hp: 100, atk: 50, def: 90, spa: 100, spd: 110, spe: 50 },
 		abilities: { 0: "Consecration" },

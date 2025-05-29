@@ -22991,10 +22991,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
 			for (const ally of allies) {
 				if (ally !== source && !this.suppressingAbility(ally)) {
-					if (ally.hasAbility('sapsipper')) {
-						this.add('-immune', ally, '[from] ability: Sap Sipper');
-						continue;
-					}
 					if (ally.hasAbility('goodasgold')) {
 						this.add('-immune', ally, '[from] ability: Good as Gold');
 						continue;
@@ -23307,7 +23303,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		},
 		secondary: null,
 		target: "normal",
-		type: "Poison",
+		type: "Ice",
 		contestType: "Beautiful",
 	},
 	haunt: { // tested, works as intended
@@ -23468,20 +23464,21 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: { protect: 1, reflectable: 1, mirror: 1, snatch: 1, metronome: 1 },
 		onHit(target, source) {
 			const outcomes = [
-				'sleepTarget', // nat12
-				'paralyzeTarget', // nat11
-				'confuseTarget', // nat10
-				'disableMoveTarget', // nat9
-				'healUser', // nat8
-				'hurtTarget', // nat7
-				'disableMoveUser', // nat6
-				'confuseUser', // nat5
-				'hurtUser', // nat4
-				'healTarget', // nat3
-				'paralyzeUser', // nat2
 				'sleepUser', // nat1
+				'paralyzeUser', // nat2
+				'healTarget', // nat3
+				'hurtUser', // nat4
+				'confuseUser', // nat5
+				'disableMoveUser', // nat6
+				'hurtTarget', // nat7
+				'healUser', // nat8
+				'disableMoveTarget', // nat9
+				'confuseTarget', // nat10
+				'paralyzeTarget', // nat11
+				'sleepTarget', // nat12
 			];
-			const randomOutcome = this.sample(outcomes);
+			const roll = this.random(12);
+			const randomOutcome = outcomes[roll];
 			switch (randomOutcome) {
 			case 'healTarget':
 				this.heal(target.maxhp / 4, target, target);
@@ -23601,10 +23598,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			const allies = [...target.side.pokemon, ...target.side.allySide?.pokemon || []];
 			for (const ally of allies) {
 				if (ally !== source && !this.suppressingAbility(ally)) {
-					if (ally.hasAbility('sapsipper')) {
-						this.add('-immune', ally, '[from] ability: Sap Sipper');
-						continue;
-					}
 					if (ally.hasAbility('goodasgold')) {
 						this.add('-immune', ally, '[from] ability: Good as Gold');
 						continue;
@@ -23644,7 +23637,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			if (['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
 				move.target = "allAdjacent";
 			}
-			if (target && ['swarmsigal'].includes(target.effectiveIrritantWeather())) {
+			if (target && ['swarmsignal'].includes(target.effectiveIrritantWeather())) {
 				move.accuracy = true;
 			}
 		},
@@ -24042,7 +24035,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				}
 			},
 			onTryBoost(boost, target, source, effect) {
-				if (!source.volatiles['mist']) {
+				if (!source?.volatiles['mist']) {
 					if (effect.effectType === 'Move' && effect.infiltrates && !target.isAlly(source)) return;
 					if (source && target !== source) {
 						let showMsg = false;
@@ -24158,23 +24151,17 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1 },
 		onHit(target, source, move) {
-			const targets: Pokemon[] = [];
-			for (const pokemon of this.getAllActive()) {
-				if (this.runEvent('Invulnerability', pokemon, source, move) === false) {
-					this.add('-miss', source, pokemon);
-				} else if (this.runEvent('TryHit', pokemon, source, move) && pokemon.getItem().isBerry) {
-					targets.push(pokemon);
-				}
+			if (this.runEvent('Invulnerability', target, source, move) === false) {
+				this.add('-miss', source, target);
+				return this.NOT_FAIL;
 			}
-			this.add('-activate', 'move: Scavenge');
-			if (!targets.length) {
+			if (!this.runEvent('TryHit', target, source, move) || !target.getItem().isBerry) {
 				this.add('-fail', source, 'move: Scavenge');
 				this.attrLastMove('[still]');
 				return this.NOT_FAIL;
 			}
-			for (const pokemon of targets) {
-				pokemon.eatItem(true);
-			}
+			this.add('-activate', 'move: Scavenge');
+			target.eatItem(true);
 		},
 		onAfterHit(target, source, move) {
 			if (source.item || source.volatiles['gem']) {
@@ -24563,16 +24550,18 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		onTry(source) {
 			return ['sunnyday'].includes(source.effectiveClimateWeather());
 		},
-		onHitSide(side, source, move) {
-			const targets = side.allies();
-			if (!targets.length) return false;
-			let didSomething = false;
-			for (const target of targets) {
-				didSomething = this.boost({ def: 1, spd: 1 }, target, source, move, false, true) || didSomething;
-			}
-			return didSomething;
-		},
 		volatileStatus: "sunscreen",
+		condition: {
+			onTryHitSide(side, source, move) {
+				const targets = side.allies();
+				if (!targets.length) return false;
+				let didSomething = false;
+				for (const target of targets) {
+					didSomething = this.boost({ def: 1, spd: 1 }, target, source, move, false, true) || didSomething;
+				}
+				return didSomething;
+			},
+		},
 		secondary: null,
 		target: "allySide",
 		type: "Fire",
@@ -24641,44 +24630,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "allAdjacentFoes",
 		type: "Fire",
 	},
-	/* thousandarms: { // tested, works as intended TODO: ensure it always shows as normal type
-		num: -493,
-		accuracy: 100,
-		basePower: 60,
-		category: "Special",
-		name: "Thousand Arms",
-		pp: 15,
-		priority: 0,
-		flags: { protect: 1, mirror: 1, metronome: 1, nosketch: 1 },
-		onModifyType(move, pokemon, target) {
-			const effectivenessTable: { [id: string]: number } = {};
-			let highestEffectiveness = 0;
-			const fullArray = ['Bug', 'Dark', 'Dragon', 'Electric', 'Fairy', 'Fighting', 'Fire', 'Flying',
-				'Ghost', 'Grass', 'Ground', 'Ice', 'Normal', 'Poison', 'Psychic', 'Rock', 'Steel', 'Water'];
-			const bestTypes = [];
-			for (const type of fullArray) {
-				const effectiveness = this.dex.getEffectiveness(type, target);
-				effectivenessTable[type] = effectiveness;
-				if (effectiveness > highestEffectiveness) highestEffectiveness = effectiveness;
-			}
-			for (const type of fullArray) {
-				if (effectivenessTable[type] === highestEffectiveness) bestTypes.push(type);
-			}
-			move.type = this.sample(bestTypes);
-			this.debug("Thousand Arms: " + move.type);
-		},
-		onTry(source, target, move) {
-			if (source.baseSpecies.name === 'Unown' || move.hasBounced) {
-				return;
-			}
-			this.add('-fail', source, 'move: Thousand Arms');
-			this.hint("Only a Pokemon whose form is Unown can use this move.");
-			return null;
-		},
-		secondary: null,
-		target: "normal",
-		type: "Normal",
-	}, */
 	thunderhammer: { // tested, works as intended
 		num: -48,
 		accuracy: 100,
@@ -24819,19 +24770,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		onTryHit(source, target, move) {
-			if (source.hasAbility('powerwithin')) {
-				const result = this.random(3);
-				if (result === 0) {
-					this.debug("fire type");
-					move.type = "Fire";
-				} else if (result === 1) {
-					this.debug("water type");
-					move.type = "Water";
-				} else {
-					this.debug("grass type");
-					move.type = "Grass";
-				}
-			}
 			if (source.hasAbility('powerabove')) {
 				const result = this.random(3);
 				if (result === 0) {
@@ -24843,6 +24781,18 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				} else {
 					this.debug("electric type");
 					move.type = "Electric";
+				}
+			} else if (source.hasAbility('powerwithin')) {
+				const result = this.random(3);
+				if (result === 0) {
+					this.debug("fire type");
+					move.type = "Fire";
+				} else if (result === 1) {
+					this.debug("water type");
+					move.type = "Water";
+				} else {
+					this.debug("grass type");
+					move.type = "Grass";
 				}
 			}
 		},

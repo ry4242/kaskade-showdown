@@ -3338,6 +3338,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			this.boost(this.effectState.boosts, this.effectState.target);
 			delete this.effectState.boosts;
 		},
+		onAnyAfterMega() {
+			if (!this.effectState.boosts) return;
+			this.boost(this.effectState.boosts, this.effectState.target);
+			delete this.effectState.boosts;
+		},
+		onAnyAfterTerastallization() {
+			if (!this.effectState.boosts) return;
+			this.boost(this.effectState.boosts, this.effectState.target);
+			delete this.effectState.boosts;
+		},
 		onAnyAfterMove() {
 			if (!this.effectState.boosts) return;
 			this.boost(this.effectState.boosts, this.effectState.target);
@@ -6219,7 +6229,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			switch (pokemon.effectiveEnergyWeather()) {
 			case 'haunt':
 			case 'daydream':
-				if (pokemon.species.id !== 'bearvoyancewhite') forme = 'Bearvoyance-White';
+				if (pokemon.species.id !== 'bearvoyanceawakened') forme = 'Bearvoyance-Awakened';
 				break;
 			default:
 				if (pokemon.species.id !== 'bearvoyance') forme = 'Bearvoyance';
@@ -6235,7 +6245,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			switch (pokemon.effectiveEnergyWeather()) {
 			case 'haunt':
 			case 'daydream':
-				if (pokemon.species.id !== 'bearvoyancewhite') forme = 'Bearvoyance-White';
+				if (pokemon.species.id !== 'bearvoyanceawakened') forme = 'Bearvoyance-Awakened';
 				break;
 			default:
 				if (pokemon.species.id !== 'bearvoyance') forme = 'Bearvoyance';
@@ -6356,6 +6366,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Energizer",
 		rating: 2.5,
 		num: -34,
+	},
+	enjoin: {
+		onStart(target) {
+			this.hint("Enjoin has no effect!", true);
+		},
+		flags: {},
+		name: "Enjoin",
+		rating: 0,
+		num: -6969,
 	},
 	eventide: { // tested, works as intended
 		onStart(source) {
@@ -7276,7 +7295,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	souldrain: { // tested, works as intended
 		onAnyFaintPriority: 1,
 		onAnyFaint(target, source, effect) {
-			if (effect.effectType === 'Move' || !this.effectState.target.hp) return;
+			if (!effect || effect.effectType === 'Move' || !this.effectState.target.hp) return;
 			if (['haunt'].includes(this.effectState.target.effectiveEnergyWeather())) {
 				this.heal(3 * this.effectState.target.baseMaxhp / 8, this.effectState.target, this.effectState.target);
 			} else {

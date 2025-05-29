@@ -2345,8 +2345,8 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	consecration: {
 		name: "Conseceration",
-		desc: "If this Pokemon is a Bearvoyance, it will change to White Form if Paranormal Activity or Dreamscape is active.",
-		shortDesc: "If user is a Bearvoyance, changes to White Form in P.Activity/Dreamscape.",
+		desc: "If this Pokemon is a Bearvoyance, it will change to Awakened Form if Paranormal Activity or Dreamscape is active.",
+		shortDesc: "If user is a Bearvoyance, changes to Awakened Form in P.Activity/Dreamscape.",
 
 		transform: "[POKEMON] awakened its power!",
 		transformEnd: "[POKEMON]'s power has faded!",

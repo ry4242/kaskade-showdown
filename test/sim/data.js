@@ -194,6 +194,9 @@ describe('Dex data', () => {
 		for (const formatid in Rulesets) {
 			const entry = Rulesets[formatid];
 			assert.equal(toID(entry.name), formatid, `Mismatched Ruleset key "${formatid}" of "${entry.name}"`);
+			if (entry.mod) {
+				assert.equal(toID(entry.mod) || undefined, entry.mod, `Mod of "${formatid}" must be an ID"`);
+			}
 		}
 	});
 
@@ -293,11 +296,12 @@ describe('Dex data', () => {
 	// Existence function takes a Pokemon and returns yes if it exists and no otherwise
 	// can be override for testing CAPs
 	function countPokemon(dex, existenceFunction = s => s.exists && !s.isNonstandard && s.tier !== 'Illegal') {
-		const count = { species: 0, formes: 0 };
+		const count = { species: 0, formes: 0, formeNames: [] };
 		for (const pkmn of dex.species.all()) {
 			if (!existenceFunction(pkmn)) continue;
 			if (pkmn.name !== pkmn.baseSpecies) {
 				count.formes++;
+				count.formeNames.push(pkmn.name);
 			} else {
 				count.species++;
 			}
@@ -317,7 +321,7 @@ describe('Dex data', () => {
 		6: 721,
 		7: 807,
 		8: 664,
-		9: 733,
+		9: 194,
 	};
 	const formes = {
 		// Gens 1 and 2 have no alternate formes
@@ -353,16 +357,18 @@ describe('Dex data', () => {
 	formes[8] = 17 + 5 + 1 + 1 + 1 + 3 + 3 + 7 + 14 + 8 +
 		1 + 1 + 1 + 2 + 1 + 2 + 2 + 2 + 1 + 1 + 2 + 2 + 1 +
 		(4 + 1 + 1 + 1 + 1 + 2 + (1 + 1)) + (1 + 3 + 4 + 2 + 3 + 1 + 2);
-	// Alola (2) + Galar (0) Hisui (1) + Paldea (0) + Kaskade (15) + Amaze-All (2) +
-	// Cherrim (1) + Snover (1) + Abomasnow (1) + Vivillon (2) + Pumpkaboo (3) + Gourgeist (3) +
-	// Mimikyu (1) + Mimikyu (1) + Eecroach (1) + Stackem (1) + Mosskrat (1)
-	formes[9] = 35;
+	// Alola (2) + Galar (2) + Hisui (3) + Paldea (1) + Kaskade (20) + Amaze-All (2) +
+	// Castform (17) + Cherrim (1) + Snover (1) + Abomasnow (1) + Rotom (10) + Basculin (1) +
+	// Vivillon (2) + Pumpkaboo (3) + Gourgeist (3) + Mimikyu (1) + Basculegion (1) + Dudunsparce (1) +
+	// Eecroach (1) + Stackem (1) + Mosskrat (1) + Bearvoyance (1)
+	formes[9] = 76;
 
 	for (const gen of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
 		it(`Gen ${gen} should have ${species[gen]} species and ${formes[gen]} formes`, () => {
 			const count = countPokemon(Dex.forGen(gen));
 			assert.equal(count.species, species[gen]);
 			assert.equal(count.formes, formes[gen]);
+			// console.log(`Gen ${gen} formes (${count.formes}):`, count.formeNames.join(', '));
 		});
 	}
 
