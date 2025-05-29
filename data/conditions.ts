@@ -1550,14 +1550,14 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 						if (target.hasAbility('lightningrod') || target.hasAbility('powerplumage')) {
 							thunderArmorPresent = false;
 							for (const ally of target.alliesAndSelf()) {
-								if (ally.hasAbility('thunderarmor')) thunderArmorPresent = true;
+								if (ally.hasAbility('forked')) thunderArmorPresent = true;
 							}
 							if (!thunderArmorPresent) validTargets.push(target);
 						}
 					} else {
 						thunderArmorPresent = false;
 						for (const ally of target.alliesAndSelf()) {
-							if (ally.hasAbility('thunderarmor')) thunderArmorPresent = true;
+							if (ally.hasAbility('forked')) thunderArmorPresent = true;
 						}
 						if (!thunderArmorPresent) validTargets.push(target);
 					}

@@ -6512,29 +6512,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: -48,
 	},
-	forked: { // not implemented
-		onTryHit(target, source, move) {
-			if (target !== source && move.type === 'Electric') {
-				if (!this.boost({ spa: 1 })) {
-					this.add('-immune', target, '[from] ability: Forked');
-				}
-				return null;
-			}
-		},
-		onAnyRedirectTarget(target, source, source2, move) {
-			if (move.flags['pledgecombo']) return;
-			if (move.type === 'Electric' || source2.energyWeather === 'supercell') {
-				const redirectTarget = ['randomNormal', 'adjacentFoe'].includes(move.target) ? 'normal' : move.target;
-				if (this.validTarget(this.effectState.target, source, redirectTarget)) {
-					if (move.smartTarget) move.smartTarget = false;
-					if (this.effectState.target !== target) {
-						this.add('-activate', this.effectState.target, 'ability: Forked');
-					}
-					return this.effectState.target;
-				}
-			}
-		},
-		flags: { breakable: 1 },
+	forked: { // tested, works as intended
+		// implemented in conditions.ts
+		flags: {},
 		name: "Forked",
 		rating: 0.1,
 		num: -106,
@@ -7404,13 +7384,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		name: "Sweet Dreams",
 		rating: 1.5,
 		num: -30,
-	},
-	thunderarmor: { // tested, works as intended
-		// implemented in data/conditions.ts
-		flags: {},
-		name: "Thunder Armor",
-		rating: 0.1,
-		num: -35,
 	},
 	tobe: { // Complete.
 		onTryHit(pokemon, target, move) {
