@@ -101834,7 +101834,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			leer: ["9L1"],
 			lightscreen: ["9M"],
 			magnetize: ["9M"],
-			metalcaw: ["9L1"],
+			metalclaw: ["9L1"],
 			nastyplot: ["9M", "9L20"],
 			nightshade: ["9L1"],
 			phantomforce: ["9L60"],
