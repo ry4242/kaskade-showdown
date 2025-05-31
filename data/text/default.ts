@@ -417,12 +417,12 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 
 	// Cataclysm
 
-	cataclysmiclight: {
+	/* cataclysmiclight: {
 		weatherName: "Ultra Radiance",
 		start: "  An otherworldly light radiates across the battlefield!",
 		end: "  The light vanished.",
 		upkeep: "  (The otherworldly light shines brilliantly.)",
-	},
+	}, */
 
 	// extra weather
 

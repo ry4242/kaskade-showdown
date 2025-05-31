@@ -22510,7 +22510,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Endram-Odai",
 		types: ["Dragon", "Fairy"],
 		baseStats: { hp: 157, atk: 73, def: 107, spa: 173, spd: 137, spe: 89 },
-		abilities: { 0: "Cataclysmic Light" },
+		abilities: { 0: "Pressure" },
 		heightm: 525,
 		weightkg: 766,
 		color: "Green",

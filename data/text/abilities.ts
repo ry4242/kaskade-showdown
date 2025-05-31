@@ -2331,10 +2331,10 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		desc: "If Smog is active, this Pokemon's Poison-type attacks have their power multiplied by 1.5. This Pokemon cannot be poisoned by Smog. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Smog is active, this Pokemon's Poison-type attacks have 1.5x power.",
 	},
-	cataclysmiclight: {
+	/* cataclysmiclight: {
 		name: "Cataclysmic Light",
 		shortDesc: "On switch-in, Ultra Radiance begins until this Ability is not active in battle.",
-	},
+	}, */
 	chakra: {
 		name: "Chakra",
 		shortDesc: "This Pokemon's Fairy-type moves have 1.3x power.",
