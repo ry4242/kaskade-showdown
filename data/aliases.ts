@@ -2386,6 +2386,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	// formes
 
 	abomasnowhighland: "Abomasnow",
+	bearvoyancea: "Bearvoyance-Awakened",
 	droutwet: "Drout",
 	eecroachsolo: "Eecroach",
 	mosskratlakebloom: "Mosskrat",

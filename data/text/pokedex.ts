@@ -3767,4 +3767,13 @@ export const PokedexText: { [id: IDEntry]: PokedexText } = {
 	pokestarufopropu2: {
 		name: "Pokestar UFO-PropU2",
 	},
+
+	// swse
+
+	bearvoyance: {
+		name: "Bearvoyance",
+	},
+	bearvoyanceawakened: {
+		name: "Bearvoyance-Awakened",
+	},
 };

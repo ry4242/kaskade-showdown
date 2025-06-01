@@ -22131,6 +22131,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	bearvoyance: {
 		num: 10095,
 		name: "Bearvoyance",
+		baseForme: "Dormant",
 		types: ["Ghost", "Psychic"],
 		baseStats: { hp: 100, atk: 50, def: 90, spa: 100, spd: 110, spe: 50 },
 		abilities: { 0: "Consecration" },
