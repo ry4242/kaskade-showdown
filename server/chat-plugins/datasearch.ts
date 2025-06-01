@@ -606,6 +606,7 @@ export const commands: Chat.ChatCommands = {
 		if (weathergy.setupAbility || weathergy.setupMove) {
 			html += `<p><b>Setup Ability:</b> ${weathergy.setupAbility || '-'}<br /><b>Setup Move:</b> ${weathergy.setupMove || '-'}</p>`;
 		}
+		html = html.replace(/(<br\s*\/?>|\s)*$/, '');
 		this.sendReplyBox(html);
 	},
 	weathergyhelp() {
