@@ -22150,7 +22150,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		baseSpecies: "Bearvoyance",
 		forme: "Awakened",
 		types: ["Ghost", "Psychic"],
-		baseStats: { hp: 100, atk: 50, def: 90, spa: 100, spd: 110, spe: 50 },
+		baseStats: { hp: 100, atk: 50, def: 120, spa: 130, spd: 140, spe: 60 },
 		abilities: { 0: "Consecration" },
 		heightm: 525,
 		weightkg: 500,
