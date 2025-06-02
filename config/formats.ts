@@ -123,9 +123,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
 		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
