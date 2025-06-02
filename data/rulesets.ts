@@ -80,6 +80,14 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 			'Species Clause', 'Nickname Clause', 'OHKO Clause', 'Evasion Moves Clause', 'Gravity Sleep Clause',
 		],
 	},
+	doesnothing: {
+		effectType: 'ValidatorRule',
+		name: 'Does Nothing',
+		desc: "Does nothing",
+		ruleset: [
+
+		],
+	},
 	standardoms: {
 		effectType: 'ValidatorRule',
 		name: 'Standard OMs',
