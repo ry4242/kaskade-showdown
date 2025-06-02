@@ -131,10 +131,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Doubles OU",
-		threads: [
-			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
-		],
-
 		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
