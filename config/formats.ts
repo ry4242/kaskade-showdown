@@ -134,7 +134,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
-		banlist: ['DUber', 'Shadow Tag'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 9] Doubles OU 2: Electric Boogaloo",
+		mod: 'swse',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
 	{
 		name: "[Gen 9] Doubles UU",
@@ -760,8 +767,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Doubles OU OLD",
-		mod: 'swse',
+		mod: 'gen9',
 		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
 		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Shadow Tag'],
 	},
