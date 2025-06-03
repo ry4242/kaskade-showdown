@@ -559,7 +559,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	// S/V Singles
 	///////////////////////////////////////////////////////////////////
-/* 
+
 	{
 		section: "S/V Singles",
 	},
@@ -760,11 +760,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] Doubles OU OLD",
-		mod: 'gen9',
+		mod: 'swse',
 		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Shadow Tag'],
 	},
@@ -979,7 +976,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Ursaring', 'Vulpix-Base', 'Arena Trap', 'Magnet Pull', 'Shadow Tag', 'Baton Pass',
 		],
 	},
- */
+
 	// S/V Pet Mods
 	///////////////////////////////////////////////////////////////////
 
