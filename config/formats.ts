@@ -134,7 +134,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'swse',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
-		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+		banlist: ['DUber', 'Shadow Tag'],
 	},
 	{
 		name: "[Gen 9] Doubles UU",
