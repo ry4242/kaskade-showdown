@@ -109,6 +109,119 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 
+	// SwSe Doubles
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "SwSe Doubles",
+	},
+	{
+		name: "[Gen 9] Tso-Lo Doubles OU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 9] Doubles OU",
+		mod: 'swse',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 9] Doubles UU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3712825/">Doubles UU</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 9] Doubles OU'],
+		banlist: ['DOU', 'DBL'],
+	},
+	{
+		name: "[Gen 9] Doubles LC",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3710957/">Doubles LC</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Little Cup'],
+		banlist: [],
+	},
+	{
+		name: "[Gen 9] Doubles Ubers",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3712864/">Doubles Ubers</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
+	},
+	{
+		name: "[Gen 9] Doubles Monotype",
+		desc: `Double battle where all Pok&eacute;mon on your team must share a common type.`,
+		threads: [
+			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Same Type Clause'],
+		banlist: [
+			'Arena Trap', 'Shadow Tag',
+		],
+	},
+	{
+		name: "[Gen 9] 2v2 Doubles",
+		desc: `Double battle where you bring four Pok&eacute;mon to Team Preview and choose only two.`,
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3710849/">2v2 Doubles</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: [
+			'Picked Team Size = 2', 'Max Team Size = 4',
+			'Standard Doubles', 'Accuracy Moves Clause', 'Sleep Clause Mod',
+		],
+		banlist: [
+			'Commander',
+			'Ally Switch', 'Final Gambit', 'Perish Song',
+			'Focus Band', 'Focus Sash', 'King\'s Rock', 'Quick Claw',
+		],
+	},
+	{
+		name: "[Gen 9] Doubles Custom Game",
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		battle: { trunc: Math.trunc },
+		debug: true,
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+
 	// SwSe Singles
 	///////////////////////////////////////////////////////////////////
 
@@ -253,119 +366,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		debug: true,
 		battle: { trunc: Math.trunc },
-		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
-	},
-
-	// SwSe Doubles
-	///////////////////////////////////////////////////////////////////
-
-	{
-		section: "SwSe Doubles",
-	},
-	{
-		name: "[Gen 9] Tso-Lo Doubles OU",
-		threads: [
-			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
-		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
-	},
-	{
-		name: "[Gen 9] Doubles OU",
-		mod: 'swse',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
-		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
-	},
-	{
-		name: "[Gen 9] Doubles UU",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3712825/">Doubles UU</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 9] Doubles OU'],
-		banlist: ['DOU', 'DBL'],
-	},
-	{
-		name: "[Gen 9] Doubles LC",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3710957/">Doubles LC</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Little Cup'],
-		banlist: [],
-	},
-	{
-		name: "[Gen 9] Doubles Ubers",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3712864/">Doubles Ubers</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
-	},
-	{
-		name: "[Gen 9] Doubles Monotype",
-		desc: `Double battle where all Pok&eacute;mon on your team must share a common type.`,
-		threads: [
-			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Same Type Clause'],
-		banlist: [
-			'Arena Trap', 'Shadow Tag',
-		],
-	},
-	{
-		name: "[Gen 9] 2v2 Doubles",
-		desc: `Double battle where you bring four Pok&eacute;mon to Team Preview and choose only two.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3710849/">2v2 Doubles</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: [
-			'Picked Team Size = 2', 'Max Team Size = 4',
-			'Standard Doubles', 'Accuracy Moves Clause', 'Sleep Clause Mod',
-		],
-		banlist: [
-			'Commander',
-			'Ally Switch', 'Final Gambit', 'Perish Song',
-			'Focus Band', 'Focus Sash', 'King\'s Rock', 'Quick Claw',
-		],
-	},
-	{
-		name: "[Gen 9] Doubles Custom Game",
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		battle: { trunc: Math.trunc },
-		debug: true,
 		// no restrictions, for serious (other than team preview)
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
 	},
@@ -559,7 +559,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	// S/V Singles
 	///////////////////////////////////////////////////////////////////
-
+/* 
 	{
 		section: "S/V Singles",
 	},
@@ -979,7 +979,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Ursaring', 'Vulpix-Base', 'Arena Trap', 'Magnet Pull', 'Shadow Tag', 'Baton Pass',
 		],
 	},
-
+ */
 	// S/V Pet Mods
 	///////////////////////////////////////////////////////////////////
 
