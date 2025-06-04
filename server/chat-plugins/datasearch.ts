@@ -600,7 +600,7 @@ export const commands: Chat.ChatCommands = {
 		const displayName = weathergy.names[0];
 		html += `<h2>${displayName}</h2><p>${Utils.escapeHTML(weathergy.desc)}</p>`;
 		if (weathergy.strongWindsBoosted) {
-			html += `<p><b>Strong Winds Boosted:</b> ${Utils.escapeHTML(weathergy.strongWindsBoosted)}</p>`;
+			html += `<p><b>Strong Winds boosted:</b> ${Utils.escapeHTML(weathergy.strongWindsBoosted)}</p>`;
 		}
 		if (weathergy.extra) html += `<p>${Utils.escapeHTML(weathergy.extra)}</p>`;
 		if (weathergy.setupAbility || weathergy.setupMove) {
