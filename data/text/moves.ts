@@ -1870,8 +1870,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	expandingforce: {
 		name: "Expanding Force",
-		desc: "If the current terrain is Psychic Terrain and the user is grounded or Dreamscape is active, this move hits all opposing Pokemon and has its power multiplied by 1.5.",
-		shortDesc: "Psychic Terrain/Dreamscape: 1.5x power, hits foes.",
+		desc: "If the current terrain is Psychic Terrain and the user is grounded, this move hits all opposing Pokemon and has its power multiplied by 1.5.",
+		shortDesc: "User on Psychic Terrain: 1.5x power, hits foes.",
 	},
 	explosion: {
 		name: "Explosion",
@@ -2712,8 +2712,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	grassyglide: {
 		name: "Grassy Glide",
-		desc: "If the current terrain is Grassy Terrain and the user is grounded or if Pollen Storm is active, this move has its priority increased by 1.",
-		shortDesc: "Grassy Terrain/Pollen Storm: +1 priority.",
+		desc: "If the current terrain is Grassy Terrain and the user is grounded, this move has its priority increased by 1.",
+		shortDesc: "User on Grassy Terrain: +1 priority.",
 	},
 	grassyterrain: {
 		name: "Grassy Terrain",
@@ -4268,10 +4268,10 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 		desc: "Has a 50% chance to lower the target's Special Attack by 1 stage.",
 		shortDesc: "50% chance to lower the target's Sp. Atk by 1.",
 	},
-	mistyexplosion: { // updated
+	mistyexplosion: {
 		name: "Misty Explosion",
-		desc: "If the current terrain is Misty Terrain and the user is grounded or Fairy Dust is active, this move's power is multiplied by 1.5. The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokemon has the Damp Ability.",
-		shortDesc: "User faints. Misty Terrain/Fairy Dust: 1.5x power.",
+		desc: "If the current terrain is Misty Terrain and the user is grounded, this move's power is multiplied by 1.5. The user faints after using this move, even if this move fails for having no target. This move is prevented from executing if any active Pokemon has the Damp Ability.",
+		shortDesc: "User faints. User on Misty Terrain: 1.5x power.",
 	},
 	mistyterrain: {
 		name: "Misty Terrain",
@@ -5303,8 +5303,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	risingvoltage: {
 		name: "Rising Voltage",
-		desc: "If the current terrain is Electric Terrain and the target is grounded or Thunderstorm is active, this move's power is doubled.",
-		shortDesc: "2x power if target is in Thunderstorm/E.Terrain.",
+		desc: "If the current terrain is Electric Terrain and the target is grounded, this move's power is doubled.",
+		shortDesc: "2x power if target is grounded in Electric Terrain.",
 	},
 	roar: {
 		name: "Roar",
