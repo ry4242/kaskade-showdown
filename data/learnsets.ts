@@ -20266,7 +20266,6 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	},
 	eevee: {
 		learnset: {
-			alluringvoice: ["9M"],
 			attract: ["8M", "7M", "7V", "6M", "5M", "5S2", "4M", "4S0", "3M"],
 			babydolleyes: ["9L15", "8L15", "7L9", "7S5", "6L9", "6S3", "6S4"],
 			batonpass: ["9M", "9L35", "8M", "8L35", "7L33", "7V", "6L33", "5L33", "4L36", "3L36"],
