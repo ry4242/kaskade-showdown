@@ -92,7 +92,7 @@ export class RoomBattlePlayer extends RoomGamePlayer<RoomBattle> {
 	 *
 	 * Mostly exists so impatient players don't have to wait the full
 	 * 150 seconds against a disconnected opponent.
-	  */
+ 	*/
 	dcSecondsLeft: number;
 	/**
 	 * Is the user actually in the room?

@@ -558,7 +558,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		suppressClimateWeather: true,
 		flags: {},
 		name: "Cloud Nine",
-		rating: 2,
+		rating: 1.5,
 		num: 13,
 	},
 	colorchange: {
@@ -818,7 +818,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Cute Charm",
-		rating: 1,
+		rating: 0.5,
 		num: 56,
 	},
 	damp: {
@@ -1990,7 +1990,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: { breakable: 1 },
 		name: "Grass Pelt",
-		rating: 1,
+		rating: 0.5,
 		num: 179,
 	},
 	grassysurge: {
@@ -2590,7 +2590,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: { breakable: 1 },
 		name: "Leaf Guard",
-		rating: 1.5,
+		rating: 0.5,
 		num: 102,
 	},
 	levitate: {
@@ -4853,7 +4853,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		flags: {},
 		name: "Steam Engine",
-		rating: 3.5,
+		rating: 2,
 		num: 243,
 	},
 	steelworker: {

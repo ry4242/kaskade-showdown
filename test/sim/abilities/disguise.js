@@ -38,7 +38,7 @@ describe('Disguise', () => {
 		assert(battle.p1.active[0].abilityState.busted);
 	});
 
-	it('should not block damage from weathergy effects', () => {
+	it('should not block damage from Weathergy effects', () => {
 		battle = common.createBattle([[
 			{ species: 'Mimikyu', ability: 'disguise', moves: ['splash'] },
 		], [

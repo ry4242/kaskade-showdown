@@ -936,9 +936,8 @@ export class RandomGen6Teams extends RandomGen7Teams {
 			if (itemsMax[itemData.id] && teamData.has[itemData.id] >= itemsMax[itemData.id]) continue;
 
 			const abilityState = this.dex.abilities.get(curSet.ability);
-			if (
-				weatherAbilitiesRequire[abilityState.id] && teamData.climateWeather !== weatherAbilitiesRequire[abilityState.id]
-			) continue;
+			// eslint-disable-next-line @stylistic/max-len
+			if (weatherAbilitiesRequire[abilityState.id] && teamData.climateWeather !== weatherAbilitiesRequire[abilityState.id]) continue;
 			if (teamData.climateWeather && weatherAbilities.includes(abilityState.id)) continue; // reject 2+ weather setters
 
 			let reject = false;

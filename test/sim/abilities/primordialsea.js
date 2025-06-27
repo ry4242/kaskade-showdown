@@ -126,7 +126,7 @@ describe('Primordial Sea', () => {
 		assert.constant(() => battle.field.isClimateWeather('primordialsea'), () => battle.makeChoices('move helpinghand', 'move gastroacid'));
 	});
 
-	it('should cause the Primordial Sea weaclimateWeatherther to fade if its ability is changed and no other Primordial Sea Pokemon are active', () => {
+	it('should cause the Primordial Sea climateWeather to fade if its ability is changed and no other Primordial Sea Pokemon are active', () => {
 		battle = common.createBattle();
 		battle.setPlayer('p1', { team: [{ species: "Kyogre", ability: 'primordialsea', moves: ['helpinghand'] }] });
 		battle.setPlayer('p2', { team: [{ species: "Lugia", ability: 'pressure', moves: ['entrainment'] }] });

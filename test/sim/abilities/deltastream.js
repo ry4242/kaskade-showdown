@@ -59,7 +59,7 @@ describe('Delta Stream', () => {
 		assert.hurtsBy(pokemon, Math.floor(pokemon.maxhp / 4), () => battle.makeChoices('switch 2', 'move stealthrock'));
 	});
 
-	it('should prevent moves and abilities from setting the weathergy to Sunny Day, Rain Dance, Sandstorm, or Hail', () => {
+	it('should prevent moves and abilities from setting the Weathergy to Sunny Day, Rain Dance, Sandstorm, or Hail', () => {
 		battle = common.createBattle([[
 			{ species: "Rayquaza", ability: 'deltastream', moves: ['helpinghand'] },
 		], [

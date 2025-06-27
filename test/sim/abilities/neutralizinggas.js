@@ -301,7 +301,7 @@ describe('Neutralizing Gas', () => {
 		assert.statStage(porygon, 'spa', 1);
 	});
 
-	/* it(`should not reactivate instances of Embody Aspect that had previously activated`, () => {
+	it(`should not reactivate instances of Embody Aspect that had previously activated`, () => {
 		battle = common.gen(9).createBattle({ gameType: 'freeforall' }, [[
 			{ species: 'Ogerpon-Hearthflame', ability: 'moldbreaker', item: 'hearthflamemask', moves: ['bellydrum'] },
 		], [
@@ -329,7 +329,7 @@ describe('Neutralizing Gas', () => {
 		assert.statStage(hearthflame, 'atk', 4, `Ogerpon-Hearthflame-Tera's Embody Aspect should not have been reactivated`);
 		assert.statStage(wellspring, 'spd', 1, `Ogerpon-Wellspring-Tera's Embody Aspect should not have activated twice`);
 		assert.statStage(cornerstone, 'def', 1, `Ogerpon-Cornerstone-Tera's Embody Aspect should have been activated by Neutalizing Gas ending`);
-	}); */
+	});
 
 	describe(`Ability reactivation order`, () => {
 		it(`should cause entrance Abilities to reactivate in order of Speed`, () => {

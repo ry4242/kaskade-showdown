@@ -299,6 +299,9 @@ function battleFactorySets(species: string | Species, tier: string | null, gen =
 			if (set.level && set.level < 100) buf += `<li>Level: ${set.level}</li>`;
 			if (set.shiny) buf += `<li>Shiny: Yes</li>`;
 			if (set.happiness) buf += `<li>Happiness: ${set.happiness}</li>`;
+			if (genNum === 9 && set.teraType) {
+				buf += `<li>Tera Type: ${set.teraType.map(formatType).join(' / ')}</li>`;
+			}
 			if (set.evs) {
 				buf += `<li>EVs: `;
 				const evs: string[] = [];

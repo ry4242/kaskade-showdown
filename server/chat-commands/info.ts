@@ -1032,6 +1032,7 @@ export const commands: Chat.ChatCommands = {
 		}
 
 		const statuses: { [k: string]: string } = {
+			blt: "Blight",
 			brn: "Burn",
 			fst: "Frostbite",
 			frz: "Frozen",
@@ -2369,7 +2370,7 @@ export const commands: Chat.ChatCommands = {
 		if (!target) return this.parse('/help wiki');
 		if (!this.runBroadcast()) return;
 
-		const baseLink = 'https://tofrugs-swamp.fandom.com/wiki/';
+		const baseLink = 'https://swirlingseasons.wiki.gg/';
 
 		const pokemon = Dex.species.get(target);
 		const item = Dex.items.get(target);
@@ -2385,8 +2386,8 @@ export const commands: Chat.ChatCommands = {
 			}
 			let baseSpecies = pokemon.baseSpecies;
 			if (pokemon.id.startsWith('flabebe')) baseSpecies = 'Flabébé';
+			const link = `${baseLink}${encodeURIComponent(baseSpecies)}_(Pokémon)`;
 
-			const link = `${baseLink}${encodeURIComponent(baseSpecies)}`;
 			this.sendReplyBox(Utils.html`<a href="${link}">${pokemon.name} in-game information</a>`);
 		}
 
@@ -2417,7 +2418,7 @@ export const commands: Chat.ChatCommands = {
 			if (move.isNonstandard && move.isNonstandard !== 'Past') {
 				throw new Chat.ErrorMessage(`${move.name} is not a real move.`);
 			}
-			const link = `${baseLink}${encodeURIComponent(move.name)}`;
+			const link = `${baseLink}${encodeURIComponent(move.name)}_(move)`;
 			this.sendReplyBox(`<a href="${link}">${move.name} move description</a>`);
 		}
 
@@ -2426,7 +2427,7 @@ export const commands: Chat.ChatCommands = {
 		}
 	},
 	wikihelp: [
-		`/wiki [pokemon/item/move/ability] - Links to the Fandom wiki page for this pokemon/item/move/ability.`,
+		`/wiki [pokemon/item/move/ability] - Links to Swirling Seasons wiki page for this pokemon/item/move/ability.`,
 		`!wiki [pokemon/item/move/ability] - Shows everyone this link. Requires: + % @ # ~`,
 	],
 

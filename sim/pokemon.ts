@@ -641,7 +641,7 @@ export class Pokemon {
 	/**
 	 * Gets the Pokemon's best stat.
 	 * Moved to its own method due to frequent use of the same code.
-	 * Used by Beast Boost, Quark Drive, Protosynthesis, and Warp Mist.
+	 * Used by Beast Boost, Quark Drive, and Protosynthesis.
 	 */
 	getBestStat(unboosted?: boolean, unmodified?: boolean): StatIDExceptHP {
 		let statName: StatIDExceptHP = 'atk';
@@ -737,18 +737,8 @@ export class Pokemon {
 		return hp;
 	}
 
-	/** Get targets for Magic Missile and Dragon Darts */
+	/** Get targets for Dragon Darts */
 	getSmartTargets(target: Pokemon, move: ActiveMove) {
-		if (move.id === 'magicmissile') {
-			const foes = this.adjacentFoes().filter(foe => foe.hp && !foe.fainted);
-			if (!foes.length) return [target, target, target];
-			const targets: Pokemon[] = [];
-			for (let i = 0; i < 3; i++) {
-				targets.push(this.battle.sample(foes));
-			}
-			return targets;
-		}
-		// Default smartTarget logic (e.g., for Dragon Darts)
 		const target2 = target.adjacentAllies()[0];
 		if (!target2 || target2 === this || !target2.hp) {
 			move.smartTarget = false;

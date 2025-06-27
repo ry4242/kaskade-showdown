@@ -1749,7 +1749,8 @@ export class RandomGen7Teams extends RandomGen8Teams {
 			if (weatherAbilitiesRequire[ability.id] && teamData.climateWeather !== weatherAbilitiesRequire[ability.id]) continue;
 			if (teamData.climateWeather && weatherAbilities.includes(ability.id)) continue; // reject 2+ weather setters
 
-			if (curSet.species === 'Aron' && teamData.irritantWeather !== 'sandstorm') continue; // reject Aron w/o Sand Stream user
+			// eslint-disable-next-line @stylistic/max-len
+			if (curSet.species === 'Aron' && teamData.irritantWeather !== 'sandstorm') continue; // reject Aron without a Sand Stream user
 
 			let reject = false;
 			let hasRequiredMove = false;

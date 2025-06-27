@@ -85,6 +85,11 @@ export function changeSet(context: Battle, pokemon: Pokemon, newSet: SSBSet, cha
 	let percent = (pokemon.hp / pokemon.baseMaxhp);
 	if (newSet.species === 'Shedinja') percent = 1;
 	pokemon.formeChange(newSet.species, context.effect, true);
+	if (!pokemon.terastallized && newSet.teraType) {
+		const allTypes = context.dex.types.names();
+		pokemon.teraType = newSet.teraType === 'Any' ? context.sample(allTypes) :
+			Array.isArray(newSet.teraType) ? context.sample(newSet.teraType) : newSet.teraType;
+	}
 	const details = pokemon.getUpdatedDetails();
 	if (oldShiny !== pokemon.set.shiny || oldGender !== pokemon.gender) context.add('replace', pokemon, details);
 	if (changeAbility) pokemon.setAbility(newSet.ability as string, undefined, true);
@@ -109,6 +114,7 @@ export function changeSet(context: Battle, pokemon: Pokemon, newSet: SSBSet, cha
 	}
 	pokemon.canMegaEvo = context.actions.canMegaEvo(pokemon);
 	pokemon.canUltraBurst = context.actions.canUltraBurst(pokemon);
+	pokemon.canTerastallize = (pokemon.canTerastallize === null) ? null : context.actions.canTerastallize(pokemon);
 	context.add('message', `${pokemon.name} changed form!`);
 }
 
@@ -305,6 +311,7 @@ export const Scripts: ModdedBattleScriptsData = {
 				pokemon.illusion = null;
 				pokemon.isActive = false;
 				pokemon.isStarted = false;
+				delete pokemon.terastallized;
 				pokemon.side.faintedThisTurn = pokemon;
 				if (this.faintQueue.length >= faintQueueLeft) checkWin = true;
 			}
@@ -443,6 +450,9 @@ export const Scripts: ModdedBattleScriptsData = {
 			action.pokemon.addVolatile('dynamax');
 			action.pokemon.side.dynamaxUsed = true;
 			if (action.pokemon.side.allySide) action.pokemon.side.allySide.dynamaxUsed = true;
+			break;
+		case 'terastallize':
+			this.actions.terastallize(action.pokemon);
 			break;
 		case 'beforeTurnMove':
 			if (!action.pokemon.isActive) return false;
@@ -665,6 +675,39 @@ export const Scripts: ModdedBattleScriptsData = {
 		return false;
 	},
 	actions: {
+		terastallize(pokemon) {
+			if (pokemon.illusion && ['Ogerpon', 'Terapagos'].includes(pokemon.illusion.species.baseSpecies)) {
+				this.battle.singleEvent('End', this.dex.abilities.get('Illusion'), pokemon.abilityState, pokemon);
+			}
+
+			const type = pokemon.teraType;
+			this.battle.add('-terastallize', pokemon, type);
+			pokemon.terastallized = type;
+			for (const ally of pokemon.side.pokemon) {
+				ally.canTerastallize = null;
+			}
+			pokemon.addedType = '';
+			pokemon.knownType = true;
+			pokemon.apparentType = type;
+			if (pokemon.species.baseSpecies === 'Ogerpon') {
+				const tera = pokemon.species.id === 'ogerpon' ? 'tealtera' : 'tera';
+				pokemon.formeChange(pokemon.species.id + tera, null, true);
+			}
+			if (pokemon.species.name === 'Terapagos-Terastal' && type === 'Stellar') {
+				pokemon.formeChange('Terapagos-Stellar', null, true);
+				pokemon.baseMaxhp = Math.floor(Math.floor(
+					2 * pokemon.species.baseStats['hp'] + pokemon.set.ivs['hp'] + Math.floor(pokemon.set.evs['hp'] / 4) + 100
+				) * pokemon.level / 100 + 10);
+				const newMaxHP = pokemon.baseMaxhp;
+				pokemon.hp = newMaxHP - (pokemon.maxhp - pokemon.hp);
+				pokemon.maxhp = newMaxHP;
+				this.battle.add('-heal', pokemon, pokemon.getHealth, '[silent]');
+			}
+			if (!pokemon.illusion && pokemon.name === 'Neko') {
+				this.battle.add(`c:|${getName('Neko')}|Possible thermal failure if operation continues (Meow on fire ?)`);
+			}
+			this.battle.runEvent('AfterTerastallization', pokemon);
+		},
 		modifyDamage(baseDamage, pokemon, target, move, suppressMessages) {
 			const tr = this.battle.trunc;
 			if (!move.type) move.type = '???';
@@ -877,6 +920,16 @@ export const Scripts: ModdedBattleScriptsData = {
 			}
 
 			return true;
+		},
+		canTerastallize(pokemon) {
+			if (
+				pokemon.terastallized || pokemon.species.isMega || pokemon.species.isPrimal || pokemon.species.forme === "Ultra" ||
+				pokemon.getItem().zMove || pokemon.canMegaEvo || pokemon.side.canDynamaxNow() || this.dex.gen !== 9
+			) {
+				return null;
+			}
+			if (pokemon.baseSpecies.id === 'arceus') return null;
+			return pokemon.teraType;
 		},
 		// 1 mega per pokemon
 		runMegaEvo(pokemon) {
@@ -1792,6 +1845,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (action.megay) details += ` megay`;
 					if (action.zmove) details += ` zmove`;
 					if (action.maxMove) details += ` dynamax`;
+					if (action.terastallize) details += ` terastallize`;
 					return `move ${action.moveid}${details}`;
 				case 'switch':
 				case 'instaswitch':
@@ -1948,6 +2002,7 @@ export const Scripts: ModdedBattleScriptsData = {
 					switch: 103,
 					megaEvo: 104,
 					runDynamax: 105,
+					terastallize: 106,
 					priorityChargeMove: 107,
 
 					shift: 200,
@@ -1974,6 +2029,12 @@ export const Scripts: ModdedBattleScriptsData = {
 					if (action.mega && !action.pokemon.isSkyDropped()) {
 						actions.unshift(...this.resolveAction({
 							choice: 'megaEvo',
+							pokemon: action.pokemon,
+						}));
+					}
+					if (action.terastallize && !action.pokemon.terastallized) {
+						actions.unshift(...this.resolveAction({
+							choice: 'terastallize',
 							pokemon: action.pokemon,
 						}));
 					}

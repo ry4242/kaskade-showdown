@@ -2137,7 +2137,7 @@ export class Battle {
 				if ((effect.effectType === 'ClimateWeather' || effect.effectType === 'IrritantWeather' ||
 					effect.effectType === 'EnergyWeather' || effect.effectType === 'ClearingWeather' ||
 					effect.effectType === 'CataclysmWeather') && !target.runStatusImmunity(effect.id)) {
-					this.debug('weathergy immunity');
+					this.debug('Weathergy immunity');
 					retVals[i] = 0;
 					continue;
 				}
@@ -2712,7 +2712,7 @@ export class Battle {
 
 			this.add('start');
 
-			// Change Zacian/Zamazenta into their Crowned formes
+			// Change Zacian/Zamazenta into their Crowned formes, and Castform into its Whirly forme
 			for (const pokemon of this.getAllPokemon()) {
 				let rawSpecies: Species | null = null;
 				if (pokemon.species.id === 'zacian' && pokemon.item === 'rustedsword') {

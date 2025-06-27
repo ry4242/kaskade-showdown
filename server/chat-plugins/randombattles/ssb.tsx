@@ -20,6 +20,10 @@ class SSBSetHTML extends Chat.JSX.Component<{ set: SSBSet, dex: ModdedDex, baseD
 				</li>
 				<li>Ability: {Array.isArray(set.ability) ?
 					set.ability.map(x => dex.abilities.get(x).name).join(' / ') : dex.abilities.get(set.ability).name}</li>
+				{set.teraType &&
+					<li>Tera Type: {Array.isArray(set.teraType) ?
+						set.teraType.map(x => dex.types.get(x).name).join(' / ') :
+						set.teraType === 'Any' ? 'Any' : dex.types.get(set.teraType).name}</li>}
 				{set.shiny &&
 					<li>Shiny: {typeof set.shiny === 'number' ? `1 in ${set.shiny} chance` : `Yes`}</li>}
 				{set.evs && <li>EVs: {Object.entries(set.evs).filter(v => !!v[1]).map(([statid, ev], idx, arr) => (

@@ -171,7 +171,7 @@ describe(`Fainted forme regression`, () => {
 		assert.hasAbility(pokemon, 'Ice Face');
 	});
 
-	/* it("should revert Terastallized Morpeko-Hangry to base Morpeko", () => {
+	it("should revert Terastallized Morpeko-Hangry to base Morpeko", () => {
 		battle = common.createBattle([[
 			{ species: 'Morpeko', ability: 'hungerswitch', moves: ['memento', 'sleeptalk'] },
 			{ species: 'darkrai', moves: ['darkpulse'] },
@@ -184,7 +184,7 @@ describe(`Fainted forme regression`, () => {
 		battle.makeChoices('move memento terastallize', 'auto');
 		assert.species(pokemon, 'Morpeko');
 		assert.hasAbility(pokemon, 'Hunger Switch');
-	}); */
+	});
 
 	it(`should not revert Palafin-Hero to base Palafin`, () => {
 		battle = common.createBattle([[
@@ -202,7 +202,7 @@ describe(`Fainted forme regression`, () => {
 		assert.hasAbility(pokemon, 'Zero to Hero');
 	});
 
-	/* it(`should revert Ogerpon-Tera to base Ogerpon`, () => {
+	it(`should revert Ogerpon-Tera to base Ogerpon`, () => {
 		battle = common.gen(9).createBattle([[
 			{
 				species: 'ogerponwellspring', ability: 'waterabsorb', item: 'wellspring mask',
@@ -242,5 +242,5 @@ describe(`Fainted forme regression`, () => {
 		battle.makeChoices('move memento terastallize', 'auto');
 		assert.species(pokemon, 'Terapagos');
 		assert.hasAbility(pokemon, 'Tera Shift');
-	}); */
+	});
 });

@@ -111,8 +111,9 @@ type ModdedEffectData = EffectData | Partial<EffectData> & { inherit: true };
 
 type EffectType =
 	'Condition' | 'Pokemon' | 'Move' | 'Item' | 'Ability' | 'Format' |
-	'Nature' | 'Ruleset' | 'ClimateWeather' | 'IrritantWeather' | 'EnergyWeather' | 'ClearingWeather' |
-	'CataclysmWeather' | 'Status' | 'Terrain' | 'Rule' | 'ValidatorRule';
+	'Nature' | 'Ruleset' | 'Status' | 'Terrain' | 'Rule' | 'ValidatorRule'
+	| 'ClimateWeather' | 'IrritantWeather' | 'EnergyWeather' | 'ClearingWeather' |
+	'CataclysmWeather';
 
 interface BasicEffect extends EffectData {
 	id: ID;
@@ -484,7 +485,9 @@ declare namespace RandomTeamsTypes {
 		spikes?: number;
 		toxicSpikes?: number;
 		stickyWeb?: number;
+		steelBarbs?: number;
 		rapidSpin?: number;
+		windrage?: number;
 		defog?: number;
 		screens?: number;
 		illusion?: number;

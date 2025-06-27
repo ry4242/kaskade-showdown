@@ -12,16 +12,16 @@ describe('Stomping Tantrum', () => {
 
 	it(`should double its Base Power if the last move used on the previous turn failed`, () => {
 		battle = common.createBattle([[
-			{ species: 'Marowak', moves: ['soak', 'spore', 'stompingtantrum'] },
+			{ species: 'Marowak', moves: ['attract', 'spore', 'stompingtantrum'] },
 		], [
-			{ species: 'Manaphy', moves: ['rest'] },
+			{ species: 'Manaphy', moves: ['rest'], ability: ['oblivious'] },
 		]]);
 
 		battle.onEvent('BasePower', battle.format, basePower => {
 			assert.equal(basePower, 150);
 		});
 
-		battle.makeChoices('move soak', 'move rest'); // Manaphy is pure Water type, so Soak fails
+		battle.makeChoices('move attract', 'move rest'); // Manaphy has Oblivious, so Attract fails
 		battle.makeChoices('move stompingtantrum', 'move rest');
 		battle.makeChoices('move spore', 'move rest'); // Manaphy is now asleep, so Spore fails
 		battle.makeChoices('move stompingtantrum', 'move rest');

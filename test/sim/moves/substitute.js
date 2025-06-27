@@ -90,11 +90,11 @@ describe('Substitute', () => {
 	it('should cause recoil damage from an opponent\'s moves to be based on damage dealt to the substitute', () => {
 		battle = common.createBattle();
 		battle.setPlayer('p1', { team: [{ species: 'Mewtwo', ability: 'pressure', moves: ['substitute'] }] });
-		battle.setPlayer('p2', { team: [{ species: 'Mewtwo', ability: 'noguard', moves: ['swordsdance', 'headsmash'] }] });
-		battle.makeChoices('move substitute', 'move swordsdance');
-		battle.makeChoices('move substitute', 'move headsmash');
+		battle.setPlayer('p2', { team: [{ species: 'Mewtwo', ability: 'noguard', moves: ['nastyplot', 'lightofruin'] }] });
+		battle.makeChoices('move substitute', 'move nastyplot');
+		battle.makeChoices('move substitute', 'move lightofruin');
 		const pokemon = battle.p2.active[0];
-		assert.equal(pokemon.maxhp - pokemon.hp, Math.ceil(Math.floor(battle.p1.active[0].maxhp / 4) / 2));
+		assert.equal(pokemon.maxhp - pokemon.hp, Math.ceil(Math.floor(battle.p1.active[0].maxhp / 4) / 3));
 	});
 
 	it('should cause recovery from an opponent\'s draining moves to be based on damage dealt to the substitute', () => {

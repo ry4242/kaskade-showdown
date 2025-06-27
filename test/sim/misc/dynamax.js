@@ -39,7 +39,7 @@ describe("Dynamax", () => {
 		battle.makeChoices('move 1', 'move 2');
 	});
 
-	it('Max Move weathergy activates even if foe faints', () => {
+	it('Max Move Weathergy activates even if foe faints', () => {
 		battle = common.gen(8).createBattle([[
 			{ species: 'Shedinja', moves: ['splash'] },
 		], [
@@ -49,7 +49,7 @@ describe("Dynamax", () => {
 		assert.equal(battle.field.climateWeather, 'raindance');
 	});
 
-	it('Max Move weathergy activates before Sand Spit', () => {
+	it('Max Move Weathergy activates before Sand Spit', () => {
 		battle = common.gen(8).createBattle([[
 			{ species: 'Shedinja', ability: 'sandspit', moves: ['splash'] },
 		], [

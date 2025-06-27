@@ -1,7 +1,7 @@
 'use strict';
 
-// const assert = require('assert').strict;
-// const common = require('./../../common');
+const assert = require('assert').strict;
+const common = require('./../../common');
 
 let battle;
 
@@ -10,7 +10,7 @@ describe(`Ogerpon`, () => {
 		battle.destroy();
 	});
 
-	/* it(`should reject the Terastallization choice while Transformed into Ogerpon`, () => {
+	it(`should reject the Terastallization choice while Transformed into Ogerpon`, () => {
 		battle = common.gen(9).createBattle([[
 			{ species: 'ditto', ability: 'imposter', moves: ['sleeptalk'] },
 		], [
@@ -32,7 +32,7 @@ describe(`Ogerpon`, () => {
 
 		const ditto = battle.p1.active[0];
 		assert.false(!!ditto.terastallized);
-	}); */
+	});
 });
 
 describe(`[Hackmons] Ogerpon`, () => {
@@ -41,7 +41,7 @@ describe(`[Hackmons] Ogerpon`, () => {
 	});
 
 	// https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9838633
-	/* it(`should keep permanent abilities after Terastallizing until it switches out`, () => {
+	it(`should keep permanent abilities after Terastallizing until it switches out`, () => {
 		battle = common.gen(9).createBattle([[
 			{ species: 'ogerpon', ability: 'multitype', moves: ['sleeptalk'] },
 			{ species: 'shedinja', moves: ['splash'] },
@@ -153,5 +153,5 @@ describe(`[Hackmons] Ogerpon`, () => {
 		battle.makeChoices('move sleeptalk terastallize', 'auto');
 		assert.species(ogerpon, 'Ogerpon-Wellspring-Tera');
 		assert.statStage(ogerpon, 'spd', 1);
-	}); */
+	});
 });
