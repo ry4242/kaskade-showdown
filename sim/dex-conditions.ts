@@ -80,6 +80,7 @@ export interface EventMethods {
 	onNegateImmunity?: ((this: Battle, pokemon: Pokemon, type: string) => boolean | void) | boolean;
 	onOverrideAction?: (this: Battle, pokemon: Pokemon, target: Pokemon, move: ActiveMove) => string | void;
 	onPrepareHit?: CommonHandlers['ResultSourceMove'];
+	onPseudoWeatherChange?: (this: Battle, target: Pokemon, source: Pokemon, pseudoWeather: Condition) => void;
 	onRedirectTarget?: (
 		this: Battle, target: Pokemon, source: Pokemon, source2: Effect, move: ActiveMove
 	) => Pokemon | void;
@@ -96,6 +97,7 @@ export interface EventMethods {
 	onSetEnergyWeather?: (this: Battle, target: Pokemon, source: Pokemon, energyWeather: Condition) => boolean | void;
 	onSetClearingWeather?: (this: Battle, target: Pokemon, source: Pokemon, clearingWeather: Condition) => boolean | void;
 	onSetCataclysmWeather?: (this: Battle, target: Pokemon, source: Pokemon, cataclysmWeather: Condition) => boolean | void;
+	onSideConditionStart?: (this: Battle, target: Side, source: Pokemon, sideCondition: Condition) => void;
 	onStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onSwitchIn?: (this: Battle, pokemon: Pokemon) => void;
 	onSwitchOut?: (this: Battle, pokemon: Pokemon) => void;
@@ -647,7 +649,6 @@ export interface PokemonEventMethods extends EventMethods {
 	onAllySetCataclysmWeather?: (
 		this: Battle, target: Pokemon, source: Pokemon, cataclysmWeather: Condition
 	) => boolean | void;
-	onAllySideConditionStart?: (this: Battle, target: Pokemon, source: Pokemon, sideCondition: Condition) => void;
 	onAllyStallMove?: (this: Battle, pokemon: Pokemon) => boolean | void;
 	onAllySwitchOut?: (this: Battle, pokemon: Pokemon) => void;
 	onAllyTakeItem?: (
