@@ -979,13 +979,13 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 5,
 		onResidual(pokemon) {
-			if (pokemon.baseSpecies.num === 671 && this.field.isWeather('sandstorm')) {
+			if (pokemon.baseSpecies.num === 671 && this.field.isIrritantWeather('sandstorm')) {
 				this.heal(pokemon.baseMaxhp / 8);
 			}
 		},
 		onModifySpDPriority: 1,
 		onModifySpD(spd, pokemon) {
-			if (pokemon.baseSpecies.num === 671 && this.field.isWeather('sandstorm')) {
+			if (pokemon.baseSpecies.num === 671 && this.field.isIrritantWeather('sandstorm')) {
 				return this.chainModify(1.5);
 			}
 		},
@@ -1045,16 +1045,16 @@ export const Items: import('../../../sim/dex-items').ModdedItemDataTable = {
 		},
 		onUpdate(pokemon) {
 			if (!this.effectState.started || pokemon.transformed) return;
-			if (pokemon.hasAbility('protosynthesis') && !this.field.isWeather('sunnyday') && pokemon.useItem()) {
+			if (pokemon.hasAbility('protosynthesis') && !this.field.isClimateWeather('sunnyday') && pokemon.useItem()) {
 				pokemon.addVolatile('protosynthesis');
 			}
-			if (pokemon.hasAbility('protosmosis') && !this.field.isWeather('raindance') && pokemon.useItem()) {
+			if (pokemon.hasAbility('protosmosis') && !this.field.isClimateWeather('raindance') && pokemon.useItem()) {
 				pokemon.addVolatile('protosmosis');
 			}
-			if (pokemon.hasAbility('protocrysalis') && !this.field.isWeather('sandstorm') && pokemon.useItem()) {
+			if (pokemon.hasAbility('protocrysalis') && !this.field.isIrritantWeather('sandstorm') && pokemon.useItem()) {
 				pokemon.addVolatile('protocrysalis');
 			}
-			if (pokemon.hasAbility('protostasis') && !this.field.isWeather('snowscape') && pokemon.useItem()) {
+			if (pokemon.hasAbility('protostasis') && !this.field.isClimateWeather('snowscape') && pokemon.useItem()) {
 				pokemon.addVolatile('protostasis');
 			}
 			if (pokemon.hasAbility('quarkdrive') && !this.field.isTerrain('electricterrain') && pokemon.useItem()) {

@@ -392,6 +392,7 @@ interface ModdedBattleScriptsData extends Partial<BattleScriptsData> {
 	runAction?: (this: Battle, action: Action) => void;
 	spreadModify?: (this: Battle, baseStats: StatsTable, set: PokemonSet) => StatsTable;
 	start?: (this: Battle) => void;
+	runPickTeam?: () => void;
 	suppressingClimateWeather?: (this: Battle) => boolean;
 	suppressingIrritantWeather?: (this: Battle) => boolean;
 	suppressingEnergyWeather?: (this: Battle) => boolean;

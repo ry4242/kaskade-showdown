@@ -744,9 +744,9 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 				if ((source.isAlly(parryHolder) || move.target === 'all') &&
 					(!source.hasAbility('innerfocus') || !source.hasAbility('shielddust') ||
 						!source.hasAbility('steadfast') || !source.hasItem('covertcloak') ||
-						!source.hasAbility('sandveil') && !this.field.isWeather('sandstorm') ||
-						!source.hasAbility('sunblock') && !this.field.isWeather('sunnyday') ||
-						!source.hasAbility('snowcloak') && !this.field.isWeather('snowscape')) &&
+						!source.hasAbility('sandveil') && !this.field.isIrritantWeather('sandstorm') ||
+						!source.hasAbility('sunblock') && !this.field.isClimateWeather('sunnyday') ||
+						!source.hasAbility('snowcloak') && !this.field.isClimateWeather('snowscape')) &&
 						move.priority > 0.1) {
 					this.attrLastMove('[still]');
 					this.add('cant', parryHolder, 'move: Parry', move, `[of] ${target}`);
@@ -903,7 +903,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 			}
 			this.add('-prepare', attacker, move.name);
 			this.boost({ spa: 1 }, attacker, attacker, move);
-			if (this.field.isWeather('sandstorm')) {
+			if (this.field.isIrritantWeather('sandstorm')) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -1424,6 +1424,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 		},
 		onModifyType(move, pokemon) {
 			for (const target of pokemon.side.foe.active) {
+				if (target.hasType('Ground') && !target.hasItem('ringtarget')) return;
 				const type1 = 'Bug';
 				const type2 = 'Electric';
 				if (this.dex.getEffectiveness(type1, target) < this.dex.getEffectiveness(type2, target)) {
