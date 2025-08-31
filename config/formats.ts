@@ -400,7 +400,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 		banlist: [
 			'Manadza', 'Arctikull',
-			'Acupressure', 'Perish Song',
+			'Perish Song',
 			'Focus Band', 'Focus Sash', 'King\'s Rock', 'Quick Claw',
 		],
 	},
