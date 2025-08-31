@@ -475,7 +475,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard', '!Evasion Items Clause'],
 		banlist: [
 			'Arena Trap', 'Shadow Tag',
-			'Acupressure', 'Aromatic Mist', 'Baton Pass', 'Court Change', 'Final Gambit', 'Flatter',
+			'Aromatic Mist', 'Baton Pass', 'Court Change', 'Final Gambit', 'Flatter',
 			'Follow Me', 'Heal Pulse', 'Last Respects', 'Poison Fang', 'Rage Powder', 'Spicy Extract', 'Swagger', 'Toxic', 'Toxic Spikes',
 		],
 	},
@@ -508,7 +508,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'swse',
 		ruleset: ['Standard OMs', 'STABmons Move Legality', 'Sleep Moves Clause', 'Terastal Clause'],
 		restricted: [
-			'Astral Barrage', 'Acupressure', 'Belly Drum', 'Clangorous Soul', 'Ceaseless Edge', 'Dire Claw', 'Dragon Energy', 'Electro Shot', 'Extreme Speed', 'Fillet Away', 'Final Gambit',
+			'Astral Barrage', 'Belly Drum', 'Clangorous Soul', 'Ceaseless Edge', 'Dire Claw', 'Dragon Energy', 'Electro Shot', 'Extreme Speed', 'Fillet Away', 'Final Gambit',
 			'Flower Trick', 'Gigaton Hammer', 'No Retreat', 'Rage Fist', 'Revival Blessing', 'Shell Smash', 'Shift Gear', 'Triple Arrows', 'V-create', 'Victory Dance', 'Wicked Blow',
 			'Wicked Torque',
 		],
