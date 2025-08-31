@@ -24474,10 +24474,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	stonestorm: { // untested
 		num: -27,
 		accuracy: 100,
-		basePower: 40,
+		basePower: 50,
 		category: "Special",
 		name: "Stone Storm",
-		pp: 35,
+		pp: 10,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		onModifyMove(move, pokemon, target) {
