@@ -801,9 +801,9 @@ export const commands: Chat.ChatCommands = {
 		`Adding a number as a parameter returns that many random items, e.g., '/randtype 6' returns 6 random types.`,
 	],
 
-	sample: 'sampleteams',
-	samples: 'sampleteams',
-	sampleteams(target, room, user, connection, cmd, message) {
+	sample: 'swsesampleteams',
+	samples: 'swsesampleteams',
+	swsesampleteams(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
 		if (!this.runBroadcast()) return;
 
