@@ -24110,7 +24110,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		basePower: 40,
 		category: "Special",
 		name: "Sandblast",
-		pp: 35,
+		pp: 20,
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		basePowerCallback(pokemon, target, move) {
