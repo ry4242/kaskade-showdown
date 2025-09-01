@@ -304,7 +304,7 @@ export const handlers: Chat.Handlers = {
 };
 
 export const commands: Chat.ChatCommands = {
-	sampleteams(target, room, user) {
+	OLDsampleteams(target, room, user) {
 		this.sendReply(`Sample Teams are being deprecated. Please do \`\`/tier [formatid]\`\` to view their resources.`);
 		this.sendReply(`If you are room staff for a room and would like to access old samples for your room's formats, please contact an admin.`);
 	},

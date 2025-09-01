@@ -8126,8 +8126,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	whipup: {
 		name: "Whip Up",
-		desc: "Has a 10% chance to lower the target's Speed by one stage.",
-		shortDesc: "10% chance to lower targets Spe by 1 stage",
+		desc: "Has a 10% chance to lower the target's Speed by 1 stage.",
+		shortDesc: "10% chance to lower the target's Speed by 1.",
 	},
 	whirlduel: {
 		name: "Whirlduel",

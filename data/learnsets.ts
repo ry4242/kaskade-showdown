@@ -103617,6 +103617,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			gust: ["9L0"],
 			hail: ["9M"],
 			haunt: ["9M"],
+			heatwave: ["9M"],
 			helpinghand: ["9L1"],
 			honeclaws: ["9M"],
 			howl: ["9L1"],

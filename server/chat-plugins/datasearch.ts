@@ -801,77 +801,68 @@ export const commands: Chat.ChatCommands = {
 		`Adding a number as a parameter returns that many random items, e.g., '/randtype 6' returns 6 random types.`,
 	],
 
-	sample: 'swsesampleteams',
-	samples: 'swsesampleteams',
-	swsesampleteams(target, room, user, connection, cmd, message) {
+	sample: 'sampleteams',
+	samples: 'sampleteams',
+	sampleteams(target, room, user, connection, cmd, message) {
 		this.checkBroadcast();
 		if (!this.runBroadcast()) return;
 
-		const sampleTeamsData = {
+		const sampleTeamsData: {
+			[name: string]: {
+				names: string[],
+				description: string,
+				links: string[],
+			},
+		} = {
 			'Sun Teams': {
+				names: ["Sun"],
 				description: 'Teams focused on using the Sun weather effect to boost Fire-type moves and weaken Water-type moves.',
 				links: [
 					'https://pokepaste.xyz/sun-team-1',
-					'https://pokepaste.xyz/sun-team-2',
-					'https://pokepaste.xyz/sun-team-3',
 				],
 			},
 			'Rain Teams': {
+				names: ["Rain"],
 				description: 'Teams that take advantage of Rain to boost Water-type moves and weaken Fire-type moves.',
 				links: [
 					'https://pokepaste.xyz/rain-team-1',
-					'https://pokepaste.xyz/rain-team-2',
 				],
 			},
-			'Stall Teams': {
-				description: 'Defensive teams focused on wearing down the opponent through status conditions and passive damage.',
-				links: [
-					'https://pokepaste.xyz/stall-team-1',
-					'https://pokepaste.xyz/stall-team-2',
-					'https://pokepaste.xyz/stall-team-3',
-				],
-			},
-			'Hyper Offense': {
-				description: 'Teams that prioritize fast and powerful offensive strategies, overwhelming opponents early.',
-				links: [
-					'https://pokepaste.xyz/ho-team-1',
-					'https://pokepaste.xyz/ho-team-2',
-				],
-			},
-		};
-
-		const aliasMap: { [alias: string]: string } = {
-			'HO': 'Hyper Offense',
-			'Sun': 'Sun Teams',
-			'Rain': 'Rain Teams',
-			'Stall': 'Stall Teams',
 		};
 
 		if (!target) {
 			const htmlLines = [`<h2>Sample Teams:</h2>`];
-
 			for (const group in sampleTeamsData) {
-				const data = sampleTeamsData[group as keyof typeof sampleTeamsData];
-				htmlLines.push(`<h3>${group}</h3><p>${data.description}</p>`);
-				htmlLines.push('<ul>');
-				for (const link of data.links) {
-					htmlLines.push(`<li><a href="${link}" target="_blank">${link}</a></li>`);
-				}
-				htmlLines.push('</ul>');
+				const data = sampleTeamsData[group];
+				htmlLines.push(
+					`<h3>${group}</h3>`,
+					`<p>${data.description}</p>`,
+					`<ul>${data.links.map(link => `<li><a href="${link}" target="_blank">${link}</a></li>`).join('')}</ul>`
+				);
 			}
-
-			this.sendReplyBox(htmlLines.join('<br />'));
+			this.sendReplyBox(htmlLines.join(''));
 			return;
 		}
 
-		const group = aliasMap[toID(target)] || target;
-		const groupData = sampleTeamsData[group as keyof typeof sampleTeamsData];
+		const targetId = toID(target);
+		let groupName: string | null = null;
 
-		if (!groupData) {
-			throw new Chat.ErrorMessage(`Sample Teams group "${target}" not found. Use /sampleteams to see available categories.`);
+		for (const group in sampleTeamsData) {
+			const data = sampleTeamsData[group];
+			if (data.names.map(n => toID(n)).includes(targetId) || toID(group) === targetId) {
+				groupName = group;
+				break;
+			}
 		}
 
-		let html = `<h2>${group}</h2><p>${groupData.description}</p>`;
+		if (!groupName) {
+			throw new Chat.ErrorMessage(
+				`Sample Teams group "${target}" not found. Use /sampleteams to see available categories.`
+			);
+		}
+
+		const groupData = sampleTeamsData[groupName];
+		let html = `<h2>${groupName}</h2><p>${groupData.description}</p>`;
 		html += '<ul>';
 		for (const link of groupData.links) {
 			html += `<li><a href="${link}" target="_blank">${link}</a></li>`;
