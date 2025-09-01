@@ -2536,8 +2536,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	castform: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	castformsunny: {
@@ -3213,58 +3212,47 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "OU",
 	},
 	rotom: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotomheat: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotomwash: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotomfrost: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotomfan: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotommow: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotomsol: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotomsway: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotombrawl: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotomweb: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	rotomjunk: {
-		tier: "OU",
-		doublesTier: "DOU",
+		isNonstandard: "Future",
 		natDexTier: "OU",
 	},
 	uxie: {
