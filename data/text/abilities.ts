@@ -2493,7 +2493,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	nanomachines: {
 		name: "Nanomachines",
 		desc: "If Magnetosphere is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. This effect is prevented if this Pokemon is holding an Energy Nullifier.",
-		shortDesc: "If magnetosphere is active, this Pokemon heals 1/16 of its max HP each turn.",
+		shortDesc: "If Magnetosphere is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
 	nastywebbing: {
 		name: "Nasty Webbing",

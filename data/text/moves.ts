@@ -7585,10 +7585,10 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 
 		start: "  [POKEMON] grew drowsy!",
 	},
-	zapcannon: {
+	zapcannon: { // updated
 		name: "Zap Cannon",
 		desc: "Has a 100% chance to paralyze the target. If Thunderstorm is active, this move has x 1.5 accuracy.",
-		shortDesc: "100% chance to paralyze. Thunder: x 1.5 acc.",
+		shortDesc: "100% chance to paralyze. Thunder: x1.5 acc.",
 	},
 	zenheadbutt: {
 		name: "Zen Headbutt",
@@ -8018,7 +8018,7 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	shreddingriff: {
 		name: "Shredding Riff",
 		desc: "Lowers the user's Special Defense by one stage. Ends the the effects of Reflect, Light Screen, and Aurora Veil on the user's side of the field. If this attack does not miss, the effects of Reflect, Light Screen, and Aurora Veil end for the target's side of the field before damage is calculated.",
-		shortDesc: "Destroys all screens. Lowers user SpD by 1 stage.",
+		shortDesc: "Destroys all screens. Lowers the user's SpD by 1.",
 	},
 	slushball: {
 		name: "Slushball",

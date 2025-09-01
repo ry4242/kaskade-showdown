@@ -816,22 +816,22 @@ export const commands: Chat.ChatCommands = {
 		} = {
 			'Sun Teams': {
 				names: ["Sun"],
-				description: 'Teams focused on using the Sun weather effect to boost Fire-type moves and weaken Water-type moves.',
+				description: 'sun teams',
 				links: [
-					'https://pokepaste.xyz/sun-team-1',
+					'https://pokepast.es/2d5e17f98e135c43',
 				],
 			},
 			'Rain Teams': {
 				names: ["Rain"],
-				description: 'Teams that take advantage of Rain to boost Water-type moves and weaken Fire-type moves.',
+				description: 'rain teams',
 				links: [
-					'https://pokepaste.xyz/rain-team-1',
+					'https://pokepast.es/e71a69c1bdd599ba',
 				],
 			},
 		};
 
 		if (!target) {
-			const htmlLines = [`<h2>Sample Teams:</h2>`];
+			const htmlLines = [`<h2>WIP Sample Teams:</h2>`];
 			for (const group in sampleTeamsData) {
 				const data = sampleTeamsData[group];
 				htmlLines.push(
