@@ -1601,7 +1601,7 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	dragonrush: {
 		name: "Dragon Rush",
 		desc: "Has a 20% chance to make the target flinch. If Dragon Force is active, this move does not check accuracy. Damage doubles and no accuracy check is done if the target has used Minimize while active.",
-		shortDesc: "20% chance to flinch target. Cant miss in D. Force",
+		shortDesc: "20% chance to flinch target. Can't miss in D. Force",
 		gen5: {
 			desc: "Has a 20% chance to make the target flinch.",
 		},
