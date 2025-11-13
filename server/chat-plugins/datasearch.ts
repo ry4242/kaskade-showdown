@@ -514,11 +514,11 @@ export const commands: Chat.ChatCommands = {
 				setupAbility: "Stand Off",
 			},
 			paranormalactivity: {
-				names: ["Paranormal Activity", "Seance", "Haunt", "Ghost", "Paranormal", "PActivity"],
+				names: ["Paranormal Activity", "Seance", "Se\u0301ance", "Haunt", "Ghost", "Paranormal", "PActivity", "P.Activity"],
 				desc: "At the end of each turn except the last, all active Pokémon lose 1/16 of their maximum HP, rounded down, unless they are a Ghost, Normal, or Dark type.",
 				strongWindsBoosted: "Ghost-type attacks' type effectiveness against Normal is changed to be super effective.",
 				setupMove: "Haunt",
-				setupAbility: "Seance",
+				setupAbility: "Se\u0301ance",
 			},
 			dreamscape: {
 				names: ["Dreamscape", "Dreamer", "Daydream", "Psychic", "Dream"],
