@@ -22989,7 +22989,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1 },
 		onTry(source) {
-			return ['seance'].includes(source.effectiveEnergyWeather());
+			return ['haunt'].includes(source.effectiveEnergyWeather());
 		},
 		secondary: null,
 		target: "normal",
