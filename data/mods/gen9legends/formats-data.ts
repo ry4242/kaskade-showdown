@@ -1929,7 +1929,8 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		tier: "OU",
 	},
 	greninjabond: {
-		tier: "OU",
+		isNonstandard: "Unobtainable",
+		tier: "Unreleased",
 	},
 	greninjamega: {
 		tier: "OU",
