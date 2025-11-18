@@ -1014,7 +1014,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		challengeShow: false,
 		tournamentShow: false,
 		ruleset: ['[Gen 9] PU'],
-		banlist: ['PU', 'ZUBL', 'Unburden'],
+		banlist: ['PU', 'ZUBL', 'Unburden', 'Heat Rock'],
 	},
 	{
 		name: "[Gen 9] Free-For-All OLD",
