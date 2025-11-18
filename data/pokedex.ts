@@ -20369,6 +20369,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		weightkg: 215,
 		color: "Purple",
 		eggGroups: ["Undiscovered"],
+		tags: ["Sub-Legendary"],
 		gen: 8,
 	},
 	nohface: {
