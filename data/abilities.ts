@@ -1188,8 +1188,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	embodyaspectcornerstone: {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.name === 'Ogerpon-Cornerstone-Tera' && pokemon.terastallized &&
-				this.effectState.embodied !== pokemon.previouslySwitchedIn) {
-				this.effectState.embodied = pokemon.previouslySwitchedIn;
+				!this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({ def: 1 }, pokemon);
 			}
 		},
@@ -1201,8 +1201,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	embodyaspecthearthflame: {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.name === 'Ogerpon-Hearthflame-Tera' && pokemon.terastallized &&
-				this.effectState.embodied !== pokemon.previouslySwitchedIn) {
-				this.effectState.embodied = pokemon.previouslySwitchedIn;
+				!this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({ atk: 1 }, pokemon);
 			}
 		},
@@ -1214,8 +1214,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	embodyaspectteal: {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.name === 'Ogerpon-Teal-Tera' && pokemon.terastallized &&
-				this.effectState.embodied !== pokemon.previouslySwitchedIn) {
-				this.effectState.embodied = pokemon.previouslySwitchedIn;
+				!this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({ spe: 1 }, pokemon);
 			}
 		},
@@ -1227,8 +1227,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	embodyaspectwellspring: {
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.name === 'Ogerpon-Wellspring-Tera' && pokemon.terastallized &&
-				this.effectState.embodied !== pokemon.previouslySwitchedIn) {
-				this.effectState.embodied = pokemon.previouslySwitchedIn;
+				!this.effectState.embodied) {
+				this.effectState.embodied = true;
 				this.boost({ spd: 1 }, pokemon);
 			}
 		},
@@ -2598,12 +2598,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	libero: {
 		onPrepareHit(source, target, move) {
-			if (this.effectState.libero === source.previouslySwitchedIn) return;
+			if (this.effectState.libero) return;
 			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
 				if (!source.setType(type)) return;
-				this.effectState.libero = source.previouslySwitchedIn;
+				this.effectState.libero = true;
 				this.add('-start', source, 'typechange', type, '[from] ability: Libero');
 			}
 		},
@@ -3780,12 +3780,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	protean: {
 		onPrepareHit(source, target, move) {
-			if (this.effectState.protean === source.previouslySwitchedIn) return;
+			if (this.effectState.protean) return;
 			if (move.hasBounced || move.flags['futuremove'] || move.sourceEffect === 'snatch' || move.callsMove) return;
 			const type = move.type;
 			if (type && type !== '???' && source.getTypes().join() !== type) {
 				if (!source.setType(type)) return;
-				this.effectState.protean = source.previouslySwitchedIn;
+				this.effectState.protean = true;
 				this.add('-start', source, 'typechange', type, '[from] ability: Protean');
 			}
 		},
@@ -5933,13 +5933,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			if (pokemon.baseSpecies.baseSpecies !== 'Palafin') return;
 			if (pokemon.species.forme !== 'Hero') {
 				pokemon.formeChange('Palafin-Hero', this.effect, true);
+				pokemon.heroMessageDisplayed = false;
 			}
 		},
 		onSwitchIn(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Palafin') return;
-			if (!this.effectState.heroMessageDisplayed && pokemon.species.forme === 'Hero') {
+			if (!pokemon.heroMessageDisplayed && pokemon.species.forme === 'Hero') {
 				this.add('-activate', pokemon, 'ability: Zero to Hero');
-				this.effectState.heroMessageDisplayed = true;
+				pokemon.heroMessageDisplayed = true;
 			}
 		},
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1, notransform: 1 },
