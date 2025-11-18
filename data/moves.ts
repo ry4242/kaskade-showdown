@@ -22323,7 +22323,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 	// CAP moves
 
 	paleowave: {
-		num: 1001,
+		num: -1,
 		accuracy: 100,
 		basePower: 85,
 		category: "Special",
@@ -22343,7 +22343,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		contestType: "Beautiful",
 	},
 	shadowstrike: {
-		num: 1002,
+		num: -2,
 		accuracy: 95,
 		basePower: 80,
 		category: "Physical",
@@ -22363,7 +22363,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		contestType: "Clever",
 	},
 	polarflare: {
-		num: 1003,
+		num: -3,
 		accuracy: 100,
 		basePower: 75,
 		category: "Special",
