@@ -4625,7 +4625,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		challengeShow: false,
 		tournamentShow: false,
 		ruleset: ['Standard'],
-		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'RU', 'Smeargle + Ingrain'],
+		banlist: ['Uber', 'OU', 'UUBL', 'UU', 'RUBL', 'RU', 'NUBL', 'Smeargle + Ingrain'],
 	},
 	{
 		name: "[Gen 7] RU",
