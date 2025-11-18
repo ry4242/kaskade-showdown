@@ -5917,8 +5917,8 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 1] OU', 'APT Clause'],
-		banlist: ['OU', 'UUBL'],
+		ruleset: ['[Gen 1] OU'],
+		banlist: ['OU', 'UUBL', 'Bind', 'Clamp', 'Fire Spin', 'Wrap'],
 	},
 	{
 		name: "[Gen 1] NU",
@@ -5945,7 +5945,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		challengeShow: false,
 		tournamentShow: false,
 		ruleset: ['[Gen 1] PU'],
-		banlist: ['PU', 'ZUBL', 'Bind', 'Clamp', 'Fire Spin', 'Wrap'],
+		banlist: ['PU', 'ZUBL'],
 	},
 	{
 		name: "[Gen 1] LC",
