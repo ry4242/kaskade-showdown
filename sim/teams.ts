@@ -636,8 +636,8 @@ export const Teams = new class Teams {
 			TeamGenerator = require(`../data/mods/gen9ssb/random-teams`).default;
 		} else if (mod === 'ccapm2024') {
 			TeamGenerator = require(`../data/mods/ccapm2024/random-teams`).default;
-		} else if (mod === 'vaporemons') {
-			TeamGenerator = require(`../data/mods/vaporemons/random-teams`).default;
+		} else if (mod === 'balls') {
+			TeamGenerator = require(`../data/mods/balls/random-teams`).default;
 		} else if (mod === 'swse') {
 			TeamGenerator = require(`../data/mods/swse/random-teams`).default;
 		} else if (formatID.includes('gen9babyrandombattle')) {
