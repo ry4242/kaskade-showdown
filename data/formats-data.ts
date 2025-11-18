@@ -6860,7 +6860,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	ramnarokradiant: {
 		isNonstandard: "CAP",
-		tier: "Illegal",
+		tier: "CAP",
 	},
 	pokestarsmeargle: {
 		isNonstandard: "Custom",
