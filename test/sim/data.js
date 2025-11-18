@@ -311,13 +311,12 @@ describe('Dex data', () => {
 	// Existence function takes a Pokemon and returns yes if it exists and no otherwise
 	// can be override for testing CAPs
 	function countPokemon(dex, existenceFunction = s => s.exists && !s.isNonstandard && s.tier !== 'Illegal') {
-		const count = { species: 0, formes: 0, formeNames: [] };
+		const count = { species: 0, formes: 0 };
 		for (const pkmn of dex.species.all()) {
 			if (!existenceFunction(pkmn)) continue;
 			if (pkmn.isCosmeticForme) continue;
 			if (pkmn.name !== pkmn.baseSpecies) {
 				count.formes++;
-				count.formeNames.push(pkmn.name);
 			} else {
 				count.species++;
 			}
@@ -383,7 +382,6 @@ describe('Dex data', () => {
 			const count = countPokemon(Dex.forGen(gen));
 			assert.equal(count.species, species[gen]);
 			assert.equal(count.formes, formes[gen]);
-			// console.log(`Gen ${gen} formes (${count.formes}):`, count.formeNames.join(', '));
 		});
 	}
 

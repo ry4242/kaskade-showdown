@@ -7414,7 +7414,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		// Partially implemented in Pokemon.effectiveClimateWeather() in sim/pokemon.ts
 		onStart(pokemon) {
 			if (!pokemon.ignoringItem()) return;
-			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snow',
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snowscape',
 				'bloodmoon', 'foghorn', 'deltastream'].includes(this.field.effectiveClimateWeather())) {
 				this.runEvent('ClimateWeatherChange', pokemon, pokemon, this.effect);
 			}
@@ -7422,13 +7422,13 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onUpdate(pokemon) {
 			if (!this.effectState.inactive) return;
 			this.effectState.inactive = false;
-			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snow',
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snowscape',
 				'bloodmoon', 'foghorn', 'deltastream'].includes(this.field.effectiveClimateWeather())) {
 				this.runEvent('ClimateWeatherChange', pokemon, pokemon, this.effect);
 			}
 		},
 		onEnd(pokemon) {
-			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snow',
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snowscape',
 				'bloodmoon', 'foghorn', 'deltastream'].includes(this.field.effectiveClimateWeather())) {
 				this.runEvent('ClimateWeatherChange', pokemon, pokemon, this.effect);
 			}

@@ -1521,7 +1521,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
 				break;
 			case 'bloodmoon':
@@ -1588,7 +1588,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
 				break;
 			case 'bloodmoon':
@@ -1655,7 +1655,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
 				break;
 			case 'bloodmoon':
@@ -1722,7 +1722,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'castformrainy') forme = 'Castform-Rainy';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.species.id !== 'castformsnowy') forme = 'Castform-Snowy';
 				break;
 			case 'bloodmoon':
@@ -6016,7 +6016,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	absolutezero: { // tested, works as intended
 		onBasePowerPriority: 21,
 		onBasePower(basePower, attacker, defender, move) {
-			if (['hail', 'snow'].includes(attacker.effectiveClimateWeather())) {
+			if (['hail', 'snowscape'].includes(attacker.effectiveClimateWeather())) {
 				if (move.type === 'Ice') {
 					this.debug('Absolute Zero damage boost');
 					return this.chainModify(1.3);
@@ -6029,7 +6029,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Absolute Zero",
 		rating: 3,
-		num: -15,
+		num: 10015,
 	},
 	ancientbody: { // tested, works as intended
 		onBeforeSwitchIn(pokemon) {
@@ -6043,7 +6043,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Ancient Body",
 		rating: 2.5,
-		num: -65,
+		num: 10065,
 	},
 	anxiety: { // tested, works as intended, TODO: add text
 		onDamage(damage, target, source, effect) {
@@ -6052,7 +6052,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Anxiety",
 		rating: -1,
-		num: -59,
+		num: 10064,
 	},
 	arcanum: { // tested, works as intended
 		onStart(source) {
@@ -6061,7 +6061,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Arcanum",
 		rating: 3,
-		num: -11,
+		num: 10011,
 	},
 	arenabloom: { // tested, works as intended
 		onStart(source) {
@@ -6076,7 +6076,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Arena Bloom",
 		rating: 4,
-		num: -61,
+		num: 10071,
 	},
 	arenacurse: { // tested, works as intended
 		onStart(source) {
@@ -6091,7 +6091,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Arena Curse",
 		rating: 4,
-		num: -62,
+		num: 10072,
 	},
 	bloomspring: { // tested, works as intended
 		onIrritantWeather(target, source, effect) {
@@ -6103,7 +6103,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Bloomspring",
 		rating: 1.5,
-		num: -21,
+		num: 10021,
 	},
 	bubblehelm: { // incomplete, needs testing
 		onImmunity(type, pokemon) {
@@ -6134,7 +6134,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { breakable: 1 },
 		name: "Bubble Helm",
 		rating: 2,
-		num: -45,
+		num: 10046,
 	},
 	carboncapture: { // tested, works as intended
 		onBasePowerPriority: 21,
@@ -6149,7 +6149,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Carbon Capture",
 		rating: 2,
-		num: -23,
+		num: 10023,
 	},
 	cataclysmiclight: { // tested, works as intended
 		onStart(source) {
@@ -6169,7 +6169,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Cataclysmic Light",
 		rating: 4.5,
-		num: -63,
+		num: 10079,
 	},
 	chakra: { // tested, works as intended
 		onBasePowerPriority: 21,
@@ -6182,7 +6182,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Chakra",
 		rating: 3.5,
-		num: -58,
+		num: 10059,
 	},
 	condensation: { // tested, works as intended
 		onStart(source) {
@@ -6191,7 +6191,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Condensation",
 		rating: 3,
-		num: -2,
+		num: 10002,
 	},
 	consecration: { // tested, works as intended
 		onSwitchInPriority: -2,
@@ -6230,7 +6230,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1 },
 		name: "Consecration",
 		rating: 2,
-		num: -65,
+		num: 10066,
 	},
 	dreamer: { // tested, works as intended
 		onStart(source) {
@@ -6239,7 +6239,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Dreamer",
 		rating: 3,
-		num: -10,
+		num: 10010,
 	},
 	droughtproof: { // incomplete. needs testing
 		onImmunity(type, pokemon) {
@@ -6270,7 +6270,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { breakable: 1 },
 		name: "Droughtproof",
 		rating: 2.5,
-		num: -43,
+		num: 10044,
 	},
 	druidry: { // tested, works as intended
 		onStart(target) {
@@ -6286,7 +6286,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Druidry",
 		rating: 2,
-		num: -25,
+		num: 10025,
 	},
 	dustdevil: { // tested, works as intended
 		onStart(source) {
@@ -6295,7 +6295,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Dust Devil",
 		rating: 3,
-		num: -3,
+		num: 10003,
 	},
 	dustgather: { // tested, works as intended
 		onIrritantWeather(target, source, effect) {
@@ -6307,7 +6307,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Dust Gather",
 		rating: 1.5,
-		num: -20,
+		num: 10020,
 	},
 	echolocation: { // tested, works as intended
 		onPrepareHit(source, target, move) {
@@ -6326,7 +6326,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Echolocation",
 		rating: 4.5,
-		num: -66,
+		num: 10043,
 	},
 	energizer: { // tested, works as intended
 		onModifySpe(spe, pokemon) {
@@ -6337,7 +6337,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Energizer",
 		rating: 2.5,
-		num: -34,
+		num: 10034,
 	},
 	enjoin: {
 		onStart(target) {
@@ -6346,7 +6346,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Enjoin",
 		rating: 0,
-		num: -6969,
+		num: 10067,
 	},
 	eventide: { // tested, works as intended
 		onStart(source) {
@@ -6355,7 +6355,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Eventide",
 		rating: 3,
-		num: -1,
+		num: 10001,
 	},
 	evergreen: { // tested, works as intended
 		onSwitchInPriority: -2,
@@ -6371,7 +6371,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					pokemon.species.id !== 'abomasnowlowland') forme = 'Abomasnow-Lowland';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.baseSpecies.baseSpecies === 'Snover' &&
 					pokemon.species.id !== 'snover') forme = 'Snover';
 				if (pokemon.baseSpecies.baseSpecies === 'Abomasnow' &&
@@ -6394,7 +6394,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 					pokemon.species.id !== 'abomasnowlowland') forme = 'Abomasnow-Lowland';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 				if (pokemon.baseSpecies.baseSpecies === 'Snover' &&
 					pokemon.species.id !== 'snover') forme = 'Snover';
 				if (pokemon.baseSpecies.baseSpecies === 'Abomasnow' &&
@@ -6408,7 +6408,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1 },
 		name: "Evergreen",
 		rating: 1,
-		num: -54,
+		num: 10055,
 	},
 	expiation: { // tested, works as intended, TODO: fix text to attribute healing to proper pokemon
 		onFaint(target) {
@@ -6430,7 +6430,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Expiation",
 		rating: 3,
-		num: -67,
+		num: 10078,
 	},
 	ferroflux: { // tested, works as intended
 		onStart(source) {
@@ -6439,7 +6439,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Ferroflux",
 		rating: 3,
-		num: -13,
+		num: 10013,
 	},
 	fieldworker: { // tested, works as intended
 		onModifyAtkPriority: 5,
@@ -6459,7 +6459,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Fieldworker",
 		rating: 3,
-		num: -41,
+		num: 10041,
 	},
 	flytrap: { // tested, works as intended
 		onFoeModifySpe(spe, pokemon) {
@@ -6483,7 +6483,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Flytrap",
 		rating: 5,
-		num: -68,
+		num: 10070,
 	},
 	foil: { // tested, works as intended
 		onSourceModifyAtkPriority: 5,
@@ -6501,14 +6501,14 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { breakable: 1 },
 		name: "Foil",
 		rating: 2,
-		num: -48,
+		num: 10049,
 	},
 	forked: { // tested, works as intended
 		// implemented in conditions.ts
 		flags: {},
 		name: "Forked",
 		rating: 0.1,
-		num: -106,
+		num: 100106,
 	},
 	frigidblaze: { // tested, works as intended
 		onSourceDamagingHit(damage, target, source, move) {
@@ -6527,7 +6527,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Frigid Blaze",
 		rating: 2,
-		num: -69,
+		num: 10069,
 	},
 	galeforce: { // tested, works as intended
 		onStart(source) {
@@ -6536,7 +6536,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Galeforce",
 		rating: 3,
-		num: -14,
+		num: 10014,
 	},
 	geigeraura: { // tested, works as intended
 		onResidualOrder: 5,
@@ -6551,16 +6551,16 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Geiger Aura",
 		rating: 3,
-		num: -70,
+		num: 10058,
 	},
 	glacialarmor: { // tested, works as intended
 		onModifyDef(def, pokemon) {
-			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
+			if (['hail', 'snowscape'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.2);
 			}
 		},
 		onModifySpD(spd, pokemon) {
-			if (['hail', 'snow'].includes(pokemon.effectiveClimateWeather())) {
+			if (['hail', 'snowscape'].includes(pokemon.effectiveClimateWeather())) {
 				return this.chainModify(1.2);
 			}
 		},
@@ -6570,7 +6570,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { breakable: 1 },
 		name: "Glacial Armor",
 		rating: 2,
-		num: -16,
+		num: 10016,
 	},
 	hayfever: { // tested, works as intended
 		onStart(source) {
@@ -6579,7 +6579,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Hay Fever",
 		rating: 3,
-		num: -4,
+		num: 10004,
 	},
 	heathaze: { // tested, works as intended
 		onStart(source) {
@@ -6589,7 +6589,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Heat Haze",
 		rating: 5,
-		num: -74,
+		num: 10073,
 	},
 	hydrophobic: { // incomplete. needs testing
 		onSourceModifyAtkPriority: 5,
@@ -6629,7 +6629,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { breakable: 1 },
 		name: "Hydrophobic",
 		rating: 3,
-		num: -44,
+		num: 10045,
 	},
 	icearmor: { // tested, works as intended
 		onStart(source) {
@@ -6639,7 +6639,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Ice Armor",
 		rating: 5,
-		num: -75,
+		num: 10074,
 	},
 	incantation: { // tested, works as intended
 		onStart(source) {
@@ -6648,7 +6648,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Incantation",
 		rating: 3,
-		num: -7,
+		num: 10007,
 	},
 	indomitable: { // untested, crashes the game
 		/* onDamage(damage, target, source, effect) {
@@ -6663,15 +6663,15 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Indomitable",
 		rating: 3,
-		num: -33,
+		num: 10033,
 	},
-	intoxicate: { // tested, works as intended
+	intoxicate: {
 		onModifyTypePriority: -1,
 		onModifyType(move, pokemon) {
 			const noModifyType = [
 				'judgment', 'multiattack', 'naturalgift', 'revelationdance', 'technoblast', 'terrainpulse', 'weatherball',
 			];
-			if (move.type === 'Normal' && !noModifyType.includes(move.id) &&
+			if (move.type === 'Normal' && (!noModifyType.includes(move.id) || this.activeMove?.isMax) &&
 				!(move.isZ && move.category !== 'Status') && !(move.name === 'Tera Blast' && pokemon.terastallized)) {
 				move.type = 'Poison';
 				move.typeChangerBoosted = this.effect;
@@ -6684,7 +6684,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Intoxicate",
 		rating: 3,
-		num: -60,
+		num: 10060,
 	},
 	machineprecision: { // tested, works as intended
 		onModifyCritRatio(critRatio, source) {
@@ -6696,7 +6696,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Machine Precision",
 		rating: 1,
-		num: -38,
+		num: 10038,
 	},
 	magnapult: { // tested, works as intended
 		onModifySpe(spe, pokemon) {
@@ -6707,7 +6707,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Magnapult",
 		rating: 2,
-		num: -36,
+		num: 10036,
 	},
 	malice: { // tested, works as intended
 		onModifySpAPriority: 5,
@@ -6731,7 +6731,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Malice",
 		rating: 3,
-		num: -18,
+		num: 10018,
 	},
 	masterinstinct: { // tested, works as intended
 		onSourceModifyAccuracyPriority: -1,
@@ -6745,7 +6745,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Master Instinct",
 		rating: 2,
-		num: -27,
+		num: 10027,
 	},
 	nanomachines: { // tested, works as intended
 		onEnergyWeather(target, source, effect) {
@@ -6757,7 +6757,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Nanomachines",
 		rating: 1.5,
-		num: -37,
+		num: 10037,
 	},
 	nastywebbing: { // tested, works as intended
 		onDamagingHit(damage, target, source, move) {
@@ -6771,7 +6771,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Nasty Webbing",
 		rating: 4,
-		num: -71,
+		num: 10062,
 	},
 	neutralize: { // tested, works intendedly TODO: remove failure message when using moves that deal damage and set weather
 		// Ability suppression implemented in sim/pokemon.ts:Pokemon#ignoringAbility
@@ -6824,7 +6824,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			return false;
 		},
 		onStart(pokemon) {
-			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snow',
+			if (['sunnyday', 'desolateland', 'raindance', 'primordialsea', 'hail', 'snowscape',
 				'bloodmoon', 'foghorn', 'deltastream'].includes(this.field.effectiveClimateWeather())) {
 				this.field.clearClimateWeather();
 				this.debug('Cleared Climate Weathers');
@@ -6879,7 +6879,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1, cantsuppress: 1 },
 		name: "Neutralize",
 		rating: 4,
-		num: -72,
+		num: 10075,
 	},
 	nottobe: { // tested, works as intended
 		onDamagingHit(damage, target, source, move) {
@@ -6891,7 +6891,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Not To Be",
 		rating: 2,
-		num: -47,
+		num: 10048,
 	},
 	nullify: { // tested, works as intended TODO: remove failure message when using moves that deal damage and set weather
 		onSwitchIn(pokemon) {
@@ -6932,7 +6932,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Nullify",
 		rating: 2.5,
-		num: -39,
+		num: 10063,
 	},
 	pearldrop: { // tested, works as intended
 		onStart(source) {
@@ -6959,7 +6959,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Pearl Drop",
 		rating: 1,
-		num: -52,
+		num: 10053,
 	},
 	petrichor: { // tested, works as intended
 		onStart(target) {
@@ -6975,7 +6975,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Petrichor",
 		rating: 2.5,
-		num: -73,
+		num: 10061,
 	},
 	pollution: { // tested, works as intended
 		onStart(source) {
@@ -6984,7 +6984,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Pollution",
 		rating: 3,
-		num: -6,
+		num: 10006,
 	},
 	powdercure: { // tested, works as intended
 		onResidualOrder: 5,
@@ -6999,7 +6999,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Powder Cure",
 		rating: 1.5,
-		num: -22,
+		num: 10022,
 	},
 	powerabove: { // tested, works as intended
 		onBasePowerPriority: 21,
@@ -7014,7 +7014,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Power Above",
 		rating: 2.5,
-		num: -24,
+		num: 10024,
 	},
 	powerplumage: { // tested, works as intended
 		onSwitchInPriority: -2,
@@ -7071,7 +7071,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, breakable: 1 },
 		name: "Power Plumage",
 		rating: 5,
-		num: -55,
+		num: 10056,
 	},
 	powerwithin: { // tested, works as intended
 		onBasePowerPriority: 21,
@@ -7086,7 +7086,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Power Within",
 		rating: 2.5,
-		num: -32,
+		num: 10032,
 	},
 	ragestate: { // tested, works as intended
 		onModifyAtkPriority: 5,
@@ -7110,7 +7110,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Rage State",
 		rating: 3,
-		num: -26,
+		num: 10026,
 	},
 	relicsoul: { // tested, works as intended
 		onStart(source) {
@@ -7120,7 +7120,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { breakable: 1 },
 		name: "Relic Soul",
 		rating: 4.5,
-		num: -74,
+		num: 10076,
 	},
 	rockybody: { // tested, works as intended
 		onDamagePriority: 1,
@@ -7165,7 +7165,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		name: "Rocky Body",
 		rating: 2,
-		num: -51,
+		num: 10052,
 	},
 	rootcontrol: { // tested, works as intended
 		onStart(pokemon) {
@@ -7174,7 +7174,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Root Control",
 		rating: 3.5,
-		num: -40,
+		num: 10040,
 	},
 	seance: { // tested, works as intended
 		onStart(source) {
@@ -7183,7 +7183,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Se\u0301ance",
 		rating: 3,
-		num: -9,
+		num: 10009,
 	},
 	secretion: { // tested, works as intended
 		onStart(source) {
@@ -7192,7 +7192,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Secretion",
 		rating: 3,
-		num: -5,
+		num: 10005,
 	},
 	shadowstep: { // tested, works as intended
 		onModifySpe(spe, pokemon) {
@@ -7204,7 +7204,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Shadow Step",
 		rating: 3,
-		num: -17,
+		num: 10017,
 	},
 	smokeandmirrors: { // tested, works as intended
 		onBasePowerPriority: 21,
@@ -7230,7 +7230,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Smoke and Mirrors",
 		rating: 2.5,
-		num: -31,
+		num: 10031,
 	},
 	smotherbody: { // tested, works as intended
 		onModifyMovePriority: -1,
@@ -7250,7 +7250,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Smother Body",
 		rating: 2,
-		num: -53,
+		num: 10054,
 	},
 	songbird: { // tested, works as intended
 		onAllyDamage(damage, target, source, effect) {
@@ -7262,7 +7262,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Songbird",
 		rating: 0,
-		num: -75,
+		num: 10068,
 	},
 	souldrain: { // tested, works as intended
 		onAnyFaintPriority: 1,
@@ -7280,7 +7280,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Soul Drain",
 		rating: 2,
-		num: -29,
+		num: 10029,
 	},
 	soulpassage: { // tested, works as intended
 		onStart(target) {
@@ -7298,7 +7298,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Soul Passage",
 		rating: 2.5,
-		num: -76,
+		num: 10077,
 	},
 	standoff: { // tested, works as intended
 		onStart(source) {
@@ -7307,7 +7307,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Stand Off",
 		rating: 3,
-		num: -8,
+		num: 10008,
 	},
 	stormfront: { // tested, works as intended
 		onStart(source) {
@@ -7316,7 +7316,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Stormfront",
 		rating: 3,
-		num: -12,
+		num: 10012,
 	},
 	surveillance: { // tested, works as intended
 		onStart(pokemon) {
@@ -7325,7 +7325,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Surveillance",
 		rating: 4,
-		num: -42,
+		num: 10042,
 	},
 	swarming: { // tested, works as intended
 		onSwitchInPriority: -1,
@@ -7362,7 +7362,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, cantsuppress: 1 },
 		name: "Swarming",
 		rating: 3,
-		num: -50,
+		num: 10051,
 	},
 	sweetdreams: { // tested, works as intended
 		onEnergyWeather(target, source, effect) {
@@ -7374,7 +7374,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Sweet Dreams",
 		rating: 1.5,
-		num: -30,
+		num: 10030,
 	},
 	tobe: { // Complete.
 		onTryHit(pokemon, target, move) {
@@ -7401,7 +7401,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { breakable: 1 },
 		name: "To Be",
 		rating: 3,
-		num: -46,
+		num: 10047,
 	},
 	trainedeye: { // tested, works as intended
 		onModifyDamage(damage, source, target, move) {
@@ -7419,7 +7419,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Trained Eye",
 		rating: 2,
-		num: -28,
+		num: 10028,
 	},
 	trumpetweevil: { // tested, works as intended
 		onModifyTypePriority: -1,
@@ -7437,7 +7437,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Trumpet Weevil",
 		rating: 4,
-		num: -49,
+		num: 10050,
 	},
 	vegetate: { // tested, works as intended
 		onModifyTypePriority: -1,
@@ -7458,7 +7458,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Vegetate",
 		rating: 3,
-		num: -39,
+		num: 10039,
 	},
 	warpmist: { // tested, works as intended
 		onSwitchInPriority: -1,
@@ -7484,7 +7484,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: {},
 		name: "Warp Mist",
 		rating: 2,
-		num: -19,
+		num: 10019,
 	},
 	wetanddry: { // maybe works? needs client implementation to check (i think)
 		onSwitchInPriority: -2,
@@ -7502,7 +7502,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 			case 'raindance':
 			case 'primordialsea':
 			case 'foghorn':
@@ -7526,7 +7526,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 			case 'raindance':
 			case 'primordialsea':
 			case 'foghorn':
@@ -7550,7 +7550,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				if (pokemon.species.id !== 'droutdry') forme = 'Drout-Dry';
 				break;
 			case 'hail':
-			case 'snow':
+			case 'snowscape':
 			case 'raindance':
 			case 'primordialsea':
 			case 'foghorn':
@@ -7564,6 +7564,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		flags: { failroleplay: 1, noreceiver: 1, noentrain: 1, notrace: 1, failskillswap: 1, notransform: 1 },
 		name: "Wet and Dry",
 		rating: 1,
-		num: -77,
+		num: 10057,
 	},
 };

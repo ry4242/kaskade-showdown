@@ -1286,7 +1286,7 @@ export const Moves: import('../../../sim/dex-moves').ModdedMoveDataTable = {
 	technoblast: {
 		inherit: true,
 		basePowerCallback(pokemon, target, move) {
-			if (this.field.isWeather('snowscape')) {
+			if (this.field.isClimateWeather('snowscape')) {
 				return move.basePower * 1.3;
 			} else return move.basePower;
 		},

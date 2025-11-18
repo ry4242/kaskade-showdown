@@ -2160,7 +2160,7 @@ export class Pokemon {
 		case 'raindance':
 		case 'primordialsea':
 		case 'hail':
-		case 'snow':
+		case 'snowscape':
 		case 'bloodmoon':
 		case 'foghorn':
 			if (this.hasItem('utilityumbrella')) return '';
