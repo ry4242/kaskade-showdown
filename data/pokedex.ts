@@ -4360,7 +4360,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		forme: "Mega",
 		types: ["Steel", "Ground"],
 		baseStats: { hp: 75, atk: 125, def: 230, spa: 55, spd: 95, spe: 30 },
-		abilities: { 0: "Sand Force" },
+		abilities: { 0: "Earth Force" },
 		heightm: 10.5,
 		weightkg: 740,
 		color: "Gray",
