@@ -397,9 +397,9 @@ describe('Dex data', () => {
 	// Shaymin (1) + Therian (4) + Hisui (16) + Basculin (1) + Basculegion (1)
 	formes['gen8legends'] = 1 + 1 + 2 + 1 + 5 + 3 + 17 + 1 + 4 + 16 + 1 + 1;
 	species['gen9legends'] = 230;
-	// Mega (63) + Greninja (1) + Vivillon (2) + Floette (1) + Meowstic (1) + Aegislash (1) + Pumpkaboo (3) +
+	// Mega (63) + Vivillon (2) + Floette (1) + Meowstic (1) + Aegislash (1) + Pumpkaboo (3) +
 	// Gourgeist (3) + Zygarde (2) + Alola (1) + Galar (4)
-	formes['gen9legends'] = 63 + 1 + 2 + 1 + 1 + 1 + 3 + 3 + 2 + 1 + 4;
+	formes['gen9legends'] = 63 + 2 + 1 + 1 + 1 + 3 + 3 + 2 + 1 + 4;
 	// Alola (2) + Galar (2) + Hisui (3) + Paldea (1) + Kaskade (20) + Amaze-All (2) +
 	// Castform (17) + Cherrim (1) + Snover (1) + Abomasnow (1) + Rotom (10) + Basculin (1) +
 	// Vivillon (2) + Pumpkaboo (3) + Gourgeist (3) + Mimikyu (1) + Basculegion (1) + Dudunsparce (1) +
