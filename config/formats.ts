@@ -3331,6 +3331,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Water Bubble', 'Wonder Guard', 'Comatose + Sleep Talk', 'Rusted Sword', 'Belly Drum', 'Bolt Beak', 'Court Change',
 			'Double Iron Bash', 'Octolock', 'Shell Smash', 'Transform',
 		],
+		unbanlist: ['Acupressure'],
 	},
 	{
 		name: "[Gen 7] Balanced Hackmons",
@@ -3345,6 +3346,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Parental Bond', 'Protean', 'Psychic Surge', 'Pure Power', 'Shadow Tag', 'Stakeout', 'Water Bubble', 'Wonder Guard', 'Gengarite',
 			'Baton Pass', 'Belly Drum', 'Chatter', 'Electrify', 'Shell Smash',
 		],
+		unbanlist: ['Acupressure'],
 	},
 
 	// National Dex
