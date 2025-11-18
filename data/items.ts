@@ -5294,7 +5294,11 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		onTrapPokemonPriority: -10,
 		onTrapPokemon(pokemon) {
-			pokemon.trapped = pokemon.maybeTrapped = false;
+			pokemon.trapped = false;
+		},
+		onMaybeTrapPokemonPriority: -10,
+		onMaybeTrapPokemon(pokemon) {
+			pokemon.maybeTrapped = false;
 		},
 		num: 295,
 		gen: 4,
