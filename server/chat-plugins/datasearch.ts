@@ -2736,6 +2736,7 @@ function runItemsearch(target: string, cmd: string, message: string) {
 		case 'atk':
 		case 'attack':
 			if (['sp', 'special'].includes(rawSearch[i - 1])) {
+				newWord = '';
 				break;
 			} else {
 				newWord = 'attack';
@@ -2748,6 +2749,7 @@ function runItemsearch(target: string, cmd: string, message: string) {
 		case 'def':
 		case 'defense':
 			if (['sp', 'special'].includes(rawSearch[i - 1])) {
+				newWord = '';
 				break;
 			} else {
 				newWord = 'defense';
