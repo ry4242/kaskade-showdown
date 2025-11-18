@@ -1924,7 +1924,7 @@ export class BattleActions {
 		const wasMega = pokemon.canMegaEvo;
 		for (const ally of pokemon.side.pokemon) {
 			if (wasMega) {
-				ally.canMegaEvo = null;
+				ally.canMegaEvo = false;
 			} else {
 				ally.canUltraBurst = null;
 			}
