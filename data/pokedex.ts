@@ -6452,10 +6452,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 32,
 		eggGroups: ["Grass", "Human-Like"],
 	},
-	swablu: {
+	swablu: { // updated
 		num: 333,
 		name: "Swablu",
-		types: ["Normal", "Flying"],
+		types: ["Flying"],
 		baseStats: { hp: 45, atk: 40, def: 60, spa: 40, spd: 75, spe: 50 },
 		abilities: { 0: "Natural Cure", H: "Cloud Nine" },
 		heightm: 0.4,
@@ -6685,7 +6685,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	milotic: { // updated
 		num: 350,
 		name: "Milotic",
-		types: ["Water"],
+		types: ["Water", "Fairy"],
 		baseStats: { hp: 95, atk: 60, def: 79, spa: 100, spd: 125, spe: 81 },
 		abilities: { 0: "Marvel Scale", 1: "Competitive", H: "Cute Charm" },
 		heightm: 6.2,
@@ -7106,10 +7106,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Amorphous"],
 		canHatch: true,
 	},
-	absol: {
+	absol: { // updated
 		num: 359,
 		name: "Absol",
-		types: ["Dark"],
+		types: ["Dark", "Fairy"],
 		baseStats: { hp: 65, atk: 130, def: 60, spa: 75, spd: 60, spe: 75 },
 		abilities: { 0: "Pressure", 1: "Super Luck", H: "Justified" },
 		heightm: 1.2,
@@ -8452,10 +8452,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field", "Human-Like"],
 		requiredItem: "Lopunnite",
 	},
-	mismagius: {
+	mismagius: { // updated
 		num: 429,
 		name: "Mismagius",
-		types: ["Ghost"],
+		types: ["Ghost", "Psychic"],
 		baseStats: { hp: 60, atk: 60, def: 60, spa: 105, spd: 105, spe: 105 },
 		abilities: { 0: "Levitate" },
 		heightm: 0.9,
@@ -12198,7 +12198,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	braviary: { // updated
 		num: 628,
 		name: "Braviary",
-		types: ["Normal", "Flying"],
+		types: ["Fighting", "Flying"],
 		gender: "M",
 		baseStats: { hp: 100, atk: 123, def: 75, spa: 57, spd: 75, spe: 80 },
 		abilities: { 0: "Keen Eye", 1: "Sheer Force", H: "Defiant" },
@@ -13871,10 +13871,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Gray",
 		eggGroups: ["Fairy", "Mineral"],
 	},
-	goomy: {
+	goomy: { // updated
 		num: 704,
 		name: "Goomy",
-		types: ["Dragon"],
+		types: ["Dragon", "Water"],
 		baseStats: { hp: 45, atk: 50, def: 35, spa: 55, spd: 75, spe: 40 },
 		abilities: { 0: "Sap Sipper", 1: "Hydration", H: "Gooey" },
 		heightm: 0.3,
@@ -13883,10 +13883,10 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Sliggoo", "Sliggoo-Hisui"],
 		eggGroups: ["Dragon"],
 	},
-	sliggoo: {
+	sliggoo: { // updated
 		num: 705,
 		name: "Sliggoo",
-		types: ["Dragon"],
+		types: ["Dragon", "Water"],
 		baseStats: { hp: 68, atk: 75, def: 53, spa: 83, spd: 113, spe: 60 },
 		abilities: { 0: "Sap Sipper", 1: "Hydration", H: "Gooey" },
 		heightm: 0.8,
@@ -13919,7 +13919,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 	goodra: { // updated
 		num: 706,
 		name: "Goodra",
-		types: ["Dragon"],
+		types: ["Dragon", "Water"],
 		baseStats: { hp: 90, atk: 100, def: 70, spa: 110, spd: 150, spe: 80 },
 		abilities: { 0: "Sap Sipper", 1: "Hydration", H: "Gooey" },
 		heightm: 2,
@@ -14862,11 +14862,11 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Lycanroc-Dusk"],
 		eggGroups: ["Field"],
 	},
-	lycanroc: {
+	lycanroc: { // updated
 		num: 745,
 		name: "Lycanroc",
 		baseForme: "Midday",
-		types: ["Rock"],
+		types: ["Rock", "Normal"],
 		baseStats: { hp: 75, atk: 115, def: 65, spa: 55, spd: 65, spe: 112 },
 		abilities: { 0: "Keen Eye", 1: "Sand Rush", H: "Steadfast" },
 		heightm: 0.8,
@@ -14879,12 +14879,12 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Lycanroc-Midnight", "Lycanroc-Dusk"],
 		formeOrder: ["Lycanroc", "Lycanroc-Midnight", "Lycanroc-Dusk"],
 	},
-	lycanrocmidnight: {
+	lycanrocmidnight: { // updated
 		num: 745,
 		name: "Lycanroc-Midnight",
 		baseSpecies: "Lycanroc",
 		forme: "Midnight",
-		types: ["Rock"],
+		types: ["Rock", "Dark"],
 		baseStats: { hp: 85, atk: 115, def: 75, spa: 55, spd: 75, spe: 82 },
 		abilities: { 0: "Keen Eye", 1: "Vital Spirit", H: "No Guard" },
 		heightm: 1.1,
@@ -14895,12 +14895,12 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "at night",
 		eggGroups: ["Field"],
 	},
-	lycanrocdusk: {
+	lycanrocdusk: { // updated
 		num: 745,
 		name: "Lycanroc-Dusk",
 		baseSpecies: "Lycanroc",
 		forme: "Dusk",
-		types: ["Rock"],
+		types: ["Rock", "Fighting"],
 		baseStats: { hp: 75, atk: 117, def: 65, spa: 55, spd: 65, spe: 110 },
 		abilities: { 0: "Tough Claws" },
 		heightm: 0.8,
