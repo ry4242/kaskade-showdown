@@ -59,7 +59,7 @@ export class RandomCAPTeams extends RandomTeams {
 		const sets = this.randomCAPSets[species.id]["sets"];
 		const possibleSets = [];
 
-		const ruleTable = this.dex.formats.getRuleTable(this.format);
+		// const ruleTable = this.dex.formats.getRuleTable(this.format);
 
 		for (const set of sets) {
 			// Prevent Fast Bulky Setup on lead Paradox Pokemon, since it generates Booster Energy.
@@ -68,7 +68,7 @@ export class RandomCAPTeams extends RandomTeams {
 				continue;
 			}
 			// Prevent Tera Blast user if the team already has one, or if Terastallizion is prevented.
-			if ((teamDetails.teraBlast || ruleTable.has('terastalclause')) && set.role === 'Tera Blast user') {
+			if ((teamDetails.teraBlast/* || ruleTable.has('terastalclause') */) && set.role === 'Tera Blast user') {
 				continue;
 			}
 			possibleSets.push(set);

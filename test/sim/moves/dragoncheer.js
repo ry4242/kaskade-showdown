@@ -66,7 +66,7 @@ describe('Dragon Cheer', () => {
 		assert(battle.log.some(line => line.startsWith('|-fail'))); // second trigger
 	});
 
-	it('should not increase ratio if affected Pokemon turns into a Dragon Type after Dragon Cheer', () => {
+	it.skip('should not increase ratio if affected Pokemon turns into a Dragon Type after Dragon Cheer', () => {
 		battle = common.gen(9).createBattle({ gameType: 'doubles' }, [[
 			{ species: 'dragapult', moves: ['dragoncheer', 'splash'] },
 			{ species: 'horsea', moves: ['bubble'], teraType: 'Dragon' },

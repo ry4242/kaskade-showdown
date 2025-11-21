@@ -60,7 +60,7 @@ describe('Cloud Nine', () => {
 		], [
 			{ species: 'Golduck', ability: 'cloudnine', moves: ['calmmind'] },
 		]]);
-		assert.true.hurts(battle.p2.active[0], () => battle.makeChoices('move dragondance', 'move calmmind'));
+		assert.hurts(battle.p2.active[0], () => battle.makeChoices('move dragondance', 'move calmmind'));
 	});
 
 	it('should negate the damage-dealing effects of Hail', () => {

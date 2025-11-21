@@ -14,7 +14,7 @@ describe('Stomping Tantrum', () => {
 		battle = common.createBattle([[
 			{ species: 'Marowak', moves: ['attract', 'spore', 'stompingtantrum'] },
 		], [
-			{ species: 'Manaphy', moves: ['rest'], ability: ['oblivious'] },
+			{ species: 'Manaphy', moves: ['rest'], ability: 'oblivious' },
 		]]);
 
 		battle.onEvent('BasePower', battle.format, basePower => {
