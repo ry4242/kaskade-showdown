@@ -140,6 +140,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	wigglytuff: {
 		isNonstandard: "Past",
 	},
+	zubat: {
+		isNonstandard: "Past",
+	},
+	golbat: {
+		isNonstandard: "Past",
+	},
 	oddish: {
 		isNonstandard: "Past",
 	},
@@ -239,6 +245,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	bellsprout: {
 		isNonstandard: null,
 	},
+	bellsproutkaskade: {
+		isNonstandard: "Past",
+	},
 	weepinbell: {
 		isNonstandard: null,
 	},
@@ -270,6 +279,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	golemalola: {
+		isNonstandard: "Past",
+	},
+	ponytagalar: {
+		isNonstandard: "Past",
+	},
+	rapidashgalar: {
 		isNonstandard: "Past",
 	},
 	slowpoke: {
@@ -326,14 +341,23 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	gastly: {
 		isNonstandard: null,
 	},
+	gastlykaskade: {
+		isNonstandard: "Past",
+	},
 	haunter: {
 		isNonstandard: null,
+	},
+	haunterkaskade: {
+		isNonstandard: "Past",
 	},
 	gengar: {
 		isNonstandard: null,
 	},
 	gengarmega: {
 		isNonstandard: null,
+	},
+	gengarkaskade: {
+		isNonstandard: "Past",
 	},
 	onix: {
 		isNonstandard: null,
@@ -572,6 +596,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	ariados: {
 		isNonstandard: null,
 	},
+	crobat: {
+		isNonstandard: "Past",
+	},
 	chinchou: {
 		isNonstandard: "Past",
 	},
@@ -585,6 +612,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: null,
 	},
 	igglybuff: {
+		isNonstandard: "Past",
+	},
+	togepi: {
+		isNonstandard: "Past",
+	},
+	togetic: {
 		isNonstandard: "Past",
 	},
 	mareep: {
@@ -605,10 +638,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	marill: {
 		isNonstandard: "Past",
 	},
+	marillkaskade: {
+		isNonstandard: "Past",
+	},
 	azumarill: {
 		isNonstandard: "Past",
 	},
+	azumarillkaskade: {
+		isNonstandard: "Past",
+	},
 	sudowoodo: {
+		isNonstandard: "Past",
+	},
+	sudowoodoamazeall: {
 		isNonstandard: "Past",
 	},
 	politoed: {
@@ -633,6 +675,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	yanma: {
+		isNonstandard: "Past",
+	},
+	yanmakaskade: {
 		isNonstandard: "Past",
 	},
 	wooper: {
@@ -908,6 +953,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	azurill: {
 		isNonstandard: "Past",
 	},
+	azurillkaskade: {
+		isNonstandard: "Past",
+	},
 	nosepass: {
 		isNonstandard: "Past",
 	},
@@ -1049,6 +1097,60 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	milotic: {
 		isNonstandard: "Past",
 	},
+	castform: {
+		isNonstandard: "Past",
+	},
+	castformsunny: {
+		isNonstandard: "Past",
+	},
+	castformrainy: {
+		isNonstandard: "Past",
+	},
+	castformsnowy: {
+		isNonstandard: "Past",
+	},
+	castformshady: {
+		isNonstandard: "Past",
+	},
+	castformsandy: {
+		isNonstandard: "Past",
+	},
+	castformdusty: {
+		isNonstandard: "Past",
+	},
+	castformallergy: {
+		isNonstandard: "Past",
+	},
+	castformswarmy: {
+		isNonstandard: "Past",
+	},
+	castformsmoggy: {
+		isNonstandard: "Past",
+	},
+	castformlovely: {
+		isNonstandard: "Past",
+	},
+	castformgutsy: {
+		isNonstandard: "Past",
+	},
+	castformspooky: {
+		isNonstandard: "Past",
+	},
+	castformzenny: {
+		isNonstandard: "Past",
+	},
+	castformsorcery: {
+		isNonstandard: "Past",
+	},
+	castformzappy: {
+		isNonstandard: "Past",
+	},
+	castformwindy: {
+		isNonstandard: "Past",
+	},
+	castformwhirly: {
+		isNonstandard: "Past",
+	},
 	shuppet: {
 		isNonstandard: null,
 	},
@@ -1065,6 +1167,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	tropius: {
+		isNonstandard: "Past",
+	},
+	tropiuskaskade: {
 		isNonstandard: "Past",
 	},
 	chimecho: {
@@ -1084,6 +1189,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	glaliemega: {
 		isNonstandard: null,
+	},
+	relicanth: {
+		isNonstandard: "Past",
 	},
 	luvdisc: {
 		isNonstandard: "Past",
@@ -1187,6 +1295,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	staraptor: {
 		isNonstandard: "Past",
 	},
+	bidoofkaskade: {
+		isNonstandard: "Past",
+	},
+	bibarelkaskade: {
+		isNonstandard: "Past",
+	},
 	kricketot: {
 		isNonstandard: "Past",
 	},
@@ -1196,10 +1310,19 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	shinx: {
 		isNonstandard: "Past",
 	},
+	shinxkaskade: {
+		isNonstandard: "Past",
+	},
 	luxio: {
 		isNonstandard: "Past",
 	},
+	luxiokaskade: {
+		isNonstandard: "Past",
+	},
 	luxray: {
+		isNonstandard: "Past",
+	},
+	luxraykaskade: {
 		isNonstandard: "Past",
 	},
 	budew: {
@@ -1235,6 +1358,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	floatzel: {
 		isNonstandard: "Past",
 	},
+	cherubi: {
+		isNonstandard: "Past",
+	},
+	cherrim: {
+		isNonstandard: "Past",
+	},
+	cherrimsunshine: {
+		isNonstandard: "Past",
+	},
 	shellos: {
 		isNonstandard: "Past",
 	},
@@ -1248,6 +1380,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	drifblim: {
+		isNonstandard: "Past",
+	},
+	drifblimamazeall: {
 		isNonstandard: "Past",
 	},
 	buneary: {
@@ -1334,11 +1469,17 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	snover: {
 		isNonstandard: null,
 	},
+	snoverlowland: {
+		isNonstandard: "Past",
+	},
 	abomasnow: {
 		isNonstandard: null,
 	},
 	abomasnowmega: {
 		isNonstandard: null,
+	},
+	abomasnowlowland: {
+		isNonstandard: "Past",
 	},
 	weavile: {
 		isNonstandard: "Past",
@@ -1353,6 +1494,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	magmortar: {
+		isNonstandard: "Past",
+	},
+	togekiss: {
 		isNonstandard: "Past",
 	},
 	yanmega: {
@@ -1571,10 +1715,25 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	simipour: {
 		isNonstandard: null,
 	},
+	munna: {
+		isNonstandard: "Past",
+	},
+	musharna: {
+		isNonstandard: "Past",
+	},
 	blitzle: {
 		isNonstandard: "Past",
 	},
 	zebstrika: {
+		isNonstandard: "Past",
+	},
+	roggenrola: {
+		isNonstandard: "Past",
+	},
+	boldore: {
+		isNonstandard: "Past",
+	},
+	gigalith: {
 		isNonstandard: "Past",
 	},
 	drilbur: {
@@ -1585,6 +1744,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	},
 	excadrillmega: {
 		isNonstandard: null,
+	},
+	excadrillkaskade: {
+		isNonstandard: "Past",
 	},
 	audino: {
 		isNonstandard: null,
@@ -1599,6 +1761,15 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	conkeldurr: {
+		isNonstandard: "Past",
+	},
+	tympole: {
+		isNonstandard: "Past",
+	},
+	palpitoad: {
+		isNonstandard: "Past",
+	},
+	seismitoad: {
 		isNonstandard: "Past",
 	},
 	sewaddle: {
@@ -1937,6 +2108,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	bunnelby: {
 		isNonstandard: null,
 	},
+	bunnelbykaskade: {
+		isNonstandard: "Past",
+	},
+	diggersbykaskade: {
+		isNonstandard: "Past",
+	},
 	diggersby: {
 		isNonstandard: null,
 	},
@@ -2122,8 +2299,14 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	phantump: {
 		isNonstandard: null,
 	},
+	phantumpkaskade: {
+		isNonstandard: "Past",
+	},
 	trevenant: {
 		isNonstandard: null,
+	},
+	trevenantkaskade: {
+		isNonstandard: "Past",
 	},
 	pumpkaboo: {
 		isNonstandard: null,
@@ -2317,6 +2500,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	lurantis: {
 		isNonstandard: "Past",
 	},
+	morelull: {
+		isNonstandard: "Past",
+	},
+	shiinotic: {
+		isNonstandard: "Past",
+	},
 	salandit: {
 		isNonstandard: "Past",
 	},
@@ -2345,6 +2534,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	palossand: {
+		isNonstandard: "Past",
+	},
+	palossandkaskade: {
+		isNonstandard: "Past",
+	},
+	pyukumuku: {
 		isNonstandard: "Past",
 	},
 	minior: {
@@ -2447,6 +2642,12 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	corviknight: {
+		isNonstandard: "Past",
+	},
+	nickit: {
+		isNonstandard: "Past",
+	},
+	thievul: {
 		isNonstandard: "Past",
 	},
 	chewtle: {
@@ -3092,6 +3293,405 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	pecharunt: {
+		isNonstandard: "Past",
+	},
+	llampas: {
+		isNonstandard: "Past",
+	},
+	danfluff: {
+		isNonstandard: "Past",
+	},
+	alfalphalops: {
+		isNonstandard: "Past",
+	},
+	therpal: {
+		isNonstandard: "Past",
+	},
+	aspfault: {
+		isNonstandard: "Past",
+	},
+	tarmendoa: {
+		isNonstandard: "Past",
+	},
+	burbwhirl: {
+		isNonstandard: "Past",
+	},
+	spoutlaw: {
+		isNonstandard: "Past",
+	},
+	vaquamael: {
+		isNonstandard: "Past",
+	},
+	chewmunk: {
+		isNonstandard: "Past",
+	},
+	cheekat: {
+		isNonstandard: "Past",
+	},
+	specoey: {
+		isNonstandard: "Past",
+	},
+	opakespiel: {
+		isNonstandard: "Past",
+	},
+	kwaile: {
+		isNonstandard: "Past",
+	},
+	quailert: {
+		isNonstandard: "Past",
+	},
+	quailstion: {
+		isNonstandard: "Past",
+	},
+	sighlo: {
+		isNonstandard: "Past",
+	},
+	cooreds: {
+		isNonstandard: "Past",
+	},
+	probaska: {
+		isNonstandard: "Past",
+	},
+	histameanie: {
+		isNonstandard: "Past",
+	},
+	apheed: {
+		isNonstandard: "Past",
+	},
+	musleafo: {
+		isNonstandard: "Past",
+	},
+	eecroach: {
+		isNonstandard: "Past",
+	},
+	eecroachswarm: {
+		isNonstandard: "Past",
+	},
+	stackem: {
+		isNonstandard: "Past",
+	},
+	stackemrockless: {
+		isNonstandard: "Past",
+	},
+	clamtrip: {
+		isNonstandard: "Past",
+	},
+	rowviar: {
+		isNonstandard: "Past",
+	},
+	sanook: {
+		isNonstandard: "Past",
+	},
+	cereboral: {
+		isNonstandard: "Past",
+	},
+	bagoul: {
+		isNonstandard: "Past",
+	},
+	tofrug: {
+		isNonstandard: "Past",
+	},
+	kaskazog: {
+		isNonstandard: "Past",
+	},
+	ananot: {
+		isNonstandard: "Past",
+	},
+	ananoop: {
+		isNonstandard: "Past",
+	},
+	mosster: {
+		isNonstandard: "Past",
+	},
+	mosskrat: {
+		isNonstandard: "Past",
+	},
+	mosskrattidebloom: {
+		isNonstandard: "Past",
+	},
+	catteraxe: {
+		isNonstandard: "Past",
+	},
+	catatomb: {
+		isNonstandard: "Past",
+	},
+	enigmeon: {
+		isNonstandard: "Past",
+	},
+	skinka: {
+		isNonstandard: "Past",
+	},
+	dredgen: {
+		isNonstandard: "Past",
+	},
+	stalagen: {
+		isNonstandard: "Past",
+	},
+	chromagen: {
+		isNonstandard: "Past",
+	},
+	aerogen: {
+		isNonstandard: "Past",
+	},
+	caragen: {
+		isNonstandard: "Past",
+	},
+	bludgen: {
+		isNonstandard: "Past",
+	},
+	pathagen: {
+		isNonstandard: "Past",
+	},
+	ectogen: {
+		isNonstandard: "Past",
+	},
+	legen: {
+		isNonstandard: "Past",
+	},
+	depuray: {
+		isNonstandard: "Past",
+	},
+	desoray: {
+		isNonstandard: "Past",
+	},
+	dirrun: {
+		isNonstandard: "Past",
+	},
+	blurrun: {
+		isNonstandard: "Past",
+	},
+	blurruncharged: {
+		isNonstandard: "Past",
+	},
+	pudet: {
+		isNonstandard: "Past",
+	},
+	woond: {
+		isNonstandard: "Past",
+	},
+	pramblo: {
+		isNonstandard: "Past",
+	},
+	glashulimp: {
+		isNonstandard: "Past",
+	},
+	drout: {
+		isNonstandard: "Past",
+	},
+	droutdry: {
+		isNonstandard: "Past",
+	},
+	guruchi: {
+		isNonstandard: "Past",
+	},
+	porygonw: {
+		isNonstandard: "Past",
+	},
+	estoe: {
+		isNonstandard: "Past",
+	},
+	perpetua: {
+		isNonstandard: "Past",
+	},
+	tooburm: {
+		isNonstandard: "Past",
+	},
+	detrarc: {
+		isNonstandard: "Past",
+	},
+	qayagus: {
+		isNonstandard: "Past",
+	},
+	auditaur: {
+		isNonstandard: "Past",
+	},
+	oxillery: {
+		isNonstandard: "Past",
+	},
+	mienflux: {
+		isNonstandard: "Past",
+	},
+	gneckle: {
+		isNonstandard: "Past",
+	},
+	rabyoose: {
+		isNonstandard: "Past",
+	},
+	avokiddo: {
+		isNonstandard: "Past",
+	},
+	alliguaca: {
+		isNonstandard: "Past",
+	},
+	tamroast: {
+		isNonstandard: "Past",
+	},
+	tamroastf: {
+		isNonstandard: "Past",
+	},
+	weepollen: {
+		isNonstandard: "Past",
+	},
+	weepollenf: {
+		isNonstandard: "Past",
+	},
+	vitisquash: {
+		isNonstandard: "Past",
+	},
+	dionysseur: {
+		isNonstandard: "Past",
+	},
+	umbralu: {
+		isNonstandard: "Past",
+	},
+	nomobjeka: {
+		isNonstandard: "Past",
+	},
+	kleptarak: {
+		isNonstandard: "Past",
+	},
+	kituff: {
+		isNonstandard: "Past",
+	},
+	beadamup: {
+		isNonstandard: "Past",
+	},
+	rascume: {
+		isNonstandard: "Past",
+	},
+	faebril: {
+		isNonstandard: "Past",
+	},
+	bokshel: {
+		isNonstandard: "Past",
+	},
+	hermirt: {
+		isNonstandard: "Past",
+	},
+	aeradio: {
+		isNonstandard: "Past",
+	},
+	botnyak: {
+		isNonstandard: "Past",
+	},
+	hurchin: {
+		isNonstandard: "Past",
+	},
+	vendrom: {
+		isNonstandard: "Past",
+	},
+	buwuve: {
+		isNonstandard: "Past",
+	},
+	wasgrowl: {
+		isNonstandard: "Past",
+	},
+	worcane: {
+		isNonstandard: "Past",
+	},
+	probat: {
+		isNonstandard: "Past",
+	},
+	jemineye: {
+		isNonstandard: "Past",
+	},
+	oracub: {
+		isNonstandard: "Past",
+	},
+	bearvoyance: {
+		isNonstandard: "Past",
+	},
+	bearvoyanceawakened: {
+		isNonstandard: "Past",
+	},
+	folleming: {
+		isNonstandard: "Past",
+	},
+	drosabell: {
+		isNonstandard: "Past",
+	},
+	yanmage: {
+		isNonstandard: "Past",
+	},
+	bloomage: {
+		isNonstandard: "Past",
+	},
+	obsidious: {
+		isNonstandard: "Past",
+	},
+	mercryni: {
+		isNonstandard: "Past",
+	},
+	meraculisk: {
+		isNonstandard: "Past",
+	},
+	golgre: {
+		isNonstandard: "Past",
+	},
+	prospectre: {
+		isNonstandard: "Past",
+	},
+	skideer: {
+		isNonstandard: "Past",
+	},
+	yuleigh: {
+		isNonstandard: "Past",
+	},
+	feafurr: {
+		isNonstandard: "Past",
+	},
+	vaicear: {
+		isNonstandard: "Past",
+	},
+	phisnooz: {
+		isNonstandard: "Past",
+	},
+	telemac: {
+		isNonstandard: "Past",
+	},
+	macedontus: {
+		isNonstandard: "Past",
+	},
+	crynorawst: {
+		isNonstandard: "Past",
+	},
+	rotomb: {
+		isNonstandard: "Past",
+	},
+	tamunk: {
+		isNonstandard: "Past",
+	},
+	temunk: {
+		isNonstandard: "Past",
+	},
+	manadza: {
+		isNonstandard: "Past",
+	},
+	arctikull: {
+		isNonstandard: "Past",
+	},
+	wicoot: {
+		isNonstandard: "Past",
+	},
+	orogon: {
+		isNonstandard: "Past",
+	},
+	orbtholod: {
+		isNonstandard: "Past",
+	},
+	pestalation: {
+		isNonstandard: "Past",
+	},
+	revylon: {
+		isNonstandard: "Past",
+	},
+	leoseace: {
+		isNonstandard: "Past",
+	},
+	lamentu: {
+		isNonstandard: "Past",
+	},
+	endramodai: {
 		isNonstandard: "Past",
 	},
 };

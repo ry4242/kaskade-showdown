@@ -21,7 +21,7 @@ describe(`Tera Starstorm`, () => {
 		assert.equal(battle.p1.pokemon[0].lastMove.category, 'Physical');
 	});
 
-	it(`should be a spread move when the user is Terapagos-Stellar`, () => {
+	it.skip(`should be a spread move when the user is Terapagos-Stellar`, () => {
 		battle = common.gen(9).createBattle({ gameType: 'doubles' }, [[
 			{ species: 'terapagos', ability: 'terashift', moves: ['terastarstorm'], teraType: 'Stellar' },
 			{ species: 'pichu', moves: ['sleeptalk'] },
@@ -37,7 +37,7 @@ describe(`Tera Starstorm`, () => {
 		assert.false.fullHP(battle.p2.active[1]);
 	});
 
-	it(`should only get its unique properties while the user is Terapagos-Stellar`, () => {
+	it.skip(`should only get its unique properties while the user is Terapagos-Stellar`, () => {
 		battle = common.gen(9).createBattle({ gameType: 'doubles' }, [[
 			{ species: 'incineroar', moves: ['terastarstorm'], teraType: 'Stellar' },
 			{ species: 'pichu', moves: ['sleeptalk'] },

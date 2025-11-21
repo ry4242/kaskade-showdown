@@ -74,18 +74,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
 	{
-		name: "[Gen 9] Free-For-All Random Battle",
-
-		mod: 'swse',
-		team: 'randomFFA',
-		gameType: 'freeforall',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		rated: false,
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
-	},
-	{
 		name: "[Gen 9] Random Battle (Blitz)",
 
 		mod: 'swse',
@@ -127,18 +115,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		mod: 'swse',
 		gameType: 'doubles',
 		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
 		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
 	{
-		name: "[Gen 9] Doubles OU Fraud",
+		name: "[Gen 9] Doubles OU",
 		mod: 'swse',
 		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
 		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
@@ -249,8 +232,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 		mod: 'swse',
 		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
 		ruleset: ['Tso-Lo Pokedex', 'Standard'],
 		banlist: [
 			'Uber', 'AG',
@@ -405,12 +386,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Anything Goes",
-
-		mod: 'swse',
-		ruleset: ['Min Source Gen = 9', 'Obtainable', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause'],
-	},
-	{
 		name: "[Gen 9] Ubers UU",
 		mod: 'swse',
 		searchShow: false,
@@ -461,31 +436,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Arena Trap', 'Shadow Tag',
 			'Baton Pass',
 		],
-	},
-	{
-		name: "[Gen 9] Free-For-All",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3711724/">Free-For-All</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'freeforall',
-		rated: false,
-		tournamentShow: false,
-		ruleset: ['Standard', '!Evasion Items Clause'],
-		banlist: [
-			'Arena Trap', 'Shadow Tag',
-			'Aromatic Mist', 'Baton Pass', 'Court Change', 'Final Gambit', 'Flatter',
-			'Follow Me', 'Heal Pulse', 'Last Respects', 'Poison Fang', 'Rage Powder', 'Spicy Extract', 'Swagger', 'Toxic', 'Toxic Spikes',
-		],
-	},
-	{
-		name: "[Gen 9] Pure Hackmons",
-		desc: `Anything directly hackable onto a set (EVs, IVs, forme, ability, item, and move) and is usable in local battles is allowed.`,
-
-		mod: 'swse',
-		searchShow: false,
-		ruleset: ['Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Hackmons Forme Legality', 'Species Reveal Clause', 'Endless Battle Clause'],
 	},
 
 	// Other Metagames
@@ -599,20 +549,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
 	{
-		name: "[Gen 9] Free-For-All Random Battle OLD",
+		name: "[Gen 9] Free-For-All Random Battle",
 		mod: 'gen9',
 		team: 'randomFFA',
-		gameType: 'freeforall',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		rated: false,
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
-	},
-	{
-		name: "[Gen 9] Free-For-All Random Battle OLD",
-		mod: 'gen9',
-		team: 'random',
 		gameType: 'freeforall',
 		searchShow: false,
 		challengeShow: false,
@@ -935,7 +874,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Flat Rules', '!! Adjust Level = 50', 'Min Source Gen = 9', 'VGC Timer', 'Force Open Team Sheets', 'Best of = 3'],
 	},
 	{
-		name: "[Gen 9] Doubles Custom Game",
+		name: "[Gen 9] Doubles Custom Game OLD",
 		mod: 'gen9',
 		gameType: 'doubles',
 		searchShow: false,
@@ -993,7 +932,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Anything Goes OLD",
+		name: "[Gen 9] Anything Goes",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -1027,7 +966,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['PU', 'ZUBL', 'Unburden', 'Heat Rock'],
 	},
 	{
-		name: "[Gen 9] Free-For-All OLD",
+		name: "[Gen 9] Free-For-All",
 		mod: 'gen9',
 		gameType: 'freeforall',
 		rated: false,
@@ -2621,7 +2560,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Pure Hackmons OLD",
+		name: "[Gen 9] Pure Hackmons",
 		desc: `Anything directly hackable onto a set (EVs, IVs, forme, ability, item, and move) and is usable in local battles is allowed.`,
 		mod: 'gen9',
 		searchShow: false,

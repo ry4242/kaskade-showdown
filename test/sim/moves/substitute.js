@@ -94,7 +94,7 @@ describe('Substitute', () => {
 		battle.makeChoices('move substitute', 'move nastyplot');
 		battle.makeChoices('move substitute', 'move lightofruin');
 		const pokemon = battle.p2.active[0];
-		assert.equal(pokemon.maxhp - pokemon.hp, Math.ceil(Math.floor(battle.p1.active[0].maxhp / 4) / 3));
+		assert.equal(pokemon.maxhp - pokemon.hp, Math.floor(Math.floor(battle.p1.active[0].maxhp / 4) * 33 / 100));
 	});
 
 	it('should cause recovery from an opponent\'s draining moves to be based on damage dealt to the substitute', () => {

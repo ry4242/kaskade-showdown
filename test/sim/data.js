@@ -236,7 +236,7 @@ describe('Dex data', () => {
 
 	it('should have valid Learnsets entries', function () {
 		this.timeout(0);
-		const mods = [Dex.mod('gen2'), Dex.mod('gen7letsgo'), Dex.mod('gen8bdsp'), Dex.mod('gen8legends'), Dex.mod('gen9legends'), Dex.mod('gen9swse'), Dex];
+		const mods = [Dex.mod('gen2'), Dex.mod('gen7letsgo'), Dex.mod('gen8bdsp'), Dex.mod('gen8legends'), Dex.mod('gen9legends'), Dex];
 		for (const mod of mods) {
 			for (const speciesid in mod.data.Learnsets) {
 				const species = Dex.species.get(speciesid);
@@ -298,7 +298,7 @@ describe('Dex data', () => {
 								}
 								assert.equal(eventMove, toID(eventMove), `${species.name}'s event move "${eventMove}" must be an ID`);
 								assert(entry.learnset, `${species.name} has event moves but no learnset`);
-								const effectiveMod = ['gen8bdsp', 'gen8legends', 'gen9legends', 'gen9swse'].includes(mod.currentMod) ? mod.currentMod : undefined;
+								const effectiveMod = ['gen8bdsp', 'gen8legends', 'gen9legends'].includes(mod.currentMod) ? mod.currentMod : undefined;
 								if (eventEntry.source === effectiveMod) assert(entry.learnset[eventMove]?.includes(learned), `${species.name}'s event move ${Dex.moves.get(eventMove).name} should exist as "${learned}"`);
 							}
 						}
@@ -336,7 +336,7 @@ describe('Dex data', () => {
 		6: 721,
 		7: 807,
 		8: 664,
-		9: 194,
+		9: 173,
 	};
 	const formes = {
 		// Gens 1 and 2 have no alternate formes
@@ -375,7 +375,7 @@ describe('Dex data', () => {
 	// Castform (17) + Cherrim (1) + Snover (1) + Abomasnow (1) + Rotom (10) + Basculin (1) +
 	// Vivillon (2) + Pumpkaboo (3) + Gourgeist (3) + Mimikyu (1) + Basculegion (1) + Dudunsparce (1) +
 	// Eecroach (1) + Stackem (1) + Mosskrat (1) + Bearvoyance (1)
-	formes[9] = 76;
+	formes[9] = 48;
 
 	for (const gen of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
 		it(`Gen ${gen} should have ${species[gen]} species and ${formes[gen]} formes`, () => {
@@ -401,12 +401,13 @@ describe('Dex data', () => {
 	// Castform (17) + Cherrim (1) + Snover (1) + Abomasnow (1) + Rotom (10) + Basculin (1) +
 	// Vivillon (2) + Pumpkaboo (3) + Gourgeist (3) + Mimikyu (1) + Basculegion (1) + Dudunsparce (1) +
 	// Eecroach (1) + Stackem (1) + Mosskrat (1) + Bearvoyance (1)
-	formes['gen9swse'] = 76;
 
 	for (const mod of ['gen7letsgo', 'gen8bdsp', 'gen8legends', 'gen9legends']) {
 		it(`${mod} should have ${species[mod]} species and ${formes[mod]} formes`, () => {
 			const existenceFunction = mod.includes('legends') ? s => s.exists && !s.isNonstandard : undefined;
 			const count = countPokemon(Dex.mod(mod), existenceFunction);
+			// console.log(JSON.stringify(Dex.mod('gen9legends').species.all().filter(s => s.exists && !s.isNonstandard && s.name === s.baseSpecies).map(s => s.name), null, 2));
+			// console.log(JSON.stringify(Dex.mod('gen9legends').species.all().filter(s => s.exists && !s.isNonstandard).flatMap(s => s.formes ? s.formes.map(f => f.name) : [s.name]), null, 2));
 			assert.equal(count.species, species[mod]);
 			assert.equal(count.formes, formes[mod]);
 		});

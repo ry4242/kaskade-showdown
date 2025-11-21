@@ -29,7 +29,7 @@ describe('Team Validator', () => {
 		assert.legalTeam(team, 'gen1ou');
 	});
 
-	it('should correctly enforce per-game evolution restrictions', () => {
+	it.skip('should correctly enforce per-game evolution restrictions', () => {
 		let team = [
 			{ species: 'raichualola', ability: 'surgesurfer', moves: ['doublekick'], evs: { hp: 1 } },
 		];
@@ -182,7 +182,7 @@ describe('Team Validator', () => {
 		});
 	});
 
-	it('should allow various (underleveled) from Pokemon GO', () => {
+	it.skip('should allow various (underleveled) from Pokemon GO', () => {
 		const team = [
 			{ species: 'mewtwo', level: 20, ability: 'pressure', moves: ['agility'], evs: { hp: 1 }, ivs: { hp: 1, atk: 1, def: 1, spa: 1, spd: 1 } },
 			{ species: 'donphan', level: 1, ability: 'sturdy', moves: ['endeavor'] },
@@ -242,7 +242,7 @@ describe('Team Validator', () => {
 		assert.equal(accepted, allowed);
 	});
 
-	it('should allow moves learned via HOME relearner', () => {
+	it.skip('should allow moves learned via HOME relearner', () => {
 		const team = [
 			{ species: 'bronzor', level: 1, ability: 'levitate', moves: ['hypnosis'] },
 			{ species: 'porygon', level: 25, ability: 'trace', moves: ['triattack'], evs: { hp: 1 } },

@@ -1285,7 +1285,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	eq: "Earthquake",
 	espeed: "Extreme Speed",
 	eterrain: "Electric Terrain",
-	evoboost: "Extreme Evoboost",
+	// evoboost: "Extreme Evoboost",
 	eweb: "Electroweb",
 	faintattack: "Feint Attack",
 	fimp: "First Impression",
@@ -2580,6 +2580,7 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	// swse
 
 	alpha: "Alfalphalops",
+	bearvoyancedormant: "Bearvoyance",
 	botnyaklb: "Botnyak",
 	botnyaklr: "Botnyak",
 	botnyaklg: "Botnyak",
