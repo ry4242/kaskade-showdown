@@ -7,6 +7,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Intimidate", 1: "Flash Fire", H: "Justified" },
 	},
+	jolteon: {
+		inherit: true,
+		abilities: { 0: "Volt Absorb", H: "Quick Feet" },
+	},
 	typhlosionhisui: {
 		inherit: true,
 		abilities: { 0: "Blaze", H: "Flash Fire" },
@@ -31,6 +35,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Torrent", H: "Defiant" },
 	},
+	honchkrow: {
+		inherit: true,
+		abilities: { 0: "Insomnia", 1: "Super Luck", H: "Moxie" },
+	},
 	leafeon: {
 		inherit: true,
 		abilities: { 0: "Leaf Guard", H: "Chlorophyll" },
@@ -50,6 +58,14 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	samurotthisui: {
 		inherit: true,
 		abilities: { 0: "Torrent", H: "Shell Armor" },
+	},
+	lilligant: {
+		inherit: true,
+		abilities: { 0: "Chlorophyll", 1: "Own Tempo", H: "Leaf Guard" },
+	},
+	stunfisk: {
+		inherit: true,
+		abilities: { 0: "Static", 1: "Limber", H: "Sand Veil" },
 	},
 	braviaryhisui: {
 		inherit: true,
@@ -77,7 +93,19 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Sap Sipper", 1: "Overcoat", H: "Gooey" },
 	},
+	gourgeistsmall: {
+		inherit: true,
+		abilities: { 0: "Pickup", 1: "Frisk", H: "Insomnia" },
+	},
+	gourgeist: {
+		inherit: true,
+		abilities: { 0: "Pickup", 1: "Frisk", H: "Insomnia" },
+	},
 	gourgeistlarge: {
+		inherit: true,
+		abilities: { 0: "Pickup", 1: "Frisk", H: "Insomnia" },
+	},
+	gourgeistsuper: {
 		inherit: true,
 		abilities: { 0: "Pickup", 1: "Frisk", H: "Insomnia" },
 	},

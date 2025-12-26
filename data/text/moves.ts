@@ -8054,9 +8054,9 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 		desc: "Sets up a hazard on the opposing side of the field, damaging each opposing Pokemon that switches in. Fails if the effect is already active on the opposing side. Foes lose 1/32, 1/16, 1/8, or 1/4 of their maximum HP, rounded down, based on their weakness to the Steel type; 0.25x, 0.5x, neutral, or 2x/4x respectively. Can be removed from the opposing side if any Pokemon uses Tidy Up, or if any opposing Pokemon uses Mortal Spin, Rapid Spin, Windrage, or Defog successfully, or is hit by Defog.",
 		shortDesc: "Hurts foes on switch-in. Factors Steel weakness.",
 
-		start: "  Sharp metal floats in the air around [TEAM]!",
-		end: "  The sharp metal disappeared from around [TEAM]!",
-		damage: "  Sharp metal dug into [POKEMON]!",
+		start: "  Sharp-pointed pieces of steel started floating around [PARTY]!",
+		end: "  The pieces of steel surrounding [PARTY] disappeared!",
+		damage: "  The sharp steel bit into [POKEMON]!",
 	},
 	stonestorm: {
 		name: "Stone Storm",
