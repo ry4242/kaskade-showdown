@@ -99,7 +99,7 @@ describe('Metronome (item)', () => {
 
 	it(`should use called moves to determine the Metronome multiplier`, () => {
 		battle = common.createBattle([[
-			{ species: 'goomy', item: 'metronome', moves: ['copycat', 'surf'] },
+			{ species: 'grubbin', item: 'metronome', moves: ['copycat', 'surf'] },
 		], [
 			{ species: 'clefable', evs: { hp: 252 }, ability: 'shellarmor', moves: ['softboiled', 'surf'] },
 		]]);

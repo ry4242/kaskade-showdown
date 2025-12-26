@@ -24,7 +24,7 @@ describe('Inverse Battle', () => {
 		battle = common.createBattle({ inverseMod: true }, [[
 			{ species: 'wynaut', moves: ['vitalthrow'] },
 		], [
-			{ species: 'absol', moves: ['sleeptalk'] },
+			{ species: 'umbreon', moves: ['sleeptalk'] },
 		]]);
 		battle.makeChoices();
 		assert(battle.log[battle.lastMoveLine + 1].startsWith('|-resisted|'));

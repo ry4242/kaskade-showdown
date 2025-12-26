@@ -59,7 +59,7 @@ export class RandomCAPTeams extends RandomTeams {
 		const sets = this.randomCAPSets[species.id]["sets"];
 		const possibleSets = [];
 
-		// const ruleTable = this.dex.formats.getRuleTable(this.format);
+		const ruleTable = this.dex.formats.getRuleTable(this.format);
 
 		for (const set of sets) {
 			// Prevent Fast Bulky Setup on lead Paradox Pokemon, since it generates Booster Energy.
@@ -148,7 +148,10 @@ export class RandomCAPTeams extends RandomTeams {
 			) return false;
 			return move.category !== 'Physical' || move.id === 'bodypress' || move.id === 'foulplay';
 		});
-		if (noAttackStatMoves && !moves.has('transform') && this.format.mod !== 'partnersincrime') {
+		if (
+			noAttackStatMoves && !moves.has('transform') && this.format.mod !== 'partnersincrime' &&
+			!ruleTable.has('forceofthefallenmod')
+		) {
 			evs.atk = 0;
 			ivs.atk = 0;
 		}
