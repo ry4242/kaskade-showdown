@@ -2598,6 +2598,15 @@ export const Aliases: import('../sim/dex').AliasesTable = {
 	snoverhighland: "Snover",
 	tamroastm: "Tamroast",
 	weepollenm: "Weepollen",
+
+	// UBs
+
+	ubspotlight: "Orbtholod",
+	ubharbinger: "Pestalation",
+	ubcavalry: "Revylon",
+	ubsilence: "Leoseace ",
+	ubsacrifice: "Lamentu",
+	ubinfinity: "Endram-Odai",
 };
 
 /** This is what lets you type "tb"/"tbolt"/"bolt" to find "thunderbolt" in the
