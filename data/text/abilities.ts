@@ -2386,7 +2386,8 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	enjoin: {
 		name: "Enjoin",
-		shortDesc: "Does nothing (yet)",
+		desc: "This Pokemon's commanding moves raise an ally's highest stat or lower the target's highest stat by 1 stage. If the target is the user, it has its highest stat raised by 1 stage.",
+		shortDesc: "This Pokemon's commanding moves raise ally's/lower foe's highest stat by 1 stage.",
 	},
 	eventide: {
 		name: "Eventide",
