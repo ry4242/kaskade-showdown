@@ -31,6 +31,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Torrent", H: "Defiant" },
 	},
+	leafeon: {
+		inherit: true,
+		abilities: { 0: "Leaf Guard", H: "Chlorophyll" },
+	},
 	gallade: {
 		inherit: true,
 		abilities: { 0: "Steadfast", H: "Justified" },
@@ -73,9 +77,17 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Sap Sipper", 1: "Overcoat", H: "Gooey" },
 	},
+	gourgeistlarge: {
+		inherit: true,
+		abilities: { 0: "Pickup", 1: "Frisk", H: "Insomnia" },
+	},
 	decidueyehisui: {
 		inherit: true,
 		abilities: { 0: "Overgrow", H: "Long Reach" },
+	},
+	shiinotic: {
+		inherit: true,
+		abilities: { 0: "Illuminate", 1: "Effect Spore", H: "Rain Dish" },
 	},
 	zacian: {
 		inherit: true,
