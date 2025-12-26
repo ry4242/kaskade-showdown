@@ -107,18 +107,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "SwSe Doubles",
 	},
 	{
-		name: "[Gen 9] Tso-Lo Doubles OU",
-		threads: [
-			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
-		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
-	},
-	{
 		name: "[Gen 9] Doubles OU",
 		mod: 'swse',
 		gameType: 'doubles',
@@ -223,22 +211,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	{
 		section: "SwSe Singles",
-	},
-	{
-		name: "[Gen 9] Tso-Lo OU",
-		threads: [
-			`&bullet; <a href="https://discord.gg/zEFfyzvffa">OU Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		searchShow: false,
-		ruleset: ['Tso-Lo Pokedex', 'Standard'],
-		banlist: [
-			'Uber', 'AG',
-			'Arena Trap', 'Shadow Tag',
-			'Baton Pass',
-			'King\'s Rock',
-		],
 	},
 	{
 		name: "[Gen 9] OU",
@@ -462,6 +434,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Flower Trick', 'Gigaton Hammer', 'No Retreat', 'Rage Fist', 'Revival Blessing', 'Shell Smash', 'Shift Gear', 'Triple Arrows', 'V-create', 'Victory Dance', 'Wicked Blow',
 			'Wicked Torque',
 		],
+	},
+	{
+		name: "[Gen 9] Tso-Lo Doubles OU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
 
 	// Misc. Randomized Metas
