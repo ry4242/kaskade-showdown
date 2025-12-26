@@ -579,7 +579,6 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		accuracy: true,
 		basePower: 0,
 		category: "Status",
-		isNonstandard: "Past",
 		name: "Aromatherapy",
 		pp: 5,
 		priority: 0,
