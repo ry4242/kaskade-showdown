@@ -815,6 +815,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	sneaselhisui: {
 		isNonstandard: "Past",
 	},
+	weavile: {
+		isNonstandard: "Past",
+	},
 	teddiursa: {
 		isNonstandard: "Past",
 	},
