@@ -73,32 +73,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		rated: false,
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
-	{
-		name: "[Gen 9] Random Battle (Blitz)",
-
-		mod: 'swse',
-		team: 'random',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		bestOfDefault: true,
-		ruleset: ['[Gen 9] Random Battle', 'Blitz'],
-	},
-	{
-		name: "[Gen 9] Multi Random Battle",
-
-		mod: 'swse',
-		team: 'random',
-		gameType: 'multi',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		rated: false,
-		ruleset: [
-			'Max Team Size = 3',
-			'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod',
-		],
-	},
 
 	// SwSe Doubles
 	///////////////////////////////////////////////////////////////////
@@ -170,28 +144,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard Doubles', 'Same Type Clause'],
 		banlist: [
 			'Arena Trap', 'Shadow Tag',
-		],
-	},
-	{
-		name: "[Gen 9] 2v2 Doubles",
-		desc: `Double battle where you bring four Pok&eacute;mon to Team Preview and choose only two.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3710849/">2v2 Doubles</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: [
-			'Picked Team Size = 2', 'Max Team Size = 4',
-			'Standard Doubles', 'Accuracy Moves Clause', 'Sleep Clause Mod',
-		],
-		banlist: [
-			'Commander',
-			'Ally Switch', 'Final Gambit', 'Perish Song',
-			'Focus Band', 'Focus Sash', 'King\'s Rock', 'Quick Claw',
 		],
 	},
 	{
@@ -342,73 +294,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	{
 		section: "Unofficial Metagames",
 	},
-	{
-		name: "[Gen 9] 1v1",
-		desc: `Bring three Pok&eacute;mon to Team Preview and choose one to battle.`,
-
-		mod: 'swse',
-		ruleset: [
-			'Picked Team Size = 1', 'Max Team Size = 3',
-			'Standard', 'Terastal Clause', 'Sleep Moves Clause', 'Accuracy Moves Clause', '!Sleep Clause Mod',
-		],
-		banlist: [
-			'Manadza', 'Arctikull',
-			'Perish Song',
-			'Focus Band', 'Focus Sash', 'King\'s Rock', 'Quick Claw',
-		],
-	},
-	{
-		name: "[Gen 9] Ubers UU",
-		mod: 'swse',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 9] Ubers'],
-	},
-	{
-		name: "[Gen 9] ZU",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3719022/">ZU Metagame Discussion</a>`,
-		],
-
-		mod: 'swse',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 9] PU'],
-		banlist: ['PU'],
-	},
-	{
-		name: "[Gen 9] LC UU",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3711750/">LC UU Metagame Discussion</a>`,
-		],
-
-		mod: 'swse',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 9] LC'],
-		banlist: [],
-	},
-	{
-		name: "[Gen 9] NFE",
-		desc: `Only Pok&eacute;mon that can evolve are allowed.`,
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3710638/">NFE</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3712567/">NFE Resources</a>`,
-		],
-
-		mod: 'swse',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Standard OMs', 'Not Fully Evolved', 'Sleep Moves Clause'],
-		banlist: [
-			'Arena Trap', 'Shadow Tag',
-			'Baton Pass',
-		],
-	},
 
 	// Other Metagames
 	///////////////////////////////////////////////////////////////////
@@ -464,40 +349,6 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		challengeShow: false,
 		tournamentShow: false,
 		ruleset: ['Obtainable', 'Same Type Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
-	},
-	{
-		name: "[Gen 9] Challenge Cup 1v1",
-		desc: `Get a randomized team of level-balanced Pok&eacute;mon with absolutely any legal ability, moves, and item, and choose one to battle.`,
-
-		mod: 'swse',
-		team: 'randomCC',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Terastal Clause', 'Picked Team Size = 1'],
-	},
-	{
-		name: "[Gen 9] Challenge Cup 2v2",
-		desc: `Get a randomized team of level-balanced Pok&eacute;mon with absolutely any legal ability, moves, and item, and choose two to battle in a doubles format.`,
-
-		mod: 'swse',
-		team: 'randomCC',
-		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Picked Team Size = 2'],
-	},
-	{
-		name: "[Gen 9] Challenge Cup 6v6",
-		desc: `Randomized teams of level-balanced Pok&eacute;mon with absolutely any legal ability, moves, and item.`,
-
-		mod: 'swse',
-		team: 'randomCC',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod'],
 	},
 
 	///////////////////////////////////////////////////////////////////
@@ -572,7 +423,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
 	{
-		name: "[Gen 9] Random Battle (Blitz) OLD",
+		name: "[Gen 9] Random Battle (Blitz)",
 		mod: 'gen9',
 		team: 'random',
 		searchShow: false,
@@ -582,7 +433,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['[Gen 9] Random Battle', 'Blitz'],
 	},
 	{
-		name: "[Gen 9] Multi Random Battle OLD",
+		name: "[Gen 9] Multi Random Battle",
 		mod: 'gen9',
 		team: 'random',
 		gameType: 'multi',
@@ -863,7 +714,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "Unofficial Metagames",
 	},
 	{
-		name: "[Gen 9] 1v1 OLD",
+		name: "[Gen 9] 1v1",
 		desc: `Bring three Pok&eacute;mon to Team Preview and choose one to battle.`,
 		mod: 'gen9',
 		searchShow: false,
@@ -879,11 +730,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Koraidon', 'Kyogre', 'Kyurem-Black', 'Kyurem-White', 'Lugia', 'Lunala', 'Magearna', 'Meloetta', 'Mew', 'Mewtwo', 'Mimikyu', 'Miraidon', 'Necrozma',
 			'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Ogerpon-Cornerstone', 'Ogerpon-Hearthflame', 'Palkia', 'Palkia-Origin', 'Rayquaza', 'Regidrago', 'Reshiram',
 			'Scream Tail', 'Shaymin-Sky', 'Snorlax', 'Solgaleo', 'Terapagos', 'Zacian', 'Zacian-Crowned', 'Zamazenta', 'Zamazenta-Crowned', 'Zekrom', 'Moody',
-			'Focus Band', 'Focus Sash', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Perish Song',
+			'Custap Berry', 'Focus Band', 'Focus Sash', 'King\'s Rock', 'Razor Fang', 'Quick Claw', 'Perish Song',
 		],
 	},
 	{
-		name: "[Gen 9] 2v2 Doubles OLD",
+		name: "[Gen 9] 2v2 Doubles",
 		desc: `Double battle where you bring four Pok&eacute;mon to Team Preview and choose only two.`,
 		mod: 'gen9',
 		gameType: 'doubles',
@@ -910,7 +761,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard AG'],
 	},
 	{
-		name: "[Gen 9] Ubers UU OLD",
+		name: "[Gen 9] Ubers UU",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -927,7 +778,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] ZU OLD",
+		name: "[Gen 9] ZU",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -955,7 +806,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] LC UU OLD",
+		name: "[Gen 9] LC UU",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -970,7 +821,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] NFE OLD",
+		name: "[Gen 9] NFE",
 		desc: `Only Pok&eacute;mon that can evolve are allowed.`,
 		mod: 'gen9',
 		searchShow: false,
@@ -3492,7 +3343,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard OMs', 'Little Cup', 'Sleep Clause Mod', 'Terastal Clause'],
 		banlist: [
 			'Basculin-White-Striped', 'Dunsparce', 'Duraludon', 'Meditite', 'Rufflet', 'Scyther', 'Sneasel', 'Sneasel-Hisui', 'Stantler', 'Moody',
-			'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Lucarionite Z', 'Mawilite', 'Medichamite', 'Pidgeotite', 'Zygardite',
+			'Absolite Z', 'Beedrillite', 'Blazikenite', 'Gengarite', 'Kangaskhanite', 'Lucarionite', 'Lucarionite Z', 'Mawilite', 'Medichamite', 'Pidgeotite', 'Zygardite',
 			'Baton Pass',
 		],
 		restricted: [
@@ -4608,7 +4459,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Challenge Cup 1v1 OLD",
+		name: "[Gen 9] Challenge Cup 1v1",
 		desc: `Get a randomized team of level-balanced Pok&eacute;mon with absolutely any legal ability, moves, and item, and choose one to battle.`,
 		mod: 'gen9',
 		team: 'randomCC',
@@ -4619,7 +4470,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Terastal Clause', 'Picked Team Size = 1'],
 	},
 	{
-		name: "[Gen 9] Challenge Cup 2v2 OLD",
+		name: "[Gen 9] Challenge Cup 2v2",
 		desc: `Get a randomized team of level-balanced Pok&eacute;mon with absolutely any legal ability, moves, and item, and choose two to battle in a doubles format.`,
 		mod: 'gen9',
 		team: 'randomCC',
@@ -4631,7 +4482,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Obtainable', 'HP Percentage Mod', 'Cancel Mod', 'Team Preview', 'Picked Team Size = 2'],
 	},
 	{
-		name: "[Gen 9] Challenge Cup 6v6 OLD",
+		name: "[Gen 9] Challenge Cup 6v6",
 		desc: `Randomized teams of level-balanced Pok&eacute;mon with absolutely any legal ability, moves, and item.`,
 		mod: 'gen9',
 		team: 'randomCC',

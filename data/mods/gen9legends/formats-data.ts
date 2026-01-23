@@ -671,6 +671,9 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	togetic: {
 		isNonstandard: "Past",
 	},
+	togekiss: {
+		isNonstandard: "Past",
+	},
 	mareep: {
 		isNonstandard: null,
 	},
@@ -1574,9 +1577,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 	abomasnowlowland: {
 		isNonstandard: "Past",
 	},
-	weavile: {
-		isNonstandard: "Past",
-	},
 	rhyperior: {
 		isNonstandard: "Past",
 	},
@@ -1584,9 +1584,6 @@ export const FormatsData: import('../../../sim/dex-species').ModdedSpeciesFormat
 		isNonstandard: "Past",
 	},
 	magmortar: {
-		isNonstandard: "Past",
-	},
-	togekiss: {
 		isNonstandard: "Past",
 	},
 	yanmega: {

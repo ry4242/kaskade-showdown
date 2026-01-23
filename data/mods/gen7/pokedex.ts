@@ -99,6 +99,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Flash Fire", H: "Flame Body" },
 		unreleasedHidden: true,
 	},
+	leavanny: {
+		inherit: true,
+		abilities: { 0: "Swarm", 1: "Chlorophyll", H: "Overcoat" },
+	},
 	deerlingsummer: {
 		inherit: true,
 		color: "Pink",
