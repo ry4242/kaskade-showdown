@@ -27,7 +27,8 @@ export const Scripts: ModdedBattleScriptsData = {
 			'clearamulet', 'covertcloak', 'damprock', 'heatrock', 'icyrock', 'smoothrock', 'electricseed', 'mistyseed', 'psychicseed', 'grassyseed',
 			'flameorb', 'toxicorb', 'gripclaw', 'laggingtail', 'metronome', 'protectivepads', 'punchingglove', 'razorclaw', 'razorfang', 'roomservice',
 			'safetygoggles', 'shellbell', 'shedshell', 'stickybarb', 'terrainextender', 'throatspray', 'utilityumbrella', 'zoomlens', 'bindingband',
-			'destinyknot', 'floatstone', 'ironball', 'machobrace', 'ringtarget', 'redcard', 'ejectpack', 'ejectbutton',
+			'destinyknot', 'floatstone', 'ironball', 'machobrace', 'ringtarget', 'redcard', 'ejectpack', 'ejectbutton', 'souldew', 'cellbattery',
+			'luminousmoss', 'oddincense', 'roseincense', 'seaincense', 'waveincense', 'snowball',
 		];
 		for (const i in this.data.Items) {
 			if (this.data.Items[i].isNonstandard === 'CAP' || this.data.Items[i].isNonstandard === 'Custom') continue;
@@ -56,23 +57,8 @@ export const Scripts: ModdedBattleScriptsData = {
 				pokemon.baseMoves.includes(this.battle.toID(altForme.requiredMove)) && !item.zMove) {
 				return altForme.name;
 			}
-			if (Array.isArray(item.megaEvolves)) {
-				if (!Array.isArray(item.megaStone)) {
-					throw new Error(`${item.name}#megaEvolves and ${item.name}#megaStone type mismatch`);
-				}
-				if (item.megaEvolves.length !== item.megaStone.length) {
-					throw new Error(`${item.name}#megaEvolves and ${item.name}#megaStone length mismatch`);
-				}
-				const index = item.megaEvolves.indexOf(species.name);
-				if (index < 0) return null;
-				return item.megaStone[index];
-			} else {
-				if (item.megaEvolves === species.name) {
-					if (Array.isArray(item.megaStone)) throw new Error(`${item.name}#megaEvolves and ${item.name}#megaStone type mismatch`);
-					return item.megaStone;
-				}
-			}
-			return null;
+			if (!item.megaStone) return null;
+			return item.megaStone[species.name];
 		},
 		runMegaEvo(pokemon) {
 			const speciesid = pokemon.canMegaEvo || pokemon.canUltraBurst;

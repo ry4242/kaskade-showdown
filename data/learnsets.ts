@@ -32585,18 +32585,22 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 	smeargle: {
 		learnset: {
 			captivate: ["5D"],
-			falseswipe: ["5S1"],
-			flamethrower: ["6S2"],
-			furyswipes: ["6S2"],
-			meanlook: ["5S1"],
-			odorsleuth: ["5S1"],
-			seismictoss: ["6S2"],
-			sketch: ["9L1", "7L1", "7V", "6L1", "6S2", "5L1", "5D", "4L1", "3L1", "3S0"],
+			doubleslap: ["3S1"],
+			falseswipe: ["5S2"],
+			flamethrower: ["6S3"],
+			furyswipes: ["6S3"],
+			irontail: ["3S1"],
+			meanlook: ["5S2"],
+			odorsleuth: ["5S2"],
+			seismictoss: ["6S3"],
+			sketch: ["9L1", "7L1", "7V", "6L1", "6S3", "5L1", "5D", "4L1", "3L1", "3S1", "3S0"],
 			sleeptalk: ["5D"],
-			spore: ["5S1"],
+			spore: ["5S2"],
+			tailwhip: ["3S1"],
 		},
 		eventData: [
 			{generation: 3, level: 10, gender: "M", abilities: ["owntempo"], moves: ["sketch"], pokeball: "pokeball"},
+			{generation: 3, level: 45, abilities: ["owntempo"], moves: ["sketch", "tailwhip", "doubleslap", "irontail"]},
 			{generation: 5, level: 50, gender: "F", nature: "Jolly", ivs: {atk: 31, spe: 31}, abilities: ["technician"], moves: ["falseswipe", "spore", "odorsleuth", "meanlook"], pokeball: "cherishball"},
 			{generation: 6, level: 40, gender: "M", nature: "Jolly", abilities: ["owntempo"], moves: ["sketch", "furyswipes", "seismictoss", "flamethrower"], pokeball: "cherishball"},
 		],
@@ -82651,6 +82655,9 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			thunderwave: ["9S0", "8M", "8L24", "8V", "7M", "7L18"],
 			toxic: ["8V", "7M"],
 		},
+		eventData: [
+			{generation: 9, level: 50, shiny: true, nature: "Adamant", moves: ["headbutt", "acidarmor", "thunderwave", "flashcannon"], ivs: {hp: 31, atk: 31, def: 31, spa: 20, spd: 20, spe: 20}, pokeball: "cherishball"}
+		]
 	},
 	melmetal: {
 		learnset: {
@@ -105991,7 +105998,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			toxic: ["9L24"],
 		},
 	},
-	tamroastm: {
+	tamroast: {
 		learnset: {
 			amnesia: ["9L25"],
 			calmmind: ["9L31"],
@@ -106039,7 +106046,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			yawn: ["9L17"],
 		},
 	},
-	weepollenm: {
+	weepollen: {
 		learnset: {
 			airslash: ["9L22"],
 			bugbite: ["9L1"],
@@ -108119,7 +108126,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			swift: ["9L8"],
 		},
 	},
-	rogon: {
+	orogon: {
 		learnset: {
 			amazeassault: ["9L1"],
 			autotomize: ["9L8"],

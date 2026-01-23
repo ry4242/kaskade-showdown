@@ -10646,14 +10646,14 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Excadrill-Mega", "Excadrill-Kaskade"],
 		formeOrder: ["Excadrill", "Excadrill-Mega", "Excadrill-Kaskade"],
 	},
-	excadrillmega: {
+	excadrillmega: { // updated
 		num: 530,
 		name: "Excadrill-Mega",
 		baseSpecies: "Excadrill",
 		forme: "Mega",
 		types: ["Ground", "Steel"],
 		baseStats: { hp: 110, atk: 165, def: 100, spa: 65, spd: 65, spe: 103 },
-		abilities: { 0: "Sand Rush", 1: "Sand Force", H: "Mold Breaker" },
+		abilities: { 0: "Sand Rush", 1: "Earth Force", H: "Mold Breaker" },
 		heightm: 0.9,
 		weightkg: 60,
 		color: "Gray",
@@ -14912,7 +14912,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "useItem",
 		evoItem: "Ice Stone",
 		eggGroups: ["Water 3"],
-		otherFormes: ["Crabominable-Kaskade", "Crabominable-Mega"],
+		otherFormes: ["Crabominable-Mega", "Crabominable-Kaskade"],
 		formeOrder: ["Crabominable", "Crabominable-Mega", "Crabominable-Kaskade"],
 	},
 	crabominablemega: {

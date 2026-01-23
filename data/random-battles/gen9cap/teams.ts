@@ -68,7 +68,7 @@ export class RandomCAPTeams extends RandomTeams {
 				continue;
 			}
 			// Prevent Tera Blast user if the team already has one, or if Terastallizion is prevented.
-			if ((teamDetails.teraBlast/* || ruleTable.has('terastalclause') */) && set.role === 'Tera Blast user') {
+			if ((teamDetails.teraBlast || ruleTable.has('terastalclause')) && set.role === 'Tera Blast user') {
 				continue;
 			}
 			possibleSets.push(set);

@@ -1122,7 +1122,7 @@ export class Battle {
 		// events usually run through EachEvent should never have any handlers besides `on${eventName}` so don't check for them
 		const prefixedHandlers = !['BeforeTurn', 'Update', 'ClimateWeather', 'ClimateWeatherChange', 'IrritantWeather',
 			'IrritantWeatherChange', 'EnergyWeather', 'EnergyWeatherChange', 'ClearingWeather', 'ClearingWeatherChange',
-			'Cataclysm', 'CataclysmWeatherChange', 'TerrainChange'].includes(eventName);
+			'CataclysmWeather', 'CataclysmWeatherChange', 'TerrainChange'].includes(eventName);
 		if (target instanceof Pokemon && (target.isActive || source?.isActive)) {
 			handlers = this.findPokemonEventHandlers(target, `on${eventName}`);
 			if (prefixedHandlers) {
@@ -1895,7 +1895,7 @@ export class Battle {
 		if (this.turn <= 100) return;
 
 		// the turn limit is not a part of Endless Battle Clause
-		if (this.turn >= 1000) {
+		if (this.turn > 1000) {
 			this.add('message', `It is turn 1000. You have hit the turn limit!`);
 			this.tie();
 			return true;
@@ -2763,8 +2763,8 @@ export class Battle {
 				pokemon.details = pokemon.getUpdatedDetails();
 				pokemon.setAbility(species.abilities['0'], null, null, true);
 				pokemon.baseAbility = pokemon.ability;
-
-				if (rawSpecies === this.dex.species.get('Castform-Whirly')) continue;
+				// wtf is this for
+				// if (rawSpecies === this.dex.species.get('Castform-Whirly')) continue;
 
 				const behemothMove: { [k: string]: string } = {
 					'Zacian-Crowned': 'behemothblade', 'Zamazenta-Crowned': 'behemothbash',
@@ -3256,9 +3256,9 @@ export class Battle {
 		this.log[this.lastMoveLine] = parts.join('|');
 	}
 
-	debug(activity: string) {
+	debug(...activity: Part[]) {
 		if (this.debugMode) {
-			this.add('debug', activity);
+			this.add('debug', ...activity);
 		}
 	}
 

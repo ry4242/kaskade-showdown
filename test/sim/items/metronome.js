@@ -99,22 +99,22 @@ describe('Metronome (item)', () => {
 
 	it(`should use called moves to determine the Metronome multiplier`, () => {
 		battle = common.createBattle([[
-			{ species: 'grubbin', item: 'metronome', moves: ['copycat', 'surf'] },
+			{ species: 'goomy', item: 'metronome', moves: ['copycat', 'surf'] },
 		], [
 			{ species: 'clefable', evs: { hp: 252 }, ability: 'shellarmor', moves: ['softboiled', 'surf'] },
 		]]);
 		battle.makeChoices('move copycat', 'move surf');
 		const clefable = battle.p2.active[0];
 		let damage = clefable.maxhp - clefable.hp;
-		assert.bounded(damage, [45, 53], `Surf should not be Metronome boosted`);
+		assert.bounded(damage, [67, 79], `Surf should not be Metronome boosted`);
 
 		const hpAfterOneAttack = clefable.hp;
 		battle.makeChoices('move copycat', 'move surf');
 		damage = hpAfterOneAttack - clefable.hp;
-		assert.bounded(damage, [54, 64], `Surf should be Metronome 1 boosted`);
+		assert.bounded(damage, [80, 95], `Surf should be Metronome 1 boosted`);
 
 		battle.makeChoices('move surf', 'move softboiled');
 		damage = clefable.maxhp - clefable.hp;
-		assert.bounded(damage, [63, 74], `Surf should be Metronome 2 boosted`);
+		assert.bounded(damage, [94, 111], `Surf should be Metronome 2 boosted`);
 	});
 });
