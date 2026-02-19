@@ -50309,7 +50309,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			dig: ["9M", "8M", "6M", "5M", "4M"],
 			dive: ["8M", "6M", "5M", "4T"],
 			doubleteam: ["7M", "6M", "5M", "4M"],
-			earthpower: ["9M", "9L39", "8M", "8L39", "8S0", "8S1", "7T", "7S0", "6T", "5T", "4T"],
+			earthpower: ["9M", "9L39", "9S2", "9S3", "8M", "8L39", "8S0", "8S1", "7T", "6T", "5T", "4T"],
 			earthquake: ["9M", "8M", "7M", "6M", "5M", "4M"],
 			endure: ["9M", "8M", "4M"],
 			facade: ["9M", "8M", "7M", "6M", "5M", "4M"],
@@ -50323,8 +50323,8 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			hiddenpower: ["7M", "7L16", "6M", "6L16", "5M", "5L16", "4M", "4L16"],
 			hydropump: ["9M", "8M"],
 			hyperbeam: ["9M", "8M", "7M", "6M", "5M", "4M"],
-			icebeam: ["9M", "8M", "8S0", "8S1", "7M", "7S0", "6M", "5M", "4M"],
-			icywind: ["9M", "8M", "7T", "6T", "5T", "4T"],
+			icebeam: ["9M", "9S2", "8M", "8S0", "8S1", "7M", "6M", "5M", "4M"],
+			icywind: ["9M", "9S3", "8M", "7T", "6T", "5T", "4T"],
 			infestation: ["7M", "6M"],
 			liquidation: ["9M"],
 			memento: ["9L53", "8L53"],
@@ -50335,7 +50335,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			mudsport: ["7L1", "6L1", "5L1", "4L1"],
 			naturalgift: ["4M"],
 			painsplit: ["9M", "7T", "6T", "5T", "4T"],
-			protect: ["9M", "8M", "8S0", "8S1","7M", "6M", "5M", "4M"],
+			protect: ["9M", "9S2", "9S3", "8M", "8S0", "8S1", "7M", "6M", "5M", "4M"],
 			raindance: ["9M", "9L46", "8M", "8L46", "7M", "7L22", "6M", "6L22", "5M", "5L22", "4M", "4L22"],
 			recover: ["9L1", "8L1", "7L54", "6L54", "5L54", "4L54"],
 			rest: ["9M", "8M", "7M", "6M", "5M", "4M"],
@@ -50372,11 +50372,13 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			waterpulse: ["9M", "9L15", "8L15", "7T", "7L1", "6T", "6L1", "5L1", "4M", "4L1"],
 			weatherball: ["9M", "8M"],
 			whirlpool: ["9M", "8M", "4M"],
-			yawn: ["8S1"],
+			yawn: ["9S2", "9S3", "8S1"],
 		},
 		eventData: [
 			{generation: 8, level: 50, gender: "F", nature: "Quiet", abilities: ["stormdrain"], ivs: {hp: 31, atk: 2, def: 31, spa: 31, spd: 31, spe: 0}, moves: ["protect", "surf", "icebeam", "earthpower"], pokeball: "cherishball"},
 			{generation: 8, level: 50, gender: "F", nature: "Sassy", abilities: ["stormdrain"], ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 0}, moves: ["protect", "yawn", "icebeam", "earthpower"], pokeball: "cherishball"},
+			{generation: 9, level: 50, gender: "M", nature: "Bold", abilities: ["stormdrain"], ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 8}, moves: ["protect", "yawn", "icebeam", "earthpower"], pokeball: "cherishball"},
+			{generation: 9, level: 50, gender: "F", nature: "Calm", abilities: ["stormdrain"], ivs: {hp: 31, atk: 0, def: 31, spa: 31, spd: 31, spe: 8}, moves: ["protect", "yawn", "icywind", "earthpower"], pokeball: "cherishball"},
 		],
 		encounters: [
 			{generation: 4, level: 20},
@@ -82878,7 +82880,7 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 		},
 		eventData: [
 			{generation: 9, level: 50, shiny: true, nature: "Adamant", moves: ["headbutt", "acidarmor", "thunderwave", "flashcannon"], ivs: {hp: 31, atk: 31, def: 31, spa: 20, spd: 20, spe: 20}, pokeball: "cherishball"}
-		]
+		],
 	},
 	melmetal: {
 		learnset: {
