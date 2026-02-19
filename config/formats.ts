@@ -925,7 +925,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard Draft'],
 	},
 
-	// S/V Ladder Spotlight
+	// Ladder Spotlight
 	///////////////////////////////////////////////////////////////////
 
 	{
