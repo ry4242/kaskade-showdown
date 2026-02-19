@@ -23304,6 +23304,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		requiredAbility: "Consecration",
 		battleOnly: "Bearvoyance",
+		gen: 9,
 	},
 	folleming: {
 		num: 10096,

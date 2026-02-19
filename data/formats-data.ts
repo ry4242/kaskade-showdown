@@ -2629,6 +2629,9 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	castformwindy: {
 	},
 	castformwhirly: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+		natDexTier: "OU",
 	},
 	kecleon: {
 		isNonstandard: "Past",
