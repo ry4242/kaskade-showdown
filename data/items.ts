@@ -8233,6 +8233,8 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	},
 
 	// swse
+	// incomplete. add blossom/sunshine/harvest/blizzard ball, dawn ball, amaze ball, whirli-ball, odd ball, prism ball.
+	// also make sure all sprites are correct, as well as numbers and fling powers
 
 	amazedrive: {
 		name: "Amaze-Drive",
@@ -8263,6 +8265,16 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: -1,
 		gen: 9,
+	},
+	bacchuslaurel: {
+		name: "Bacchus Laurel",
+		spritenum: 142,
+		fling: {
+			basePower: 30,
+		},
+		num: -17,
+		gen: 9,
+		isNonstandard: "Future",
 	},
 	blackaugurite: {
 		name: "Black Augurite",
@@ -8600,5 +8612,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		},
 		num: -5,
 		gen: 9,
+	},
+	zetacell: {
+		name: "Zeta Cell",
+		spritenum: 142,
+		fling: {
+			basePower: 30,
+		},
+		num: -17,
+		gen: 9,
+		isNonstandard: "Future",
 	},
 };

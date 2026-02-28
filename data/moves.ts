@@ -13111,7 +13111,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		zMove: { effect: 'clearnegativeboost' },
 		contestType: "Clever",
 	},
-	naturalgift: { // not sure how to update this one, incomplete
+	naturalgift: {
 		num: 363,
 		accuracy: 100,
 		basePower: 0,

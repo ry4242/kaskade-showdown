@@ -2546,7 +2546,7 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	},
 
 	// swse
-	// incomplete. add zeta cell, bacchus laurel, blossom/sunshine/harvest/blizzard ball, dawn ball, amaze ball, whirli-ball, odd ball, prism ball.
+	// incomplete. add blossom/sunshine/harvest/blizzard ball, dawn ball, amaze ball, whirli-ball, odd ball, prism ball.
 	amazedrive: {
 		name: "Amaze-Drive",
 		desc: "Evolves Golbat into Probat, Porygon2 into Porygon ω, Drifloon into Amaze-All Drifblim, and Bonsly into Amaze-All Sudowoodo when used.",
@@ -2555,6 +2555,10 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 	avocaberry: {
 		name: "Avoca Berry",
 		shortDesc: "Holder is cured if it is frostbitten. Single use.",
+	},
+	bacchuslaurel: {
+		name: "Bacchus Laurel",
+		shortDesc: "Evolves Vitisquash into Dionysseur when used.",
 	},
 	blackaugurite: {
 		name: "Black Augurite",
@@ -2658,5 +2662,9 @@ export const ItemsText: { [id: IDEntry]: ItemText } = {
 		shortDesc: "+1 Atk and Speed at 1/4 max HP for 5 turns, -0.1 priority afterwards.",
 
 		end: "  [POKEMON] drank its Worcane Cold Brew!",
+	},
+	zetacell: {
+		name: "Zeta Cell",
+		shortDesc: "Evolves Estoe into Perpetua when used.",
 	},
 };

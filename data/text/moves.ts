@@ -8108,7 +8108,7 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 		desc: "Sets Sunny Day.",
 		shortDesc: "Sets Sun. Hits adjacent foes.",
 	},
-	/* thousandarms: {
+	/* thousandarms: { TODO
 		name: "Thousand Arms",
 		desc: "Changes type to a random type that is super effective against the target, while prioritizing 4x weaknesses over 2x weaknesses. This move does not consider Items, Abilities, or other effects when determining weaknesses. This move cannot be used successfully unless the user's current form, while considering Transform, is a form of Unown.",
 		shortDesc: "Unown: Change type to be super effective.",

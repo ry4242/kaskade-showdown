@@ -6030,8 +6030,9 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2.5,
 		num: 10065,
 	},
-	anxiety: { // tested, works as intended, TODO: add text
+	anxiety: { // tested, works as intended
 		onDamage(damage, target, source, effect) {
+			this.add('-message', `${target.name} reached its breaking point!`);
 			this.actions.useMove(this.toID('explosion'), target);
 		},
 		flags: {},
@@ -6635,19 +6636,17 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 3,
 		num: 10007,
 	},
-	indomitable: { // untested, crashes the game
-		/* onDamage(damage, target, source, effect) {
-			if (!this.field.energyWeather) return;
-			if (['dragonforce'].includes(source.effectiveEnergyWeather())) {
-				if (effect.effectType !== 'Move') {
-					if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
-					return false;
-				}
+	indomitable: { // untested
+		onDamage(damage, target, source, effect) {
+			if (!['dragonforce'].includes(target.effectiveClimateWeather())) return;
+			if (effect.effectType !== 'Move') {
+				if (effect.effectType === 'Ability') this.add('-activate', source, 'ability: ' + effect.name);
+				return false;
 			}
-		}, */
+		},
 		flags: {},
 		name: "Indomitable",
-		rating: 3,
+		rating: 3.5,
 		num: 10033,
 	},
 	intoxicate: {

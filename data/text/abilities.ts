@@ -365,8 +365,12 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	disguise: { // updated
 		name: "Disguise",
-		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form. Confusion damage also breaks the disguise.",
-		shortDesc: "(Mimikyu only) The first hit it takes is blocked.",
+		desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken and it changes to Busted Form. Confusion damage also breaks the disguise.",
+		shortDesc: "(Mimikyu only) First hit deals 0 damage, breaks disguise.",
+		gen8: {
+			desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken, it changes to Busted Form, and it loses 1/8 of its max HP. Confusion damage also breaks the disguise.",
+			shortDesc: "(Mimikyu only) The first hit it takes is blocked, and it takes 1/8 HP damage instead.",
+		},
 		gen7: {
 			desc: "If this Pokemon is a Mimikyu, the first hit it takes in battle deals 0 neutral damage. Its disguise is then broken and it changes to Busted Form. Confusion damage also breaks the disguise.",
 			shortDesc: "(Mimikyu only) First hit deals 0 damage, breaks disguise.",
@@ -2331,7 +2335,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		desc: "If Smog is active, this Pokemon's Poison-type attacks have their power multiplied by 1.5. This Pokemon cannot be poisoned by Smog. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Smog is active, this Pokemon's Poison-type attacks have 1.5x power.",
 	},
-	/* cataclysmiclight: {
+	/* cataclysmiclight: { TODO
 		name: "Cataclysmic Light",
 		shortDesc: "On switch-in, Ultra Radiance begins until this Ability is not active in battle.",
 	}, */
@@ -2549,7 +2553,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	powerplumage: { // TODO: shortDesc is too long
 		name: "Power Plumage",
 		desc: "If this Pokemon is a Blurrun, it will change to Charged Form if Thunderstorm is active or if hit by an Electric-type move. This Pokemon is immune to Electric-type moves. If this Pokemon is not the target of a single-target Electric-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move. If multiple Pokemon could redirect with this Ability, it goes to the one with the highest Speed, or in the case of a tie to the one that has had this Ability active longer.",
-		shortDesc: "(Blurrun only) Changes to Charged Form in Thunderstorm/hit by an Electric-type move; attracts Electric-type moves.",
+		shortDesc: "(Blurrun only) Attracts Electric moves. When hit or in T.storm, transform into Charged.",
 	},
 	powerwithin: {
 		name: "Power Within",
@@ -2569,7 +2573,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	rockybody: { // TODO: shortDesc is too long
 		name: "Rocky Body",
 		desc: "If this Pokemon is a Stackem, the first physical hit it takes in battle deals 0 neutral damage and Stealth Rock is set on the opposing side. Its rocks are then knocked over, it changes to Rockless Form, and it loses 1/8 of its max HP. Confusion damage also knocks the rocks over.",
-		shortDesc: "(Stackem only) First physical hit sets Stealth Rock on the opposing side, and it takes 1/8 HP damage instead of damage.",
+		shortDesc: "(Stackem only) First physical hit deals 0 damage and sets Stealth Rock on the opposing side.",
 
 		block: "  Its rocks were knocked over!",
 		transform: "[POKEMON]'s rocks fell off!",

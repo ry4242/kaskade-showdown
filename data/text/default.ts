@@ -417,7 +417,7 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 
 	// Cataclysm
 
-	/* cataclysmiclight: {
+	/* cataclysmiclight: { TODO
 		weatherName: "Ultra Radiance",
 		start: "  An otherworldly light radiates across the battlefield!",
 		end: "  The light vanished.",
