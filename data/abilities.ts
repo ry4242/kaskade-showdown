@@ -6505,7 +6505,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				}
 			} else if (move.type === 'Fire') {
 				if (this.randomChance(2, 10)) {
-					target.trySetStatus('frb', source);
+					target.trySetStatus('fst', source);
 				}
 			}
 		},
