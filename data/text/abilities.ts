@@ -2306,6 +2306,8 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	anxiety: {
 		name: "Anxiety",
 		shortDesc: "When this Pokemon takes damage, it uses Explosion.",
+
+		activate: "  [POKEMON] reached its breaking point!",
 	},
 	arcanum: {
 		name: "Arcanum",
@@ -2507,7 +2509,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	neutralize: {
 		name: "Neutralize",
 		desc: "On switch-in, this Pokemon clears all weathers. While this Pokemon is active, Abilities have no effect and weathers cannont be set. This Ability activates before hazards and other Abilities take effect. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Neutralize, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, or Zero to Hero Abilities.",
-		shortDesc: "Switch-in: Clears weather. Active: Abilities have no effect and weather cannot be set.",
+		shortDesc: "On switch-in, clears weather. Active: Abilities have no effect and weather cannot be set.",
 
 		start: "  All Abilities and Weathergy are being neutralized!",
 		end: "  The effects of the neutralization wore off!",
@@ -2553,7 +2555,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	powerplumage: {
 		name: "Power Plumage",
 		desc: "If this Pokemon is a Blurrun, it will change to Charged Form if Thunderstorm is active or if hit by an Electric-type move. This Pokemon is immune to Electric-type moves. If this Pokemon is not the target of a single-target Electric-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move. If multiple Pokemon could redirect with this Ability, it goes to the one with the highest Speed, or in the case of a tie to the one that has had this Ability active longer.",
-		shortDesc: "(Blurrun only) Transforms in Thunderstorm or by attracting Electric-type moves",
+		shortDesc: "(Blurrun only) Transforms in Thunderstorm or by attracting Electric-type moves.",
 	},
 	powerwithin: {
 		name: "Power Within",
@@ -2568,7 +2570,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	relicsoul: {
 		name: "Relic Soul",
 		desc: "On switch-in, this Pokemon summons Thunderstorm. This Pokemon is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability. The effects of Gravity, Ingrain, Smack Down, Thousand Arrows, and Iron Ball nullify the immunity. Thousand Arrows can hit this Pokemon as if it did not have this Ability.",
-		shortDesc: "Switch-in: Summons Thunderstorm. Immunity to Ground.",
+		shortDesc: "On switch-in, this Pokemon summons Thunderstorm. Immunity to Ground.",
 	},
 	rockybody: {
 		name: "Rocky Body",

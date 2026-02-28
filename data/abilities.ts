@@ -6032,7 +6032,6 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	anxiety: { // tested, works as intended
 		onDamage(damage, target, source, effect) {
-			this.add('-message', `${target.name} reached its breaking point!`);
 			this.actions.useMove(this.toID('explosion'), target);
 		},
 		flags: {},
