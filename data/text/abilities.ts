@@ -2553,7 +2553,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	powerplumage: {
 		name: "Power Plumage",
 		desc: "If this Pokemon is a Blurrun, it will change to Charged Form if Thunderstorm is active or if hit by an Electric-type move. This Pokemon is immune to Electric-type moves. If this Pokemon is not the target of a single-target Electric-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move. If multiple Pokemon could redirect with this Ability, it goes to the one with the highest Speed, or in the case of a tie to the one that has had this Ability active longer.",
-		shortDesc: "(Blurrun only) Transforms by attracting Electric moves or in Thunderstorm.",
+		shortDesc: "(Blurrun only) Transforms in Thunderstorm or by attracting Electric-type moves",
 	},
 	powerwithin: {
 		name: "Power Within",
