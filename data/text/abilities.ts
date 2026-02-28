@@ -2550,7 +2550,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		desc: "If Fairy Dust is active, this Pokemon's Fairy-, Grass-, Fire-, and Water-type attacks have their power multiplied by 1.3. This effect is prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "This Pokemon's Fairy/Grass/Fire/Water attacks do 1.3x in Fairy Dust.",
 	},
-	powerplumage: { // TODO: shortDesc is too long
+	powerplumage: {
 		name: "Power Plumage",
 		desc: "If this Pokemon is a Blurrun, it will change to Charged Form if Thunderstorm is active or if hit by an Electric-type move. This Pokemon is immune to Electric-type moves. If this Pokemon is not the target of a single-target Electric-type move used by another Pokemon, this Pokemon redirects that move to itself if it is within the range of that move. If multiple Pokemon could redirect with this Ability, it goes to the one with the highest Speed, or in the case of a tie to the one that has had this Ability active longer.",
 		shortDesc: "(Blurrun only) Attracts Electric moves. When hit or in T.storm, transform into Charged.",
@@ -2570,10 +2570,10 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		desc: "On switch-in, this Pokemon summons Thunderstorm. This Pokemon is immune to Ground-type attacks and the effects of Spikes, Toxic Spikes, Sticky Web, and the Arena Trap Ability. The effects of Gravity, Ingrain, Smack Down, Thousand Arrows, and Iron Ball nullify the immunity. Thousand Arrows can hit this Pokemon as if it did not have this Ability.",
 		shortDesc: "Switch-in: Summons Thunderstorm. Immunity to Ground.",
 	},
-	rockybody: { // TODO: shortDesc is too long
+	rockybody: {
 		name: "Rocky Body",
 		desc: "If this Pokemon is a Stackem, the first physical hit it takes in battle deals 0 neutral damage and Stealth Rock is set on the opposing side. Its rocks are then knocked over, it changes to Rockless Form, and it loses 1/8 of its max HP. Confusion damage also knocks the rocks over.",
-		shortDesc: "(Stackem only) First physical hit deals 0 damage and sets Stealth Rock on the opposing side.",
+		shortDesc: "(Stackem only) 1st physical hit deals 0 damage and sets Stealth Rock on the opposing side.",
 
 		block: "  Its rocks were knocked over!",
 		transform: "[POKEMON]'s rocks fell off!",
