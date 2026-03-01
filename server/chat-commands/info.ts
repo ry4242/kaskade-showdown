@@ -695,7 +695,7 @@ export const commands: Chat.ChatCommands = {
 							case 'trade':
 								evos.push(`${evo.name} (trade${evo.evoItem ? ` holding ${evo.evoItem}` : condition})`);
 								break;
-							case 'weather':
+							case 'weathergy':
 								evos.push(`${evo.name} (level-up in ${condition})`);
 								break;
 							default:

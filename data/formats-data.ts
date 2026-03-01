@@ -5098,7 +5098,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		natDexTier: "LC",
 	},
 	rockruffdusk: {
-		isNonstandard: "Future",
+		isNonstandard: "Past",
 		tier: "Illegal",
 		natDexTier: "LC",
 	},

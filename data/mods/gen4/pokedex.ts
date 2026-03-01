@@ -1,20 +1,8 @@
 export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable = {
-	ninetales: {
-		inherit: true,
-		abilities: { 0: "Flash Fire", H: "Drought" },
-	},
 	milotic: {
 		inherit: true,
 		evoType: 'levelExtra',
 		evoCondition: 'with high Beauty',
-	},
-	honchkrow: {
-		inherit: true,
-		abilities: { 0: "Insomnia", 1: "Super Luck", H: "Moxie" },
-	},
-	glaceon: {
-		inherit: true,
-		abilities: { 0: "Snow Cloak", H: "Ice Body" },
 	},
 	rotomheat: {
 		inherit: true,

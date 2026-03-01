@@ -35,14 +35,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Levitate" },
 	},
-	eevee: {
-		inherit: true,
-		abilities: { 0: "Run Away", 1: "Adaptability", H: "Anticipation" },
-	},
-	umbreon: {
-		inherit: true,
-		abilities: { 0: "Synchronize", H: "Inner Focus" },
-	},
 	ralts: {
 		inherit: true,
 		eggGroups: ["Amorphous"],
@@ -98,10 +90,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Flash Fire", H: "Flame Body" },
 		unreleasedHidden: true,
-	},
-	leavanny: {
-		inherit: true,
-		abilities: { 0: "Swarm", 1: "Chlorophyll", H: "Overcoat" },
 	},
 	deerlingsummer: {
 		inherit: true,

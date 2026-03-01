@@ -11,10 +11,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		formeOrder: ["Pikachu", "Pikachu-Rock-Star", "Pikachu-Belle", "Pikachu-Pop-Star", "Pikachu-PhD", "Pikachu-Libre", "Pikachu-Cosplay"],
 	},
-	ninetales: {
-		inherit: true,
-		abilities: { 0: "Flash Fire", H: "Drought" },
-	},
 	dugtrio: {
 		inherit: true,
 		baseStats: { hp: 35, atk: 80, def: 50, spa: 50, spd: 70, spe: 120 },
@@ -293,10 +289,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		color: "Pink",
 	},
-	leavanny: {
-		inherit: true,
-		abilities: { 0: "Swarm", 1: "Chlorophyll", H: "Overcoat" },
-	},
 	darmanitanzen: {
 		inherit: true,
 		color: "Red",
@@ -304,10 +296,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	crustle: {
 		inherit: true,
 		baseStats: { hp: 70, atk: 95, def: 125, spa: 65, spd: 75, spe: 45 },
-	},
-	swanna: {
-		inherit: true,
-		abilities: { 0: "Keen Eye", 1: "Big Pecks", H: "Hydration" },
 	},
 	vanillite: {
 		inherit: true,

@@ -174,7 +174,7 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 	/** Evolutions. Array because many Pokemon have multiple evolutions. */
 	readonly evos: string[];
 	readonly evoType?: (
-		'trade' | 'useItem' | 'levelMove' | 'levelExtra' | 'levelFriendship' | 'levelHold' | 'other' | 'weather'
+		'trade' | 'useItem' | 'levelMove' | 'levelExtra' | 'levelFriendship' | 'levelHold' | 'other' | 'weathergy'
 	);
 	/** Evolution condition. falsy if doesn't evolve. */
 	declare readonly evoCondition?: string;
