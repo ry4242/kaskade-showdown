@@ -126,6 +126,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		inherit: true,
 		abilities: { 0: "Static", H: "Lightning Rod" },
 	},
+	pikachugmax: {
+		inherit: true,
+		abilities: { 0: "Static", H: "Lightning Rod" },
+	},
 	raichu: {
 		inherit: true,
 		abilities: { 0: "Static", H: "Lightning Rod" },
@@ -188,6 +192,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Limber", H: "Imposter" },
 	},
 	eevee: {
+		inherit: true,
+		abilities: { 0: "Run Away", 1: "Adaptability", H: "Anticipation" },
+	},
+	eeveegmax: {
 		inherit: true,
 		abilities: { 0: "Run Away", 1: "Adaptability", H: "Anticipation" },
 	},
@@ -613,6 +621,10 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 		abilities: { 0: "Stench", 1: "Sticky Hold", H: "Aftermath" },
 	},
 	garbodor: {
+		inherit: true,
+		abilities: { 0: "Stench", 1: "Weak Armor", H: "Aftermath" },
+	},
+	garbodorgmax: {
 		inherit: true,
 		abilities: { 0: "Stench", 1: "Weak Armor", H: "Aftermath" },
 	},

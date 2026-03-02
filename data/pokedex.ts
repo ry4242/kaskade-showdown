@@ -778,14 +778,14 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Yellow",
 		eggGroups: ["Undiscovered"],
 	},
-	pikachugmax: {
+	pikachugmax: { // updated
 		num: 25,
 		name: "Pikachu-Gmax",
 		baseSpecies: "Pikachu",
 		forme: "Gmax",
 		types: ["Electric"],
 		baseStats: { hp: 35, atk: 55, def: 40, spa: 50, spd: 50, spe: 90 },
-		abilities: { 0: "Static", H: "Lightning Rod" },
+		abilities: { 0: "Static", 1: "Forked", H: "Lightning Rod" },
 		heightm: 21,
 		weightkg: 0,
 		color: "Yellow",
@@ -3151,7 +3151,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Brown",
 		eggGroups: ["Undiscovered"],
 	},
-	eeveegmax: {
+	eeveegmax: { // updated
 		num: 133,
 		name: "Eevee-Gmax",
 		baseSpecies: "Eevee",
@@ -3159,7 +3159,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		types: ["Normal"],
 		genderRatio: { M: 0.875, F: 0.125 },
 		baseStats: { hp: 55, atk: 55, def: 50, spa: 45, spd: 65, spe: 55 },
-		abilities: { 0: "Run Away", 1: "Adaptability", H: "Anticipation" },
+		abilities: { 0: "Run Away", 1: "Adaptability", H: "Protean" },
 		heightm: 18,
 		weightkg: 0,
 		color: "Brown",
@@ -11398,14 +11398,14 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Mineral"],
 		canGigantamax: "G-Max Malodor",
 	},
-	garbodorgmax: {
+	garbodorgmax: { // updated
 		num: 569,
 		name: "Garbodor-Gmax",
 		baseSpecies: "Garbodor",
 		forme: "Gmax",
 		types: ["Poison"],
 		baseStats: { hp: 80, atk: 95, def: 82, spa: 60, spd: 82, spe: 75 },
-		abilities: { 0: "Stench", 1: "Weak Armor", H: "Aftermath" },
+		abilities: { 0: "Stench", 1: "Aftermath", H: "Pollution" },
 		heightm: 21,
 		weightkg: 0,
 		color: "Green",
