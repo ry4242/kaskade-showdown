@@ -496,7 +496,6 @@ const OFFICIAL_AVATARS = new Set([
 	'teamrocketgruntm-gen3',
 	'teamrocket',
 	'thorton',
-	'tofrug-stack',
 	'triathletebikerf-gen3',
 	'triathletebikerm-gen3',
 	'triathleterunnerf-gen3',
@@ -678,7 +677,10 @@ const OFFICIAL_AVATARS_FLAMIBANE = new Set([
 const OFFICIAL_AVATARS_RADU = new Set([
 	'miku-ice',
 ]);
-
+// swse
+const OFFICIAL_SWSE_AVATARS = new Set([
+	'tofrug-stack',
+]);
 const OFFICIAL_AVATARS_MYSTE = new Set([
 	'tofrug-stack',
 ]);
@@ -696,6 +698,7 @@ for (const avatar of OFFICIAL_AVATARS_SELENA) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_WISTERIAPURPLE) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_FLAMIBANE) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_RADU) OFFICIAL_AVATARS.add(avatar);
+for (const avatar of OFFICIAL_SWSE_AVATARS) OFFICIAL_AVATARS.add(avatar);
 for (const avatar of OFFICIAL_AVATARS_MYSTE) OFFICIAL_AVATARS.add(avatar);
 
 export const commands: Chat.ChatCommands = {

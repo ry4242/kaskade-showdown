@@ -6031,14 +6031,10 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		num: 10065,
 	},
 	anxiety: { // tested, works as intended
-		onDamage(damage, target, source, effect) {
-			this.add('-activate', target, 'ability: Anxiety');
+		onDamagingHit(damage, target, source, move) {
+			// this.add('-activate', target, 'ability: Anxiety');
 			this.actions.useMove(this.toID('explosion'), target);
 		},
-		/* onAnyDamagingHit(damage, target, source, move) {
-			this.add('-activate', target, 'ability: Anxiety');
-			this.actions.useMove(this.toID('explosion'), target);
-		}, */
 		flags: {},
 		name: "Anxiety",
 		rating: -1,

@@ -2307,7 +2307,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		name: "Anxiety",
 		shortDesc: "When this Pokemon takes damage, it uses Explosion.",
 
-		activate: "  [POKEMON] reached its breaking point!",
+		// activate: "  [POKEMON] reached its breaking point!",
 	},
 	arcanum: {
 		name: "Arcanum",
@@ -2511,7 +2511,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 		desc: "On switch-in, this Pokemon clears all weathers. While this Pokemon is active, Abilities have no effect and weathers cannont be set. This Ability activates before hazards and other Abilities take effect. Does not affect the As One, Battle Bond, Comatose, Disguise, Gulp Missile, Ice Face, Multitype, Neutralize, Neutralizing Gas, Power Construct, RKS System, Schooling, Shields Down, Stance Change, Tera Shift, Zen Mode, or Zero to Hero Abilities.",
 		shortDesc: "On switch-in, clears weather. Active: Abilities have no effect and weather cannot be set.",
 
-		start: "  All Abilities and Weathergy are being neutralized!",
+		start: "  All Weathergy and Abilities are being neutralized!",
 		end: "  The effects of the neutralization wore off!",
 	},
 	nottobe: {
