@@ -679,7 +679,7 @@ const OFFICIAL_AVATARS_RADU = new Set([
 ]);
 // swse
 const OFFICIAL_SWSE_AVATARS = new Set([
-	'tofrug-stack',
+	'tofrug-stack', 'wren',
 ]);
 const OFFICIAL_AVATARS_MYSTE = new Set([
 	'tofrug-stack',
