@@ -1644,13 +1644,24 @@ export class GlobalRoomState {
 		return roomid;
 	}
 
+	checkId(id: string) {
+		if (!id || id.endsWith("thegirl") || id.endsWith("tehgirl") || id.endsWith("thewoman")) {
+			return false;
+		}
+		return true;
+	}
+
 	onCreateBattleRoom(players: User[], room: GameRoom, options: AnyObject) {
 		for (const player of players) {
 			if (player.statusType === 'idle') {
 				player.setStatusType('online');
 			}
 		}
-		if (Config.reportbattles) {
+		let display = true;
+		if (players.length === 2) {
+			display = display && this.checkId(players[0].id) && this.checkId(players[1].id);
+		}
+		if (Config.reportbattles && display) {
 			if (typeof Config.reportbattles === 'string') {
 				Config.reportbattles = [Config.reportbattles];
 			} else if (Config.reportbattles === true) {
