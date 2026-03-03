@@ -857,7 +857,7 @@ export class RoomBattle extends RoomGame<RoomBattlePlayer> {
 		if (format.includes('@')) {
 			format = format.split('@')[0];
 		}
-		const link = "https://staraptorshowdown.com/replays/" + format + "/" + id + "_" + p1Cap + "_vs_" + p2Cap + ".html";
+		const link = "https://kaskadeshowdown.dynv6.net/replays/" + format + "/" + id + "_" + p1Cap + "_vs_" + p2Cap + ".html";
 		Chat.runHandlers('onBattleEnd', this, winnerid, this.players.map(p => p.id));
 		if (this.room.rated && !this.options.isBestOfSubBattle) {
 			void this.updateLadder(p1score, winnerid);
