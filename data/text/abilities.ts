@@ -2382,7 +2382,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	echolocation: {
 		name: "Echolocation",
-		desc: "This Pokemon's damaging sound moves become multi-hit moves that hit twice. The second hit has its damage quartered. Does not affect any multi-hit move.",
+		desc: "This Pokemon's damaging sound-based moves become multi-hit moves that hit twice. The second hit has its damage quartered. Does not affect any multi-hit move.",
 		shortDesc: "This Pokemon's sound attacks hit twice. The second hit has its damage quartered.",
 	},
 	energizer: {
