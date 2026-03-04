@@ -6172,6 +6172,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 
 	{
 		section: "SwSe Doubles",
+		column: 1,
 	},
 	{
 		name: "[Gen 9] Doubles OU",
@@ -6226,6 +6227,24 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
 	},
 	{
+		name: "[Gen 9] Doubles Custom Game",
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		battle: { trunc: Math.trunc },
+		debug: true,
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+
+	// SwSe Doubles Other Metagames
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "SwSe Doubles Other Metagames",
+	},
+	{
 		name: "[Gen 9] Doubles Monotype",
 		desc: `Double battle where all Pok&eacute;mon on your team must share a common type.`,
 		threads: [
@@ -6240,15 +6259,83 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Doubles Custom Game",
+		name: "[Gen 9] Doubles Battlefields",
+		desc: `Any field condition with a set duration becomes permanent once triggered unless directly replaced, removed, or reversed. Namely, this impacts screens, weathergy, terrains, room effects, gravity, and side conditions like Tailwind and Safeguard.`,
+		mod: 'gen9',
+		gameType: 'doubles',
+		ruleset: ['Standard OMs', 'Sleep Moves Clause', 'Evasion Abilities Clause'],
+		banlist: [
+			'Arena Trap', 'Shadow Tag',
+			'King\'s Rock', 'Razor Fang',
+			'Aurora Veil', 'Baton Pass', 'Fairy Lock', 'Last Respects', 'Light Screen', 'Quick Guard', 'Reflect', 'Tailwind', 'Trick Room',
+		],
+		onClimateWeatherChange() {
+			this.field.climateWeatherState.duration = 0;
+		},
+		onIrritantWeatherChange() {
+			this.field.irritantWeatherState.duration = 0;
+		},
+		onEnergyWeatherChange() {
+			this.field.energyWeatherState.duration = 0;
+		},
+		onClearingWeatherChange() {
+			this.field.clearingWeatherState.duration = 0;
+		},
+		onCataclysmWeatherChange() {
+			this.field.cataclysmWeatherState.duration = 0;
+		},
+		onTerrainChange() {
+			this.field.terrainState.duration = 0;
+		},
+		onPseudoWeatherChange(target, source, pseudoWeather) {
+			this.field.pseudoWeather[pseudoWeather.id].duration = 0;
+		},
+		onSideConditionStart(side, source, sideCondition) {
+			side.sideConditions[sideCondition.id].duration = 0;
+		},
+	},
+
+	// SwSe Dex-based Metas
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "SwSe Dex-based Metas",
+	},
+	{
+		name: "[Gen 9] Tso-Lo Doubles OU",
 
 		mod: 'swse',
 		gameType: 'doubles',
 		searchShow: false,
-		battle: { trunc: Math.trunc },
-		debug: true,
-		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 9] Sand Flats Doubles OU",
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		ruleset: ['Sand Flats Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 9] Kaskade Countryside Doubles OU",
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		ruleset: ['Kaskade Countryside Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 9] Alki Marsh Doubles OU",
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		ruleset: ['Alki Marsh Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
 
 	// SwSe Singles
@@ -6357,6 +6444,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
+		name: "[Gen 9] Custom Game",
+
+		mod: 'swse',
+		searchShow: false,
+		debug: true,
+		battle: { trunc: Math.trunc },
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+
+	// SwSe Singles Other Metagames
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "SwSe Singles Other Metagames",
+	},
+	{
 		name: "[Gen 9] Monotype",
 		desc: `All Pok&eacute;mon on your team must share a common type.`,
 		threads: [
@@ -6389,33 +6493,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 			'Wicked Torque',
 		],
 	},
-	{
-		name: "[Gen 9] Tso-Lo Doubles OU",
-		threads: [
-			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
-		],
 
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
-		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
-	},
-	{
-		name: "[Gen 9] Custom Game",
-
-		mod: 'swse',
-		searchShow: false,
-		debug: true,
-		battle: { trunc: Math.trunc },
-		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
-	},
 	// SwSe Popular Randomized Metas
 	///////////////////////////////////////////////////////////////////
 
 	{
 		section: "SwSe Popular Randomized Metas",
+		column: 3,
 	},
 	{
 		name: "[Gen 9] Random Doubles Battle",
