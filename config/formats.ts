@@ -19,329 +19,6 @@ The column value will be ignored for repeat sections.
 
 export const Formats: import('../sim/dex-formats').FormatList = [
 
-	// SwSe Popular Randomized Metas
-	///////////////////////////////////////////////////////////////////
-
-	{
-		section: "SwSe Popular Randomized Metas",
-	},
-	{
-		name: "[Gen 9] Random Doubles Battle",
-		desc: `Double battle with randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
-
-		mod: 'swse',
-		gameType: 'doubles',
-		team: 'random',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		bestOfDefault: true,
-		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
-	},
-	{
-		name: "[Gen 9] Unrated Random Doubles Battle",
-
-		mod: 'swse',
-		gameType: 'doubles',
-		team: 'random',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		rated: false,
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
-	},
-	{
-		name: "[Gen 9] Random Battle",
-		desc: `Randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
-
-		mod: 'swse',
-		team: 'random',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		bestOfDefault: true,
-		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
-	},
-	{
-		name: "[Gen 9] Unrated Random Battle",
-
-		mod: 'swse',
-		team: 'random',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		rated: false,
-		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
-	},
-
-	// SwSe Doubles
-	///////////////////////////////////////////////////////////////////
-
-	{
-		section: "SwSe Doubles",
-	},
-	{
-		name: "[Gen 9] Doubles OU",
-		mod: 'swse',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
-		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
-	},
-	{
-		name: "[Gen 9] SwSe Doubles OU",
-		mod: 'swse',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
-		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
-	},
-	{
-		name: "[Gen 9] Doubles UU",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3712825/">Doubles UU</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 9] Doubles OU'],
-		banlist: ['DOU', 'DBL'],
-	},
-	{
-		name: "[Gen 9] Doubles LC",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3710957/">Doubles LC</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Little Cup'],
-		banlist: [],
-	},
-	{
-		name: "[Gen 9] Doubles Ubers",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3712864/">Doubles Ubers</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
-	},
-	{
-		name: "[Gen 9] Doubles Monotype",
-		desc: `Double battle where all Pok&eacute;mon on your team must share a common type.`,
-		threads: [
-			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		ruleset: ['Standard Doubles', 'Same Type Clause'],
-		banlist: [
-			'Arena Trap', 'Shadow Tag',
-		],
-	},
-	{
-		name: "[Gen 9] Doubles Custom Game",
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		battle: { trunc: Math.trunc },
-		debug: true,
-		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
-	},
-
-	// SwSe Singles
-	///////////////////////////////////////////////////////////////////
-
-	{
-		section: "SwSe Singles",
-		column: 2,
-	},
-	{
-		name: "[Gen 9] OU",
-		threads: [
-			`&bullet; <a href="https://discord.gg/zEFfyzvffa">OU Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		ruleset: ['Standard'],
-		banlist: [
-			'Uber', 'AG',
-			'Arena Trap', 'Shadow Tag',
-			'Baton Pass',
-			'King\'s Rock',
-		],
-	},
-	{
-		name: "[Gen 9] Ubers",
-		threads: [
-			`&bullet; <a href="https://discord.gg/BXfzNWuU54">Ubers Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Standard'],
-		banlist: [
-			'AG',
-			'Baton Pass',
-			'King\'s Rock',
-		],
-	},
-	{
-		name: "[Gen 9] UU",
-		threads: [
-			`&bullet; <a href="https://discord.gg/zuQ6MaMEwK">UU Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 9] OU'],
-		banlist: ['OU', 'UUBL'],
-	},
-	{
-		name: "[Gen 9] RU",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3725482/">RU Metagame Discussion</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3729823/">RU Viability Rankings</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3717072/">RU Sample Teams</a>`,
-		],
-
-		mod: 'swse',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 9] UU'],
-		banlist: ['UU', 'RUBL'],
-	},
-	{
-		name: "[Gen 9] NU",
-		threads: [
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3715408/">NU Metagame Discussion</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3729943/">NU Viability Rankings</a>`,
-			`&bullet; <a href="https://www.smogon.com/forums/threads/3730216/">NU Sample Teams</a>`,
-		],
-
-		mod: 'swse',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 9] RU'],
-		banlist: ['RU', 'NUBL', 'Quick Claw'],
-	},
-	{
-		name: "[Gen 9] PU",
-
-		mod: 'swse',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['[Gen 9] NU'],
-		banlist: ['NU', 'PUBL'],
-	},
-	{
-		name: "[Gen 9] LC",
-		threads: [
-			`&bullet; <a href="https://discord.gg/6dKHQAR3DW">LC Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		ruleset: ['Standard', 'Little Cup'],
-		banlist: [
-			'Baton Pass',
-			'King\'s Rock',
-		],
-	},
-	{
-		name: "[Gen 9] Monotype",
-		desc: `All Pok&eacute;mon on your team must share a common type.`,
-		threads: [
-			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		ruleset: ['Standard', 'Same Type Clause', 'Terastal Clause'],
-		banlist: [
-			'Arena Trap', 'Shadow Tag',
-			'Baton Pass',
-			'King\'s Rock',
-		],
-	},
-	{
-		name: "[Gen 9] Almost Any Ability",
-		desc: `Pok&eacute;mon have access to almost any ability.`,
-
-		mod: 'swse',
-		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause'],
-	},
-	{
-		name: "[Gen 9] STABmons",
-		desc: `Pok&eacute;mon can use any move of their typing, in addition to the moves they can normally learn.`,
-		mod: 'swse',
-		ruleset: ['Standard OMs', 'STABmons Move Legality', 'Sleep Moves Clause', 'Terastal Clause'],
-		restricted: [
-			'Astral Barrage', 'Belly Drum', 'Clangorous Soul', 'Ceaseless Edge', 'Dire Claw', 'Dragon Energy', 'Electro Shot', 'Extreme Speed', 'Fillet Away', 'Final Gambit',
-			'Flower Trick', 'Gigaton Hammer', 'No Retreat', 'Rage Fist', 'Revival Blessing', 'Shell Smash', 'Shift Gear', 'Triple Arrows', 'V-create', 'Victory Dance', 'Wicked Blow',
-			'Wicked Torque',
-		],
-	},
-	{
-		name: "[Gen 9] Tso-Lo Doubles OU",
-		threads: [
-			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
-		],
-
-		mod: 'swse',
-		gameType: 'doubles',
-		searchShow: false,
-		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
-		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
-	},
-	{
-		name: "[Gen 9] Custom Game",
-
-		mod: 'swse',
-		searchShow: false,
-		debug: true,
-		battle: { trunc: Math.trunc },
-		// no restrictions, for serious (other than team preview)
-		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
-	},
-
-	// Misc. Randomized Metas
-	///////////////////////////////////////////////////////////////////
-
-	{
-		section: "Misc. Randomized Metas",
-		column: 3,
-	},
-	{
-		name: "[Gen 9] Monotype Random Battle",
-
-		mod: 'swse',
-		team: 'random',
-		searchShow: false,
-		challengeShow: false,
-		tournamentShow: false,
-		ruleset: ['Obtainable', 'Same Type Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
-	},
-
-	///////////////////////////////////////////////////////////////////
-	// other non-meta shit (for test files)
-	// region OLD METAS
-	///////////////////////////////////////////////////////////////////
-
 	// S/V Singles
 	///////////////////////////////////////////////////////////////////
 
@@ -665,7 +342,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
 	},
 
-	// S/V Unofficial Metagames
+	// S/V Doubles
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -941,6 +618,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
+		team: 'randomBSSFactory',
 		ruleset: ['Flat Rules', 'VGC Timer', 'Best of = 3'],
 	},
 	{
@@ -953,15 +631,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard OMs', 'Sleep Moves Clause', 'Evasion Clause', 'Terastal Clause'],
 		banlist: [
 			'Annihilape', 'Arceus', 'Archaludon', 'Baxcalibur', 'Calyrex-Ice', 'Calyrex-Shadow', 'Chi-Yu', 'Chien-Pao', 'Deoxys-Attack', 'Deoxys-Normal', 'Dialga', 'Dialga-Origin',
-			'Eternatus', 'Flutter Mane', 'Giratina', 'Giratina-Origin', 'Gouging Fire', 'Groudon', 'Ho-Oh', 'Iron Bundle', 'Koraidon', 'Kyogre', 'Kyurem-Black', 'Kyurem-White',
-			'Landorus-Incarnate', 'Lugia', 'Lunala', 'Magearna', 'Mewtwo', 'Miraidon', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Ogerpon-Hearthflame', 'Palafin', 'Palkia',
-			'Palkia-Origin', 'Raichu-Alola', 'Rayquaza', 'Reshiram', 'Roaring Moon', 'Shaymin-Sky', 'Sneasler', 'Solgaleo', 'Spectrier', 'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike',
-			'Urshifu-Rapid-Strike', 'Volcarona', 'Zacian', 'Zacian-Crowned', 'Zamazenta-Crowned', 'Zekrom', 'Arena Trap', 'Chlorophyll', 'Moody', 'Sand Rush', 'Shadow Tag',
-			'Slush Rush', 'Speed Boost', 'Swift Swim', 'Unburden', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail',
+			'Eternatus', 'Flutter Mane', 'Giratina', 'Giratina-Origin', 'Gouging Fire', 'Groudon', 'Ho-Oh', 'Iron Bundle', 'Jirachi', 'Koraidon', 'Kyogre', 'Kyurem-Black', 'Kyurem-White',
+			'Landorus-Incarnate', 'Lugia', 'Lunala', 'Magearna', 'Meloetta', 'Mewtwo', 'Miraidon', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Ogerpon-Hearthflame', 'Palafin',
+			'Palkia', 'Palkia-Origin', 'Rayquaza', 'Reshiram', 'Roaring Moon', 'Shaymin-Sky', 'Sneasler', 'Solgaleo', 'Spectrier', 'Ursaluna-Bloodmoon', 'Urshifu-Single-Strike',
+			'Urshifu-Rapid-Strike', 'Volcarona', 'Zacian', 'Zacian-Crowned', 'Zamazenta-Crowned', 'Zekrom', 'Arena Trap', 'Drought', 'Electric Surge', 'Moody', 'Sand Rush',
+			'Serene Grace', 'Shadow Tag', 'Slush Rush', 'Speed Boost', 'Swift Swim', 'Unburden', 'Booster Energy', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects',
+			'Shed Tail',
 		],
 		restricted: [
-			'Baneful Bunker', 'Bounce', 'Burning Bulwark', 'Detect', 'Dig', 'Dive', 'Fly', 'Imprison', 'Phantom Force', 'Protect',
-			'Ruination', 'Shadow Force', 'Silk Trap', 'Spiky Shield', 'Super Fang', 'Taunt', 'Trick Room',
+			'Baneful Bunker', 'Bounce', 'Burning Bulwark', 'Copycat', 'Detect', 'Dig', 'Dive', 'Encore', 'Fly', 'Imprison', 'Nasty Plot', 'Phantom Force', 'Protect', 'Ruination',
+			'Shadow Force', 'Shell Smash', 'Silk Trap', 'Spiky Shield', 'Super Fang', 'Swords Dance', 'Taunt', 'Trick Room',
 		],
 		onValidateSet(set) {
 			const problems = [];
@@ -994,9 +673,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'AAA Restricted Abilities', 'Terastal Clause', 'Sleep Moves Clause'],
 		banlist: [
 			'Annihilape', 'Arcanine-Hisui', 'Arceus', 'Archaludon', 'Azumarill', 'Basculegion', 'Basculin', 'Baxcalibur', 'Blaziken', 'Braviary-Hisui', 'Calyrex-Ice', 'Calyrex-Shadow',
-			'Ceruledge', 'Chi-Yu', 'Chien-Pao', 'Clefable', 'Cloyster', 'Conkeldurr', 'Darkrai', 'Deoxys-Normal', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Dondozo', 'Dragonite',
-			'Enamorus-Incarnate', 'Espathra', 'Eternatus', 'Excadrill', 'Flutter Mane', 'Gholdengo', 'Giratina', 'Giratina-Origin', 'Gouging Fire', 'Groudon', 'Hawlucha', 'Ho-Oh',
-			'Hoopa-Unbound', 'Iron Bundle', 'Iron Valiant', 'Kingambit', 'Keldeo', 'Kleavor', 'Koraidon', 'Kyogre', 'Kyurem', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Incarnate',
+			'Ceruledge', 'Chi-Yu', 'Chien-Pao', 'Clefable', 'Cloyster', 'Conkeldurr', 'Darkrai', 'Deoxys-Normal', 'Deoxys-Attack', 'Dialga', 'Dialga-Origin', 'Dondozo', 'Dragapult',
+			'Dragonite', 'Enamorus-Incarnate', 'Espathra', 'Eternatus', 'Excadrill', 'Flutter Mane', 'Gholdengo', 'Giratina', 'Giratina-Origin', 'Gouging Fire', 'Groudon', 'Hawlucha',
+			'Ho-Oh', 'Hoopa-Unbound', 'Iron Bundle', 'Iron Valiant', 'Kingambit', 'Keldeo', 'Kleavor', 'Koraidon', 'Kyogre', 'Kyurem', 'Kyurem-Black', 'Kyurem-White', 'Landorus-Incarnate',
 			'Lugia', 'Lunala', 'Magearna', 'Manaphy', 'Mewtwo', 'Miraidon', 'Necrozma-Dawn-Wings', 'Necrozma-Dusk-Mane', 'Noivern', 'Ogerpon-Hearthflame', 'Palkia', 'Palkia-Origin',
 			'Porygon-Z', 'Raging Bolt', 'Rayquaza', 'Reshiram', 'Roaring Moon', 'Serperior', 'Shaymin-Sky', 'Smeargle', 'Sneasler', 'Solgaleo', 'Spectrier', 'Ursaluna', 'Ursaluna-Bloodmoon',
 			'Urshifu-Single-Strike', 'Urshifu-Rapid-Strike', 'Volcarona', 'Walking Wake', 'Weavile', 'Yanmega', 'Zacian', 'Zacian-Crowned', 'Zapdos-Galar', 'Zekrom', 'Zoroark-Hisui',
@@ -1158,7 +837,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['Tyranitar', 'Rotom', 'Judgment', 'Soul Dew'],
 	},
 
-	// S/V Other Metagames
+	// Other Metagames
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -1380,7 +1059,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['-Nonexistent', 'Team Preview', 'HP Percentage Mod', 'Cancel Mod', 'Endless Battle Clause', 'EV limit = 510'],
 	},
 
-	// S/V Challengeable OMs
+	// Challengeable OMs
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -3750,7 +3429,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	},
 	{
 		name: "[Gen 9] National Dex",
-		mod: 'swse',
+		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
@@ -4129,7 +3808,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['Uber', 'Arena Trap', 'Moody', 'Power Construct', 'Shadow Tag', 'King\'s Rock', 'Light Clay', 'Quick Claw', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 
-	// S/V Randomized Metas
+	// Randomized Metas
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -4293,10 +3972,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] BSS Factory",
 		desc: `Randomized 3v3 Singles featuring Pok&eacute;mon and movesets popular in Battle Stadium Singles.`,
 		mod: 'gen9',
-		team: 'randomBSSFactory',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
+		team: 'randomBSSFactory',
 		bestOfDefault: true,
 		ruleset: ['Flat Rules', 'VGC Timer'],
 	},
@@ -4304,10 +3983,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] Draft Factory",
 		desc: `Randomized matchups sourced from various 6v6 singles draft leagues.`,
 		mod: 'gen9',
-		team: 'randomDraftFactory',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
+		team: 'randomDraftFactory',
 		bestOfDefault: true,
 		ruleset: ['Standard Draft', '!Team Preview'],
 		onBegin() {
@@ -5942,7 +5621,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 4] OU', '!Baton Pass Stat Trap Clause', '!Freeze Clause Mod', '!Sleep Moves Clause', 'Sleep Clause Mod'],
+		ruleset: ['[Gen 4] OU', '!Baton Pass Stat Trap Clause', '!Freeze Clause Mod'],
 		banlist: ['OU', 'UUBL', 'Baton Pass'],
 		unbanlist: ['Arena Trap', 'Snow Cloak', 'Quick Claw', 'Swagger'],
 	},
@@ -5952,7 +5631,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
-		ruleset: ['[Gen 4] UU', 'Baton Pass Clause'],
+		ruleset: ['[Gen 4] UU', 'Baton Pass Clause', '!Sleep Moves Clause', 'Sleep Clause Mod'],
 		banlist: ['UU', 'NUBL'],
 		unbanlist: ['Sand Veil', 'Baton Pass'],
 	},
@@ -6369,6 +6048,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
 	},
 	{
+		name: "[Gen 1] Ubers",
+		mod: 'gen1',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard'],
+	},
+	{
 		name: "[Gen 1] UU",
 		mod: 'gen1',
 		searchShow: false,
@@ -6480,5 +6167,319 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['HP Percentage Mod', 'Cancel Mod', 'Desync Clause Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
 	},
 
-	// #endregion
+	// SwSe Doubles
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "SwSe Doubles",
+	},
+	{
+		name: "[Gen 9] Doubles OU",
+		mod: 'swse',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 9] SwSe Doubles OU",
+		mod: 'swse',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 9] Doubles UU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3712825/">Doubles UU</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 9] Doubles OU'],
+		banlist: ['DOU', 'DBL'],
+	},
+	{
+		name: "[Gen 9] Doubles LC",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3710957/">Doubles LC</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Little Cup'],
+		banlist: [],
+	},
+	{
+		name: "[Gen 9] Doubles Ubers",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3712864/">Doubles Ubers</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
+	},
+	{
+		name: "[Gen 9] Doubles Monotype",
+		desc: `Double battle where all Pok&eacute;mon on your team must share a common type.`,
+		threads: [
+			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		ruleset: ['Standard Doubles', 'Same Type Clause'],
+		banlist: [
+			'Arena Trap', 'Shadow Tag',
+		],
+	},
+	{
+		name: "[Gen 9] Doubles Custom Game",
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		battle: { trunc: Math.trunc },
+		debug: true,
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+
+	// SwSe Singles
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "SwSe Singles",
+		column: 2,
+	},
+	{
+		name: "[Gen 9] OU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zEFfyzvffa">OU Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		ruleset: ['Standard'],
+		banlist: [
+			'Uber', 'AG',
+			'Arena Trap', 'Shadow Tag',
+			'Baton Pass',
+			'King\'s Rock',
+		],
+	},
+	{
+		name: "[Gen 9] Ubers",
+		threads: [
+			`&bullet; <a href="https://discord.gg/BXfzNWuU54">Ubers Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Standard'],
+		banlist: [
+			'AG',
+			'Baton Pass',
+			'King\'s Rock',
+		],
+	},
+	{
+		name: "[Gen 9] UU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zuQ6MaMEwK">UU Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 9] OU'],
+		banlist: ['OU', 'UUBL'],
+	},
+	{
+		name: "[Gen 9] RU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3725482/">RU Metagame Discussion</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3729823/">RU Viability Rankings</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3717072/">RU Sample Teams</a>`,
+		],
+
+		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 9] UU'],
+		banlist: ['UU', 'RUBL'],
+	},
+	{
+		name: "[Gen 9] NU",
+		threads: [
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3715408/">NU Metagame Discussion</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3729943/">NU Viability Rankings</a>`,
+			`&bullet; <a href="https://www.smogon.com/forums/threads/3730216/">NU Sample Teams</a>`,
+		],
+
+		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 9] RU'],
+		banlist: ['RU', 'NUBL', 'Quick Claw'],
+	},
+	{
+		name: "[Gen 9] PU",
+
+		mod: 'swse',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['[Gen 9] NU'],
+		banlist: ['NU', 'PUBL'],
+	},
+	{
+		name: "[Gen 9] LC",
+		threads: [
+			`&bullet; <a href="https://discord.gg/6dKHQAR3DW">LC Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		ruleset: ['Standard', 'Little Cup'],
+		banlist: [
+			'Baton Pass',
+			'King\'s Rock',
+		],
+	},
+	{
+		name: "[Gen 9] Monotype",
+		desc: `All Pok&eacute;mon on your team must share a common type.`,
+		threads: [
+			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		ruleset: ['Standard', 'Same Type Clause', 'Terastal Clause'],
+		banlist: [
+			'Arena Trap', 'Shadow Tag',
+			'Baton Pass',
+			'King\'s Rock',
+		],
+	},
+	{
+		name: "[Gen 9] Almost Any Ability",
+		desc: `Pok&eacute;mon have access to almost any ability.`,
+
+		mod: 'swse',
+		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause'],
+	},
+	{
+		name: "[Gen 9] STABmons",
+		desc: `Pok&eacute;mon can use any move of their typing, in addition to the moves they can normally learn.`,
+		mod: 'swse',
+		ruleset: ['Standard OMs', 'STABmons Move Legality', 'Sleep Moves Clause', 'Terastal Clause'],
+		restricted: [
+			'Astral Barrage', 'Belly Drum', 'Clangorous Soul', 'Ceaseless Edge', 'Dire Claw', 'Dragon Energy', 'Electro Shot', 'Extreme Speed', 'Fillet Away', 'Final Gambit',
+			'Flower Trick', 'Gigaton Hammer', 'No Retreat', 'Rage Fist', 'Revival Blessing', 'Shell Smash', 'Shift Gear', 'Triple Arrows', 'V-create', 'Victory Dance', 'Wicked Blow',
+			'Wicked Torque',
+		],
+	},
+	{
+		name: "[Gen 9] Tso-Lo Doubles OU",
+		threads: [
+			`&bullet; <a href="https://discord.gg/zMxa5bGagw">DOU Discord channel</a>`,
+		],
+
+		mod: 'swse',
+		gameType: 'doubles',
+		searchShow: false,
+		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
+		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
+	},
+	{
+		name: "[Gen 9] Custom Game",
+
+		mod: 'swse',
+		searchShow: false,
+		debug: true,
+		battle: { trunc: Math.trunc },
+		// no restrictions, for serious (other than team preview)
+		ruleset: ['Team Preview', 'Cancel Mod', 'Max Team Size = 24', 'Max Move Count = 24', 'Max Level = 9999', 'Default Level = 100'],
+	},
+	// SwSe Popular Randomized Metas
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "SwSe Popular Randomized Metas",
+	},
+	{
+		name: "[Gen 9] Random Doubles Battle",
+		desc: `Double battle with randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
+
+		mod: 'swse',
+		gameType: 'doubles',
+		team: 'random',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		bestOfDefault: true,
+		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 9] Unrated Random Doubles Battle",
+
+		mod: 'swse',
+		gameType: 'doubles',
+		team: 'random',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		rated: false,
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
+	},
+	{
+		name: "[Gen 9] Random Battle",
+		desc: `Randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
+
+		mod: 'swse',
+		team: 'random',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		bestOfDefault: true,
+		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
+	},
+	{
+		name: "[Gen 9] Unrated Random Battle",
+
+		mod: 'swse',
+		team: 'random',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		rated: false,
+		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
+	},
+	// Misc. Randomized Metas
+	///////////////////////////////////////////////////////////////////
+
+	{
+		section: "Misc. Randomized Metas",
+		column: 3,
+	},
+	{
+		name: "[Gen 9] Monotype Random Battle",
+
+		mod: 'swse',
+		team: 'random',
+		searchShow: false,
+		challengeShow: false,
+		tournamentShow: false,
+		ruleset: ['Obtainable', 'Same Type Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
+	},
 ];
