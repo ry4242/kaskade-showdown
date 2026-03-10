@@ -51,7 +51,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2588,
+		num: 2638,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -408,7 +408,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2601,
+		num: 2648,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -942,7 +942,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2587,
+		num: 2637,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -1218,7 +1218,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2595,
+		num: 2644,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -1316,7 +1316,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2593,
+		num: 2568,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -1976,7 +1976,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2586,
+		num: 2587,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -2426,7 +2426,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2590,
+		num: 2640,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -2516,7 +2516,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2600,
+		num: 2650,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -2537,7 +2537,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2596,
+		num: 2645,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -2549,7 +2549,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2594,
+		num: 2642,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -2837,7 +2837,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2592,
+		num: 2567,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -3533,7 +3533,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2591,
+		num: 2641,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -3692,7 +3692,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			return !item.megaStone || (!item.megaStone[source.baseSpecies.name] &&
 				!Object.values(item.megaStone).includes(source.baseSpecies.name));
 		},
-		num: 2597,
+		num: 2646,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -3956,7 +3956,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			return !item.megaStone || (!item.megaStone[source.baseSpecies.name] &&
 				!Object.values(item.megaStone).includes(source.baseSpecies.name));
 		},
-		num: 2594,
+		num: 2643,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -5062,7 +5062,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2585,
+		num: 2635,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -5074,7 +5074,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2586,
+		num: 2636,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -5618,7 +5618,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2599,
+		num: 2647,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -6033,7 +6033,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2589,
+		num: 2639,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -6328,7 +6328,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			return !item.megaStone || (!item.megaStone[source.baseSpecies.name] &&
 				!Object.values(item.megaStone).includes(source.baseSpecies.name));
 		},
-		num: 2601,
+		num: 2649,
 		gen: 9,
 		isNonstandard: "Past",
 	},
@@ -7880,7 +7880,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		onTakeItem(item, source) {
 			return !item.megaStone?.[source.baseSpecies.baseSpecies];
 		},
-		num: 2598,
+		num: 2586,
 		gen: 9,
 		isNonstandard: "Past",
 	},
