@@ -7209,7 +7209,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	tarmendoa: {
 		tier: "OU",
-		doublesTier: "DOU",
+		doublesTier: "(DOU)",
 		natDexTier: "OU",
 	},
 	burbwhirl: {
@@ -7222,7 +7222,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	vaquamael: {
 		tier: "OU",
-		doublesTier: "DOU",
+		doublesTier: "DUU",
 		natDexTier: "OU",
 	},
 	chewmunk: {
@@ -7231,7 +7231,7 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 	},
 	cheekat: {
 		tier: "OU",
-		doublesTier: "DOU",
+		doublesTier: "(DUU)",
 		natDexTier: "OU",
 	},
 	specoey: {
