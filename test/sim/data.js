@@ -372,10 +372,10 @@ describe('Dex data', () => {
 		1 + 1 + 1 + 2 + 1 + 2 + 2 + 2 + 1 + 1 + 2 + 2 + 1 +
 		(4 + 1 + 1 + 1 + 1 + 2 + (1 + 1)) + (1 + 3 + 4 + 2 + 3 + 1 + 2);
 	// Alola (2) + Galar (2) + Hisui (3) + Paldea (1) + Kaskade (20) + Amaze-All (2) +
-	// Castform (17) + Cherrim (1) + Snover (1) + Abomasnow (1) + Rotom (10) + Basculin (1) +
+	// Castform (17) + Cherrim (1) + Snover (1) + Abomasnow (1) + Rotom (11) + Basculin (1) +
 	// Vivillon (2) + Pumpkaboo (3) + Gourgeist (3) + Mimikyu (1) + Basculegion (1) + Dudunsparce (1) +
 	// Eecroach (1) + Stackem (1) + Mosskrat (1) + Bearvoyance (1)
-	formes[9] = 48;
+	formes[9] = 49;
 
 	for (const gen of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
 		it(`Gen ${gen} should have ${species[gen]} species and ${formes[gen]} formes`, () => {

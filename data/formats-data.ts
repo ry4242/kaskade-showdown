@@ -3332,6 +3332,11 @@ export const FormatsData: import('../sim/dex-species').SpeciesFormatsDataTable =
 		tier: "Illegal",
 		natDexTier: "OU",
 	},
+	rotomstereo: {
+		isNonstandard: "Future",
+		tier: "Illegal",
+		natDexTier: "OU",
+	},
 	rotomsol: {
 		isNonstandard: "Future",
 		tier: "Illegal",

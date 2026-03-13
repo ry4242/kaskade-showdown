@@ -53092,6 +53092,36 @@ export const Learnsets: import('../sim/dex-species').LearnsetDataTable = {
 			leafstorm: ["9R", "8R", "7R", "6R", "5R", "4R"],
 		},
 	},
+	rotomstereo: {
+		learnset: {
+			boomburst: ["9R"],
+		},
+	},
+	rotomjunk: {
+		learnset: {
+			viralblast: ["9R"],
+		},
+	},
+	rotomsway: {
+		learnset: {
+			mindmeld: ["9R"],
+		},
+	},
+	rotombrawl: {
+		learnset: {
+			focusblast: ["9R"],
+		},
+	},
+	rotomweb: {
+		learnset: {
+			blackhole: ["9R"],
+		},
+	},
+	rotomsol: {
+		learnset: {
+			dracometeor: ["9R"],
+		},
+	},
 	uxie: {
 		learnset: {
 			acrobatics: ["9M", "8M", "7M", "6M", "5M"],
