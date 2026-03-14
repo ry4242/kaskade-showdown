@@ -2486,6 +2486,10 @@ export const Rulesets: import('../sim/dex-formats').FormatDataTable = {
 								if (item.id === 'leppaberry') foe.staleness = 'external';
 							}
 							if (item.onEat) foe.ateBerry = true;
+							if (this.singleEvent('Drink', item, null, foe, null, null)) {
+								this.runEvent('DrinkItem', foe, null, null, item);
+							}
+							if (item.onDrink) foe.drankCoffee = true;
 						};
 					} else if (item.fling.effect) {
 						m.onHit = item.fling.effect;

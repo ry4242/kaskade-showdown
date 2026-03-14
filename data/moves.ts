@@ -1241,7 +1241,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, failmefirst: 1, nosleeptalk: 1, noassist: 1, failcopycat: 1, failmimic: 1, failinstruct: 1 },
 		onDisableMove(pokemon) {
-			if (!pokemon.ateBerry) pokemon.disableMove('belch');
+			if (!(pokemon.ateBerry || pokemon.drankCoffee)) pokemon.disableMove('belch');
 		},
 		secondary: null,
 		target: "normal",
@@ -5980,6 +5980,13 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 						if (item.id === 'leppaberry') foe.staleness = 'external';
 					}
 					if (item.onEat) foe.ateBerry = true;
+				};
+			} else if (item.isCoffee) {
+				move.onHit = function (foe) {
+					if (this.singleEvent('Drink', item, source.itemState, foe, source, move)) {
+						this.runEvent('DrinkItem', foe, source, move, item);
+					}
+					if (item.onDrink) foe.drankCoffee = true;
 				};
 			} else if (item.fling.effect) {
 				move.onHit = item.fling.effect;
@@ -19910,7 +19917,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			for (const pokemon of this.getAllActive()) {
 				if (this.runEvent('Invulnerability', pokemon, source, move) === false) {
 					this.add('-miss', source, pokemon);
-				} else if (this.runEvent('TryHit', pokemon, source, move) && pokemon.getItem().isBerry) {
+				} else if (this.runEvent('TryHit', pokemon, source, move) &&
+					(pokemon.getItem().isBerry || pokemon.getItem().isCoffee)) {
 					targets.push(pokemon);
 				}
 			}
@@ -24090,7 +24098,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				this.add('-miss', source, target);
 				return this.NOT_FAIL;
 			}
-			if (!this.runEvent('TryHit', target, source, move) || !target.getItem().isBerry) {
+			if (!this.runEvent('TryHit', target, source, move) || !(target.getItem().isBerry || target.getItem().isCoffee)) {
 				this.add('-fail', source, 'move: Scavenge');
 				this.attrLastMove('[still]');
 				return this.NOT_FAIL;
@@ -24119,6 +24127,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 					if (item.id === 'leppaberry') target.staleness = 'external';
 				}
 				if (item.onEat) source.ateBerry = true;
+				if (this.singleEvent('Drink', item, target.itemState, source, source, move)) {
+					this.runEvent('DrinkItem', source, source, move, item);
+				}
+				if (item.onDrink) source.drankCoffee = true;
 			}
 			this.add('-enditem', target, yourItem, '[silent]', '[from] move: Scavenge', `[of] ${source}`);
 			this.add('-item', source, yourItem, '[from] move: Scavenge', `[of] ${target}`);
