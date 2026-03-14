@@ -8316,7 +8316,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	coffeegeistcappuccino: { // incomplete test fling
 		name: "Coffeegeist Cappuccino",
 		spritenum: 794,
-		isCoffee: true,
+		isDrink: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
@@ -8385,7 +8385,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	flatunovan: {
 		name: "Flat Unovan",
 		spritenum: 795,
-		isCoffee: true,
+		isDrink: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
@@ -8455,7 +8455,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	mystictamroastdoppio: {
 		name: "Mystic Tamroast Doppio",
 		spritenum: 793,
-		isCoffee: true,
+		isDrink: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
@@ -8483,7 +8483,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	pikaspresso: {
 		name: "Pikaspresso",
 		spritenum: 790,
-		isCoffee: true,
+		isDrink: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
@@ -8542,7 +8542,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	sandygastmocha: {
 		name: "Sandygast Mocha",
 		spritenum: 792,
-		isCoffee: true,
+		isDrink: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
@@ -8618,7 +8618,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 	worcanecoldbrew: {
 		name: "Worcane Cold Brew",
 		spritenum: 791,
-		isCoffee: true,
+		isDrink: true,
 		onUpdate(pokemon) {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {

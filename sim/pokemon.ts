@@ -123,7 +123,7 @@ export class Pokemon {
 	lastItem: ID;
 	usedItemThisTurn: boolean;
 	ateBerry: boolean;
-	drankCoffee: boolean;
+	drankItem: boolean;
 	// Gens 3-4 only
 	itemKnockedOff: boolean;
 
@@ -424,7 +424,7 @@ export class Pokemon {
 		this.lastItem = '';
 		this.usedItemThisTurn = false;
 		this.ateBerry = false;
-		this.drankCoffee = false;
+		this.drankItem = false;
 		this.itemKnockedOff = false;
 
 		this.trapped = false;
@@ -1814,7 +1814,7 @@ export class Pokemon {
 			this.item = '';
 			this.battle.clearEffectState(this.itemState);
 			this.usedItemThisTurn = true;
-			this.drankCoffee = true;
+			this.drankItem = true;
 			this.battle.runEvent('AfterUseItem', this, null, null, item);
 			return true;
 		}

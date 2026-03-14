@@ -7997,7 +7997,7 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	scavenge: {
 		name: "Scavenge",
 		desc: "Before dealing damage if user is holding a Berry it is consumed. If this attack was successful and the user has not fainted, it steals the target's held item if the user is not holding one. If the stolen item is a berry, it is immediately consumed. The target's item is not stolen if it is a Mail or Z-Crystal, or if the target is a Kyogre holding a Blue Orb, a Groudon holding a Red Orb, a Giratina holding a Griseous Orb, an Arceus holding a Plate, a Genesect holding a Drive, a Silvally holding a Memory, or a Pokemon that can Mega Evolve holding the Mega Stone for its species. Items lost to this move cannot be regained with Recycle or the Harvest Ability.",
-		shortDesc: "Eats user's berry. Steals target's item.",
+		shortDesc: "Consumes user's berry/drink. Steals target's item.",
 	},
 	shade: {
 		name: "Shade",

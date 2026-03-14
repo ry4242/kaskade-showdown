@@ -78,8 +78,8 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 	readonly itemUser?: string[];
 	/** Is this item a Berry? */
 	readonly isBerry: boolean;
-	/** Is this item a Coffee? */
-	readonly isCoffee: boolean;
+	/** Is this item a Drink? */
+	readonly isDrink: boolean;
 	/** Whether or not this item ignores the Klutz ability. */
 	readonly ignoreKlutz: boolean;
 	/** The type the holder will change into if it is an Arceus. */
@@ -118,7 +118,7 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 		this.zMoveFrom = data.zMoveFrom || undefined;
 		this.itemUser = data.itemUser || undefined;
 		this.isBerry = !!data.isBerry;
-		this.isCoffee = !!data.isCoffee;
+		this.isDrink = !!data.isDrink;
 		this.ignoreKlutz = !!data.ignoreKlutz;
 		this.onPlate = data.onPlate || undefined;
 		this.isGem = !!data.isGem;
@@ -148,7 +148,7 @@ export class Item extends BasicEffect implements Readonly<BasicEffect> {
 		}
 
 		if (this.isBerry) this.fling = { basePower: 10 };
-		if (this.isCoffee) this.fling = { basePower: 30 };
+		if (this.isDrink) this.fling = { basePower: 30 };
 		if (this.id.endsWith('plate')) this.fling = { basePower: 90 };
 		if (this.onDrive) this.fling = { basePower: 70 };
 		if (this.megaStone) this.fling = { basePower: 80 };

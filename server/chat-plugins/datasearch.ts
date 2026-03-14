@@ -2837,7 +2837,7 @@ function runItemsearch(target: string, cmd: string, message: string) {
 
 		for (const item of dex.items.all()) {
 			if (
-				!item.isBerry || !item.isCoffee || !item.naturalGift || (gen && item.gen !== gen) || (maxGen && item.gen <= maxGen
+				!item.isBerry || !item.isDrink || !item.naturalGift || (gen && item.gen !== gen) || (maxGen && item.gen <= maxGen
 				)) continue;
 
 			if (basePower && type) {
@@ -2860,7 +2860,7 @@ function runItemsearch(target: string, cmd: string, message: string) {
 			// add more general quantifier words to descriptions
 			if (/[1-9.]+x/.test(descWords)) descWords += ' increases';
 			if (item.isBerry) descWords += ' berry';
-			if (item.isCoffee) descWords += ' coffee';
+			if (item.isDrink) descWords += ' drink';
 			descWords = descWords.replace(/super[-\s]effective/g, 'supereffective');
 			const descWordsArray = descWords.toLowerCase()
 				.replace('-', ' ')
