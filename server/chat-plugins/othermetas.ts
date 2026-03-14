@@ -18,7 +18,7 @@ interface StoneDeltas {
 
 type TierShiftTiers = 'UU' | 'RUBL' | 'RU' | 'NUBL' | 'NU' | 'PUBL' | 'PU' | 'ZUBL' | 'ZU' | 'NFE' | 'LC';
 
-function getMegaStone(stone: string, mod = 'gen9'): Item | null {
+function getMegaStone(stone: string, mod = 'gen11'): Item | null {
 	let dex = Dex;
 	if (mod && toID(mod) in Dex.dexes) dex = Dex.mod(toID(mod));
 	const item = dex.items.get(stone);

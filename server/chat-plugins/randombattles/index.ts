@@ -104,7 +104,7 @@ function setProbability(
 
 const GEN_NAMES: { [k: string]: string } = {
 	gen1: '[Gen 1]', gen2: '[Gen 2]', gen3: '[Gen 3]', gen4: '[Gen 4]', gen5: '[Gen 5]', gen6: '[Gen 6]', gen7: '[Gen 7]',
-	gen8: '[Gen 8]', gen9: '[Gen 9]',
+	gen8: '[Gen 8]', gen9: '[Gen 9]', gen10: '[Gen 10]', gen11: '[Gen 11]',
 };
 
 export const STAT_NAMES: { [k: string]: string } = {
@@ -150,7 +150,7 @@ function formatType(type: TypeInfo | string) {
  * Gets the sets for a Pokemon for a format that uses the new schema.
  * Old formats will use getData()
  */
-function getSets(species: string | Species, format: string | Format = 'gen9randombattle'): {
+function getSets(species: string | Species, format: string | Format = 'gen11randombattle'): {
 	level: number,
 	sets: any[],
 } | null {
@@ -257,7 +257,8 @@ function getLetsGoMoves(species: string | Species) {
 	return data.moves.map(formatMove).sort().join(`, `);
 }
 
-function battleFactorySets(species: string | Species, tier: string | null, gen = 'gen9', isBSS = false, is1v1 = false) {
+// eslint-disable-next-line @stylistic/max-len
+function battleFactorySets(species: string | Species, tier: string | null, gen = 'gen11', isBSS = false, is1v1 = false) {
 	species = Dex.species.get(species);
 	if (typeof species.battleOnly === 'string') {
 		species = Dex.species.get(species.battleOnly);
@@ -625,7 +626,7 @@ export const commands: Chat.ChatCommands = {
 			if (!species.exists) {
 				throw new Chat.ErrorMessage(`Error: Pok\u00e9mon '${args[0].trim()}' not found.`);
 			}
-			let mod = 'gen9';
+			let mod = 'gen11';
 			if (args[1] && toID(args[1]) in Dex.dexes && Dex.dexes[toID(args[1])].gen >= 7) mod = toID(args[1]);
 			const bssSets = battleFactorySets(species, null, mod, true);
 			if (!bssSets) return this.parse(`/help battlefactory`);
@@ -636,7 +637,7 @@ export const commands: Chat.ChatCommands = {
 			if (!species.exists) {
 				throw new Chat.ErrorMessage(`Error: Pok\u00e9mon '${target.trim()}' not found.`);
 			}
-			const onevoneSets = battleFactorySets(species, null, 'gen9', false, true);
+			const onevoneSets = battleFactorySets(species, null, 'gen11', false, true);
 			if (!onevoneSets) return this.parse(`/help battlefactory`);
 			return this.sendReplyBox(onevoneSets);
 		} else {
@@ -652,7 +653,7 @@ export const commands: Chat.ChatCommands = {
 			} else {
 				tier = 'ou';
 			}
-			const mod = args[2] || 'gen9';
+			const mod = args[2] || 'gen11';
 			let bfSets;
 			if (species.name === 'Necrozma-Ultra') {
 				bfSets = battleFactorySets(Dex.species.get('necrozma-dawnwings'), tier, mod);
@@ -712,7 +713,7 @@ export const commands: Chat.ChatCommands = {
 		if (args.length < 2) return this.parse(`/help randombattlesetprobabilities`);
 
 		// Optional format
-		let format = Dex.formats.get('gen9randombattle');
+		let format = Dex.formats.get('gen11randombattle');
 		let formatOrSpecies = args.shift();
 		const possibleFormat = Dex.formats.get(formatOrSpecies);
 		if (possibleFormat.exists) {

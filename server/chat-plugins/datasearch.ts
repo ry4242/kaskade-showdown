@@ -910,7 +910,7 @@ function getRule(target: string) {
 }
 
 function prepareDexsearchValidator(usedMod: string | undefined, rules: FormatData[], nationalSearch: boolean | null) {
-	const format = Object.entries(Dex.data.Rulesets).find(([a, f]) => f.mod === usedMod)?.[1].name || 'gen9ou';
+	const format = Object.entries(Dex.data.Rulesets).find(([a, f]) => f.mod === usedMod)?.[1].name || 'gen11ou';
 	const ruleTable = Dex.formats.getRuleTable(Dex.formats.get(format));
 	const additionalRules = [];
 	for (const rule of rules) {
@@ -1636,7 +1636,7 @@ function runDexsearch(target: string, cmd: string, message: string, isTest: bool
 				// LC handling, checks for LC Pokemon in higher tiers that need to be handled separately,
 				// as well as event-only Pokemon that are not eligible for LC despite being the first stage
 				let format = Dex.formats.get(`gen${mod.gen}lc`);
-				if (format.effectType !== 'Format') format = Dex.formats.get('gen9lc');
+				if (format.effectType !== 'Format') format = Dex.formats.get('gen11lc');
 				if (
 					alts.tiers.LC &&
 					!dex[mon].prevo &&

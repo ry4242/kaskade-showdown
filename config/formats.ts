@@ -26,7 +26,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "S/V Singles",
 	},
 	{
-		name: "[Gen 9] Random Battle OLD",
+		name: "[Gen 9] Random Battle",
 		desc: `Randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
 		mod: 'gen9',
 		team: 'random',
@@ -37,7 +37,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
 	{
-		name: "[Gen 9] Unrated Random Battle OLD",
+		name: "[Gen 9] Unrated Random Battle",
 		mod: 'gen9',
 		team: 'random',
 		searchShow: false,
@@ -82,7 +82,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] OU OLD",
+		name: "[Gen 9] OU",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -91,7 +91,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['Uber', 'AG', 'Arena Trap', 'Moody', 'Shadow Tag', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects', 'Shed Tail'],
 	},
 	{
-		name: "[Gen 9] Ubers OLD",
+		name: "[Gen 9] Ubers",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -100,7 +100,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['AG', 'Moody', 'King\'s Rock', 'Razor Fang', 'Baton Pass', 'Last Respects'],
 	},
 	{
-		name: "[Gen 9] UU OLD",
+		name: "[Gen 9] UU",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -109,7 +109,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['OU', 'UUBL'],
 	},
 	{
-		name: "[Gen 9] RU OLD",
+		name: "[Gen 9] RU",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -118,7 +118,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['UU', 'RUBL', 'Light Clay'],
 	},
 	{
-		name: "[Gen 9] NU OLD",
+		name: "[Gen 9] NU",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -127,7 +127,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['RU', 'NUBL', 'Drought', 'Quick Claw'],
 	},
 	{
-		name: "[Gen 9] PU OLD",
+		name: "[Gen 9] PU",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -136,7 +136,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['NU', 'PUBL', 'Damp Rock'],
 	},
 	{
-		name: "[Gen 9] LC OLD",
+		name: "[Gen 9] LC",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -149,7 +149,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Monotype OLD",
+		name: "[Gen 9] Monotype",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -195,7 +195,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		restricted: ['Restricted Legendary', 'Mythical'],
 	},
 	{
-		name: "[Gen 9] Custom Game OLD",
+		name: "[Gen 9] Custom Game",
 		mod: 'gen9',
 		searchShow: false,
 		challengeShow: false,
@@ -213,7 +213,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "S/V Doubles",
 	},
 	{
-		name: "[Gen 9] Random Doubles Battle OLD",
+		name: "[Gen 9] Random Doubles Battle",
 		mod: 'gen9',
 		gameType: 'doubles',
 		team: 'random',
@@ -224,7 +224,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Illusion Level Mod', 'Sleep Clause Mod'],
 	},
 	{
-		name: "[Gen 9] Doubles OU OLD",
+		name: "[Gen 9] Doubles OU",
 		mod: 'gen9',
 		gameType: 'doubles',
 		searchShow: false,
@@ -234,7 +234,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['DUber', 'Shadow Tag', 'Commander'],
 	},
 	{
-		name: "[Gen 9] Doubles Ubers OLD",
+		name: "[Gen 9] Doubles Ubers",
 		mod: 'gen9',
 		gameType: 'doubles',
 		searchShow: false,
@@ -243,7 +243,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
 	},
 	{
-		name: "[Gen 9] Doubles UU OLD",
+		name: "[Gen 9] Doubles UU",
 		mod: 'gen9',
 		gameType: 'doubles',
 		searchShow: false,
@@ -253,7 +253,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['DOU', 'DBL'],
 	},
 	{
-		name: "[Gen 9] Doubles LC OLD",
+		name: "[Gen 9] Doubles LC",
 		mod: 'gen9',
 		gameType: 'doubles',
 		searchShow: false,
@@ -340,7 +340,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		restricted: ['Restricted Legendary'],
 	},
 	{
-		name: "[Gen 9] Doubles Custom Game OLD",
+		name: "[Gen 9] Doubles Custom Game",
 		mod: 'gen9',
 		gameType: 'doubles',
 		searchShow: false,
@@ -859,7 +859,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
-		name: "[Gen 9] Almost Any Ability OLD",
+		name: "[Gen 9] Almost Any Ability",
 		desc: `Pok&eacute;mon have access to almost any ability.`,
 		mod: 'gen9',
 		searchShow: false,
@@ -989,7 +989,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Shared Power OLD",
+		name: "[Gen 9] Shared Power",
 		desc: `Once a Pok&eacute;mon switches in, its ability is shared with the rest of the team.`,
 		mod: 'sharedpower',
 		searchShow: false,
@@ -1042,7 +1042,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] STABmons OLD",
+		name: "[Gen 9] STABmons",
 		desc: `Pok&eacute;mon can use any move of their typing, in addition to the moves they can normally learn.`,
 		mod: 'gen9',
 		searchShow: false,
@@ -2290,7 +2290,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Pokebilities OLD",
+		name: "[Gen 9] Pokebilities",
 		desc: `Pok&eacute;mon have all of their released abilities simultaneously.`,
 		mod: 'pokebilities',
 		searchShow: false,
@@ -3896,7 +3896,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Monotype Random Battle OLD",
+		name: "[Gen 9] Monotype Random Battle",
 		mod: 'gen9',
 		team: 'random',
 		searchShow: false,
@@ -6213,26 +6213,26 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 1,
 	},
 	{
-		name: "[Gen 9] Doubles OU",
-		mod: 'swse',
+		name: "[Gen 11] Doubles OU",
+		mod: 'gen11',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
 	{
-		name: "[Gen 9] SwSe Doubles OU",
-		mod: 'swse',
+		name: "[Gen 11] SwSe Doubles OU",
+		mod: 'gen11',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
 	{
-		name: "[Gen 9] Doubles UU",
+		name: "[Gen 11] Doubles UU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712825/">Doubles UU</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		searchShow: false,
 		challengeShow: false,
@@ -6241,23 +6241,23 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['DOU', 'DBL'],
 	},
 	{
-		name: "[Gen 9] Doubles LC",
+		name: "[Gen 11] Doubles LC",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3710957/">Doubles LC</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Little Cup'],
 		banlist: [],
 	},
 	{
-		name: "[Gen 9] Doubles Ubers",
+		name: "[Gen 11] Doubles Ubers",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3712864/">Doubles Ubers</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		searchShow: false,
 		challengeShow: false,
@@ -6265,9 +6265,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Standard Doubles', '!Gravity Sleep Clause'],
 	},
 	{
-		name: "[Gen 9] Doubles Custom Game",
+		name: "[Gen 11] Doubles Custom Game",
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		searchShow: false,
 		battle: { trunc: Math.trunc },
@@ -6283,13 +6283,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "SwSe Doubles Other Metagames",
 	},
 	{
-		name: "[Gen 9] Doubles Monotype",
+		name: "[Gen 11] Doubles Monotype",
 		desc: `Double battle where all Pok&eacute;mon on your team must share a common type.`,
 		threads: [
 			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		ruleset: ['Standard Doubles', 'Same Type Clause'],
 		banlist: [
@@ -6297,7 +6297,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Doubles Battlefields",
+		name: "[Gen 11] Doubles Battlefields",
 		desc: `Any field condition with a set duration becomes permanent once triggered unless directly replaced, removed, or reversed. Namely, this impacts screens, weathergy, terrains, room effects, gravity, and side conditions like Tailwind and Safeguard.`,
 		mod: 'gen9',
 		gameType: 'doubles',
@@ -6340,36 +6340,36 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "SwSe Dex-based Metas",
 	},
 	{
-		name: "[Gen 9] Tso-Lo Doubles OU",
+		name: "[Gen 11] Tso-Lo Doubles OU",
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		searchShow: false,
 		ruleset: ['Tso-Lo Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
 	{
-		name: "[Gen 9] Sand Flats Doubles OU",
+		name: "[Gen 11] Sand Flats Doubles OU",
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		searchShow: false,
 		ruleset: ['Sand Flats Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
 	{
-		name: "[Gen 9] Kaskade Countryside Doubles OU",
+		name: "[Gen 11] Kaskade Countryside Doubles OU",
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		searchShow: false,
 		ruleset: ['Kaskade Countryside Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
 		banlist: ['DUber', 'Arena Trap', 'Shadow Tag'],
 	},
 	{
-		name: "[Gen 9] Alki Marsh Doubles OU",
+		name: "[Gen 11] Alki Marsh Doubles OU",
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		searchShow: false,
 		ruleset: ['Alki Marsh Pokedex', 'Standard Doubles', 'Evasion Abilities Clause'],
@@ -6384,12 +6384,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 2,
 	},
 	{
-		name: "[Gen 9] OU",
+		name: "[Gen 11] OU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zEFfyzvffa">OU Discord channel</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		ruleset: ['Standard'],
 		banlist: [
 			'Uber', 'AG',
@@ -6399,12 +6399,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Ubers",
+		name: "[Gen 11] Ubers",
 		threads: [
 			`&bullet; <a href="https://discord.gg/BXfzNWuU54">Ubers Discord channel</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
@@ -6416,12 +6416,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] UU",
+		name: "[Gen 11] UU",
 		threads: [
 			`&bullet; <a href="https://discord.gg/zuQ6MaMEwK">UU Discord channel</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
@@ -6429,14 +6429,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['OU', 'UUBL'],
 	},
 	{
-		name: "[Gen 9] RU",
+		name: "[Gen 11] RU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3725482/">RU Metagame Discussion</a>`,
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3729823/">RU Viability Rankings</a>`,
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3717072/">RU Sample Teams</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
@@ -6444,14 +6444,14 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['UU', 'RUBL'],
 	},
 	{
-		name: "[Gen 9] NU",
+		name: "[Gen 11] NU",
 		threads: [
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3715408/">NU Metagame Discussion</a>`,
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3729943/">NU Viability Rankings</a>`,
 			`&bullet; <a href="https://www.smogon.com/forums/threads/3730216/">NU Sample Teams</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
@@ -6459,9 +6459,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['RU', 'NUBL', 'Quick Claw'],
 	},
 	{
-		name: "[Gen 9] PU",
+		name: "[Gen 11] PU",
 
-		mod: 'swse',
+		mod: 'gen11',
 		searchShow: false,
 		challengeShow: false,
 		tournamentShow: false,
@@ -6469,12 +6469,12 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		banlist: ['NU', 'PUBL'],
 	},
 	{
-		name: "[Gen 9] LC",
+		name: "[Gen 11] LC",
 		threads: [
 			`&bullet; <a href="https://discord.gg/6dKHQAR3DW">LC Discord channel</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		ruleset: ['Standard', 'Little Cup'],
 		banlist: [
 			'Baton Pass',
@@ -6482,9 +6482,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Custom Game",
+		name: "[Gen 11] Custom Game",
 
-		mod: 'swse',
+		mod: 'gen11',
 		searchShow: false,
 		debug: true,
 		battle: { trunc: Math.trunc },
@@ -6499,13 +6499,13 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		section: "SwSe Singles Other Metagames",
 	},
 	{
-		name: "[Gen 9] Monotype",
+		name: "[Gen 11] Monotype",
 		desc: `All Pok&eacute;mon on your team must share a common type.`,
 		threads: [
 			`&bullet; <a href="https://discord.gg/3aEUWwwDys">OM Discord channel</a>`,
 		],
 
-		mod: 'swse',
+		mod: 'gen11',
 		ruleset: ['Standard', 'Same Type Clause', 'Terastal Clause'],
 		banlist: [
 			'Arena Trap', 'Shadow Tag',
@@ -6514,16 +6514,16 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Almost Any Ability",
+		name: "[Gen 11] Almost Any Ability",
 		desc: `Pok&eacute;mon have access to almost any ability.`,
 
-		mod: 'swse',
+		mod: 'gen11',
 		ruleset: ['Standard OMs', '!Obtainable Abilities', 'Ability Clause = 1', 'Sleep Moves Clause'],
 	},
 	{
-		name: "[Gen 9] STABmons",
+		name: "[Gen 11] STABmons",
 		desc: `Pok&eacute;mon can use any move of their typing, in addition to the moves they can normally learn.`,
-		mod: 'swse',
+		mod: 'gen11',
 		ruleset: ['Standard OMs', 'STABmons Move Legality', 'Sleep Moves Clause', 'Terastal Clause'],
 		restricted: [
 			'Astral Barrage', 'Belly Drum', 'Clangorous Soul', 'Ceaseless Edge', 'Dire Claw', 'Dragon Energy', 'Electro Shot', 'Extreme Speed', 'Fillet Away', 'Final Gambit',
@@ -6532,7 +6532,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Pokebilities",
+		name: "[Gen 11] Pokebilities",
 		desc: `Pok&eacute;mon have all of their released abilities simultaneously.`,
 		mod: 'pokebilities',
 		ruleset: ['Standard OMs', 'Sleep Moves Clause'],
@@ -6595,9 +6595,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Shared Power",
+		name: "[Gen 11] Shared Power",
 		desc: `Once a Pok&eacute;mon switches in, its ability is shared with the rest of the team.`,
-		mod: 'swse',
+		mod: 'gen11',
 		ruleset: ['Standard OMs', 'Evasion Abilities Clause', 'Evasion Items Clause', 'Sleep Moves Clause'],
 		banlist: [
 			'Arena Trap', 'Moody', 'Neutralizing Gas', 'Shadow Tag', 'Speed Boost', 'Stench', 'Sturdy', 'Swift Swim',
@@ -6651,10 +6651,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
-		name: "[Gen 9] Random Doubles Battle",
+		name: "[Gen 11] Random Doubles Battle",
 		desc: `Double battle with randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		team: 'random',
 		searchShow: false,
@@ -6664,9 +6664,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	},
 	{
-		name: "[Gen 9] Unrated Random Doubles Battle",
+		name: "[Gen 11] Unrated Random Doubles Battle",
 
-		mod: 'swse',
+		mod: 'gen11',
 		gameType: 'doubles',
 		team: 'random',
 		searchShow: false,
@@ -6676,10 +6676,10 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod'],
 	},
 	{
-		name: "[Gen 9] Random Battle",
+		name: "[Gen 11] Random Battle",
 		desc: `Randomized teams of Pok&eacute;mon with sets that are generated to be competitively viable.`,
 
-		mod: 'swse',
+		mod: 'gen11',
 		team: 'random',
 		searchShow: false,
 		challengeShow: false,
@@ -6688,9 +6688,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		ruleset: ['PotD', 'Obtainable', 'Species Clause', 'HP Percentage Mod', 'Cancel Mod', 'Sleep Clause Mod', 'Illusion Level Mod'],
 	},
 	{
-		name: "[Gen 9] Unrated Random Battle",
+		name: "[Gen 11] Unrated Random Battle",
 
-		mod: 'swse',
+		mod: 'gen11',
 		team: 'random',
 		searchShow: false,
 		challengeShow: false,
@@ -6706,9 +6706,9 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		column: 3,
 	},
 	{
-		name: "[Gen 9] Monotype Random Battle",
+		name: "[Gen 11] Monotype Random Battle",
 
-		mod: 'swse',
+		mod: 'gen11',
 		team: 'random',
 		searchShow: false,
 		challengeShow: false,

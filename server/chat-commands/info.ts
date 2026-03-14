@@ -2202,12 +2202,18 @@ export const commands: Chat.ChatCommands = {
 		const ability = Dex.abilities.get(targets[0]);
 		const format = Dex.formats.get(targets[0]);
 		let atLeastOne = false;
-		let generation = (targets[1] || 'sv').trim().toLowerCase();
-		let genNumber = 9;
+		let generation = (targets[1] || 'swse').trim().toLowerCase();
+		let genNumber = 11;
 		const extraFormat = Dex.formats.get(targets[2]);
 
-		if (['9', 'gen9', 'nine', 'sv'].includes(generation)) {
+		if (['11', 'gen11', 'eleven', 'swse'].includes(generation)) {
+			generation = 'swse';
+		} else if (['10', 'gen10', 'ten'].includes(generation)) {
+			generation = 'wiwa';
+			genNumber = 10;
+		} else if (['9', 'gen9', 'nine', 'sv'].includes(generation)) {
 			generation = 'sv';
+			genNumber = 9;
 		} else if (['8', 'gen8', 'eight', 'ss', 'swsh'].includes(generation)) {
 			generation = 'ss';
 			genNumber = 8;

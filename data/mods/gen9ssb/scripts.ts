@@ -160,7 +160,7 @@ export function changeMoves(context: Battle, pokemon: Pokemon, newMoves: (string
 
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	inherit: 'gen9',
+	inherit: 'gen11',
 	boost(boost, target, source, effect, isSecondary, isSelf) {
 		if (this.event) {
 			if (!target) target = this.event.target;

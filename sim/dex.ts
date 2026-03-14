@@ -38,7 +38,7 @@ import { Species, DexSpecies } from './dex-species';
 import { Format, DexFormats } from './dex-formats';
 import { Utils } from '../lib/utils';
 
-const BASE_MOD = 'gen9' as ID;
+const BASE_MOD = 'gen11' as ID;
 const DATA_DIR = path.resolve(__dirname, '../data');
 const MODS_DIR = path.resolve(DATA_DIR, './mods');
 
@@ -677,7 +677,7 @@ export class ModdedDex {
 
 dexes['base'] = new ModdedDex();
 
-// "gen9" is an alias for the current base data
+// "gen11" is an alias for the current base data
 dexes[BASE_MOD] = dexes['base'];
 
 export const Dex = dexes['base'];

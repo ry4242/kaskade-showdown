@@ -3,7 +3,7 @@ import { Field } from "../../../sim/field";
 
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	inherit: 'gen9',
+	inherit: 'gen11',
 	fieldEvent(eventid, targets) {
 		const callbackName = `on${eventid}`;
 		let getKey: undefined | 'duration';

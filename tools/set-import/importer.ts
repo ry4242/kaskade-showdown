@@ -35,7 +35,7 @@ interface FormatData {
 	[source: string]: PokemonSets;
 }
 
-type GenerationNum = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+type GenerationNum = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11;
 
 // The tiers we support, ie. ones that we have data sources for.
 export const TIERS = new Set([
@@ -50,7 +50,7 @@ export const TIERS = new Set([
 ]);
 const FORMATS = new Map<ID, { gen: GenerationNum, format: Format }>();
 const VALIDATORS = new Map<ID, TeamValidator>();
-for (let gen = 1; gen <= 9; gen++) {
+for (let gen = 1; gen <= 11; gen++) {
 	for (const tier of TIERS) {
 		const format = Dex.formats.get(`gen${gen}${tier}`);
 		if (format.effectType === 'Format') {
@@ -64,7 +64,7 @@ export async function importAll() {
 	const index = await request(smogon.Statistics.URL);
 
 	const imports = [];
-	for (let gen = 1; gen <= 9; gen++) {
+	for (let gen = 1; gen <= 11; gen++) {
 		imports.push(importGen(gen as GenerationNum, index));
 	}
 
@@ -151,6 +151,8 @@ function toGen(dex: ModdedDex, name: string): GenerationNum | undefined {
 	if (pokemon.gen) return pokemon.gen as GenerationNum;
 
 	const n = pokemon.num;
+	if (n > 10000) return 11;
+	if (n > 1025) return 10;
 	if (n > 905) return 9;
 	if (n > 810) return 8;
 	if (n > 721) return 7;

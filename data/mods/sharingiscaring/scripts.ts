@@ -2,7 +2,7 @@ import { RESTORATIVE_BERRIES } from "../../../sim/pokemon";
 
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	inherit: 'gen9',
+	inherit: 'gen11',
 	pokemon: {
 		isGrounded(negateImmunity) {
 			if ('gravity' in this.battle.field.pseudoWeather) return true;

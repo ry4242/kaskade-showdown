@@ -34,6 +34,8 @@ export class ExhaustiveRunner {
 
 	// TODO: Add triple battles once supported by the AI.
 	static readonly FORMATS = [
+		'gen11customgame', 'gen11doublescustomgame',
+		'gen10customgame', 'gen10doublescustomgame',
 		'gen9customgame', 'gen9doublescustomgame',
 		'gen8customgame', 'gen8doublescustomgame',
 		'gen7customgame', 'gen7doublescustomgame',

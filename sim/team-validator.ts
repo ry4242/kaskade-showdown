@@ -1982,6 +1982,18 @@ export class TeamValidator {
 				}
 			}
 		}
+		if (this.format.id.startsWith('gen11pokebilities')) {
+			const species = dex.species.get(set.species);
+			const unSeenAbilities = Object.keys(species.abilities)
+				.filter(key => key !== 'S' && (key !== 'H' || !species.unreleasedHidden))
+				.map(key => species.abilities[key as "0" | "1" | "H" | "S"]);
+
+			if (ability.id !== this.toID(species.abilities['S'])) {
+				for (const abilityName of unSeenAbilities) {
+					setHas['ability:' + toID(abilityName)] = true;
+				}
+			}
+		}
 
 		let banReason = ruleTable.check('ability:' + ability.id);
 		if (banReason) {

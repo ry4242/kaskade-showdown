@@ -12,6 +12,8 @@ const { default: Dex } = require('../../dist/sim/dex');
 
 describe('value rule support (slow)', () => {
 	it('should generate teams of the proper length for the format (i.e. support Max Team Size)', () => {
+		testTeam({ format: 'gen11randombattle', rounds: 100 }, team => assert.equal(team.length, 6));
+
 		testTeam({ format: 'gen9randombattle', rounds: 100 }, team => assert.equal(team.length, 6));
 		testTeam({ format: 'gen9challengecup1v1', rounds: 100 }, team => assert.equal(team.length, 6));
 		testTeam({ format: 'gen9hackmonscup', rounds: 100 }, team => assert.equal(team.length, 6));
@@ -157,6 +159,10 @@ describe("New set format (slow)", () => {
 		"gen9randombattle@@@+cap": {
 			filename: "gen9cap/sets",
 			roles: ["Fast Attacker", "Setup Sweeper", "Wallbreaker", "Tera Blast user", "Bulky Attacker", "Bulky Setup", "Fast Bulky Setup", "Bulky Support", "Fast Support", "AV Pivot"],
+		},
+		"gen11randombattle": {
+			filename: "gen11/sets",
+			roles: ["Fast Attacker", "Setup Sweeper", "Wallbreaker", "Bulky Attacker", "Bulky Setup", "Fast Bulky Setup", "Bulky Support", "Fast Support", "AV Pivot"],
 		},
 	};
 	for (const format of Object.keys(formatInfo)) {

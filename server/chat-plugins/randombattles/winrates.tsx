@@ -44,11 +44,12 @@ function getDefaultStats(): Stats {
 		formats: {
 			// all of these requested by rands staff. they don't anticipate it being changed much
 			// so i'm not spending the time to add commands to toggle this
+			gen11randombattle: { mons: {} },
+			gen11randomdoublesbattle: { mons: {} },
+			gen11babyrandombattle: { mons: {} },
+			gen11chatbats: { mons: {} },
+			gen11superstaffbrosultimate: { mons: {} },
 			gen9randombattle: { mons: {} },
-			gen9randomdoublesbattle: { mons: {} },
-			gen9babyrandombattle: { mons: {} },
-			gen9chatbats: { mons: {} },
-			gen9superstaffbrosultimate: { mons: {} },
 			gen8randombattle: { mons: {} },
 			gen7randombattle: { mons: {} },
 			gen6randombattle: { mons: {} },

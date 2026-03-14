@@ -1,6 +1,6 @@
 export const Scripts: ModdedBattleScriptsData = {
 	gen: 9,
-	inherit: 'gen9',
+	inherit: 'gen11',
 	init() {
 		for (const id in this.data.Pokedex) {
 			if (this.species.get(id).isCosmeticForme) continue;

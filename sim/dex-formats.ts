@@ -4,7 +4,7 @@ import type { EventMethods } from './dex-conditions';
 import type { SpeciesData } from './dex-species';
 import { Tags } from '../data/tags';
 
-const DEFAULT_MOD = 'gen9';
+const DEFAULT_MOD = 'gen11';
 
 export interface FormatData extends Partial<Format>, EventMethods {
 	name: string;
@@ -232,7 +232,7 @@ export class RuleTable extends Map<string, string> {
 		this.evLimit = Number(this.valueRules.get('evlimit'));
 		if (isNaN(this.evLimit)) this.evLimit = null;
 		if (!this.minSourceGen) {
-			if (dex.gen >= 9 && this.has('obtainable') && !this.has('natdexmod')) {
+			if (dex.gen >= 11 && this.has('obtainable') && !this.has('natdexmod')) {
 				this.minSourceGen = dex.gen;
 			} else {
 				this.minSourceGen = 1;
@@ -492,7 +492,7 @@ export class Format extends BasicEffect implements Readonly<BasicEffect> {
 	constructor(data: AnyObject) {
 		super(data);
 
-		this.mod = Utils.getString(data.mod) || 'gen9';
+		this.mod = Utils.getString(data.mod) || 'gen11';
 		this.effectType = Utils.getString(data.effectType) as FormatEffectType || 'Condition';
 		this.debug = !!data.debug;
 		this.rated = (typeof data.rated === 'string' ? data.rated : data.rated !== false);
@@ -622,7 +622,7 @@ export class DexFormats {
 			if (format.tournamentShow === undefined) format.tournamentShow = true;
 			if (format.bestOfDefault === undefined) format.bestOfDefault = false;
 			if (format.teraPreviewDefault === undefined) format.teraPreviewDefault = false;
-			if (format.mod === undefined) format.mod = 'gen9';
+			if (format.mod === undefined) format.mod = 'gen11';
 			if (!this.dex.dexes[format.mod]) throw new Error(`Format "${format.name}" requires nonexistent mod: '${format.mod}'`);
 
 			const ruleset = new Format(format);

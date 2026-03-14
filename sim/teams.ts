@@ -628,7 +628,7 @@ export const Teams = new class Teams {
 		let TeamGenerator;
 		format = Dex.formats.get(format);
 		let mod = format.mod;
-		if (format.mod === 'monkeyspaw') mod = 'gen9';
+		if (format.mod === 'monkeyspaw') mod = 'gen11';
 		const formatID = toID(format);
 		if (mod === 'gen9ssb') {
 			TeamGenerator = require(`../data/mods/gen9ssb/random-teams`).default;

@@ -23,7 +23,7 @@ class TestTools {
 		this.currentMod = mod;
 		this.dex = Dex.mod(mod);
 
-		this.modPrefix = this.dex.isBase ? `[gen9] ` : `[${mod}] `;
+		this.modPrefix = this.dex.isBase ? `[gen11] ` : `[${mod}] `;
 	}
 
 	mod(mod) {
@@ -155,4 +155,4 @@ class TestTools {
 
 const common = exports = module.exports = new TestTools();
 cache.set('base', common);
-cache.set('gen9', common);
+cache.set('gen11', common);

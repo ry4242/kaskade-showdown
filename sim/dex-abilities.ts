@@ -56,7 +56,7 @@ export class Ability extends BasicEffect implements Readonly<BasicEffect> {
 
 		if (!this.gen) {
 			if (this.num > 10000) { // swse
-				this.gen = 9;
+				this.gen = 11;
 			} else if (this.num >= 268) {
 				this.gen = 9;
 			} else if (this.num >= 234) {

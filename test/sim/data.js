@@ -254,7 +254,7 @@ describe('Dex data', () => {
 					const LEARN_ORDER = 'MTLREVDSC';
 					for (const learned of entry.learnset[moveid]) {
 						// See the definition of MoveSource in sim/global-types
-						assert(/^[1-9][MTLREDSVC]/.test(learned), `Learn method "${learned}" for ${species.name}'s ${move.name} is invalid`);
+						assert(/^[1-11][MTLREDSVC]/.test(learned), `Learn method "${learned}" for ${species.name}'s ${move.name} is invalid`);
 
 						// the move validator uses early exits, so this isn't purely a consistency thing
 						// MTL must be before REDSVC, and generations must be ordered newest to oldest
@@ -337,6 +337,8 @@ describe('Dex data', () => {
 		7: 807,
 		8: 664,
 		9: 173,
+		10: 0,
+		11: 173,
 	};
 	const formes = {
 		// Gens 1 and 2 have no alternate formes
@@ -376,6 +378,12 @@ describe('Dex data', () => {
 	// Vivillon (2) + Pumpkaboo (3) + Gourgeist (3) + Mimikyu (1) + Basculegion (1) + Dudunsparce (1) +
 	// Eecroach (1) + Stackem (1) + Mosskrat (1) + Bearvoyance (1)
 	formes[9] = 48;
+	formes[10] = 0;
+	// Alola (2) + Galar (2) + Hisui (3) + Paldea (1) + Kaskade (20) + Amaze-All (2) +
+	// Castform (17) + Cherrim (1) + Snover (1) + Abomasnow (1) + Rotom (11) + Basculin (1) +
+	// Vivillon (2) + Pumpkaboo (3) + Gourgeist (3) + Mimikyu (1) + Basculegion (1) + Dudunsparce (1) +
+	// Eecroach (1) + Stackem (1) + Mosskrat (1) + Bearvoyance (1)
+	formes[11] = 48;
 
 	for (const gen of [1, 2, 3, 4, 5, 6, 7, 8, 9]) {
 		it(`Gen ${gen} should have ${species[gen]} species and ${formes[gen]} formes`, () => {
@@ -403,16 +411,6 @@ describe('Dex data', () => {
 	for (const mod of ['gen7letsgo', 'gen8bdsp', 'gen8legends', 'gen9legends']) {
 		it(`${mod} should have ${species[mod]} species and ${formes[mod]} formes`, () => {
 			const existenceFunction = mod.includes('legends') ? s => s.exists && !s.isNonstandard : undefined;
-			/* const allSpecies = Dex.mod(mod).species.all().filter(s => existenceFunction ? existenceFunction(s) : (s.exists && !s.isNonstandard)).filter(s => !s.isCosmeticForme && s.name === s.baseSpecies).map(s => s.name);
-			const allFormes = Dex.mod(mod).species.all().filter(s => existenceFunction ? existenceFunction(s) : (s.exists && !s.isNonstandard)).filter(s => !s.isCosmeticForme && s.name !== s.baseSpecies).map(s => s.name);
-			if (mod === 'gen9legends') {
-				allSpecies.forEach((name, i) => console.log(`${i + 1}: ${name}`));
-				console.log('gen9legends species count:', allSpecies.length);
-			}
-			if (mod === 'gen9legends') {
-				allFormes.forEach((name, i) => console.log(`${i + 1}: ${name}`));
-				console.log('gen9legends formes count:', allFormes.length);
-			} */
 			const count = countPokemon(Dex.mod(mod), existenceFunction);
 			assert.equal(count.species, species[mod]);
 			assert.equal(count.formes, formes[mod]);

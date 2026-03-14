@@ -343,10 +343,8 @@ export class Species extends BasicEffect implements Readonly<BasicEffect & Speci
 		this.pokemonGoData = data.pokemonGoData || undefined;
 
 		if (!this.gen && this.num >= 1) {
-			if (this.num > 10000) { // swse
-				this.gen = 9;
-			} else if (['Kaskade', 'Amaze-All'].includes(this.forme)) {
-				this.gen = 9;
+			if (this.num > 10000 || ['Kaskade', 'Amaze-All'].includes(this.forme)) { // swse
+				this.gen = 11;
 			} else if (this.num >= 906 || this.forme.includes('Paldea')) {
 				this.gen = 9;
 			} else if (this.num >= 810 || ['Gmax', 'Galar', 'Galar-Zen', 'Hisui'].includes(this.forme)) {
