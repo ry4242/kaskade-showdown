@@ -234,24 +234,6 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			return false;
 		},
 	},
-	caffeinecrash: {
-		name: 'caffeinecrash',
-		noCopy: true,
-		duration: 3,
-		onStart(target, source, sourceEffect) {
-			this.add('-start', target, 'caffeinecrash', '[from] item: ' + sourceEffect.name);
-		},
-		onModifyPriority(priority, pokemon, target, move) {
-			return priority - 0.1;
-		},
-		onFractionalPriorityPriority: -2,
-		onFractionalPriority(priority, pokemon, target, move) {
-			return -0.1;
-		},
-		onEnd(target) {
-			this.add('-end', target, 'caffeinecrash');
-		},
-	},
 	flinch: {
 		name: 'flinch',
 		duration: 1,
@@ -525,6 +507,24 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onBasePower(basePower, user, target, move) {
 			this.debug('Gem Boost');
 			return this.chainModify([5325, 4096]);
+		},
+	},
+	caffeinecrash: {
+		name: 'caffeinecrash',
+		noCopy: true,
+		duration: 3,
+		onStart(target, source, sourceEffect) {
+			this.add('-start', target, 'caffeinecrash', '[from] item: ' + sourceEffect.name);
+		},
+		onModifyPriority(priority, pokemon, target, move) {
+			return priority - 0.1;
+		},
+		onFractionalPriorityPriority: -2,
+		onFractionalPriority(priority, pokemon, target, move) {
+			return -0.1;
+		},
+		onEnd(target) {
+			this.add('-end', target, 'caffeinecrash');
 		},
 	},
 

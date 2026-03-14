@@ -8321,16 +8321,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.drinkItem();
-				pokemon.addVolatile('coffeegeistcappuccino');
 			}
 		},
-		boosts: {
-			spd: 1,
-			spe: 1,
+		onDrink(pokemon) {
+			this.boost({ spd: 1, spe: 1 });
+			pokemon.addVolatile('coffeegeistcappuccino');
 		},
 		condition: {
 			noCopy: true,
-			duration: 3,
+			duration: 5,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -8390,16 +8389,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.drinkItem();
-				pokemon.addVolatile('flatunovan');
 			}
 		},
-		boosts: {
-			spe: 1,
-			accuracy: 1,
+		onDrink(pokemon) {
+			this.boost({ spe: 1, accuracy: 1 });
+			pokemon.addVolatile('flatunovan');
 		},
 		condition: {
 			noCopy: true,
-			duration: 3,
+			duration: 5,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -8460,16 +8458,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.drinkItem();
-				pokemon.addVolatile('mystictamroastdoppio');
 			}
 		},
-		boosts: {
-			spa: 1,
-			spe: 1,
+		onDrink(pokemon) {
+			this.boost({ spa: 1, spe: 1 });
+			pokemon.addVolatile('mystictamroastdoppio');
 		},
 		condition: {
 			noCopy: true,
-			duration: 3,
+			duration: 5,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -8488,15 +8485,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.drinkItem();
-				pokemon.addVolatile('pikaspresso');
 			}
 		},
-		boosts: {
-			spe: 2,
+		onDrink(pokemon) {
+			this.boost({ spe: 2 });
+			pokemon.addVolatile('pikaspresso');
 		},
 		condition: {
 			noCopy: true,
-			duration: 3,
+			duration: 5,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -8547,16 +8544,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.drinkItem();
-				pokemon.addVolatile('sandygastmocha');
 			}
 		},
-		boosts: {
-			def: 1,
-			spe: 1,
+		onDrink(pokemon) {
+			this.boost({ def: 1, spe: 1 });
+			pokemon.addVolatile('sandygastmocha');
 		},
 		condition: {
 			noCopy: true,
-			duration: 3,
+			duration: 5,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {
@@ -8623,16 +8619,15 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			if (pokemon.hp <= pokemon.maxhp / 4 || (pokemon.hp <= pokemon.maxhp / 2 &&
 				pokemon.hasAbility('gluttony') && pokemon.abilityState.gluttony)) {
 				pokemon.drinkItem();
-				pokemon.addVolatile('worcanecoldbrew');
 			}
 		},
-		boosts: {
-			atk: 1,
-			spe: 1,
+		onDrink(pokemon) {
+			this.boost({ atk: 1, spe: 1 });
+			pokemon.addVolatile('worcanecoldbrew');
 		},
 		condition: {
 			noCopy: true,
-			duration: 3,
+			duration: 5,
 			onResidualOrder: 28,
 			onResidualSubOrder: 5,
 			onEnd(pokemon) {

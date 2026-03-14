@@ -281,6 +281,10 @@ export const DefaultText: { [id: IDEntry]: DefaultText } = {
 		block: "  The move was blocked by the power of Dynamax!",
 		fail: "  [POKEMON] shook its head. It seems like it can't use this move...",
 	},
+	caffeinecrash: {
+		startFromItem: "  [POKEMON] crashed!",
+		end: "  [POKEMON] is feeling better!",
+	},
 
 	// Weathergy
 
