@@ -1,3 +1,4 @@
+data/random-battles/swse/sets-data.md
 /config/*
 !/config/formats.ts
 /logs/**/*

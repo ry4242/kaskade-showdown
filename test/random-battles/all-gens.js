@@ -178,7 +178,7 @@ describe("New set format (slow)", () => {
 		"gen9swserandomdoublesbattle": {
 			filename: "swse/doubles-sets",
 			roles: ["Doubles Fast Attacker", "Doubles Setup Sweeper", "Doubles Wallbreaker", "Doubles Bulky Attacker", "Doubles Bulky Setup", "Offensive Protect", "Bulky Protect", "Doubles Support", "Choice Item user",
-				"Doubles Rain Setter", "Doubles Sun Setter", "Doubles Snow Setter", "Doubles Blood Moon Setter", "Doubles Fog Setter",
+				"Doubles Sun Setter", "Doubles Rain Setter", "Doubles Snow Setter", "Doubles Blood Moon Setter", "Doubles Fog Setter",
 				"Doubles Sand Setter", "Doubles Dust Storm Setter", "Doubles Pollen Setter", "Doubles Fairy Dust Setter", "Doubles Pheromones Setter", "Doubles Smog Setter",
 				"Doubles Battle Aura Setter", "Doubles Paranormal Activity Setter", "Doubles Dragon Force Setter", "Doubles Dreamscape Setter", "Doubles Thunderstorm Setter", "Doubles Magnetosphere Setter", "Doubles Strong Winds Setter",
 			],

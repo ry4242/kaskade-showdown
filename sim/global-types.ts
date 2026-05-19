@@ -637,5 +637,14 @@ declare namespace RandomTeamsTypes {
 		'Doubles Fast Attacker' | 'Doubles Setup Sweeper' | 'Doubles Wallbreaker' | 'Doubles Bulky Attacker' |
 		'Doubles Bulky Setup' | 'Offensive Protect' | 'Bulky Protect' | 'Doubles Support' | 'Choice Item user' |
 		'Z-Move user' | 'Staller' | 'Spinner' | 'Generalist' | 'Berry Sweeper' | 'Thief user' | 'Imprisoner' |
-		'Dynamax User';
+		'Dynamax User' |
+		'Sun Setter' | 'Rain Setter' | 'Snow Setter' | 'Blood Moon Setter' | 'Fog Setter' |
+		'Sand Setter' | 'Dust Storm Setter' | 'Pollen Setter' | 'Fairy Dust Setter' | 'Pheromones Setter' | 'Smog Setter' |
+		'Battle Aura Setter' | 'Paranormal Activity Setter' | 'Dragon Force Setter' | 'Dreamscape Setter' |
+		'Thunderstorm Setter' | 'Magnetosphere Setter' | 'Strong Winds Setter' |
+		'Doubles Sun Setter' | 'Doubles Rain Setter' | 'Doubles Snow Setter' | 'Doubles Blood Moon Setter' | 'Doubles Fog Setter' |
+		'Doubles Sand Setter' | 'Doubles Dust Storm Setter' | 'Doubles Pollen Setter' | 'Doubles Fairy Dust Setter' |
+		'Doubles Pheromones Setter' | 'Doubles Smog Setter' | 'Doubles Battle Aura Setter' |
+		'Doubles Paranormal Activity Setter' | 'Doubles Dragon Force Setter' | 'Doubles Dreamscape Setter' |
+		'Doubles Thunderstorm Setter' | 'Doubles Magnetosphere Setter' | 'Doubles Strong Winds Setter';
 }
