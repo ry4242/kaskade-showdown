@@ -6831,7 +6831,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		name: "[Gen 9] OU",
 
 		mod: 'swse',
-		ruleset: ['Standard', 'Evasion Abilities Clause', 'Sleep Clause Mod'],
+		ruleset: ['Standard', 'Evasion Abilities Clause'],
 		banlist: [
 			'Uber', 'AG',
 			'Arena Trap', 'Shadow Tag',
