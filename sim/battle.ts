@@ -3322,7 +3322,7 @@ export class Battle {
 					item: set.item,
 					ability: set.ability,
 					moves: set.moves,
-					nature: this.format.mod === 'champions' ? set.nature : '',
+					nature: ['champions', 'swse'].includes(this.format.mod) ? set.nature : '',
 					gender: pokemon.gender,
 					evs: null!,
 					ivs: null!,

@@ -435,12 +435,12 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Blizzard","Dazzling Gleam",  "Freeze-Dry", "Snowscape"],
+                "movepool": ["Blizzard", "Dazzling Gleam", "Slushball", "Snowscape"],
                 "abilities": ["Absolute Zero"]
             },
             {
                 "role": "Snow Setter",
-                "movepool": ["Aurora Veil", "Blizzard", "Dazzling Gleam", "Freeze-Dry", "Slushball"],
+                "movepool": ["Aurora Veil", "Blizzard", "Dazzling Gleam", "Slushball"],
                 "abilities": ["Snow Warning"]
             }
         ]
@@ -1543,7 +1543,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Calm Mind", "Earthquake", "Moonblast", "Rapid Spin"],
+                "movepool": ["Calm Mind", "Earth Power", "Moonblast", "Rapid Spin"],
                 "abilities": ["Chakra"]
             },
             {

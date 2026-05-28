@@ -6501,7 +6501,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////////
 
 	{
-		section: "SwSe Randomized Metas",
+		section: "Randomized Metas",
 		column: 1,
 	},
 	{
@@ -6590,7 +6590,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 
-	// Misc. Randomized Metas
+	// SwSe Misc. Randomized Metas
 	///////////////////////////////////////////////////////////////////
 
 	{
@@ -6612,7 +6612,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////////
 
 	{
-		section: "SwSe Doubles",
+		section: "Doubles",
 		column: 2,
 	},
 	{
@@ -6709,7 +6709,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////////
 
 	{
-		section: "SwSe Doubles Other Metagames",
+		section: "Doubles Other Metagames",
 	},
 	{
 		name: "[Gen 9] Doubles Battlefields",
@@ -6824,7 +6824,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////////
 
 	{
-		section: "SwSe Singles",
+		section: "Singles",
 		column: 3,
 	},
 	{
@@ -6963,11 +6963,11 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 
-	// SwSe Singles Other Metagames
+	// SwSe Other Metagames
 	///////////////////////////////////////////////////////////////////
 
 	{
-		section: "SwSe Singles Other Metagames",
+		section: "Other Metagames",
 	},
 	{
 		name: "[Gen 9] Almost Any Ability",
@@ -7231,7 +7231,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 	///////////////////////////////////////////////////////////////////
 
 	{
-		section: "SwSe Dex-based Metas",
+		section: "Dex-based Metas",
 		column: 4,
 	},
 	{
