@@ -649,9 +649,9 @@ export class Pokemon {
 		const trickRoomCheck = this.battle.ruleTable.has('twisteddimensionmod') ?
 			!this.battle.field.getPseudoWeather('trickroom') : this.battle.field.getPseudoWeather('trickroom');
 		if (trickRoomCheck) {
-			speed = 10000 - speed;
+			speed = -speed;
 		}
-		return this.battle.trunc(speed, 13);
+		return speed;
 	}
 
 	/**
@@ -1487,7 +1487,7 @@ export class Pokemon {
 				this.battle.add('-formechange', this, this.illusion ? this.illusion.species.name : species.name, message);
 			}
 		}
-		if (isPermanent && (!source || !['disguise', 'iceface'].includes(source.id))) {
+		if (isPermanent && (!source || !['disguise', 'iceface', 'rockybody'].includes(source.id))) {
 			if (this.illusion && source) {
 				// Tera forme by Ogerpon or Terapagos breaks the Illusion
 				this.ability = ''; // Don't allow Illusion to wear off
