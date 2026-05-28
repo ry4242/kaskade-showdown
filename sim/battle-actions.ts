@@ -984,7 +984,8 @@ export class BattleActions {
 		if (hit === 1) return damage.fill(false);
 		if (nullDamage) damage.fill(false);
 		this.battle.faintMessages(false, false, !pokemon.hp);
-		if (move.multihit && typeof move.smartTarget !== 'boolean') {
+		if (move.multihit && typeof move.smartTarget !== 'boolean' &&
+			!(move.hit === 1 && (move.multihitType === 'parentalbond' || move.multihitType === 'echolocation'))) {
 			this.battle.add('-hitcount', targets[0], hit - 1);
 		}
 
@@ -1148,7 +1149,7 @@ export class BattleActions {
 			if (this.battle.gen >= 5) {
 				this.battle.runEvent('DamagingHit', damagedTargets, pokemon, move, damagedDamage);
 			}
-			if (moveData.onAfterHit && pokemon.hp) {
+			if (moveData.onAfterHit) {
 				for (const t of damagedTargets) {
 					this.battle.singleEvent('AfterHit', moveData, {}, t, pokemon, move);
 				}
@@ -1826,14 +1827,14 @@ export class BattleActions {
 		typeMod = this.battle.clampIntRange(typeMod, -6, 6);
 		target.getMoveHitData(move).typeMod = typeMod;
 		if (typeMod > 0) {
-			if (!suppressMessages) this.battle.add('-supereffective', target);
+			if (!suppressMessages) this.battle.add('-supereffective', target, Math.min(typeMod, 2));
 
 			for (let i = 0; i < typeMod; i++) {
 				baseDamage *= 2;
 			}
 		}
 		if (typeMod < 0) {
-			if (!suppressMessages) this.battle.add('-resisted', target);
+			if (!suppressMessages) this.battle.add('-resisted', target, Math.min(-typeMod, 2));
 
 			for (let i = 0; i > typeMod; i--) {
 				baseDamage = tr(baseDamage / 2);

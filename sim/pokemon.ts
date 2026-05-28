@@ -1475,7 +1475,6 @@ export class Pokemon {
 					this.battle.add('-mega', this, apparentSpecies, species.requiredItem);
 					this.moveThisTurnResult = true; // Mega Evolution counts as an action for Truant
 				}
-				this.formeRegression = true;
 			} else if (source.effectType === 'Status') {
 				// Shaymin-Sky -> Shaymin
 				this.battle.add('-formechange', this, species.name, message);
@@ -1496,7 +1495,7 @@ export class Pokemon {
 			// Ogerpon's forme change doesn't override permanent abilities
 			if (source || !this.getAbility().flags['cantsuppress']) this.setAbility(ability, null, null, true);
 			// However, its ability does reset upon switching out
-			this.baseAbility = toID(ability);
+			this.baseAbility = this.battle.toID(ability);
 		}
 		if (this.terastallized) {
 			this.knownType = true;

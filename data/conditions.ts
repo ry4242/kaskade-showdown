@@ -38,7 +38,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onBeforeMovePriority: 1,
 		onBeforeMove(pokemon) {
-			if (this.randomChance(1, 4)) {
+			if (this.randomChance(1, 8)) {
 				this.add('cant', pokemon, 'par');
 				return false;
 			}
@@ -55,8 +55,9 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			} else {
 				this.add('-status', target, 'slp');
 			}
-			// 1-3 turns
-			this.effectState.startTime = this.random(2, 5);
+
+			// 1/3 chance for a Pokemon to wake up on turn 2
+			this.effectState.startTime = this.sample([2, 3, 3]);
 			this.effectState.time = this.effectState.startTime;
 
 			if (target.removeVolatile('nightmare')) {
@@ -92,11 +93,15 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (target.species.name === 'Shaymin-Sky' && target.baseSpecies.baseSpecies === 'Shaymin') {
 				target.formeChange('Shaymin', this.effect, true);
 			}
+
+			this.effectState.startTime = 3;
+			this.effectState.time = this.effectState.startTime;
 		},
 		onBeforeMovePriority: 10,
 		onBeforeMove(pokemon, target, move) {
 			if (move.flags['defrost'] && !(move.id === 'burnup' && !pokemon.hasType('Fire'))) return;
-			if (this.randomChance(1, 5)) {
+			pokemon.statusState.time--;
+			if (pokemon.statusState.time <= 0 || this.randomChance(1, 4)) {
 				pokemon.cureStatus();
 				return;
 			}
