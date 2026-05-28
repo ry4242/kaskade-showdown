@@ -22913,8 +22913,8 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { protect: 1, mirror: 1, metronome: 1, pulse: 1, noparentalbond: 1 },
 		multihit: 3,
-		// smartTarget: true,
-		target: "randomNormal",
+		smartTarget: true,
+		target: "normal",
 		type: "Fairy",
 	},
 	magnetize: { // tested, works as intended

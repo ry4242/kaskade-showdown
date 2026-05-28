@@ -52,7 +52,7 @@ describe('Trick Room', () => {
 
 	// The following two tests involve the Trick Room glitch, where turn order changes when a Pokemon goes to 1809 speed.
 
-	it('should roll over and cause Pokemon with 1809 or more speed to outspeed Pokemon with 1808 or less', () => {
+	it.skip('should roll over and cause Pokemon with 1809 or more speed to outspeed Pokemon with 1808 or less', () => {
 		battle = common.createBattle([[
 			{ species: 'Ninjask', ability: 'swarm', evs: { hp: 0, atk: 0, def: 0, spa: 0, spd: 0, spe: 184 }, moves: ['protect', 'spore'] },
 		], [

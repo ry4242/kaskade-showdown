@@ -759,8 +759,27 @@ export class Pokemon {
 		return hp;
 	}
 
-	/** Get targets for Dragon Darts */
+	/** Get targets for Dragon Darts and Magic Missile */
 	getSmartTargets(target: Pokemon, move: ActiveMove) {
+		if (move.id === 'magicmissile') {
+			const hits = typeof move.multihit === 'number' ? move.multihit : 3;
+			if (target.volatiles['followme'] || target.volatiles['ragepowder']) {
+				return new Array(hits).fill(target);
+			}
+			const foes = this.adjacentFoes().filter(p => p && !p.fainted);
+			if (!foes.length) {
+				move.smartTarget = false;
+				return [target];
+			}
+			const damageableFoes = foes.filter(p => p.runImmunity(move.type, false));
+			const pool = damageableFoes.length ? damageableFoes : foes;
+			const picks: Pokemon[] = [];
+			for (let i = 0; i < hits; i++) {
+				picks.push(this.battle.sample(pool));
+			}
+			return picks;
+		}
+
 		const target2 = target.adjacentAllies()[0];
 		if (!target2 || target2 === this || !target2.hp) {
 			move.smartTarget = false;
