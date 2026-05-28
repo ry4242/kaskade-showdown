@@ -688,7 +688,7 @@
             },
             {
                 "role": "Smog Setter",
-                "movepool": ["Focus Blast", "Hex", "Hydro Pump", "Shadow Ball", "Smog Spread", "Venoshock"],
+                "movepool": ["Focus Blast", "Hex", "Hydro Pump", "Smog Spread", "Venoshock"],
                 "abilities": ["Carbon Capture"]
             }
         ]
