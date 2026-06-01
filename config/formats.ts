@@ -734,7 +734,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		],
 	},
 	{
-		name: "[Gen 9] Partners in Crime",
+		name: "[Gen 9] Partners in Crime OLD",
 		desc: `Doubles-based metagame where both active ally Pok&eacute;mon share abilities and moves.`,
 		mod: 'partnersincrime',
 		gameType: 'doubles',
