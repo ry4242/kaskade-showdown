@@ -50,10 +50,6 @@ function getDefaultStats(): Stats {
 			gen9chatbats: { mons: {} },
 			gen9ccapm2025randombattle: { mons: {} },
 			gen9superstaffbrosultimate: { mons: {} },
-			gen9swserandombattle: { mons: {} },
-			gen9swsefreeforallrandombattle: { mons: {} },
-			gen9swsebabyrandombattle: { mons: {} },
-			gen9swsemonotyperandombattle: { mons: {} },
 			gen8randombattle: { mons: {} },
 			gen7randombattle: { mons: {} },
 			gen6randombattle: { mons: {} },
@@ -62,6 +58,12 @@ function getDefaultStats(): Stats {
 			gen3randombattle: { mons: {} },
 			gen2randombattle: { mons: {} },
 			gen1randombattle: { mons: {} },
+			// swse
+			gen9swserandombattle: { mons: {} },
+			gen9swserandomdoublesbattle: { mons: {} },
+			gen9swsefreeforallrandombattle: { mons: {} },
+			gen9swsemonotyperandombattle: { mons: {} },
+			gen9swsebabyrandombattle: { mons: {} },
 		},
 	};
 }
