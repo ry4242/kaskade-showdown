@@ -148,7 +148,7 @@
         "level": 93,
         "sets": [
             {
-               "role": "AV Pivot",
+                "role": "Fast Attacker",
                 "movepool": ["Fake Out", "Knock Off", "Play Rough", "Surf", "Volt Switch", "Volt Tackle"],
                 "abilities": ["Forked", "Lightning Rod"],
                 "preferredTypes": ["Water"]

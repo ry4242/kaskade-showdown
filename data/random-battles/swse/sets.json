@@ -707,7 +707,7 @@
         "level": 100,
         "sets": [
             {
-                "role": "AV Pivot",
+                "role": "Fast Attacker",
                 "movepool": ["Knock Off", "Play Rough", "Volt Switch", "Volt Tackle"],
                 "abilities": ["Forked", "Lightning Rod"]
             }
