@@ -7031,6 +7031,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
+		name: "[Gen 9] Inverse",
+		desc: `The type chart is inverted; weaknesses become resistances, while resistances and immunities become weaknesses.`,
+		mod: 'swse',
+		searchShow: false,
+		ruleset: ['Standard OMs', 'Sleep Moves Clause', 'Inverse Mod'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Shadow Tag',
+			'Baton Pass', 'Last Respects', 'Shed Tail',
+			'King\'s Rock', 'Light Clay',
+		],
+	},
+	{
 		name: "[Gen 9] Mix and Mega",
 		desc: `Mega evolve any Pok&eacute;mon with any mega stone, or transform them with Genesect Drives, Primal orbs, Origin orbs, Rusted items, Ogerpon Masks, Arceus Plates, Silvally Memories, and Whirligig with no limit. Mega and Primal boosts based on form changes from gen 7.`,
 
