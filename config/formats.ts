@@ -2411,7 +2411,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Inverse",
+		name: "[Gen 9] Inverse OLD",
 		desc: `The type chart is inverted; weaknesses become resistances, while resistances and immunities become weaknesses.`,
 		mod: 'gen9',
 		searchShow: false,
