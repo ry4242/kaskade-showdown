@@ -1961,9 +1961,7 @@ export class RandomTeams {
 		if (species.baseSpecies === 'Magearna') return 'Magearna' + this.sample(['', '-Original']);
 		if (species.baseSpecies === 'Keldeo' && this.gen <= 7) return 'Keldeo' + this.sample(['', '-Resolute']);
 		if (species.baseSpecies === 'Pikachu' && this.gen >= 8) {
-			return 'Pikachu' + this.sample(
-				['', '-Original', '-Hoenn', '-Sinnoh', '-Unova', '-Kalos', '-Alola', '-Partner', '-World']
-			);
+			return 'Pikachu';
 		}
 		return species.name;
 	}
