@@ -20757,7 +20757,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		recoil: [33, 100],
 		onTry(source, target, move) {
-			if (source.species.name === 'Pikachu' || move.hasBounced) {
+			if (source.species.baseSpecies === 'Pikachu' || move.hasBounced) {
 				return;
 			}
 			this.add('-fail', source, 'move: Volt Tackle');
