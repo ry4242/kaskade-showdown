@@ -150,7 +150,7 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Fake Out", "Knock Off", "Play Rough", "Surf", "Volt Switch", "Volt Tackle"],
-                "abilities": ["Forked", "Lightning Rod"],
+                "abilities": ["Lightning Rod"],
                 "preferredTypes": ["Water"]
             }
         ]

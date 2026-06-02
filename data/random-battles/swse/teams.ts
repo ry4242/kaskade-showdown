@@ -959,6 +959,7 @@ export class RandomTeams {
 			['mirrorcoat', ['hydropump', 'bodypress']],
 
 			// swse
+			['hex', 'shadowball'],
 			['frostkick', 'iciclecrash'],
 			['ignition', 'blazekick'],
 			['stonestorm', 'powergem'],
@@ -1646,9 +1647,9 @@ export class RandomTeams {
 		}
 		if (
 			role.includes('Setter') && (
-				species.id === 'castform' || species.id === 'cherrim' ||
+				species.id === 'castform' ||/* species.id === 'cherrim' || */
+				// species.id === 'snover' || species.id === 'snoverlowland' || // incomplete, this would go in swsebaby
 				// species.id === 'abomasnow' || species.id === 'abomasnowlowland' ||
-				// species.id === 'snover' || species.id === 'snoverlowland' ||
 				// species.id === 'eecroach' || species.id === 'drout' ||
 				species.id === 'blurrun' || species.id === 'bearvoyance'
 			)

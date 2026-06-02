@@ -435,7 +435,7 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Blizzard", "Dazzling Gleam", "Slushball", "Snowscape"],
+                "movepool": ["Blizzard", "Dazzling Gleam", "Freeze-Dry", "Snowscape"],
                 "abilities": ["Absolute Zero"]
             },
             {
@@ -688,7 +688,7 @@
             },
             {
                 "role": "Smog Setter",
-                "movepool": ["Focus Blast", "Hex", "Hydro Pump", "Smog Spread", "Venoshock"],
+                "movepool": ["Hex", "Hydro Pump", "Shadow Ball", "Smog Spread", "Venoshock"],
                 "abilities": ["Carbon Capture"]
             }
         ]
@@ -709,7 +709,7 @@
             {
                 "role": "Fast Attacker",
                 "movepool": ["Knock Off", "Play Rough", "Volt Switch", "Volt Tackle"],
-                "abilities": ["Forked", "Lightning Rod"]
+                "abilities": ["Lightning Rod"]
             }
         ]
     },
@@ -1980,7 +1980,7 @@
         ]
     },
     "sliggoohisui": {
-        "level": 100,
+        "level": 85,
         "sets": [
             {
                 "role": "Bulky Setup",
