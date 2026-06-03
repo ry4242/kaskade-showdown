@@ -2031,9 +2031,14 @@ export class RandomTeams {
 
 		// Prepare optimal HP
 		const srImmunity = ability === 'Magic Guard' || item === 'Heavy-Duty Boots';
+		const sbImmunity = ability === 'Magic Guard' || item === 'Heavy-Duty Boots';
 		let srWeakness = srImmunity ? 0 : this.dex.getEffectiveness('Rock', species);
+		let sbWeakness = sbImmunity ? 0 : this.dex.getEffectiveness('Steel', species);
 		// Crash damage move users want an odd HP to survive two misses
-		if (['axekick', 'highjumpkick', 'jumpkick', 'supercellslam'].some(m => moves.has(m))) srWeakness = 2;
+		if (['axekick', 'highjumpkick', 'jumpkick', 'supercellslam'].some(m => moves.has(m))) {
+			srWeakness = 2;
+			sbWeakness = 2;
+		}
 		while (evs.hp > 1) {
 			const hp = Math.floor(Math.floor(2 * species.baseStats.hp + ivs.hp + Math.floor(evs.hp / 4) + 100) * level / 100 + 10);
 			if ((moves.has('substitute') && ['Sitrus Berry'].includes(item)) || species.id === 'minior') {
@@ -2049,12 +2054,13 @@ export class RandomTeams {
 				// Luvdisc should be able to Substitute down to very low HP
 				if (hp % 4 > 0) break;
 			} else {
-				// Maximize number of Stealth Rock switch-ins in singles
+				// Maximize number of Stealth Rock/Steel Barbs switch-ins in singles
 				if (isDoubles) break;
-				if (srWeakness <= 0 || ability === 'Regenerator' || ['Leftovers', 'Life Orb'].includes(item)) break;
-				if (item !== 'Sitrus Berry' && hp % (4 / srWeakness) > 0) break;
-				// Minimise number of Stealth Rock switch-ins to activate Sitrus Berry
-				if (item === 'Sitrus Berry' && hp % (4 / srWeakness) === 0) break;
+				if ((srWeakness <= 0 || sbWeakness <= 0) ||
+					ability === 'Regenerator' || ['Leftovers', 'Life Orb'].includes(item)) break;
+				if (item !== 'Sitrus Berry' && (hp % (4 / srWeakness) || hp % (4 / sbWeakness)) > 0) break;
+				// Minimise number of Stealth Rock/Steel Barbs switch-ins to activate Sitrus Berry
+				if (item === 'Sitrus Berry' && (hp % (4 / srWeakness) || hp % (4 / sbWeakness)) === 0) break;
 			}
 			evs.hp -= 4;
 		}
