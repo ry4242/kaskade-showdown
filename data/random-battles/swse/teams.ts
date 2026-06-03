@@ -181,7 +181,7 @@ const WEATHER_DATA: {
 		setupAbility: ['Drought', 'Heat Haze', 'Orichalcum Pulse'],
 		setupMove: ['sunnyday', 'thermalvortex', 'wildfire'],
 		weatherDependentAbilities: ['Chlorophyll', 'Droughtproof', 'Evergreen', 'Leaf Guard', 'Overcoat', 'Solar Power', 'Wet and Dry'],
-		weatherEnhancedMoves: ['growth', 'hydrosteam', 'morningsun', 'solarbeam', 'solarblade', 'synthesis', 'triattack', 'weatherball'],
+		weatherEnhancedMoves: ['growth', 'hydrosteam', 'morningsun', 'solarbeam', 'solarblade', 'synthesis', 'triattack'],
 		weatherRequiredMoves: ['sunscreen'],
 		weatherDiscouragedAbilities: ['Dry Skin'],
 		weatherDiscouragedMoves: ['moonlight'],
@@ -194,7 +194,7 @@ const WEATHER_DATA: {
 			'Droughtproof', 'Dry Skin', 'Hydration', 'Hydrophobic', 'Overcoat', 'Petrichor', 'Rain Dish', 'Swift Swim', 'Wet and Dry',
 		],
 		weatherEnhancedMoves: [
-			'bleakwindstorm', 'electroshot', 'hurricane', 'sandsearstorm', 'slushball', 'thunder', 'weatherball', 'wildboltstorm',
+			'bleakwindstorm', 'electroshot', 'hurricane', 'sandsearstorm', 'slushball', 'thunder', 'wildboltstorm',
 		],
 	},
 	{
@@ -205,7 +205,7 @@ const WEATHER_DATA: {
 			'Absolute Zero', 'Droughtproof', 'Evergreen', 'Flame Body', 'Glacial Armor', 'Hydrophobic',
 			'Ice Body', 'Magma Armor', 'Overcoat', 'Slush Rush', 'Snow Cloak', 'Wet and Dry',
 		],
-		weatherEnhancedMoves: ['blizzard', 'icywind', 'mist', 'slushball', 'triattack', 'weatherball'],
+		weatherEnhancedMoves: ['blizzard', 'icywind', 'mist', 'slushball', 'triattack'],
 		weatherRequiredMoves: ['auroraveil'],
 	},
 	{
@@ -213,7 +213,7 @@ const WEATHER_DATA: {
 		setupAbility: ['Eventide'],
 		setupMove: ['bloodmoon'],
 		weatherDependentAbilities: ['Droughtproof', 'Malice', 'Petrichor', 'Shadow Step'],
-		weatherEnhancedMoves: ['deception', 'lunarsurge', 'moonblast', 'moonlight', 'peekaboo', 'shade', 'thief', 'weatherball'],
+		weatherEnhancedMoves: ['deception', 'lunarsurge', 'moonblast', 'moonlight', 'peekaboo', 'shade', 'thief'],
 		weatherDiscouragedMoves: ['morningsun'],
 	},
 	{
@@ -221,49 +221,49 @@ const WEATHER_DATA: {
 		setupAbility: ['Condensation'],
 		setupMove: ['foghorn'],
 		weatherDependentAbilities: ['Droughtproof', 'Overcoat', 'Protean', 'Warp Mist', 'Wet and Dry'],
-		weatherEnhancedMoves: ['mist', 'weatherball'],
+		weatherEnhancedMoves: ['mist'],
 		weatherDiscouragedMoves: ['defog'],
 	},
 	{
 		name: 'sand', category: 'irritantWeather', role: 'Sand Setter', type: 'Rock', item: 'Volatile Spray',
 		setupAbility: ['Sand Stream'], setupMove: ['sandstorm'],
 		weatherDependentAbilities: ['Bubble Helm', 'Earth Force', 'Overcoat', 'Sand Rush', 'Sand Veil', 'Wet and Dry'],
-		weatherEnhancedMoves: ['sandblast', 'shoreup', 'stonestorm', 'weatherball'],
+		weatherEnhancedMoves: ['sandblast', 'shoreup', 'stonestorm'],
 	},
 	{
 		name: 'dust', category: 'irritantWeather', role: 'Dust Storm Setter', type: 'Ground', item: 'Volatile Spray',
 		setupAbility: ['Dust Devil'],
 		setupMove: ['duststorm'],
 		weatherDependentAbilities: ['Bubble Helm', 'Dust Gather', 'Earth Force', 'Overcoat', 'Wet and Dry'],
-		weatherEnhancedMoves: ['sandblast', 'selfdestruct', 'shoreup', 'stonestorm', 'weatherball'],
+		weatherEnhancedMoves: ['sandblast', 'selfdestruct', 'shoreup', 'stonestorm'],
 	},
 	{
 		name: 'pollen', category: 'irritantWeather', role: 'Pollen Setter', type: 'Grass', item: 'Volatile Spray',
 		setupAbility: ['Arena Bloom', 'Hay Fever'],
 		setupMove: ['fluffbuff', 'pollinate'],
 		weatherDependentAbilities: ['Arena Bloom', 'Bloomspring', 'Bubble Helm', 'Grass Pelt', 'Leaf Guard', 'Overcoat'],
-		weatherEnhancedMoves: ['grassyglide', 'pollenpuff', 'weatherball'],
+		weatherEnhancedMoves: ['grassyglide', 'pollenpuff'],
 	},
 	{
 		name: 'pheromones', category: 'irritantWeather', role: 'Pheromones Setter', type: 'Bug', item: 'Volatile Spray',
 		setupAbility: ['Secretion'],
 		setupMove: ['swarmsignal'],
 		weatherDependentAbilities: ['Bubble Helm', 'Overcoat', 'Powder Cure', 'Swarm', 'Swarming'],
-		weatherEnhancedMoves: ['lovespray', 'weatherball'],
+		weatherEnhancedMoves: ['lovespray'],
 	},
 	{
 		name: 'smog', category: 'irritantWeather', role: 'Smog Setter', type: 'Poison', item: 'Volatile Spray',
 		setupAbility: ['Pollution'],
 		setupMove: ['smogspread'],
 		weatherDependentAbilities: ['Bubble Helm', 'Carbon Capture', 'Corrosion', 'Guts', 'Overcoat', 'Poison Heal', 'Quick Feet', 'Toxic Boost'],
-		weatherEnhancedMoves: ['barbbarrage', 'emberplume', 'gastroacid', 'hex', 'smog', 'venoshock', 'weatherball'],
+		weatherEnhancedMoves: ['barbbarrage', 'emberplume', 'gastroacid', 'hex', 'smog', 'venoshock'],
 	},
 	{
 		name: 'fairyDust', category: 'irritantWeather', role: 'Fairy Dust Setter', type: 'Fairy', item: 'Volatile Spray',
 		setupAbility: ['Incantation'],
 		setupMove: ['efflorescence', 'sprinkle'],
 		weatherDependentAbilities: ['Druidry', 'Power Above'],
-		weatherEnhancedMoves: ['mistyexplosion', 'peekaboo', 'pixiepunch', 'weatherball'],
+		weatherEnhancedMoves: ['mistyexplosion', 'peekaboo', 'pixiepunch'],
 		weatherDiscouragedMoves: ['deception'],
 	},
 	{
@@ -271,14 +271,14 @@ const WEATHER_DATA: {
 		setupAbility: ['Stand Off'],
 		setupMove: ['auraprojection'],
 		weatherDependentAbilities: ['Rage State', 'Trained Eye'],
-		weatherEnhancedMoves: ['focuspunch', 'weatherball'],
+		weatherEnhancedMoves: ['focuspunch'],
 	},
 	{
 		name: 'paranormalActivity', category: 'energyWeather', role: 'Paranormal Activity Setter', type: 'Ghost', item: 'Energy Channelizer',
 		setupAbility: ['Arena Curse', 'Se\u0301ance'],
 		setupMove: ['haunt', 'languishingaura'],
 		weatherDependentAbilities: ['Arena Curse', 'Consecration', 'Shadow Step', 'Soul Drain'],
-		weatherEnhancedMoves: ['technoplasm', 'weatherball'],
+		weatherEnhancedMoves: ['technoplasm'],
 		weatherRequiredMoves: ['ectoplasma'],
 	},
 	{
@@ -286,14 +286,14 @@ const WEATHER_DATA: {
 		setupAbility: ['Dreamer'],
 		setupMove: ['brainstorm', 'daydream'],
 		weatherDependentAbilities: ['Bad Dreams', 'Consecration', 'Smoke and Mirrors', 'Sweet Dreams'],
-		weatherEnhancedMoves: ['dreameater', 'expandingforce', 'mindmeld', 'nightmare', 'weatherball'],
+		weatherEnhancedMoves: ['dreameater', 'expandingforce', 'mindmeld', 'nightmare'],
 	},
 	{
 		name: 'dragonForce', category: 'energyWeather', role: 'Dragon Force Setter', type: 'Dragon', item: 'Energy Channelizer',
 		setupAbility: ['Arcanum'],
 		setupMove: ['dragonforce'],
 		weatherDependentAbilities: ['Indomitable', 'Power Within'],
-		weatherEnhancedMoves: ['dragonrush', 'weatherball'],
+		weatherEnhancedMoves: ['dragonrush'],
 	},
 	{
 		name: 'thunderstorm', category: 'energyWeather', role: 'Thunderstorm Setter', type: 'Electric', item: 'Energy Channelizer',
@@ -303,7 +303,7 @@ const WEATHER_DATA: {
 			'Energizer', 'Forked', 'Lightning Rod', 'Motor Drive', 'Power Plumage', 'Relic Soul', 'Surge Surfer', 'Volt Absorb',
 		],
 		weatherEnhancedMoves: [
-			'conduction', 'electroshot', 'risingvoltage', 'supercellslam', 'thunder', 'thunderbolt', 'triattack', 'weatherball', 'zapcannon',
+			'conduction', 'electroshot', 'risingvoltage', 'supercellslam', 'thunder', 'thunderbolt', 'triattack', 'zapcannon',
 		],
 	},
 	{
@@ -311,7 +311,7 @@ const WEATHER_DATA: {
 		setupAbility: ['Ferroflux'],
 		setupMove: ['magnetize'],
 		weatherDependentAbilities: ['Machine Precision', 'Magnapult', 'Nanomachines'],
-		weatherEnhancedMoves: ['conduction', 'magnetrise', 'weatherball'],
+		weatherEnhancedMoves: ['conduction', 'magnetrise'],
 		weatherRequiredMoves: ['gearup', 'magneticflux'],
 	},
 	{
@@ -319,7 +319,7 @@ const WEATHER_DATA: {
 		setupAbility: ['Galeforce', 'Heat Haze', 'Ice Armor'],
 		setupMove: ['strongwinds'],
 		weatherDependentAbilities: ['Gale Wings', 'Wind Power', 'Wind Rider'],
-		weatherEnhancedMoves: ['blizzard', 'fly', 'heatwave', 'hurricane', 'icywind', 'petalblizzard', 'skyattack', 'weatherball', 'windtunnel'],
+		weatherEnhancedMoves: ['blizzard', 'fly', 'heatwave', 'hurricane', 'icywind', 'petalblizzard', 'skyattack', 'windtunnel'],
 		weatherRequiredMoves: ['windrage'],
 	},
 ];
@@ -420,14 +420,6 @@ function getWeatherDetails(teamDetails: RandomTeamsTypes.TeamDetails, abilities:
 		}
 	}
 	return weatherDetails;
-}
-
-function hasWeatherDetail(
-	teamDetails: RandomTeamsTypes.TeamDetails,
-	abilities: string[],
-	detail: keyof RandomTeamsTypes.TeamDetails
-) {
-	return !!getWeatherDetails(teamDetails, abilities)[detail];
 }
 
 function hasWeatherSetter(teamDetails: RandomTeamsTypes.TeamDetails) {
@@ -1382,22 +1374,20 @@ export class RandomTeams {
 			}
 		}
 
+		// Enforce Weather Ball on weather Setters
+		if (movePool.includes('weatherball') && role?.includes('Setter')) {
+			counter = this.addMove('weatherball', moves, types, abilities, teamDetails, species, isLead,
+				movePool, preferredType, role, isDoubles);
+		}
+
 		// Encourage weather-enhancing moves on matching weather teams
 		for (const check of WEATHER_ENHANCING_MOVES) {
 			if (!hasWeatherSynergy(teamDetails, abilities, check)) continue;
 			for (const moveid of check.moves) {
-				if (movePool.includes(moveid)) {
+				if (moves.size < this.maxMoveCount && movePool.includes(moveid) && this.randomChance(3, 4)) {
 					counter = this.addMove(moveid, moves, types, abilities, teamDetails, species, isLead,
 						movePool, preferredType, role, isDoubles);
 				}
-			}
-		}
-
-		// Enforce Conduction on Magnetosphere teams
-		if (hasWeatherDetail(teamDetails, abilities, 'magnetosphere')) {
-			if (movePool.includes('conduction')) {
-				counter = this.addMove('conduction', moves, types, abilities, teamDetails, species, isLead,
-					movePool, preferredType, role, isDoubles);
 			}
 		}
 
@@ -1408,24 +1398,6 @@ export class RandomTeams {
 					movePool, preferredType, role, isDoubles);
 			}
 		}
-
-		// Encourage Deception on Dragon types or on Blood Moon teams
-		const hasBloodMoon = hasWeatherDetail(teamDetails, abilities, 'bloodMoon');
-		const hasFairyDust = hasWeatherDetail(teamDetails, abilities, 'fairyDust');
-		if (hasBloodMoon && types.has('Dragon')) {
-			if (movePool.includes('deception')) {
-				counter = this.addMove('deception', moves, types, abilities, teamDetails, species, isLead,
-					movePool, preferredType, role, isDoubles);
-			}
-		} else if ((hasBloodMoon || (types.has('Dragon') && !hasFairyDust)) && this.randomChance(1, 2)) {
-			if (movePool.includes('deception')) {
-				counter = this.addMove('deception', moves, types, abilities, teamDetails, species, isLead,
-					movePool, preferredType, role, isDoubles);
-			}
-		}
-
-		// Add (moves.size < this.maxMoveCount) as a condition if moves is getting larger than 4 moves.
-		// If you want moves to be favored but not required, add something like && this.randomChance(1, 2) to your condition.
 
 		// Choose remaining moves randomly from movepool and add them to moves list:
 		while (moves.size < this.maxMoveCount && movePool.length) {

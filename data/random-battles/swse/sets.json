@@ -134,7 +134,7 @@
             },
 			{
                 "role": "Sun Setter",
-                "movepool": ["Dazzling Gleam", "Morning Sun", "Pollen Puff", "Solar Beam", "Sunny Day", "Weather Ball"],
+                "movepool": ["Dazzling Gleam", "Energy Ball", "Morning Sun", "Sunny Day", "Weather Ball"],
                 "abilities": ["Flower Gift"]
             }
         ]
@@ -435,12 +435,12 @@
         "sets": [
             {
                 "role": "Setup Sweeper",
-                "movepool": ["Blizzard", "Dazzling Gleam", "Freeze-Dry", "Snowscape"],
+                "movepool": ["Blizzard", "Dazzling Gleam", "Freeze-Dry", "Slushball", "Snowscape"],
                 "abilities": ["Absolute Zero"]
             },
             {
                 "role": "Snow Setter",
-                "movepool": ["Aurora Veil", "Blizzard", "Dazzling Gleam", "Slushball"],
+                "movepool": ["Aurora Veil", "Blizzard", "Dazzling Gleam", "Freeze-Dry", "Slushball"],
                 "abilities": ["Snow Warning"]
             }
         ]
@@ -689,7 +689,8 @@
             {
                 "role": "Smog Setter",
                 "movepool": ["Hex", "Hydro Pump", "Shadow Ball", "Smog Spread", "Venoshock"],
-                "abilities": ["Carbon Capture"]
+                "abilities": ["Carbon Capture"],
+                "preferredTypes": ["Poison"]
             }
         ]
     },
