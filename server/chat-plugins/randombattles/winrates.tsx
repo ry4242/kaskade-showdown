@@ -157,8 +157,6 @@ export function getSpeciesName(set: PokemonSet, format: Format) {
 		return "Flabe\u0301be\u0301";
 	} else if (species === "Castform" && item.name === "Whirligig") { // swse
 		return 'Castform-Whirly';
-	} else if (species === "Cherrim" && item.name === "Weather Vane") {
-		return 'Cherrim-Sunshine';
 	} else if (species === "Snover" && item.name === "Weather Vane") {
 		return 'Snover-Lowland';
 	} else if (species === "Snover-Lowland" && item.name === "Weather Vane") {
@@ -167,14 +165,10 @@ export function getSpeciesName(set: PokemonSet, format: Format) {
 		return 'Abomasnow-Lowland';
 	} else if (species === "Abomasnow-Lowland" && item.name === "Weather Vane") {
 		return 'Abomasnow';
-	} else if (species === "Bearvoyance" && item.name === "Weather Vane") {
-		return 'Bearvoyance-Awakened';
 	} else if (species === "Blurrun" && item.name === "Weather Vane") {
 		return 'Blurrun-Charged';
 	} else if (species === "Drout" && item.name === "Weather Vane") {
 		return 'Drout-Dry';
-	} else if (species === "Eecroach" && item.name === "Weather Vane") {
-		return 'Eecroach-Swarm';
 	} else if (species === "Bearvoyance" && item.name === "Thick Club") {
 		return 'Bearvoyance-Awakened';
 	} else if (species.startsWith("Botnyak-")) {
