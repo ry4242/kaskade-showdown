@@ -9,7 +9,7 @@
             },
             {
                 "role": "Pollen Setter",
-                "movepool": ["Body Press", "Fluff Buff", "Seed Bomb", "Stone Edge"],
+                "movepool": ["Body Press", "Fluff Buff", "Leech Seed", "Seed Bomb", "Stone Edge"],
                 "abilities": ["Droughtproof"]
             }
         ]
@@ -538,7 +538,7 @@
             {
                 "role": "Bulky Attacker",
                 "movepool": ["Defog", "Knock Off", "Roost", "Thunderbolt", "U-turn", "Whip Up"],
-                "abilities": ["Motor Drive", "Wind Power"]
+                "abilities": ["Motor Drive"]
             },
             {
                 "role": "Fast Support",
@@ -1309,7 +1309,7 @@
         "sets": [
             {
                 "role": "Fast Support",
-                "movepool": ["Gunk Shot", "Knock Off", "Poltergeist", "Shadow Sneak", "Taunt", "Will-O-Wisp"],
+                "movepool": ["Gunk Shot", "Poltergeist", "Shadow Sneak", "Taunt", "Will-O-Wisp"],
                 "abilities": ["Prankster"]
             },
             {
@@ -1439,7 +1439,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Blizzard", "Nasty Plot", "Thunderbolt", "Volt Switch", "Will-O-Wisp"],
+                "movepool": ["Ice Beam", "Nasty Plot", "Thunderbolt", "Volt Switch", "Will-O-Wisp"],
                 "abilities": ["Levitate"]
             }
         ]
@@ -1449,7 +1449,7 @@
         "sets": [
             {
                 "role": "Fast Attacker",
-                "movepool": ["Hurricane", "Nasty Plot", "Thunderbolt", "Volt Switch", "Will-O-Wisp"],
+                "movepool": ["Nasty Plot", "Thunderbolt", "Volt Switch", "Whip Up", "Will-O-Wisp"],
                 "abilities": ["Adaptability"]
             }
         ]
