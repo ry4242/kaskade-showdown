@@ -94,7 +94,7 @@ export const Avatars = new class {
 	src(avatar: AvatarID) {
 		if (avatar.includes('.')) return '';
 		const avatarUrl = avatar.startsWith('#') ? `trainers-custom/${avatar.slice(1)}.png` : `trainers/${avatar}.png`;
-		return `https://raw.githubusercontent.com/Kaskade-Showdown/kaskade-audio-visual/master/play.pokemonshowdown.com/sprites/${avatarUrl}`;
+		return `https://raw.githubusercontent.com/Kaskade-Showdown/kaskade-audio-visual/master/visual/sprites/${avatarUrl}`;
 	}
 	exists(avatar: string) {
 		if (avatar.includes('.')) {
