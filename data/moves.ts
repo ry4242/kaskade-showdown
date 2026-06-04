@@ -23800,7 +23800,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Electric",
 	}, */
-	thermalvortex: { // tested, works as intended TODO: fix move failure message when unable to set the weather
+	thermalvortex: { // tested, works as intended
 		num: 10071,
 		accuracy: 100,
 		basePower: 70,

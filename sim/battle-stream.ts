@@ -353,7 +353,7 @@ export class BattleStream extends Streams.ObjectReadWriteStream<string> {
 			if (targets.length !== 1) {
 				battle.add("||<<< Error: Format should be: weather FIELD, WEATHER");
 				return;
-			} // incomplete, wtf do i do here
+			}
 			const [weather] = targets;
 			battle.field.setClimateWeather(toID(weather), 'debug');
 			battle.field.setIrritantWeather(toID(weather), 'debug');

@@ -6970,7 +6970,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 2,
 		num: 10048,
 	},
-	nullify: { // tested, works as intended TODO: remove failure message when using moves that deal damage and set weather
+	nullify: { // tested, works as intended
 		onSwitchIn(pokemon) {
 			this.add('-ability', pokemon, 'Nullify');
 			((this.effect as any).onStart as (p: Pokemon) => void).call(this, pokemon);

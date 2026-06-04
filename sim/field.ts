@@ -75,7 +75,7 @@ export class Field {
 			const result = this.battle.runEvent('SetClimateWeather', source, source, status);
 			if (!result) {
 				if (result === false) {
-					if ((sourceEffect as Move)?.climateWeather) {
+					if ((sourceEffect as Move)?.climateWeather && (sourceEffect as Move).category === 'Status') {
 						this.battle.add('-fail', source, sourceEffect, '[from] ' + this.climateWeather);
 					} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
 						this.battle.add('-ability', source, sourceEffect, '[from] ' + this.climateWeather, '[fail]');
@@ -134,7 +134,7 @@ export class Field {
 			const result = this.battle.runEvent('SetIrritantWeather', source, source, status);
 			if (!result) {
 				if (result === false) {
-					if ((sourceEffect as Move)?.irritantWeather) {
+					if ((sourceEffect as Move)?.irritantWeather && (sourceEffect as Move).category === 'Status') {
 						this.battle.add('-fail', source, sourceEffect, '[from] ' + this.irritantWeather);
 					} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
 						this.battle.add('-ability', source, sourceEffect, '[from] ' + this.irritantWeather, '[fail]');
@@ -193,7 +193,7 @@ export class Field {
 			const result = this.battle.runEvent('SetEnergyWeather', source, source, status);
 			if (!result) {
 				if (result === false) {
-					if ((sourceEffect as Move)?.energyWeather) {
+					if ((sourceEffect as Move)?.energyWeather && (sourceEffect as Move).category === 'Status') {
 						this.battle.add('-fail', source, sourceEffect, '[from] ' + this.energyWeather);
 					} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
 						this.battle.add('-ability', source, sourceEffect, '[from] ' + this.energyWeather, '[fail]');
@@ -252,7 +252,7 @@ export class Field {
 			const result = this.battle.runEvent('SetClearingWeather', source, source, status);
 			if (!result) {
 				if (result === false) {
-					if ((sourceEffect as Move)?.clearingWeather) {
+					if ((sourceEffect as Move)?.clearingWeather && (sourceEffect as Move).category === 'Status') {
 						this.battle.add('-fail', source, sourceEffect, '[from] ' + this.clearingWeather);
 					} else if (sourceEffect && sourceEffect.effectType === 'Ability') {
 						this.battle.add('-ability', source, sourceEffect, '[from] ' + this.clearingWeather, '[fail]');
