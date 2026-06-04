@@ -1880,6 +1880,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 				return 0;
 			}
 		},
+		onAccuracy(accuracy, target, source, move) {
+			if (move.flags['wind'] && this.field.isClearingWeather('deltastream')) {
+				return true;
+			}
+			return accuracy;
+		},
 		onFieldStart(field, source, effect) {
 			this.add('-clearingWeather', 'DeltaStream', '[from] ability: ' + effect.name, `[of] ${source}`);
 		},
