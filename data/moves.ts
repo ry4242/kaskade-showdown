@@ -5964,7 +5964,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['strongwinds'].includes(attacker.effectiveClearingWeather())) {
+			if (['strongwinds', 'deltastream'].includes(attacker.effectiveClearingWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -9126,6 +9126,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 			}
 			switch (target?.effectiveClearingWeather()) {
 			case 'strongwinds':
+			case 'deltastream':
 				move.accuracy = true;
 				break;
 			}
@@ -16884,7 +16885,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				return;
 			}
 			this.add('-prepare', attacker, move.name);
-			if (['strongwinds'].includes(attacker.effectiveClearingWeather())) {
+			if (['strongwinds', 'deltastream'].includes(attacker.effectiveClearingWeather())) {
 				this.attrLastMove('[still]');
 				this.addMove('-anim', attacker, move.name, defender);
 				return;
@@ -23963,7 +23964,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, wind: 1 },
 		onTry(source) {
-			return ['strongwinds'].includes(source.effectiveClearingWeather());
+			return ['strongwinds', 'deltastream'].includes(source.effectiveClearingWeather());
 		},
 		onAfterHit(target, pokemon, move) {
 			if (!move.hasSheerForce) {
@@ -24016,7 +24017,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		priority: 0,
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1, wind: 1 },
 		onModifyPriority(priority, source, target, move) {
-			if (['strongwinds'].includes(source.effectiveClearingWeather())) {
+			if (['strongwinds', 'deltastream'].includes(source.effectiveClearingWeather())) {
 				return priority + 1;
 			}
 		},

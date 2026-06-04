@@ -1886,7 +1886,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	},
 	galewings: { // updated
 		onModifyPriority(priority, pokemon, target, move) {
-			if (move?.type === 'Flying' && (pokemon.hp === pokemon.maxhp || this.field.isClearingWeather('strongwinds'))) {
+			if (move?.type === 'Flying' && (pokemon.hp === pokemon.maxhp ||
+				this.field.isClearingWeather('strongwinds') || this.field.isClearingWeather('deltastream'))) {
 				return priority + 1;
 			}
 		},
@@ -5872,7 +5873,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onAnySetClearingWeather(target, source, clearingWeather) {
 			const pokemon = this.effectState.target;
-			if (clearingWeather.id === 'strongwinds') {
+			if (['strongwinds', 'deltastream'].includes(clearingWeather.id)) {
 				pokemon.addVolatile('charge');
 			}
 		},
@@ -5884,7 +5885,8 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 	windrider: { // updated, untested??
 		onStart(pokemon) {
 			if (pokemon.side.sideConditions['tailwind'] ||
-				(['strongwinds'].includes(pokemon.effectiveClearingWeather()) && !pokemon.abilityState.gotWindRiderClearingBoost)) {
+				(['strongwinds', 'deltastream'].includes(pokemon.effectiveClearingWeather()) &&
+					!pokemon.abilityState.gotWindRiderClearingBoost)) {
 				this.boost({ atk: 1 }, pokemon, pokemon);
 			}
 			delete pokemon.abilityState.gotWindRiderClearingBoost;
@@ -5905,7 +5907,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		},
 		onAnySetClearingWeather(target, source, clearingWeather) {
 			const pokemon = this.effectState.target;
-			if (clearingWeather.id === 'strongwinds') {
+			if (['strongwinds', 'deltastream'].includes(clearingWeather.id)) {
 				this.boost({ atk: 1 }, pokemon, pokemon);
 				if (!pokemon.isStarted) {
 					pokemon.abilityState.gotWindRiderClearingBoost = true;
