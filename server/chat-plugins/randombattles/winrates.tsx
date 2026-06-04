@@ -207,8 +207,7 @@ async function collectStats(battle: RoomBattle, winner: ID, players: ID[]) {
 		// ladder is even more inactive, so an even lower threshold
 		eloFloor = 1000;
 	} else if (format.mod === 'swse') {
-		// custom ladder activity is expected to be lower than mainline gen 9
-		eloFloor = 1000;
+		eloFloor = 1;
 	} else if (format.mod !== `gen${Dex.gen}`) {
 		eloFloor = 1300;
 	} else if (format.gameType === 'doubles') {
@@ -252,7 +251,7 @@ export const commands: Chat.ChatCommands = {
 		if (!/^[0-9]{4}-[0-9]{2}$/.test(target) || target === getMonth()) {
 			throw new Chat.ErrorMessage(`Invalid month: ${target}`);
 		}
-		const path = STATS_PATH.replace('{{MON}}', target);
+		const path = STATS_PATH.replace('{{MONTH}}', target);
 		if (!(await FS(path).exists())) {
 			throw new Chat.ErrorMessage(`No stats for the month ${target}.`);
 		}
