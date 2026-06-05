@@ -22255,6 +22255,10 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				move.accuracy = true;
 			}
 		},
+		secondary: {
+			chance: 10,
+			status: 'psn',
+		},
 		target: "normal",
 		type: "Fire",
 	},
@@ -23045,7 +23049,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		flags: { contact: 1, protect: 1, mirror: 1, metronome: 1 },
 		onBasePower(basePower, pokemon, target) {
 			if (['bloodmoon'].includes(pokemon.effectiveClimateWeather()) ||
-				['sprinkle'].includes(pokemon.effectiveIrritantWeather())) {
+				['haunt'].includes(pokemon.effectiveEnergyWeather())) {
 				this.debug('powered by Weathergy');
 				return this.chainModify(1.5);
 			}
@@ -23748,6 +23752,12 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 				}
 				return didSomething;
 			},
+			onTryHit(target, _source, move) {
+				if (move.type === 'Fire') {
+					this.add('-immune', target, '[from] move: Sunscreen');
+					return this.NOT_FAIL;
+				}
+			},
 		},
 		target: "allySide",
 		type: "Fire",
@@ -24032,7 +24042,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		name: "Wrangle",
 		pp: 15,
 		priority: 0,
-		flags: { protect: 1, mirror: 1 },
+		flags: { contact: 1, protect: 1, mirror: 1 },
 		volatileStatus: 'partiallytrapped',
 		target: "normal",
 		type: "Fighting",
