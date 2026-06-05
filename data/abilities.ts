@@ -7091,10 +7091,13 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onResidualOrder: 5,
 		onResidualSubOrder: 3,
 		onResidual(pokemon) {
-			if (pokemon.status && ['pollinate'].includes(pokemon.effectiveIrritantWeather())) {
-				this.debug('poweder cure');
-				this.add('-activate', pokemon, 'ability: Powder Cure');
-				pokemon.cureStatus();
+			if (['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
+				for (const target of [pokemon, ...pokemon.adjacentAllies()]) {
+					if (target.status) {
+						this.add('-activate', target, 'ability: Powder Cure');
+						target.cureStatus();
+					}
+				}
 			}
 		},
 		flags: {},
@@ -7439,13 +7442,26 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		onSwitchInPriority: -1,
 		onStart(pokemon) {
 			if (pokemon.baseSpecies.baseSpecies !== 'Eecroach' || pokemon.level < 20 || pokemon.transformed) return;
-			if (pokemon.hp > pokemon.maxhp / 4) {
+			if (pokemon.hp > pokemon.maxhp / 4 || ['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
 				if (pokemon.species.id === 'eecroach') {
 					pokemon.formeChange('Eecroach-Swarm', this.effect, pokemon.hasItem('weathervane'), '0', '[msg]');
 				}
 			} else {
-				if (pokemon.species.id === 'eecroachswarm' &&
-					!['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
+				if (pokemon.species.id === 'eecroachswarm') {
+					if (pokemon.hasItem('weathervane')) return;
+					pokemon.formeChange('Eecroach');
+				}
+			}
+		},
+		onIrritantWeatherChange(pokemon) {
+			if (pokemon.baseSpecies.baseSpecies !== 'Eecroach' || pokemon.level < 20 || pokemon.transformed) return;
+			if (!pokemon.hp) return;
+			if (pokemon.hp > pokemon.maxhp / 4 || ['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
+				if (pokemon.species.id === 'eecroach') {
+					pokemon.formeChange('Eecroach-Swarm', this.effect, pokemon.hasItem('weathervane'), '0', '[msg]');
+				}
+			} else {
+				if (pokemon.species.id === 'eecroachswarm') {
 					if (pokemon.hasItem('weathervane')) return;
 					pokemon.formeChange('Eecroach');
 				}
@@ -7457,13 +7473,12 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 				pokemon.baseSpecies.baseSpecies !== 'Eecroach' || pokemon.level < 20 ||
 				pokemon.transformed || !pokemon.hp
 			) return;
-			if (pokemon.hp > pokemon.maxhp / 4) {
+			if (pokemon.hp > pokemon.maxhp / 4 || ['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
 				if (pokemon.species.id === 'eecroach') {
 					pokemon.formeChange('Eecroach-Swarm', this.effect, pokemon.hasItem('weathervane'), '0', '[msg]');
 				}
 			} else {
-				if (pokemon.species.id === 'eecroachswarm' &&
-					!['swarmsignal'].includes(pokemon.effectiveIrritantWeather())) {
+				if (pokemon.species.id === 'eecroachswarm') {
 					if (pokemon.hasItem('weathervane')) return;
 					pokemon.formeChange('Eecroach');
 				}
