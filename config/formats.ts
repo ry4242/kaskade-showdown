@@ -1671,7 +1671,7 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		},
 	},
 	{
-		name: "[Gen 9] Camomons",
+		name: "[Gen 9] Camomons OLD",
 		desc: `Pok&eacute;mon have their types set to match their first two moves.`,
 		mod: 'gen9',
 		searchShow: false,
@@ -6737,6 +6737,18 @@ export const Formats: import('../sim/dex-formats').FormatList = [
 		onSideConditionStart(side, source, sideCondition) {
 			side.sideConditions[sideCondition.id].duration = 0;
 		},
+	},
+	{
+		name: "[Gen 9] Camomons",
+		desc: `Pok&eacute;mon have their types set to match their first two moves.`,
+		mod: 'swse',
+		searchShow: false,
+		ruleset: ['Standard OMs', 'Sleep Clause Mod', 'Evasion Items Clause', 'Evasion Abilities Clause', 'Camomons Mod'],
+		banlist: [
+			'Arena Trap', 'Moody', 'Shadow Tag',
+			'Baton Pass', 'Last Respects', 'Shed Tail',
+			'King\'s Rock', 'Light Clay', 'Razor Hook',
+		],
 	},
 	{
 		name: "[Gen 9] Inverse",
