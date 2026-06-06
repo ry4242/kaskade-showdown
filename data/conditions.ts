@@ -1045,7 +1045,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onIrritantWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.effectiveIrritantWeather() !== 'duststorm' ||
-				attacker.hasAbility(['overcoat', 'bubblehelm'])) return;
+				attacker.hasAbility(['bubblehelm', 'earthforce', 'overcoat'])) return;
 			if (move.type === 'Water' || move.type === 'Grass') {
 				this.debug('Dust Storm Water/Grass supress');
 				return this.chainModify(0.5);
