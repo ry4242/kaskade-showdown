@@ -2330,7 +2330,7 @@
             {
                 "role": "Bulky Support",
                 "movepool": ["Earth Power", "Lava Plume", "Recover", "Stealth Rock", "Will-O-Wisp", "Yawn"],
-                "abilities": ["Flame Body"]
+                "abilities": ["Magma Armor"]
             }
         ]
     },
