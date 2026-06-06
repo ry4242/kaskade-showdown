@@ -915,6 +915,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 		},
 		onSwitchIn(pokemon) {
+			if (pokemon.effectiveClimateWeather() !== 'foghorn') return;
 			if (pokemon.hasType('Normal') && this.field.climateWeatherState.boosted) {
 				pokemon.setType('???');
 				pokemon.fogType = true;
@@ -927,6 +928,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 		},
 		onModifyType(move, pokemon, target) {
+			if (pokemon.effectiveClimateWeather() !== 'foghorn') return;
 			if (pokemon.hasType('Normal') && this.field.climateWeatherState.boosted) {
 				pokemon.setType('???');
 				pokemon.fogType = true;
@@ -946,7 +948,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			}
 			if (this.field.climateWeatherState.boosted) {
 				for (const pokemon of this.getAllActive()) {
-					if (pokemon.hasType('Normal')) {
+					if (pokemon.hasType('Normal') && pokemon.effectiveClimateWeather() === 'foghorn') {
 						pokemon.setType('???');
 						pokemon.fogType = true;
 						this.hint("Normal types turn Typeless in Strong Winds-boosted Fog.");
@@ -1119,7 +1121,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onAccuracy(accuracy, target, source, move) {
 			if (target.effectiveIrritantWeather() !== 'pollinate') return;
-			if (move.flags['powder'] && source.effectiveIrritantWeather() === 'pollinate') {
+			if (move.flags['powder']) {
 				return true;
 			}
 			return accuracy;
