@@ -1103,7 +1103,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifyAtkPriority: 10,
 		onModifyAtk(atk, pokemon) {
-			if (pokemon.effectiveIrritantWeather() !== 'pollinate' || pokemon.hasAbility(['bubblehelm', 'bloomspring'])) return;
+			if (pokemon.effectiveIrritantWeather() !== 'pollinate' || pokemon.hasAbility(['bloomspring', 'bubblehelm'])) return;
 			if (pokemon.hasType('Grass') || pokemon.hasType('Bug')) {
 				return;
 			} else {
@@ -1112,7 +1112,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifySpAPriority: 10,
 		onModifySpA(spa, pokemon) {
-			if (pokemon.effectiveIrritantWeather() !== 'pollinate' || pokemon.hasAbility(['bubblehelm', 'bloomspring'])) return;
+			if (pokemon.effectiveIrritantWeather() !== 'pollinate' || pokemon.hasAbility(['bloomspring', 'bubblehelm'])) return;
 			if (pokemon.hasType('Grass') || pokemon.hasType('Bug')) {
 				return;
 			} else {
@@ -1404,7 +1404,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 			if (this.field.isEnergyWeather('haunt')) this.eachEvent('EnergyWeather');
 		},
 		onEnergyWeather(target) {
-			if (target.effectiveEnergyWeather() !== 'haunt') return;
+			if (target.effectiveEnergyWeather() !== 'haunt' || target.hasAbility(['arenacurse', 'souldrain'])) return;
 			this.damage(target.baseMaxhp / 16); // ghost, normal and dark's damage immunity added to typechart.ts
 		},
 		onFieldEnd() {
