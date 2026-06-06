@@ -891,7 +891,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		onModifyAccuracyPriority: -1,
 		onModifyAccuracy(accuracy, target, source, move) {
 			if (target.effectiveClimateWeather() !== 'foghorn' ||
-				source.hasAbility(['droughtproof', 'warpmist', 'protean'])) return;
+				source.hasAbility(['droughtproof', 'protean', 'warpmist'])) return;
 			if (typeof accuracy === 'number' && move?.type !== 'Normal' && move?.type !== '???') {
 				// This one piece of code took over 5 hours to do because it was reading move as move: Pokemon and not move: ActiveMove
 				this.debug('Fog accuracy decrease');
@@ -1058,7 +1058,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, target, pokemon) {
-			if (target.effectiveIrritantWeather() !== 'duststorm' || target.hasAbility(['eartheater', 'bubblehelm'])) return;
+			if (target.effectiveIrritantWeather() !== 'duststorm' || move.type !== 'Ground' ||
+				target.hasAbility(['eartheater', 'bubblehelm', 'warpmist'])) return;
 			if (this.field.irritantWeatherState.boosted) {
 				if (!move.ignoreImmunity) move.ignoreImmunity = {};
 				if (move.ignoreImmunity !== true) {
@@ -1366,7 +1367,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onModifyMovePriority: -5,
 		onModifyMove(move, target, pokemon) {
-			if (target?.item === 'energynullifier' || move.type !== 'Ghost') return;
+			if (target.effectiveEnergyWeather() !== 'haunt' || move.type !== 'Ghost' ||
+				target.hasAbility(['warpmist'])) return;
 			if (this.field.energyWeatherState.boosted) {
 				if (!move.ignoreImmunity) move.ignoreImmunity = {};
 				if (move.ignoreImmunity !== true) {
@@ -1377,7 +1379,8 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onEffectiveness(typeMod, target, type, move) {
 			if (this.field.energyWeatherState.boosted) {
-				if (target?.item === 'energynullifier' || move.type !== 'Ghost') return;
+				if (target?.effectiveEnergyWeather() !== 'haunt' || move.type !== 'Ghost' ||
+					target.hasAbility(['warpmist'])) return;
 				if (type === 'Normal') return 1;
 			}
 		},

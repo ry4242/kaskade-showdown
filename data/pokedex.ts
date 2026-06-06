@@ -932,7 +932,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Ice Stone",
 		eggGroups: ["Field"],
 	},
-	nidoranf: {
+	nidoranf: { // updated
 		num: 29,
 		name: "Nidoran-F",
 		types: ["Poison"],
@@ -945,7 +945,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Nidorina"],
 		eggGroups: ["Monster", "Field"],
 	},
-	nidorina: {
+	nidorina: { // updated
 		num: 30,
 		name: "Nidorina",
 		types: ["Poison"],
@@ -960,7 +960,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Nidoqueen"],
 		eggGroups: ["Undiscovered"],
 	},
-	nidoqueen: {
+	nidoqueen: { // updated
 		num: 31,
 		name: "Nidoqueen",
 		types: ["Poison", "Ground"],
@@ -975,7 +975,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Moon Stone",
 		eggGroups: ["Undiscovered"],
 	},
-	nidoranm: {
+	nidoranm: { // updated
 		num: 32,
 		name: "Nidoran-M",
 		types: ["Poison"],
@@ -989,7 +989,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Monster", "Field"],
 		mother: 'nidoranf',
 	},
-	nidorino: {
+	nidorino: { // updated
 		num: 33,
 		name: "Nidorino",
 		types: ["Poison"],
@@ -1004,7 +1004,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Nidoking"],
 		eggGroups: ["Monster", "Field"],
 	},
-	nidoking: {
+	nidoking: { // updated
 		num: 34,
 		name: "Nidoking",
 		types: ["Poison", "Ground"],
@@ -2119,7 +2119,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 34,
 		eggGroups: ["Water 1", "Field"],
 	},
-	grimer: {
+	grimer: { // updated
 		num: 88,
 		name: "Grimer",
 		types: ["Poison"],
@@ -2133,7 +2133,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Grimer-Alola"],
 		formeOrder: ["Grimer", "Grimer-Alola"],
 	},
-	grimeralola: {
+	grimeralola: { // updated
 		num: 88,
 		name: "Grimer-Alola",
 		baseSpecies: "Grimer",
@@ -2147,7 +2147,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Muk-Alola"],
 		eggGroups: ["Amorphous"],
 	},
-	muk: {
+	muk: { // updated
 		num: 89,
 		name: "Muk",
 		types: ["Poison"],
@@ -2162,7 +2162,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Muk-Alola"],
 		formeOrder: ["Muk", "Muk-Alola"],
 	},
-	mukalola: {
+	mukalola: { // updated
 		num: 89,
 		name: "Muk-Alola",
 		baseSpecies: "Muk",
@@ -2749,7 +2749,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Seadra"],
 		eggGroups: ["Water 1", "Dragon"],
 	},
-	seadra: {
+	seadra: { // updated
 		num: 117,
 		name: "Seadra",
 		types: ["Water"],
@@ -4274,7 +4274,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Wooper-Paldea"],
 		formeOrder: ["Wooper", "Wooper-Paldea"],
 	},
-	wooperpaldea: {
+	wooperpaldea: { // updated
 		num: 194,
 		name: "Wooper-Paldea",
 		baseSpecies: "Wooper",
@@ -4534,7 +4534,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoLevel: 23,
 		eggGroups: ["Field", "Fairy"],
 	},
-	qwilfish: {
+	qwilfish: { // updated
 		num: 211,
 		name: "Qwilfish",
 		types: ["Water", "Poison"],
@@ -4547,7 +4547,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Qwilfish-Hisui"],
 		formeOrder: ["Qwilfish", "Qwilfish-Hisui"],
 	},
-	qwilfishhisui: {
+	qwilfishhisui: { // updated
 		num: 211,
 		name: "Qwilfish-Hisui",
 		baseSpecies: "Qwilfish",
@@ -4688,7 +4688,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		name: "Slugma",
 		types: ["Fire"],
 		baseStats: { hp: 40, atk: 40, def: 40, spa: 70, spd: 40, spe: 20 },
-		abilities: { 0: "Flame Body", 1: "Solar Power", H: "Weak Armor" },
+		abilities: { 0: "Magma Armor", 1: "Solar Power", H: "Weak Armor" },
 		heightm: 0.7,
 		weightkg: 35,
 		color: "Red",
@@ -6228,7 +6228,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		color: "Purple",
 		eggGroups: ["Bug", "Human-Like"],
 	},
-	roselia: {
+	roselia: { // updated
 		num: 315,
 		name: "Roselia",
 		types: ["Grass", "Poison"],
@@ -8094,7 +8094,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Field"],
 		gen: 9,
 	},
-	budew: {
+	budew: { // updated
 		num: 406,
 		name: "Budew",
 		types: ["Grass", "Poison"],
@@ -8107,7 +8107,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		eggGroups: ["Undiscovered"],
 		canHatch: true,
 	},
-	roserade: {
+	roserade: { // updated
 		num: 407,
 		name: "Roserade",
 		types: ["Grass", "Poison"],
@@ -10837,7 +10837,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Seismitoad"],
 		eggGroups: ["Water 1"],
 	},
-	seismitoad: {
+	seismitoad: { // updated
 		num: 537,
 		name: "Seismitoad",
 		types: ["Water", "Ground"],
@@ -10913,7 +10913,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoType: "levelFriendship",
 		eggGroups: ["Bug"],
 	},
-	venipede: {
+	venipede: { // updated
 		num: 543,
 		name: "Venipede",
 		types: ["Bug", "Poison"],
@@ -10925,7 +10925,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Whirlipede"],
 		eggGroups: ["Bug"],
 	},
-	whirlipede: {
+	whirlipede: { // updated
 		num: 544,
 		name: "Whirlipede",
 		types: ["Bug", "Poison"],
@@ -10939,7 +10939,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Scolipede"],
 		eggGroups: ["Bug"],
 	},
-	scolipede: {
+	scolipede: { // updated
 		num: 545,
 		name: "Scolipede",
 		types: ["Bug", "Poison"],
@@ -10954,7 +10954,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Scolipede-Mega"],
 		formeOrder: ["Scolipede", "Scolipede-Mega"],
 	},
-	scolipedemega: {
+	scolipedemega: { // updated
 		num: 545,
 		name: "Scolipede-Mega",
 		baseSpecies: "Scolipede",
@@ -13908,14 +13908,14 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		otherFormes: ["Dragalge-Mega"],
 		formeOrder: ["Dragalge", "Dragalge-Mega"],
 	},
-	dragalgemega: {
+	dragalgemega: { // updated
 		num: 691,
 		name: "Dragalge-Mega",
 		baseSpecies: "Dragalge",
 		forme: "Mega",
 		types: ["Poison", "Dragon"],
 		baseStats: { hp: 65, atk: 85, def: 105, spa: 132, spd: 163, spe: 44 },
-		abilities: { 0: "Poison Coat", 1: "Poison Coat", H: "Adaptability" },
+		abilities: { 0: "Swift Swim", 1: "Poison Coat", H: "Adaptability" },
 		heightm: 2.1,
 		weightkg: 100.3,
 		color: "Brown",
@@ -18585,7 +18585,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoItem: "Mist Stone",
 		eggGroups: ["Water 2"],
 	},
-	sneasler: {
+	sneasler: { // updated
 		num: 903,
 		name: "Sneasler",
 		types: ["Fighting", "Poison"],
@@ -18600,7 +18600,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "during the day",
 		eggGroups: ["Field"],
 	},
-	overqwil: {
+	overqwil: { // updated
 		num: 904,
 		name: "Overqwil",
 		types: ["Dark", "Poison"],
@@ -19236,7 +19236,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evos: ["Grafaiai"],
 		eggGroups: ["Field"],
 	},
-	grafaiai: {
+	grafaiai: { // updated
 		num: 945,
 		name: "Grafaiai",
 		types: ["Poison", "Normal"],
@@ -19797,7 +19797,7 @@ export const Pokedex: import('../sim/dex-species').SpeciesDataTable = {
 		evoCondition: "Use Rage Fist 20 times and level-up",
 		eggGroups: ["Field"],
 	},
-	clodsire: {
+	clodsire: { // updated
 		num: 980,
 		name: "Clodsire",
 		types: ["Poison", "Ground"],
