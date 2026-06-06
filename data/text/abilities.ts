@@ -422,7 +422,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	earthforce: { // updated
 		name: "Earth Force",
-		desc: "If Sandstorm or Dust Storm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm, and the power of this Pokemon's attacks are not lowered by Dust Storm. These effects are prevented if this Pokemon is holding Safety Goggles.",
+		desc: "If Sandstorm or Dust Storm is active, this Pokemon's Ground-, Rock-, and Steel-type attacks have their power multiplied by 1.3. This Pokemon takes no damage from Sandstorm. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "Sandstorm/Dust Storm: user's Ground/Rock/Steel attacks do 1.3x; immunity to them.",
 	},
 	effectspore: {
@@ -2401,7 +2401,7 @@ export const AbilitiesText: { [id: IDEntry]: AbilityText } = {
 	},
 	dustgather: {
 		name: "Dust Gather",
-		desc: "If Dust Storm is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. The power of this Pokemon's attacks are not lowered by Dust Storm. These effects are prevented if this Pokemon is holding Safety Goggles.",
+		desc: "If Dust Storm is active, this Pokemon restores 1/16 of its maximum HP, rounded down, at the end of each turn. These effects are prevented if this Pokemon is holding Safety Goggles.",
 		shortDesc: "If Dust Storm is active, this Pokemon heals 1/16 of its max HP each turn.",
 	},
 	echolocation: {

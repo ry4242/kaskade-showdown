@@ -1043,7 +1043,7 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 		},
 		onIrritantWeatherModifyDamage(damage, attacker, defender, move) {
 			if (defender.effectiveIrritantWeather() !== 'duststorm' ||
-				attacker.hasAbility(['overcoat', 'earthforce', 'bubblehelm', 'dustgather'])) return;
+				attacker.hasAbility(['overcoat', 'bubblehelm'])) return;
 			if (move.type === 'Water' || move.type === 'Grass') {
 				this.debug('Dust Storm Water/Grass supress');
 				return this.chainModify(0.5);
@@ -1588,18 +1588,19 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 						target = validTargets.splice(this.random(validTargets.length), 1)[0];
 					}
 					let typeMod = 1;
+					// immune to lightning
+					if (target.hasType('Electric')) typeMod *= 0;
+					if (target.hasType('Ground')) typeMod *= 0;
+					if (target.hasAbility('lightningrod') || target.hasAbility('motordrive') || target.hasAbility('voltabsorb') ||
+						target.hasAbility('powerplumage')) {
+						typeMod = 0;
+					}
 					// weak to electric
 					if (target.hasType('Water')) typeMod *= 2;
 					if (target.hasType('Flying')) typeMod *= 2;
 					// resist electric
 					if (target.hasType('Grass')) typeMod *= 0.5;
 					if (target.hasType('Dragon')) typeMod *= 0.5;
-					// immune to lightning
-					if (target.hasType('Electric')) typeMod *= 0;
-					if (target.hasType('Ground')) typeMod *= 0;
-					if (target.hasAbility('lightningrod') || target.hasAbility('motordrive') || target.hasAbility('voltabsorb')) {
-						typeMod = 0;
-					}
 					this.debug('lightning strike damage is based on the Pokemon\'s weakness/resistance to Electric');
 					this.damage(typeMod * target.baseMaxhp / 10, target);
 					// electric types gain charge and take no damage
@@ -1615,6 +1616,12 @@ export const Conditions: import('../sim/dex-conditions').ConditionDataTable = {
 							this.add('-immune', target, '[from] ability: Lightning Rod');
 						}
 						this.hint("Pokemon with Lightning Rod draw in any lightning strike.");
+					}
+					if (target.hasAbility('powerplumage')) {
+						if (!this.boost({ spa: 1 }, target)) {
+							this.add('-immune', target, '[from] ability: Power Plumage');
+						}
+						this.hint("Pokemon with Power Plumage draw in any lightning strike.");
 					}
 					if (target.hasAbility('motordrive')) {
 						if (!this.boost({ spe: 1 }, target)) {
