@@ -8579,10 +8579,10 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 			return true;
 		},
 		itemUser: [
-			"Castform", "Castform-Allergy", "Castform-Dusty", "Castform-Gutsy", "Castform-Lovely", "Castform-Rainy", "Castform-Sandy", "Castform-Shady", "Castform-Smoggy",
-			"Castform-Snowy", "Castform-Sorcery", "Castform-Spooky", "Castform-Sunny", "Castform-Swarmy", "Castform-Windy", "Castform-Zappy", "Castform-Zenny",
-			"Abomasnow", "Abomasnow-Lowland", "Bearvoyance", "Bearvoyance-Awakened", "Blurrun", "Blurrun-Charged", "Cherrim", "Cherrim-Sunshine", "Drout", "Drout-Dry",
-			"Eecroach", "Eecroach-Swarm", "Snover", "Snover-Lowland",
+			"Abomasnow", "Abomasnow-Lowland", "Bearvoyance-Awakened", "Blurrun", "Blurrun-Charged", "Castform", "Castform-Allergy", "Castform-Dusty",
+			"Castform-Gutsy", "Castform-Lovely", "Castform-Rainy", "Castform-Sandy", "Castform-Shady", "Castform-Smoggy", "Castform-Snowy",
+			"Castform-Sorcery", "Castform-Spooky", "Castform-Sunny", "Castform-Swarmy", "Castform-Windy", "Castform-Zappy", "Castform-Zenny",
+			"Cherrim", "Cherrim-Sunshine", "Drout", "Drout-Dry", "Eecroach", "Eecroach-Swarm", "Snover", "Snover-Lowland",
 		],
 		num: 10015,
 		gen: 9,
