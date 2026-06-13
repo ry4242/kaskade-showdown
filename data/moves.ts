@@ -21000,7 +21000,7 @@ export const Moves: import('../sim/dex-moves').MoveDataTable = {
 		target: "normal",
 		type: "Water",
 	},
-	weatherball: { // incomplete
+	weatherball: {
 		num: 311,
 		accuracy: 100,
 		basePower: 50,

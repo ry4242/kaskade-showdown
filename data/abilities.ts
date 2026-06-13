@@ -6956,7 +6956,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 		rating: 4,
 		num: 10075,
 	}, */
-	nottobe: { // incomplete, not tested
+	nottobe: {
 		onAnyFaint(target) {
 			const holder = this.effectState.target;
 			if (!holder?.hp || target.side !== holder.side || target === holder) return;
@@ -6966,7 +6966,7 @@ export const Abilities: import('../sim/dex-abilities').AbilityDataTable = {
 			}
 		},
 		flags: {},
-		name: "Not to Be",
+		name: "Not To Be",
 		rating: 2,
 		num: 10048,
 	},

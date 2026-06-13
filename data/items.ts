@@ -8297,7 +8297,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		gen: 9,
 		isNonstandard: "Future",
 	},
-	coffeegeistcappuccino: { // incomplete test fling
+	coffeegeistcappuccino: {
 		name: "Coffeegeist Cappuccino",
 		spritenum: 795,
 		isDrink: true,
@@ -8568,7 +8568,7 @@ export const Items: import('../sim/dex-items').ItemDataTable = {
 		num: 10001,
 		gen: 9,
 	},
-	weathervane: { // incomplete
+	weathervane: {
 		name: 'Weather Vane',
 		spritenum: 797,
 		fling: {
