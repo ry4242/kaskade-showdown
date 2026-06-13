@@ -103,7 +103,6 @@ export const Pokedex: import('../../../sim/dex-species').ModdedSpeciesDataTable 
 	},
 	basculegionf: {
 		inherit: true,
-		baseStats: { hp: 120, atk: 92, def: 65, spa: 100, spd: 75, spe: 78 },
 		abilities: { 0: "Rattled", 1: "Adaptability", H: "Mold Breaker" },
 	},
 	sneasler: {
