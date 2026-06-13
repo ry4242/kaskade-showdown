@@ -207,15 +207,17 @@ describe("New set format (slow)", () => {
 				"Battle Aura Setter", "Paranormal Activity Setter", "Dragon Force Setter", "Dreamscape Setter", "Thunderstorm Setter", "Magnetosphere Setter", "Strong Winds Setter",
 			],
 		},
+		"gen9championsrandombattle": {
+			filename: "champions/sets",
+			roles: ["Fast Attacker", "Setup Sweeper", "Bulky Attacker", "Bulky Setup", "Bulky Support", "Fast Support"],
+		},
 	};
 	for (const format of Object.keys(formatInfo)) {
 		const filename = formatInfo[format].filename;
 		const setsJSON = require(`../../dist/data/random-battles/${filename}.json`);
-		const fullFormat = common.getFormat({ formatid: format });
-		const dex = common.mod(fullFormat.mod).dex;
+		const dex = common.mod(common.getFormat({ formatid: format }).mod).dex; // verifies format exists
+		const mod = (dex.currentMod === 'base') ? 'gen9' : dex.currentMod;
 		const genNum = dex.gen;
-		const isSwSe = fullFormat.name.includes('SwSe');
-		const usesTeraTypes = genNum !== 9 || !isSwSe;
 		const rounds = 100;
 		it(`${filename}.json should have valid set data`, () => {
 			const validRoles = formatInfo[format].roles;
@@ -237,7 +239,7 @@ describe("New set format (slow)", () => {
 								problems.push(`${species.name} has misformatted move: ${move}`);
 							}
 						}
-						if (!validateLearnset(dexMove, { species }, 'ubers', `gen${genNum}`)) {
+						if (!validateLearnset(dexMove, { species }, 'ou', mod)) {
 							problems.push(`${species.name} can't learn ${move}`);
 						}
 					}
@@ -262,7 +264,7 @@ describe("New set format (slow)", () => {
 							}
 						}
 					}
-					if (genNum === 9 && usesTeraTypes) {
+					if (mod === 'gen9') {
 						if (!set.teraTypes) problems.push(`${species.name} has no Tera Types`);
 						for (const type of set.teraTypes) {
 							const dexType = dex.types.get(type);
@@ -309,7 +311,7 @@ describe("New set format (slow)", () => {
 					const role = set.role;
 					const moves = new Set(set.movepool.map(m => (m.startsWith('hiddenpower') ? m : dex.moves.get(m).id)));
 					const abilities = set.abilities || [];
-					const specialTypes = (genNum === 9 && usesTeraTypes) ? set.teraTypes : set.preferredTypes;
+					const specialTypes = mod === 'gen9' ? set.teraTypes : set.preferredTypes;
 					// Go through all possible teamDetails combinations, if necessary
 					for (let j = 0; j < rounds; j++) {
 						// In Gens 2-3, if a set has multiple preferred types, we enforce moves of all the types.
@@ -330,7 +332,7 @@ describe("New set format (slow)", () => {
 							// randomMoveset() deletes moves from the movepool, so recreate it every time
 							const movePool = set.movepool.map(m => (m.startsWith('hiddenpower') ? m : dex.moves.get(m).id));
 							let moveSet;
-							if (genNum === 9) {
+							if (mod === 'gen9') {
 								moveSet = generator.randomMoveset(types, abilities, teamDetails, species, false, movePool, specialType, role, format.includes('doubles'));
 							} else {
 								moveSet = generator.randomMoveset(types, abilities, teamDetails, species, false, movePool, specialType, role);
