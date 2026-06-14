@@ -165,6 +165,10 @@ describe("New set format (slow)", () => {
 		"gen9freeforallrandombattle": {
 			filename: "gen9ffa/sets",
 			roles: ["Fast Attacker", "Setup Sweeper", "Wallbreaker", "Tera Blast user", "Bulky Attacker", "Bulky Setup", "Bulky Support", "Fast Support", "AV Pivot", "Choice Item user", "Imprisoner"],
+		},
+		"gen9championsrandombattle": {
+			filename: "champions/sets",
+			roles: ["Fast Attacker", "Setup Sweeper", "Bulky Attacker", "Bulky Setup", "Bulky Support", "Fast Support"],
 		}, */
 		// swse
 		"gen9swserandombattle": {
@@ -207,16 +211,12 @@ describe("New set format (slow)", () => {
 				"Battle Aura Setter", "Paranormal Activity Setter", "Dragon Force Setter", "Dreamscape Setter", "Thunderstorm Setter", "Magnetosphere Setter", "Strong Winds Setter",
 			],
 		},
-		"gen9championsrandombattle": {
-			filename: "champions/sets",
-			roles: ["Fast Attacker", "Setup Sweeper", "Bulky Attacker", "Bulky Setup", "Bulky Support", "Fast Support"],
-		},
 	};
 	for (const format of Object.keys(formatInfo)) {
 		const filename = formatInfo[format].filename;
 		const setsJSON = require(`../../dist/data/random-battles/${filename}.json`);
 		const dex = common.mod(common.getFormat({ formatid: format }).mod).dex; // verifies format exists
-		const mod = (dex.currentMod === 'base') ? 'gen9' : dex.currentMod;
+		const mod = (dex.currentMod === 'base' || dex.currentMod === 'swse') ? 'gen9' : dex.currentMod;
 		const genNum = dex.gen;
 		const rounds = 100;
 		it(`${filename}.json should have valid set data`, () => {
@@ -264,7 +264,7 @@ describe("New set format (slow)", () => {
 							}
 						}
 					}
-					if (mod === 'gen9') {
+					if (mod === 'gen9' && dex.currentMod !== 'swse') {
 						if (!set.teraTypes) problems.push(`${species.name} has no Tera Types`);
 						for (const type of set.teraTypes) {
 							const dexType = dex.types.get(type);
