@@ -435,8 +435,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	belch: {
 		name: "Belch",
-		desc: "This move cannot be selected until the user eats a Berry, either by eating one that was held, stealing and eating one off another Pokemon with Bug Bite or Pluck, or eating one that was thrown at it with Fling. Once the condition is met, this move can be selected and used for the rest of the battle even if the user gains or uses another item or switches out. Consuming a Berry with Natural Gift does not count for the purposes of eating one.",
-		shortDesc: "Cannot be selected until the user eats a Berry.",
+		desc: "Fails unless the user has eaten a Berry, either by eating one that was held, stealing and eating one off another Pokemon with Bug Bite or Pluck, or eating one that was thrown at it with Fling. Consuming a Berry with Natural Gift does not count for the purposes of eating one.",
+		shortDesc: "Fails unless the user has eaten a Berry.",
 		champions: {
 			desc: "Fails unless the user has eaten a Berry, either by eating one that was held, stealing and eating one off another Pokemon with Bug Bite or Pluck, or eating one that was thrown at it with Fling. Consuming a Berry with Natural Gift does not count for the purposes of eating one.",
 			shortDesc: "Fails unless the user has eaten a Berry.",
@@ -1396,8 +1396,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	direclaw: {
 		name: "Dire Claw",
-		desc: "Has a 50% chance to cause the target to either fall asleep, become poisoned, or become paralyzed.",
-		shortDesc: "50% chance to sleep, poison, or paralyze target.",
+		desc: "Has a 30% chance to cause the target to either fall asleep, become poisoned, or become paralyzed.",
+		shortDesc: "30% chance to sleep, poison, or paralyze target.",
 		champions: {
 			desc: "Has a 30% chance to cause the target to either fall asleep, become poisoned, or become paralyzed.",
 			shortDesc: "30% chance to sleep, poison, or paralyze target.",
@@ -1944,7 +1944,7 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	fakeout: {
 		name: "Fake Out",
-		desc: "Has a 100% chance to make the target flinch. Fails unless it is the user's first turn on the field.",
+		desc: "Has a 100% chance to make the target flinch. This move cannot be selected unless it is the user's first turn on the field.",
 		shortDesc: "Hits first. First turn out only. 100% flinch chance.",
 		champions: {
 			desc: "Has a 100% chance to make the target flinch. This move cannot be selected unless it is the user's first turn on the field.",
@@ -2092,7 +2092,7 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	firstimpression: {
 		name: "First Impression",
-		desc: "Fails unless it is the user's first turn on the field.",
+		desc: "This move cannot be selected unless it is the user's first turn on the field.",
 		shortDesc: "Nearly always goes first. First turn out only.",
 		champions: {
 			desc: "This move cannot be selected unless it is the user's first turn on the field.",
@@ -2330,8 +2330,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	freezedry: {
 		name: "Freeze-Dry",
-		desc: "Has a 10% chance to freeze the target. This move's type effectiveness against Water is changed to be super effective no matter what this move's type is.",
-		shortDesc: "10% chance to freeze. Super effective on Water.",
+		desc: "This move's type effectiveness against Water is changed to be super effective no matter what this move's type is.",
+		shortDesc: "Super effective on Water.",
 		champions: {
 			desc: "This move's type effectiveness against Water is changed to be super effective no matter what this move's type is.",
 			shortDesc: "Super effective on Water.",
@@ -3424,8 +3424,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	ironhead: {
 		name: "Iron Head",
-		desc: "Has a 30% chance to make the target flinch.",
-		shortDesc: "30% chance to make the target flinch.",
+		desc: "Has a 20% chance to make the target flinch.",
+		shortDesc: "20% chance to make the target flinch.",
 		champions: {
 			desc: "Has a 20% chance to make the target flinch.",
 			shortDesc: "20% chance to make the target flinch.",
@@ -4309,8 +4309,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	moonblast: { // updated
 		name: "Moonblast",
-		desc: "Has a 30% chance to lower the target's Special Attack by 1 stage. If Blood Moon is active, this move bypasses accuracy checks.",
-		shortDesc: "30% chance to lower the target's Sp. Atk by 1.",
+		desc: "Has a 10% chance to lower the target's Special Attack by 1 stage. If Blood Moon is active, this move bypasses accuracy checks.",
+		shortDesc: "10% chance to lower the target's Sp. Atk by 1.",
 		champions: {
 			desc: "Has a 10% chance to lower the target's Special Attack by 1 stage.",
 			shortDesc: "10% chance to lower the target's Sp. Atk by 1.",
@@ -5512,8 +5512,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	saltcure: {
 		name: "Salt Cure",
-		desc: "Causes damage to the target equal to 1/8 of its maximum HP (1/4 if the target is Steel or Water type), rounded down, at the end of each turn during effect. This effect ends when the target is no longer active.",
-		shortDesc: "Deals 1/8 max HP each turn; 1/4 on Steel, Water.",
+		desc: "Causes damage to the target equal to 1/16 of its maximum HP (1/8 if the target is Steel or Water type), rounded down, at the end of each turn during effect. This effect ends when the target is no longer active.",
+		shortDesc: "Deals 1/16 max HP each turn; 1/8 on Steel, Water.",
 		champions: {
 			desc: "Causes damage to the target equal to 1/16 of its maximum HP (1/8 if the target is Steel or Water type), rounded down, at the end of each turn during effect. This effect ends when the target is no longer active.",
 			shortDesc: "Deals 1/16 max HP each turn; 1/8 on Steel, Water.",
@@ -6506,8 +6506,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	stuffcheeks: {
 		name: "Stuff Cheeks",
-		desc: "This move cannot be selected unless the user is holding a Berry. The user eats its Berry and raises its Defense by 2 stages. This effect is not prevented by the Klutz or Unnerve Abilities, or the effects of Embargo or Magic Room. Fails if the user is not holding a Berry.",
-		shortDesc: "Must hold Berry to use. User eats Berry, Def +2.",
+		desc: "Fails if the user is not holding a Berry. The user eats its Berry and raises its Defense by 2 stages. This effect is not prevented by the Klutz or Unnerve Abilities, or the effects of Embargo or Magic Room.",
+		shortDesc: "Fails unless a Berry is held. User eats Berry, Def +2.",
 		champions: {
 			desc: "Fails if the user is not holding a Berry. The user eats its Berry and raises its Defense by 2 stages. This effect is not prevented by the Klutz or Unnerve Abilities, or the effects of Embargo or Magic Room.",
 			shortDesc: "Fails unless a Berry is held. User eats Berry, Def +2.",
@@ -7093,8 +7093,8 @@ export const MovesText: { [id: IDEntry]: MoveText } = {
 	},
 	toxicthread: {
 		name: "Toxic Thread",
-		desc: "Lowers the target's Speed by 1 stage and poisons it.",
-		shortDesc: "Lowers the target's Speed by 1 and poisons it.",
+		desc: "Lowers the target's Speed by 2 stages and poisons it.",
+		shortDesc: "Lowers the target's Speed by 2 and poisons it.",
 		champions: {
 			desc: "Lowers the target's Speed by 2 stages and poisons it.",
 			shortDesc: "Lowers the target's Speed by 2 and poisons it.",
